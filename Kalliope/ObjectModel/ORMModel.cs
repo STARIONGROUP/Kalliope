@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Definition of elements used in the primary definition of an ORM model
     /// </summary>

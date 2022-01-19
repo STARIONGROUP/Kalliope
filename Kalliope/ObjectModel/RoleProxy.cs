@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="RoleProxy.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,11 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// The role in an implied fact type that corresponds to a role in the objectified fact type.
+    /// In terms of constraints, the role proxy is treated as the same role.
+    /// The only normal role relationship allowed on a proxy role is inclusion in a reading order
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class RoleProxy
     {
     }
 }

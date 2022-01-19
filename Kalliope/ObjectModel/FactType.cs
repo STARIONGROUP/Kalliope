@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="FactType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A fact type directly specified by the modeler
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class FactType
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// This fact type is externally defined (not used)
+        /// </summary>
+        public bool IsExternal { get; set; }
     }
 }

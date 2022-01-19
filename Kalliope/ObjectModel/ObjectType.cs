@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    
     public abstract class ObjectType
     {
         /// <summary>

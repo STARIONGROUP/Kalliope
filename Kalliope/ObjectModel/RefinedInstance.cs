@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Bind an Alias or NameGenerator to a specific generated instance
     /// </summary>

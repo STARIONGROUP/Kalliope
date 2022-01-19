@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="FactTypeDerivationExpression.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,15 @@
 
 namespace Kalliope.ObjectModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A derivation expression
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    [Obsolete("Use FactTypeDerivationPath/InformalRule/DerivationNote instead")]
+    public class FactTypeDerivationExpression
     {
     }
 }

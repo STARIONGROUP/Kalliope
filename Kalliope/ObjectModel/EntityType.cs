@@ -20,12 +20,8 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
-    /// An object type with an external identification scheme
+    /// An <see cref="ObjectType"/> with an external identification scheme
     /// </summary>
     public class EntityType : ObjectType
     {

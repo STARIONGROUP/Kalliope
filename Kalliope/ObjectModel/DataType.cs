@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// The base type for all data types
     /// </summary>

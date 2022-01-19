@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="DerivationExpression.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A derivation expression
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class DerivationExpression
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// A textual derivation expression. This will be replaced in the future with a formal definition involving role paths and other relationships
+        /// </summary>
+        public string Body { get; set; }
     }
 }

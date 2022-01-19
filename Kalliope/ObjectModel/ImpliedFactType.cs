@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="ImpliedFactType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A fact type representing the implied relationship between an objectifying entity type and the role player of a role in the objectified fact type
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class ImpliedFactType
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// This fact type is externally defined (not used)
+        /// </summary>
+        public bool IsExternal { get; set; }
     }
 }

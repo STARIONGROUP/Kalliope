@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Values are in the set of variable length strings. Supports the Length facet
     /// </summary>

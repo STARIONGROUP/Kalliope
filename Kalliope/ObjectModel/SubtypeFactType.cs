@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="RoleBase.cs" company="RHEA System S.A.">
+// <copyright file="SubtypeFactType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,7 +20,12 @@
 
 namespace Kalliope.ObjectModel
 {
-    public abstract class RoleBase
+    using System;
+
+    /// <summary>
+    /// A fact type representing the subtype meta relationship between a subtype and a supertype
+    /// </summary>
+    public class SubtypeFactType
     {
         /// <summary>
         /// A unique identifier for this element
@@ -28,8 +33,20 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// An explicit name for this role
+        /// This fact type is externally defined (not used)
         /// </summary>
-        public string Name { get; set; }
+        public bool IsExternal { get; set; }
+
+        /// <summary>
+        /// Deprecated property, use PreferredIdentificationPath instead
+        /// </summary>
+        [Obsolete("use PreferredIdentificationPath instead")]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// The subtype fact is a possible path through the subtype graph for retrieving the identifying supertype for the subtype.
+        /// The identifying supertype can be a direct or indirect supertype
+        /// </summary>
+        public bool PreferredIdentificationPath { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="LogicalCombinationOperator.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// Specifies the logical operator used to combine 2 or more elements
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public enum LogicalCombinationOperator
     {
+        /// <summary>
+        /// All values must be true
+        /// </summary>
+        And,
+
+        /// <summary>
+        /// At least one value must be true
+        /// </summary>
+        Or,
+
+        /// <summary>
+        /// Applied to two values, exactly one value must be true
+        /// </summary>
+        Xor
     }
 }

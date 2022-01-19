@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="FunctionParameter.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A function parameter, defines the type of function input
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class FunctionParameter
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// The name of the function parameter
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Set to true if this functions takes a bag input instead of a single value
+        /// </summary>
+        public bool BagInput { get; set; }
     }
 }

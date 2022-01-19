@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="Query.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,23 @@
 
 namespace Kalliope.ObjectModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A query specified by the modeler
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class Query
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+        
+        /// <summary>
+        /// A description of the query signature show names and types for parameters and roles
+        /// </summary>
+        public string Signature { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="PathedRole.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A role in connected path
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class PathedRole
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// The value of the referenced element's unique id
+        /// </summary>
+        public string Reference { get; set; }
+
+        /// <summary>
+        /// The path step is treated as a negation
+        /// </summary>
+        public bool IsNegated { get; set; }
     }
 }

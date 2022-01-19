@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="PathedRolePurpose.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,28 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// Specify how a role in a path is used to step within and between fact types
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public enum PathedRolePurpose
     {
+        /// <summary>
+        /// The role is the beginning of a path and directly attached to the root object type
+        /// </summary>
+        StartRole,
+
+        /// <summary>
+        /// The role is the same fact type as the previous join or start role
+        /// </summary>
+        SameFactType,
+
+        /// <summary>
+        /// The role represents an inner over a role player shared with the previous role in the path
+        /// </summary>
+        PostInnerJoin,
+
+        /// <summary>
+        /// The role represents an outer join over a role player shared with the previous role in the path
+        /// </summary>
+        PostOuterJoin
     }
 }

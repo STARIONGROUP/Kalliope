@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="RolePath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,23 @@
 
 namespace Kalliope.ObjectModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// 
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public abstract class RolePath
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Should a negation be applied to the split combination operator?
+        /// </summary>
+        public bool SplitIsNegated { get; set; }
     }
 }

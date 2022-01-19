@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="FixedLengthRawDataDataType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// Values are in the set of fixed length binary data. Supports the Length facet
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class FixedLengthRawDataDataType : DataType
     {
     }
 }

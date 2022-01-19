@@ -20,10 +20,6 @@
 
 namespace Kalliope.ObjectModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Placeholder for an unspecified data type. Each use of this type results in a DataTypeNotSpecified model validation error
     /// </summary>

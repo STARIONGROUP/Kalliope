@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="RoleSubPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,14 @@
 
 namespace Kalliope.ObjectModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// A role path that continues a parent path with a new root or a split condition
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class RoleSubPath : RolePath
     {
     }
 }

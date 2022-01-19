@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="RolePathOwner.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,11 @@
 
 namespace Kalliope.ObjectModel
 {
-    /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
-    /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public abstract class RolePathOwner
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
     }
 }

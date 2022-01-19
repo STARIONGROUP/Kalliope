@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="UnspecifiedDataType.cs" company="RHEA System S.A.">
+// <copyright file="Function.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,28 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// Specifies a function definition used for calculating values
     /// </summary>
-    public class FixedLengthTextDataType : DataType
+    public class Function
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// The name of the function
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// True if this function or operator returns a boolean value, making it appropriate for use as a path condition
+        /// </summary>
+        public bool IsBoolean { get; set; }
+
+        /// <summary>
+        /// A symbol used to display this function as an operator. Treated as an infix operator for binary functions and a prefix operator for unary functions
+        /// </summary>
+        public string OperatorSymbol { get; set; }
     }
 }
