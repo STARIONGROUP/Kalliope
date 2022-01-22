@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="Constraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,10 +20,7 @@
 
 namespace Kalliope.ObjectModel
 {
-    /// <summary>
-    /// A note for the containing element
-    /// </summary>
-    public class Note
+    public abstract class Constraint
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +28,8 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The constraint name. Validation errors will be present for any constraint name that is not unique within the model
         /// </summary>
-        public string Text { get; set; }
+        public string Name { get; set; }
     }
 }

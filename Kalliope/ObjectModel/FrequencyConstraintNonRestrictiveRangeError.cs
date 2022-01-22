@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="FrequencyConstraintNonRestrictiveRangeError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A frequency constraint with a minimum of 1 and an unbounded maximum is always true and should not be specified
     /// </summary>
-    public class Note
+    public class FrequencyConstraintNonRestrictiveRangeError : ModelError
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

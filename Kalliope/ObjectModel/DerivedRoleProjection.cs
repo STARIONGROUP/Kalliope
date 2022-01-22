@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="DerivedRoleProjection.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Specifying the derivation source for a referenced role in a derived <see cref="FactType"/>
     /// </summary>
-    public class Note
+    public class DerivedRoleProjection
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,13 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The value of the referenced element's unique id
         /// </summary>
-        public string Text { get; set; }
+        public string Reference { get; set; }
+
+        /// <summary>
+        /// The role is automatically projected onto the only matching path node
+        /// </summary>
+        public bool IsAutomatic { get; set; }
     }
 }

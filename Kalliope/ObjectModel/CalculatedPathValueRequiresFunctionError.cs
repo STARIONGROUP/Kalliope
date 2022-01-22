@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CalculatedPathValueRequiresFunctionError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,10 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A calculated value in a role path must have a function specified to perform the calculation
     /// </summary>
-    public class Note
-    {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
 
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
+    public class CalculatedPathValueRequiresFunctionError : ModelError
+    {
     }
 }

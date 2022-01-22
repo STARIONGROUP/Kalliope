@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="QueryDerivationPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A role path with projected nodes used to populate a query
     /// </summary>
-    public class Note
+    public class QueryDerivationPath : RolePathOwner
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

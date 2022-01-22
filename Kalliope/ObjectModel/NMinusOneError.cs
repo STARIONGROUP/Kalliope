@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="NMinusOneError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// An internal uniqueness constraint must span at least n minus one roles, where n is the number of roles in the fact type
     /// </summary>
-    public class Note
+    public class NMinusOneError : ModelError
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

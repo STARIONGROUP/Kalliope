@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CompatibleSupertypesError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Multiple supertypes are specified that do not share a common ancestor, or a supertype is specified that is implied by other supertypes
     /// </summary>
-    public class Note
+    public class CompatibleSupertypesError : ModelError
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

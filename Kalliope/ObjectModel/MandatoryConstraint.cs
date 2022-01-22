@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="MandatoryConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,19 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A constraint specifying that a set must be populated
     /// </summary>
-    public class Note
+    public class MandatoryConstraint : SetConstraint
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// True if this is an internal constraint associated with a single role
         /// </summary>
-        public string Id { get; set; }
+        public bool IsSimple { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// True if this constraint is implied by a lack of a mandatory role on any non-existential role on the non-independent role player.
+        /// An implied mandatory constraint may have a single role or multiple roles, but IsSimple is never true for an implied mandatory constraint
         /// </summary>
-        public string Text { get; set; }
+        public bool IsImplied { get; set; }
     }
 }

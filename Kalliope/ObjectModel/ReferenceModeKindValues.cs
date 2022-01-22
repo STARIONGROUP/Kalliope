@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="ReferenceModeKindValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,24 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Classification of reference mode patterns
     /// </summary>
-    public class Note
+    public enum ReferenceModeKindValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The reference mode patterns resolves to a value type with no special semantics
         /// </summary>
-        public string Id { get; set; }
+        General,
 
         /// <summary>
-        /// Plain text note
+        /// The reference mode patterns resolves to a value type with a name based on the identified entity type.
+        /// The value type identifies exactly one entity type
         /// </summary>
-        public string Text { get; set; }
+        Popular,
+
+        /// <summary>
+        /// The reference mode patterns resolves to a value type that is associated with a measurable unit
+        /// </summary>
+        UnitBased
     }
 }

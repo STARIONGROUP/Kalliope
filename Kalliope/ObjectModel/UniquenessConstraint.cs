@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="UniquenessConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,13 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A constraint specifying that the population of a set must be unique
     /// </summary>
-    public class Note
+    public class UniquenessConstraint : SetConstraintWithJoin
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// If true, this uniqueness constraint is internal to a single fact type
         /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
+        public bool IsInternal { get; set; }
     }
 }

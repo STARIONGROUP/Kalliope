@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="Reading.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Predicate text corresponding to a specific role traversal
     /// </summary>
-    public class Note
+    public class Reading
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,17 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// Reading text with numbered replacemented fields in the format {n}, where n is a zero-based index into the corresponding role traversal order. 
+        /// n is also strictly increasing, so the first replacement field corresponds to the first role, etc. 
+        /// Reading text also includes hyphen-binding specifications, where 'WORD- ' (or ' -WORD') binds WORD and all intermediate words to the nearest right (left) placeholder. 
+        /// To enable hyphen binding with no space before the role player, 'WORD-- ROLEPLAYER' collapses the trailing space, resulting in 'WORD-ROLEPLAYER'. 
+        /// 'WORD- ROLEPLAYER' can be achived with two hyphens and two spaces
         /// </summary>
-        public string Text { get; set; }
+        public string Data { get; set; }
+
+        /// <summary>
+        /// Text that occurs before the lead role, including prebound text associated with that role
+        /// </summary>
+        public string FrontText { get; set; }
     }
 }

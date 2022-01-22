@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="JoinedPathRoleRequiresCompatibleRolePlayerError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A <see cref="PathedRole"/> is joined to a preceding <see cref="PathedRole"/> with an incompatible role player or is a start role attached to an incompatible RootObjectType
     /// </summary>
-    public class Note
+    public class JoinedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

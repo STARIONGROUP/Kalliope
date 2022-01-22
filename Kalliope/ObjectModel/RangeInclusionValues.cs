@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="RangeInclusionValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Specify whether the endpoint of a range is included in the range
     /// </summary>
-    public class Note
+    public enum RangeInclusionValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Inclusion not explicitly set
         /// </summary>
-        public string Id { get; set; }
+        NotSet,
 
         /// <summary>
-        /// Plain text note
+        /// The endpoint is not included in the range of values
         /// </summary>
-        public string Text { get; set; }
+        Open,
+
+        /// <summary>
+        /// The endpoint is included in the range of values
+        /// </summary>
+        Closed
     }
 }

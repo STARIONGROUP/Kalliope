@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="PathStartRoleFollowsRootObjectTypeError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,19 +20,13 @@
 
 namespace Kalliope.ObjectModel
 {
-    /// <summary>
-    /// A note for the containing element
-    /// </summary>
-    public class Note
-    {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
+    using System;
 
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
+    /// <summary>
+    /// (Deprecated, StartRole is no longer used) A PathedRole with a purpose of StartRole must be the first <see cref="PathedRole"/> after the path root
+    /// </summary>
+    [Obsolete("Deprecated, StartRole is no longer used")]
+    public class PathStartRoleFollowsRootObjectTypeError : ModelError
+    {
     }
 }

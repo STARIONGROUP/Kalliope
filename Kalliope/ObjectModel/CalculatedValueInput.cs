@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CalculatedValueInput.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// An input to the function used to calculate a value
     /// </summary>
-    public class Note
+    public class CalculatedValueInput
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,8 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// Should the bag input be analyzed to return only distinct values? Can only be applied an input associated with a bag parameter
         /// </summary>
-        public string Text { get; set; }
+        public bool DistinctValues { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CompatibleRolePlayerTypeError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,13 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// The roles in a <see cref="SetConstraint"/> or a column of a <see cref="SetComparisonConstraint"/> have incompatible role players
     /// </summary>
-    public class Note
+    public class CompatibleRolePlayerTypeError : ModelError
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The zero-based column with incompatible types (specified with a <see cref="SetComparisonConstraint"/>)
         /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
+        public int Column { get; set; }
     }
 }

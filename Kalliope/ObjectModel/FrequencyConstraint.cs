@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="FrequencyConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A constraint specifying the number of times an instance must occur in a set population. Applies only if the instance appears at all
     /// </summary>
-    public class Note
+    public class FrequencyConstraint : SetConstraintWithJoin
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The minimum number of times an instance must be played by the constrained role(s)
         /// </summary>
-        public string Id { get; set; }
+        public int MinFrequency { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The maximum number of times an instance must be played by the constrained role(s)
         /// </summary>
-        public string Text { get; set; }
+        public int MaxFrequency { get; set; }
     }
 }

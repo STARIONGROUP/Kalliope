@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="FactTypeDerivationPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A role path with projected nodes used to define the population of a derived fact type
     /// </summary>
-    public class Note
+    public class FactTypeDerivationPath : RolePathOwner
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The derivation rule results in a set of distinct facts instead of a bag that might contain duplicates
         /// </summary>
-        public string Id { get; set; }
+        public bool SetProjection { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The name of a fully derived fact type
         /// </summary>
-        public string Text { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// An empty derivation rule is externally defined
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
     }
 }

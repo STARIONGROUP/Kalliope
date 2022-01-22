@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="PathConstant.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A constant value used in a role path
     /// </summary>
-    public class Note
+    public class PathConstant
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,8 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The lexical constant value. The value is interpreted based on context
         /// </summary>
-        public string Text { get; set; }
+        public string Value { get; set; }
     }
 }

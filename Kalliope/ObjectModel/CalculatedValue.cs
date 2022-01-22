@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CalculatedValue.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Specifies the function, scope, and inputs used for an algorithmic calculation
     /// </summary>
-    public class Note
+    public class CalculatedValue
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,8 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// Set to true if the AggregationContext is not provided and the function is an aggregate, meaning that a parameter is marked as a BagInput
         /// </summary>
-        public string Text { get; set; }
+        public bool UniversalAggregationContext { get; set; }
     }
 }

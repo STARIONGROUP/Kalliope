@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="ObjectUnifier.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,13 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A unification of multiple pathed roles or path roots, indicating that the unified path nodes correspond to the same instance
     /// </summary>
-    public class Note
+    public class ObjectUnifier
     {
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

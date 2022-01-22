@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="ValueComparisonOperatorValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,43 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Restriction on the comparison operators allowed by a value comparison constraint
     /// </summary>
-    public class Note
+    public enum ValueComparisonOperatorValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The comparison operator is undefined. Corresponds to a model validation error
         /// </summary>
-        public string Id { get; set; }
+        Undefined,
 
         /// <summary>
-        /// Plain text note
+        /// The two values must be equal
         /// </summary>
-        public string Text { get; set; }
+        Equal,
+
+        /// <summary>
+        /// The two values must not be equal
+        /// </summary>
+        NotEqual,
+
+        /// <summary>
+        /// The first value is less than the second
+        /// </summary>
+        LessThan,
+
+        /// <summary>
+        /// The first value is less than or equal to the second
+        /// </summary>
+        LessThanOrEqual,
+
+        /// <summary>
+        /// The first value is greater than the second
+        /// </summary>
+        GreaterThan,
+
+        /// <summary>
+        /// The first value is greater than or equal to the second
+        /// </summary>
+        GreaterThanOrEqual
     }
 }

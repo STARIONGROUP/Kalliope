@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="DerivationStorageValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Specify if derived fact or object instances should be recalculated on demand, or calculated on change and stored
     /// </summary>
-    public class Note
+    public enum DerivationStorageValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Instances are recalculated on demand (default)
         /// </summary>
-        public string Id { get; set; }
+        NotStored,
 
         /// <summary>
-        /// Plain text note
+        /// Instances are calculated on change and stored
         /// </summary>
-        public string Text { get; set; }
+        Stored
     }
 }

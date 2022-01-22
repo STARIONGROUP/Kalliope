@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="DerivationCompletenessValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Specify if instances of a derived fact or object type can also be directly asserted
     /// </summary>
-    public class Note
+    public enum DerivationCompletenessValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The instance population is calculated on demand (default)
         /// </summary>
-        public string Id { get; set; }
+        FullyDerived,
 
         /// <summary>
-        /// Plain text note
+        /// The instance population can be both calculated and asserted
         /// </summary>
-        public string Text { get; set; }
+        PartiallyDerived
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="PathSameFactTypeRoleFollowsJoinError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,10 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A PathedRole with a purpose of SameFactType must follow an entry into the fact type with a join or start role. 
+    /// A role within a single fact type cannot be reused in a path without first joining to another instance of the same fact type
     /// </summary>
-    public class Note
+    public class PathSameFactTypeRoleFollowsJoinError : ModelError
     {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
     }
 }

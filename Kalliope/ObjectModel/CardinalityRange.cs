@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CardinalityConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A single cardinality range
     /// </summary>
-    public class Note
+    public class CardinalityRange
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,15 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The lower bound of the cardinality range.
+        /// A value of zero indicates than an empty population is allowed
         /// </summary>
-        public string Text { get; set; }
+        public int From { get; set; }
+
+        /// <summary>
+        /// The upper bound of the cardinality range.
+        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// </summary>
+        public int To { get; set; }
     }
 }

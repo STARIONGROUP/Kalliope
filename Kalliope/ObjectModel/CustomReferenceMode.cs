@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="CustomReferenceMode.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// Definition of a custom reference mode pattern
     /// </summary>
-    public class Note
+    public class CustomReferenceMode
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,8 +31,14 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// Plain text note
+        /// The reference mode name
         /// </summary>
-        public string Text { get; set; }
+        public string Name { get; set; }
+
+        /// <summary>
+        /// A string with replacement fields representing a custom format for a value type name based on the entity type name
+        /// (replacement field {0}) and reference mode name (replacement field {1}). If not specified, defaults to the ReferenceModeKind FormatString attribute
+        /// </summary>
+        public string CustomFormatString { get; set; }
     }
 }

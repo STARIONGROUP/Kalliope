@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="SubtypeDerivationPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,18 +21,26 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A note for the containing element
+    /// A role path used to define the population of a derived subtype
     /// </summary>
-    public class Note
+    public class SubtypeDerivationPath : RolePathOwner
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Initializes a new instance of the <see cref="SubtypeDerivationPath"/>
         /// </summary>
-        public string Id { get; set; }
+        public SubtypeDerivationPath()
+        {
+            this.DerivationCompleteness = DerivationCompletenessValues.FullyDerived;
+            this.DerivationStorage = DerivationStorageValues.NotStored;
+        }
 
         /// <summary>
-        /// Plain text note
+        /// An empty derivation rule is externally defined
         /// </summary>
-        public string Text { get; set; }
+        public bool ExternalDerivation { get; set; }
+
+        public DerivationCompletenessValues DerivationCompleteness { get; set; }
+
+        public DerivationStorageValues DerivationStorage { get; set; }
     }
 }

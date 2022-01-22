@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Note.cs" company="RHEA System S.A.">
+// <copyright file="FrequencyConstraintContradictsInternalUniquenessConstraintError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,19 +20,13 @@
 
 namespace Kalliope.ObjectModel
 {
-    /// <summary>
-    /// A note for the containing element
-    /// </summary>
-    public class Note
-    {
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        public string Id { get; set; }
+    using System;
 
-        /// <summary>
-        /// Plain text note
-        /// </summary>
-        public string Text { get; set; }
+    /// <summary>
+    /// A frequency constraint requires more role players than are allowed by an internal uniqueness constraint
+    /// </summary>
+    [Obsolete("Deprecated by FrequencyConstraintViolatedByUniquenessConstraintErrorType")]
+    public class FrequencyConstraintContradictsInternalUniquenessConstraintError : ModelError
+    {
     }
 }
