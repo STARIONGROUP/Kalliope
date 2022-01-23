@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="FactTypeDerivationPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,26 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A role path with projected nodes used to define the population of a derived fact type
     /// </summary>
-    public interface IOrmReader
+    public class FactTypeDerivationPath : RolePathOwner
     {
+        /// <summary>
+        /// The derivation rule results in a set of distinct facts instead of a bag that might contain duplicates
+        /// </summary>
+        public bool SetProjection { get; set; }
+
+        /// <summary>
+        /// The name of a fully derived fact type
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// An empty derivation rule is externally defined
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
     }
 }

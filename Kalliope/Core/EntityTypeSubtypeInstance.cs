@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="EntityTypeSubtypeInstance.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,12 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
     /// </summary>
-    public interface IOrmReader
+    public class EntityTypeSubtypeInstance : ObjectTypeInstance
     {
     }
 }

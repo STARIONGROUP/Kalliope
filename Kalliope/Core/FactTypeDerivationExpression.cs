@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="FactTypeDerivationExpression.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,17 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A derivation expression
     /// </summary>
-    public interface IOrmReader
+    [Obsolete("Use FactTypeDerivationPath/InformalRule/DerivationNote instead")]
+    public class FactTypeDerivationExpression : Expression
     {
     }
 }

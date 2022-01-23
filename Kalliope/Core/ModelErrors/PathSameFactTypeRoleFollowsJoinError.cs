@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="PathSameFactTypeRoleFollowsJoinError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,13 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A PathedRole with a purpose of SameFactType must follow an entry into the fact type with a join or start role. 
+    /// A role within a single fact type cannot be reused in a path without first joining to another instance of the same fact type
     /// </summary>
-    public interface IOrmReader
+    public class PathSameFactTypeRoleFollowsJoinError : ModelError
     {
     }
 }

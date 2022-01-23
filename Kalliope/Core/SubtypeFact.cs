@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="SubtypeFact.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,25 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
+    using System;
+
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A fact type representing the subtype meta relationship between a subtype and a supertype
     /// </summary>
-    public interface IOrmReader
+    public class SubtypeFact : FactType
     {
+        /// <summary>
+        /// Deprecated property, use PreferredIdentificationPath instead
+        /// </summary>
+        [Obsolete("use PreferredIdentificationPath instead")]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// The subtype fact is a possible path through the subtype graph for retrieving the identifying supertype for the subtype.
+        /// The identifying supertype can be a direct or indirect supertype
+        /// </summary>
+        public bool PreferredIdentificationPath { get; set; }
     }
 }

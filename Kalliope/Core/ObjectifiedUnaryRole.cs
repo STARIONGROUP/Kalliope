@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="RoleProxy.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,13 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A role representing the identifying role in the fact type implied between the object type that objectifies a unary role and the unary role player.
+    /// There is an implied equality constraint between this role and the referenced unary role
     /// </summary>
-    public interface IOrmReader
+    public class ObjectifiedUnaryRole : RoleBase
     {
     }
 }

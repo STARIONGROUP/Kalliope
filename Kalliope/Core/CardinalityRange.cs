@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,23 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A single cardinality range
     /// </summary>
-    public interface IOrmReader
+    public class CardinalityRange : ORMModelElement
     {
+        /// <summary>
+        /// The lower bound of the cardinality range.
+        /// A value of zero indicates than an empty population is allowed
+        /// </summary>
+        public int From { get; set; }
+
+        /// <summary>
+        /// The upper bound of the cardinality range.
+        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// </summary>
+        public int To { get; set; }
     }
 }

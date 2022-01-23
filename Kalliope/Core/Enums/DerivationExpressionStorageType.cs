@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="DerivationExpressionStorageType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,31 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specify how/whether the contents of the fact should be stored by generated systems
     /// </summary>
-    public interface IOrmReader
+    public enum DerivationExpressionStorageType
     {
+        /// <summary>
+        /// The fact instance population is calculated on demand
+        /// </summary>
+        Derived = 0,
+
+        /// <summary>
+        /// The fact instance population is calculated immediately and stored
+        /// </summary>
+        DerivedAndStored = 1,
+
+        /// <summary>
+        /// The fact instance population can be asserted as well as calculated on demand
+        /// </summary>
+        PartiallyDerived = 2,
+
+        /// <summary>
+        /// The fact instance population can be asserted as well as calculated immediately and stored
+        /// </summary>
+        PartiallyDerivedAndStored = 3
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="DerivationStorage.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specify if derived fact or object instances should be recalculated on demand, or calculated on change and stored
     /// </summary>
-    public interface IOrmReader
+    public enum DerivationStorage
     {
+        /// <summary>
+        /// Fact instances are recalculated on demand
+        /// </summary>
+        NotStored = 0,
+
+        /// <summary>
+        /// Fact instances are calculated on change and stored
+        /// </summary>
+        Stored = 1
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="UniquenessConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A constraint specifying that the population of a set must be unique
     /// </summary>
-    public interface IOrmReader
+    public class UniquenessConstraint : SetConstraint
     {
+        /// <summary>
+        /// If true, this uniqueness constraint is internal to a single fact type
+        /// </summary>
+        public bool IsInternal { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="MandatoryConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,22 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A constraint specifying that a set must be populated
     /// </summary>
-    public interface IOrmReader
+    public class MandatoryConstraint : SetConstraint
     {
+        /// <summary>
+        /// True if this is an internal constraint associated with a single role
+        /// </summary>
+        public bool IsSimple { get; set; }
+
+        /// <summary>
+        /// True if this constraint is implied by a lack of a mandatory role on any non-existential role on the non-independent role player.
+        /// An implied mandatory constraint may have a single role or multiple roles, but IsSimple is never true for an implied mandatory constraint
+        /// </summary>
+        public bool IsImplied { get; set; }
     }
 }

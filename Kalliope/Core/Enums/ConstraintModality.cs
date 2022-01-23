@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintModality.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,23 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// The strength of a <see cref="Constraint"/>
     /// </summary>
-    public interface IOrmReader
+    public enum ConstraintModality
     {
+        /// <summary>
+        /// A strong <see cref="Constraint"/> that is enforced by the structure of a generated system.
+        /// The constraint must hold.
+        /// </summary>
+        Alethic = 0,
+
+        /// <summary>
+        /// A weak <see cref="Constraint"/> that should not be violated. Instances violating a deontic constraint can be structurally stored in a generated system
+        /// The constraint should hold
+        /// </summary>
+        Deontic = 1
     }
 }

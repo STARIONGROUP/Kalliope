@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ObjectType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,23 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
-    /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
-    /// </summary>
-    public interface IOrmReader
+    public abstract class ObjectType : ORMNamedElement
     {
+        /// <summary>
+        /// An instance of this object type can exist without playing any non-identifying roles
+        /// </summary>
+        public bool IsIndependent { get; set; }
+
+        /// <summary>
+        /// This object type is externally defined (not used).
+        /// </summary>
+        public bool IsExternal { get; set; }
+
+        /// <summary>
+        /// This object type refers to a person, not a thing. A directive to tell the verbalization to use personal pronouns
+        /// </summary>
+        public bool IsPersonal { get; set; }
     }
 }

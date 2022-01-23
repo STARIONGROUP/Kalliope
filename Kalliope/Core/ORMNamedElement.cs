@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ORMNamedElement.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,13 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
-    /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
-    /// </summary>
-    public interface IOrmReader
+    public abstract class ORMNamedElement : ORMModelElement
     {
+        /// <summary>
+        /// A name for this element
+        /// </summary>
+        public string Name { get; set; }
     }
 }

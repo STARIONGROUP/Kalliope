@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="PathConstant.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A constant value used in a role path
     /// </summary>
-    public interface IOrmReader
+    public class PathConstant : ORMModelElement
     {
+        /// <summary>
+        /// The lexical constant value. The value is interpreted based on context
+        /// </summary>
+        public string Value { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="RoleProjectedDerivationRule.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,12 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule
     /// </summary>
-    public interface IOrmReader
+    public abstract class RoleProjectedDerivationRule : RolePathOwner
     {
     }
 }

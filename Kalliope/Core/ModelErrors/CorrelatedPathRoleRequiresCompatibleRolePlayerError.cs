@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CorrelatedPathRoleRequiresCompatibleRolePlayerError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,15 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
+    using System;
+
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A PathedRole has an explicit correlation with a PathedRole that has an incompatible role player
     /// </summary>
-    public interface IOrmReader
+    [Obsolete("Deprecated, use ObjectUnifierRequiresCompatibleRolePlayersError")]
+    public class CorrelatedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {
     }
 }

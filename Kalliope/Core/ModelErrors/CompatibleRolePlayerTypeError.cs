@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CompatibleRolePlayerTypeError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// The roles in a <see cref="SetConstraint"/> or a column of a <see cref="SetComparisonConstraint"/> have incompatible role players
     /// </summary>
-    public interface IOrmReader
+    public class CompatibleRolePlayerTypeError : ModelError
     {
+        /// <summary>
+        /// The zero-based column with incompatible types (specified with a <see cref="SetComparisonConstraint"/>)
+        /// </summary>
+        public int Column { get; set; }
     }
 }

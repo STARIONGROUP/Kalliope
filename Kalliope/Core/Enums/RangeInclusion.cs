@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="RangeInclusion.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,32 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specify whether the endpoint of a range is included in the range
     /// </summary>
-    public interface IOrmReader
+    public enum RangeInclusion
     {
+        /// <summary>
+        /// Inclusion not explicitly set
+        /// </summary>
+        NotSet = 0,
+
+        /// <summary>
+        /// The endpoint is not included in the range of values
+        /// </summary>
+        /// <remarks>
+        /// (DSL) Indicates the specific value is not included in the range
+        /// </remarks>
+        Open = 1,
+
+        /// <summary>
+        /// The endpoint is included in the range of values
+        /// </summary>
+        /// <remarks>
+        /// (DSL) Indicates the specific value is included in the range
+        /// </remarks>
+        Closed = 2
     }
 }

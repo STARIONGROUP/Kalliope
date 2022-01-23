@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="PathStartRoleFollowsRootObjectTypeError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,15 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
+    using System;
+
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// (Deprecated, StartRole is no longer used) A PathedRole with a purpose of StartRole must be the first <see cref="PathedRole"/> after the path root
     /// </summary>
-    public interface IOrmReader
+    [Obsolete("Deprecated, StartRole is no longer used")]
+    public class PathStartRoleFollowsRootObjectTypeError : ModelError
     {
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="GenerationSetting.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A generation setting representing the extension-defined algorithm used to generate elements from the ORM elements
     /// </summary>
-    public interface IOrmReader
+    public abstract class GenerationSetting
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        public string Id { get; set; }
     }
 }

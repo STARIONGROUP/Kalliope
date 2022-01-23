@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="JoinedPathRoleRequiresCompatibleRolePlayerError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,12 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A <see cref="PathedRole"/> is joined to a preceding <see cref="PathedRole"/> with an incompatible role player or is a start role attached to an incompatible RootObjectType
     /// </summary>
-    public interface IOrmReader
+    public class JoinedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {
     }
 }

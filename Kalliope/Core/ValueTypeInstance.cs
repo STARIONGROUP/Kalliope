@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ValueTypeInstance.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,18 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
-    /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
-    /// </summary>
-    public interface IOrmReader
+    public class ValueTypeInstance : ObjectTypeInstance
     {
+        /// <summary>
+        /// The instance value
+        /// </summary>
+        public string Value { get; set; }
+
+        /// <summary>
+        /// The culture-invariant form of the value property
+        /// </summary>
+        public string InvariantValue { get; set; }
     }
 }

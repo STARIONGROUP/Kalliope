@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="Function.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specifies a function definition used for calculating values
     /// </summary>
-    public interface IOrmReader
+    public class Function : ORMNamedElement
     {
+        /// <summary>
+        /// True if this function or operator returns a boolean value, making it appropriate for use as a path condition
+        /// </summary>
+        public bool IsBoolean { get; set; }
+
+        /// <summary>
+        /// A symbol used to display this function as an operator. Treated as an infix operator for binary functions and a prefix operator for unary functions
+        /// </summary>
+        public string OperatorSymbol { get; set; }
     }
 }

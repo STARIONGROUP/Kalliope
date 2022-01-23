@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="SubtypeDerivationPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,29 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A role path used to define the population of a derived subtype
     /// </summary>
-    public interface IOrmReader
+    public class SubtypeDerivationPath : RolePathOwner
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubtypeDerivationPath"/>
+        /// </summary>
+        public SubtypeDerivationPath()
+        {
+            this.DerivationCompleteness = DerivationCompleteness.FullyDerived;
+            this.DerivationStorage = DerivationStorage.NotStored;
+        }
+
+        /// <summary>
+        /// An empty derivation rule is externally defined
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
+
+        public DerivationCompleteness DerivationCompleteness { get; set; }
+
+        public DerivationStorage DerivationStorage { get; set; }
     }
 }

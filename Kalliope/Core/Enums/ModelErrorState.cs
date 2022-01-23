@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ModelErrorState.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,18 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
-    /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
-    /// </summary>
-    public interface IOrmReader
+    public enum ModelErrorState
     {
+        /// <summary>
+        /// Error is fully enabled
+        /// </summary>
+        Error = 0,
+
+        /// <summary>
+        /// Error state is tracked, but ignored
+        /// </summary>
+        Ignored = 1
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="FunctionParameter.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A function parameter, defines the type of function input
     /// </summary>
-    public interface IOrmReader
+    public class FunctionParameter : ORMNamedElement
     {
+        /// <summary>
+        /// Set to true if this functions takes a bag input instead of a single value
+        /// </summary>
+        public bool BagInput { get; set; }
     }
 }

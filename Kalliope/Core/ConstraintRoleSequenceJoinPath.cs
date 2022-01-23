@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintRoleSequenceJoinPath.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A role path used to define the path between roles in different fact types in the same join path
     /// </summary>
-    public interface IOrmReader
+    public class ConstraintRoleSequenceJoinPath : RolePathOwner
     {
+        /// <summary>
+        /// The join path is automatically created from the constraint sequence
+        /// </summary>
+        public bool IsAutomatic { get; set; }
     }
 }

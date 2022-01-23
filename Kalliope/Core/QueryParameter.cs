@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="QueryParameter.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A parameter defined as the input for a query element
     /// </summary>
-    public interface IOrmReader
+    public class QueryParameter : ORMModelElement
     {
+        /// <summary>
+        /// The name of the parameter
+        /// </summary>
+        public string Name { get; set; }
     }
 }

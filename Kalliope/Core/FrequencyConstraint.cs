@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="FrequencyConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A constraint specifying the number of times an instance must occur in a set population. Applies only if the instance appears at all
     /// </summary>
-    public interface IOrmReader
+    public class FrequencyConstraint : SetConstraint
     {
+        /// <summary>
+        /// The minimum number of times an instance must be played by the constrained role(s)
+        /// </summary>
+        public int MinFrequency { get; set; }
+
+        /// <summary>
+        /// The maximum number of times an instance must be played by the constrained role(s)
+        /// </summary>
+        public int MaxFrequency { get; set; }
     }
 }

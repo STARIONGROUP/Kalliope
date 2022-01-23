@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CustomReferenceMode.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,17 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Definition of a custom reference mode pattern
     /// </summary>
-    public interface IOrmReader
+    public class CustomReferenceMode : ReferenceMode
     {
+        /// <summary>
+        /// A string with replacement fields representing a custom format for a value type name based on the entity type name
+        /// (replacement field {0}) and reference mode name (replacement field {1}). If not specified, defaults to the ReferenceModeKind FormatString attribute
+        /// </summary>
+        public string CustomFormatString { get; set; }
     }
 }

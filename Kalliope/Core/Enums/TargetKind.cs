@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="TargetKind.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,26 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// pecify if these are the defaults for popular, unit based, or general reference modes
     /// </summary>
-    public interface IOrmReader
+    public enum TargetKind
     {
+        /// <summary>
+        /// The naming conventions correspond to general reference modes
+        /// </summary>
+        General,
+
+        /// <summary>
+        /// The naming conventions correspond to popular reference modes
+        /// </summary>
+        Popular,
+
+        /// <summary>
+        /// The naming conventions correspond to unit based reference modes
+        /// </summary>
+        UnitBased
     }
 }

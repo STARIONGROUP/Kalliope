@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="ModelError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,23 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
-    /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
-    /// </summary>
-    public interface IOrmReader
+    public abstract class ModelError : ORMModelElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModelError"/> class.
+        /// </summary>
+        public ModelError()
+        {
+            this.ErrorState = ModelErrorState.Error;
+        }
+
+        /// <summary>
+        /// Description of the model validation error
+        /// </summary>
+        public string ErrorText { get; set; }
+
+        public ModelErrorState ErrorState { get; set; }
     }
 }

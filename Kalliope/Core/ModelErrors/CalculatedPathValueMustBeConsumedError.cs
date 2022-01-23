@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CalculatedPathValueMustBeConsumedError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,12 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A calculated value in a role path must be consumed as a path condition, an input to another calculation, or a projection onto a path
     /// </summary>
-    public interface IOrmReader
+    public class CalculatedPathValueMustBeConsumedError : ModelError
     {
     }
 }

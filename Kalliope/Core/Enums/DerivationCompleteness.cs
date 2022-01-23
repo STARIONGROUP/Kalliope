@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="DerivationCompleteness.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specify if instances of a derived fact or object type can also be directly asserted
     /// </summary>
-    public interface IOrmReader
+    public enum DerivationCompleteness
     {
+        /// <summary>
+        /// The fact instance population is calculated on demand
+        /// </summary>
+        FullyDerived = 0,
+
+        /// <summary>
+        /// The instance population can be both calculated and asserted
+        /// </summary>
+        PartiallyDerived = 1
     }
 }

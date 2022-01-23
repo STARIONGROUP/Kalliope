@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="CalculatedValue.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specifies the function, scope, and inputs used for an algorithmic calculation
     /// </summary>
-    public interface IOrmReader
+    public class CalculatedValue : ORMModelElement
     {
+        /// <summary>
+        /// Set to true if the AggregationContext is not provided and the function is an aggregate, meaning that a parameter is marked as a BagInput
+        /// </summary>
+        public bool UniversalAggregationContext { get; set; }
     }
 }

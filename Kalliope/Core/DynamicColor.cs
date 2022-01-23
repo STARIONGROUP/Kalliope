@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="DynamicColor.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Dynamic color information used by extension models with shape representations
     /// </summary>
-    public interface IOrmReader
+    public abstract class DynamicColor
     {
+        /// <summary>
+        /// The name of a role indicating use of the color. Correspond to an item in a color set enum
+        /// </summary>
+        public string ColorRole { get; set; }
+
+        /// <summary>
+        /// The name of the color played by this role
+        /// </summary>
+        public string ColorValue { get; set; }
     }
 }

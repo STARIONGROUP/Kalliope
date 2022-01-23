@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="FactType.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,16 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// A fact type directly specified by the modeler
     /// </summary>
-    public interface IOrmReader
+    public class FactType : ORMModelElement
     {
+        /// <summary>
+        /// This fact type is externally defined (not used)
+        /// </summary>
+        public bool IsExternal { get; set; }
     }
 }

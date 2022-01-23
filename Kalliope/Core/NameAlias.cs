@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="NameAlias.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,21 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// An alternative name for the containing named element
     /// </summary>
-    public interface IOrmReader
+    public class NameAlias : ORMNamedElement
     {
+        /// <summary>
+        /// The type of consumer for this form of the name. NameConsumer types are provided by extension models
+        /// </summary>
+        public string NameConsumer { get; set; }
+
+        /// <summary>
+        /// Additional extension-provided categorization type for how a name should be used
+        /// </summary>
+        public string NameUsage { get; set; }
     }
 }

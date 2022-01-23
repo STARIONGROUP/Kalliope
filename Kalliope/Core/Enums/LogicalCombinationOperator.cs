@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="LogicalCombinationOperator.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,12 +18,35 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope
+namespace Kalliope.Core
 {
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// Specifies the logical operator used to combine 2 or more elements
     /// </summary>
-    public interface IOrmReader
+    public enum LogicalCombinationOperator
     {
+        /// <summary>
+        /// All values must be true
+        /// </summary>
+        /// <remarks>
+        /// (DSL) The logical and operator
+        /// </remarks>
+        And = 0,
+
+        /// <summary>
+        /// At least one value must be true
+        /// </summary>
+        /// <remarks>
+        /// (DSL) The logical inclusive-or operator
+        /// </remarks>
+        Or = 1,
+
+        /// <summary>
+        /// Applied to two values, exactly one value must be true
+        /// </summary>
+        /// <remarks>
+        /// (DSL) The logical exclusive-or operator
+        /// </remarks>
+        Xor = 3
     }
 }
