@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintModalityValues.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// The strength of a <see cref="Constraint"/>
     /// </summary>
-    public class CardinalityRange
+    public enum ConstraintModalityValues
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// A strong <see cref="Constraint"/> that is enforced by the structure of a generated system
         /// </summary>
-        public string Id { get; set; }
+        Alethic,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// A weak <see cref="Constraint"/> that should not be violated. Instances violating a deontic constraint can be structurally stored in a generated system
         /// </summary>
-        public int From { get; set; }
-
-        /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
-        /// </summary>
-        public int To { get; set; }
+        Deontic
     }
 }

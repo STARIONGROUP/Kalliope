@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="NamingChoice.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,34 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// Specify how a reference mode is to be represented in a generated name. Includes and option to use context default settings
     /// </summary>
-    public class CardinalityRange
+    public enum NamingChoice
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Use the default setting for the model
         /// </summary>
-        public string Id { get; set; }
+        ModelDefault,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// The name of the ValueType is used for naming
         /// </summary>
-        public int From { get; set; }
+        ValueTypeName,
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// The name of the EntityType is used for naming
         /// </summary>
-        public int To { get; set; }
+        EntityTypeName,
+
+        /// <summary>
+        /// The name of the ReferenceMode is used for naming
+        /// </summary>
+        ReferenceModeName,
+
+        /// <summary>
+        /// A custom format string with any combination of the ValueTypeName/EntityTypeName/ReferenceModeName values is allowed.
+        /// Use CustomFormat if specified or the default CustomFormat for the corresponding reference mode kind
+        /// </summary>
+        CustomFormat
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="Group.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,37 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// References to set of related elements
     /// </summary>
-    public class CardinalityRange
+    public class Group
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Group"/> class.
+        /// </summary>
+        public Group()
+        {
+            this.TypeCompliance = TypeCompliance.NotExcluded;
+        }
+
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// The group name. Validation errors will be present for any object type name that is not unique within the model
         /// </summary>
-        public int From { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type.
+        /// Higher numbers have higher priority
         /// </summary>
-        public int To { get; set; }
+        public int Priority { get; set; }
+
+        /// <summary>
+        /// Determine how strictly group types control the group contents
+        /// </summary>
+        public TypeCompliance TypeCompliance { get; set; }
     }
 }

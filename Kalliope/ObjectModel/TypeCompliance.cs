@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="TypeCompliance.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// Determine how strictly group types control the group contents
     /// </summary>
-    public class CardinalityRange
+    public enum TypeCompliance
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Allow any element that is not explicitly blocked by a group type
         /// </summary>
-        public string Id { get; set; }
+        NotExcluded,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// At least one associated group type recognizes the element
         /// </summary>
-        public int From { get; set; }
+        PartiallyApproved,
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// All associated group types recognize the element
         /// </summary>
-        public int To { get; set; }
+        FullyApproved
     }
 }

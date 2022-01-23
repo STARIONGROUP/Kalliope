@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="DynamicColor.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,18 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// Dynamic color information used by extension models with shape representations
     /// </summary>
-    public class CardinalityRange
+    public abstract class DynamicColor
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The name of a role indicating use of the color. Correspond to an item in a color set enum
         /// </summary>
-        public string Id { get; set; }
+        public string ColorRole { get; set; }
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// The name of the color played by this role
         /// </summary>
-        public int From { get; set; }
-
-        /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
-        /// </summary>
-        public int To { get; set; }
+        public string ColorValue { get; set; }
     }
 }

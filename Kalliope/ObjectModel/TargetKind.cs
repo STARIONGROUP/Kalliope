@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="TargetKind.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,23 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// pecify if these are the defaults for popular, unit based, or general reference modes
     /// </summary>
-    public class CardinalityRange
+    public enum TargetKind
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// The naming conventions correspond to general reference modes
         /// </summary>
-        public string Id { get; set; }
+        General,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// The naming conventions correspond to popular reference modes
         /// </summary>
-        public int From { get; set; }
+        Popular,
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// The naming conventions correspond to unit based reference modes
         /// </summary>
-        public int To { get; set; }
+        UnitBased
     }
 }

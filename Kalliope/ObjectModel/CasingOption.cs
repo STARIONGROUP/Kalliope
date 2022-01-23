@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="CasingOption.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,34 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// Specify casing modifications for name parts and combinations.
+    /// sIf not specified, the default CasingOption is the value from the nearest refining parent with this attribute. The root default is None
     /// </summary>
-    public class CardinalityRange
+    public enum CasingOption
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// No casing options specified
         /// </summary>
-        public string Id { get; set; }
+        None,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// Generate names using camel casing (first letter of first word lower case, first letter of subsequent words upper case)
         /// </summary>
-        public int From { get; set; }
+        Camel,
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// Generate names using Pascal casing (first letter of all words upper case)
         /// </summary>
-        public int To { get; set; }
+        Pascal,
+
+        /// <summary>
+        /// Generate names using all upper case letters
+        /// </summary>
+        Upper,
+
+        /// <summary>
+        /// Generate names using all lower case letters
+        /// </summary>
+        Lower
     }
 }

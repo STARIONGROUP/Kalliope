@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="RecognizedPhrase.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// A phrase with one or more words that can be abbreviated during name generation
     /// </summary>
-    public class CardinalityRange
+    public class RecognizedPhrase
     {
         /// <summary>
         /// A unique identifier for this element
@@ -31,15 +31,9 @@ namespace Kalliope.ObjectModel
         public string Id { get; set; }
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// A recognized word or phrase to map to a different text value during name generation.
+        /// Generally a common word such as 'has' or 'the'. Allows mapping to an empty alias value
         /// </summary>
-        public int From { get; set; }
-
-        /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
-        /// </summary>
-        public int To { get; set; }
+        public string Name { get; set; }
     }
 }

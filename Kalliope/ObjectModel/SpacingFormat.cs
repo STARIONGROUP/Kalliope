@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="CardinalityRange.cs" company="RHEA System S.A.">
+// <copyright file="SpacingFormat.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,25 +21,24 @@
 namespace Kalliope.ObjectModel
 {
     /// <summary>
-    /// A single cardinality range
+    /// Specify how name spaces are treated during name generation. 
+    /// If not specified, the default SpacingFormat is the value from the nearest refining parent with this attribute. The root default is Retain
     /// </summary>
-    public class CardinalityRange
+    public enum SpacingFormat
     {
         /// <summary>
-        /// A unique identifier for this element
+        /// Keep any spaces specified in names used in the ORM model
         /// </summary>
-        public string Id { get; set; }
+        Retain,
 
         /// <summary>
-        /// The lower bound of the cardinality range.
-        /// A value of zero indicates than an empty population is allowed
+        /// Generate names using all upper case letters
         /// </summary>
-        public int From { get; set; }
+        Remove,
 
         /// <summary>
-        /// The upper bound of the cardinality range.
-        /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
+        /// Replace one or more spaces in model names with the character specified in the SpacingReplacement attribute
         /// </summary>
-        public int To { get; set; }
+        ReplaceWith
     }
 }
