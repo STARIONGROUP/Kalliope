@@ -25,5 +25,10 @@ namespace Kalliope.Core
     /// </summary>
     public class ModelErrorDisplayFilter
     {
+        public string ExcludedCategories { get; set; }
+
+        public string IncludedErrors { get; set; }
+
+        public string ExcludedErrors { get; set; }
     }
 }

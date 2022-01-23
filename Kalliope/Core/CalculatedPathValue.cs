@@ -25,5 +25,10 @@ namespace Kalliope.Core
     /// </summary>
     public class CalculatedPathValue : ORMModelElement
     {
+        /// <summary>
+        /// Set for a calculation with an aggregate function to use universal context (meaning all elements of the given type in the universal of discourse)
+        /// instead of a context at one or more specific path nodes
+        /// </summary>
+        public bool UniversalAggregationContext { get; set; }
     }
 }

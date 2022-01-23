@@ -22,5 +22,31 @@ namespace Kalliope.Core
 {
     public abstract class SetComparisonConstraint : ORMNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.
+        /// </summary>
+        public SetComparisonConstraint()
+        {
+            this.Modality = ConstraintModality.Alethic;
+        }
+
+        /// <summary>
+        /// The constraint Modality.
+        /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system;
+        /// Deontic modality means that data violating the constraint can be recorded
+        /// </summary>
+        public ConstraintModality Modality { get; set; }
+
+        /// <summary>
+        /// An informal description of this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
     }
 }

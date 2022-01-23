@@ -25,5 +25,44 @@ namespace Kalliope.Core
     /// </summary>
     public abstract class CardinalityConstraint : ORMNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class
+        /// </summary>
+        public CardinalityConstraint()
+        {
+            this.Modality = ConstraintModality.Alethic;
+        }
+
+        /// <summary>
+        /// The constraint Modality.
+        /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system
+        /// Deontic modality means that data violating the constraint can be recorded
+        /// </summary>
+        public ConstraintModality Modality { get; set; }
+
+        /// <summary>
+        /// An informal description of this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
+
+        /// <summary>
+        /// Set the ranges for this cardinality constraint.
+        /// The following patterns are recognized:
+        /// Range with a zero lower bound: 0..n, ..n, &lt;n, &lt;=n&#xd;&#xa;
+        /// Range with no upper bound: &gt;n, &gt;=n, n..&#xd;&#xa;Fixed range: n..m&#xd;&#xa;&#xd;&#xa;Cardinality supports multiple non-overlapping ranges and single values. A range of 0 indicates that an empty population is allowed. For example, 0,4.. will allow either an empty population or a population with four or more instances
+        /// </summary>
+        public string Text { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int TextChanged { get; set; }
     }
 }

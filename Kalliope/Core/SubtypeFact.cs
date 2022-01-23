@@ -38,5 +38,10 @@ namespace Kalliope.Core
         /// The identifying supertype can be a direct or indirect supertype
         /// </summary>
         public bool PreferredIdentificationPath { get; set; }
+
+        /// <summary>
+        /// The preferred identification scheme for the subtype is provided by a supertype reached through this path
+        /// </summary>
+        public bool ProvidesPreferredIdentifier { get; set; }
     }
 }

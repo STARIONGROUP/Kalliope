@@ -26,6 +26,13 @@ namespace Kalliope.Core
     public class UniquenessConstraint : SetConstraint
     {
         /// <summary>
+        /// Is this the preferred identifier for the EntityType role player of the opposite role(s)?
+        /// The opposite role player of an internal constraint on an objectified FactType is the objectifying EntityType.
+        /// Binary FactTypes with a spanning internal uniqueness constraint and ternary (or higher arity) FactTypes are automatically objectified
+        /// </summary>
+        public bool IsPreferred { get; set; }
+
+        /// <summary>
         /// If true, this uniqueness constraint is internal to a single fact type
         /// </summary>
         public bool IsInternal { get; set; }

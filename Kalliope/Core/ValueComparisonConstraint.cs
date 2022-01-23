@@ -25,6 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public class ValueComparisonConstraint : SetConstraint
     {
+        /// <summary>
+        /// The operator used for comparing constrained values
+        /// </summary>
         public ValueComparisonOperator Operator { get; set; }
     }
 }

@@ -26,13 +26,28 @@ namespace Kalliope.Core
     public class FrequencyConstraint : SetConstraint
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="FrequencyConstraint"/> class
+        /// </summary>
+        public FrequencyConstraint()
+        {
+            this.MinFrequency = 1;
+            this.MaxFrequency = 2;
+        }
+
+        /// <summary>
         /// The minimum number of times an instance must be played by the constrained role(s)
         /// </summary>
+        /// <remarks>
+        /// (DSL) The minimum number of occurrences for each instance that plays the restricted roles
+        /// </remarks>
         public int MinFrequency { get; set; }
 
         /// <summary>
         /// The maximum number of times an instance must be played by the constrained role(s)
         /// </summary>
+        /// <remarks>
+        /// (DSL) The maximum number of occurrences for each instance that plays the restricted roles
+        /// </remarks>
         public int MaxFrequency { get; set; }
     }
 }

@@ -25,5 +25,17 @@ namespace Kalliope.Core
     /// </summary>
     public class RingConstraint : SetConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RingConstraint"/> class
+        /// </summary>
+        public RingConstraint()
+        {
+            this.RingType = RingConstraintType.Undefined;
+        }
+
+        /// <summary>
+        /// Restriction type of this Ring constraint
+        /// </summary>
+        public RingConstraintType RingType { get; set; }
     }
 }

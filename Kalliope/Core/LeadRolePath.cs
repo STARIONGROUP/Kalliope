@@ -23,7 +23,15 @@ namespace Kalliope.Core
     /// <summary>
     /// A role path starting from a root object type
     /// </summary>
+    /// <remarks>
+    /// (DSL) A top level role path starting at a root object type. Provides a context for subpaths, functions, and constraints specific to this path
+    /// </remarks>
     public class LeadRolePath : RolePath
     {
+        /// <summary>
+        /// A note to associate with this path.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
     }
 }

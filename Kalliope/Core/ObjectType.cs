@@ -23,18 +23,103 @@ namespace Kalliope.Core
     public abstract class ObjectType : ORMNamedElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectType"/> class
+        /// </summary>
+        public ObjectType()
+        {
+            this.DataTypeScale = 0;
+            this.DataTypeLength = 0;
+        }
+
+        /// <summary>
         /// An instance of this object type can exist without playing any non-identifying roles
         /// </summary>
         public bool IsIndependent { get; set; }
 
         /// <summary>
+        /// Is this ObjectType a self-identifying value or an entity?
+        /// </summary>
+        public bool IsValueType { get; set; }
+
+        /// <summary>
         /// This object type is externally defined (not used).
         /// </summary>
+        /// <remarks>
+        /// (DSL) Is this ObjectType defined in an external model?">
+        /// </remarks>
         public bool IsExternal { get; set; }
 
         /// <summary>
         /// This object type refers to a person, not a thing. A directive to tell the verbalization to use personal pronouns
         /// </summary>
+        /// <remarks>
+        /// (DSL) Does this ObjectType represent a person instead of a thing? This value is ignored if any direct or indirect supertype is personal 
+        /// </remarks>
         public bool IsPersonal { get; set; }
+
+        /// <summary>
+        /// Cache if IsPersonal is set for one or more supertypes
+        /// </summary>
+        public bool IsSupertypePersonal { get; set; }
+
+        /// <summary>
+        /// An informal description of this ObjectType.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this ObjectType.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
+
+        /// <summary>
+        /// The number of digits allowed to the right of the decimal point in a value with this DataType
+        /// </summary>
+        public int DataTypeScale { get; set; }
+
+        /// <summary>
+        /// The maximum length of values with this DataType
+        /// </summary>
+        public int DataTypeLength { get; set; }
+
+        public string ReferenceModeString { get; set; }
+
+        public string ReferenceModeDecoratedString { get; set; }
+
+        /// <summary>
+        /// Restrict the range of possible values for instances of this ObjectType.
+        /// To specify a range, use '..' between the range endpoints, square brackets to specify a closed endpoint, and parentheses to specify an open endpoint.
+        /// Commas are used to entered multiple ranges or discrete values.
+        /// Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30
+        /// </summary>
+        public string ValueRangeText { get; set; }
+
+        /// <summary>
+        /// The ValueRange property for the ValueType that identifies this EntityType.
+        /// The ValueRange property of an EntityType is applied to the identifying role, not directly to the identifying ValueType.
+        /// This allows EntityType ValueRanges to be specified independently for multiple EntityTypes identified with the same 
+        /// unit-based or general reference mode patterns
+        /// </summary>
+        public string ValueTypeValueRangeText { get; set; }
+
+        /// <summary>
+        /// Does this ObjectType represent a person instead of a thing?
+        /// Used as a verbalization directive to render references to this type using a personal pronoun ('who' instead of 'that')
+        /// </summary>
+        public bool TreatAsPersonal { get; set; }
+
+        public bool IsImplicitBooleanValue { get; set; }
+
+        /// <summary>
+        /// A description of the derivation rule for this subtype. If a rule is not specified, then this is treated as an asserted subtype
+        /// </summary>
+        public string DerivationNoteDisplay { get; set; }
+
+        /// <summary>
+        /// Storage options for a derived subtype
+        /// </summary>
+        public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
     }
 }

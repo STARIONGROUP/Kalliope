@@ -24,7 +24,7 @@ namespace Kalliope.Core
     /// A role representing the identifying role in the fact type implied between the object type that objectifies a unary role and the unary role player.
     /// There is an implied equality constraint between this role and the referenced unary role
     /// </summary>
-    public class ObjectifiedUnaryRole : RoleBase
+    public class ObjectifiedUnaryRole : Role
     {
     }
 }

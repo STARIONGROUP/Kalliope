@@ -28,6 +28,18 @@ namespace Kalliope.Core
     public class ORMModel : ORMNamedElement
     {
         /// <summary>
+        /// An informal description of this Model.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this Model.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
+
+        /// <summary>
         /// The value of the referenced element's unique id
         /// </summary>
         public string Reference { get; set; }

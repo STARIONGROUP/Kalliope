@@ -25,5 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public class ReadingOrder : ORMModelElement
     {
+        /// <summary>
+        /// The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder
+        /// </summary>
+        public string ReadingText { get; set; }
     }
 }

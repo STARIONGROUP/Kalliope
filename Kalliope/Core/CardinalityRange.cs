@@ -26,6 +26,15 @@ namespace Kalliope.Core
     public class CardinalityRange : ORMModelElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="CardinalityRange"/> class
+        /// </summary>
+        public CardinalityRange()
+        {
+            this.LowerBound = 0;
+            this.UpperBound = -1;
+        }
+
+        /// <summary>
         /// The lower bound of the cardinality range.
         /// A value of zero indicates than an empty population is allowed
         /// </summary>
@@ -36,5 +45,15 @@ namespace Kalliope.Core
         /// Set to the same value as the 'From' attribute for a single-valued range. If this is omitted, then an unbounded range is assumed
         /// </summary>
         public int To { get; set; }
+
+        /// <summary>
+        /// The lower bound for the cardinality range. An equivalent upper bound indicates a discrete value. This has a minimum number of 0
+        /// </summary>
+        public int LowerBound { get; set; }
+
+        /// <summary>
+        /// The upper bound of the range, or -1 if the range is unbounded
+        /// </summary>
+        public int UpperBound { get; set; }
     }
 }

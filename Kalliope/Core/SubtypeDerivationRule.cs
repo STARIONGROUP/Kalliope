@@ -25,5 +25,28 @@ namespace Kalliope.Core
     /// </summary>
     public class SubtypeDerivationRule : RolePathOwner
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubtypeDerivationRule"/> class
+        /// </summary>
+        public SubtypeDerivationRule()
+        {
+            this.DerivationCompleteness = DerivationCompleteness.FullyDerived;
+            this.DerivationStorage = DerivationStorage.NotStored;
+        }
+
+        /// <summary>
+        /// Specify if a subtype can be explicitly populated without satisfying the derivation path
+        /// </summary>
+        public DerivationCompleteness DerivationCompleteness { get; set; }
+
+        /// <summary>
+        /// Specify if the derivation results are determined on demand or stored when derivation path components are changed
+        /// </summary>
+        public DerivationStorage DerivationStorage { get; set; }
+
+        /// <summary>
+        /// An empty path is a placeholder for an externally defined derivation rule and is not validated
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
     }
 }

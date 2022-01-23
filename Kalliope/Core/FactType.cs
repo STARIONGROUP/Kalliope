@@ -29,5 +29,34 @@ namespace Kalliope.Core
         /// This fact type is externally defined (not used)
         /// </summary>
         public bool IsExternal { get; set; }
+
+        /// <summary>
+        /// An informal description of this FactType.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this FactType.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
+
+        /// <summary>
+        /// The name for this FactType.
+        /// If the Name property is read-only, then it is a generated name based on primary reading.
+        /// If the Name property is editable, then it is the name of an explicit or implicit objectifying EntityType
+        /// The editable name can be reset to match the generated name by clearing the property value
+        /// </summary>
+        public string Name { get; set; }
+
+        public int NameChanged { get; set; }
+
+        /// <summary>
+        /// A description of the derivation rule for this FactType
+        /// </summary>
+        public string DerivationNoteDisplay { get; set; }
+
+        public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
     }
 }

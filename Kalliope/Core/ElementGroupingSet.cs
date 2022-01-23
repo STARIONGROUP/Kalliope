@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Function.cs" company="RHEA System S.A.">
+// <copyright file="ElementGroupingSet.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,26 +21,9 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// Specifies a function definition used for calculating values
+    /// A Group owner, allows group containment, order, and naming enforcement
     /// </summary>
-    /// <remarks>
-    /// (DSL) A function or operator used to represented a calculation algorithm
-    /// </remarks>
-    public class Function : ORMNamedElement
+    public class ElementGroupingSet
     {
-        /// <summary>
-        /// True if this function or operator returns a boolean value, making it appropriate for use as a path condition
-        /// </summary>
-        public bool IsBoolean { get; set; }
-
-        /// <summary>
-        /// Set if this function defines a bag input parameter
-        /// </summary>
-        public bool IsAggregate { get; set; }
-
-        /// <summary>
-        /// A symbol used to display this function as an operator. Treated as an infix operator for binary functions and a prefix operator for unary functions
-        /// </summary>
-        public string OperatorSymbol { get; set; }
     }
 }

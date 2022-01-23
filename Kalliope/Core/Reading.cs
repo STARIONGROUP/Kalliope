@@ -38,5 +38,18 @@ namespace Kalliope.Core
         /// Text that occurs before the lead role, including prebound text associated with that role
         /// </summary>
         public string FrontText { get; set; }
+
+        /// <summary>
+        /// The text of this reading. Includes ordered replacement fields corresponding to the parent ReadingOrder
+        /// </summary>
+        public string Text { get; set; }
+
+        public string Signature { get; set; }
+
+        public bool IsPrimaryForReadingOrder { get; set; }
+
+        public string Language { get; set; }
+
+        public bool IsPrimaryForFactType { get; set; }
     }
 }

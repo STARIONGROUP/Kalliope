@@ -28,6 +28,6 @@ namespace Kalliope.Core
         /// <summary>
         /// The lexical constant value. The value is interpreted based on context
         /// </summary>
-        public string Value { get; set; }
+        public string LexicalValue { get; set; }
     }
 }

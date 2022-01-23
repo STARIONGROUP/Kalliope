@@ -23,11 +23,17 @@ namespace Kalliope.Core
     /// <summary>
     /// A function parameter, defines the type of function input
     /// </summary>
+    /// <remarks>
+    /// A formal function parameter describing expected input to a function
+    /// </remarks>
     public class FunctionParameter : ORMNamedElement
     {
         /// <summary>
         /// Set to true if this functions takes a bag input instead of a single value
         /// </summary>
+        /// <remarks>
+        /// (DSL) Set if a bag input is expected for this parameter, such as with an aggregation function
+        /// </remarks>
         public bool BagInput { get; set; }
     }
 }

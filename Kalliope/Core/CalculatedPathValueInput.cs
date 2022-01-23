@@ -25,5 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public class CalculatedPathValueInput : ORMModelElement
     {
+        /// <summary>
+        /// Should the bag be limited to distinct values, resulting in a set of values instead of a bag of values?
+        /// </summary>
+        public bool DistinctValues { get; set; }
     }
 }
