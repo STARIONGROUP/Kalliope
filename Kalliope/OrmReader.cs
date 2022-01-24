@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="IOrmReader.cs" company="RHEA System S.A.">
+// <copyright file="OrmReader.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,16 +21,43 @@
 namespace Kalliope
 {
     using Kalliope.Core;
+    using System;
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Xml.Schema;
 
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
+
     /// <summary>
-    /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
+    /// The purpose of the <see cref="OrmReader"/> is to read .orm models and return the content as an object graph
     /// </summary>
-    public interface IOrmReader
+    public class OrmReader : IOrmReader
     {
+        /// <summary>
+        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
+        /// </summary>
+        private readonly ILoggerFactory loggerFactory;
+
+        /// <summary>
+        /// The <see cref="ILogger"/> used to log
+        /// </summary>
+        private readonly ILogger<OrmReader> logger;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrmReader"/> class.
+        /// </summary>
+        /// <param name="loggerFactory">
+        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
+        /// </param>
+        public OrmReader(ILoggerFactory loggerFactory = null)
+        {
+            this.loggerFactory = loggerFactory;
+
+            this.logger = this.loggerFactory == null ? NullLogger<OrmReader>.Instance : this.loggerFactory.CreateLogger<OrmReader>();
+        }
+
         /// <summary>
         /// Reads a <see cref="ORMModel"/> from an .orm file
         /// </summary>
@@ -46,7 +73,10 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        ORMModel Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        public ORMModel Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Reads a <see cref="ORMModel"/> from an .orm <see cref="Stream"/>
@@ -63,8 +93,10 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        ORMModel Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null);
-
+        public ORMModel Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Asynchronously reads a <see cref="ORMModel"/> from an .orm file
@@ -84,7 +116,10 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        public Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Asynchronously reads a <see cref="ORMModel"/> from an .orm <see cref="Stream"/>
@@ -101,6 +136,9 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        Task<ORMModel> ReadAsync(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        public Task<ORMModel> ReadAsync(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
