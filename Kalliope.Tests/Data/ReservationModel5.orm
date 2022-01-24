@@ -1,0 +1,1778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- sourced from https://www.ormfoundation.org/files/folders/reservation/entry3562.aspx -->
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:oial="http://schemas.neumont.edu/ORM/Abstraction/2007-06/Core" xmlns:odt="http://schemas.neumont.edu/ORM/Abstraction/2007-06/DataTypes/Core" xmlns:rcd="http://schemas.neumont.edu/ORM/Relational/2007-06/ConceptualDatabase" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:ormtooial="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMToORMAbstraction" xmlns:oialtocdb="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMAbstractionToConceptualDatabase" xmlns:rvw="http://schemas.neumont.edu/ORM/2007-11/RelationalView" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+	<orm:ORMModel id="_6494106A-6AD7-4A47-A463-4042E895EAE4" Name="Reservation">
+		<orm:Notes>
+			<orm:Note id="_B8A378FA-F6E6-44ED-B7F0-8EF5CA425DC5">
+				<orm:Text>A classroom reservation model</orm:Text>
+			</orm:Note>
+		</orm:Notes>
+		<orm:Objects>
+			<orm:EntityType id="_40DAC349-DF28-4620-8B0E-64F7F1B58081" Name="Teacher" _ReferenceMode="">
+				<orm:PlayedRoles>
+					<orm:SubtypeMetaRole ref="_9937FE66-27B0-4119-B13E-A2D9EC4B1FB7" />
+					<orm:Role ref="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" />
+				</orm:PlayedRoles>
+			</orm:EntityType>
+			<orm:EntityType id="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" Name="Classroom" _ReferenceMode="nr">
+				<orm:CardinalityRestriction>
+					<orm:CardinalityConstraint id="_79770709-34B1-4C54-83D7-263D23FBC396" Name="ObjectTypeCardinalityConstraint1">
+						<orm:Ranges>
+							<orm:CardinalityRange id="_C9371491-5D93-47B3-834C-36AF198BFD74" From="1" To="10" />
+						</orm:Ranges>
+					</orm:CardinalityConstraint>
+				</orm:CardinalityRestriction>
+				<orm:PlayedRoles>
+					<orm:Role ref="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" />
+					<orm:Role ref="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_5B5A8BE7-9B4C-4E1F-A76B-0929C44A9026" />
+			</orm:EntityType>
+			<orm:ValueType id="_527C0B57-C22B-4D8F-8682-DA14C52BB1A4" Name="Classroom_nr">
+				<orm:PlayedRoles>
+					<orm:Role ref="_46B6BA18-9362-460D-8C58-F2D88CBC7116" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_EC4DF8FB-D6B7-47B8-A3B0-364E969DCA5A" ref="_09D6A808-770A-4621-AACF-9F4ABCA3C9E3" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:EntityType id="_72435EB2-A093-47FC-8D29-9306F69AC388" Name="Person" _ReferenceMode="EmpNr">
+				<orm:PlayedRoles>
+					<orm:Role ref="_BDA6E87A-873F-45FC-BD43-D71C11425167" />
+					<orm:SupertypeMetaRole ref="_83A8D3EF-0034-4671-80BB-0F6DEECFAE34" />
+					<orm:SupertypeMetaRole ref="_BC46E811-FC2C-4D89-AAB8-3CE558BDF4B5" />
+					<orm:Role ref="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" />
+					<orm:Role ref="_61163A5B-CD3E-4E29-8431-7ECD020A1261" />
+					<orm:Role ref="_A92369A9-3BCC-48C4-91B9-4E608887FD54" />
+					<orm:SupertypeMetaRole ref="_1F7D919F-5283-473E-B428-F0D580CF7B48" />
+					<orm:Role ref="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_C0F3A091-192D-450F-A2DB-4C3B4E9BD28B" />
+			</orm:EntityType>
+			<orm:ValueType id="_D37F43F2-606A-4213-B956-29294B7F5BFB" Name="Person_EmpNr">
+				<orm:PlayedRoles>
+					<orm:Role ref="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_3BCFD662-DD7A-4EAA-A6C1-2CF7B7B28F70" ref="_09D6A808-770A-4621-AACF-9F4ABCA3C9E3" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:EntityType id="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" Name="Cleaner" _ReferenceMode="">
+				<orm:PlayedRoles>
+					<orm:SubtypeMetaRole ref="_C08A3386-A833-4F46-BCA8-9498AF5AF914" />
+					<orm:Role ref="_F63F09FE-D958-4CCB-9937-58F5B07025DF" />
+				</orm:PlayedRoles>
+			</orm:EntityType>
+			<orm:ValueType id="_CFB6C23F-B5FF-4F21-A8FC-889D27769836" Name="FirstName">
+				<orm:PlayedRoles>
+					<orm:Role ref="_8E1634AA-2620-4EB7-BFB6-9DABE257EEC8" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_63E541FE-AE8B-4257-947D-DE2E1A12FFD0" ref="_C595DF65-7A3D-4230-B564-5B15E7ECEC4A" Scale="0" Length="40" />
+			</orm:ValueType>
+			<orm:ValueType id="_811170D1-5C87-47EC-916E-A18997EBEF42" Name="LastName">
+				<orm:PlayedRoles>
+					<orm:Role ref="_C379E219-3AD7-4422-BC08-2D6D41BB0FD9" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_7B0CA526-54F1-473C-9DB2-CFE155D99377" ref="_C595DF65-7A3D-4230-B564-5B15E7ECEC4A" Scale="0" Length="50" />
+			</orm:ValueType>
+			<orm:EntityType id="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" Name="Faculty" _ReferenceMode="name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" />
+					<orm:Role ref="_1E2E0CFE-C025-4E45-8B5F-C1DD6F5D40FA" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_76307973-C538-4031-AE33-E8369E347545" />
+			</orm:EntityType>
+			<orm:ValueType id="_9AB440AA-A75F-4E26-B9CB-47892E458CD8" Name="Faculty_name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_F71DC1EB-6C0B-4C0E-85E7-A4773B9BF78D" ref="_381DE95D-9564-474C-BD7A-C7E750A06330" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:EntityType id="_13017AD7-374A-467F-8533-0E9C5CF21D87" Name="Contract" _ReferenceMode="nr">
+				<orm:PlayedRoles>
+					<orm:Role ref="_5CF94A5C-3342-4339-B659-336C918FB90E" />
+					<orm:Role ref="_A7A299B2-F753-4683-8A87-FD7C30E03558" />
+					<orm:Role ref="_A97D3BA1-8D4F-434C-ADF7-FA7FAFC01623" />
+					<orm:Role ref="_C85DC4A5-4890-440B-9099-75A74E1B5319" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_38EEC5D6-C3F6-45BC-B139-10E70355FC58" />
+			</orm:EntityType>
+			<orm:ValueType id="_2B607CAB-D429-4C70-A0D5-52AB37252150" Name="Contract_nr">
+				<orm:PlayedRoles>
+					<orm:Role ref="_F624CB9A-3497-4D87-BF4D-82ACFD757466" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_90805062-D086-4BD9-8B03-C80900CA46A9" ref="_09D6A808-770A-4621-AACF-9F4ABCA3C9E3" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:ValueType id="_B318E50F-67ED-42D0-AE6D-785E4B54B0B7" Name="HourSlot">
+				<orm:PlayedRoles>
+					<orm:Role ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_5761661B-22F8-49F6-8195-5A8D5A1D0546" ref="_2A33202E-B98B-4975-AB7A-0A695B812856" Scale="0" Length="0" />
+				<orm:ValueRestriction>
+					<orm:ValueConstraint id="_52292863-1C53-4DD6-A2F4-C6B714B30AC6" Name="ValueTypeValueConstraint1">
+						<orm:ValueRanges>
+							<orm:ValueRange id="_29E75884-C00A-40A9-9F4F-2B4D9745EC07" MinValue="6" InvariantMinValue="6" MaxValue="6" InvariantMaxValue="6" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_76EC872C-B339-4510-B52E-698C70E6E499" MinValue="7" InvariantMinValue="7" MaxValue="7" InvariantMaxValue="7" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_739CC5D8-EE59-426D-8B77-518E200179A9" MinValue="8" InvariantMinValue="8" MaxValue="8" InvariantMaxValue="8" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_B34A81F4-FD28-4CA9-8A45-F10B2B393FDC" MinValue="9" InvariantMinValue="9" MaxValue="9" InvariantMaxValue="9" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_446885DC-670D-4DD5-9FD4-05DF4929A65F" MinValue="10" InvariantMinValue="10" MaxValue="10" InvariantMaxValue="10" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_CA929108-9B8D-4105-83DA-A4B5B4B0E048" MinValue="11" InvariantMinValue="11" MaxValue="11" InvariantMaxValue="11" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_D4F3461F-C943-4EA6-BC15-EAE8B102FC73" MinValue="12" InvariantMinValue="12" MaxValue="12" InvariantMaxValue="12" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_88F73FEE-A108-4C1D-A584-68B2B0A25FCB" MinValue="13" InvariantMinValue="13" MaxValue="13" InvariantMaxValue="13" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_57568C2A-14E1-4D8A-B1A9-E3D1D62C30F1" MinValue="14" InvariantMinValue="14" MaxValue="14" InvariantMaxValue="14" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_D1F7C1C5-ECA8-4099-A7B3-21E70B3CA7C3" MinValue="15" InvariantMinValue="15" MaxValue="15" InvariantMaxValue="15" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_6319F899-558E-4F7C-A723-A065A2BAB8CD" MinValue="16" InvariantMinValue="16" MaxValue="16" InvariantMaxValue="16" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_2F4702EA-7401-43B4-9AC8-74CD1D53254F" MinValue="17" InvariantMinValue="17" MaxValue="17" InvariantMaxValue="17" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_C0657435-A6BD-4752-936B-9A77364AA473" MinValue="18" InvariantMinValue="18" MaxValue="18" InvariantMaxValue="18" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_4D97FC81-72F7-4A7E-A29B-AF69139FA502" MinValue="19" InvariantMinValue="19" MaxValue="19" InvariantMaxValue="19" MinInclusion="NotSet" MaxInclusion="NotSet" />
+							<orm:ValueRange id="_2285DB28-D9A6-4935-8642-DE6E74C95B3A" MinValue="20" InvariantMinValue="20" MaxValue="20" InvariantMaxValue="20" MinInclusion="NotSet" MaxInclusion="NotSet" />
+						</orm:ValueRanges>
+					</orm:ValueConstraint>
+				</orm:ValueRestriction>
+			</orm:ValueType>
+			<orm:ValueType id="_4863F567-1AFA-4719-A085-AE0C2ACF0E8E" Name="Date">
+				<orm:PlayedRoles>
+					<orm:Role ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_DB5A7233-9D1A-45DC-86F8-F057610C557B" ref="_149F0C5D-2841-4B29-A6A5-591B24F95F54" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:ObjectifiedType id="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" Name="PersonReservesClassroomForDateAtHourSlot" _ReferenceMode="">
+				<orm:PlayedRoles>
+					<orm:Role ref="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" />
+					<orm:Role ref="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" />
+					<orm:Role ref="_6132D621-0184-43CA-AB82-9827C610378E" />
+					<orm:Role ref="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_392A48BF-BB67-4E70-B74C-2E0A310CD385" />
+				<orm:NestedPredicate id="_B40A6F75-D6BA-429D-917F-A3AD13D4D444" ref="_52493D1A-BC6D-4D0F-9EE0-3766EFB305F2" IsImplied="true" />
+			</orm:ObjectifiedType>
+			<orm:EntityType id="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" Name="Security" _ReferenceMode="">
+				<orm:PlayedRoles>
+					<orm:SubtypeMetaRole ref="_DF85D09F-AA5A-49CB-9CE3-72EE386E6AF1" />
+					<orm:Role ref="_39310088-EA95-4773-B1E1-7A0021BD2A47" />
+				</orm:PlayedRoles>
+			</orm:EntityType>
+			<orm:EntityType id="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" Name="Company" _ReferenceMode="name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" />
+					<orm:Role ref="_4A7061FF-26E4-4C46-8754-D1F47C012A3E" />
+				</orm:PlayedRoles>
+				<orm:PreferredIdentifier ref="_253D047E-3325-4D2B-99F6-4E598DAF8535" />
+			</orm:EntityType>
+			<orm:ValueType id="_2A320773-FBA6-4732-AE34-5877D8DDE46E" Name="Company_name">
+				<orm:PlayedRoles>
+					<orm:Role ref="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_B550930A-B821-493C-B024-B6D3AAD9C78A" ref="_381DE95D-9564-474C-BD7A-C7E750A06330" Scale="0" Length="0" />
+			</orm:ValueType>
+			<orm:ValueType id="_DF24AA2C-4F71-46C5-9395-D3D0400F5B78" Name="DateOfBirth">
+				<orm:PlayedRoles>
+					<orm:Role ref="_8FD4058F-BC92-4CD0-B85C-5BE5FADAFB52" />
+				</orm:PlayedRoles>
+				<orm:ConceptualDataType id="_70084DCB-060F-4B59-92E3-76BE0F0908E9" ref="_C595DF65-7A3D-4230-B564-5B15E7ECEC4A" Scale="0" Length="0" />
+			</orm:ValueType>
+		</orm:Objects>
+		<orm:Facts>
+			<orm:Fact id="_55737476-3E40-4087-81AA-99713412C2F1" _Name="ClassroomHasClassroomNr">
+				<orm:FactRoles>
+					<orm:Role id="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" />
+					</orm:Role>
+					<orm:Role id="_46B6BA18-9362-460D-8C58-F2D88CBC7116" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_527C0B57-C22B-4D8F-8682-DA14C52BB1A4" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_E912BC79-AE71-4631-BB37-1EF51EA643E5">
+						<orm:Readings>
+							<orm:Reading id="_7D5E8806-903C-4FF1-BEBD-F3E84266A2C4">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" />
+							<orm:Role ref="_46B6BA18-9362-460D-8C58-F2D88CBC7116" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_6D7DA35E-2172-4DEF-BD66-F891D5ECF4AD">
+						<orm:Readings>
+							<orm:Reading id="_8F82974B-BF9E-47E7-A653-577334A0D9AA">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_46B6BA18-9362-460D-8C58-F2D88CBC7116" />
+							<orm:Role ref="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_5B5A8BE7-9B4C-4E1F-A76B-0929C44A9026" />
+					<orm:UniquenessConstraint ref="_58A74D92-4129-4FEA-9543-C42DAFE1EADD" />
+					<orm:MandatoryConstraint ref="_2490FC09-D363-4D9F-849C-C4F5675A1E31" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_8853128D-BAE5-4164-A7DB-BECC92E34C12" _Name="PersonHasPersonEmpNr">
+				<orm:FactRoles>
+					<orm:Role id="_BDA6E87A-873F-45FC-BD43-D71C11425167" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:Role>
+					<orm:Role id="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_D37F43F2-606A-4213-B956-29294B7F5BFB" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_9D250BDE-2028-4952-8E1B-AAE083A34993">
+						<orm:Readings>
+							<orm:Reading id="_ACEC0999-240A-494C-954D-8911F6EE2C20">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_BDA6E87A-873F-45FC-BD43-D71C11425167" />
+							<orm:Role ref="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_D05F8178-0D5F-459F-BB4D-BF022A6CDDDE">
+						<orm:Readings>
+							<orm:Reading id="_D5D70AA7-1EFE-4BF3-9C67-2FBE6A295A34">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" />
+							<orm:Role ref="_BDA6E87A-873F-45FC-BD43-D71C11425167" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_C0F3A091-192D-450F-A2DB-4C3B4E9BD28B" />
+					<orm:UniquenessConstraint ref="_03216558-4E21-4C52-B9E1-4AFEC10BD3DD" />
+					<orm:MandatoryConstraint ref="_EDE3CAB3-97D5-4C91-AF68-5FC27CAFA372" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:SubtypeFact id="_F122BD62-88F3-44EE-B44B-45E9480A3C68" _Name="CleanerIsASubtypeOfPerson" PreferredIdentificationPath="true">
+				<orm:FactRoles>
+					<orm:SubtypeMetaRole id="_C08A3386-A833-4F46-BCA8-9498AF5AF914" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" />
+					</orm:SubtypeMetaRole>
+					<orm:SupertypeMetaRole id="_83A8D3EF-0034-4671-80BB-0F6DEECFAE34" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:SupertypeMetaRole>
+				</orm:FactRoles>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_9B6E89D7-D83F-4484-B150-5DE0B357BEF0" />
+					<orm:UniquenessConstraint ref="_ADDC3843-14AE-4BBE-A39F-2A43EB826D39" />
+					<orm:UniquenessConstraint ref="_18DDC5AE-C74C-4406-AADB-B1F47D32DFB3" />
+				</orm:InternalConstraints>
+			</orm:SubtypeFact>
+			<orm:SubtypeFact id="_083B4E8D-A39F-4642-95FD-2666B0B393B3" _Name="TeacherIsASubtypeOfPerson" PreferredIdentificationPath="true">
+				<orm:FactRoles>
+					<orm:SubtypeMetaRole id="_9937FE66-27B0-4119-B13E-A2D9EC4B1FB7" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_40DAC349-DF28-4620-8B0E-64F7F1B58081" />
+					</orm:SubtypeMetaRole>
+					<orm:SupertypeMetaRole id="_BC46E811-FC2C-4D89-AAB8-3CE558BDF4B5" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:SupertypeMetaRole>
+				</orm:FactRoles>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_DB7CC669-7444-45DC-B217-48C832ADC2D0" />
+					<orm:UniquenessConstraint ref="_CB4E26B8-8A8C-4800-B8FC-91112DD34476" />
+					<orm:UniquenessConstraint ref="_A486E08A-1227-411D-93C2-6A1702EEEBFA" />
+				</orm:InternalConstraints>
+			</orm:SubtypeFact>
+			<orm:Fact id="_9FBF8D83-4C6C-42A9-B238-D59E57FB5AE9" _Name="PersonHasFirstName">
+				<orm:FactRoles>
+					<orm:Role id="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:Role>
+					<orm:Role id="_8E1634AA-2620-4EB7-BFB6-9DABE257EEC8" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_CFB6C23F-B5FF-4F21-A8FC-889D27769836" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_DA3A4D84-357B-44FD-B7C4-5BD7C15AF6F5">
+						<orm:Readings>
+							<orm:Reading id="_5D231D32-70FC-4FCE-9C19-BAC71E4B6FBB">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" />
+							<orm:Role ref="_8E1634AA-2620-4EB7-BFB6-9DABE257EEC8" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_6E58A12D-A82A-44C6-A1AA-052A438AFFC9" />
+					<orm:UniquenessConstraint ref="_0DBEA223-B3CD-43B7-9538-D826B70A3AA4" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_43CEB1E5-FAA6-46FE-AB49-3274EB16FF06" _Name="PersonHasLastName">
+				<orm:FactRoles>
+					<orm:Role id="_61163A5B-CD3E-4E29-8431-7ECD020A1261" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:Role>
+					<orm:Role id="_C379E219-3AD7-4422-BC08-2D6D41BB0FD9" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_811170D1-5C87-47EC-916E-A18997EBEF42" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_59CEA040-3A98-4371-9543-718246812E7B">
+						<orm:Readings>
+							<orm:Reading id="_A9E18110-0098-49CA-893B-8E9341B6B469">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_61163A5B-CD3E-4E29-8431-7ECD020A1261" />
+							<orm:Role ref="_C379E219-3AD7-4422-BC08-2D6D41BB0FD9" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_DA37A573-4677-4E3A-8246-4224DE218D56" />
+					<orm:UniquenessConstraint ref="_B71EE05C-6B1F-4837-9618-AF354DF30781" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_206EC385-A00A-4EC9-BD68-78A23E8A22A9" _Name="FacultyHasFacultyName">
+				<orm:FactRoles>
+					<orm:Role id="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" />
+					</orm:Role>
+					<orm:Role id="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_9AB440AA-A75F-4E26-B9CB-47892E458CD8" />
+						<orm:ValueRestriction>
+							<orm:RoleValueConstraint id="_31B3A8EC-7AA5-43AF-A088-483E41284EF7" Name="RoleValueConstraint2">
+								<orm:ValueRanges>
+									<orm:ValueRange id="_7A58D226-4CE8-4869-B6F8-337A9A834393" MinValue="CS" MaxValue="CS" MinInclusion="NotSet" MaxInclusion="NotSet" />
+									<orm:ValueRange id="_51EA1241-C7F6-475A-A53D-F7A143ABC99C" MinValue="Math" MaxValue="Math" MinInclusion="NotSet" MaxInclusion="NotSet" />
+									<orm:ValueRange id="_864E9DCD-39C8-4385-9FD2-211FE0970B81" MinValue="Eng" MaxValue="Eng" MinInclusion="NotSet" MaxInclusion="NotSet" />
+									<orm:ValueRange id="_78DDCA1B-4707-4506-BC54-F51EEFBEAFA2" MinValue="Phys" MaxValue="Phys" MinInclusion="NotSet" MaxInclusion="NotSet" />
+									<orm:ValueRange id="_1D559540-8B8D-4FEA-8B1D-2F4F0EF283E9" MinValue="Chemistry" MaxValue="Chemistry" MinInclusion="NotSet" MaxInclusion="NotSet" />
+								</orm:ValueRanges>
+							</orm:RoleValueConstraint>
+						</orm:ValueRestriction>
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_69932815-A473-49F9-9CB0-8661978E6FC0">
+						<orm:Readings>
+							<orm:Reading id="_7395880A-7A7F-44BE-9371-2172AD5A5BF8">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" />
+							<orm:Role ref="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_9D6CE23E-DEF0-42A1-8771-A6DB68BC3841">
+						<orm:Readings>
+							<orm:Reading id="_4E3C1A66-600C-4B0D-BF1C-72F8C0E8B667">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" />
+							<orm:Role ref="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_76307973-C538-4031-AE33-E8369E347545" />
+					<orm:UniquenessConstraint ref="_1B15D620-5933-4140-8393-67F93AFBD07F" />
+					<orm:MandatoryConstraint ref="_C3D48AC5-118E-4108-9E6B-E1B3631BF2F7" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_44E3C879-96AC-4F82-8799-E973CB220AE5" _Name="TeacherIsInFaculty">
+				<orm:FactRoles>
+					<orm:Role id="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_40DAC349-DF28-4620-8B0E-64F7F1B58081" />
+					</orm:Role>
+					<orm:Role id="_1E2E0CFE-C025-4E45-8B5F-C1DD6F5D40FA" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_00FF1985-BF18-4E2E-AF9E-E958383914E2">
+						<orm:Readings>
+							<orm:Reading id="_CCDD64CC-D4E3-427F-93DB-6A53C7325A6F">
+								<orm:Data>{0} is in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" />
+							<orm:Role ref="_1E2E0CFE-C025-4E45-8B5F-C1DD6F5D40FA" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_F697AE13-D1AA-44D5-A3DB-8F45693D6EA1" />
+					<orm:UniquenessConstraint ref="_0E70F5CD-FB88-4325-901F-50D49D8DD34D" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_806ED997-4829-4022-B249-B95B84935FBF" _Name="ContractHasContractNr">
+				<orm:FactRoles>
+					<orm:Role id="_5CF94A5C-3342-4339-B659-336C918FB90E" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+					</orm:Role>
+					<orm:Role id="_F624CB9A-3497-4D87-BF4D-82ACFD757466" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_2B607CAB-D429-4C70-A0D5-52AB37252150" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_06482E92-2482-4766-B18E-3058442D3545">
+						<orm:Readings>
+							<orm:Reading id="_15F50433-30D5-4BB7-AA84-ADF6E86D331E">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_5CF94A5C-3342-4339-B659-336C918FB90E" />
+							<orm:Role ref="_F624CB9A-3497-4D87-BF4D-82ACFD757466" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_FD62D7D5-A254-43C9-891D-BC857E094D4C">
+						<orm:Readings>
+							<orm:Reading id="_F093CF00-D2D5-4134-B1B8-9D9BDF99F479">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_F624CB9A-3497-4D87-BF4D-82ACFD757466" />
+							<orm:Role ref="_5CF94A5C-3342-4339-B659-336C918FB90E" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_38EEC5D6-C3F6-45BC-B139-10E70355FC58" />
+					<orm:UniquenessConstraint ref="_E85025DD-CDCB-460A-B823-BC13C46C2065" />
+					<orm:MandatoryConstraint ref="_90981EB4-7E19-4DDD-B58A-D0FD904CA44D" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_E5F9E154-A911-4903-877A-13598371D525" _Name="CleanerIsOnContract">
+				<orm:FactRoles>
+					<orm:Role id="_F63F09FE-D958-4CCB-9937-58F5B07025DF" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" />
+					</orm:Role>
+					<orm:Role id="_A7A299B2-F753-4683-8A87-FD7C30E03558" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_3330CDF6-CB6A-4E84-B1FC-747743D479FB">
+						<orm:Readings>
+							<orm:Reading id="_0EC93A54-8881-485E-A2C7-896D96CD6A34">
+								<orm:Data>{0} is on {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is on " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_F63F09FE-D958-4CCB-9937-58F5B07025DF" />
+							<orm:Role ref="_A7A299B2-F753-4683-8A87-FD7C30E03558" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_CD0D44B1-0AD1-454A-A9FE-C563AF434206" />
+					<orm:UniquenessConstraint ref="_D1D1E1BA-3846-4E1D-ABF5-3106B12AF57F" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_52493D1A-BC6D-4D0F-9EE0-3766EFB305F2" _Name="PersonReservesClassroomForDateAtHourSlot">
+				<orm:FactRoles>
+					<orm:Role id="_A92369A9-3BCC-48C4-91B9-4E608887FD54" _IsMandatory="false" _Multiplicity="Unspecified" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:Role>
+					<orm:Role id="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" _IsMandatory="false" _Multiplicity="Unspecified" Name="">
+						<orm:RolePlayer ref="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" />
+					</orm:Role>
+					<orm:Role id="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" _IsMandatory="false" _Multiplicity="Unspecified" Name="">
+						<orm:RolePlayer ref="_4863F567-1AFA-4719-A085-AE0C2ACF0E8E" />
+					</orm:Role>
+					<orm:Role id="_12AFEE0F-F458-40A4-BED7-9C951890FD99" _IsMandatory="false" _Multiplicity="Unspecified" Name="">
+						<orm:RolePlayer ref="_B318E50F-67ED-42D0-AE6D-785E4B54B0B7" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_528E0C11-E49C-436C-A016-2F0324F5F792">
+						<orm:Readings>
+							<orm:Reading id="_FB330B5A-B3E5-468B-9377-FB51A18C0638">
+								<orm:Data>{0} reserves {1} for {2} at {3}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" reserves " />
+									<orm:RoleText RoleIndex="1" FollowingText=" for " />
+									<orm:RoleText RoleIndex="2" FollowingText=" at " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_A92369A9-3BCC-48C4-91B9-4E608887FD54" />
+							<orm:Role ref="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" />
+							<orm:Role ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+							<orm:Role ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_392A48BF-BB67-4E70-B74C-2E0A310CD385" />
+					<orm:UniquenessConstraint ref="_80830E16-D336-488B-88C1-687B54BA19E5" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:ImpliedFact id="_FCFF64C9-99F0-4E5C-9B9C-EC6C9744A094" _Name="PersonIsInvolvedInPersonReservesClassroomForDateAtHourSlot">
+				<orm:FactRoles>
+					<orm:RoleProxy id="_688C693F-1E37-4314-BF9F-9D51676C227F">
+						<orm:Role ref="_A92369A9-3BCC-48C4-91B9-4E608887FD54" />
+					</orm:RoleProxy>
+					<orm:Role id="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_A6C05C9C-7884-4EF7-BB3F-6E708FA3CB96">
+						<orm:Readings>
+							<orm:Reading id="_EEF77EE8-789E-4B18-89CA-4D43C90CEE23">
+								<orm:Data>{0} is involved in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is involved in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_688C693F-1E37-4314-BF9F-9D51676C227F" />
+							<orm:Role ref="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_79E6C3A3-9B78-4B73-AF8B-5B90A93E161F">
+						<orm:Readings>
+							<orm:Reading id="_CA2860DA-0D49-4C1A-AE70-C45619897E99">
+								<orm:Data>{0} involves {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" involves " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" />
+							<orm:Role ref="_688C693F-1E37-4314-BF9F-9D51676C227F" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_9417D6DD-CF18-4235-BF49-6878F5109D0F" />
+					<orm:UniquenessConstraint ref="_D43B974E-DA06-4DFC-A783-5BB0E13DAAA2" />
+				</orm:InternalConstraints>
+				<orm:ImpliedByObjectification ref="_B40A6F75-D6BA-429D-917F-A3AD13D4D444" />
+			</orm:ImpliedFact>
+			<orm:ImpliedFact id="_416D2470-5873-47AC-A691-D43EA9C3CDC6" _Name="ClassroomIsInvolvedInPersonReservesClassroomForDateAtHourSlot">
+				<orm:FactRoles>
+					<orm:RoleProxy id="_4260E00A-5458-427D-85DD-E59DA4F9C7B3">
+						<orm:Role ref="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" />
+					</orm:RoleProxy>
+					<orm:Role id="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_58F91683-040A-4B24-B332-D76D0E9BC6EB">
+						<orm:Readings>
+							<orm:Reading id="_76D993E2-7845-46D0-A5A6-958239F61880">
+								<orm:Data>{0} is involved in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is involved in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_4260E00A-5458-427D-85DD-E59DA4F9C7B3" />
+							<orm:Role ref="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_F205DA91-2960-452E-AB57-4426A9298118">
+						<orm:Readings>
+							<orm:Reading id="_BD4B4D9E-25F4-4079-8092-8AA1617AE482">
+								<orm:Data>{0} involves {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" involves " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" />
+							<orm:Role ref="_4260E00A-5458-427D-85DD-E59DA4F9C7B3" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_03EC1AE1-3ECE-42F3-B3FA-3CAAF5B0FBD4" />
+					<orm:UniquenessConstraint ref="_E1E60EC5-5F03-4142-BD0F-290DF27715CF" />
+				</orm:InternalConstraints>
+				<orm:ImpliedByObjectification ref="_B40A6F75-D6BA-429D-917F-A3AD13D4D444" />
+			</orm:ImpliedFact>
+			<orm:ImpliedFact id="_E291F073-3BAA-47AD-93BB-DC788E77C075" _Name="DateIsInvolvedInPersonReservesClassroomForDateAtHourSlot">
+				<orm:FactRoles>
+					<orm:RoleProxy id="_73F006A2-23E4-4D7A-9656-CCCBB3700857">
+						<orm:Role ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+					</orm:RoleProxy>
+					<orm:Role id="_6132D621-0184-43CA-AB82-9827C610378E" _IsMandatory="true" _Multiplicity="Indeterminate" Name="">
+						<orm:RolePlayer ref="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_3444DB1B-27D5-4E59-A7DD-877318E099EE">
+						<orm:Readings>
+							<orm:Reading id="_0CDFBE46-AF7D-405C-B317-0504BB0C429B">
+								<orm:Data>{0} is involved in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is involved in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_73F006A2-23E4-4D7A-9656-CCCBB3700857" />
+							<orm:Role ref="_6132D621-0184-43CA-AB82-9827C610378E" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_8D1FBC29-094F-426A-AF76-890D62525D0F">
+						<orm:Readings>
+							<orm:Reading id="_84250EA4-3691-45FF-BC6E-DB28156CBCA8">
+								<orm:Data>{0} involves {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" involves " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_6132D621-0184-43CA-AB82-9827C610378E" />
+							<orm:Role ref="_73F006A2-23E4-4D7A-9656-CCCBB3700857" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_D3F115A0-9439-459F-9589-7D659C7B20BB" />
+					<orm:UniquenessConstraint ref="_55012EFE-2558-4F8F-AAEC-8A4E92A4C696" />
+				</orm:InternalConstraints>
+				<orm:ImpliedByObjectification ref="_B40A6F75-D6BA-429D-917F-A3AD13D4D444" />
+			</orm:ImpliedFact>
+			<orm:ImpliedFact id="_50B2D8C4-248A-4820-88AE-AFE9DC4FD309" _Name="HourSlotIsInvolvedInPersonReservesClassroomForDateAtHourSlot">
+				<orm:FactRoles>
+					<orm:RoleProxy id="_6C18325D-7DFF-45DC-8616-2595C7C714DF">
+						<orm:Role ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+					</orm:RoleProxy>
+					<orm:Role id="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" _IsMandatory="true" _Multiplicity="Indeterminate" Name="">
+						<orm:RolePlayer ref="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_902CD724-1960-477A-92A2-F27C822B305A">
+						<orm:Readings>
+							<orm:Reading id="_CB7B46B3-85ED-401D-B1E8-3C6434FB995C">
+								<orm:Data>{0} is involved in {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is involved in " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_6C18325D-7DFF-45DC-8616-2595C7C714DF" />
+							<orm:Role ref="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_AE2E8C87-785D-4163-BAB5-6A2645343A2F">
+						<orm:Readings>
+							<orm:Reading id="_65F0EF0A-3C4A-490C-8A72-C61C3B231026">
+								<orm:Data>{0} involves {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" involves " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" />
+							<orm:Role ref="_6C18325D-7DFF-45DC-8616-2595C7C714DF" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_34E6D88C-5A01-4B23-9696-43BBE25D2482" />
+					<orm:UniquenessConstraint ref="_D7D06054-D275-4B37-81BA-5E431EB14EC7" />
+				</orm:InternalConstraints>
+				<orm:ImpliedByObjectification ref="_B40A6F75-D6BA-429D-917F-A3AD13D4D444" />
+			</orm:ImpliedFact>
+			<orm:SubtypeFact id="_89342E6C-D8D3-469F-A8E3-12040BF5DD11" _Name="SecurityIsASubtypeOfPerson" PreferredIdentificationPath="true">
+				<orm:FactRoles>
+					<orm:SubtypeMetaRole id="_DF85D09F-AA5A-49CB-9CE3-72EE386E6AF1" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" />
+					</orm:SubtypeMetaRole>
+					<orm:SupertypeMetaRole id="_1F7D919F-5283-473E-B428-F0D580CF7B48" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:SupertypeMetaRole>
+				</orm:FactRoles>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_CB1C571C-6F8E-4725-9D47-A1E1DBF185AF" />
+					<orm:UniquenessConstraint ref="_AE79A6F4-F71B-4478-8200-BEFEFDC43D1F" />
+					<orm:UniquenessConstraint ref="_C7FDAB7B-A699-47E6-BE1F-99335309060E" />
+				</orm:InternalConstraints>
+			</orm:SubtypeFact>
+			<orm:Fact id="_5C8D6286-151B-4DDA-BD13-E3E95ABCE617" _Name="SecurityIsOnContract">
+				<orm:FactRoles>
+					<orm:Role id="_39310088-EA95-4773-B1E1-7A0021BD2A47" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" />
+					</orm:Role>
+					<orm:Role id="_A97D3BA1-8D4F-434C-ADF7-FA7FAFC01623" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_4566BF96-196C-404E-9F48-D09D07C86EAB">
+						<orm:Readings>
+							<orm:Reading id="_414416D0-9027-4CA4-91B9-101E15207A5D">
+								<orm:Data>{0} is on {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is on " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_39310088-EA95-4773-B1E1-7A0021BD2A47" />
+							<orm:Role ref="_A97D3BA1-8D4F-434C-ADF7-FA7FAFC01623" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_A53E1FFA-DE5B-4688-AF12-0B2697E03860" />
+					<orm:UniquenessConstraint ref="_EC08C932-54E9-4CF3-9799-D78E4F35067D" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_9ADF9D34-8644-472D-A4B8-ED00F7D40A6F" _Name="CompanyHasCompanyName">
+				<orm:FactRoles>
+					<orm:Role id="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+						<orm:RolePlayer ref="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" />
+					</orm:Role>
+					<orm:Role id="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_2A320773-FBA6-4732-AE34-5877D8DDE46E" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_47BDF417-B933-47C5-8132-3728BEADD5B0">
+						<orm:Readings>
+							<orm:Reading id="_9BD72F98-DB37-4D86-93A4-420E93FE2337">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" />
+							<orm:Role ref="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+					<orm:ReadingOrder id="_939961F5-112C-4444-9B28-72EAE9C34138">
+						<orm:Readings>
+							<orm:Reading id="_171A1C97-79AC-4E6A-8E8C-72A3772939B9">
+								<orm:Data>{0} is of {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is of " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" />
+							<orm:Role ref="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:UniquenessConstraint ref="_253D047E-3325-4D2B-99F6-4E598DAF8535" />
+					<orm:UniquenessConstraint ref="_8EA5C3CB-841A-40A0-9BD5-A6E56DF766DB" />
+					<orm:MandatoryConstraint ref="_76D2A9EF-2EA4-45A0-8719-A41F1586F8BA" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_02517191-5F23-4B09-8D93-A5018CE3F169" _Name="ContractIsWithCompany">
+				<orm:FactRoles>
+					<orm:Role id="_C85DC4A5-4890-440B-9099-75A74E1B5319" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+					</orm:Role>
+					<orm:Role id="_4A7061FF-26E4-4C46-8754-D1F47C012A3E" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_9239012B-D5D5-452A-B8EC-D9ABE6289A6E">
+						<orm:Readings>
+							<orm:Reading id="_9DD2034D-6068-4FBE-8B80-989372DDFA90">
+								<orm:Data>{0} is with {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" is with " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_C85DC4A5-4890-440B-9099-75A74E1B5319" />
+							<orm:Role ref="_4A7061FF-26E4-4C46-8754-D1F47C012A3E" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_BC54B279-4D30-40F0-ACE9-A2FA63CB7313" />
+					<orm:UniquenessConstraint ref="_36F4760F-F85A-4FAC-8451-1A53A55D0E44" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+			<orm:Fact id="_7EEAA6A8-019F-4C44-8874-22E36BFB24DD" _Name="PersonHasDateOfBirth">
+				<orm:FactRoles>
+					<orm:Role id="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" _IsMandatory="true" _Multiplicity="ZeroToMany" Name="">
+						<orm:RolePlayer ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+					</orm:Role>
+					<orm:Role id="_8FD4058F-BC92-4CD0-B85C-5BE5FADAFB52" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">
+						<orm:RolePlayer ref="_DF24AA2C-4F71-46C5-9395-D3D0400F5B78" />
+					</orm:Role>
+				</orm:FactRoles>
+				<orm:ReadingOrders>
+					<orm:ReadingOrder id="_E1582A6A-0937-47B1-A14A-E03DAEBC8C63">
+						<orm:Readings>
+							<orm:Reading id="_DF69A2DC-ED5C-4128-AD0D-F943FB4F45BC">
+								<orm:Data>{0} has {1}</orm:Data>
+								<orm:ExpandedData>
+									<orm:RoleText RoleIndex="0" FollowingText=" has " />
+								</orm:ExpandedData>
+							</orm:Reading>
+						</orm:Readings>
+						<orm:RoleSequence>
+							<orm:Role ref="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" />
+							<orm:Role ref="_8FD4058F-BC92-4CD0-B85C-5BE5FADAFB52" />
+						</orm:RoleSequence>
+					</orm:ReadingOrder>
+				</orm:ReadingOrders>
+				<orm:InternalConstraints>
+					<orm:MandatoryConstraint ref="_E4FCA463-5883-4BEA-8203-212663FF65FB" />
+					<orm:UniquenessConstraint ref="_70E7CF0D-DA68-4EC7-9A0F-9DD93E645E8A" />
+				</orm:InternalConstraints>
+			</orm:Fact>
+		</orm:Facts>
+		<orm:Constraints>
+			<orm:UniquenessConstraint id="_5B5A8BE7-9B4C-4E1F-A76B-0929C44A9026" Name="InternalUniquenessConstraint3" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_6A6E9593-CBFF-45E7-9284-9359CF1CE44B" ref="_46B6BA18-9362-460D-8C58-F2D88CBC7116" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_58A74D92-4129-4FEA-9543-C42DAFE1EADD" Name="InternalUniquenessConstraint4" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_0DED1A4D-7846-4D2A-9C43-2B5D9B5A6F02" ref="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_2490FC09-D363-4D9F-849C-C4F5675A1E31" Name="SimpleMandatoryConstraint2" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_34681788-06FB-4F8C-92CE-0052D53D8A2C" ref="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_D41315CC-7D33-4E97-824B-B0930E0FF7AC" Name="ImpliedMandatoryConstraint2" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_55794CDE-12D8-4810-80AF-F48996436FAE" ref="_46B6BA18-9362-460D-8C58-F2D88CBC7116" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_527C0B57-C22B-4D8F-8682-DA14C52BB1A4" />
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_C0F3A091-192D-450F-A2DB-4C3B4E9BD28B" Name="InternalUniquenessConstraint17" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_D298A5DA-5BFA-4EAD-938C-3F5216F48251" ref="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_03216558-4E21-4C52-B9E1-4AFEC10BD3DD" Name="InternalUniquenessConstraint18" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_2D3E4902-31DA-4A47-AC6F-BC642B5F7285" ref="_BDA6E87A-873F-45FC-BD43-D71C11425167" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_EDE3CAB3-97D5-4C91-AF68-5FC27CAFA372" Name="SimpleMandatoryConstraint13" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_9D5AB23E-5D85-43BA-ADC4-7D3C5CC29671" ref="_BDA6E87A-873F-45FC-BD43-D71C11425167" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_B4D0733D-193E-487D-94D3-3052F3E48E13" Name="ImpliedMandatoryConstraint8" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_E3E681CC-BC78-437F-A559-8405F6A3C6AD" ref="_1C0A7F72-AF5A-490C-AC7C-7095D502E3D7" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_D37F43F2-606A-4213-B956-29294B7F5BFB" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_9B6E89D7-D83F-4484-B150-5DE0B357BEF0" Name="SimpleMandatoryConstraint5" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_B6D887FF-BF52-4CE7-BC28-400ABE029948" ref="_C08A3386-A833-4F46-BCA8-9498AF5AF914" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_ADDC3843-14AE-4BBE-A39F-2A43EB826D39" Name="InternalUniquenessConstraint24" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_65BE1D21-4323-4069-AEC5-7F49AC727FB1" ref="_C08A3386-A833-4F46-BCA8-9498AF5AF914" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_18DDC5AE-C74C-4406-AADB-B1F47D32DFB3" Name="InternalUniquenessConstraint25" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_EF2F6A17-1F9F-4BDB-B3FA-914782CFAD06" ref="_83A8D3EF-0034-4671-80BB-0F6DEECFAE34" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_DB7CC669-7444-45DC-B217-48C832ADC2D0" Name="SimpleMandatoryConstraint17" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_08D076A1-9392-4F3E-ACA7-E4CD85EC2EC4" ref="_9937FE66-27B0-4119-B13E-A2D9EC4B1FB7" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_CB4E26B8-8A8C-4800-B8FC-91112DD34476" Name="InternalUniquenessConstraint26" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_FC65F1DE-F828-4E9A-A0C4-1942957AA211" ref="_9937FE66-27B0-4119-B13E-A2D9EC4B1FB7" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_A486E08A-1227-411D-93C2-6A1702EEEBFA" Name="InternalUniquenessConstraint27" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_D153D46F-A440-47D7-B0DC-B8854FE38F0B" ref="_BC46E811-FC2C-4D89-AAB8-3CE558BDF4B5" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_BF8B4B60-6B74-4A39-AF88-7FAD07E366DE" Name="ImpliedMandatoryConstraint4" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_30EC5479-39C5-4FBC-AF6A-AA2ED84B4450" ref="_8E1634AA-2620-4EB7-BFB6-9DABE257EEC8" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_CFB6C23F-B5FF-4F21-A8FC-889D27769836" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_6E58A12D-A82A-44C6-A1AA-052A438AFFC9" Name="SimpleMandatoryConstraint1" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_F170B482-CDA2-4B8D-AA56-2B1302B4266F" ref="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_0DBEA223-B3CD-43B7-9538-D826B70A3AA4" Name="InternalUniquenessConstraint1" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_C16EBDFA-E918-4CBB-9796-0B0839F1A5FE" ref="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_07E2F2D8-94B9-4DED-8F7F-E6FBB94153E8" Name="ImpliedMandatoryConstraint9" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_27D890AA-EEAA-4811-893C-1C4CFB57AAB9" ref="_C379E219-3AD7-4422-BC08-2D6D41BB0FD9" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_811170D1-5C87-47EC-916E-A18997EBEF42" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_DA37A573-4677-4E3A-8246-4224DE218D56" Name="SimpleMandatoryConstraint4" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_E84637FF-1502-4E28-A14E-AA834DCB7728" ref="_61163A5B-CD3E-4E29-8431-7ECD020A1261" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_B71EE05C-6B1F-4837-9618-AF354DF30781" Name="InternalUniquenessConstraint2" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_F233C579-53CA-43F3-8176-5B5FA5CDAF7B" ref="_61163A5B-CD3E-4E29-8431-7ECD020A1261" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_76307973-C538-4031-AE33-E8369E347545" Name="InternalUniquenessConstraint23" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_53CC5BD6-0A34-49F6-B505-ADDC58259CF0" ref="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_1B15D620-5933-4140-8393-67F93AFBD07F" Name="InternalUniquenessConstraint28" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_87A8E37D-BA38-485F-9963-28761E9BA2AD" ref="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_C3D48AC5-118E-4108-9E6B-E1B3631BF2F7" Name="SimpleMandatoryConstraint19" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_FB144432-3282-471B-B762-171D2758DE12" ref="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_0DA3DD52-AC5E-48DD-BA8B-3E13D5916E09" Name="ImpliedMandatoryConstraint10" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_68145AE4-322B-42E4-A319-6A57B36CC8AB" ref="_1E2E0CFE-C025-4E45-8B5F-C1DD6F5D40FA" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_8F7FC6CC-FBAA-4A54-BF8C-856E3EA09FD7" Name="ImpliedMandatoryConstraint11" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_25B48ADB-DC93-4524-B402-BFE45DBB06D6" ref="_26BD74A3-746E-49FA-A63D-7C5D85B8700D" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_9AB440AA-A75F-4E26-B9CB-47892E458CD8" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_F697AE13-D1AA-44D5-A3DB-8F45693D6EA1" Name="SimpleMandatoryConstraint20" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_5EC04479-04DC-470A-8770-3F726EE8DCAE" ref="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_0E70F5CD-FB88-4325-901F-50D49D8DD34D" Name="InternalUniquenessConstraint29" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_2CE1C1AB-8222-45BB-942D-701918F2A402" ref="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_38EEC5D6-C3F6-45BC-B139-10E70355FC58" Name="InternalUniquenessConstraint30" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_AFB0D640-2625-476C-977C-D2A5834AD010" ref="_F624CB9A-3497-4D87-BF4D-82ACFD757466" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_E85025DD-CDCB-460A-B823-BC13C46C2065" Name="InternalUniquenessConstraint31" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_118D0C34-F731-4368-BF81-DBE506837C46" ref="_5CF94A5C-3342-4339-B659-336C918FB90E" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_90981EB4-7E19-4DDD-B58A-D0FD904CA44D" Name="SimpleMandatoryConstraint21" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_154C8218-A5BB-4A0B-B46B-A134DC1C471B" ref="_5CF94A5C-3342-4339-B659-336C918FB90E" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_F696A14E-534E-40E8-ADD2-6CCDABBC4660" Name="ImpliedMandatoryConstraint13" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_848CEC1E-CAC6-46B9-A886-B67DD58CD02D" ref="_F624CB9A-3497-4D87-BF4D-82ACFD757466" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_2B607CAB-D429-4C70-A0D5-52AB37252150" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_CD0D44B1-0AD1-454A-A9FE-C563AF434206" Name="SimpleMandatoryConstraint22" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_2DC0E91F-72A0-4D08-9093-5701B2392346" ref="_F63F09FE-D958-4CCB-9937-58F5B07025DF" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_D1D1E1BA-3846-4E1D-ABF5-3106B12AF57F" Name="InternalUniquenessConstraint32" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_9A6D18E4-9354-4EC1-938B-2814F83F0B2C" ref="_F63F09FE-D958-4CCB-9937-58F5B07025DF" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_1928E583-DFBE-4AFA-86F3-331AF35ABC5D" Name="ImpliedMandatoryConstraint3" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_787DCFF9-E340-4A2A-A222-4D25CA37A4B5" ref="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_9417D6DD-CF18-4235-BF49-6878F5109D0F" Name="SimpleMandatoryConstraint6" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_85E93776-DD32-426B-A92B-C0A43C223D33" ref="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_D43B974E-DA06-4DFC-A783-5BB0E13DAAA2" Name="InternalUniquenessConstraint7" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_F0559B8E-9703-4658-894C-32D879BFD2DB" ref="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_03EC1AE1-3ECE-42F3-B3FA-3CAAF5B0FBD4" Name="SimpleMandatoryConstraint7" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_77F6A61E-F3FF-4D67-A71E-E332F6ACDCAC" ref="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_E1E60EC5-5F03-4142-BD0F-290DF27715CF" Name="InternalUniquenessConstraint8" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_31B65EFA-77D4-42F2-AB27-4CE10AF93CBF" ref="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_D3F115A0-9439-459F-9589-7D659C7B20BB" Name="SimpleMandatoryConstraint8" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_B5832E6A-BAED-4E46-BDE3-F847C9119DCB" ref="_6132D621-0184-43CA-AB82-9827C610378E" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_55012EFE-2558-4F8F-AAEC-8A4E92A4C696" Name="InternalUniquenessConstraint9" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_D36AE18F-D91C-4211-AE1A-E80C1E5878FC" ref="_6132D621-0184-43CA-AB82-9827C610378E" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_34E6D88C-5A01-4B23-9696-43BBE25D2482" Name="SimpleMandatoryConstraint9" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_FC0A16C3-F8BA-4C05-A17F-E97C2944E5E7" ref="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_D7D06054-D275-4B37-81BA-5E431EB14EC7" Name="InternalUniquenessConstraint10" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_0C21EC11-F9FE-4988-A257-8CD0F8D79F0E" ref="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_8F133E64-F9A9-4255-8371-5727B7A24138" Name="ImpliedMandatoryConstraint5" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_C562E114-1754-41B4-9166-5D092C1EEFC4" ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_4863F567-1AFA-4719-A085-AE0C2ACF0E8E" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_6807B10A-E2B9-4AF8-8E98-9633A23CA0C3" Name="ImpliedMandatoryConstraint6" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_7780F69D-7064-4A3A-A8E0-6DC2F61B664D" ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_B318E50F-67ED-42D0-AE6D-785E4B54B0B7" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_CB1C571C-6F8E-4725-9D47-A1E1DBF185AF" Name="SimpleMandatoryConstraint3" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_96E5A140-A14C-47AA-905A-F56897758CD4" ref="_DF85D09F-AA5A-49CB-9CE3-72EE386E6AF1" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_AE79A6F4-F71B-4478-8200-BEFEFDC43D1F" Name="InternalUniquenessConstraint5" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_8308370C-0D16-4562-BE5E-C3BAEA43F608" ref="_DF85D09F-AA5A-49CB-9CE3-72EE386E6AF1" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_C7FDAB7B-A699-47E6-BE1F-99335309060E" Name="InternalUniquenessConstraint6" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_2399A0C8-694F-4C8D-A589-828AC2C55668" ref="_1F7D919F-5283-473E-B428-F0D580CF7B48" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_A53E1FFA-DE5B-4688-AF12-0B2697E03860" Name="SimpleMandatoryConstraint10" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_96CEEFDF-C97D-489C-A773-E1E88CF86B7C" ref="_39310088-EA95-4773-B1E1-7A0021BD2A47" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_EC08C932-54E9-4CF3-9799-D78E4F35067D" Name="InternalUniquenessConstraint12" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_3B49FC85-F1D6-4913-948B-442484E22468" ref="_39310088-EA95-4773-B1E1-7A0021BD2A47" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_253D047E-3325-4D2B-99F6-4E598DAF8535" Name="InternalUniquenessConstraint13" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_B6BCADE0-AB4C-4AAA-B752-466706AF7B7C" ref="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_8EA5C3CB-841A-40A0-9BD5-A6E56DF766DB" Name="InternalUniquenessConstraint14" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_C3474CD1-CD70-4D5F-9AAD-4B5B60099781" ref="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_76D2A9EF-2EA4-45A0-8719-A41F1586F8BA" Name="SimpleMandatoryConstraint11" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_CA42AB30-001E-4E15-9C72-9D37AF452C42" ref="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_6D4C17AE-DE22-4294-B059-4180A5768C40" Name="ImpliedMandatoryConstraint1" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_DD2514B2-C25C-403D-A907-32E1C613754B" ref="_7EEFBD60-F60E-469C-BB70-83D1CC92AD89" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_2A320773-FBA6-4732-AE34-5877D8DDE46E" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_328CAFF7-6120-4768-B646-B5A50F027399" Name="ImpliedMandatoryConstraint7" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_7B7C2BA4-A76D-474C-BE80-FCB96ABF4A09" ref="_4A7061FF-26E4-4C46-8754-D1F47C012A3E" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_BC54B279-4D30-40F0-ACE9-A2FA63CB7313" Name="SimpleMandatoryConstraint12" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_34E18F56-7843-43F9-B89F-555CE2F47F36" ref="_C85DC4A5-4890-440B-9099-75A74E1B5319" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_36F4760F-F85A-4FAC-8451-1A53A55D0E44" Name="InternalUniquenessConstraint15" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_F5639EB0-5CF3-40DD-AB81-65D97571125E" ref="_C85DC4A5-4890-440B-9099-75A74E1B5319" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:MandatoryConstraint id="_B2B2ECF9-A92C-462C-8E40-DE7CECAA28A2" Name="ImpliedMandatoryConstraint12" IsImplied="true">
+				<orm:RoleSequence>
+					<orm:Role id="_C57E596C-2A71-4CB8-A425-EF42DA823630" ref="_8FD4058F-BC92-4CD0-B85C-5BE5FADAFB52" />
+				</orm:RoleSequence>
+				<orm:ImpliedByObjectType ref="_DF24AA2C-4F71-46C5-9395-D3D0400F5B78" />
+			</orm:MandatoryConstraint>
+			<orm:MandatoryConstraint id="_E4FCA463-5883-4BEA-8203-212663FF65FB" Name="SimpleMandatoryConstraint14" IsSimple="true">
+				<orm:RoleSequence>
+					<orm:Role id="_063144F1-902B-47A2-86DC-B9F40277B01C" ref="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" />
+				</orm:RoleSequence>
+			</orm:MandatoryConstraint>
+			<orm:UniquenessConstraint id="_70E7CF0D-DA68-4EC7-9A0F-9DD93E645E8A" Name="InternalUniquenessConstraint16" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_E94114CE-D7F2-40EC-AF26-95C9F5198291" ref="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_392A48BF-BB67-4E70-B74C-2E0A310CD385" Name="InternalUniquenessConstraint11" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_9EBA895A-BCB0-41B2-9F1D-2E26BC917E29" ref="_DE7D1F78-4B5C-4552-A9C2-741AEE50F902" />
+					<orm:Role id="_56C3D465-7EDE-4001-AC85-2867DBCBFBC7" ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+					<orm:Role id="_13FA305A-DE65-4927-AC98-A87BEC636BE7" ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+				</orm:RoleSequence>
+				<orm:PreferredIdentifierFor ref="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+			</orm:UniquenessConstraint>
+			<orm:UniquenessConstraint id="_80830E16-D336-488B-88C1-687B54BA19E5" Name="InternalUniquenessConstraint19" IsInternal="true">
+				<orm:RoleSequence>
+					<orm:Role id="_5F48A327-B994-4BE9-9B50-CCAE878456BB" ref="_A92369A9-3BCC-48C4-91B9-4E608887FD54" />
+					<orm:Role id="_3E258C51-8C0C-4346-9169-EAE3D8F41E56" ref="_F6548ECF-50C4-4F51-9372-A6B1236D55FF" />
+					<orm:Role id="_D83BA3F0-855F-49C6-AB22-4733A7939E6A" ref="_12AFEE0F-F458-40A4-BED7-9C951890FD99" />
+				</orm:RoleSequence>
+			</orm:UniquenessConstraint>
+			<orm:ExclusionConstraint id="_D8E97D5F-71E8-4A38-9C8A-DAF95E5B72D5" Name="ExclusionConstraint1">
+				<orm:RoleSequences>
+					<orm:RoleSequence id="_37AE6DB8-97E0-44A0-BCAA-F57B03424036">
+						<orm:Role id="_D2160CE9-BF88-4C26-A8A0-C410B796F1D8" ref="_1F7D919F-5283-473E-B428-F0D580CF7B48" />
+					</orm:RoleSequence>
+					<orm:RoleSequence id="_79CD1AE3-6AD3-45FD-B18E-6DF419724C76">
+						<orm:Role id="_7927DFD1-D9DA-479A-ABFA-68EB7CE3F458" ref="_BC46E811-FC2C-4D89-AAB8-3CE558BDF4B5" />
+					</orm:RoleSequence>
+					<orm:RoleSequence id="_07DF48D9-EB9A-4EE1-BB7F-E8616109D562">
+						<orm:Role id="_EB8C0991-6AA1-407E-A086-F10E71C0B667" ref="_83A8D3EF-0034-4671-80BB-0F6DEECFAE34" />
+					</orm:RoleSequence>
+				</orm:RoleSequences>
+			</orm:ExclusionConstraint>
+		</orm:Constraints>
+		<orm:DataTypes>
+			<orm:FixedLengthTextDataType id="_C595DF65-7A3D-4230-B564-5B15E7ECEC4A" />
+			<orm:VariableLengthTextDataType id="_381DE95D-9564-474C-BD7A-C7E750A06330" />
+			<orm:SignedIntegerNumericDataType id="_09D6A808-770A-4621-AACF-9F4ABCA3C9E3" />
+			<orm:SignedSmallIntegerNumericDataType id="_2A33202E-B98B-4975-AB7A-0A695B812856" />
+			<orm:DateTemporalDataType id="_149F0C5D-2841-4B29-A6A5-591B24F95F54" />
+		</orm:DataTypes>
+		<orm:CustomReferenceModes>
+			<orm:CustomReferenceMode id="_4ECA9C59-C07E-4ECE-AF3F-1476F03675AF" Name="hours">
+				<orm:CustomFormatString />
+				<orm:Kind ref="_10498AF0-CC34-4D9A-A1E2-7B08021BDF74" />
+			</orm:CustomReferenceMode>
+			<orm:CustomReferenceMode id="_43A4759E-C5F4-43E6-960E-58FFBAED21EC" Name="minutes">
+				<orm:CustomFormatString />
+				<orm:Kind ref="_10498AF0-CC34-4D9A-A1E2-7B08021BDF74" />
+			</orm:CustomReferenceMode>
+			<orm:CustomReferenceMode id="_86F6745A-C22D-4837-85FC-A2339D1A45C9" Name="EmpNr">
+				<orm:CustomFormatString />
+				<orm:Kind ref="_10498AF0-CC34-4D9A-A1E2-7B08021BDF74" />
+			</orm:CustomReferenceMode>
+		</orm:CustomReferenceModes>
+		<orm:ModelNotes>
+			<orm:ModelNote id="_BF5FCFEC-4A20-41A0-8CDA-FE8E01A3EC3B">
+				<orm:Text>Assumption: There are ten classrooms</orm:Text>
+			</orm:ModelNote>
+			<orm:ModelNote id="_B775DA7A-9711-4B7D-A32D-163352DC7BAF">
+				<orm:Text>Assumption: There are five faculties</orm:Text>
+			</orm:ModelNote>
+			<orm:ModelNote id="_6CFD8D6E-FEAA-4B46-B6B3-878061F5FEA4">
+				<orm:Text>Classrooms are closed between 2200 and 0600</orm:Text>
+			</orm:ModelNote>
+		</orm:ModelNotes>
+		<orm:ReferenceModeKinds>
+			<orm:ReferenceModeKind id="_908A9E53-5B24-4AF6-A9D4-0C13C8E3F512" FormatString="{1}" ReferenceModeType="General" />
+			<orm:ReferenceModeKind id="_10498AF0-CC34-4D9A-A1E2-7B08021BDF74" FormatString="{0}_{1}" ReferenceModeType="Popular" />
+			<orm:ReferenceModeKind id="_6547FD24-45F6-495F-A028-31EDE93F122A" FormatString="{1}Value" ReferenceModeType="UnitBased" />
+		</orm:ReferenceModeKinds>
+	</orm:ORMModel>
+	<orm:NameGenerator id="_BA66309C-B041-4FB0-A7EE-4B95D917EE7F" AutomaticallyShortenNames="true" UseTargetDefaultMaximum="true" UserDefinedMaximum="128">
+		<orm:Refinements>
+			<oialtocdb:RelationalNameGenerator id="_7ED7F614-8B0A-40A9-B4A6-ABA4DB40B401" SpacingFormat="Remove" AutomaticallyShortenNames="true" UseTargetDefaultMaximum="true" UserDefinedMaximum="128">
+				<orm:Refinements>
+					<oialtocdb:RelationalNameGenerator id="_F4E461E4-2502-4989-A468-742EE403B2C9" NameUsage="RelationalTable" CasingOption="Pascal" SpacingFormat="Remove" AutomaticallyShortenNames="true" UseTargetDefaultMaximum="true" UserDefinedMaximum="128" />
+					<oialtocdb:RelationalNameGenerator id="_B1927F8D-7B8A-41FB-8919-DE6BEE2914AA" NameUsage="RelationalColumn" CasingOption="Camel" SpacingFormat="Remove" AutomaticallyShortenNames="true" UseTargetDefaultMaximum="true" UserDefinedMaximum="128" />
+				</orm:Refinements>
+			</oialtocdb:RelationalNameGenerator>
+		</orm:Refinements>
+	</orm:NameGenerator>
+	<orm:GenerationState id="_87BEA489-6A09-4F19-8678-03AE89F9C7F1">
+		<orm:GenerationSettings>
+			<ormtooial:AbstractionModelGenerationSetting id="_CD693F3F-B9A7-48FD-A76B-7AD281EAEC8A" AlgorithmVersion="1.009">
+				<ormtooial:AbstractionModel ref="_71DCCAA1-D360-483B-ABB0-FACEAC3A47A4" />
+			</ormtooial:AbstractionModelGenerationSetting>
+			<oialtocdb:SchemaGenerationSetting id="_4BEC3875-6A3D-430B-9C05-9F4A2D66613C" CoreAlgorithmVersion="1.004" NameAlgorithmVersion="1.014">
+				<oialtocdb:Schema ref="_3DF1BD89-9790-4EF8-8CF2-83ABC3ED90F5" />
+			</oialtocdb:SchemaGenerationSetting>
+		</orm:GenerationSettings>
+	</orm:GenerationState>
+	<ormDiagram:ORMDiagram id="_8BFC1A00-C137-495E-855F-E789CA5776C8" IsCompleteView="false" Name="Booking" BaseFontName="Tahoma" BaseFontSize="0.0972222238779068">
+		<ormDiagram:Shapes>
+			<ormDiagram:ObjectTypeShape id="_1EDB953B-FB17-470B-99BD-5A097D1CED4B" IsExpanded="true" AbsoluteBounds="2.3519838812761011, 4.4659212468241662, 0.55287938833236694, 0.22950302660465241">
+				<ormDiagram:Subject ref="_40DAC349-DF28-4620-8B0E-64F7F1B58081" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ObjectTypeShape id="_F68E4FA0-DAEB-4F32-B42C-1FFE1EB0D2CD" IsExpanded="true" AbsoluteBounds="4.2064565651801722, 2.6315488362606958, 0.67511921644210815, 0.35900605320930479">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:CardinalityConstraintShape id="_96580BCB-6E9F-48D0-96A0-A8683E7B6F3C" IsExpanded="true" AbsoluteBounds="4.94157578162228, 2.6315488362606958, 0.33000802993774414, 0.12950302660465241">
+						<ormDiagram:Subject ref="_79770709-34B1-4C54-83D7-263D23FBC396" />
+					</ormDiagram:CardinalityConstraintShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_3E93B172-E763-4470-B3D6-3BCABA75E5D8" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ModelNoteShape id="_DA5EBC84-2B6A-4443-AA9C-6654C0ED6DEE" IsExpanded="true" AbsoluteBounds="4.9697620493980734, 2.8432547391032186, 1.7399098033905029, 0.14150302660465242">
+				<ormDiagram:Subject ref="_BF5FCFEC-4A20-41A0-8CDA-FE8E01A3EC3B" />
+			</ormDiagram:ModelNoteShape>
+			<ormDiagram:ObjectTypeShape id="_92E63C8E-CD9C-4CF2-9F3E-3E52A330EDE3" IsExpanded="true" AbsoluteBounds="0.76428443519398614, 2.1145142450429919, 0.61539974331855773, 0.35900605320930479">
+				<ormDiagram:Subject ref="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ObjectTypeShape id="_D2F5B623-086C-4A0E-892A-A0D81320EB9E" IsExpanded="true" AbsoluteBounds="1.3379928328077406, 4.4659212468241671, 0.53583701968193054, 0.22950302660465241">
+				<ormDiagram:Subject ref="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ObjectTypeShape id="_C471A769-BF3F-4DEE-982D-4E598DB2C8C5" IsExpanded="true" AbsoluteBounds="3.0507263947328553, 1.2755262645271916, 0.66951757192611694, 0.22950302660465241">
+				<ormDiagram:Subject ref="_CFB6C23F-B5FF-4F21-A8FC-889D27769836" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_6D94E92C-04D5-471A-BD8D-556BAD4E6ABD" IsExpanded="true" AbsoluteBounds="2.407727566357349, 1.2333333333333332, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_D27ECD8D-7C87-4B53-BA76-1B495E581513" IsExpanded="true" AbsoluteBounds="2.407727566357349, 1.5419737356280288, 0.18545643985271454, 0.12950302660465241">
+						<ormDiagram:Subject ref="_DA3A4D84-357B-44FD-B7C4-5BD7C15AF6F5" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_9FBF8D83-4C6C-42A9-B238-D59E57FB5AE9" />
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_931555C1-B88D-456C-A237-08C194DC9FE6" IsExpanded="true" AbsoluteBounds="3.0580370534261689, 1.7542657583453176, 0.65489625453948974, 0.22950302660465241">
+				<ormDiagram:Subject ref="_811170D1-5C87-47EC-916E-A18997EBEF42" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_C2B06C8E-4C0C-40E5-A5CA-937C8F95E6E7" IsExpanded="true" AbsoluteBounds="2.407727566357349, 1.7120728271514589, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_34C5830D-4150-457C-A2D5-EA90F616E152" IsExpanded="true" AbsoluteBounds="2.407727566357349, 2.0207132294461534, 0.18545643985271454, 0.12950302660465241">
+						<ormDiagram:Subject ref="_59CEA040-3A98-4371-9543-718246812E7B" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_43CEB1E5-FAA6-46FE-AB49-3274EB16FF06" />
+				<ormDiagram:RoleDisplayOrder>
+					<ormDiagram:Role ref="_61163A5B-CD3E-4E29-8431-7ECD020A1261" />
+					<ormDiagram:Role ref="_C379E219-3AD7-4422-BC08-2D6D41BB0FD9" />
+				</ormDiagram:RoleDisplayOrder>
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_163E129B-5C45-4FC1-9884-16728BFB0138" IsExpanded="true" AbsoluteBounds="3.8607491251160324, 4.40116973352184, 0.55363896012306213, 0.35900605320930479">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ValueConstraintShape id="_74BC6034-2CC2-4F15-A988-A9C232BACAD3" IsExpanded="true" AbsoluteBounds="4.4743880852390951, 4.2716667069171876, 1.7341285943984985, 0.12950302660465241">
+						<ormDiagram:Subject ref="_31B3A8EC-7AA5-43AF-A088-483E41284EF7" />
+					</ormDiagram:ValueConstraintShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_E8C5875C-2274-4A3C-BE29-D3CC33B2C44F" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_39F2B264-5ACE-4CE3-BCB5-315F43907BC5" IsExpanded="true" AbsoluteBounds="3.1652799362751356, 4.4237283156303082, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_7671DF9B-5473-4FE9-9942-845BC6CA462C" IsExpanded="true" AbsoluteBounds="3.1652799362751356, 4.732368717925004, 0.20995189249515533, 0.12950302660465241">
+						<ormDiagram:Subject ref="_00FF1985-BF18-4E2E-AF9E-E958383914E2" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_44E3C879-96AC-4F82-8799-E973CB220AE5" />
+				<ormDiagram:RoleDisplayOrder>
+					<ormDiagram:Role ref="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" />
+					<ormDiagram:Role ref="_1E2E0CFE-C025-4E45-8B5F-C1DD6F5D40FA" />
+				</ormDiagram:RoleDisplayOrder>
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_3EFCA435-9810-4407-8048-5813530BF34F" IsExpanded="true" AbsoluteBounds="0.95768240241333968, 5.5411535890739128, 0.58459054946899414, 0.35900605320930479">
+				<ormDiagram:Subject ref="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_A8C1945A-A723-4536-BC59-2DC954706145" IsExpanded="true" AbsoluteBounds="1.5189668981525213, 4.84902140095954, 0.24388888899236916, 0.38388888899236917" DisplayOrientation="VerticalRotatedRight">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_4D877951-9D55-46EE-8FCA-31B30FADE298" IsExpanded="true" AbsoluteBounds="1.5189668981525213, 5.2976618032542353, 0.24142567813396454, 0.12950302660465241">
+						<ormDiagram:Subject ref="_3330CDF6-CB6A-4E84-B1FC-747743D479FB" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_E5F9E154-A911-4903-877A-13598371D525" />
+				<ormDiagram:RoleDisplayOrder>
+					<ormDiagram:Role ref="_F63F09FE-D958-4CCB-9937-58F5B07025DF" />
+					<ormDiagram:Role ref="_A7A299B2-F753-4683-8A87-FD7C30E03558" />
+				</ormDiagram:RoleDisplayOrder>
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ModelNoteShape id="_5690FCC5-121C-469F-8CB7-FB534EC128B7" IsExpanded="true" AbsoluteBounds="4.5155953827314086, 4.5099212468241667, 1.6338103170394898, 0.14150302660465242">
+				<ormDiagram:Subject ref="_B775DA7A-9711-4B7D-A32D-163352DC7BAF" />
+			</ormDiagram:ModelNoteShape>
+			<ormDiagram:ObjectTypeShape id="_CC51D14A-78D5-4E40-A845-F4754469642F" IsExpanded="true" AbsoluteBounds="5.3427475072467914, 3.2366868738520793, 0.59536665201187133, 0.22950302660465241">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ValueConstraintShape id="_48E27BFE-77F4-466B-A001-BC194CD0032A" IsExpanded="true" AbsoluteBounds="5.9981141592586624, 3.1071838472474269, 2.4132122993469238, 0.12950302660465241">
+						<ormDiagram:Subject ref="_52292863-1C53-4DD6-A2F4-C6B714B30AC6" />
+					</ormDiagram:ValueConstraintShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_B318E50F-67ED-42D0-AE6D-785E4B54B0B7" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ObjectTypeShape id="_0F720E47-80AE-46A2-83C8-3744F89B25FD" IsExpanded="true" AbsoluteBounds="4.4749923186616334, 3.7332126554883893, 0.38929160952568054, 0.22950302660465241">
+				<ormDiagram:Subject ref="_4863F567-1AFA-4719-A085-AE0C2ACF0E8E" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_351D355D-ED66-4174-BCB6-97202A45EA88" IsExpanded="true" AbsoluteBounds="4.2542416819940847, 3.1274571255462145, 0.70388888899236923, 0.31388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_D516E1CC-7CDC-412B-AC58-50F2DC6B09FD" IsExpanded="true" AbsoluteBounds="4.2542416819940847, 3.50609752784091, 1.1253503561019898, 0.12950302660465241">
+						<ormDiagram:Subject ref="_528E0C11-E49C-436C-A016-2F0324F5F792" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_52493D1A-BC6D-4D0F-9EE0-3766EFB305F2" />
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ModelNoteShape id="_A853C5BC-ADA4-4865-AB16-D924E146DCF3" IsExpanded="true" AbsoluteBounds="6.0405953509422643, 3.3697917620340987, 2.12642494392395, 0.14150302660465242">
+				<ormDiagram:Subject ref="_6CFD8D6E-FEAA-4B46-B6B3-878061F5FEA4" />
+			</ormDiagram:ModelNoteShape>
+			<ormDiagram:ObjectTypeShape id="_E247D120-1019-427B-AB70-E83CD50D4F7F" IsExpanded="true" AbsoluteBounds="0.5, 4.4659212468241671, 0.565079654455185, 0.22950302660465241">
+				<ormDiagram:Subject ref="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:ExternalConstraintShape id="_E51B102F-4000-4C6D-B6FF-06A00DBC7E3C" IsExpanded="true" AbsoluteBounds="0.56666666666666676, 3.7333333651224772, 0.16, 0.16">
+				<ormDiagram:Subject ref="_D8E97D5F-71E8-4A38-9C8A-DAF95E5B72D5" />
+			</ormDiagram:ExternalConstraintShape>
+			<ormDiagram:FactTypeShape id="_846584A5-3D99-4DD2-820C-A24695BEAE65" IsExpanded="true" AbsoluteBounds="0.69559538273140786, 4.8799006286074418, 0.24388888899236916, 0.38388888899236917" DisplayOrientation="VerticalRotatedRight">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_66C1D2C1-58C7-4993-9FD5-735D8251AAFC" IsExpanded="true" AbsoluteBounds="0.69559538273140786, 5.3285410309021364, 0.24142567813396454, 0.12950302660465241">
+						<ormDiagram:Subject ref="_4566BF96-196C-404E-9F48-D09D07C86EAB" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_5C8D6286-151B-4DDA-BD13-E3E95ABCE617" />
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_81C79971-5454-459C-8680-62FCD57860C0" IsExpanded="true" AbsoluteBounds="2.7566429541901143, 5.5411535890739128, 0.62128620862960815, 0.35900605320930479">
+				<ormDiagram:Subject ref="_09D1BC8C-73C8-46D9-8DFA-EE1C42A07671" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_1146056C-5C3A-4204-8931-CC26A35C51EE" IsExpanded="true" AbsoluteBounds="1.9756062852156671, 5.56371217118238, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_80FFE87D-D01A-4E00-8E30-0CF72D352A1C" IsExpanded="true" AbsoluteBounds="1.9756062852156671, 5.8723525734770758, 0.31780779361724854, 0.12950302660465241">
+						<ormDiagram:Subject ref="_9239012B-D5D5-452A-B8EC-D9ABE6289A6E" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_02517191-5F23-4B09-8D93-A5018CE3F169" />
+				<ormDiagram:RoleDisplayOrder>
+					<ormDiagram:Role ref="_C85DC4A5-4890-440B-9099-75A74E1B5319" />
+					<ormDiagram:Role ref="_4A7061FF-26E4-4C46-8754-D1F47C012A3E" />
+				</ormDiagram:RoleDisplayOrder>
+			</ormDiagram:FactTypeShape>
+			<ormDiagram:ObjectTypeShape id="_196404A2-5270-4BF0-8087-B3D8EE93C328" IsExpanded="true" AbsoluteBounds="3.0416081536293036, 2.2250000000000005, 0.75273561000823974, 0.22950302660465241">
+				<ormDiagram:Subject ref="_DF24AA2C-4F71-46C5-9395-D3D0400F5B78" />
+			</ormDiagram:ObjectTypeShape>
+			<ormDiagram:FactTypeShape id="_34922656-B968-470B-87E8-0205C8E9EA72" IsExpanded="true" AbsoluteBounds="2.407727566357349, 2.1833333333333336, 0.38388888899236917, 0.24388888899236916">
+				<ormDiagram:RelativeShapes>
+					<ormDiagram:ReadingShape id="_469F1C43-0608-466B-BEB3-4406FA810EDE" IsExpanded="true" AbsoluteBounds="2.407727566357349, 2.4919737356280289, 0.18545643985271454, 0.12950302660465241">
+						<ormDiagram:Subject ref="_E1582A6A-0937-47B1-A14A-E03DAEBC8C63" />
+					</ormDiagram:ReadingShape>
+				</ormDiagram:RelativeShapes>
+				<ormDiagram:Subject ref="_7EEAA6A8-019F-4C44-8874-22E36BFB24DD" />
+			</ormDiagram:FactTypeShape>
+		</ormDiagram:Shapes>
+		<ormDiagram:Subject ref="_6494106A-6AD7-4A47-A463-4042E895EAE4" />
+	</ormDiagram:ORMDiagram>
+	<oial:model id="_71DCCAA1-D360-483B-ABB0-FACEAC3A47A4" name="Reservation">
+		<oial:informationTypeFormats>
+			<odt:dataType id="_85B7665E-5289-4953-9F95-6DDD7A3B34FF" name="Classroom_nr" />
+			<odt:dataType id="_59574011-9182-48D3-A2BF-2362455F162A" name="Person_EmpNr" />
+			<odt:dataType id="_ED58732C-AA7C-4EA9-9BE2-0F9ABCB05E9F" name="FirstName" />
+			<odt:dataType id="_093789D0-E8AF-4854-A6AF-FB4B29D11A46" name="LastName" />
+			<odt:dataType id="_F9403FAC-0716-4B7E-8D5E-6D900F992992" name="Faculty_name" />
+			<odt:dataType id="_E75A0FEF-1F14-4B87-8886-1E0DAEAD50AD" name="Contract_nr" />
+			<odt:dataType id="_5099132C-9425-451D-9A89-DBD360D09874" name="HourSlot" />
+			<odt:dataType id="_981C1352-B9FD-45FE-AFC4-635FC8FB1F84" name="Date" />
+			<odt:dataType id="_81A7A413-2CFF-457D-AC38-4AD63BF1ABFB" name="Company_name" />
+			<odt:dataType id="_D59C06D8-3705-4B5F-85EA-33A2E79BADB9" name="DateOfBirth" />
+		</oial:informationTypeFormats>
+		<oial:conceptTypes>
+			<oial:conceptType id="_DDE91776-51EA-4BEA-AFBA-F3F99309CDF7" name="Teacher">
+				<oial:children>
+					<oial:informationType id="_7E71DEF4-8933-4369-AD9A-F7DB2EEAE23B" ref="_F9403FAC-0716-4B7E-8D5E-6D900F992992" isMandatory="true" name="Faculty_name" />
+				</oial:children>
+			</oial:conceptType>
+			<oial:conceptType id="_3D95A60E-7563-4867-99B0-6E7ED0AA1ED8" name="Person">
+				<oial:children>
+					<oial:informationType id="_3816F892-741A-4353-B8C5-1A26AB381C99" ref="_59574011-9182-48D3-A2BF-2362455F162A" isMandatory="true" name="Person_EmpNr" />
+					<oial:informationType id="_1B51C82C-0C6E-4FA7-BBCB-B1674D279339" ref="_ED58732C-AA7C-4EA9-9BE2-0F9ABCB05E9F" isMandatory="true" name="FirstName" />
+					<oial:informationType id="_4FDAB7C4-546B-4E43-88FB-20EF46D759FF" ref="_093789D0-E8AF-4854-A6AF-FB4B29D11A46" isMandatory="true" name="LastName" />
+					<oial:informationType id="_6A37E384-714A-4B0A-9EA8-975B233D7181" ref="_D59C06D8-3705-4B5F-85EA-33A2E79BADB9" isMandatory="true" name="DateOfBirth" />
+					<oial:assimilatedConceptType id="_2212E3A5-99C4-4D7A-90CB-1BF1CE680788" ref="_9FFA7122-8D91-408B-A9B5-54B476C5502A" name="Person" oppositeName="Cleaner" refersToSubtype="true" isPreferredForTarget="true" />
+					<oial:assimilatedConceptType id="_A7E7BA7B-38AF-4F10-A033-20D39E5639E0" ref="_DDE91776-51EA-4BEA-AFBA-F3F99309CDF7" name="Person" oppositeName="Teacher" refersToSubtype="true" isPreferredForTarget="true" />
+					<oial:assimilatedConceptType id="_78890280-5671-440A-8864-C33321CC9A87" ref="_2ECD7DF4-38C7-4198-BD59-8EB368CC1ED6" name="Person" oppositeName="Security" refersToSubtype="true" isPreferredForTarget="true" />
+				</oial:children>
+				<oial:uniquenessConstraints>
+					<oial:uniquenessConstraint id="_AC53207C-4DAA-4315-A75B-08E341A23B5B" name="InternalUniquenessConstraint17" isPreferred="true">
+						<oial:uniquenessChild ref="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+					</oial:uniquenessConstraint>
+				</oial:uniquenessConstraints>
+			</oial:conceptType>
+			<oial:conceptType id="_9FFA7122-8D91-408B-A9B5-54B476C5502A" name="Cleaner">
+				<oial:children>
+					<oial:relatedConceptType id="_88E623B1-4FF9-4F74-BB8E-D608ED4B64A5" ref="_EA5DF95F-E317-4A9F-8558-BCC0690247DE" isMandatory="true" name="Cleaner" oppositeName="Contract" />
+				</oial:children>
+			</oial:conceptType>
+			<oial:conceptType id="_EA5DF95F-E317-4A9F-8558-BCC0690247DE" name="Contract">
+				<oial:children>
+					<oial:informationType id="_3C2F0DAF-5B07-4028-8208-697788CDB272" ref="_E75A0FEF-1F14-4B87-8886-1E0DAEAD50AD" isMandatory="true" name="Contract_nr" />
+					<oial:informationType id="_70009A47-2958-47DD-8476-27B6ACFD572C" ref="_81A7A413-2CFF-457D-AC38-4AD63BF1ABFB" isMandatory="true" name="Company_name" />
+				</oial:children>
+				<oial:uniquenessConstraints>
+					<oial:uniquenessConstraint id="_D84AFFE3-B503-4368-BB66-F734DC8BF027" name="InternalUniquenessConstraint30" isPreferred="true">
+						<oial:uniquenessChild ref="_3C2F0DAF-5B07-4028-8208-697788CDB272" />
+					</oial:uniquenessConstraint>
+				</oial:uniquenessConstraints>
+			</oial:conceptType>
+			<oial:conceptType id="_D0C6B899-111E-40E9-8041-D71253EB03DE" name="PersonReservesClassroomForDateAtHourSlot">
+				<oial:children>
+					<oial:informationType id="_3F6F4578-1265-4308-A1FF-C7F619E1295E" ref="_85B7665E-5289-4953-9F95-6DDD7A3B34FF" isMandatory="true" name="Classroom_nr" />
+					<oial:informationType id="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" ref="_981C1352-B9FD-45FE-AFC4-635FC8FB1F84" isMandatory="true" name="Date" />
+					<oial:informationType id="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" ref="_5099132C-9425-451D-9A89-DBD360D09874" isMandatory="true" name="HourSlot" />
+					<oial:relatedConceptType id="_18D5C52B-6AFF-457F-99F1-88ABF520D2D2" ref="_3D95A60E-7563-4867-99B0-6E7ED0AA1ED8" isMandatory="true" name="PersonReservesClassroomForDateAtHourSlot" oppositeName="Person" />
+				</oial:children>
+				<oial:uniquenessConstraints>
+					<oial:uniquenessConstraint id="_6161D316-37B0-4204-9D21-8BE03E35928C" name="InternalUniquenessConstraint19">
+						<oial:uniquenessChild ref="_18D5C52B-6AFF-457F-99F1-88ABF520D2D2" />
+						<oial:uniquenessChild ref="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" />
+						<oial:uniquenessChild ref="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" />
+					</oial:uniquenessConstraint>
+					<oial:uniquenessConstraint id="_1AD714EF-51A3-4E70-9B51-7F5DB48946FA" name="InternalUniquenessConstraint11" isPreferred="true">
+						<oial:uniquenessChild ref="_3F6F4578-1265-4308-A1FF-C7F619E1295E" />
+						<oial:uniquenessChild ref="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" />
+						<oial:uniquenessChild ref="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" />
+					</oial:uniquenessConstraint>
+				</oial:uniquenessConstraints>
+				<oial:association>
+					<oial:associationChild ref="_18D5C52B-6AFF-457F-99F1-88ABF520D2D2" />
+					<oial:associationChild ref="_3F6F4578-1265-4308-A1FF-C7F619E1295E" />
+					<oial:associationChild ref="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" />
+					<oial:associationChild ref="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" />
+				</oial:association>
+			</oial:conceptType>
+			<oial:conceptType id="_2ECD7DF4-38C7-4198-BD59-8EB368CC1ED6" name="Security">
+				<oial:children>
+					<oial:relatedConceptType id="_9804D875-EF86-44DD-8177-DB19FFF55B4D" ref="_EA5DF95F-E317-4A9F-8558-BCC0690247DE" isMandatory="true" name="Security" oppositeName="Contract" />
+				</oial:children>
+			</oial:conceptType>
+		</oial:conceptTypes>
+	</oial:model>
+	<rcd:Catalog id="_3E7472B6-D677-4952-A9AF-3C3B188328AC">
+		<rcd:Schemas>
+			<rcd:Schema id="_3DF1BD89-9790-4EF8-8CF2-83ABC3ED90F5" Name="Reservation">
+				<rcd:Tables>
+					<rcd:Table id="_8A11618C-A8C9-414F-927B-7DA7E23EB9C2" Name="Teacher">
+						<rcd:Columns>
+							<rcd:Column id="_37FB474C-6BAF-4EC0-A302-B358917D015D" Name="teacherEmpNr" />
+							<rcd:Column id="_126334DA-0562-485E-AE80-76D623941299" Name="facultyName" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_BBB42A69-9087-45A3-A161-A4138F9A3D28" Name="Teacher_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_37FB474C-6BAF-4EC0-A302-B358917D015D" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+							<rcd:ReferenceConstraint id="_963113B5-F45D-4AE1-86AE-1BE19107F9A1" Name="Teacher_FK">
+								<rcd:TargetTable ref="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" />
+								<rcd:TargetUniquenessConstraint ref="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" SourceColumn="_37FB474C-6BAF-4EC0-A302-B358917D015D" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+					<rcd:Table id="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" Name="Person">
+						<rcd:Columns>
+							<rcd:Column id="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" Name="personEmpNr" />
+							<rcd:Column id="_897BA7B6-D1A6-4894-A78E-E5F3D7B77368" Name="dateOfBirth" />
+							<rcd:Column id="_D0211B91-E5C0-4BA3-B10E-F2F4C236AE6C" Name="firstName" />
+							<rcd:Column id="_4FD39F64-32CF-4122-8C50-DC3006A92B79" Name="lastName" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" Name="Person_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+					<rcd:Table id="_CD4A2688-337B-46BB-93E9-3BA95598BA28" Name="Cleaner">
+						<rcd:Columns>
+							<rcd:Column id="_14115147-E777-4091-BD0B-1D2EFEEE16E1" Name="cleanerEmpNr" />
+							<rcd:Column id="_6E04DBC2-6E2D-40C3-9DC6-5CEDD8D10E31" Name="contractNr" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_868850A2-6D49-4A90-9FA0-2AB9832E0E91" Name="Cleaner_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_14115147-E777-4091-BD0B-1D2EFEEE16E1" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+							<rcd:ReferenceConstraint id="_1AC258A7-3724-43D1-8BEE-2A475DFDA664" Name="Cleaner_FK1">
+								<rcd:TargetTable ref="_FF289589-0B45-4EB5-ACBA-56F64CCA2907" />
+								<rcd:TargetUniquenessConstraint ref="_C77006A4-D1F8-42A5-8CA8-998CDD570167" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_031FDD50-D2AA-4001-ADD0-B66DAB0FE0F5" SourceColumn="_6E04DBC2-6E2D-40C3-9DC6-5CEDD8D10E31" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+							<rcd:ReferenceConstraint id="_FCADA2FA-1977-4F79-AA00-B40AE0161CAD" Name="Cleaner_FK2">
+								<rcd:TargetTable ref="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" />
+								<rcd:TargetUniquenessConstraint ref="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" SourceColumn="_14115147-E777-4091-BD0B-1D2EFEEE16E1" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+					<rcd:Table id="_FF289589-0B45-4EB5-ACBA-56F64CCA2907" Name="Contract">
+						<rcd:Columns>
+							<rcd:Column id="_031FDD50-D2AA-4001-ADD0-B66DAB0FE0F5" Name="contractNr" />
+							<rcd:Column id="_A5C7AA03-7CA8-4756-973F-54818AE9C171" Name="companyName" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_C77006A4-D1F8-42A5-8CA8-998CDD570167" Name="Contract_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_031FDD50-D2AA-4001-ADD0-B66DAB0FE0F5" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+					<rcd:Table id="_197C2DAF-C60E-456B-A60B-6F6C9A832270" Name="PersonReservesClassroomForDateAtHourSlot">
+						<rcd:Columns>
+							<rcd:Column id="_41AF719A-E78B-432A-A0D7-CB6AA061C7E1" Name="classroomNr" />
+							<rcd:Column id="_B17C9CDF-A356-4F16-902C-7B53E04C06DC" Name="date" />
+							<rcd:Column id="_4CF04F23-C243-49A4-B789-D39717F79DC5" Name="hourSlot" />
+							<rcd:Column id="_7647F0A1-B0AC-4BF8-9889-379E50CCCEB9" Name="personEmpNr" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_F8147888-01D0-40D8-AA69-0D64EC543CC3" Name="PersonReservesClassroomForDateAtHourSlot_UC">
+								<rcd:Columns>
+									<rcd:Column ref="_7647F0A1-B0AC-4BF8-9889-379E50CCCEB9" />
+									<rcd:Column ref="_B17C9CDF-A356-4F16-902C-7B53E04C06DC" />
+									<rcd:Column ref="_4CF04F23-C243-49A4-B789-D39717F79DC5" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+							<rcd:UniquenessConstraint id="_853FC994-464F-47EB-AC5B-AB6630DD3278" Name="PersonReservesClassroomForDateAtHourSlot_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_41AF719A-E78B-432A-A0D7-CB6AA061C7E1" />
+									<rcd:Column ref="_B17C9CDF-A356-4F16-902C-7B53E04C06DC" />
+									<rcd:Column ref="_4CF04F23-C243-49A4-B789-D39717F79DC5" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+							<rcd:ReferenceConstraint id="_E0302C8F-65E9-481E-A557-665D5B486A29" Name="PersonReservesClassroomForDateAtHourSlot_FK">
+								<rcd:TargetTable ref="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" />
+								<rcd:TargetUniquenessConstraint ref="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" SourceColumn="_7647F0A1-B0AC-4BF8-9889-379E50CCCEB9" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+					<rcd:Table id="_7E6B09A3-DC89-4914-A229-3F2E31C5CA66" Name="Security">
+						<rcd:Columns>
+							<rcd:Column id="_C3DC64C5-047A-4871-92D3-63FCD9D71E58" Name="securityEmpNr" />
+							<rcd:Column id="_0D0D235A-F23B-4E9B-9CDB-CFD2F882D820" Name="contractNr" />
+						</rcd:Columns>
+						<rcd:Constraints>
+							<rcd:UniquenessConstraint id="_FE58F2BB-F1F0-4A41-8456-4706A5F52261" Name="Security_PK" IsPrimary="true">
+								<rcd:Columns>
+									<rcd:Column ref="_C3DC64C5-047A-4871-92D3-63FCD9D71E58" />
+								</rcd:Columns>
+							</rcd:UniquenessConstraint>
+							<rcd:ReferenceConstraint id="_6B150B96-6D04-4E8F-9A84-CE704EDDAF44" Name="Security_FK1">
+								<rcd:TargetTable ref="_FF289589-0B45-4EB5-ACBA-56F64CCA2907" />
+								<rcd:TargetUniquenessConstraint ref="_C77006A4-D1F8-42A5-8CA8-998CDD570167" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_031FDD50-D2AA-4001-ADD0-B66DAB0FE0F5" SourceColumn="_0D0D235A-F23B-4E9B-9CDB-CFD2F882D820" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+							<rcd:ReferenceConstraint id="_43B52EE9-F7FA-4DE6-B36E-60CBA1757805" Name="Security_FK2">
+								<rcd:TargetTable ref="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" />
+								<rcd:TargetUniquenessConstraint ref="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" />
+								<rcd:ColumnReferences>
+									<rcd:ColumnReference TargetColumn="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" SourceColumn="_C3DC64C5-047A-4871-92D3-63FCD9D71E58" />
+								</rcd:ColumnReferences>
+							</rcd:ReferenceConstraint>
+						</rcd:Constraints>
+					</rcd:Table>
+				</rcd:Tables>
+			</rcd:Schema>
+		</rcd:Schemas>
+	</rcd:Catalog>
+	<ormtooial:Bridge>
+		<ormtooial:AbstractionModelIsForORMModel id="_EC86458A-7490-42FF-900D-AC94F90CED79" AbstractionModel="_71DCCAA1-D360-483B-ABB0-FACEAC3A47A4" ORMModel="_6494106A-6AD7-4A47-A463-4042E895EAE4" />
+		<ormtooial:FactTypeMapsTowardsRole id="_3FB320FE-0C0D-48A5-A861-EA009F0AD647" FactType="_55737476-3E40-4087-81AA-99713412C2F1" TowardsRole="_07A19CA0-272A-44A6-9C2E-BD5BEF692ABC" Depth="Shallow" UniquenessPattern="OneToOne" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_7D56441B-15E5-4AE8-BB8C-C7EA3B273EB0" FactType="_416D2470-5873-47AC-A691-D43EA9C3CDC6" TowardsRole="_F696C52F-6395-4B8E-9D2D-6087963A6FB9" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_8374E55A-EFF3-4EE1-83E1-C57BF3BA99ED" FactType="_F122BD62-88F3-44EE-B44B-45E9480A3C68" TowardsRole="_83A8D3EF-0034-4671-80BB-0F6DEECFAE34" Depth="Deep" UniquenessPattern="Subtype" MandatoryPattern="OppositeRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_7E8521EC-4423-4A6E-883C-B9422853E7AD" FactType="_E5F9E154-A911-4903-877A-13598371D525" TowardsRole="_F63F09FE-D958-4CCB-9937-58F5B07025DF" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_5DE9EBBE-B0DD-4598-BC4E-AEF1526BEE82" FactType="_9ADF9D34-8644-472D-A4B8-ED00F7D40A6F" TowardsRole="_C9B0784F-3CE2-4F1E-98BD-17EA02285470" Depth="Shallow" UniquenessPattern="OneToOne" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_E575971E-23CA-4F92-8F06-8BA5F84EDCEC" FactType="_806ED997-4829-4022-B249-B95B84935FBF" TowardsRole="_5CF94A5C-3342-4339-B659-336C918FB90E" Depth="Shallow" UniquenessPattern="OneToOne" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_B268F858-B198-43DF-AA8B-D1B1010EA720" FactType="_02517191-5F23-4B09-8D93-A5018CE3F169" TowardsRole="_C85DC4A5-4890-440B-9099-75A74E1B5319" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_C72CE2FB-4EDF-4758-8D80-6EC1181B803F" FactType="_E291F073-3BAA-47AD-93BB-DC788E77C075" TowardsRole="_6132D621-0184-43CA-AB82-9827C610378E" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_BF893C53-61C0-4435-92B1-1BA969974134" FactType="_206EC385-A00A-4EC9-BD68-78A23E8A22A9" TowardsRole="_E99ED2D7-D6EE-4848-90B5-562BE6913A39" Depth="Shallow" UniquenessPattern="OneToOne" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_55563831-32A9-402E-87CE-ABD70B3BF6BF" FactType="_50B2D8C4-248A-4820-88AE-AFE9DC4FD309" TowardsRole="_B03D67B7-F8A0-4D9D-8D84-037A012C1E05" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_D9C05D5D-D763-4667-A228-581967CC9EFB" FactType="_7EEAA6A8-019F-4C44-8874-22E36BFB24DD" TowardsRole="_EB2579FE-4D26-4379-AFFD-A1AC5CF543C0" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_C26C5CDF-1D86-4B13-A09E-E0F0F4ECF066" FactType="_9FBF8D83-4C6C-42A9-B238-D59E57FB5AE9" TowardsRole="_DACDDF7D-902F-49E8-97AA-A20DEF5343C4" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_C6B73E05-92AA-40C7-AE5C-42E8EB796A2E" FactType="_43CEB1E5-FAA6-46FE-AB49-3274EB16FF06" TowardsRole="_61163A5B-CD3E-4E29-8431-7ECD020A1261" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_1418FB50-2997-4CFD-905E-29E6519DD15B" FactType="_8853128D-BAE5-4164-A7DB-BECC92E34C12" TowardsRole="_BDA6E87A-873F-45FC-BD43-D71C11425167" Depth="Shallow" UniquenessPattern="OneToOne" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_D1CCD165-E232-4AA7-8962-45D4F21DA5B8" FactType="_FCFF64C9-99F0-4E5C-9B9C-EC6C9744A094" TowardsRole="_C5B6DC89-3D3C-4A69-BB6A-52A051FAC3C3" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_9FC98441-4C38-444C-A6D4-2B0E4EBD5687" FactType="_89342E6C-D8D3-469F-A8E3-12040BF5DD11" TowardsRole="_1F7D919F-5283-473E-B428-F0D580CF7B48" Depth="Deep" UniquenessPattern="Subtype" MandatoryPattern="OppositeRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_6C59633A-E0F8-4FF7-ACDF-5C84DDCA0029" FactType="_5C8D6286-151B-4DDA-BD13-E3E95ABCE617" TowardsRole="_39310088-EA95-4773-B1E1-7A0021BD2A47" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="TowardsRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_B9AFEC80-300A-402F-9F1B-6B5C838F14ED" FactType="_083B4E8D-A39F-4642-95FD-2666B0B393B3" TowardsRole="_BC46E811-FC2C-4D89-AAB8-3CE558BDF4B5" Depth="Deep" UniquenessPattern="Subtype" MandatoryPattern="OppositeRoleMandatory" />
+		<ormtooial:FactTypeMapsTowardsRole id="_22EF3E51-B6AE-4584-AE42-1960348C8E08" FactType="_44E3C879-96AC-4F82-8799-E973CB220AE5" TowardsRole="_A3AD6457-7F20-443C-B9A4-4D8ABB7A695D" Depth="Shallow" UniquenessPattern="OneToMany" MandatoryPattern="BothRolesMandatory" />
+		<ormtooial:ConceptTypeIsForObjectType id="_B1FC1C99-4749-47E0-A4A8-D9C01E1B87F7" ConceptType="_9FFA7122-8D91-408B-A9B5-54B476C5502A" ObjectType="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" />
+		<ormtooial:ConceptTypeIsForObjectType id="_CD924EBF-011F-403E-A6CF-5BCF17FA544B" ConceptType="_EA5DF95F-E317-4A9F-8558-BCC0690247DE" ObjectType="_13017AD7-374A-467F-8533-0E9C5CF21D87" />
+		<ormtooial:ConceptTypeIsForObjectType id="_150C40E9-BB1A-497B-86C4-548AEBD70328" ConceptType="_3D95A60E-7563-4867-99B0-6E7ED0AA1ED8" ObjectType="_72435EB2-A093-47FC-8D29-9306F69AC388" />
+		<ormtooial:ConceptTypeIsForObjectType id="_DF2F479A-C9B7-4D8E-8D6E-F086943EEB8F" ConceptType="_D0C6B899-111E-40E9-8041-D71253EB03DE" ObjectType="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" />
+		<ormtooial:ConceptTypeIsForObjectType id="_0C075F5F-F148-4BC7-9F4E-3C131F23A5C0" ConceptType="_2ECD7DF4-38C7-4198-BD59-8EB368CC1ED6" ObjectType="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" />
+		<ormtooial:ConceptTypeIsForObjectType id="_31D70D64-F5C1-4E1B-8081-31119905C553" ConceptType="_DDE91776-51EA-4BEA-AFBA-F3F99309CDF7" ObjectType="_40DAC349-DF28-4620-8B0E-64F7F1B58081" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_FA42B179-2EDA-4B45-B033-9D28DC5C3FB9" ConceptTypeChild="_3F6F4578-1265-4308-A1FF-C7F619E1295E" PathFactType="_416D2470-5873-47AC-A691-D43EA9C3CDC6" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_8E527FF5-04AB-46A9-83D6-871563E95838" ConceptTypeChild="_3F6F4578-1265-4308-A1FF-C7F619E1295E" PathFactType="_55737476-3E40-4087-81AA-99713412C2F1" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_DA94DE9E-5CBF-4332-BCCC-088906EABF99" ConceptTypeChild="_88E623B1-4FF9-4F74-BB8E-D608ED4B64A5" PathFactType="_E5F9E154-A911-4903-877A-13598371D525" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_276B50EC-9A9C-4199-93BC-F1C638D911AA" ConceptTypeChild="_70009A47-2958-47DD-8476-27B6ACFD572C" PathFactType="_02517191-5F23-4B09-8D93-A5018CE3F169" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_A6627960-7C65-4ABA-926F-B9DBB04F54DE" ConceptTypeChild="_70009A47-2958-47DD-8476-27B6ACFD572C" PathFactType="_9ADF9D34-8644-472D-A4B8-ED00F7D40A6F" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_FB338FB2-7B4A-436D-8474-7E7ED6A81DA2" ConceptTypeChild="_3C2F0DAF-5B07-4028-8208-697788CDB272" PathFactType="_806ED997-4829-4022-B249-B95B84935FBF" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_60C04A8A-D4CA-454A-9166-7F7E6D0A52C5" ConceptTypeChild="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" PathFactType="_E291F073-3BAA-47AD-93BB-DC788E77C075" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_1394738D-B795-41A9-9195-46F94A1A8580" ConceptTypeChild="_6A37E384-714A-4B0A-9EA8-975B233D7181" PathFactType="_7EEAA6A8-019F-4C44-8874-22E36BFB24DD" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_4BF9DA01-DC58-46CA-859D-A223ACA693EF" ConceptTypeChild="_7E71DEF4-8933-4369-AD9A-F7DB2EEAE23B" PathFactType="_44E3C879-96AC-4F82-8799-E973CB220AE5" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_CBA3B253-288D-48D1-A8DE-37F868CF825E" ConceptTypeChild="_7E71DEF4-8933-4369-AD9A-F7DB2EEAE23B" PathFactType="_206EC385-A00A-4EC9-BD68-78A23E8A22A9" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_0CE808FF-8402-45DE-827F-F26DCDE4CA0A" ConceptTypeChild="_1B51C82C-0C6E-4FA7-BBCB-B1674D279339" PathFactType="_9FBF8D83-4C6C-42A9-B238-D59E57FB5AE9" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_0D535B4F-AB55-45C9-A2C4-7AAAC3D92B98" ConceptTypeChild="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" PathFactType="_50B2D8C4-248A-4820-88AE-AFE9DC4FD309" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_F10C1E01-DBAC-4F5C-AF9B-FBC81438FAF8" ConceptTypeChild="_4FDAB7C4-546B-4E43-88FB-20EF46D759FF" PathFactType="_43CEB1E5-FAA6-46FE-AB49-3274EB16FF06" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_942A0361-F1FA-470A-A250-39E6CE8BF84D" ConceptTypeChild="_A7E7BA7B-38AF-4F10-A033-20D39E5639E0" PathFactType="_083B4E8D-A39F-4642-95FD-2666B0B393B3" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_63C0A5AC-5DCC-472E-9CF0-97F1C22AD30C" ConceptTypeChild="_2212E3A5-99C4-4D7A-90CB-1BF1CE680788" PathFactType="_F122BD62-88F3-44EE-B44B-45E9480A3C68" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_355FE3B3-85A6-4393-B1F4-98B85D7B3518" ConceptTypeChild="_78890280-5671-440A-8864-C33321CC9A87" PathFactType="_89342E6C-D8D3-469F-A8E3-12040BF5DD11" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_5E8D1F9E-78B8-455F-B74E-0788DD942D51" ConceptTypeChild="_18D5C52B-6AFF-457F-99F1-88ABF520D2D2" PathFactType="_FCFF64C9-99F0-4E5C-9B9C-EC6C9744A094" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_7BF445DD-5B54-42FC-AE2C-ACD9FB89EC59" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" PathFactType="_8853128D-BAE5-4164-A7DB-BECC92E34C12" />
+		<ormtooial:ConceptTypeChildHasPathFactType id="_308A495D-0B4C-4A76-AE92-7B1A54A94107" ConceptTypeChild="_9804D875-EF86-44DD-8177-DB19FFF55B4D" PathFactType="_5C8D6286-151B-4DDA-BD13-E3E95ABCE617" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_7E992317-784C-42A7-B577-A74171E4C789" InformationTypeFormat="_85B7665E-5289-4953-9F95-6DDD7A3B34FF" ValueType="_527C0B57-C22B-4D8F-8682-DA14C52BB1A4" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_E2AD472A-D676-409A-B876-48503FC2DA1A" InformationTypeFormat="_81A7A413-2CFF-457D-AC38-4AD63BF1ABFB" ValueType="_2A320773-FBA6-4732-AE34-5877D8DDE46E" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_79E9C41F-655F-4E6E-ACE3-CE686D9A6E1F" InformationTypeFormat="_E75A0FEF-1F14-4B87-8886-1E0DAEAD50AD" ValueType="_2B607CAB-D429-4C70-A0D5-52AB37252150" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_408643A0-C1BE-4E0C-96ED-D76C79A40C3F" InformationTypeFormat="_981C1352-B9FD-45FE-AFC4-635FC8FB1F84" ValueType="_4863F567-1AFA-4719-A085-AE0C2ACF0E8E" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_05748C1E-49F3-4F3C-8C51-B4D29438ADE7" InformationTypeFormat="_D59C06D8-3705-4B5F-85EA-33A2E79BADB9" ValueType="_DF24AA2C-4F71-46C5-9395-D3D0400F5B78" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_9C6D5B3E-C0A1-44C7-9F75-ACBA3BAB7851" InformationTypeFormat="_F9403FAC-0716-4B7E-8D5E-6D900F992992" ValueType="_9AB440AA-A75F-4E26-B9CB-47892E458CD8" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_DC2E40B2-A9E1-4120-B432-876B09ED4024" InformationTypeFormat="_ED58732C-AA7C-4EA9-9BE2-0F9ABCB05E9F" ValueType="_CFB6C23F-B5FF-4F21-A8FC-889D27769836" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_1E72F46E-BB03-48CD-86F6-887636ADB890" InformationTypeFormat="_5099132C-9425-451D-9A89-DBD360D09874" ValueType="_B318E50F-67ED-42D0-AE6D-785E4B54B0B7" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_5CBDA269-48E9-48EE-9388-8FC8CC53A48E" InformationTypeFormat="_093789D0-E8AF-4854-A6AF-FB4B29D11A46" ValueType="_811170D1-5C87-47EC-916E-A18997EBEF42" />
+		<ormtooial:InformationTypeFormatIsForValueType id="_0487F06D-7698-441B-9988-1D2C50E86C66" InformationTypeFormat="_59574011-9182-48D3-A2BF-2362455F162A" ValueType="_D37F43F2-606A-4213-B956-29294B7F5BFB" />
+		<ormtooial:UniquenessIsForUniquenessConstraint id="_5FFAB43E-AFBA-4A6C-90B2-2352959F7F35" AbstractionUniquenessConstraint="_1AD714EF-51A3-4E70-9B51-7F5DB48946FA" ORMUniquenessConstraint="_392A48BF-BB67-4E70-B74C-2E0A310CD385" />
+		<ormtooial:UniquenessIsForUniquenessConstraint id="_89C2DEA3-EF90-4274-B6E9-18D50D986DFB" AbstractionUniquenessConstraint="_AC53207C-4DAA-4315-A75B-08E341A23B5B" ORMUniquenessConstraint="_C0F3A091-192D-450F-A2DB-4C3B4E9BD28B" />
+		<ormtooial:UniquenessIsForUniquenessConstraint id="_E1B5C379-5F2B-4B40-B464-C60CD9B0CB62" AbstractionUniquenessConstraint="_6161D316-37B0-4204-9D21-8BE03E35928C" ORMUniquenessConstraint="_80830E16-D336-488B-88C1-687B54BA19E5" />
+		<ormtooial:UniquenessIsForUniquenessConstraint id="_1924BE32-567C-4FBC-BF74-39F349506277" AbstractionUniquenessConstraint="_D84AFFE3-B503-4368-BB66-F734DC8BF027" ORMUniquenessConstraint="_38EEC5D6-C3F6-45BC-B139-10E70355FC58" />
+	</ormtooial:Bridge>
+	<oialtocdb:MappingCustomization id="_7351F3A9-4D13-4869-9E86-3EEA7A6A5166">
+		<oialtocdb:AssimilationMappings>
+			<oialtocdb:AssimilationMapping id="_7D55B655-1440-464C-BAF2-0CE30C864353" AbsorptionChoice="Separate">
+				<oialtocdb:FactType ref="_89342E6C-D8D3-469F-A8E3-12040BF5DD11" />
+			</oialtocdb:AssimilationMapping>
+			<oialtocdb:AssimilationMapping id="_1E348284-11E0-4A04-94A2-60DDDCFA4B8B" AbsorptionChoice="Separate">
+				<oialtocdb:FactType ref="_F122BD62-88F3-44EE-B44B-45E9480A3C68" />
+			</oialtocdb:AssimilationMapping>
+			<oialtocdb:AssimilationMapping id="_665ABDF8-9F74-4E69-A8EB-695BF29CE525" AbsorptionChoice="Separate">
+				<oialtocdb:FactType ref="_083B4E8D-A39F-4642-95FD-2666B0B393B3" />
+			</oialtocdb:AssimilationMapping>
+		</oialtocdb:AssimilationMappings>
+	</oialtocdb:MappingCustomization>
+	<oialtocdb:Bridge>
+		<oialtocdb:SchemaIsForAbstractionModel id="_9332F096-F96C-4DC7-BFBE-00FEB57FABBF" Schema="_3DF1BD89-9790-4EF8-8CF2-83ABC3ED90F5" AbstractionModel="_71DCCAA1-D360-483B-ABB0-FACEAC3A47A4" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_882F8F39-547A-4281-8D89-F146226CA587" Column="_41AF719A-E78B-432A-A0D7-CB6AA061C7E1" ConceptTypeChild="_3F6F4578-1265-4308-A1FF-C7F619E1295E" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_73CA7980-BC04-4814-BE08-19E7FD48BF80" Column="_14115147-E777-4091-BD0B-1D2EFEEE16E1" ConceptTypeChild="_2212E3A5-99C4-4D7A-90CB-1BF1CE680788" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_844DD31A-03B5-445C-940B-25BEB853FA27" Column="_14115147-E777-4091-BD0B-1D2EFEEE16E1" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_950FC820-E4C8-4732-A575-E6C7B2871A59" Column="_A5C7AA03-7CA8-4756-973F-54818AE9C171" ConceptTypeChild="_70009A47-2958-47DD-8476-27B6ACFD572C" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_0E028A35-79E5-4BC1-A9E1-925BA59384E8" Column="_0D0D235A-F23B-4E9B-9CDB-CFD2F882D820" ConceptTypeChild="_9804D875-EF86-44DD-8177-DB19FFF55B4D" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_1C6FF29E-B7D2-425E-A65E-70872462D20A" Column="_0D0D235A-F23B-4E9B-9CDB-CFD2F882D820" ConceptTypeChild="_3C2F0DAF-5B07-4028-8208-697788CDB272" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_AA1DB890-36BB-43AD-B41F-BC844C418609" Column="_6E04DBC2-6E2D-40C3-9DC6-5CEDD8D10E31" ConceptTypeChild="_88E623B1-4FF9-4F74-BB8E-D608ED4B64A5" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_F13F213F-DC21-4B5B-8E7C-37DABD9C3915" Column="_6E04DBC2-6E2D-40C3-9DC6-5CEDD8D10E31" ConceptTypeChild="_3C2F0DAF-5B07-4028-8208-697788CDB272" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_4C2BF345-4D69-4029-AAE7-87D6B906C260" Column="_031FDD50-D2AA-4001-ADD0-B66DAB0FE0F5" ConceptTypeChild="_3C2F0DAF-5B07-4028-8208-697788CDB272" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_C75C95DD-2B2A-4950-9A65-98C85E20B942" Column="_B17C9CDF-A356-4F16-902C-7B53E04C06DC" ConceptTypeChild="_4CF8AB8B-25A4-4407-BB07-81BE2CE14217" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_FDA72A8D-5CDB-4C9C-885E-48122AA2BD54" Column="_897BA7B6-D1A6-4894-A78E-E5F3D7B77368" ConceptTypeChild="_6A37E384-714A-4B0A-9EA8-975B233D7181" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_86950771-F4A9-455F-9DF0-6DC6753E705C" Column="_126334DA-0562-485E-AE80-76D623941299" ConceptTypeChild="_7E71DEF4-8933-4369-AD9A-F7DB2EEAE23B" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_3E8A1EFF-3545-423F-A4DE-9231CCA40CCC" Column="_D0211B91-E5C0-4BA3-B10E-F2F4C236AE6C" ConceptTypeChild="_1B51C82C-0C6E-4FA7-BBCB-B1674D279339" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_6030A397-B056-4E96-BC39-5ED04B05DBE0" Column="_4CF04F23-C243-49A4-B789-D39717F79DC5" ConceptTypeChild="_EF6796C2-1A3F-4DEF-846C-89FE5DB0D9BB" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_0055A6FE-EF41-4350-B784-AEF641B58073" Column="_4FD39F64-32CF-4122-8C50-DC3006A92B79" ConceptTypeChild="_4FDAB7C4-546B-4E43-88FB-20EF46D759FF" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_5817A70A-5164-4FE3-A892-A50E12AA69D0" Column="_7647F0A1-B0AC-4BF8-9889-379E50CCCEB9" ConceptTypeChild="_18D5C52B-6AFF-457F-99F1-88ABF520D2D2" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_6BACB2CD-5545-4415-9030-C67AD3ABBFE7" Column="_7647F0A1-B0AC-4BF8-9889-379E50CCCEB9" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_79F20497-A436-4A34-A742-2D1DD4AE85A6" Column="_72923838-A7D8-4FE2-A0D6-F03BD97F920D" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_DDBFEDF3-8EFE-41C4-9CA6-8C0DCD7EF044" Column="_C3DC64C5-047A-4871-92D3-63FCD9D71E58" ConceptTypeChild="_78890280-5671-440A-8864-C33321CC9A87" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_D204327F-24D4-42E1-ABBB-A59DCFBD559B" Column="_C3DC64C5-047A-4871-92D3-63FCD9D71E58" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_AE3A0F24-3EE6-4186-905C-368E3F949E5B" Column="_37FB474C-6BAF-4EC0-A302-B358917D015D" ConceptTypeChild="_A7E7BA7B-38AF-4F10-A033-20D39E5639E0" />
+		<oialtocdb:ColumnHasConceptTypeChild id="_36B53CBB-A230-4442-A0CB-2F0EF206E2E1" Column="_37FB474C-6BAF-4EC0-A302-B358917D015D" ConceptTypeChild="_3816F892-741A-4353-B8C5-1A26AB381C99" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_66819F36-9CD7-4992-9C2A-8A241857F19C" Table="_CD4A2688-337B-46BB-93E9-3BA95598BA28" ConceptType="_9FFA7122-8D91-408B-A9B5-54B476C5502A" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_A6FADEC8-69C0-4CD1-BD67-1B979FF564AC" Table="_FF289589-0B45-4EB5-ACBA-56F64CCA2907" ConceptType="_EA5DF95F-E317-4A9F-8558-BCC0690247DE" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_5E268BD7-6343-4966-BB73-38E80F93873C" Table="_9DA91ACA-5EA2-4119-8A8B-95E2960B4DAD" ConceptType="_3D95A60E-7563-4867-99B0-6E7ED0AA1ED8" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_08359A64-3E64-44D2-B581-636997685C07" Table="_197C2DAF-C60E-456B-A60B-6F6C9A832270" ConceptType="_D0C6B899-111E-40E9-8041-D71253EB03DE" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_E219DE33-09CC-420D-91E7-81EC078D3C96" Table="_7E6B09A3-DC89-4914-A229-3F2E31C5CA66" ConceptType="_2ECD7DF4-38C7-4198-BD59-8EB368CC1ED6" />
+		<oialtocdb:TableIsPrimarilyForConceptType id="_00981FAB-B4C3-40E6-A2F5-5EACF75B8536" Table="_8A11618C-A8C9-414F-927B-7DA7E23EB9C2" ConceptType="_DDE91776-51EA-4BEA-AFBA-F3F99309CDF7" />
+		<oialtocdb:UniquenessConstraintIsForUniqueness id="_88C6535F-0E24-4773-B654-89FCD6356729" UniquenessConstraint="_C77006A4-D1F8-42A5-8CA8-998CDD570167" Uniqueness="_D84AFFE3-B503-4368-BB66-F734DC8BF027" />
+		<oialtocdb:UniquenessConstraintIsForUniqueness id="_3F6B28E9-95AC-45E0-B39E-79D4E5927E3E" UniquenessConstraint="_853FC994-464F-47EB-AC5B-AB6630DD3278" Uniqueness="_1AD714EF-51A3-4E70-9B51-7F5DB48946FA" />
+		<oialtocdb:UniquenessConstraintIsForUniqueness id="_84EF525F-D8BB-4792-BEA6-549F14695718" UniquenessConstraint="_F8147888-01D0-40D8-AA69-0D64EC543CC3" Uniqueness="_6161D316-37B0-4204-9D21-8BE03E35928C" />
+		<oialtocdb:UniquenessConstraintIsForUniqueness id="_87F9C3C8-A552-4933-A023-8CEF5F4B0BCD" UniquenessConstraint="_3C74C96D-AA81-499D-9FF3-8978BD28ADFD" Uniqueness="_AC53207C-4DAA-4315-A75B-08E341A23B5B" />
+	</oialtocdb:Bridge>
+	<rvw:RelationalDiagram id="_749FE44C-2E34-4D86-A612-D30865BC37CC" DisplayDataTypes="true" SubjectRef="_3E7472B6-D677-4952-A9AF-3C3B188328AC">
+		<rvw:TableShape ObjectTypeRef="_40DAC349-DF28-4620-8B0E-64F7F1B58081" Location="2.75, 1.5" />
+		<rvw:TableShape ObjectTypeRef="_72435EB2-A093-47FC-8D29-9306F69AC388" Location="0.75, 2.375" />
+		<rvw:TableShape ObjectTypeRef="_D3B68004-2D05-4D0E-BA0D-4818AD85D9CE" Location="2.75, 2.375" />
+		<rvw:TableShape ObjectTypeRef="_13017AD7-374A-467F-8533-0E9C5CF21D87" Location="5.375, 2.875" />
+		<rvw:TableShape ObjectTypeRef="_4BB8A42D-DC8B-41B0-A382-B73E60852CB5" Location="0.75, 4.25" />
+		<rvw:TableShape ObjectTypeRef="_F4F9B475-8E01-448D-ACAA-1F9D32644AFF" Location="2.75, 3.25" />
+	</rvw:RelationalDiagram>
+</ormRoot:ORM2>
