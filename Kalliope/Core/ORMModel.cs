@@ -21,12 +21,38 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
+    using System.Xml;
+
+    using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// Definition of elements used in the primary definition of an ORM model
     /// </summary>
     public class ORMModel : ORMNamedElement
     {
+        /// <summary>
+        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
+        /// </summary>
+        private readonly ILoggerFactory loggerFactory;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ORMModel"/> class
+        /// </summary>
+        public ORMModel()
+        { 
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ORMModel"/> class.
+        /// </summary>
+        /// <param name="loggerFactory">
+        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
+        /// </param>
+        internal ORMModel(ILoggerFactory loggerFactory)
+        {
+            this.loggerFactory = loggerFactory;
+        }
+
         /// <summary>
         /// An informal description of this Model.
         /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
@@ -103,5 +129,18 @@ namespace Kalliope.Core
         /// The <see cref="Extension"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
         public List<Extension> Extensions { get; set; }
+
+
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/>
+        /// </param>
+        internal void ReadXml(XmlReader reader)
+        {
+            this.Id = reader.GetAttribute("id");
+            this.Name = reader.GetAttribute("Name");
+        }
     }
 }

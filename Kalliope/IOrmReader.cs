@@ -92,6 +92,9 @@ namespace Kalliope
         /// <param name="stream">
         /// The <see cref="Stream"/> that contains the .orm file to read
         /// </param>
+        /// <param name="token">
+        /// A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
         /// <param name="validate">
         /// a value indicating whether the XML document needs to be validated or not
         /// </param>
@@ -101,6 +104,6 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        Task<ORMModel> ReadAsync(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        Task<ORMModel> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
     }
 }

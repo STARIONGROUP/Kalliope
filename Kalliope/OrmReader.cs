@@ -20,12 +20,20 @@
 
 namespace Kalliope
 {
-    using Kalliope.Core;
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
+    using System.IO.Compression;
+    using System.Linq;
+    using System.Reflection;
+    using System.Resources;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Xml;
     using System.Xml.Schema;
+
+    using Kalliope.Core;
 
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;
@@ -75,7 +83,23 @@ namespace Kalliope
         /// </returns>
         public ORMModel Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(xmlFilePath))
+            {
+                throw new ArgumentException("The xml file path may not be null or empty");
+            }
+
+            using (var fileStream = File.OpenRead(xmlFilePath))
+            {
+                var sw = Stopwatch.StartNew();
+
+                this.logger.LogTrace("start reading from {path}", xmlFilePath);
+
+                var result = this.Read(fileStream, validate, validationEventHandler);
+
+                this.logger.LogTrace("File {path} read in {time} [ms]", xmlFilePath, sw.ElapsedMilliseconds);
+
+                return result;
+            }
         }
 
         /// <summary>
@@ -95,7 +119,22 @@ namespace Kalliope
         /// </returns>
         public ORMModel Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
-            throw new NotImplementedException();
+            if (!validate && validationEventHandler != null)
+            {
+                throw new ArgumentException("validationEventHandler must be null when validate is false");
+            }
+
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream), $"The {nameof(stream)} may not be null");
+            }
+
+            if (stream.Length == 0)
+            {
+                throw new ArgumentException($"The {nameof(stream)} may not be empty", nameof(stream));
+            }
+
+            return this.ReadOrm(stream, validate, validationEventHandler);
         }
 
         /// <summary>
@@ -116,9 +155,26 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public async Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(xmlFilePath))
+            {
+                throw new ArgumentException("The xml file path may not be null or empty");
+            }
+
+            using (var fileStream = File.OpenRead(xmlFilePath))
+            {
+                var sw = Stopwatch.StartNew();
+
+                this.logger.LogTrace("start reading from {path}", xmlFilePath);
+
+                byte[] result = new byte[fileStream.Length];
+                await fileStream.ReadAsync(result, 0, (int)fileStream.Length, token);
+
+                this.logger.LogTrace("File {path} read in {time} [ms]", xmlFilePath, sw.ElapsedMilliseconds);
+
+                return await this.ReadAsync(fileStream, token, validate, validationEventHandler);
+            }
         }
 
         /// <summary>
@@ -136,9 +192,172 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public Task<ORMModel> ReadAsync(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public async Task<ORMModel> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            if (!validate && validationEventHandler != null)
+            {
+                throw new ArgumentException("validationEventHandler must be null when validate is false");
+            }
+
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream), $"The {nameof(stream)} may not be null");
+            }
+
+            if (stream.Length == 0)
+            {
+                throw new ArgumentException($"The {nameof(stream)} may not be empty", nameof(stream));
+            }
+
+            return await this.ReadOrmAsync(stream, token, validate, validationEventHandler);
+        }
+
+        /// <summary>
+        /// Read the provided <see cref="Stream"/> to <see cref="ORMModel"/>
+        /// </summary>
+        /// <param name="stream">
+        /// The <see cref="Stream"/> that contains the .orm file to deserialize
+        /// </param>
+        /// <param name="validate">
+        /// a value indicating whether the XML document needs to be validated or not
+        /// </param>
+        /// <param name="validationEventHandler">
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// </param>
+        /// <returns>
+        /// Fully de-referenced <see cref="ORMModel"/> object graph
+        /// </returns>
+        private ORMModel ReadOrm(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        {
+            XmlReader xmlReader;
+
+            var settings = this.CreateXmlReaderSettings(validate, validationEventHandler);
+
+            this.logger.LogTrace("reading from ORM file");
+
+            using (xmlReader = XmlReader.Create(stream, settings))
+            {
+                var sw = Stopwatch.StartNew();
+
+                ORMModel model = null;
+
+                this.logger.LogTrace("starting to read xml");
+
+                while (xmlReader.Read())
+                {
+                    if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.LocalName == "ORMModel"))
+                    {
+                        model = new ORMModel(this.loggerFactory);
+                        model.ReadXml(xmlReader);
+                    }
+                }
+
+                this.logger.LogTrace("xml read in {time}", sw.ElapsedMilliseconds);
+                sw.Stop();
+
+                return model;
+            }
+        }
+
+        /// <summary>
+        /// Asynchronously read the provided <see cref="Stream"/> to <see cref="ORMModel"/>
+        /// </summary>
+        /// <param name="stream">
+        /// The <see cref="Stream"/> that contains the .orm file to deserialize
+        /// </param>
+        /// <param name="token">
+        /// A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <param name="validate">
+        /// a value indicating whether the XML document needs to be validated or not
+        /// </param>
+        /// <param name="validationEventHandler">
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// </param>
+        /// <returns>
+        /// Fully de-referenced <see cref="ORMModel"/> object graph
+        /// </returns>
+        private Task<ORMModel> ReadOrmAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Creates an instance of <see cref="XmlReaderSettings"/> with or without validation settings
+        /// </summary>
+        /// <param name="validate">
+        /// a value indicating whether the <see cref="XmlReaderSettings"/> should be created with validation settings or not
+        /// </param>
+        /// <param name="validationEventHandler">
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// </param>
+        /// <returns>
+        /// An instance of <see cref="XmlReaderSettings"/>
+        /// </returns>
+        private XmlReaderSettings CreateXmlReaderSettings(bool validate = false, ValidationEventHandler validationEventHandler = null, bool asynchronous = false)
+        {
+            XmlReaderSettings settings;
+
+            if (validate)
+            {
+                settings = new XmlReaderSettings { ValidationType = ValidationType.Schema };
+                settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessInlineSchema;
+                settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
+                settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+                settings.ValidationEventHandler += validationEventHandler;
+
+                var schemaSet = new XmlSchemaSet { XmlResolver = new OrmSchemaResolver() };
+
+                // add validation schema
+                schemaSet.Add(this.GetSchemaFromResource("ORM2Root.xsd", validationEventHandler));
+                schemaSet.ValidationEventHandler += validationEventHandler;
+
+                // now combine and use the custom xmlresolver to serve all xsd references from resource manifest
+                schemaSet.Compile();
+
+                // register the resolved schema set to the reader settings
+                settings.Schemas.Add(schemaSet);
+            }
+            else
+            {
+                settings = new XmlReaderSettings();
+            }
+
+            settings.Async = asynchronous;
+
+            return settings;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="ORMModel"/> schema for the embedded resources.
+        /// </summary>
+        /// <param name="resourceName">
+        /// The resource Name.
+        /// </param>
+        /// <param name="validationEventHandler">
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// </param>
+        /// <returns>
+        /// An fully resolved instance of <see cref="XmlSchema"/>
+        /// </returns>
+        /// <exception cref="MissingManifestResourceException">
+        /// the schema resource could not be found.
+        /// </exception>
+        private XmlSchema GetSchemaFromResource(string resourceName, ValidationEventHandler validationEventHandler)
+        {
+            var a = Assembly.GetExecutingAssembly();
+            var type = this.GetType();
+            var @namespace = type.Namespace;
+            var reqifSchemaResourceName = $"{@namespace}.Resources.{resourceName}";
+
+            var stream = a.GetManifestResourceStream(reqifSchemaResourceName);
+
+            if (stream == null)
+            {
+                throw new MissingManifestResourceException($"The {reqifSchemaResourceName} resource could not be found");
+            }
+
+            return XmlSchema.Read(stream, validationEventHandler);
         }
     }
 }
