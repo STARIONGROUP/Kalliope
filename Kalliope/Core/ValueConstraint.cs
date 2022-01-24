@@ -25,5 +25,25 @@ namespace Kalliope.Core
     /// </summary>
     public class ValueConstraint : ORMNamedElement
     {
+        /// <summary>
+        /// An informal description of this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window.
+        /// </summary>
+        public string DefinitionText { get; set; }
+
+        /// <summary>
+        /// A note to associate with this constraint.
+        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// </summary>
+        public string NoteText { get; set; }
+
+        /// <summary>
+        /// The range of possible values.
+        /// To specify a range, use '..' between the range endpoints, square brackets to specify a closed endpoint, and parentheses to specify an open endpoint. Commas are used to entered multiple ranges or discrete values.
+        /// Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30
+        /// </summary>
+        public string Text { get; set; }
+
+        public int TextChanged { get; set; }
     }
 }

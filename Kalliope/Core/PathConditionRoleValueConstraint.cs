@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ObjectTypeInstance.cs" company="RHEA System S.A.">
+// <copyright file="PathConditionRoleValueConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,13 +20,10 @@
 
 namespace Kalliope.Core
 {
-    public abstract class ObjectTypeInstance : ORMModelElement
+    /// <summary>
+    /// Value constraint applied to a pathed role in a role path
+    /// </summary>
+    public class PathConditionRoleValueConstraint : ValueConstraint
     {
-        /// <summary>
-        /// An ordered tuple of values for this instance, ignores objectification of the associated <see cref="ObjectType"/>
-        /// </summary>
-        public string IdentifierName { get; set; }
-
-        public int NameChanged { get; set; }
     }
 }

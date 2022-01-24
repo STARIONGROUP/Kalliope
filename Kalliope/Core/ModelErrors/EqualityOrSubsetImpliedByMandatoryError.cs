@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ObjectTypeInstance.cs" company="RHEA System S.A.">
+// <copyright file="EqualityOrSubsetImpliedByMandatoryError.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,15 +18,12 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Core
+namespace Kalliope.Core.ModelErrors
 {
-    public abstract class ObjectTypeInstance : ORMModelElement
+    /// <summary>
+    /// Mandatory Constraint Implies Equality or Subset Constraint
+    /// </summary>
+    public class EqualityOrSubsetImpliedByMandatoryError : ImplicationError
     {
-        /// <summary>
-        /// An ordered tuple of values for this instance, ignores objectification of the associated <see cref="ObjectType"/>
-        /// </summary>
-        public string IdentifierName { get; set; }
-
-        public int NameChanged { get; set; }
     }
 }

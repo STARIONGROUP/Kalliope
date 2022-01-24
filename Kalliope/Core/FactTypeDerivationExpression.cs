@@ -21,14 +21,21 @@
 namespace Kalliope.Core
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
-
+    
     /// <summary>
     /// A derivation expression
     /// </summary>
     [Obsolete("Use FactTypeDerivationPath/InformalRule/DerivationNote instead")]
     public class FactTypeDerivationExpression : Expression
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FactTypeDerivationExpression"/> class
+        /// </summary>
+        public FactTypeDerivationExpression()
+        {
+            this.DerivationStorage = DerivationExpressionStorageType.Derived;
+        }
+
+        public DerivationExpressionStorageType DerivationStorage { get; set; }
     }
 }

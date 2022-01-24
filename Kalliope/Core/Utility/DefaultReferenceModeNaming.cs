@@ -27,6 +27,16 @@ namespace Kalliope.Core
     public abstract class DefaultReferenceModeNaming
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultReferenceModeNaming"/> class.
+        /// </summary>
+        public DefaultReferenceModeNaming()
+        {
+            this.NamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;
+            this.PrimaryIdentifierNamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;
+            this.ReferenceModeTargetKind = ReferenceModeType.Popular;
+        }
+
+        /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
@@ -34,7 +44,7 @@ namespace Kalliope.Core
         /// <summary>
         /// pecify if these are the defaults for popular, unit based, or general reference modes
         /// </summary>
-        public TargetKind TargetKind { get; set; }
+        public ReferenceModeType ReferenceModeTargetKind { get; set; }
 
         /// <summary>
         /// Specify how a reference to a reference-mode identified instance is to be represented
