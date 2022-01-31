@@ -28,7 +28,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceModeNaming"/> class.
         /// </summary>
-        public ReferenceModeNaming()
+        protected ReferenceModeNaming()
         {
             this.NamingChoice = ReferenceModeNamingChoice.ModelDefault;
             this.PrimaryIdentifierNamingChoice = ReferenceModeNamingChoice.ModelDefault;

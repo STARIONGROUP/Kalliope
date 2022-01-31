@@ -48,11 +48,14 @@ namespace Kalliope.Tests
         [Test]
         public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_result()
         {
-            var ormModel = this.ormReader.Read(this.ormfilePath, false, null);
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
 
-            Assert.That(ormModel.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
-            Assert.That(ormModel.Name, Is.EqualTo("ORMModel1"));
+            Assert.That(ormRoot.Model.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
+            Assert.That(ormRoot.Model.Name, Is.EqualTo("ORMModel1"));
 
+            Assert.That(ormRoot.Model.ObjectTypes.OfType<EntityType>().Count(), Is.EqualTo(2));
+            Assert.That(ormRoot.Model.ObjectTypes.OfType<ValueType>().Count(), Is.EqualTo(4));
+            Assert.That(ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Count(), Is.EqualTo(1));
         }
     }
 }

@@ -20,10 +20,45 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
+    using Microsoft.Extensions.Logging;
+
     /// <summary>
     /// An <see cref="ObjectType"/> with an external identification scheme
     /// </summary>
     public class EntityType : ObjectType
     {
+        /// <summary>
+        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
+        /// </summary>
+        private readonly ILoggerFactory loggerFactory;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="EntityType"/>
+        /// </param>
+        internal EntityType(ORMModel model, ILoggerFactory loggerFactory)
+            : base(model)
+        {
+            this.loggerFactory = loggerFactory;
+
+            model.ObjectTypes.Add(this);
+        }
+
+        /// <summary>
+        /// Generates a <see cref="EntityType"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            this.ReferenceMode = reader.GetAttribute("_ReferenceMode");
+        }
     }
 }

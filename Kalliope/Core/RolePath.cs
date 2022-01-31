@@ -28,7 +28,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePath"/> class
         /// </summary>
-        public RolePath()
+        protected RolePath()
         {
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
         }

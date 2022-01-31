@@ -25,7 +25,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.
         /// </summary>
-        public SetComparisonConstraint()
+        protected SetComparisonConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
         }

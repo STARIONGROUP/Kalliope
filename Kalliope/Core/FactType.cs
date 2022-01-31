@@ -26,6 +26,30 @@ namespace Kalliope.Core
     public class FactType : ORMModelElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="FactType"/> class
+        /// </summary>
+        public FactType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FactType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="FactType"/>
+        /// </param>
+        internal FactType(ORMModel model)
+            : this()
+        {
+            this.Model = model;
+        }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
+
+        /// <summary>
         /// This fact type is externally defined (not used)
         /// </summary>
         public bool IsExternal { get; set; }

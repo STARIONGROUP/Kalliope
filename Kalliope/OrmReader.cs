@@ -81,7 +81,7 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public ORMModel Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public OrmRoot Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             if (string.IsNullOrEmpty(xmlFilePath))
             {
@@ -117,7 +117,7 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public ORMModel Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public OrmRoot Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             if (!validate && validationEventHandler != null)
             {
@@ -134,7 +134,7 @@ namespace Kalliope
                 throw new ArgumentException($"The {nameof(stream)} may not be empty", nameof(stream));
             }
 
-            return this.ReadOrm(stream, validate, validationEventHandler);
+            return this.ReadOrmRoot(stream, validate, validationEventHandler);
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public async Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public async Task<OrmRoot> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             if (string.IsNullOrEmpty(xmlFilePath))
             {
@@ -192,7 +192,7 @@ namespace Kalliope
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        public async Task<ORMModel> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        public async Task<OrmRoot> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             if (!validate && validationEventHandler != null)
             {
@@ -213,7 +213,7 @@ namespace Kalliope
         }
 
         /// <summary>
-        /// Read the provided <see cref="Stream"/> to <see cref="ORMModel"/>
+        /// Read the provided <see cref="Stream"/> to <see cref="OrmRoot"/>
         /// </summary>
         /// <param name="stream">
         /// The <see cref="Stream"/> that contains the .orm file to deserialize
@@ -225,9 +225,9 @@ namespace Kalliope
         /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
         /// </param>
         /// <returns>
-        /// Fully de-referenced <see cref="ORMModel"/> object graph
+        /// Fully de-referenced <see cref="OrmRoot"/> object graph
         /// </returns>
-        private ORMModel ReadOrm(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        private OrmRoot ReadOrmRoot(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             XmlReader xmlReader;
 
@@ -239,23 +239,23 @@ namespace Kalliope
             {
                 var sw = Stopwatch.StartNew();
 
-                ORMModel model = null;
+                OrmRoot ormRoot = null;
 
                 this.logger.LogTrace("starting to read xml");
 
                 while (xmlReader.Read())
                 {
-                    if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.LocalName == "ORMModel"))
+                    if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "ormRoot:ORM2"))
                     {
-                        model = new ORMModel(this.loggerFactory);
-                        model.ReadXml(xmlReader);
+                        ormRoot = new OrmRoot(this.loggerFactory);
+                        ormRoot.ReadXml(xmlReader);
                     }
                 }
 
                 this.logger.LogTrace("xml read in {time}", sw.ElapsedMilliseconds);
                 sw.Stop();
 
-                return model;
+                return ormRoot;
             }
         }
 
@@ -277,7 +277,7 @@ namespace Kalliope
         /// <returns>
         /// Fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        private Task<ORMModel> ReadOrmAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
+        private Task<OrmRoot> ReadOrmAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
             throw new NotImplementedException();
         }

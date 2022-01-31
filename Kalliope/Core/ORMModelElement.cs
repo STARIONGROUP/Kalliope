@@ -20,11 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     public abstract class ORMModelElement
     {
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal virtual void ReadXml(XmlReader reader)
+        {
+            this.Id = reader.GetAttribute("id");
+        }
     }
 }

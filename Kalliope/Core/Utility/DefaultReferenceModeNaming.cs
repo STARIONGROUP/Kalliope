@@ -29,7 +29,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultReferenceModeNaming"/> class.
         /// </summary>
-        public DefaultReferenceModeNaming()
+        protected DefaultReferenceModeNaming()
         {
             this.NamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;
             this.PrimaryIdentifierNamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;

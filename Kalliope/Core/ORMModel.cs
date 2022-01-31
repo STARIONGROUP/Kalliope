@@ -39,7 +39,19 @@ namespace Kalliope.Core
         /// Initializes a new instance of the <see cref="ORMModel"/> class
         /// </summary>
         public ORMModel()
-        { 
+        {
+            this.Definitions = new List<Definition>();
+            this.Notes = new List<Note>();
+            this.ObjectTypes = new List<ObjectType>();
+            this.FactTypes = new List<FactType>();
+            this.DataTypes = new List<DataType>();
+            this.Functions = new List<Function>();
+            this.CustomReferenceModes = new List<CustomReferenceMode>();
+            this.ModelNotes = new List<ModelNote>();
+            this.ModelErrors = new List<ModelError>();
+            this.ReferenceModeKinds = new List<ReferenceModeKind>();
+            this.RecognizedPhrases = new List<RecognizedPhrase>();
+            this.Extensions = new List<Extension>();
         }
 
         /// <summary>
@@ -48,7 +60,7 @@ namespace Kalliope.Core
         /// <param name="loggerFactory">
         /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
         /// </param>
-        internal ORMModel(ILoggerFactory loggerFactory)
+        internal ORMModel(ILoggerFactory loggerFactory) : this()
         {
             this.loggerFactory = loggerFactory;
         }
@@ -83,12 +95,12 @@ namespace Kalliope.Core
         /// <summary>
         /// The <see cref="ObjectType"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
-        public List<ObjectType> Objects { get; set; }
+        public List<ObjectType> ObjectTypes { get; set; }
 
         /// <summary>
         /// The <see cref="FactType"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
-        public List<FactType> Facts { get; set; }
+        public List<FactType> FactTypes { get; set; }
 
         /// <summary>
         /// The <see cref="DataType"/>s contained by the <see cref="ORMModel"/>
@@ -129,18 +141,162 @@ namespace Kalliope.Core
         /// The <see cref="Extension"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
         public List<Extension> Extensions { get; set; }
-
-
+        
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/>
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        internal void ReadXml(XmlReader reader)
+        internal override void ReadXml(XmlReader reader)
         {
-            this.Id = reader.GetAttribute("id");
-            this.Name = reader.GetAttribute("Name");
+            base.ReadXml(reader);
+            
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Objects":
+                            using (var objectsSubtree = reader.ReadSubtree())
+                            {
+                                objectsSubtree.MoveToContent();
+                                this.ReadObjects(objectsSubtree);
+                            }
+                            break;
+                        case "Facts":
+                            using (var factsSubtree = reader.ReadSubtree())
+                            {
+                                factsSubtree.MoveToContent();
+                                this.ReadFacts(factsSubtree);
+                            }
+                            break;
+                        case "Constraints":
+                            using (var constraintsSubTree = reader.ReadSubtree())
+                            {
+                                constraintsSubTree.MoveToContent();
+                                this.ReadConstraints(constraintsSubTree);
+                            }
+                            break;
+                        case "DataTypes":
+                            using (var dataTypesSubtree = reader.ReadSubtree())
+                            {
+                                dataTypesSubtree.MoveToContent();
+                                this.ReadDataTypes(dataTypesSubtree);
+                            }
+                            break;
+                        case "ReferenceModeKinds":
+                            using (var referenceModeKindsSubtree = reader.ReadSubtree())
+                            {
+                                referenceModeKindsSubtree.MoveToContent();
+                                this.ReadReferenceModeKinds(referenceModeKindsSubtree);
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="ObjectType"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadObjects(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "EntityType":
+
+                            using (var entityTypeSubtree = reader.ReadSubtree())
+                            {
+                                var entityType = new EntityType(this, this.loggerFactory);
+
+                                entityType.ReadXml(entityTypeSubtree);
+                            }
+                            
+                            break;
+
+                        case "ValueType":
+
+                            using (var valueTypeSubtree = reader.ReadSubtree())
+                            {
+                                var valueType = new ValueType(this, this.loggerFactory);
+
+                                valueType.ReadXml(valueTypeSubtree);
+                            }
+
+                            break;
+
+                        case "ObjectifiedType":
+
+                            using (var objectifiedTypeSubtree = reader.ReadSubtree())
+                            {
+                                var objectifiedType = new ObjectifiedType(this, this.loggerFactory);
+
+                                objectifiedType.ReadXml(objectifiedTypeSubtree);
+                            }
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadFacts(XmlReader reader)
+        { 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadConstraints(XmlReader reader)
+        { 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadDataTypes(XmlReader reader)
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadReferenceModeKinds(XmlReader reader)
+        { 
         }
     }
 }

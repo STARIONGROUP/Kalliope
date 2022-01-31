@@ -32,7 +32,7 @@ namespace Kalliope
     public interface IOrmReader
     {
         /// <summary>
-        /// Reads a <see cref="ORMModel"/> from an .orm file
+        /// Reads a <see cref="OrmRoot"/> from an .orm file
         /// </summary>
         /// <param name="xmlFilePath">
         /// The Path of the .orm file to deserialize
@@ -41,15 +41,15 @@ namespace Kalliope
         /// a value indicating whether the XML document needs to be validated or not
         /// </param>
         /// <param name="validationEventHandler">
-        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="OrmRoot"/> validation.
         /// </param>
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        ORMModel Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        OrmRoot Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null);
 
         /// <summary>
-        /// Reads a <see cref="ORMModel"/> from an .orm <see cref="Stream"/>
+        /// Reads a <see cref="OrmRoot"/> from an .orm <see cref="Stream"/>
         /// </summary>
         /// <param name="stream">
         /// The <see cref="Stream"/> that contains the .orm file to read
@@ -58,16 +58,15 @@ namespace Kalliope
         /// a value indicating whether the XML document needs to be validated or not
         /// </param>
         /// <param name="validationEventHandler">
-        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="OrmRoot"/> validation.
         /// </param>
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        ORMModel Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null);
-
+        OrmRoot Read(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null);
 
         /// <summary>
-        /// Asynchronously reads a <see cref="ORMModel"/> from an .orm file
+        /// Asynchronously reads a <see cref="OrmRoot"/> from an .orm file
         /// </summary>
         /// <param name="xmlFilePath">
         /// The Path of the .orm file to deserialize
@@ -79,15 +78,15 @@ namespace Kalliope
         /// a value indicating whether the XML document needs to be validated or not
         /// </param>
         /// <param name="validationEventHandler">
-        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="OrmRoot"/> validation.
         /// </param>
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        Task<ORMModel> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        Task<OrmRoot> ReadAsync(string xmlFilePath, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
 
         /// <summary>
-        /// Asynchronously reads a <see cref="ORMModel"/> from an .orm <see cref="Stream"/>
+        /// Asynchronously reads a <see cref="OrmRoot"/> from an .orm <see cref="Stream"/>
         /// </summary>
         /// <param name="stream">
         /// The <see cref="Stream"/> that contains the .orm file to read
@@ -99,11 +98,11 @@ namespace Kalliope
         /// a value indicating whether the XML document needs to be validated or not
         /// </param>
         /// <param name="validationEventHandler">
-        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
+        /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="OrmRoot"/> validation.
         /// </param>
         /// <returns>
         /// A fully de-referenced <see cref="ORMModel"/> object graph
         /// </returns>
-        Task<ORMModel> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
+        Task<OrmRoot> ReadAsync(Stream stream, CancellationToken token, bool validate = false, ValidationEventHandler validationEventHandler = null);
     }
 }

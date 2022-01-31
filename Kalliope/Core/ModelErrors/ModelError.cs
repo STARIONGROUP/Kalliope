@@ -25,7 +25,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelError"/> class.
         /// </summary>
-        public ModelError()
+        protected ModelError()
         {
             this.ErrorState = ModelErrorState.Error;
         }

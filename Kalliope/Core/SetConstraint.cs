@@ -25,7 +25,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
-        public SetConstraint()
+        protected SetConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
         }

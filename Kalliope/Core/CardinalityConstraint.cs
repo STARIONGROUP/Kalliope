@@ -28,7 +28,7 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class
         /// </summary>
-        public CardinalityConstraint()
+        protected CardinalityConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
         }

@@ -20,16 +20,35 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     public abstract class ObjectType : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectType"/> class
         /// </summary>
-        public ObjectType()
+        protected ObjectType()
         {
             this.DataTypeScale = 0;
             this.DataTypeLength = 0;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ObjectType"/>
+        /// </param>
+        internal ObjectType(ORMModel model)
+            : this()
+        {
+            this.Model = model;
+        }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
 
         /// <summary>
         /// An instance of this object type can exist without playing any non-identifying roles
@@ -84,7 +103,7 @@ namespace Kalliope.Core
         /// </summary>
         public int DataTypeLength { get; set; }
 
-        public string ReferenceModeString { get; set; }
+        public string ReferenceMode { get; set; }
 
         public string ReferenceModeDecoratedString { get; set; }
 
@@ -121,5 +140,23 @@ namespace Kalliope.Core
         /// Storage options for a derived subtype
         /// </summary>
         public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+            
+            var isImplicitBooleanValue = reader.GetAttribute("IsImplicitBooleanValue");
+            if (isImplicitBooleanValue != null)
+            {
+                this.IsImplicitBooleanValue = XmlConvert.ToBoolean(isImplicitBooleanValue);
+            }
+           
+        }
     }
 }
