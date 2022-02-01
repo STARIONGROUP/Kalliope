@@ -54,8 +54,9 @@ namespace Kalliope.Core
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        internal void ReadXml(XmlReader reader)
+        internal override void ReadXml(XmlReader reader)
         {
+            base.ReadXml(reader);
         }
     }
 }

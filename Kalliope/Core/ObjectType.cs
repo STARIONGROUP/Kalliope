@@ -184,7 +184,14 @@ namespace Kalliope.Core
             {
                 this.IsImplicitBooleanValue = XmlConvert.ToBoolean(isImplicitBooleanValue);
             }
-           
+
+            var isIndependent = reader.GetAttribute("IsIndependent");
+            if (isIndependent != null)
+            {
+                this.IsIndependent = XmlConvert.ToBoolean(isIndependent);
+            }
+            
+            this.ReferenceMode = reader.GetAttribute("_ReferenceMode");
         }
     }
 }

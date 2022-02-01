@@ -57,8 +57,6 @@ namespace Kalliope.Core
         internal override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
-
-            this.ReferenceMode = reader.GetAttribute("_ReferenceMode");
         }
     }
 }
