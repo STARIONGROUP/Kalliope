@@ -25,5 +25,21 @@ namespace Kalliope.Core
     /// </summary>
     public abstract class DataType : ORMModelElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="DataType"/>
+        /// </param>
+        protected DataType(ORMModel model)
+        {
+            this.Model = model;
+            model.DataTypes.Add(this);
+        }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
     }
 }

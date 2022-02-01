@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class UnspecifiedDataType : DataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnspecifiedDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="UnspecifiedDataType"/>
+        /// </param>
+        public UnspecifiedDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

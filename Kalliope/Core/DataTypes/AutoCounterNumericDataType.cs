@@ -25,5 +25,15 @@ namespace Kalliope.Core
     /// </summary>
     public class AutoCounterNumericDataType : NumericDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AutoCounterNumericDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="AutoCounterNumericDataType"/>
+        /// </param>
+        public AutoCounterNumericDataType(ORMModel model) 
+            : base(model)
+        {
+        }
     }
 }

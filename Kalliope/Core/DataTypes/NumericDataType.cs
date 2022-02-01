@@ -22,5 +22,14 @@ namespace Kalliope.Core
 {
     public abstract class NumericDataType : DataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NumericDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="NumericDataType"/>
+        /// </param>
+        protected NumericDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

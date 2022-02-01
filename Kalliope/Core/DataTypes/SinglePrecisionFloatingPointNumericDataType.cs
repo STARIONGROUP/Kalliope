@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class SinglePrecisionFloatingPointNumericDataType : NumericDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SinglePrecisionFloatingPointNumericDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="SinglePrecisionFloatingPointNumericDataType"/>
+        /// </param>
+        public SinglePrecisionFloatingPointNumericDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

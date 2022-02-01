@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class RowIdOtherDataType : OtherDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RowIdOtherDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="RowIdOtherDataType"/>
+        /// </param>
+        public RowIdOtherDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

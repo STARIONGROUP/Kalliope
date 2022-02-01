@@ -309,6 +309,361 @@ namespace Kalliope.Core
         /// </param>
         private void ReadDataTypes(XmlReader reader)
         {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "AutoCounterNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new AutoCounterNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "AutoTimestampTemporalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new AutoTimestampTemporalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "DateAndTimeTemporalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new DateAndTimeTemporalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "DateTemporalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new DateTemporalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "DecimalNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new DecimalNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "DoublePrecisionFloatingPointNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new DoublePrecisionFloatingPointNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "FixedLengthRawDataDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new FixedLengthRawDataDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "FixedLengthTextDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new FixedLengthTextDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "FloatingPointNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new FloatingPointNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "LargeLengthRawDataDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new LargeLengthRawDataDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "LargeLengthTextDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new LargeLengthTextDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "LogicalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new LogicalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "MoneyNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new MoneyNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "ObjectIdOtherDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new ObjectIdOtherDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "OleObjectRawDataDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new OleObjectRawDataDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "PictureRawDataDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new PictureRawDataDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "RowIdOtherDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new RowIdOtherDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "SignedIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new SignedIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "SignedLargeIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new SignedLargeIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "SignedSmallIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new SignedSmallIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "SinglePrecisionFloatingPointNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new SinglePrecisionFloatingPointNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "TimeTemporalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new TimeTemporalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "TrueOrFalseLogicalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new TrueOrFalseLogicalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "UnsignedIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new UnsignedIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "UnsignedLargeIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new UnsignedLargeIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "UnsignedSmallIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new UnsignedSmallIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "UnsignedTinyIntegerNumericDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new UnsignedTinyIntegerNumericDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "UnspecifiedDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new UnspecifiedDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "VariableLengthRawDataDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new VariableLengthRawDataDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "VariableLengthTextDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new VariableLengthTextDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        case "YesOrNoLogicalDataType":
+
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var dataType = new YesOrNoLogicalDataType(this);
+                                dataType.ReadXml(dataTypeSubtree);
+                            }
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
         }
 
         /// <summary>

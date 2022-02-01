@@ -22,5 +22,14 @@ namespace Kalliope.Core
 {
     public abstract class OtherDataType : DataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OtherDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="OtherDataType"/>
+        /// </param>
+        protected OtherDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

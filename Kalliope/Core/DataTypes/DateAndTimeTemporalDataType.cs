@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class DateAndTimeTemporalDataType : TemporalDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateAndTimeTemporalDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="DateAndTimeTemporalDataType"/>
+        /// </param>
+        public DateAndTimeTemporalDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

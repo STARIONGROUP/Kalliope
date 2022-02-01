@@ -22,5 +22,14 @@ namespace Kalliope.Core
 {
     public abstract class TextDataType : DataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="TextDataType"/>
+        /// </param>
+        protected TextDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

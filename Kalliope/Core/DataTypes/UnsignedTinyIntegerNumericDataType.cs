@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class UnsignedTinyIntegerNumericDataType : NumericDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnsignedTinyIntegerNumericDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="UnsignedTinyIntegerNumericDataType"/>
+        /// </param>
+        public UnsignedTinyIntegerNumericDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class PictureRawDataDataType : RawDataDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PictureRawDataDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="PictureRawDataDataType"/>
+        /// </param>
+        public PictureRawDataDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }

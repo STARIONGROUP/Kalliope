@@ -25,5 +25,14 @@ namespace Kalliope.Core
     /// </summary>
     public class MoneyNumericDataType : NumericDataType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoneyNumericDataType"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="MoneyNumericDataType"/>
+        /// </param>
+        public MoneyNumericDataType(ORMModel model) : base(model)
+        {
+        }
     }
 }
