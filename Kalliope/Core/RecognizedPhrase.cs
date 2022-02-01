@@ -20,10 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A phrase with one or more words that can be abbreviated during name generation
     /// </summary>
     public class RecognizedPhrase : ORMNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecognizedPhrase"/> class
+        /// </summary>
+        public RecognizedPhrase()
+        {
+            this.Abbreviations = new List<NameAlias>();
+        }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="NameAlias"/>
+        /// </summary>
+        public List<NameAlias> Abbreviations { get; set; }
     }
 }

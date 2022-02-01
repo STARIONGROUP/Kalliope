@@ -31,6 +31,11 @@ namespace Kalliope.Core
         }
 
         /// <summary>
+        /// Gets or sets the container <see cref="ORMModelElement"/>
+        /// </summary>
+        public ORMModelElement ORMModelElement { get; set; }
+
+        /// <summary>
         /// Description of the model validation error
         /// </summary>
         public string ErrorText { get; set; }

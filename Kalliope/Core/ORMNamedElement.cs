@@ -28,7 +28,7 @@ namespace Kalliope.Core
         /// A name for this element
         /// </summary>
         public string Name { get; set; }
-
+        
         /// <summary>
         /// Generates a <see cref="ORMNamedElement"/> object from its XML representation.
         /// </summary>

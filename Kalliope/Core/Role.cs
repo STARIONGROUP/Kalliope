@@ -69,5 +69,10 @@ namespace Kalliope.Core
         /// Binary FactTypes with a spanning internal uniqueness constraint and ternary (or higher arity) FactTypes are automatically objectified
         /// </summary>
         public string ObjectificationOppositeRoleName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ObjectType"/>
+        /// </summary>
+        public ObjectType ObjectType { get; set; }
     }
 }

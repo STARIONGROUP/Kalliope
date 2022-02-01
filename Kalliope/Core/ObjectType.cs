@@ -20,6 +20,7 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     public abstract class ObjectType : ORMNamedElement
@@ -31,6 +32,8 @@ namespace Kalliope.Core
         {
             this.DataTypeScale = 0;
             this.DataTypeLength = 0;
+
+            this.Abbreviations = new List<NameAlias>();
         }
 
         /// <summary>
@@ -140,6 +143,31 @@ namespace Kalliope.Core
         /// Storage options for a derived subtype
         /// </summary>
         public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="DataType"/>
+        /// </summary>
+        public DataType DataType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="FactType"/>
+        /// </summary>
+        public FactType FactType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="MandatoryConstraint"/>
+        /// </summary>
+        public MandatoryConstraint ImpliedMandatoryConstraint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="MandatoryConstraint"/>
+        /// </summary>
+        public MandatoryConstraint InherentMandatoryConstraint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="NameAlias"/>
+        /// </summary>
+        public List<NameAlias> Abbreviations { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.

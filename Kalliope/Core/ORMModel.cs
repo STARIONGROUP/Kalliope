@@ -52,6 +52,8 @@ namespace Kalliope.Core
             this.ReferenceModeKinds = new List<ReferenceModeKind>();
             this.RecognizedPhrases = new List<RecognizedPhrase>();
             this.Extensions = new List<Extension>();
+            this.SetConstraints = new List<SetConstraint>();
+            this.SetComparisonConstraints = new List<SetComparisonConstraint>();
         }
 
         /// <summary>
@@ -81,6 +83,16 @@ namespace Kalliope.Core
         /// The value of the referenced element's unique id
         /// </summary>
         public string Reference { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ReferenceModeKind"/>
+        /// </summary>
+        public ReferenceModeKind ReferenceModeKind { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ReferenceMode"/>
+        /// </summary>
+        public ReferenceMode ReferenceMode { get; set; }
 
         /// <summary>
         /// The <see cref="Definitions"/>s contained by the <see cref="ORMModel"/>
@@ -141,7 +153,17 @@ namespace Kalliope.Core
         /// The <see cref="Extension"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
         public List<Extension> Extensions { get; set; }
-        
+
+        /// <summary>
+        /// The <see cref="SetConstraint"/>s contained by the <see cref="ORMModel"/>
+        /// </summary>
+        public List<SetConstraint> SetConstraints { get; set; }
+
+        /// <summary>
+        /// The <see cref="SetComparisonConstraint"/>s contained by the <see cref="ORMModel"/>
+        /// </summary>
+        public List<SetComparisonConstraint> SetComparisonConstraints { get; set; }
+
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
         /// </summary>
@@ -222,8 +244,8 @@ namespace Kalliope.Core
 
                             using (var entityTypeSubtree = reader.ReadSubtree())
                             {
+                                entityTypeSubtree.MoveToContent();
                                 var entityType = new EntityType(this, this.loggerFactory);
-
                                 entityType.ReadXml(entityTypeSubtree);
                             }
                             
@@ -233,8 +255,8 @@ namespace Kalliope.Core
 
                             using (var valueTypeSubtree = reader.ReadSubtree())
                             {
+                                valueTypeSubtree.MoveToContent();
                                 var valueType = new ValueType(this, this.loggerFactory);
-
                                 valueType.ReadXml(valueTypeSubtree);
                             }
 
@@ -244,8 +266,8 @@ namespace Kalliope.Core
 
                             using (var objectifiedTypeSubtree = reader.ReadSubtree())
                             {
+                                objectifiedTypeSubtree.MoveToContent();
                                 var objectifiedType = new ObjectifiedType(this, this.loggerFactory);
-
                                 objectifiedType.ReadXml(objectifiedTypeSubtree);
                             }
 

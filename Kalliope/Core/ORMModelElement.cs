@@ -20,15 +20,23 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     public abstract class ORMModelElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ORMModelElement"/> class
+        /// </summary>
+        protected ORMModelElement()
+        {
+        }
+
+        /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
-
+        
         /// <summary>
         /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
         /// </summary>

@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     public abstract class SetComparisonConstraint : ORMNamedElement
     {
         /// <summary>
@@ -28,6 +30,7 @@ namespace Kalliope.Core
         protected SetComparisonConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
+            this.FactTypes = new List<FactType>();
         }
 
         /// <summary>
@@ -48,5 +51,10 @@ namespace Kalliope.Core
         /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
         /// </summary>
         public string NoteText { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="FactType"/>s
+        /// </summary>
+        public List<FactType> FactTypes { get; set; }
     }
 }

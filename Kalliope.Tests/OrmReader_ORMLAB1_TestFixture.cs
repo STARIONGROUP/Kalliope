@@ -56,6 +56,18 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.Model.ObjectTypes.OfType<EntityType>().Count(), Is.EqualTo(2));
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ValueType>().Count(), Is.EqualTo(4));
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Count(), Is.EqualTo(1));
+
+            var entityType = ormRoot.Model.ObjectTypes.OfType<EntityType>().Single(x => x.Id == "_2BBF304E-05AE-4A81-AFF9-AFAAECC9A8A7");
+            Assert.That(entityType.Name, Is.EqualTo("Patient"));
+            Assert.That(entityType.ReferenceMode, Is.EqualTo("nr"));
+
+            var valueType = ormRoot.Model.ObjectTypes.OfType<ValueType>().Single(x => x.Id == "_7F75CE34-D410-48E7-85AB-DD4A567C3E3E");
+            Assert.That(valueType.Name, Is.EqualTo("Patient_nr"));
+
+            //var objectifiedType = ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Single(x => x.Id == "_85FCF764-5AED-456D-A8F1-D8BAF3D5B098");
+            //Assert.That(objectifiedType.Name, Is.EqualTo("DrugAllergy"));
+            //Assert.That(objectifiedType.IsIndependent, Is.True);
+            //Assert.That(objectifiedType.ReferenceMode, Is.Empty);
         }
     }
 }
