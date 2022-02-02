@@ -22,8 +22,9 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
     using System.Xml;
-
+    
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
 
     /// <summary>
     /// Definition of elements used in the primary definition of an ORM model
@@ -36,10 +37,17 @@ namespace Kalliope.Core
         private readonly ILoggerFactory loggerFactory;
 
         /// <summary>
+        /// The <see cref="ILogger"/> used to log
+        /// </summary>
+        private readonly ILogger<ORMModel> logger;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ORMModel"/> class
         /// </summary>
         public ORMModel()
         {
+            this.logger = NullLogger<ORMModel>.Instance;
+
             this.Definitions = new List<Definition>();
             this.Notes = new List<Note>();
             this.ObjectTypes = new List<ObjectType>();
@@ -65,6 +73,7 @@ namespace Kalliope.Core
         internal ORMModel(ILoggerFactory loggerFactory) : this()
         {
             this.loggerFactory = loggerFactory;
+            this.logger = this.loggerFactory == null ? NullLogger<ORMModel>.Instance : this.loggerFactory.CreateLogger<ORMModel>();
         }
 
         /// <summary>
@@ -210,6 +219,20 @@ namespace Kalliope.Core
                                 this.ReadDataTypes(dataTypesSubtree);
                             }
                             break;
+                        case "CustomReferenceModes":
+                            using (var customReferenceModesSubtree = reader.ReadSubtree())
+                            {
+                                customReferenceModesSubtree.MoveToContent();
+                                this.ReadCustomReferenceModes(customReferenceModesSubtree);
+                            }
+                            break;
+                        case "ModelNotes":
+                            using (var modelNotesSubtree = reader.ReadSubtree())
+                            {
+                                modelNotesSubtree.MoveToContent();
+                                this.ReadModelNotes(modelNotesSubtree);
+                            }
+                            break;
                         case "ReferenceModeKinds":
                             using (var referenceModeKindsSubtree = reader.ReadSubtree())
                             {
@@ -282,13 +305,54 @@ namespace Kalliope.Core
         }
 
         /// <summary>
-        /// 
+        /// Reads the <see cref="FactType"/>s
         /// </summary>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
         private void ReadFacts(XmlReader reader)
-        { 
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Fact":
+
+                            using (var factSubtree = reader.ReadSubtree())
+                            {
+                                factSubtree.MoveToContent();
+                                var factType = new FactType(this);
+                                factType.ReadXml(factSubtree);
+                            }
+
+                            break;
+                        case "ImpliedFact":
+
+                            using (var impliedFactSubtree = reader.ReadSubtree())
+                            {
+                                impliedFactSubtree.MoveToContent();
+                                this.logger.LogTrace("ImpliedFact found: not supported");
+                            }
+                            
+                            break;
+                        case "SubtypeFact":
+                            using (var subtypeFactSubtree = reader.ReadSubtree())
+                            {
+                                subtypeFactSubtree.MoveToContent();
+                                this.logger.LogTrace("SubtypeFact found: not supported");
+                            }
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -298,11 +362,113 @@ namespace Kalliope.Core
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
         private void ReadConstraints(XmlReader reader)
-        { 
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "EqualityConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new EqualityConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "ExclusionConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new ExclusionConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "FrequencyConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new FrequencyConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "MandatoryConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new MandatoryConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "RingConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new RingConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "SubsetConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new SubsetConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "UniquenessConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new UniquenessConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        case "ValueComparisonConstraint":
+
+                            using (var constraintSubtree = reader.ReadSubtree())
+                            {
+                                constraintSubtree.MoveToContent();
+                                var constraint = new ValueComparisonConstraint(this);
+                                constraint.ReadXml(constraintSubtree);
+                            }
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
         }
 
         /// <summary>
-        /// 
+        /// Reads the <see cref="DataType"/>s
         /// </summary>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -667,13 +833,102 @@ namespace Kalliope.Core
         }
 
         /// <summary>
-        /// 
+        /// Reads the <see cref="ModelNote"/>s
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadModelNotes(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ModelNote":
+
+                            using (var modelNoteSubtree = reader.ReadSubtree())
+                            {
+                                modelNoteSubtree.MoveToContent();
+                                var modelNote = new ModelNote(this);
+                                modelNote.ReadXml(modelNoteSubtree);
+                            }
+
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the <see cref="CustomReferenceMode"/>s
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadCustomReferenceModes(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CustomReferenceMode":
+
+                            using (var customReferenceModeSubtree = reader.ReadSubtree())
+                            {
+                                customReferenceModeSubtree.MoveToContent();
+                                var customReferenceMode = new CustomReferenceMode(this);
+                                customReferenceMode.ReadXml(customReferenceModeSubtree);
+                            }
+
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the <see cref="ReferenceModeKind"/>s
         /// </summary>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
         private void ReadReferenceModeKinds(XmlReader reader)
-        { 
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ReferenceModeKind":
+
+                            using (var referenceModeKindsSubtree = reader.ReadSubtree())
+                            {
+                                referenceModeKindsSubtree.MoveToContent();
+                                var referenceModeKind = new ReferenceModeKind(this);
+                                referenceModeKind.ReadXml(referenceModeKindsSubtree);
+                            }
+
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

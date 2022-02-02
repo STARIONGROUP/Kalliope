@@ -20,11 +20,17 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Xml;
+
     /// <summary>
     /// A primary role declaration
     /// </summary>
     public class Role : RoleBase
     {
+        protected List<string> rolePlayerReferences = new List<string>();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Role"/> class
         /// </summary>
@@ -74,5 +80,56 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="ObjectType"/>
         /// </summary>
         public ObjectType ObjectType { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            var isMandatory = reader.GetAttribute("_IsMandatory");
+            if (!string.IsNullOrEmpty(isMandatory))
+            {
+                this.IsMandatory = XmlConvert.ToBoolean(isMandatory);
+            }
+
+            var multiplicityAttribute = reader.GetAttribute("_Multiplicity");
+            if (Enum.TryParse(multiplicityAttribute, out Multiplicity multiplicity))
+            {
+                this.Multiplicity = multiplicity;
+            }
+
+            using (var rolePlayerSubtree = reader.ReadSubtree())
+            {
+                while (rolePlayerSubtree.Read())
+                {
+                    if (rolePlayerSubtree.MoveToContent() == XmlNodeType.Element)
+                    {
+                        var localName = rolePlayerSubtree.LocalName;
+
+                        switch (localName)
+                        {
+                            case "RolePlayer":
+
+                                var rolePlayerReference = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(rolePlayerReference))
+                                {
+                                    rolePlayerReferences.Add(rolePlayerReference);
+                                }
+                                
+                                break;
+
+                            default:
+                                Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

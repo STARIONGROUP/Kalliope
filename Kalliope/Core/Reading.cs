@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Xml;
+
 namespace Kalliope.Core
 {
     /// <summary>
@@ -51,5 +53,41 @@ namespace Kalliope.Core
         public string Language { get; set; }
 
         public bool IsPrimaryForFactType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ReadingOrder"/>
+        /// </summary>
+        public ReadingOrder ReadingOrder { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="Reading"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Data":
+
+                            this.Data = reader.ReadElementContentAsString();
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

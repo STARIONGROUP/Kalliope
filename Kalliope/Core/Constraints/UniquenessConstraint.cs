@@ -20,11 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// A constraint specifying that the population of a set must be unique
     /// </summary>
     public class UniquenessConstraint : SetConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UniquenessConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="UniquenessConstraint"/>
+        /// </param>
+        public UniquenessConstraint(ORMModel model) :
+            base(model)
+        {
+        }
+
         /// <summary>
         /// Is this the preferred identifier for the EntityType role player of the opposite role(s)?
         /// The opposite role player of an internal constraint on an objectified FactType is the objectifying EntityType.
@@ -36,5 +49,28 @@ namespace Kalliope.Core
         /// If true, this uniqueness constraint is internal to a single fact type
         /// </summary>
         public bool IsInternal { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            var isPreferred = reader.GetAttribute("IsPreferred");
+            if (isPreferred != null)
+            {
+                this.IsPreferred = XmlConvert.ToBoolean(isPreferred);
+            }
+
+            var isInternal = reader.GetAttribute("IsInternal");
+            if (isInternal != null)
+            {
+                this.IsInternal = XmlConvert.ToBoolean(isInternal);
+            }
+        }
     }
 }

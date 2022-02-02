@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="RoleValueConstraint.cs" company="RHEA System S.A.">
+// <copyright file="RingConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,7 +20,26 @@
 
 namespace Kalliope.Core
 {
-    public class RoleValueConstraint : ValueConstraint
+    /// <summary>
+    /// A constraint specifying relationships between elements of the same type in a set population
+    /// </summary>
+    public class RingConstraint : SetConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RingConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="RingConstraint"/>
+        /// </param>
+        public RingConstraint(ORMModel model) :
+            base(model)
+        {
+            this.RingType = RingConstraintType.Undefined;
+        }
+
+        /// <summary>
+        /// Restriction type of this Ring constraint
+        /// </summary>
+        public RingConstraintType RingType { get; set; }
     }
 }

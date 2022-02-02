@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ConstraintRoleSequence.cs" company="RHEA System S.A.">
+// <copyright file="SubsetConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,7 +20,20 @@
 
 namespace Kalliope.Core
 {
-    public abstract class ConstraintRoleSequence : ORMNamedElement
+    /// <summary>
+    /// A constraint specifying that the population of one set must be included in the population of another set
+    /// </summary>
+    public class SubsetConstraint : SetComparisonConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="SubsetConstraint"/>
+        /// </param>
+        public SubsetConstraint(ORMModel model) :
+            base(model)
+        {
+        }
     }
 }

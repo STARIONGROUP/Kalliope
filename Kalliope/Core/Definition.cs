@@ -20,14 +20,39 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// An informal description for the containing element
     /// </summary>
     public class Definition : ORMModelElement
     {
         /// <summary>
+        /// Gets or sets the container <see cref="ORMModelElement"/>
+        /// </summary>
+        public ORMModelElement Container { get; set; }
+
+        /// <summary>
         /// Plain text description
         /// </summary>
         public string Text { get; set; }
+
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    switch (reader.LocalName)
+                    {
+                        case "Text":
+                            this.Text = reader.ReadElementContentAsString();
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

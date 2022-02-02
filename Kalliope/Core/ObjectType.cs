@@ -20,11 +20,18 @@
 
 namespace Kalliope.Core
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
     public abstract class ObjectType : ORMNamedElement
     {
+        protected List<string> playedRoles = new List<string>();
+
+        protected string preferredIdentifier = String.Empty;
+
+        protected string dataTypeRef = string.Empty;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectType"/> class
         /// </summary>
@@ -170,6 +177,13 @@ namespace Kalliope.Core
         public List<NameAlias> Abbreviations { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="Definition"/>
+        /// </summary>
+        public Definition Definition { get; set; }
+
+        public ValueTypeValueConstraint ValueConstraint { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
@@ -192,6 +206,137 @@ namespace Kalliope.Core
             }
             
             this.ReferenceMode = reader.GetAttribute("_ReferenceMode");
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Definitions":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                this.ReadDefinitions(definitionSubtree);
+                            }
+                            break;
+                        case "PlayedRoles":
+                            using (var roleSubtree = reader.ReadSubtree())
+                            {
+                                roleSubtree.MoveToContent();
+                                this.ReadPlayedRoles(roleSubtree);
+                            }
+                            break;
+                        case "PreferredIdentifier":
+                            using (var preferredIdentifierSubtree = reader.ReadSubtree())
+                            {
+                                if (preferredIdentifierSubtree.MoveToContent() == XmlNodeType.Element)
+                                {
+                                    if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
+                                    {
+                                        var preferredIdentifierReference = preferredIdentifierSubtree.GetAttribute("ref");
+                                        if (!string.IsNullOrEmpty(preferredIdentifierReference))
+                                        {
+                                            this.preferredIdentifier = preferredIdentifierReference;
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        case "ConceptualDataType":
+                            if (reader.MoveToContent() == XmlNodeType.Element)
+                            {
+                                var conceptualDataTypeReference = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(conceptualDataTypeReference))
+                                {
+                                    this.preferredIdentifier = conceptualDataTypeReference;
+                                }
+                            }
+                            break;
+                        case "NestedPredicate":
+
+                            //TODO: implement NestedPredicate
+
+                            break;
+
+                        case "ValueRestriction":
+
+                        //TODO: implement ValueRestriction
+                        case "ValueConstraint":
+
+                            using (var valueTypeValueConstraintSubtree = reader.ReadSubtree())
+                            {
+                                valueTypeValueConstraintSubtree.MoveToContent();
+                                var valueTypeValueConstraint = new ValueTypeValueConstraint();
+                                valueTypeValueConstraint.ReadXml(valueTypeValueConstraintSubtree);
+                                this.ValueConstraint = valueTypeValueConstraint;
+                            }
+                            
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadDefinitions(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Definition":
+
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                var definition = new Definition();
+                                definition.ReadXml(definitionSubtree);
+
+                                this.Definition = definition;
+
+                            }
+
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the referenced played Role
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadPlayedRoles(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.LocalName == "Role")
+                {
+                    var roleReference = reader.GetAttribute("ref");
+                    if (!string.IsNullOrEmpty(roleReference))
+                    {
+                        this.playedRoles.Add(roleReference);
+                    }
+                }
+            }
         }
     }
 }

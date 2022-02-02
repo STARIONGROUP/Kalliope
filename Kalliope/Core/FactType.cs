@@ -20,6 +20,10 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Xml;
+
     /// <summary>
     /// A fact type directly specified by the modeler
     /// </summary>
@@ -30,6 +34,7 @@ namespace Kalliope.Core
         /// </summary>
         public FactType()
         {
+            this.ReadingOrders = new List<ReadingOrder>();
         }
 
         /// <summary>
@@ -42,12 +47,23 @@ namespace Kalliope.Core
             : this()
         {
             this.Model = model;
+            model.FactTypes.Add(this);
         }
 
         /// <summary>
         /// Gets or sets the container <see cref="ORMModel"/>
         /// </summary>
         public ORMModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="FactTypeDerivationExpression"/>
+        /// </summary>
+        public FactTypeDerivationExpression DerivationExpression { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ReadingOrder"/>s
+        /// </summary>
+        public List<ReadingOrder> ReadingOrders { get; set; }
 
         /// <summary>
         /// This fact type is externally defined (not used)
@@ -82,5 +98,179 @@ namespace Kalliope.Core
         public string DerivationNoteDisplay { get; set; }
 
         public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMNamedElement"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            this.Name = reader.GetAttribute("_Name");
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "FactRoles":
+                            using (var rolesSubtree = reader.ReadSubtree())
+                            {
+                                rolesSubtree.MoveToContent();
+                                this.ReadFactRoles(rolesSubtree);
+                            }
+                            break;
+                        case "ReadingOrders":
+                            using (var readingOrdersSubtree = reader.ReadSubtree())
+                            {
+                                readingOrdersSubtree.MoveToContent();
+                                this.ReadReadingOrders(readingOrdersSubtree);
+                            }
+                            break;
+                        case "InternalConstraints":
+                            using (var internalConstraintsSubtree = reader.ReadSubtree())
+                            {
+                                internalConstraintsSubtree.MoveToContent();
+                                this.ReadInternalConstraints(internalConstraintsSubtree);
+                            }
+                            break;
+                        case "DerivationRule":
+                            using (var derivationRuleSubtree = reader.ReadSubtree())
+                            {
+                                derivationRuleSubtree.MoveToContent();
+                                this.ReadDerivationRule(derivationRuleSubtree);
+                            }
+                            break;
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="Role"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadFactRoles(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Role":
+
+                            using (var roleSubtree = reader.ReadSubtree())
+                            {
+                                roleSubtree.MoveToContent();
+                                var role = new Role();
+                                role.ReadXml(roleSubtree);
+                            }
+
+                            break;
+                            
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="ReadingOrder"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadReadingOrders(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ReadingOrder":
+
+                            using (var readingOrderSubtree = reader.ReadSubtree())
+                            {
+                                readingOrderSubtree.MoveToContent();
+                                var readingOrder = new ReadingOrder();
+                                readingOrder.ReadXml(readingOrderSubtree);
+
+                                this.ReadingOrders.Add(readingOrder);
+                            }
+
+                            break;
+
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="SetConstraint"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadInternalConstraints(XmlReader reader)
+        {
+            Console.WriteLine("FactType.ReadInternalConstraints");
+        }
+
+        /// <summary>
+        /// Reads <see cref="DerivationRule"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadDerivationRule(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "DerivationExpression":
+
+                            using (var derivationExpressionSubtree = reader.ReadSubtree())
+                            {
+                                derivationExpressionSubtree.MoveToContent();
+                                var factTypeDerivationExpression = new FactTypeDerivationExpression();
+                                factTypeDerivationExpression.ReadXml(derivationExpressionSubtree);
+
+                                this.DerivationExpression = factTypeDerivationExpression;
+                            }
+
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

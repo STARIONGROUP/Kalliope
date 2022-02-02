@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="SubsetConstraint.cs" company="RHEA System S.A.">
+// <copyright file="EqualityConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,19 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// A constraint specifying that the population of one set must be included in the population of another set
+    /// A constraint specifying that two set populations must be equal
     /// </summary>
-    public class SubsetConstraint : SetComparisonConstraint
+    public class EqualityConstraint : SetComparisonConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EqualityConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="EqualityConstraint"/>
+        /// </param>
+        public EqualityConstraint(ORMModel model) : 
+            base(model)
+        {
+        }
     }
 }

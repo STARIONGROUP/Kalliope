@@ -20,15 +20,47 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// Definition of a custom reference mode pattern
     /// </summary>
     public class CustomReferenceMode : ReferenceMode
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ReferenceMode"/> class
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ReferenceMode"/>
+        /// </param>
+        public CustomReferenceMode(ORMModel model)
+        {
+            this.Model = model;
+            model.CustomReferenceModes.Add(this);
+        }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
+
+        /// <summary>
         /// A string with replacement fields representing a custom format for a value type name based on the entity type name
         /// (replacement field {0}) and reference mode name (replacement field {1}). If not specified, defaults to the ReferenceModeKind FormatString attribute
         /// </summary>
         public string CustomFormatString { get; set; }
+        
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            this.CustomFormatString = reader.GetAttribute("FormatString");
+        }
     }
 }

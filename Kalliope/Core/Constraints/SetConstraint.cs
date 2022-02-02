@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="SetComparisonConstraint.cs" company="RHEA System S.A.">
+// <copyright file="SetConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -22,20 +22,31 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    public abstract class SetComparisonConstraint : ORMNamedElement
+    public abstract class SetConstraint : ConstraintRoleSequence
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.
+        /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
-        protected SetComparisonConstraint()
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="SetComparisonConstraint"/>
+        /// </param>
+        protected SetConstraint(ORMModel model)
         {
             this.Modality = ConstraintModality.Alethic;
             this.FactTypes = new List<FactType>();
+
+            this.Model = model;
+            model.SetConstraints.Add(this);
         }
 
         /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
+
+        /// <summary>
         /// The constraint Modality.
-        /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system;
+        /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system
         /// Deontic modality means that data violating the constraint can be recorded
         /// </summary>
         public ConstraintModality Modality { get; set; }

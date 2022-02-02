@@ -26,9 +26,13 @@ namespace Kalliope.Core
     public class FrequencyConstraint : SetConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FrequencyConstraint"/> class
+        /// Initializes a new instance of the <see cref="ExclusionConstraint"/> class.
         /// </summary>
-        public FrequencyConstraint()
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ExclusionConstraint"/>
+        /// </param>
+        public FrequencyConstraint(ORMModel model) :
+            base(model)
         {
             this.MinFrequency = 1;
             this.MaxFrequency = 2;

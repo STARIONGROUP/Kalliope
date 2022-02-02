@@ -20,7 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     public class ValueTypeValueConstraint : ValueConstraint
     {
+        /// <summary>
+        /// Generates a <see cref="ValueTypeValueConstraint"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+
+        }
     }
 }

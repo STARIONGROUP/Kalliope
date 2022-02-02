@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ValueComparisonConstraint.cs" company="RHEA System S.A.">
+// <copyright file="RoleValueConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,13 +21,9 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// A constraint specifying that a comparison between two related values must be satisfied
+    /// Restrict the values allowed for role players associated with this role
     /// </summary>
-    public class ValueComparisonConstraint : SetConstraint
+    public class RoleValueConstraint : ValueConstraint
     {
-        /// <summary>
-        /// The operator used for comparing constrained values
-        /// </summary>
-        public ValueComparisonOperator Operator { get; set; }
     }
 }

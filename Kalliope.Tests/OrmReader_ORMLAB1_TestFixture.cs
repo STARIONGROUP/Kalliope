@@ -53,6 +53,7 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.Model.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
             Assert.That(ormRoot.Model.Name, Is.EqualTo("ORMModel1"));
 
+            // Objects
             Assert.That(ormRoot.Model.ObjectTypes.OfType<EntityType>().Count(), Is.EqualTo(2));
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ValueType>().Count(), Is.EqualTo(4));
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Count(), Is.EqualTo(1));
@@ -69,6 +70,23 @@ namespace Kalliope.Tests
             Assert.That(objectifiedType.IsIndependent, Is.True);
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
 
+            // Facts
+            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(5));
+            var factType = ormRoot.Model.FactTypes.Single(x => x.Id == "_0EFF35AC-1E3B-43CF-AB58-454ABB8219EF");
+            Assert.That(factType.Name, Is.EqualTo("PatientHasPatientNr"));
+
+            // Constraints
+            Assert.That(ormRoot.Model.SetConstraints.OfType<MandatoryConstraint>().Count(), Is.EqualTo(10));
+            var mandatoryConstraint = ormRoot.Model.SetConstraints.OfType<MandatoryConstraint>().Single(x => x.Id == "_9F2A5E20-6CE9-4ECB-BC70-226121961401");
+            Assert.That(mandatoryConstraint.Name, Is.EqualTo("SimpleMandatoryConstraint1"));
+            Assert.That(mandatoryConstraint.IsSimple, Is.True);
+
+            Assert.That(ormRoot.Model.SetConstraints.OfType<UniquenessConstraint>().Count(), Is.EqualTo(9));
+            var uniquenessConstraint = ormRoot.Model.SetConstraints.OfType<UniquenessConstraint>().Single(x => x.Id == "_5724941F-9D32-4A9D-984C-11CD1F066233");
+            Assert.That(uniquenessConstraint.Name, Is.EqualTo("InternalUniquenessConstraint1"));
+            Assert.That(uniquenessConstraint.IsInternal, Is.True);
+
+            // DataTypes
             Assert.That(ormRoot.Model.DataTypes.OfType<VariableLengthTextDataType>().Count(), Is.EqualTo(1));
             var variableLengthTextDataType = ormRoot.Model.DataTypes.OfType<VariableLengthTextDataType>().Single();
             Assert.That(variableLengthTextDataType.Id, Is.EqualTo("_D03565BE-6350-4A94-B533-8594C682FEBA"));
@@ -80,6 +98,21 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.Model.DataTypes.OfType<TrueOrFalseLogicalDataType>().Count(), Is.EqualTo(1));
             var trueOrFalseLogicalDataType = ormRoot.Model.DataTypes.OfType<TrueOrFalseLogicalDataType>().Single();
             Assert.That(trueOrFalseLogicalDataType.Id, Is.EqualTo("_158BA443-362E-4E4E-95C7-5BF6A81442A8"));
+
+            // CustomReferenceModes
+            Assert.That(ormRoot.Model.CustomReferenceModes.Count, Is.EqualTo(0));
+
+            // ModelNotes
+            Assert.That(ormRoot.Model.ModelNotes.Count, Is.EqualTo(0));
+
+            // ReferenceModeKinds
+            Assert.That(ormRoot.Model.ReferenceModeKinds.Count, Is.EqualTo(3));
+            var referenceModeKindGeneral = ormRoot.Model.ReferenceModeKinds.Single(x => x.Id == "_DE41D7D7-FE2F-42AD-A170-86E101B78378");
+            Assert.That(referenceModeKindGeneral.FormatString, Is.EqualTo("{1}"));
+            Assert.That(referenceModeKindGeneral.ReferenceModeType, Is.EqualTo(ReferenceModeType.General));
+            var referenceModeKindPopular = ormRoot.Model.ReferenceModeKinds.Single(x => x.Id == "_CC952B64-7D18-4E81-98F4-8914F39CE1E7");
+            Assert.That(referenceModeKindPopular.FormatString, Is.EqualTo("{0}_{1}"));
+            Assert.That(referenceModeKindPopular.ReferenceModeType, Is.EqualTo(ReferenceModeType.Popular));
         }
     }
 }

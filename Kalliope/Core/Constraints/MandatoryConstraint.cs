@@ -20,11 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// A constraint specifying that a set must be populated
     /// </summary>
     public class MandatoryConstraint : SetConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MandatoryConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="MandatoryConstraint"/>
+        /// </param>
+        public MandatoryConstraint(ORMModel model) :
+            base(model)
+        {
+        }
+
         /// <summary>
         /// True if this is an internal constraint associated with a single role
         /// </summary>
@@ -35,5 +48,28 @@ namespace Kalliope.Core
         /// An implied mandatory constraint may have a single role or multiple roles, but IsSimple is never true for an implied mandatory constraint
         /// </summary>
         public bool IsImplied { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            var isSimple = reader.GetAttribute("IsSimple");
+            if (isSimple != null)
+            {
+                this.IsSimple = XmlConvert.ToBoolean(isSimple);
+            }
+
+            var isImplied = reader.GetAttribute("IsImplied");
+            if (isImplied != null)
+            {
+                this.IsImplied = XmlConvert.ToBoolean(isImplied);
+            }
+        }
     }
 }

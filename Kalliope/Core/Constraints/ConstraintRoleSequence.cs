@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ExclusionConstraint.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintRoleSequence.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,9 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// A constraint specifying that two set populations must not be equal
+    /// A sequence of constraint roles
     /// </summary>
-    public class ExclusionConstraint : SetComparisonConstraint
+    public abstract class ConstraintRoleSequence : ORMNamedElement
     {
     }
 }

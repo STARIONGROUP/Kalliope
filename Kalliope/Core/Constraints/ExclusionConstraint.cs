@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="RingConstraint.cs" company="RHEA System S.A.">
+// <copyright file="ExclusionConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,21 +21,19 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// A constraint specifying relationships between elements of the same type in a set population
+    /// A constraint specifying that two set populations must not be equal
     /// </summary>
-    public class RingConstraint : SetConstraint
+    public class ExclusionConstraint : SetComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RingConstraint"/> class
+        /// Initializes a new instance of the <see cref="ExclusionConstraint"/> class.
         /// </summary>
-        public RingConstraint()
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ExclusionConstraint"/>
+        /// </param>
+        public ExclusionConstraint(ORMModel model) :
+            base(model)
         {
-            this.RingType = RingConstraintType.Undefined;
         }
-
-        /// <summary>
-        /// Restriction type of this Ring constraint
-        /// </summary>
-        public RingConstraintType RingType { get; set; }
     }
 }

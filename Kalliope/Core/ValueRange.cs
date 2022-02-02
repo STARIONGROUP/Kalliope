@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Xml;
+
 namespace Kalliope.Core
 {
     /// <summary>
@@ -65,5 +67,23 @@ namespace Kalliope.Core
         /// This value will not be set for a data type where any value is allowed (such as a string) or if the minValue could not be interpreted by the current data type
         /// </summary>
         public string InvariantMaxValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ValueConstraint"/>
+        /// </summary>
+        public ValueConstraint ValueConstraint { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ValueRange"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="EqualityConstraint.cs" company="RHEA System S.A.">
+// <copyright file="ValueComparisonConstraint.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -21,9 +21,24 @@
 namespace Kalliope.Core
 {
     /// <summary>
-    /// A constraint specifying that two set populations must be equal
+    /// A constraint specifying that a comparison between two related values must be satisfied
     /// </summary>
-    public class EqualityConstraint : SetComparisonConstraint
+    public class ValueComparisonConstraint : SetConstraint
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValueComparisonConstraint"/> class.
+        /// </summary>
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ValueComparisonConstraint"/>
+        /// </param>
+        public ValueComparisonConstraint(ORMModel model) :
+            base(model)
+        {
+        }
+
+        /// <summary>
+        /// The operator used for comparing constrained values
+        /// </summary>
+        public ValueComparisonOperator Operator { get; set; }
     }
 }

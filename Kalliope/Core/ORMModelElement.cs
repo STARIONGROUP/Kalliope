@@ -20,7 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System.Collections.Generic;
     using System.Xml;
 
     public abstract class ORMModelElement

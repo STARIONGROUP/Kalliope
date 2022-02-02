@@ -20,10 +20,59 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Xml;
+
     public abstract class Expression : ORMModelElement
     {
+        /// <summary>
+        /// Gets or sets the Body text of the <see cref="Expression"/>
+        /// </summary>
         public string Body { get; set; }
 
-        public string Language { get; set; } 
+        /// <summary>
+        /// Gets or sets the Language of the <see cref="Expression"/>
+        /// </summary>
+        public string Language { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="Expression"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            using (var bodySubtree = reader.ReadSubtree())
+            {
+                while (bodySubtree.Read())
+                {
+                    if (bodySubtree.MoveToContent() == XmlNodeType.Element)
+                    {
+                        var localName = bodySubtree.LocalName;
+
+                        switch (localName)
+                        {
+                            case "DerivationExpression":
+                                
+                                // still at the expression node, do nothing
+                                break;
+
+                            case "Body":
+
+                                this.Body = bodySubtree.ReadElementContentAsString();
+                                
+                                break;
+
+                            default:
+                                Console.WriteLine($"Expression.ReadXml did not process the {localName} XML element");
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

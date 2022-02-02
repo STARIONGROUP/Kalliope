@@ -20,18 +20,32 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Xml;
+
     /// <summary>
     /// Setting for a specific kind of reference mode pattern
     /// </summary>
     public class ReferenceModeKind : ORMModelElement
     {
         /// <summary>
-        /// Initializes a nwe instance of the <see cref="ReferenceModeKind"/> class
+        /// Initializes a new instance of the <see cref="ReferenceModeKind"/> class
         /// </summary>
-        public ReferenceModeKind()
+        /// <param name="model">
+        /// The <see cref="ORMModel"/> that contains the current <see cref="ReferenceMode"/>
+        /// </param>
+        public ReferenceModeKind(ORMModel model)
         {
             this.ReferenceModeType = ReferenceModeType.General;
+
+            this.Model = model;
+            model.ReferenceModeKinds.Add(this);
         }
+
+        /// <summary>
+        /// Gets or sets the container <see cref="ORMModel"/>
+        /// </summary>
+        public ORMModel Model { get; set; }
 
         /// <summary>
         /// A string with replacement fields representing a custom format for a value type name based on the entity type name (replacement field {0}) 
@@ -44,5 +58,25 @@ namespace Kalliope.Core
         /// One of Popular, UnitBased, or General
         /// </summary>
         public ReferenceModeType ReferenceModeType { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            this.FormatString = reader.GetAttribute("FormatString");
+
+            var referenceModeTypeAttribute = reader.GetAttribute("ReferenceModeType");
+
+            if (Enum.TryParse(referenceModeTypeAttribute, out ReferenceModeType referenceModeType))
+            {
+                this.ReferenceModeType = referenceModeType;
+            }
+        }
     }
 }
