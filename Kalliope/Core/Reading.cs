@@ -18,15 +18,26 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Xml;
+using System.Collections.Generic;
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Xml;
+
     /// <summary>
     /// Predicate text corresponding to a specific role traversal
     /// </summary>
     public class Reading : ORMModelElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Reading"/> class.
+        /// </summary>
+        public Reading()
+        {
+            this.ExpandedData = new List<RoleText>();
+        }
+
         /// <summary>
         /// Reading text with numbered replacemented fields in the format {n}, where n is a zero-based index into the corresponding role traversal order. 
         /// n is also strictly increasing, so the first replacement field corresponds to the first role, etc. 
@@ -35,6 +46,12 @@ namespace Kalliope.Core
         /// 'WORD- ROLEPLAYER' can be achived with two hyphens and two spaces
         /// </summary>
         public string Data { get; set; }
+
+        /// <summary>
+        /// An expanded form of the Data element with text decoration broken down on a per-role basis.
+        /// Hyphen binding constructs are fully resolved with hyphens removed
+        /// </summary>
+        public List<RoleText> ExpandedData { get; set; }
 
         /// <summary>
         /// Text that occurs before the lead role, including prebound text associated with that role
@@ -78,13 +95,47 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "Data":
-
                             this.Data = reader.ReadElementContentAsString();
+                            break;
+                        case "ExpandedData":
+                            using (var expandedDataSubtree = reader.ReadSubtree())
+                            {
+                                expandedDataSubtree.MoveToContent();
+                                this.ReadExpandedData(expandedDataSubtree);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="RoleText"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadExpandedData(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "RoleText":
+
+                            var roleText = new RoleText();
+                            roleText.ReadXml(reader);
+                            this.ExpandedData.Add(roleText);
 
                             break;
-
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }

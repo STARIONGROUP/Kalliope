@@ -147,9 +147,8 @@ namespace Kalliope.Core
                                 this.ReadDerivationRule(derivationRuleSubtree);
                             }
                             break;
-                            break;
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
@@ -172,20 +171,16 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "Role":
-
                             using (var roleSubtree = reader.ReadSubtree())
                             {
                                 roleSubtree.MoveToContent();
                                 var role = new Role();
                                 role.ReadXml(roleSubtree);
                             }
-
                             break;
-                            
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
-
                 }
             }
         }
@@ -207,7 +202,6 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "ReadingOrder":
-
                             using (var readingOrderSubtree = reader.ReadSubtree())
                             {
                                 readingOrderSubtree.MoveToContent();
@@ -216,13 +210,10 @@ namespace Kalliope.Core
 
                                 this.ReadingOrders.Add(readingOrder);
                             }
-
                             break;
-
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
-
                 }
             }
         }
@@ -255,7 +246,6 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "DerivationExpression":
-
                             using (var derivationExpressionSubtree = reader.ReadSubtree())
                             {
                                 derivationExpressionSubtree.MoveToContent();
@@ -264,10 +254,9 @@ namespace Kalliope.Core
 
                                 this.DerivationExpression = factTypeDerivationExpression;
                             }
-
                             break;
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
