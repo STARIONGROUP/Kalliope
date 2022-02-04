@@ -22,14 +22,15 @@ namespace Kalliope.Tests
 {
     using System.IO;
     using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
-
+    
     using Kalliope;
     using Kalliope.Core;
 
     using NUnit.Framework;
 
+    /// <summary>
+    /// Suite of tests to verify that an .orm file (ORMLAB1) can be read and the expected object graph is available
+    /// </summary>
     [TestFixture]
     public class OrmReader_ORMLAB1_TestFixture
     {

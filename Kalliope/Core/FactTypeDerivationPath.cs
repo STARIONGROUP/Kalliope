@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// A role path with projected nodes used to define the population of a derived fact type
     /// </summary>
@@ -39,5 +41,24 @@ namespace Kalliope.Core
         /// An empty derivation rule is externally defined
         /// </summary>
         public bool ExternalDerivation { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="FactTypeDerivationPath"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            this.Name = reader.GetAttribute("Name");
+
+            var externalDerivation = reader.GetAttribute("ExternalDerivation");
+            if (externalDerivation != null)
+            {
+                this.ExternalDerivation = XmlConvert.ToBoolean(externalDerivation);
+            }
+        }
     }
 }

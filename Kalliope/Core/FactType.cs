@@ -29,6 +29,10 @@ namespace Kalliope.Core
     /// </summary>
     public class FactType : ORMModelElement
     {
+        private List<string> setConstraintReferences = new List<string>();
+
+        private  List<string> setComparisonConstraintReferences = new List<string>();
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="FactType"/> class
         /// </summary>
@@ -226,7 +230,33 @@ namespace Kalliope.Core
         /// </param>
         private void ReadInternalConstraints(XmlReader reader)
         {
-            Console.WriteLine("FactType.ReadInternalConstraints");
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "MandatoryConstraint":
+                            var mandatoryConstraintReference = reader.GetAttribute("ref");
+                            if (string.IsNullOrEmpty(mandatoryConstraintReference))
+                            {
+                                this.setConstraintReferences.Add(mandatoryConstraintReference);
+                            }
+                            break;
+                        case "UniquenessConstraint":
+                            var uniquenessConstraintReference = reader.GetAttribute("ref");
+                            if (string.IsNullOrEmpty(uniquenessConstraintReference))
+                            {
+                                this.setConstraintReferences.Add(uniquenessConstraintReference);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -253,6 +283,16 @@ namespace Kalliope.Core
                                 factTypeDerivationExpression.ReadXml(derivationExpressionSubtree);
 
                                 this.DerivationExpression = factTypeDerivationExpression;
+                            }
+                            break;
+                        case "FactTypeDerivationPath":
+                            using (var factTypeDerivationPathSubtree = reader.ReadSubtree())
+                            {
+                                factTypeDerivationPathSubtree.MoveToContent();
+                                var factTypeDerivationExpression = new FactTypeDerivationPath();
+                                factTypeDerivationExpression.ReadXml(factTypeDerivationPathSubtree);
+                                
+                                Console.WriteLine("TODO: no reference from FactType.FactTypeDerivationPath");
                             }
                             break;
                         default:

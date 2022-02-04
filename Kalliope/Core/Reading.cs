@@ -18,11 +18,10 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Core
 {
     using System;
+    using System.Collections.Generic;
     using System.Xml;
 
     /// <summary>
