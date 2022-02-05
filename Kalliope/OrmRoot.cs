@@ -89,10 +89,8 @@ namespace Kalliope
                             using (var ormModelSubtree = reader.ReadSubtree())
                             {
                                 ormModelSubtree.MoveToContent();
-
                                 var ormModel = new ORMModel(this.loggerFactory);
                                 ormModel.ReadXml(ormModelSubtree);
-
                                 this.Model = ormModel;
                             }
                             break;
@@ -100,17 +98,18 @@ namespace Kalliope
                             using (var nameGeneratorSubtree = reader.ReadSubtree())
                             {
                                 nameGeneratorSubtree.MoveToContent();
-
                                 var nameGenerator = new NameGenerator();
                                 nameGenerator.ReadXml(nameGeneratorSubtree);
-
                                 this.NameGenerator = nameGenerator;
                             }
                             break;
                         case "GenerationState":
                             using (var generationStateSubTree = reader.ReadSubtree())
                             {
-                                // TODO: implement GenerationState
+                                generationStateSubTree.MoveToContent();
+                                var generationState = new GenerationState();
+                                generationState.ReadXml(generationStateSubTree);
+                                this.GenerationState = generationState;
                             }
                             break;
                         case "ORMDiagram":

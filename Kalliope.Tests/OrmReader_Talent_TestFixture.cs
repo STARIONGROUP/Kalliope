@@ -94,5 +94,15 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.NameGenerator.SpacingFormat, Is.EqualTo(NameGeneratorSpacingFormat.Retain));
             Assert.That(ormRoot.NameGenerator.SpacingReplacement, Is.Empty);
         }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_GenerationState()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Generation State
+            Assert.That(ormRoot.GenerationState.Id, Is.EqualTo("_CFA57B1E-2C43-496B-8AC1-51F6B305989D"));
+            Assert.That(ormRoot.GenerationState.GenerationSettings, Is.Empty);
+        }
     }
 }

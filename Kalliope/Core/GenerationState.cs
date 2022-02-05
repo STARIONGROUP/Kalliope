@@ -21,6 +21,7 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
+    using System.Xml;
 
     /// <summary>
     /// State information relating to automatic mapping algorithms
@@ -44,5 +45,16 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="GenerationSetting"/>s
         /// </summary>
         public List<GenerationSetting> GenerationSettings { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="NameGenerator"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal void ReadXml(XmlReader reader)
+        {
+            this.Id = reader.GetAttribute("id");
+        }
     }
 }

@@ -140,5 +140,14 @@ namespace Kalliope.Tests
             // Name Generator
             Assert.That(ormRoot.NameGenerator, Is.Null);
         }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_GenerationState()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Generation State
+            Assert.That(ormRoot.GenerationState, Is.Null);
+        }
     }
 }
