@@ -34,6 +34,8 @@ namespace Kalliope.Core
         {
             this.Modality = ConstraintModality.Alethic;
             this.FactTypes = new List<FactType>();
+            this.RoleSequences = new List<SetComparisonConstraintRoleSequence>();
+            this.CompatibleRolePlayerTypeErrors = new List<CompatibleRolePlayerTypeError>();
 
             this.Model = model;
             model.SetComparisonConstraints.Add(this);
@@ -67,5 +69,15 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="FactType"/>s
         /// </summary>
         public List<FactType> FactTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="SetComparisonConstraintRoleSequence"/>s
+        /// </summary>
+        public List<SetComparisonConstraintRoleSequence> RoleSequences { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="CompatibleRolePlayerTypeError"/>s
+        /// </summary>
+        public List<CompatibleRolePlayerTypeError> CompatibleRolePlayerTypeErrors { get; set; }
     }
 }

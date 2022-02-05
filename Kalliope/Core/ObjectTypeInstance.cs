@@ -20,13 +20,28 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     public abstract class ObjectTypeInstance : ORMModelElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectTypeInstance"/> class
+        /// </summary>
+        protected ObjectTypeInstance()
+        {
+            this.PopulationMandatoryErrors = new List<PopulationMandatoryError>();
+        }
+
         /// <summary>
         /// An ordered tuple of values for this instance, ignores objectification of the associated <see cref="ObjectType"/>
         /// </summary>
         public string IdentifierName { get; set; }
 
         public int NameChanged { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
+        /// </summary>
+        public List<PopulationMandatoryError> PopulationMandatoryErrors { get; set; }
     }
 }

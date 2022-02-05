@@ -97,19 +97,19 @@ namespace Kalliope
                             }
                             break;
                         case "NameGenerator":
-                            using (var factsSubtree = reader.ReadSubtree())
+                            using (var nameGeneratorSubtree = reader.ReadSubtree())
                             {
                                 // TODO: implement NameGenerator
                             }
                             break;
                         case "GenerationState":
-                            using (var constraintsSubTree = reader.ReadSubtree())
+                            using (var generationStateSubTree = reader.ReadSubtree())
                             {
                                 // TODO: implement GenerationState
                             }
                             break;
                         case "ORMDiagram":
-                            using (var dataTypesSubtree = reader.ReadSubtree())
+                            using (var ORMDiagramSubtree = reader.ReadSubtree())
                             {
                                 // TODO: implement ORMDiagram
                             }

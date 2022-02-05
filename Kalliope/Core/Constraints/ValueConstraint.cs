@@ -20,11 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A constraint limiting the set of allowed values
     /// </summary>
     public class ValueConstraint : ORMNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValueConstraint"/> class
+        /// </summary>
+        public ValueConstraint()
+        {
+            this.ValueRanges = new List<ValueRange>();
+        }
+
         /// <summary>
         /// An informal description of this constraint.
         /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window.
@@ -45,5 +55,10 @@ namespace Kalliope.Core
         public string Text { get; set; }
 
         public int TextChanged { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ValueRange"/>s
+        /// </summary>
+        public List<ValueRange> ValueRanges { get; set; }
     }
 }

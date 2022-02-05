@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// User-defined and rule-based element groupings
     /// </summary>
@@ -35,6 +37,7 @@ namespace Kalliope.Core
         {
             this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
             this.Priority = 0;
+            this.MembershipContradictionErrors = new List<ElementGroupingMembershipContradictionError>();
         }
 
         /// <summary>
@@ -62,5 +65,10 @@ namespace Kalliope.Core
         /// If an element is included in two groups of the same type, the settings for the Group with the highest GroupPriority are given precedence
         /// </summary>
         public int Priority { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ElementGroupingMembershipContradictionError"/>s
+        /// </summary>
+        public List<ElementGroupingMembershipContradictionError> MembershipContradictionErrors { get; set; }
     }
 }

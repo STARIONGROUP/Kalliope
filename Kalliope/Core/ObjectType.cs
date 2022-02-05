@@ -41,6 +41,9 @@ namespace Kalliope.Core
             this.DataTypeLength = 0;
 
             this.Abbreviations = new List<NameAlias>();
+            this.ObjectTypeInstances = new List<ObjectTypeInstance>();
+            this.EntityTypeInstances = new List<EntityTypeInstance>();
+            this.EntityTypeSubtypeInstances = new List<EntityTypeSubtypeInstance>();
         }
 
         /// <summary>
@@ -182,6 +185,21 @@ namespace Kalliope.Core
         public Definition Definition { get; set; }
 
         public ValueTypeValueConstraint ValueConstraint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ObjectTypeInstance"/>s
+        /// </summary>
+        public List<ObjectTypeInstance> ObjectTypeInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="EntityTypeInstance"/>s
+        /// </summary>
+        public List<EntityTypeInstance> EntityTypeInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="EntityTypeInstance"/>s
+        /// </summary>
+        public List<EntityTypeSubtypeInstance> EntityTypeSubtypeInstances { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.

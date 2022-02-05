@@ -35,5 +35,10 @@ namespace Kalliope.Core
         /// (DSL) Set if a bag input is expected for this parameter, such as with an aggregation function
         /// </remarks>
         public bool BagInput { get; set; }
+        
+        /// <summary>
+        /// The <see cref="Function"/> this parameter is defined for
+        /// </summary>
+        public Function Function { get; set; }
     }
 }

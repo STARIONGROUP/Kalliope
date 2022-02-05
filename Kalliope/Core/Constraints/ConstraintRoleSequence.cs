@@ -20,10 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A sequence of constraint roles
     /// </summary>
     public abstract class ConstraintRoleSequence : ORMNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class
+        /// </summary>
+        protected ConstraintRoleSequence()
+        {
+            this.Roles = new List<Role>();
+        }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="Role"/>s
+        /// </summary>
+        public List<Role> Roles { get; set; }
     }
 }

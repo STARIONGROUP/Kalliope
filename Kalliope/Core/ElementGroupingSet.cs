@@ -20,10 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A Group owner, allows group containment, order, and naming enforcement
     /// </summary>
     public class ElementGroupingSet
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ElementGroupingSet"/> class
+        /// </summary>
+        public ElementGroupingSet()
+        {
+            this.Grouping = new List<ElementGrouping>();
+        }
+
+        public List<ElementGrouping> Grouping { get; set; }
     }
 }

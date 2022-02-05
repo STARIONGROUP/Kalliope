@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Core
 {
     /// <summary>
@@ -42,5 +44,18 @@ namespace Kalliope.Core
         /// A symbol used to display this function as an operator. Treated as an infix operator for binary functions and a prefix operator for unary functions
         /// </summary>
         public string OperatorSymbol { get; set; }
+
+        /// <summary>
+        /// The model defining this function
+        /// </summary>
+        public ORMModel Model { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="FunctionParameter"/>s
+        /// </summary>
+        /// <remarks>
+        /// Parameters defined by this function
+        /// </remarks>
+        public List<FunctionParameter> Parameters { get; set; }
     }
 }

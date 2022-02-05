@@ -39,6 +39,8 @@ namespace Kalliope.Core
         public FactType()
         {
             this.ReadingOrders = new List<ReadingOrder>();
+            this.Roles = new List<RoleBase>();
+            this.FactTypeInstances = new List<FactTypeInstance>();
         }
 
         /// <summary>
@@ -102,6 +104,16 @@ namespace Kalliope.Core
         public string DerivationNoteDisplay { get; set; }
 
         public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="RoleBase"/>s
+        /// </summary>
+        public List<RoleBase> Roles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="FactTypeInstance"/>s
+        /// </summary>
+        public List<FactTypeInstance> FactTypeInstances { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMNamedElement"/> object from its XML representation.

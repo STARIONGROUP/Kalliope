@@ -20,10 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A query representation based on a fact type structure. Queries support parameterization and do not need readings
     /// </summary>
     public abstract class QueryBase : FactType
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueryBase"/> class
+        /// </summary>
+        protected QueryBase()
+        {
+            this.Parameters = new List<QueryParameter>();
+        }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="QueryParameter"/>s
+        /// </summary>
+        public List<QueryParameter> Parameters { get; set; }
     }
 }

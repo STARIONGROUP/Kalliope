@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A constraint limiting the number of instances in a population
     /// </summary>
@@ -64,5 +66,10 @@ namespace Kalliope.Core
         /// 
         /// </summary>
         public int TextChanged { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="CardinalityRange"/>s
+        /// </summary>
+        public List<CardinalityRange> Ranges { get; set; }
     }
 }

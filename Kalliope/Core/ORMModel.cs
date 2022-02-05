@@ -131,6 +131,9 @@ namespace Kalliope.Core
         /// <summary>
         /// The <see cref="Function"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        /// <remarks>
+        /// Function definitions used for calculated role path values
+        /// </remarks>
         public List<Function> Functions { get; set; }
 
         /// <summary>

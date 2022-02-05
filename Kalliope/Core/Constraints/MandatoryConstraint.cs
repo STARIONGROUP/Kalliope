@@ -20,6 +20,7 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     /// <summary>
@@ -36,6 +37,7 @@ namespace Kalliope.Core
         public MandatoryConstraint(ORMModel model) :
             base(model)
         {
+            this.PopulationMandatoryErrors = new List<PopulationMandatoryError>();
         }
 
         /// <summary>
@@ -48,6 +50,11 @@ namespace Kalliope.Core
         /// An implied mandatory constraint may have a single role or multiple roles, but IsSimple is never true for an implied mandatory constraint
         /// </summary>
         public bool IsImplied { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
+        /// </summary>
+        public List<PopulationMandatoryError> PopulationMandatoryErrors { get; set; }
 
         /// <summary>
         /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.

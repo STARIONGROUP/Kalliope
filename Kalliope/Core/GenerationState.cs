@@ -20,14 +20,29 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// State information relating to automatic mapping algorithms
     /// </summary>
     public class GenerationState
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="GenerationState"/> class.
+        /// </summary>
+        public GenerationState()
+        {
+            this.GenerationSettings = new List<GenerationSetting>();
+        }
+
+        /// <summary>
         /// A unique identifier for this element
         /// </summary>
         public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="GenerationSetting"/>s
+        /// </summary>
+        public List<GenerationSetting> GenerationSettings { get; set; }
     }
 }
