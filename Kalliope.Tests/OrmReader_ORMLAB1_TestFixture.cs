@@ -47,9 +47,11 @@ namespace Kalliope.Tests
         }
 
         [Test]
-        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_result()
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_ORMModel()
         {
             var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            //ORM Model
 
             Assert.That(ormRoot.Model.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
             Assert.That(ormRoot.Model.Name, Is.EqualTo("ORMModel1"));
@@ -114,6 +116,21 @@ namespace Kalliope.Tests
             var referenceModeKindPopular = ormRoot.Model.ReferenceModeKinds.Single(x => x.Id == "_CC952B64-7D18-4E81-98F4-8914F39CE1E7");
             Assert.That(referenceModeKindPopular.FormatString, Is.EqualTo("{0}_{1}"));
             Assert.That(referenceModeKindPopular.ReferenceModeType, Is.EqualTo(ReferenceModeType.Popular));
+        }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_NameGenerator()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Name Generator
+            Assert.That(ormRoot.NameGenerator.Id, Is.EqualTo("_D4D4915E-BE77-4172-92D8-B9F70B635140"));
+            Assert.That(ormRoot.NameGenerator.AutomaticallyShortenNames, Is.True);
+            Assert.That(ormRoot.NameGenerator.UseTargetDefaultMaximum, Is.True);
+            Assert.That(ormRoot.NameGenerator.UserDefinedMaximum, Is.EqualTo(128));
+            Assert.That(ormRoot.NameGenerator.CasingOption, Is.EqualTo(NameGeneratorCasingOption.None));
+            Assert.That(ormRoot.NameGenerator.SpacingFormat, Is.EqualTo(NameGeneratorSpacingFormat.Retain));
+            Assert.That(ormRoot.NameGenerator.SpacingReplacement, Is.Empty);
         }
     }
 }

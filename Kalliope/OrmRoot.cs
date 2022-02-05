@@ -99,7 +99,12 @@ namespace Kalliope
                         case "NameGenerator":
                             using (var nameGeneratorSubtree = reader.ReadSubtree())
                             {
-                                // TODO: implement NameGenerator
+                                nameGeneratorSubtree.MoveToContent();
+
+                                var nameGenerator = new NameGenerator();
+                                nameGenerator.ReadXml(nameGeneratorSubtree);
+
+                                this.NameGenerator = nameGenerator;
                             }
                             break;
                         case "GenerationState":

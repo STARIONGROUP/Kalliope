@@ -47,7 +47,7 @@ namespace Kalliope.Tests
         }
 
         [Test]
-        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_result()
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_ORMModel()
         {
             var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
 
@@ -126,6 +126,15 @@ namespace Kalliope.Tests
             var referenceModeKindUnitBased = ormRoot.Model.ReferenceModeKinds.Single(x => x.Id == "_2FAF73C7-3C3E-4F9A-A381-03F7CA1BA108");
             Assert.That(referenceModeKindUnitBased.FormatString, Is.EqualTo("{1}Value"));
             Assert.That(referenceModeKindUnitBased.ReferenceModeType, Is.EqualTo(ReferenceModeType.UnitBased));
+        }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_NameGenerator()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Name Generator
+            Assert.That(ormRoot.NameGenerator, Is.Null);
         }
     }
 }

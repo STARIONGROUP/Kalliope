@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// Name generation settings
     /// </summary>
@@ -96,5 +98,34 @@ namespace Kalliope.Core
         /// (DSL) Specify if the default maximum name length for this name generation context should be used when shortening names
         /// </remarks>
         public bool UseTargetDefaultMaximum { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="NameGenerator"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+            
+            var automaticallyShortenNames = reader.GetAttribute("AutomaticallyShortenNames");
+            if (automaticallyShortenNames != null)
+            {
+                this.AutomaticallyShortenNames = XmlConvert.ToBoolean(automaticallyShortenNames);
+            }
+
+            var useTargetDefaultMaximum = reader.GetAttribute("UseTargetDefaultMaximum");
+            if (useTargetDefaultMaximum != null)
+            {
+                this.UseTargetDefaultMaximum = XmlConvert.ToBoolean(useTargetDefaultMaximum);
+            }
+
+            var userDefinedMaximum = reader.GetAttribute("UserDefinedMaximum");
+            if (userDefinedMaximum != null)
+            {
+                this.UserDefinedMaximum = XmlConvert.ToInt32(userDefinedMaximum);
+            }
+        }
     }
 }
