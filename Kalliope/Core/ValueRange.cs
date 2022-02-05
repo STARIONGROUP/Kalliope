@@ -18,10 +18,10 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Xml;
-
 namespace Kalliope.Core
 {
+    using System.Xml;
+
     /// <summary>
     /// A simple value range
     /// </summary>
@@ -82,8 +82,6 @@ namespace Kalliope.Core
         internal override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
-
-
         }
     }
 }

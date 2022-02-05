@@ -18,10 +18,9 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     /// <summary>
@@ -29,7 +28,7 @@ namespace Kalliope.Core
     /// </summary>
     public class ReadingOrder : ORMModelElement
     {
-        private List<string> roleSequences = new List<string>();
+        private readonly List<string> roleSequences = new List<string>();
 
         /// <summary>
         /// The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder

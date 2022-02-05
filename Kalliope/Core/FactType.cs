@@ -29,9 +29,9 @@ namespace Kalliope.Core
     /// </summary>
     public class FactType : ORMModelElement
     {
-        private List<string> setConstraintReferences = new List<string>();
+        private readonly List<string> setConstraintReferences = new List<string>();
 
-        private  List<string> setComparisonConstraintReferences = new List<string>();
+        private readonly List<string> setComparisonConstraintReferences = new List<string>();
         
         /// <summary>
         /// Initializes a new instance of the <see cref="FactType"/> class
