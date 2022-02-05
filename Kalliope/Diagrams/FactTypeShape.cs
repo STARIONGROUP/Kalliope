@@ -32,7 +32,7 @@ namespace Kalliope.Diagrams
     {
         private string subjectReference = string.Empty;
 
-        private List<string> roleDisplayOrderReferences = new List<string>();
+        private readonly List<string> roleDisplayOrderReferences = new List<string>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeShape"/>
