@@ -20,6 +20,8 @@
 
 namespace Kalliope.Diagrams
 {
+    using System.Xml;
+
     /// <summary>
     /// Abstract super-type from which all shape classes derive
     /// </summary>
@@ -38,6 +40,25 @@ namespace Kalliope.Diagrams
         /// <summary>
         /// Gets or sets the absolute bounds
         /// </summary>
-        public  string AbsoluteBounds { get; set; }
+        public string AbsoluteBounds { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMBaseShape"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal virtual void ReadXml(XmlReader reader)
+        {
+            this.Id = reader.GetAttribute("id");
+
+            var isExpanded = reader.GetAttribute("IsExpanded");
+            if (!string.IsNullOrEmpty(isExpanded))
+            {
+                this.IsExpanded = XmlConvert.ToBoolean(isExpanded);
+            }
+
+            this.AbsoluteBounds = reader.GetAttribute("AbsoluteBounds");
+        }
     }
 }

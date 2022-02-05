@@ -21,6 +21,7 @@
 namespace Kalliope.Diagrams
 {
     using System.Collections.Generic;
+    using System.Xml;
 
     using Kalliope.Core;
 
@@ -29,6 +30,10 @@ namespace Kalliope.Diagrams
     /// </summary>
     public class FactTypeShape : ORMBaseShape
     {
+        private string subjectReference = string.Empty;
+
+        private List<string> roleDisplayOrderReferences = new List<string>();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeShape"/>
         /// </summary>
@@ -112,5 +117,150 @@ namespace Kalliope.Diagrams
         /// Gets or sets the relative <see cref="CardinalityConstraintShape"/>s
         /// </summary>
         public List<CardinalityConstraintShape> CardinalityConstraintShapes { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="FactTypeShape"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "RelativeShapes":
+                            using (var relativeShapesSubtree = reader.ReadSubtree())
+                            {
+                                relativeShapesSubtree.MoveToContent();
+                                this.ReadRelativeShapes(relativeShapesSubtree);
+                            }
+                            break;
+                        case "RoleDisplayOrder":
+
+                            using (var roleDisplayOrderSubtree = reader.ReadSubtree())
+                            {
+                                roleDisplayOrderSubtree.MoveToContent();
+                                this.ReadRoleDisplayOrders(roleDisplayOrderSubtree);
+                            }
+
+                            break;
+                        case "Subject":
+                            this.subjectReference = reader.GetAttribute("ref");
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the relative shapes
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadRelativeShapes(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ObjectifiedFactTypeNameShape":
+                            using (var objectTypeShapeSubtree = reader.ReadSubtree())
+                            {
+                                objectTypeShapeSubtree.MoveToContent();
+                                var objectTypeShape = new ObjectTypeShape();
+                                objectTypeShape.ReadXml(objectTypeShapeSubtree);
+                                this.ObjectifiedFactTypeNameShapes.Add(objectTypeShape);
+                            }
+                            break;
+                        case "ReadingShape":
+                            using (var readingShapeSubtree = reader.ReadSubtree())
+                            {
+                                readingShapeSubtree.MoveToContent();
+                                var readingShape = new ReadingShape();
+                                readingShape.ReadXml(readingShapeSubtree);
+                                this.ReadingShapes.Add(readingShape);
+                            }
+                            break;
+                        case "ValueConstraintShape":
+                            using (var valueConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                valueConstraintShapeSubtree.MoveToContent();
+                                var valueConstraintShape = new ValueConstraintShape();
+                                valueConstraintShape.ReadXml(valueConstraintShapeSubtree);
+                                this.ValueConstraintShapes.Add(valueConstraintShape);
+                            }
+                            break;
+                        case "RoleNameShape":
+
+                            using (var roleNameShapeSubtree = reader.ReadSubtree())
+                            {
+                                roleNameShapeSubtree.MoveToContent();
+                                var roleNameShape = new RoleNameShape();
+                                roleNameShape.ReadXml(roleNameShapeSubtree);
+                                this.RoleNameShapes.Add(roleNameShape);
+                            }
+                            break;
+                        case "CardinalityConstraintShape":
+                            using (var cardinalityConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                cardinalityConstraintShapeSubtree.MoveToContent();
+                                var cardinalityConstraintShape = new CardinalityConstraintShape();
+                                cardinalityConstraintShape.ReadXml(cardinalityConstraintShapeSubtree);
+                                this.CardinalityConstraintShapes.Add(cardinalityConstraintShape);
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the RoleDisplayOrders
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadRoleDisplayOrders(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Role":
+
+                            var roleReference = reader.GetAttribute("ref");
+                            if (!string.IsNullOrEmpty(roleReference))
+                            {
+                                this.roleDisplayOrderReferences.Add(roleReference);
+                            }
+                            break;
+                        
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

@@ -20,9 +20,11 @@
 
 namespace Kalliope
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     using Microsoft.Extensions.Logging;
 
@@ -41,6 +43,7 @@ namespace Kalliope
         /// </summary>
         public OrmRoot()
         {
+            this.Diagrams = new List<ORMDiagram>();
         }
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace Kalliope
         /// <param name="loggerFactory">
         /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
         /// </param>
-        internal OrmRoot(ILoggerFactory loggerFactory)
+        internal OrmRoot(ILoggerFactory loggerFactory) : this()
         {
             this.loggerFactory = loggerFactory;
         }
@@ -68,6 +71,11 @@ namespace Kalliope
         /// Gets or sets the <see cref="GenerationState"/> contained by .orm file
         /// </summary>
         public GenerationState GenerationState { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="ORMDiagram"/>s contained by the .orm file
+        /// </summary>
+        public List<ORMDiagram> Diagrams { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
@@ -113,9 +121,13 @@ namespace Kalliope
                             }
                             break;
                         case "ORMDiagram":
-                            using (var ORMDiagramSubtree = reader.ReadSubtree())
+                            using (var diagramSubtree = reader.ReadSubtree())
                             {
-                                // TODO: implement ORMDiagram
+                                diagramSubtree.MoveToContent();
+                                var ormDiagram = new ORMDiagram();
+                                ormDiagram.ReadXml(diagramSubtree);
+
+                                this.Diagrams.Add(ormDiagram);
                             }
                             break;
                     }

@@ -20,7 +20,9 @@
 
 namespace Kalliope.Diagrams
 {
+    using System;
     using System.Collections.Generic;
+    using System.Xml;
 
     using Kalliope.Core;
 
@@ -29,6 +31,8 @@ namespace Kalliope.Diagrams
     /// </summary>
     public class ORMDiagram
     {
+        private string subjectReference = string.Empty;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMDiagram"/>
         /// </summary>
@@ -44,6 +48,11 @@ namespace Kalliope.Diagrams
         }
 
         /// <summary>
+        /// Gets or sets the subject <see cref="ORMModel"/> that is represented by this shape
+        /// </summary>
+        public ORMModel Subject { get; set; }
+
+        /// <summary>
         /// Gets or sets the unique identifier
         /// </summary>
         public string Id { get; set; }
@@ -56,7 +65,7 @@ namespace Kalliope.Diagrams
         /// <summary>
         /// Gets or sets the name of the base font
         /// </summary>
-        public  string BaseFontName { get; set; }
+        public string BaseFontName { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the base font
@@ -111,5 +120,142 @@ namespace Kalliope.Diagrams
         /// Gets or sets the contained <see cref="ModelNoteShape"/>
         /// </summary>
         public List<ModelNoteShape> ModelNoteShapes { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal void ReadXml(XmlReader reader)
+        {
+            this.Id = reader.GetAttribute("id");
+            this.Name = reader.GetAttribute("Name");
+            this.BaseFontName = reader.GetAttribute("BaseFontName");
+
+            var baseFontSize = reader.GetAttribute("BaseFontSize");
+            if (!string.IsNullOrEmpty(baseFontSize))
+            {
+                this.BaseFontSize = XmlConvert.ToDouble(baseFontSize);
+            }
+
+            var isCompleteView = reader.GetAttribute("IsCompleteView");
+            if (!string.IsNullOrEmpty(isCompleteView))
+            {
+                this.IsCompleteView = XmlConvert.ToBoolean(isCompleteView);
+            }
+            
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Shapes":
+                            using (var objectsSubtree = reader.ReadSubtree())
+                            {
+                                objectsSubtree.MoveToContent();
+                                this.ReadShapes(objectsSubtree);
+                            }
+                            break;
+                        case "Subject":
+                            this.subjectReference = reader.GetAttribute("ref");
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads <see cref="ORMBaseShape"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadShapes(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ObjectTypeShape":
+                            using (var objectTypeShapeSubtree = reader.ReadSubtree())
+                            {
+                                objectTypeShapeSubtree.MoveToContent();
+                                var objectTypeShape = new ObjectTypeShape();
+                                objectTypeShape.ReadXml(objectTypeShapeSubtree);
+                                this.ObjectTypeShapes.Add(objectTypeShape);
+                            }
+                            break;
+                        case "FactTypeShape":
+
+                            using (var factTypeShapeSubtree = reader.ReadSubtree())
+                            {
+                                factTypeShapeSubtree.MoveToContent();
+                                var factTypeShape = new FactTypeShape();
+                                factTypeShape.ReadXml(factTypeShapeSubtree);
+                                this.FactTypeShapes.Add(factTypeShape);
+                            }
+                            break;
+
+                        case "ExternalConstraintShape":
+                            using (var externalConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                externalConstraintShapeSubtree.MoveToContent();
+                                var externalConstraintShape = new ExternalConstraintShape();
+                                externalConstraintShape.ReadXml(externalConstraintShapeSubtree);
+                                this.ExternalConstraintShapes.Add(externalConstraintShape);
+                            }
+                            break;
+                        case "FrequencyConstraintShape":
+                            using (var frequencyConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                frequencyConstraintShapeSubtree.MoveToContent();
+                                var frequencyConstraintShape = new FrequencyConstraintShape();
+                                frequencyConstraintShape.ReadXml(frequencyConstraintShapeSubtree);
+                                this.FrequencyConstraintShapes.Add(frequencyConstraintShape);
+                            }
+                            break;
+                        case "RingConstraintShape":
+                            using (var ringConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                ringConstraintShapeSubtree.MoveToContent();
+                                var ringConstraintShape = new RingConstraintShape();
+                                ringConstraintShape.ReadXml(ringConstraintShapeSubtree);
+                                this.RingConstraintShapes.Add(ringConstraintShape);
+                            }
+                            break;
+                        case "ValueComparisonConstraintShape":
+                            using (var valueComparisonConstraintShapeSubtree = reader.ReadSubtree())
+                            {
+                                valueComparisonConstraintShapeSubtree.MoveToContent();
+                                var valueComparisonConstraintShape = new ValueComparisonConstraintShape();
+                                valueComparisonConstraintShape.ReadXml(valueComparisonConstraintShapeSubtree);
+                                this.ValueComparisonConstraintShapes.Add(valueComparisonConstraintShape);
+                            }
+                            break;
+                        case "ModelNoteShape":
+                            using (var modelNoteShapeSubtree = reader.ReadSubtree())
+                            {
+                                modelNoteShapeSubtree.MoveToContent();
+                                var modelNoteShape = new ModelNoteShape();
+                                modelNoteShape.ReadXml(modelNoteShapeSubtree);
+                                this.ModelNoteShapes.Add(modelNoteShape);
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

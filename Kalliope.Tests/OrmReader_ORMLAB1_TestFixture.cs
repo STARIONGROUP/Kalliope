@@ -142,5 +142,43 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.GenerationState.Id, Is.EqualTo("_AC554BE9-E14D-42F5-94EB-4F8531A3A5BC"));
             Assert.That(ormRoot.GenerationState.GenerationSettings, Is.Empty);
         }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_Diagrams()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+            
+            // Diagrams
+            Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(1));
+
+            var diagram = ormRoot.Diagrams.Single(x => x.Id == "_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4");
+            Assert.That(diagram.IsCompleteView, Is.False);
+            Assert.That(diagram.Name, Is.EqualTo("ORMModel1"));
+            Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));
+            Assert.That(diagram.BaseFontSize, Is.EqualTo(0.0972222238779068));
+
+            // ObjectTypeShapes
+            Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(3));
+
+            // FactTypeShapes
+            Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(3));
+
+            // ExternalConstraintShapes
+            Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(0));
+
+            // FrequencyConstraintShapes
+            Assert.That(diagram.FrequencyConstraintShapes.Count, Is.EqualTo(0));
+
+            // RingConstraintShapes
+            Assert.That(diagram.RingConstraintShapes.Count, Is.EqualTo(0));
+
+            // ValueComparisonConstraintShapes
+            Assert.That(diagram.ValueComparisonConstraintShapes.Count, Is.EqualTo(0));
+
+            // ModelNoteShapes
+            Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(0));
+
+            // Subject
+        }
     }
 }
