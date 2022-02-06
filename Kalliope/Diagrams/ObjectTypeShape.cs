@@ -79,6 +79,12 @@ namespace Kalliope.Diagrams
         {
             base.ReadXml(reader);
 
+            var expandRefMode = reader.GetAttribute("ExpandRefMode");
+            if (!string.IsNullOrEmpty(expandRefMode))
+            {
+                this.ExpandRefMode = XmlConvert.ToBoolean(expandRefMode);
+            }
+
             while (reader.Read())
             {
                 if (reader.MoveToContent() == XmlNodeType.Element)

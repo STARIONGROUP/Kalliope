@@ -25,6 +25,7 @@ namespace Kalliope.Tests
 
     using Kalliope;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     using NUnit.Framework;
 
@@ -144,6 +145,88 @@ namespace Kalliope.Tests
 
             // Generation State
             Assert.That(ormRoot.GenerationState, Is.Null);
+        }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_Diagrams()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Diagrams
+            Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(1));
+
+            var diagram = ormRoot.Diagrams.Single(x => x.Id == "_019FB281-3506-4C64-9A83-7A64F7A01D55");
+            Assert.That(diagram.IsCompleteView, Is.False);
+            Assert.That(diagram.Name, Is.EqualTo("Cinema"));
+            Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));
+            Assert.That(diagram.BaseFontSize, Is.EqualTo(0.0972222238779068));
+
+            // ObjectTypeShapes
+            Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(9));
+            var objectTypeShape = diagram.ObjectTypeShapes.Single(x => x.Id == "_3D692D51-D04C-4AE0-96B4-50A7B3A07641");
+            Assert.That(objectTypeShape.IsExpanded, Is.True);
+            Assert.That(objectTypeShape.AbsoluteBounds, Is.EqualTo("3.1645833333333329, 1.3916666865348812, 0.34875072062015533, 0.22950302660465241"));
+            Assert.That(objectTypeShape.ExpandRefMode, Is.False);
+            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+
+            objectTypeShape = diagram.ObjectTypeShapes.Single(x => x.Id == "_0B5F48A9-9454-436F-A3C5-F1D94D1491BB");
+            Assert.That(objectTypeShape.ExpandRefMode, Is.True);
+            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+
+            // ObjectTypeShapes.ValueConstraintShapes
+            objectTypeShape = diagram.ObjectTypeShapes.Single(x => x.Id == "_6DB3F675-D1B1-41E9-9594-BFAE5AF23BFC");
+            Assert.That(objectTypeShape.ExpandRefMode, Is.False);
+            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+            var constraintShape = objectTypeShape.ValueConstraintShapes.Single();
+            Assert.That(constraintShape.Id, Is.EqualTo("_03A3C5F1-A42A-4B68-A877-EE514FD2D03F"));
+            Assert.That(constraintShape.IsExpanded, Is.True);
+            Assert.That(constraintShape.AbsoluteBounds, Is.EqualTo("2.0143245685100544, 2.7697733173953991, 0.35341161489486694, 0.12950302660465241"));
+            
+            // FactTypeShapes
+            Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(10));
+
+            var factTypeShape = diagram.FactTypeShapes.Single(x => x.Id == "_A8606B42-36D8-4D98-BEC2-91439FCAB1A3");
+            Assert.That(factTypeShape.IsExpanded, Is.True);
+            Assert.That(factTypeShape.AbsoluteBounds, Is.EqualTo("3.1808333532015478, 1.8949999999999998, 0.24388888899236916, 0.38388888899236917"));
+            Assert.That(factTypeShape.ConstraintDisplayPosition, Is.EqualTo(ConstraintDisplayPosition.Top));
+            Assert.That(factTypeShape.DisplayRoleNames, Is.EqualTo(DisplayRoleNames.UserDefault));
+            Assert.That(factTypeShape.DisplayOrientation, Is.EqualTo(DisplayOrientation.VerticalRotatedLeft));
+            Assert.That(factTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+
+            factTypeShape = diagram.FactTypeShapes.Single(x => x.Id == "_37834249-0C31-425F-B243-574EA4A414D4");
+            Assert.That(factTypeShape.IsExpanded, Is.True);
+            Assert.That(factTypeShape.AbsoluteBounds, Is.EqualTo("6.276041666666667, 2.857083412806193, 0.38388888899236917, 0.24388888899236916"));
+            
+            // FactTypeShapes.ReadingShapes
+            Assert.That(factTypeShape.ReadingShapes.Count, Is.EqualTo(1));
+            var readingShape = factTypeShape.ReadingShapes.Single();
+            Assert.That(readingShape.Id, Is.EqualTo("_236F58BD-0E3F-4886-98B2-2C5ABC5497F4"));
+            Assert.That(readingShape.IsExpanded, Is.True);
+            Assert.That(readingShape.AbsoluteBounds, Is.EqualTo("6.276041666666667, 3.1657238151008884, 0.099959753453731537, 0.12950302660465241"));
+
+            // FactTypeShapes.RoleNameShapes
+            Assert.That(factTypeShape.RoleNameShapes.Count, Is.EqualTo(0));
+
+            // FactTypeShapes.RoleDisplayOrder
+            factTypeShape = diagram.FactTypeShapes.Single(x => x.Id == "_A8606B42-36D8-4D98-BEC2-91439FCAB1A3");
+            // TODO: assert RoleDisplayOrder are resolved
+
+            // ExternalConstraintShapes
+            Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(2));
+
+            // FrequencyConstraintShapes
+            Assert.That(diagram.FrequencyConstraintShapes.Count, Is.EqualTo(0));
+
+            // RingConstraintShapes
+            Assert.That(diagram.RingConstraintShapes.Count, Is.EqualTo(0));
+
+            // ValueComparisonConstraintShapes
+            Assert.That(diagram.ValueComparisonConstraintShapes.Count, Is.EqualTo(0));
+
+            // ModelNoteShapes
+            Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(1));
+
+            // Subject
         }
     }
 }

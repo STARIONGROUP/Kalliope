@@ -20,6 +20,7 @@
 
 namespace Kalliope.Diagrams
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -127,6 +128,30 @@ namespace Kalliope.Diagrams
         internal override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
+            
+            var constraintDisplayPositionAttribute = reader.GetAttribute("ConstraintDisplayPosition");
+            if (Enum.TryParse(constraintDisplayPositionAttribute, out ConstraintDisplayPosition constraintDisplayPosition))
+            {
+                this.ConstraintDisplayPosition = constraintDisplayPosition;
+            }
+
+            var displayRoleNamesAttribute = reader.GetAttribute("DisplayRoleNames");
+            if (Enum.TryParse(displayRoleNamesAttribute, out DisplayRoleNames displayRoleNames))
+            {
+                this.DisplayRoleNames = displayRoleNames;
+            }
+
+            var displayOrientationAttribute = reader.GetAttribute("DisplayOrientation");
+            if (Enum.TryParse(displayOrientationAttribute, out DisplayOrientation displayOrientation))
+            {
+                this.DisplayOrientation = displayOrientation;
+            }
+
+            var displayRelatedTypesAttribute = reader.GetAttribute("DisplayRelatedTypes");
+            if (Enum.TryParse(displayRelatedTypesAttribute, out RelatedTypesDisplay displayRelatedTypes))
+            {
+                this.DisplayRelatedTypes = displayRelatedTypes;
+            }
 
             while (reader.Read())
             {
