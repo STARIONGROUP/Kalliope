@@ -213,7 +213,10 @@ namespace Kalliope.Tests
 
             // ExternalConstraintShapes
             Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(2));
-
+            var externalConstraintShape = diagram.ExternalConstraintShapes.Single(x => x.Id == "_9E865D21-E51C-481C-950D-DDDACF98A7D1");
+            Assert.That(externalConstraintShape.IsExpanded, Is.True);
+            Assert.That(externalConstraintShape.AbsoluteBounds, Is.EqualTo("4.5416667064030962, 1.4895833134651182, 0.16, 0.16"));
+            
             // FrequencyConstraintShapes
             Assert.That(diagram.FrequencyConstraintShapes.Count, Is.EqualTo(0));
 
@@ -225,6 +228,9 @@ namespace Kalliope.Tests
 
             // ModelNoteShapes
             Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(1));
+            var modelNoteShape = diagram.ModelNoteShapes.Single(x => x.Id == "_37CA8B9B-31F0-4C31-B479-A01A2A0E6A8C");
+            Assert.That(modelNoteShape.IsExpanded, Is.True);
+            Assert.That(modelNoteShape.AbsoluteBounds, Is.EqualTo("2.03125, 4.1458334922790527, 1.3454351778030396, 0.2588533217906952"));
 
             // Subject
         }

@@ -25,6 +25,7 @@ namespace Kalliope.Tests
 
     using Kalliope;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     using NUnit.Framework;
 
@@ -148,6 +149,55 @@ namespace Kalliope.Tests
 
             // Generation State
             Assert.That(ormRoot.GenerationState, Is.Null);
+        }
+
+        [Test]
+        public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_Diagrams()
+        {
+            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+
+            // Diagrams
+            Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(2));
+
+            var diagram = ormRoot.Diagrams.Single(x => x.Id == "_D80C0423-0227-477D-84AA-32E6BF3A0659");
+            Assert.That(diagram.IsCompleteView, Is.True);
+            Assert.That(diagram.Name, Is.EqualTo("Movie"));
+            Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));
+            Assert.That(diagram.BaseFontSize, Is.EqualTo(0.0972222238779068));
+
+            // ObjectTypeShapes
+            Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(6));
+            var objectTypeShape = diagram.ObjectTypeShapes.Single(x => x.Id == "_E8AC4E21-B2EA-44EE-AB64-BF9A46014FBD");
+            Assert.That(objectTypeShape.IsExpanded, Is.True);
+            Assert.That(objectTypeShape.AbsoluteBounds, Is.EqualTo("1.5504014194011688, 2.59375, 0.72140424966812133, 0.22950302660465241"));
+            Assert.That(objectTypeShape.ExpandRefMode, Is.False);
+            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+
+            // ObjectTypeShapes.RelativeShapes
+            var valueConstraintShape = objectTypeShape.ValueConstraintShapes.Single();
+            Assert.That(valueConstraintShape.Id, Is.EqualTo("_200444FA-B4DB-431C-9AE6-A9A6633B84ED"));
+            Assert.That(valueConstraintShape.IsExpanded, Is.True);
+            Assert.That(valueConstraintShape.AbsoluteBounds, Is.EqualTo("2.33180566906929, 2.4642469733953476, 0.93807417154312134, 0.12950302660465241"));
+
+            // FactTypeShapes
+            Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(7));
+            
+            // ExternalConstraintShapes
+            Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(2));
+
+            // FrequencyConstraintShapes
+            Assert.That(diagram.FrequencyConstraintShapes.Count, Is.EqualTo(0));
+
+            // RingConstraintShapes
+            Assert.That(diagram.RingConstraintShapes.Count, Is.EqualTo(0));
+
+            // ValueComparisonConstraintShapes
+            Assert.That(diagram.ValueComparisonConstraintShapes.Count, Is.EqualTo(0));
+
+            // ModelNoteShapes
+            Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(0));
+
+            // Subject
         }
     }
 }
