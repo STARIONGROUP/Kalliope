@@ -116,7 +116,7 @@ namespace Kalliope.Core
         public List<FactTypeInstance> FactTypeInstances { get; set; }
 
         /// <summary>
-        /// Generates a <see cref="ORMNamedElement"/> object from its XML representation.
+        /// Generates a <see cref="FactType"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -176,7 +176,7 @@ namespace Kalliope.Core
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        private void ReadFactRoles(XmlReader reader)
+        internal virtual void ReadFactRoles(XmlReader reader)
         {
             while (reader.Read())
             {
@@ -192,6 +192,7 @@ namespace Kalliope.Core
                                 roleSubtree.MoveToContent();
                                 var role = new Role();
                                 role.ReadXml(roleSubtree);
+                                this.Roles.Add(role);
                             }
                             break;
                         default:

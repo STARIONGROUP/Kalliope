@@ -27,6 +27,7 @@ namespace Kalliope
     using Kalliope.Diagrams;
 
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Abstractions;
 
     /// <summary>
     /// The <see cref="OrmRoot"/> represents the root node of an .orm file
@@ -39,10 +40,17 @@ namespace Kalliope
         private readonly ILoggerFactory loggerFactory;
 
         /// <summary>
+        /// The <see cref="ILogger"/> used to log
+        /// </summary>
+        private readonly ILogger<OrmRoot> logger;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="OrmRoot"/> class
         /// </summary>
         public OrmRoot()
         {
+            this.logger = NullLogger<OrmRoot>.Instance;
+
             this.Diagrams = new List<ORMDiagram>();
         }
 
@@ -55,6 +63,7 @@ namespace Kalliope
         internal OrmRoot(ILoggerFactory loggerFactory) : this()
         {
             this.loggerFactory = loggerFactory;
+            this.logger = this.loggerFactory == null ? NullLogger<OrmRoot>.Instance : this.loggerFactory.CreateLogger<OrmRoot>();
         }
 
         /// <summary>

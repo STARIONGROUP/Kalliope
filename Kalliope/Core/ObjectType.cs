@@ -26,9 +26,11 @@ namespace Kalliope.Core
 
     public abstract class ObjectType : ORMNamedElement
     {
-        protected List<string> playedRoles = new List<string>();
+        protected List<string> playedRolesReferences = new List<string>();
 
-        protected string preferredIdentifier = String.Empty;
+        protected string preferredIdentifierReference = string.Empty;
+
+        protected string conceptualDataTypeReference = string.Empty;
 
         protected string dataTypeRef = string.Empty;
 
@@ -254,10 +256,10 @@ namespace Kalliope.Core
                                 {
                                     if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
                                     {
-                                        var preferredIdentifierReference = preferredIdentifierSubtree.GetAttribute("ref");
-                                        if (!string.IsNullOrEmpty(preferredIdentifierReference))
+                                        var reference = preferredIdentifierSubtree.GetAttribute("ref");
+                                        if (!string.IsNullOrEmpty(reference))
                                         {
-                                            this.preferredIdentifier = preferredIdentifierReference;
+                                            this.preferredIdentifierReference = reference;
                                         }
                                     }
                                 }
@@ -266,22 +268,19 @@ namespace Kalliope.Core
                         case "ConceptualDataType":
                             if (reader.MoveToContent() == XmlNodeType.Element)
                             {
-                                var conceptualDataTypeReference = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(conceptualDataTypeReference))
+                                var reference = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(reference))
                                 {
-                                    this.preferredIdentifier = conceptualDataTypeReference;
+                                    this.conceptualDataTypeReference = reference;
                                 }
                             }
                             break;
                         case "NestedPredicate":
-
                             //TODO: implement NestedPredicate
-
                             break;
-
                         case "ValueRestriction":
-
-                        //TODO: implement ValueRestriction
+                            //TODO: implement ValueRestriction
+                            break;
                         case "ValueConstraint":
 
                             using (var valueTypeValueConstraintSubtree = reader.ReadSubtree())
@@ -330,7 +329,7 @@ namespace Kalliope.Core
 
                             break;
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
@@ -351,7 +350,7 @@ namespace Kalliope.Core
                     var roleReference = reader.GetAttribute("ref");
                     if (!string.IsNullOrEmpty(roleReference))
                     {
-                        this.playedRoles.Add(roleReference);
+                        this.playedRolesReferences.Add(roleReference);
                     }
                 }
             }

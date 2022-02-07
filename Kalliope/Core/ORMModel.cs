@@ -324,33 +324,28 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "Fact":
-
                             using (var factSubtree = reader.ReadSubtree())
                             {
                                 factSubtree.MoveToContent();
                                 var factType = new FactType(this);
                                 factType.ReadXml(factSubtree);
                             }
-
                             break;
                         case "ImpliedFact":
-
                             using (var impliedFactSubtree = reader.ReadSubtree())
                             {
                                 impliedFactSubtree.MoveToContent();
                                 this.logger.LogTrace("ImpliedFact found: not supported");
                             }
-                            
                             break;
                         case "SubtypeFact":
                             using (var subtypeFactSubtree = reader.ReadSubtree())
                             {
                                 subtypeFactSubtree.MoveToContent();
-                                this.logger.LogTrace("SubtypeFact found: not supported");
+                                var subtypeFact = new SubtypeFact(this);
+                                subtypeFact.ReadXml(subtypeFactSubtree);
                             }
-
                             break;
-
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
