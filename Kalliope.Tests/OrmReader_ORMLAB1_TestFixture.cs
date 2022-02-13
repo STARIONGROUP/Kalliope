@@ -75,7 +75,7 @@ namespace Kalliope.Tests
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
 
             // Facts
-            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(5));
+            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(7));
             var factType = ormRoot.Model.FactTypes.Single(x => x.Id == "_0EFF35AC-1E3B-43CF-AB58-454ABB8219EF");
             Assert.That(factType.Name, Is.EqualTo("PatientHasPatientNr"));
 

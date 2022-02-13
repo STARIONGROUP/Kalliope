@@ -73,7 +73,7 @@ namespace Kalliope.Tests
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
 
             // Facts
-            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(22));
+            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(31));
             var factType = ormRoot.Model.FactTypes.Single(x => x.Id == "_2904A934-2B98-4EC1-925E-F18E545A22B1");
             Assert.That(factType.Name, Is.EqualTo("StateHasStateCode"));
 

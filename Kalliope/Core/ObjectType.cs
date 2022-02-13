@@ -106,6 +106,9 @@ namespace Kalliope.Core
         /// </summary>
         public int DataTypeLength { get; set; }
 
+        /// <summary>
+        /// The name of the reference mode pattern used to identify this element. Derived from a single-role preferred identifier with a ValueType role player
+        /// </summary>
         public string ReferenceMode { get; set; }
 
         public string ReferenceModeDecoratedString { get; set; }
@@ -230,6 +233,11 @@ namespace Kalliope.Core
         public PreferredIdentifierRequiresMandatoryError PreferredIdentifierRequiresMandatoryError { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="Objectification"/>
+        /// </summary>
+        public Objectification NestedPredicate { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
@@ -309,7 +317,11 @@ namespace Kalliope.Core
                             }
                             break;
                         case "NestedPredicate":
-                            //TODO: implement NestedPredicate
+                            using (var nestedPredicateSubtree = reader.ReadSubtree())
+                            {
+                                nestedPredicateSubtree.MoveToContent();
+                                this.ReadNestedPredicate(nestedPredicateSubtree);
+                            }
                             break;
                         case "ValueRestriction":
                             //TODO: implement ValueRestriction
@@ -428,6 +440,21 @@ namespace Kalliope.Core
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Objectification"/>
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadNestedPredicate(XmlReader reader)
+        {
+            var objectification = new Objectification();
+            objectification.ReadXml(reader);
+
+            this.NestedPredicate = objectification;
+            objectification.NestingType = this;
         }
     }
 }

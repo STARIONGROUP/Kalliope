@@ -20,6 +20,9 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Xml;
+
     /// <summary>
     /// The role in an implied fact type that corresponds to a role in the objectified fact type.
     /// In terms of constraints, the role proxy is treated as the same role.
@@ -27,9 +30,44 @@ namespace Kalliope.Core
     /// </summary>
     public class RoleProxy : RoleBase
     {
+        private string roleReference = string.Empty;
+
         /// <summary>
         /// Gets or sets the referenced <see cref="Role"/>
         /// </summary>
         public Role TargetRole { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="RoleProxy"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Role":
+                            using (var rolesSubtree = reader.ReadSubtree())
+                            {
+                                rolesSubtree.MoveToContent();
+
+                                this.roleReference = rolesSubtree.GetAttribute("ref");
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

@@ -337,7 +337,8 @@ namespace Kalliope.Core
                             using (var impliedFactSubtree = reader.ReadSubtree())
                             {
                                 impliedFactSubtree.MoveToContent();
-                                this.logger.LogTrace("ImpliedFact found: not supported");
+                                var impliedFact = new ImpliedFactType(this);
+                                impliedFact.ReadXml(impliedFactSubtree);
                             }
                             break;
                         case "SubtypeFact":

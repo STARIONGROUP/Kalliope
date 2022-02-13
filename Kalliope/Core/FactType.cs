@@ -179,11 +179,25 @@ namespace Kalliope.Core
                                 this.ReadDerivationRule(derivationRuleSubtree);
                             }
                             break;
+                        case "ImpliedByObjectification":
+                            this.ReadImpliedByObjectification(reader);
+                            break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Reads <see cref="Role"/>s from the .orm file
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal virtual void ReadImpliedByObjectification(XmlReader reader)
+        {
+            throw new InvalidOperationException("shall only be implemented by ImpliedFact");
         }
 
         /// <summary>
@@ -209,6 +223,15 @@ namespace Kalliope.Core
                                 var role = new Role();
                                 role.ReadXml(roleSubtree);
                                 this.Roles.Add(role);
+                            }
+                            break;
+                        case "RoleProxy":
+                            using (var roleProxySubtree = reader.ReadSubtree())
+                            {
+                                roleProxySubtree.MoveToContent();
+                                var roleProxy = new RoleProxy();
+                                roleProxy.ReadXml(roleProxySubtree);
+                                this.Roles.Add(roleProxy);
                             }
                             break;
                         default:

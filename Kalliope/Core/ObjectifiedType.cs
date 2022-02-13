@@ -20,8 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
-
     using Microsoft.Extensions.Logging;
 
     /// <summary>

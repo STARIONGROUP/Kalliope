@@ -60,14 +60,32 @@ namespace Kalliope.Tests
             Assert.That(derivationRule.SubtypeDerivationPath.InformalRule.DerivationNote.Id, Is.EqualTo("_9F8C3C13-E7FB-4CCC-861C-C48727DBD2C9"));
             Assert.That(derivationRule.SubtypeDerivationPath.InformalRule.DerivationNote.Body, Is.EqualTo(@"Each FemaleEmployee is an Employee of Gender 'F'"));
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ValueType>().Count(), Is.EqualTo(11));
+            var valueType = ormRoot.Model.ObjectTypes.OfType<ValueType>().Single(x => x.Id == "_59F9F65F-2F50-46FC-8AD5-28BA64446924");
+            Assert.That(valueType.Name, Is.EqualTo("Gender_code"));
+            var valueTypeValueConstraint = valueType.ValueConstraint;
+            Assert.That(valueTypeValueConstraint.Id, Is.EqualTo("_F2297911-44F2-4646-9E9F-B4E868CD8A24"));
+            Assert.That(valueTypeValueConstraint.Name, Is.EqualTo("ValueTypeValueConstraint1"));
+            var valueRange = valueTypeValueConstraint.ValueRanges.Single();
+            Assert.That(valueRange.Id, Is.EqualTo("_40B7D8C4-CA40-4BA3-8137-FA995C42AE47"));
+            Assert.That(valueRange.MinValue, Is.EqualTo("M, F"));
+            Assert.That(valueRange.MaxValue, Is.EqualTo("M, F"));
+            Assert.That(valueRange.MinInclusion, Is.EqualTo(RangeInclusion.NotSet));
+            Assert.That(valueRange.MaxInclusion, Is.EqualTo(RangeInclusion.NotSet));
+
             Assert.That(ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Count(), Is.EqualTo(4));
             var objectifiedType = ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Single(x => x.Id == "_76A2B645-0CF9-4BD5-81D7-31F22BE79BB7");
+            Assert.That(objectifiedType.Name, Is.EqualTo("FemaleManagerWasSentFlowersOnDate"));
             Assert.That(objectifiedType.IsIndependent, Is.True);
             Assert.That(objectifiedType.ReferenceMode, Is.Null.Or.Empty);
+            Assert.That(objectifiedType.NestedPredicate.Id, Is.EqualTo("_0979AE01-37FD-48F9-B690-2164D851238C"));
+            Assert.That(objectifiedType.NestedPredicate.IsImplied, Is.True);
 
             // Facts
+            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(38));
+            Assert.That(ormRoot.Model.FactTypes.OfType<SubtypeFact>().Count, Is.EqualTo(6));
 
             // Constraints
+
 
             // DataTypes
 
