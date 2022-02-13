@@ -105,7 +105,7 @@ namespace Kalliope.Core
             }
 
             var maxInclusionAttribute = reader.GetAttribute("MaxInclusion");
-            if (Enum.TryParse(minInclusionAttribute, out RangeInclusion maxInclusion))
+            if (Enum.TryParse(maxInclusionAttribute, out RangeInclusion maxInclusion))
             {
                 this.MaxInclusion = maxInclusion;
             }

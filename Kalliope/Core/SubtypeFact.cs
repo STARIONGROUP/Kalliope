@@ -39,12 +39,7 @@ namespace Kalliope.Core
             this.Model = model;
             model.FactTypes.Add(this);
         }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModel"/>
-        /// </summary>
-        public ORMModel Model { get; set; }
-
+        
         /// <summary>
         /// Deprecated property, use PreferredIdentificationPath instead
         /// </summary>
