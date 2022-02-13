@@ -36,7 +36,7 @@ Development | [![codecov](https://codecov.io/gh/RHEAGROUP/Kalliope/branch/develo
 
 # License
 
-The Kalliope library is provided to the community under the Apache License 2.0. The solution contains files that contain information about the ORM2 metamodelwhich are distributed with the [Common Public License 1.0](http://opensource.org/licenses/cpl) or the [zlib/libpng License](https://opensource.org/licenses/Zlib). The beforementioned files can be found in the resources folder of the Kalliope project.
+The Kalliope library is provided to the community under the Apache License 2.0. The solution contains files that contain information about the ORM2 metamodel which are distributed with the [Common Public License 1.0](http://opensource.org/licenses/cpl) or the [zlib/libpng License](https://opensource.org/licenses/Zlib). The beforementioned files can be found in the resources folder of the Kalliope project.
 
 # Contributions
 
