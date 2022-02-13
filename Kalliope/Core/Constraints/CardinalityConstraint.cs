@@ -43,16 +43,14 @@ namespace Kalliope.Core
         public ConstraintModality Modality { get; set; }
 
         /// <summary>
-        /// An informal description of this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// Gets or sets the owned <see cref="Definition"/>
         /// </summary>
-        public string DefinitionText { get; set; }
+        public Definition Definition { get; set; }
 
         /// <summary>
-        /// A note to associate with this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// Gets or sets the owned <see cref="Note"/>
         /// </summary>
-        public string NoteText { get; set; }
+        public Note Note { get; set; }
 
         /// <summary>
         /// Set the ranges for this cardinality constraint.
@@ -61,15 +59,15 @@ namespace Kalliope.Core
         /// Range with no upper bound: &gt;n, &gt;=n, n..&#xd;&#xa;Fixed range: n..m&#xd;&#xa;&#xd;&#xa;Cardinality supports multiple non-overlapping ranges and single values. A range of 0 indicates that an empty population is allowed. For example, 0,4.. will allow either an empty population or a population with four or more instances
         /// </summary>
         public string Text { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int TextChanged { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the contained <see cref="CardinalityRange"/>s
         /// </summary>
         public List<CardinalityRange> Ranges { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="CardinalityRangeOverlapError"/>
+        /// </summary>
+        public CardinalityRangeOverlapError CardinalityRangeOverlapError { get; set; }
     }
 }

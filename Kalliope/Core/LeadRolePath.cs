@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A role path starting from a root object type
     /// </summary>
@@ -29,9 +31,27 @@ namespace Kalliope.Core
     public class LeadRolePath : RolePath
     {
         /// <summary>
-        /// A note to associate with this path.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// Initializes a new instance of the <see cref="LeadRolePath"/> class
         /// </summary>
-        public string NoteText { get; set; }
+        public LeadRolePath()
+        {
+            this.ObjectUnifiers = new List<PathObjectUnifier>();
+            this.CalculatedValues = new List<CalculatedPathValue>();
+        }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Note"/>
+        /// </summary>
+        public Note Note { get; set; }
+
+        /// <summary>
+        /// Gets or sets the object unifier that uses pathed roles and path roots in this role path
+        /// </summary>
+        public List<PathObjectUnifier> ObjectUnifiers { get; set; }
+
+        /// <summary>
+        /// Gets or sets the values calculated using roles in this component
+        /// </summary>
+        public List<CalculatedPathValue> CalculatedValues { get; set; }
     }
 }

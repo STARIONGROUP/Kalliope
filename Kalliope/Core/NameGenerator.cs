@@ -20,6 +20,7 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
     using System.Xml;
 
     /// <summary>
@@ -38,6 +39,8 @@ namespace Kalliope.Core
             this.AutomaticallyShortenNames = true;
             this.UserDefinedMaximum = 128;
             this.UseTargetDefaultMaximum = true;
+
+            this.RefinedByGenerators = new List<NameGenerator>();
         }
 
         /// <summary>
@@ -98,6 +101,11 @@ namespace Kalliope.Core
         /// (DSL) Specify if the default maximum name length for this name generation context should be used when shortening names
         /// </remarks>
         public bool UseTargetDefaultMaximum { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="NameGenerator"/>s that are refined by the current <see cref="NameGenerator"/>
+        /// </summary>
+        public List<NameGenerator> RefinedByGenerators { get; set; }
 
         /// <summary>
         /// Generates a <see cref="NameGenerator"/> object from its XML representation.

@@ -41,5 +41,10 @@ namespace Kalliope.Core
         /// Restriction type of this Ring constraint
         /// </summary>
         public RingConstraintType RingType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="RingConstraintTypeNotSpecifiedError"/>
+        /// </summary>
+        public RingConstraintTypeNotSpecifiedError RingConstraintTypeNotSpecifiedError { get; set; }
     }
 }

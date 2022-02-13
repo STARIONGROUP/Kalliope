@@ -20,32 +20,32 @@
 
 namespace Kalliope.Core
 {
+    using System;
     using System.Collections.Generic;
+    using System.Xml;
 
     /// <summary>
     /// A constraint limiting the set of allowed values
     /// </summary>
-    public class ValueConstraint : ORMNamedElement
+    public abstract class ValueConstraint : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraint"/> class
         /// </summary>
-        public ValueConstraint()
+        protected ValueConstraint()
         {
             this.ValueRanges = new List<ValueRange>();
         }
 
         /// <summary>
-        /// An informal description of this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window.
+        /// Gets or sets the owned <see cref="Definition"/>
         /// </summary>
-        public string DefinitionText { get; set; }
+        public Definition Definition { get; set; }
 
         /// <summary>
-        /// A note to associate with this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// Gets or sets the owned <see cref="Note"/>
         /// </summary>
-        public string NoteText { get; set; }
+        public Note Note { get; set; }
 
         /// <summary>
         /// The range of possible values.
@@ -53,12 +53,87 @@ namespace Kalliope.Core
         /// Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30
         /// </summary>
         public string Text { get; set; }
-
-        public int TextChanged { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the contained <see cref="ValueRange"/>s
         /// </summary>
         public List<ValueRange> ValueRanges { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ValueRangeOverlapError"/>
+        /// </summary>
+        public ValueRangeOverlapError ValueRangeOverlapError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ValueConstraintValueTypeDetachedError"/>
+        /// </summary>
+        public ValueConstraintValueTypeDetachedError ValueTypeDetachedError { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="ValueConstraint"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ValueRanges":
+                            using (var valueRangesSubtree = reader.ReadSubtree())
+                            {
+                                valueRangesSubtree.MoveToContent();
+                                this.ReadValueRanges(valueRangesSubtree);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the <see cref="ValueRange"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadValueRanges(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ValueRange":
+                            using (var valueRangeSubtree = reader.ReadSubtree())
+                            {
+                                valueRangeSubtree.MoveToContent();
+                                var valueRange = new ValueRange();
+                                valueRange.ReadXml(valueRangeSubtree);
+
+                                valueRange.ValueConstraint = this;
+                                this.ValueRanges.Add(valueRange);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+            
+        }
     }
 }

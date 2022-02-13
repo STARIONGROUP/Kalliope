@@ -37,6 +37,12 @@ namespace Kalliope.Core
         /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        /// Generates a <see cref="Definition"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
         internal override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);

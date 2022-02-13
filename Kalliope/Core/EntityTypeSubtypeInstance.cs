@@ -25,5 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public class EntityTypeSubtypeInstance : ObjectTypeInstance
     {
+        /// <summary>
+        /// Gets or sets the referenced <see cref="EntityTypeInstance"/>
+        /// </summary>
+        public EntityTypeInstance SupertypeInstance { get; set; }
     }
 }

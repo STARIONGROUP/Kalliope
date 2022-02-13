@@ -37,7 +37,10 @@ namespace Kalliope.Core
         /// </summary>
         public string IdentifierName { get; set; }
 
-        public int NameChanged { get; set; }
+        /// <summary>
+        /// Gets or sets the owned <see cref="ObjectifiedInstanceRequiredError"/>
+        /// </summary>
+        public ObjectifiedInstanceRequiredError ObjectifiedInstanceRequiredError { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s

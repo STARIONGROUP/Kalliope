@@ -47,16 +47,5 @@ namespace Kalliope.Core
 
             model.ObjectTypes.Add(this);
         }
-
-        /// <summary>
-        /// Generates a <see cref="EntityType"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-        }
     }
 }

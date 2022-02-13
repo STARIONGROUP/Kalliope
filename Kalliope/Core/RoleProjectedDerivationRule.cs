@@ -25,5 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public abstract class RoleProjectedDerivationRule : RolePathOwner
     {
+        /// <summary>
+        /// Gets or sets the owned <see cref="RoleProjectedDerivationRequiresProjectionError"/>
+        /// </summary>
+        public RoleProjectedDerivationRequiresProjectionError ProjectionRequiredError { get; set; }
     }
 }

@@ -79,7 +79,7 @@ namespace Kalliope.Core
         /// This object type is externally defined (not used).
         /// </summary>
         /// <remarks>
-        /// (DSL) Is this ObjectType defined in an external model?">
+        /// (DSL) Is this ObjectType defined in an external model
         /// </remarks>
         public bool IsExternal { get; set; }
 
@@ -95,19 +95,7 @@ namespace Kalliope.Core
         /// Cache if IsPersonal is set for one or more supertypes
         /// </summary>
         public bool IsSupertypePersonal { get; set; }
-
-        /// <summary>
-        /// An informal description of this ObjectType.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
-        /// </summary>
-        public string DefinitionText { get; set; }
-
-        /// <summary>
-        /// A note to associate with this ObjectType.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
-        /// </summary>
-        public string NoteText { get; set; }
-
+        
         /// <summary>
         /// The number of digits allowed to the right of the decimal point in a value with this DataType
         /// </summary>
@@ -186,6 +174,14 @@ namespace Kalliope.Core
         /// </summary>
         public Definition Definition { get; set; }
 
+        /// <summary>
+        /// Gets or sets the owned <see cref="Note"/>
+        /// </summary>
+        public Note Note { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ValueTypeValueConstraint"/>
+        /// </summary>
         public ValueTypeValueConstraint ValueConstraint { get; set; }
 
         /// <summary>
@@ -202,6 +198,36 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="EntityTypeInstance"/>s
         /// </summary>
         public List<EntityTypeSubtypeInstance> EntityTypeSubtypeInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="SubtypeDerivationRule"/>
+        /// </summary>
+        public SubtypeDerivationRule DerivationRule { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ObjectTypeCardinalityConstraint"/>
+        /// </summary>
+        public ObjectTypeCardinalityConstraint Cardinality { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="SubtypeDerivationExpression"/>
+        /// </summary>
+        public SubtypeDerivationExpression DerivationExpression { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="EntityTypeRequiresReferenceSchemeError"/>
+        /// </summary>
+        public EntityTypeRequiresReferenceSchemeError ReferenceSchemeError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="CompatibleSupertypesError"/>
+        /// </summary>
+        public CompatibleSupertypesError CompatibleSupertypesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="PreferredIdentifierRequiresMandatoryError"/>
+        /// </summary>
+        public PreferredIdentifierRequiresMandatoryError PreferredIdentifierRequiresMandatoryError { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
@@ -240,6 +266,13 @@ namespace Kalliope.Core
                             {
                                 definitionSubtree.MoveToContent();
                                 this.ReadDefinitions(definitionSubtree);
+                            }
+                            break;
+                        case "Notes":
+                            using (var notesSubtree = reader.ReadSubtree())
+                            {
+                                notesSubtree.MoveToContent();
+                                this.ReadNotes(notesSubtree);
                             }
                             break;
                         case "PlayedRoles":
@@ -292,6 +325,16 @@ namespace Kalliope.Core
                             }
                             
                             break;
+                        case "SubtypeDerivationRule":
+                            using (var subtypeDerivationRuleSubtree = reader.ReadSubtree())
+                            {
+                                subtypeDerivationRuleSubtree.MoveToContent();
+                                var subtypeDerivationRule = new SubtypeDerivationRule();
+                                subtypeDerivationRule.ReadXml(subtypeDerivationRuleSubtree);
+                                this.DerivationRule = subtypeDerivationRule;
+                            }
+
+                            break;
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
@@ -316,17 +359,46 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "Definition":
-
                             using (var definitionSubtree = reader.ReadSubtree())
                             {
                                 definitionSubtree.MoveToContent();
                                 var definition = new Definition();
                                 definition.ReadXml(definitionSubtree);
-
                                 this.Definition = definition;
-
                             }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
 
+        /// <summary>
+        /// reads the contained <see cref="Note"/>s
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        private void ReadNotes(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Note":
+
+                            using (var noteSubtree = reader.ReadSubtree())
+                            {
+                                noteSubtree.MoveToContent();
+                                var note = new Note();
+                                note.ReadXml(noteSubtree);
+                                this.Note = note;
+                            }
                             break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
@@ -345,7 +417,9 @@ namespace Kalliope.Core
         {
             while (reader.Read())
             {
-                if (reader.LocalName == "Role")
+                var localName = reader.LocalName;
+
+                if (localName == "Role")
                 {
                     var roleReference = reader.GetAttribute("ref");
                     if (!string.IsNullOrEmpty(roleReference))

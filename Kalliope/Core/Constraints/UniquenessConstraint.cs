@@ -51,6 +51,11 @@ namespace Kalliope.Core
         public bool IsInternal { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="NMinusOneError"/>
+        /// </summary>
+        public NMinusOneError NMinusOneError { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">

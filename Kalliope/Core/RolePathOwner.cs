@@ -20,10 +20,30 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// An abstract owner for one or more path objects.
     /// </summary>
     public abstract class RolePathOwner : ORMModelElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RolePathOwner"/> class
+        /// </summary>
+        protected RolePathOwner()
+        {
+            this.LeadRolePaths = new List<LeadRolePath>();
+            this.Subqueries = new List<Subquery>();
+        }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="LeadRolePath"/>s
+        /// </summary>
+        public List<LeadRolePath> LeadRolePaths { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="Subquery"/>s
+        /// </summary>
+        public List<Subquery> Subqueries { get; set; }
     }
 }

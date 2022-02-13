@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// An ordered sequence of roles through ORM space with a tail split branching into other subpaths
     /// </summary>
@@ -31,6 +33,7 @@ namespace Kalliope.Core
         protected RolePath()
         {
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
+            this.SubPaths = new List<RoleSubPath>();
         }
 
         /// <summary>
@@ -46,5 +49,15 @@ namespace Kalliope.Core
         /// </summary>
 
         public LogicalCombinationOperator SplitCombinationOperator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Sub paths branched from the end of the current path
+        /// </summary>
+        public List<RoleSubPath> SubPaths { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="PathRequiresRootObjectTypeError"/>
+        /// </summary>
+        public PathRequiresRootObjectTypeError RootObjectTypeRequiredError { get; set; }
     }
 }

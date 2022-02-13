@@ -27,5 +27,9 @@ namespace Kalliope.Core
     /// </summary>
     public class RoleProxy : RoleBase
     {
+        /// <summary>
+        /// Gets or sets the referenced <see cref="Role"/>
+        /// </summary>
+        public Role TargetRole { get; set; }
     }
 }

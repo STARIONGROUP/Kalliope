@@ -20,9 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using System;
+    using System.Xml;
+
     /// <summary>
     /// A role path defining subtype population
     /// </summary>
+    /// <remarks>
+    /// The formal derivation rule defining a subtype
+    /// </remarks>
     public class SubtypeDerivationRule : RolePathOwner
     {
         /// <summary>
@@ -43,10 +49,52 @@ namespace Kalliope.Core
         /// Specify if the derivation results are determined on demand or stored when derivation path components are changed
         /// </summary>
         public DerivationStorage DerivationStorage { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the owned <see cref="DerivationNote"/>
+        /// </summary>
+        public DerivationNote DerivationNote { get; set; }
 
         /// <summary>
-        /// An empty path is a placeholder for an externally defined derivation rule and is not validated
+        /// Gets or sets the owned <see cref="SubtypeDerivationPath"/>
         /// </summary>
-        public bool ExternalDerivation { get; set; }
+        public SubtypeDerivationPath SubtypeDerivationPath { get; set; }
+
+        /// <summary>
+        /// Generates a <see cref="SubtypeDerivationRule"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        internal override void ReadXml(XmlReader reader)
+        {
+            base.ReadXml(reader);
+            
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "SubtypeDerivationPath":
+
+                            using (var subtypeDerivationPathSubtree = reader.ReadSubtree())
+                            {
+                                subtypeDerivationPathSubtree.MoveToContent();
+                                var subtypeDerivationPath = new SubtypeDerivationPath();
+                                subtypeDerivationPath.ReadXml(subtypeDerivationPathSubtree);
+                                this.SubtypeDerivationPath = subtypeDerivationPath;
+                            }
+                            
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+
+                    }
+                }
+            }
+        }
     }
 }

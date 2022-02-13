@@ -75,19 +75,7 @@ namespace Kalliope.Core
             this.loggerFactory = loggerFactory;
             this.logger = this.loggerFactory == null ? NullLogger<ORMModel>.Instance : this.loggerFactory.CreateLogger<ORMModel>();
         }
-
-        /// <summary>
-        /// An informal description of this Model.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
-        /// </summary>
-        public string DefinitionText { get; set; }
-
-        /// <summary>
-        /// A note to associate with this Model.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
-        /// </summary>
-        public string NoteText { get; set; }
-
+        
         /// <summary>
         /// The value of the referenced element's unique id
         /// </summary>
@@ -175,6 +163,21 @@ namespace Kalliope.Core
         /// The <see cref="SetComparisonConstraint"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
         public List<SetComparisonConstraint> SetComparisonConstraints { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Definition"/>
+        /// </summary>
+        public Definition Definition { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Note"/>
+        /// </summary>
+        public Note Note { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ModelErrorDisplayFilter"/>
+        /// </summary>
+        public ModelErrorDisplayFilter ModelErrorDisplayFilter { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ORMModel"/> object from its XML representation.
@@ -302,7 +305,6 @@ namespace Kalliope.Core
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
-
                 }
             }
         }
@@ -370,97 +372,72 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "EqualityConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new EqualityConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "ExclusionConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new ExclusionConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "FrequencyConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new FrequencyConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "MandatoryConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new MandatoryConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "RingConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new RingConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "SubsetConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new SubsetConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "UniquenessConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new UniquenessConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         case "ValueComparisonConstraint":
-
                             using (var constraintSubtree = reader.ReadSubtree())
                             {
                                 constraintSubtree.MoveToContent();
                                 var constraint = new ValueComparisonConstraint(this);
                                 constraint.ReadXml(constraintSubtree);
                             }
-
                             break;
-
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
-
                 }
             }
         }
@@ -482,324 +459,237 @@ namespace Kalliope.Core
                     switch (localName)
                     {
                         case "AutoCounterNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new AutoCounterNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "AutoTimestampTemporalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new AutoTimestampTemporalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "DateAndTimeTemporalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new DateAndTimeTemporalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "DateTemporalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new DateTemporalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "DecimalNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new DecimalNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "DoublePrecisionFloatingPointNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new DoublePrecisionFloatingPointNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "FixedLengthRawDataDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new FixedLengthRawDataDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "FixedLengthTextDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new FixedLengthTextDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "FloatingPointNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new FloatingPointNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "LargeLengthRawDataDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new LargeLengthRawDataDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "LargeLengthTextDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new LargeLengthTextDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "LogicalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new LogicalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "MoneyNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new MoneyNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "ObjectIdOtherDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new ObjectIdOtherDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "OleObjectRawDataDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new OleObjectRawDataDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "PictureRawDataDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new PictureRawDataDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "RowIdOtherDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new RowIdOtherDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "SignedIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new SignedIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "SignedLargeIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new SignedLargeIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "SignedSmallIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new SignedSmallIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "SinglePrecisionFloatingPointNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new SinglePrecisionFloatingPointNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "TimeTemporalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new TimeTemporalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "TrueOrFalseLogicalDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new TrueOrFalseLogicalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "UnsignedIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new UnsignedIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "UnsignedLargeIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new UnsignedLargeIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "UnsignedSmallIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new UnsignedSmallIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "UnsignedTinyIntegerNumericDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new UnsignedTinyIntegerNumericDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "UnspecifiedDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new UnspecifiedDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "VariableLengthRawDataDataType":
-
                             using (var dataTypeSubtree = reader.ReadSubtree())
                             {
                                 dataTypeSubtree.MoveToContent();
                                 var dataType = new VariableLengthRawDataDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "VariableLengthTextDataType":
 
                             using (var dataTypeSubtree = reader.ReadSubtree())
@@ -808,9 +698,7 @@ namespace Kalliope.Core
                                 var dataType = new VariableLengthTextDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         case "YesOrNoLogicalDataType":
 
                             using (var dataTypeSubtree = reader.ReadSubtree())
@@ -819,13 +707,10 @@ namespace Kalliope.Core
                                 var dataType = new YesOrNoLogicalDataType(this);
                                 dataType.ReadXml(dataTypeSubtree);
                             }
-
                             break;
-
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
-
                 }
             }
         }

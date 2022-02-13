@@ -45,27 +45,45 @@ namespace Kalliope.Core
         public ORMModel Model { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="Definition"/>
+        /// </summary>
+        public Definition Definition { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Note"/>
+        /// </summary>
+        public Note Note { get; set; }
+
+        /// <summary>
         /// The constraint Modality.
         /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system
         /// Deontic modality means that data violating the constraint can be recorded
         /// </summary>
         public ConstraintModality Modality { get; set; }
-
-        /// <summary>
-        /// An informal description of this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
-        /// </summary>
-        public string DefinitionText { get; set; }
-
-        /// <summary>
-        /// A note to associate with this constraint.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
-        /// </summary>
-        public string NoteText { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the referenced <see cref="FactType"/>s
         /// </summary>
         public List<FactType> FactTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="CompatibleRolePlayerTypeError"/>
+        /// </summary>
+        public CompatibleRolePlayerTypeError CompatibleRolePlayerTypeError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="TooFewRoleSequencesError"/>
+        /// </summary>
+        public TooFewRoleSequencesError TooFewRoleSequencesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="TooManyRoleSequencesError"/>
+        /// </summary>
+        public TooManyRoleSequencesError TooManyRoleSequencesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ImplicationError"/>
+        /// </summary>
+        public ImplicationError ImplicationError { get; set; }
     }
 }

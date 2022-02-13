@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace Kalliope.Core
 {
     using System.Xml;
@@ -74,6 +76,16 @@ namespace Kalliope.Core
         public ValueConstraint ValueConstraint { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="MaxValueMismatchError"/>
+        /// </summary>
+        public MaxValueMismatchError MaxValueMismatchError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="MinValueMismatchError"/>
+        /// </summary>
+        public MinValueMismatchError MinValueMismatchError { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="ValueRange"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
@@ -82,6 +94,21 @@ namespace Kalliope.Core
         internal override void ReadXml(XmlReader reader)
         {
             base.ReadXml(reader);
+
+            this.MinValue = reader.GetAttribute("MinValue");
+            this.MaxValue = reader.GetAttribute("MaxValue");
+
+            var minInclusionAttribute = reader.GetAttribute("MinInclusion");
+            if (Enum.TryParse(minInclusionAttribute, out RangeInclusion minInclusion))
+            {
+                this.MinInclusion = minInclusion;
+            }
+
+            var maxInclusionAttribute = reader.GetAttribute("MaxInclusion");
+            if (Enum.TryParse(minInclusionAttribute, out RangeInclusion maxInclusion))
+            {
+                this.MaxInclusion = maxInclusion;
+            }
         }
     }
 }

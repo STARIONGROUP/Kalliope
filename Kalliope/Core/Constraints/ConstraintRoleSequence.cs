@@ -39,5 +39,15 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="Role"/>s
         /// </summary>
         public List<Role> Roles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="JoinPathRequiredError"/>
+        /// </summary>
+        public JoinPathRequiredError JoinPathRequiredError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ConstraintRoleSequenceJoinPath"/>
+        /// </summary>
+        public ConstraintRoleSequenceJoinPath JoinPath { get; set; }
     }
 }

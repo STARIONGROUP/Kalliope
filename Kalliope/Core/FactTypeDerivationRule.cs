@@ -61,5 +61,10 @@ namespace Kalliope.Core
         /// An empty path is a placeholder for an externally defined derivation rule and is not validated
         /// </summary>
         public bool ExternalDerivation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="DerivationNote"/>
+        /// </summary>
+        public DerivationNote DerivationNote {get; set; }
     }
 }

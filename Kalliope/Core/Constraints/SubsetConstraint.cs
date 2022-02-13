@@ -35,5 +35,15 @@ namespace Kalliope.Core
             base(model)
         {
         }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="NotWellModeledSubsetAndMandatoryError"/>
+        /// </summary>
+        public NotWellModeledSubsetAndMandatoryError NotWellModeledSubsetAndMandatoryError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError"/>
+        /// </summary>
+        public SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError { get; set; }
     }
 }

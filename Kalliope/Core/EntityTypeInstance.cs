@@ -22,5 +22,9 @@ namespace Kalliope.Core
 {
     public class EntityTypeInstance : ObjectTypeInstance
     {
+        /// <summary>
+        /// Gets or sets the owned <see cref="TooFewEntityTypeRoleInstancesError"/>
+        /// </summary>
+        public TooFewEntityTypeRoleInstancesError TooFewEntityTypeRoleInstancesError { get; set; }
     }
 }

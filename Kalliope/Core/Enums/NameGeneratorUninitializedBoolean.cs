@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="RoleProxy.cs" company="RHEA System S.A.">
+// <copyright file="NameGeneratorUninitializedBoolean.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,17 +18,14 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Core
+namespace Kalliope.Core.Enums
 {
-    /// <summary>
-    /// A role representing the identifying role in the fact type implied between the object type that objectifies a unary role and the unary role player.
-    /// There is an implied equality constraint between this role and the referenced unary role
-    /// </summary>
-    public class ObjectifiedUnaryRole : Role
+    public enum NameGeneratorUninitializedBoolean
     {
-        /// <summary>
-        /// Gets or sets the referenced <see cref="Role"/>
-        /// </summary>
-        public Role TargetRole { get; set; }
+        Uninitialized = -1,
+
+        @false = 0,
+
+        @true = 1,
     }
 }

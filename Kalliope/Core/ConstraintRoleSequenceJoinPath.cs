@@ -20,14 +20,34 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// A role path used to define the path between roles in different fact types in the same join path
     /// </summary>
     public class ConstraintRoleSequenceJoinPath : RolePathOwner
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ConstraintRoleSequenceJoinPath"/> class
+        /// </summary>
+        public ConstraintRoleSequenceJoinPath()
+        {
+            this.ProjectedPathComponents = new List<LeadRolePath>();
+        }
+
+        /// <summary>
         /// The join path is automatically created from the constraint sequence
         /// </summary>
         public bool IsAutomatic { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced list of <see cref="LeadRolePath"/>s
+        /// </summary>
+        public List<LeadRolePath> ProjectedPathComponents { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ConstraintRoleSequenceJoinPathRequiresProjectionError"/>
+        /// </summary>
+        public ConstraintRoleSequenceJoinPathRequiresProjectionError ProjectionRequiredError { get; set; }
     }
 }

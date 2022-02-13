@@ -55,6 +55,11 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
         /// </summary>
         public List<PopulationMandatoryError> PopulationMandatoryErrors { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the owned <see cref="NotWellModeledSubsetAndMandatoryError"/>
+        /// </summary>
+        public NotWellModeledSubsetAndMandatoryError NotWellModeledSubsetAndMandatoryError { get; set; }
 
         /// <summary>
         /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.

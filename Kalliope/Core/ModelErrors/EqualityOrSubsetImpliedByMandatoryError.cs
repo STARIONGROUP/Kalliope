@@ -18,7 +18,7 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Core.ModelErrors
+namespace Kalliope.Core
 {
     /// <summary>
     /// Mandatory Constraint Implies Equality or Subset Constraint

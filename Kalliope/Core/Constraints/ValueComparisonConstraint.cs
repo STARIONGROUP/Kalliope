@@ -40,5 +40,15 @@ namespace Kalliope.Core
         /// The operator used for comparing constrained values
         /// </summary>
         public ValueComparisonOperator Operator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/>
+        /// </summary>
+        public ValueComparisonConstraintOperatorNotSpecifiedError OperatorNotSpecifiedError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ValueComparisonRolesNotComparableError"/>
+        /// </summary>
+        public ValueComparisonRolesNotComparableError RolesNotComparableError { get; set; }
     }
 }

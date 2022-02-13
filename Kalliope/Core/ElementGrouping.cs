@@ -38,19 +38,18 @@ namespace Kalliope.Core
             this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
             this.Priority = 0;
             this.MembershipContradictionErrors = new List<ElementGroupingMembershipContradictionError>();
+            this.GroupingTypes = new List<ElementGroupingType>();
         }
 
         /// <summary>
-        /// An informal description of this group
-        /// /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
+        /// Gets or sets the owned <see cref="Definition"/>
         /// </summary>
-        public string DefinitionText { get; set; }
+        public Definition Definition { get; set; }
 
         /// <summary>
-        /// A note to associate with this group
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
+        /// Gets or sets the owned <see cref="Note"/>
         /// </summary>
-        public string NoteText { get; set; }
+        public Note Note { get; set; }
 
         /// <summary>
         /// Specify the level of GroupType compliance for elements in this group
@@ -70,5 +69,10 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="ElementGroupingMembershipContradictionError"/>s
         /// </summary>
         public List<ElementGroupingMembershipContradictionError> MembershipContradictionErrors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ElementGroupingType"/>s
+        /// </summary>
+        public List<ElementGroupingType> GroupingTypes { get; set; }
     }
 }

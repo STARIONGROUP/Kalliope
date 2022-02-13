@@ -53,5 +53,25 @@ namespace Kalliope.Core
         /// (DSL) The maximum number of occurrences for each instance that plays the restricted roles
         /// </remarks>
         public int MaxFrequency { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FrequencyConstraintMinMaxError"/>
+        /// </summary>
+        public FrequencyConstraintMinMaxError FrequencyConstraintMinMaxError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FrequencyConstraintExactlyOneError"/>
+        /// </summary>
+        public FrequencyConstraintExactlyOneError FrequencyConstraintExactlyOneError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FrequencyConstraintNonRestrictiveRangeError"/>
+        /// </summary>
+        public FrequencyConstraintNonRestrictiveRangeError FrequencyConstraintNonRestrictiveRangeError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FrequencyConstraintViolatedByUniquenessConstraintError"/>
+        /// </summary>
+        public FrequencyConstraintViolatedByUniquenessConstraintError FrequencyConstraintViolatedByUniquenessConstraintError { get; set; }
     }
 }

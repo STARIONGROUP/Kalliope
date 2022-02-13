@@ -49,14 +49,8 @@ namespace Kalliope.Core
         }
 
         /// <summary>
-        /// Generates a <see cref="ValueType"/> object from its XML representation.
+        /// Gets or sets the owned <see cref="DataTypeNotSpecifiedError"/>
         /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-        }
+        public DataTypeNotSpecifiedError DataTypeNotSpecifiedError { get; set; }
     }
 }

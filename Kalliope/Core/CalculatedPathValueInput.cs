@@ -29,5 +29,13 @@ namespace Kalliope.Core
         /// Should the bag be limited to distinct values, resulting in a set of values instead of a bag of values?
         /// </summary>
         public bool DistinctValues { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="PathConstant"/>
+        /// </summary>
+        /// <remarks>
+        /// The constant value bound to this function input
+        /// </remarks>
+        public PathConstant SourceConstant { get; set; }
     }
 }

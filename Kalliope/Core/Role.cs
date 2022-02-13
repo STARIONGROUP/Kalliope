@@ -82,6 +82,21 @@ namespace Kalliope.Core
         public ObjectType ObjectType { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="UnaryRoleCardinalityConstraint"/>
+        /// </summary>
+        public UnaryRoleCardinalityConstraint Cardinality { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="RoleValueConstraint"/>
+        /// </summary>
+        public RoleValueConstraint ValueConstraint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="RolePlayerRequiredError"/>
+        /// </summary>
+        public RolePlayerRequiredError RolePlayerRequiredError { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">
@@ -103,30 +118,63 @@ namespace Kalliope.Core
                 this.Multiplicity = multiplicity;
             }
 
-            using (var rolePlayerSubtree = reader.ReadSubtree())
+            using (var roleSubtree = reader.ReadSubtree())
             {
-                while (rolePlayerSubtree.Read())
+                roleSubtree.MoveToContent();
+
+                while (roleSubtree.Read())
                 {
-                    if (rolePlayerSubtree.MoveToContent() == XmlNodeType.Element)
+                    if (roleSubtree.MoveToContent() == XmlNodeType.Element)
                     {
-                        var localName = rolePlayerSubtree.LocalName;
+                        var localName = roleSubtree.LocalName;
 
                         switch (localName)
                         {
                             case "RolePlayer":
-
                                 var rolePlayerReference = reader.GetAttribute("ref");
                                 if (!string.IsNullOrEmpty(rolePlayerReference))
                                 {
                                     rolePlayerReferences.Add(rolePlayerReference);
                                 }
-                                
                                 break;
-
+                            case "ValueRestriction":
+                                using (var valueRestrictionSubTree = reader.ReadSubtree())
+                                {
+                                    valueRestrictionSubTree.MoveToContent();
+                                    this.ReadValueRestriction(valueRestrictionSubTree);
+                                }
+                                break;
                             default:
                                 Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
                                 break;
                         }
+                    }
+                }
+            }
+        }
+
+        private void ReadValueRestriction(XmlReader reader)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "RoleValueConstraint":
+                            using (var valueRestrictionSubTree = reader.ReadSubtree())
+                            {
+                                valueRestrictionSubTree.MoveToContent();
+
+                                var roleValueConstraint = new RoleValueConstraint();
+                                roleValueConstraint.ReadXml(valueRestrictionSubTree);
+                                this.ValueConstraint = roleValueConstraint;
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }

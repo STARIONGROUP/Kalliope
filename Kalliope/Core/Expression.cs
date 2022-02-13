@@ -47,6 +47,8 @@ namespace Kalliope.Core
 
             using (var bodySubtree = reader.ReadSubtree())
             {
+                bodySubtree.MoveToContent();
+
                 while (bodySubtree.Read())
                 {
                     if (bodySubtree.MoveToContent() == XmlNodeType.Element)
@@ -55,20 +57,11 @@ namespace Kalliope.Core
 
                         switch (localName)
                         {
-                            case "DerivationExpression":
-                                
-                                // still at the expression node, do nothing
-                                break;
-
                             case "Body":
-
                                 this.Body = bodySubtree.ReadElementContentAsString();
-                                
                                 break;
-
                             default:
-                                Console.WriteLine($"Expression.ReadXml did not process the {localName} XML element");
-                                break;
+                                throw new NotSupportedException($"{localName} not yet supported");
                         }
                     }
                 }

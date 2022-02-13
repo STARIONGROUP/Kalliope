@@ -25,5 +25,9 @@ namespace Kalliope.Core
     /// </summary>
     public class PathObjectUnifier : ORMModelElement
     {
+        /// <summary>
+        /// Gets or sets the owned <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>
+        /// </summary>
+        public PathObjectUnifierRequiresCompatibleObjectTypesError CompatibilityError { get; set; }
     }
 }

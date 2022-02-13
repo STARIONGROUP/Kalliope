@@ -76,6 +76,21 @@ namespace Kalliope.Core
         public ReadingOrder ReadingOrder { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="TooManyReadingRolesError"/>
+        /// </summary>
+        public TooManyReadingRolesError TooManyRolesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="TooManyReadingRolesError"/>
+        /// </summary>
+        public TooFewReadingRolesError TooFewRolesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ReadingRequiresUserModificationError"/>
+        /// </summary>
+        public ReadingRequiresUserModificationError RequiresUserModificationError { get; set; }
+
+        /// <summary>
         /// Generates a <see cref="Reading"/> object from its XML representation.
         /// </summary>
         /// <param name="reader">

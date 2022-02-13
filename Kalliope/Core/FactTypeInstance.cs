@@ -24,6 +24,19 @@ namespace Kalliope.Core
     {
         public string Name { get; set; }
 
-        public int NameChanged { get; set; }
+        /// <summary>
+        /// Gets or sets the owned <see cref="ObjectifyingInstanceRequiredError"/>
+        /// </summary>
+        public ObjectifyingInstanceRequiredError ObjectifyingInstanceRequiredError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="TooFewFactTypeRoleInstancesError"/>
+        /// </summary>
+        public TooFewFactTypeRoleInstancesError TooFewFactTypeRoleInstancesError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ObjectTypeInstance"/>
+        /// </summary>
+        public ObjectTypeInstance ObjectifyingInstance { get; set; }
     }
 }

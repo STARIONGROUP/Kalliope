@@ -31,5 +31,10 @@ namespace Kalliope.Core
         /// The culture-invariant form of the value property
         /// </summary>
         public string InvariantValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="CompatibleValueTypeInstanceValueError"/>
+        /// </summary>
+        public CompatibleValueTypeInstanceValueError CompatibleValueTypeInstanceValueError { get; set; }
     }
 }

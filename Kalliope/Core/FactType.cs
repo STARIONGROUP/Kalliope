@@ -62,6 +62,16 @@ namespace Kalliope.Core
         public ORMModel Model { get; set; }
 
         /// <summary>
+        /// Gets or sets the owned <see cref="Definition"/>
+        /// </summary>
+        public Definition Definition { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Note"/>
+        /// </summary>
+        public Note Note { get; set; }
+
+        /// <summary>
         /// Gets or sets the <see cref="FactTypeDerivationExpression"/>
         /// </summary>
         public FactTypeDerivationExpression DerivationExpression { get; set; }
@@ -75,19 +85,7 @@ namespace Kalliope.Core
         /// This fact type is externally defined (not used)
         /// </summary>
         public bool IsExternal { get; set; }
-
-        /// <summary>
-        /// An informal description of this FactType.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Informal Description Editor' tool window
-        /// </summary>
-        public string DefinitionText { get; set; }
-
-        /// <summary>
-        /// A note to associate with this FactType.
-        /// To insert new lines, use Control-Enter in the dropdown editor, or open the 'ORM Notes Editor' tool window
-        /// </summary>
-        public string NoteText { get; set; }
-
+        
         /// <summary>
         /// The name for this FactType.
         /// If the Name property is read-only, then it is a generated name based on primary reading.
@@ -95,8 +93,6 @@ namespace Kalliope.Core
         /// The editable name can be reset to match the generated name by clearing the property value
         /// </summary>
         public string Name { get; set; }
-
-        public int NameChanged { get; set; }
 
         /// <summary>
         /// A description of the derivation rule for this FactType
@@ -114,6 +110,26 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="FactTypeInstance"/>s
         /// </summary>
         public List<FactTypeInstance> FactTypeInstances { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FactTypeRequiresReadingError"/>
+        /// </summary>
+        public FactTypeRequiresReadingError ReadingRequiredError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="FactTypeRequiresInternalUniquenessConstraintError"/>
+        /// </summary>
+        public FactTypeRequiresInternalUniquenessConstraintError InternalUniquenessConstraintRequiredError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="ImpliedInternalUniquenessConstraintError"/>
+        /// </summary>
+        public ImpliedInternalUniquenessConstraintError ImpliedInternalUniquenessConstraintError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="RoleProjectedDerivationRule"/>
+        /// </summary>
+        public RoleProjectedDerivationRule DerivationRule { get; set; }
 
         /// <summary>
         /// Generates a <see cref="FactType"/> object from its XML representation.
