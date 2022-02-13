@@ -51,7 +51,7 @@ namespace Kalliope.Core
         /// </param>
         internal override void ReadImpliedByObjectification(XmlReader reader)
         {
-            var impliedByObjectificationReference = reader.GetAttribute("ref");
+            this.impliedByObjectificationReference = reader.GetAttribute("ref");
         }
     }
 }
