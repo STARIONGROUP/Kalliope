@@ -18,10 +18,9 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System;
-
 namespace Kalliope.Core
 {
+    using System;
     using System.Xml;
 
     /// <summary>
