@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of row identifiers
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "OtherDataType")]
     public class RowIdOtherDataType : OtherDataType
     {
         /// <summary>

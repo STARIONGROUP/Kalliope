@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Constraint Structure Errors
     /// </summary>
+    [Description("Constraint Structure Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class ConstraintStructureErrorCategory : ModelErrorCategory
     {
     }

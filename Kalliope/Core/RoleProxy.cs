@@ -23,11 +23,15 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The role in an implied fact type that corresponds to a role in the objectified fact type.
     /// In terms of constraints, the role proxy is treated as the same role.
     /// The only normal role relationship allowed on a proxy role is inclusion in a reading order
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "RoleBase")]
     public class RoleProxy : RoleBase
     {
         private string roleReference = string.Empty;
@@ -35,6 +39,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the referenced <see cref="Role"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public Role TargetRole { get; set; }
 
         /// <summary>

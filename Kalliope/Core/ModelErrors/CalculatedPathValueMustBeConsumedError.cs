@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A calculated value in a role path must be consumed as a path condition, an input to another calculation, or a projection onto a path
     /// </summary>
+    [Description("A path calculation must be consumed as a path condition, an input to another calculation, or as a projection from the path")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "CalculatedPathValue", propertyName: "ConsumptionRequiredError")]
     public class CalculatedPathValueMustBeConsumedError : ModelError
     {
     }

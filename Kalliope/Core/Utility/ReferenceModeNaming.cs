@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+    
     /// <summary>
     /// Reference mode naming options for a specific object type. Used by extension models, which must add their own reference to the modified object type
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "")]
     public abstract class ReferenceModeNaming
     {
         /// <summary>
@@ -37,28 +41,38 @@ namespace Kalliope.Core
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
 
         /// <summary>
         /// Specify how a reference to a reference-mode identified instance is to be represented
         /// </summary>
+        [Description("The naming pattern used for references to this EntityType")]
+        [Property(name: "NamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ModelDefault", typeName: "ReferenceModeNamingChoice")]
         public ReferenceModeNamingChoice NamingChoice { get; set; }
 
         /// <summary>
         /// Specify how the primary identifier of a reference-mode identified instance is to be represented
         /// </summary>
+        [Description("The naming pattern used for simple primary identification of this EntityType")]
+        [Property(name: "PrimaryIdentifierNamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ModelDefault", typeName: "ReferenceModeNamingChoice")]
         public ReferenceModeNamingChoice PrimaryIdentifierNamingChoice { get; set; }
 
         /// <summary>
         /// May be set if NamingChoice is CustomFormat.
         /// The replacement field {0} is the ValueTypeName, {1} is the EntityTypeName, and {2} is the ReferenceModeName
         /// </summary>
+        [Description("The custom naming format used for references to this EntityType")]
+        [Property(name: "CustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormat { get; set; }
 
         /// <summary>
         /// May be set if PrimaryIdentifierNamingChoice is CustomFormat.
         /// The replacement field {0} is the ValueTypeName, {1} is the EntityTypeName, and {2} is the ReferenceModeName
         /// </summary>
+        [Description("The custom naming format used for simple primary identification of this EntityType")]
+        [Property(name: "PrimaryIdentifierCustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PrimaryIdentifierCustomFormat { get; set; }
     }
 }

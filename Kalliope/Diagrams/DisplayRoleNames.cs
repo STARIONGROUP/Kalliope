@@ -20,25 +20,31 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Determines whether RoleNameShapes will be drawn for the Roles in the <see cref="FactType"/> represented by the
     /// <see cref="FactTypeShape"/> using this enumeration, overriding the global setting
     /// </summary>
+    [Description("Determines whether RoleNameShapes will be drawn for the Roles in the FactType represented by the FactTypeShape using this enumeration, overriding the global setting")]
     public enum DisplayRoleNames
     {
         /// <summary>
         /// Use the global setting
         /// </summary>
+        [Description("Use the global setting")]
         UserDefault = 0,
 
         /// <summary>
         /// Always draw the RoleNameShapes
         /// </summary>
+        [Description("Always draw the RoleNameShapes")]
         On = 1,
 
         /// <summary>
         /// Never draw the RoleNameShapes
         /// </summary>
+        [Description("Never draw the RoleNameShapes")]
         Off = 2
     }
 }

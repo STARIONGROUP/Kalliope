@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The operator of a value comparison constraint is not specified
     /// </summary>
+    [Description("Value Comparison Operator Not Specified")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ValueComparisonConstraint", propertyName: "OperatorNotSpecifiedError")]
     public class ValueComparisonConstraintOperatorNotSpecifiedError : ModelError
     {
     }

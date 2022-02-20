@@ -22,13 +22,17 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
     using System.Xml;
-    
+
+    using Kalliope.Attributes;
+
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;
 
     /// <summary>
     /// Definition of elements used in the primary definition of an ORM model
     /// </summary>
+    [Description("Definition of elements used in the primary definition of an ORM model")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
     public class ORMModel : ORMNamedElement
     {
         /// <summary>
@@ -49,14 +53,14 @@ namespace Kalliope.Core
             this.logger = NullLogger<ORMModel>.Instance;
 
             this.Definitions = new List<Definition>();
-            this.Notes = new List<Note>();
             this.ObjectTypes = new List<ObjectType>();
             this.FactTypes = new List<FactType>();
             this.DataTypes = new List<DataType>();
             this.Functions = new List<Function>();
             this.CustomReferenceModes = new List<CustomReferenceMode>();
-            this.ModelNotes = new List<ModelNote>();
-            this.ModelErrors = new List<ModelError>();
+            this.Notes = new List<ModelNote>();
+            this.Errors = new List<ModelError>();
+            this.ReferenceModes = new List<ReferenceMode>();
             this.ReferenceModeKinds = new List<ReferenceModeKind>();
             this.RecognizedPhrases = new List<RecognizedPhrase>();
             this.Extensions = new List<Extension>();
@@ -95,25 +99,26 @@ namespace Kalliope.Core
         /// The <see cref="Definitions"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
         public List<Definition> Definitions { get; set; }
-
-        /// <summary>
-        /// The <see cref="Note"/>s contained by the <see cref="ORMModel"/>
-        /// </summary>
-        public List<Note> Notes { get; set; }
-
+        
         /// <summary>
         /// The <see cref="ObjectType"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public List<ObjectType> ObjectTypes { get; set; }
 
         /// <summary>
         /// The <see cref="FactType"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FactTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<FactType> FactTypes { get; set; }
 
         /// <summary>
         /// The <see cref="DataType"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DataTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType")]
         public List<DataType> DataTypes { get; set; }
 
         /// <summary>
@@ -122,6 +127,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// Function definitions used for calculated role path values
         /// </remarks>
+        [Description("Function definitions used for calculated role path values")]
+        [Property(name: "Functions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Function")]
         public List<Function> Functions { get; set; }
 
         /// <summary>
@@ -132,21 +139,36 @@ namespace Kalliope.Core
         /// <summary>
         /// The <see cref="ModelNote"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
-        public List<ModelNote> ModelNotes { get; set; }
+        [Description("")]
+        [Property(name: "Notes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelNote")]
+        public List<ModelNote> Notes { get; set; }
 
         /// <summary>
         /// The <see cref="ModelError"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
-        public List<ModelError> ModelErrors { get; set; }
+        [Description("")]
+        [Property(name: "Errors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
+        public List<ModelError> Errors { get; set; }
 
         /// <summary>
         /// The <see cref="ReferenceModeKind"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ReferenceModeKinds", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
         public List<ReferenceModeKind> ReferenceModeKinds { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="ReferenceMode"/>s
+        /// </summary>
+        [Description("")]
+        [Property(name: "ReferenceModes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceMode")]
+        public List<ReferenceMode> ReferenceModes { get; set; }
 
         /// <summary>
         /// The <see cref="RecognizedPhrase"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RecognizedPhrases", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhrase")]
         public List<RecognizedPhrase> RecognizedPhrases { get; set; }
 
         /// <summary>
@@ -157,26 +179,36 @@ namespace Kalliope.Core
         /// <summary>
         /// The <see cref="SetConstraint"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SetConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
         public List<SetConstraint> SetConstraints { get; set; }
 
         /// <summary>
         /// The <see cref="SetComparisonConstraint"/>s contained by the <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]
         public List<SetComparisonConstraint> SetComparisonConstraints { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="Definition"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
         public Definition Definition { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="Note"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
         public Note Note { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ModelErrorDisplayFilter"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ModelErrorDisplayFilter", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelErrorDisplayFilter")]
         public ModelErrorDisplayFilter ModelErrorDisplayFilter { get; set; }
 
         /// <summary>

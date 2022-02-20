@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A role must have a specified role player
     /// </summary>
+    [Description("Role Player Required")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "Role", propertyName: "RolePlayerRequiredError")]
     public class RolePlayerRequiredError : ModelError
     {
     }

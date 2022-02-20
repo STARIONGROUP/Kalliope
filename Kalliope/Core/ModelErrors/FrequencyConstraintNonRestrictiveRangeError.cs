@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A frequency constraint with a minimum of 1 and an unbounded maximum is always true and should not be specified
     /// </summary>
+    [Description("One to Unbounded Frequency Range Always Satisfied")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintNonRestrictiveRangeError")]
     public class FrequencyConstraintNonRestrictiveRangeError : ModelError
     {
     }

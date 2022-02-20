@@ -20,19 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify if instances of a derived fact or object type can also be directly asserted
     /// </summary>
+    [Description("Specify if instances of a derived fact or object type can also be directly asserted")]
     public enum DerivationCompleteness
     {
         /// <summary>
         /// The fact instance population is calculated on demand
         /// </summary>
+        [Description("The fact instance population is calculated on demand")]
         FullyDerived = 0,
 
         /// <summary>
         /// The instance population can be both calculated and asserted
         /// </summary>
+        [Description("The instance population can be both calculated and asserted")]
         PartiallyDerived = 1
     }
 }

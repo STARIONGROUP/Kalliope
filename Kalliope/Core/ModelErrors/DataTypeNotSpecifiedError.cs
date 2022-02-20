@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A value type is using the unspecified data type
     /// </summary>
+    [Description("DataType not Specified for ValueType")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class DataTypeNotSpecifiedError : ModelError
     {
     }

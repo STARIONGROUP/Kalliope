@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple object types share the same name
     /// </summary>
+    [Description("Duplicate ObjectType Names")]
+    [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class ObjectTypeDuplicateNameError : DuplicateNameError
     {
 

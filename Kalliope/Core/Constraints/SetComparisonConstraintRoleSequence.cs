@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "ConstraintRoleSequence")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "RoleSequences")]
     public class SetComparisonConstraintRoleSequence : ConstraintRoleSequence
     {
     }

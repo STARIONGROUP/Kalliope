@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A ground fact type does not have at least on internal uniqueness constraint
     /// </summary>
+    [Description("FactType Requires Internal Uniqueness Constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FactType", propertyName: "InternalUniquenessConstraintRequiredError")]
     public class FactTypeRequiresInternalUniquenessConstraintError : ModelError
     {
     }

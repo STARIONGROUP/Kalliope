@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Grouping Errors
     /// </summary>
+    [Description("Grouping Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class ElementGroupingErrorCategory : ModelErrorCategory
     {
     }

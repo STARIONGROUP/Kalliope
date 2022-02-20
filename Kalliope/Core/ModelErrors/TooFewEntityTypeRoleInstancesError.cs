@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An entity instance is missing instance associations for some of the roles in its preferred identifier
     /// </summary>
+    [Description("Incomplete Sample Population to Identify EntityType")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "EntityTypeInstance", propertyName: "TooFewEntityTypeRoleInstancesError")]
     public class TooFewEntityTypeRoleInstancesError : ModelError
     {
     }

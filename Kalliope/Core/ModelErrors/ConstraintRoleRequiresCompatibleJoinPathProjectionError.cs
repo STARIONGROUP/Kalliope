@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint role join path projection must be of a type that is compatible with the constrained role
     /// </summary>
+    [Description("A constraint role join path projection must be of a type that is compatible with the constrained role")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class ConstraintRoleRequiresCompatibleJoinPathProjectionError : ModelError
     {
     }

@@ -20,14 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule
     /// </summary>
+    [Description("Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule")]
+    [Domain(isAbstract: true, general: "RolePathOwner")]
+    [Container(typeName: "FactType", propertyName: "DerivationRule")]
     public abstract class RoleProjectedDerivationRule : RolePathOwner
     {
         /// <summary>
         /// Gets or sets the owned <see cref="RoleProjectedDerivationRequiresProjectionError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleProjectedDerivationRequiresProjectionError")]
         public RoleProjectedDerivationRequiresProjectionError ProjectionRequiredError { get; set; }
     }
 }

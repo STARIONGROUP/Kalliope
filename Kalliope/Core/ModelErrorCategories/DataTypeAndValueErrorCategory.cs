@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// DataType and Value Errors
     /// </summary>
+    [Description("DataType and Value Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class DataTypeAndValueErrorCategory : ModelErrorCategory
     {
     }

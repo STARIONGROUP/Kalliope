@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying the number of times an instance must occur in a set population. Applies only if the instance appears at all
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetConstraint")]
     public class FrequencyConstraint : SetConstraint
     {
         /// <summary>
@@ -44,6 +48,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The minimum number of occurrences for each instance that plays the restricted roles
         /// </remarks>
+        [Description("The minimum number of occurrences for each instance that plays the restricted roles")]
+        [Property(name: "MinFrequency", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "1", typeName: "")]
         public int MinFrequency { get; set; }
 
         /// <summary>
@@ -52,26 +58,36 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The maximum number of occurrences for each instance that plays the restricted roles
         /// </remarks>
+        [Description("The maximum number of occurrences for each instance that plays the restricted roles")]
+        [Property(name: "MaxFrequency", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "2", typeName: "")]
         public int MaxFrequency { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="FrequencyConstraintMinMaxError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintMinMaxError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintMinMaxError")]
         public FrequencyConstraintMinMaxError FrequencyConstraintMinMaxError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="FrequencyConstraintExactlyOneError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintExactlyOneError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintExactlyOneError")]
         public FrequencyConstraintExactlyOneError FrequencyConstraintExactlyOneError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="FrequencyConstraintNonRestrictiveRangeError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintNonRestrictiveRangeError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintNonRestrictiveRangeError")]
         public FrequencyConstraintNonRestrictiveRangeError FrequencyConstraintNonRestrictiveRangeError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="FrequencyConstraintViolatedByUniquenessConstraintError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintViolatedByUniquenessConstraintError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintViolatedByUniquenessConstraintError")]
         public FrequencyConstraintViolatedByUniquenessConstraintError FrequencyConstraintViolatedByUniquenessConstraintError { get; set; }
     }
 }

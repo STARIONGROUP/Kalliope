@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A fact type derivation projection must project on all roles in the derived fact type
     /// </summary>

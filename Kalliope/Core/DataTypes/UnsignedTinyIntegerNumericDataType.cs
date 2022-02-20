@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of unsigned byte integers
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "NumericDataType")]
     public class UnsignedTinyIntegerNumericDataType : NumericDataType
     {
         /// <summary>

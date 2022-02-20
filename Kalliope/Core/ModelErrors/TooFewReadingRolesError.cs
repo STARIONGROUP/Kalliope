@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Reading text has more placeholders than the fact type has roles
     /// </summary>
+    [Description("FactType has Fewer Roles than Reading Text")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "Reading", propertyName: "TooFewRolesError")]
     public class TooFewReadingRolesError : ModelError
     {
     }

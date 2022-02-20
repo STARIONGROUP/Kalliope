@@ -20,16 +20,21 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="Role"/>
     /// </summary>
+    [Description("Shape that represents a Role")]
+    [Domain(isAbstract: false, general: "FloatingTextShape")]
     public class RoleNameShape : FloatingTextShape
     {
         /// <summary>
         /// Gets or sets the <see cref="Role"/> that is represented by the shape
         /// </summary>
+        [Description("The subject Role that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public Role Subject { get; set; }
     }
 }

@@ -23,17 +23,46 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A sequence of roles from a single fact type representing representing a complete role traversal. Also called a predicate
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "FactType", propertyName: "ReadingOrders")]
     public class ReadingOrder : ORMModelElement
     {
         private readonly List<string> roleSequences = new List<string>();
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ReadingOrder"/> class
+        /// </summary>
+        public ReadingOrder()
+        {
+            this.Readings = new List<Reading>();
+            this.Roles = new List<RoleBase>();
+        }
+
+        /// <summary>
         /// The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder
         /// </summary>
+        [Description("The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder")]
+        [Property(name: "ReadingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ReadingText { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the owned <see cref="Reading"/>s
+        /// </summary>
+
+        [Description("")]
+        [Property(name: "Readings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Reading")]
+        public List<Reading> Readings { get; set; }
+
+        [Description("")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
+        public List<RoleBase> Roles { get; set; }
 
         /// <summary>
         /// Generates a <see cref="ReadingOrder"/> object from its XML representation.

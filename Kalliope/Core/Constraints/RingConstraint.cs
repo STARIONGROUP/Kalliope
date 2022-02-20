@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying relationships between elements of the same type in a set population
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetConstraint")]
     public class RingConstraint : SetConstraint
     {
         /// <summary>
@@ -40,11 +44,15 @@ namespace Kalliope.Core
         /// <summary>
         /// Restriction type of this Ring constraint
         /// </summary>
+        [Description("")]
+        [Property(name: "RingType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "RingConstraintType")]
         public RingConstraintType RingType { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="RingConstraintTypeNotSpecifiedError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RingConstraintTypeNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RingConstraintTypeNotSpecifiedError")]
         public RingConstraintTypeNotSpecifiedError RingConstraintTypeNotSpecifiedError { get; set; }
     }
 }

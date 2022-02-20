@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A query representation based on a fact type structure. Queries support parameterization and do not need readings
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "FactType")]
     public abstract class QueryBase : FactType
     {
         /// <summary>
@@ -38,6 +42,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the contained <see cref="QueryParameter"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "Parameters", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "QueryParameter")]
         public List<QueryParameter> Parameters { get; set; }
     }
 }

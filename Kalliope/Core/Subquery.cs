@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A query used as a component of a role path
     /// </summary>
+    [Description("A query used as a component of a role path")]
+    [Domain(isAbstract: false, general: "QueryBase")]
+    [Container(typeName: "RolePathOwner", propertyName: "Subqueries")]
     public class Subquery : QueryBase
     {
     }

@@ -18,25 +18,40 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "FactType", propertyName: "FactTypeInstances")]
     public class FactTypeInstance : ORMModelElement
     {
+        [Description("")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ObjectifyingInstanceRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifyingInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifyingInstanceRequiredError")]
         public ObjectifyingInstanceRequiredError ObjectifyingInstanceRequiredError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="TooFewFactTypeRoleInstancesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooFewFactTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewFactTypeRoleInstancesError")]
         public TooFewFactTypeRoleInstancesError TooFewFactTypeRoleInstancesError { get; set; }
 
         /// <summary>
         /// Gets or sets the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
         public ObjectTypeInstance ObjectifyingInstance { get; set; }
     }
 }

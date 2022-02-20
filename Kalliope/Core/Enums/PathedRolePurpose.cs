@@ -22,9 +22,12 @@ namespace Kalliope.Core
 {
     using System;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify how a role in a path is used to step within and between fact types
     /// </summary>
+    [Description("Specify how a role in a path is used to step within and between fact types")]
     public enum PathedRolePurpose
     {
         /// <summary>
@@ -33,6 +36,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The role is the same fact type as the previous join or start role
         /// </remarks>
+        [Description("The role is the same fact type as the previous join or start role")]
         SameFactType = 0,
 
         /// <summary>
@@ -41,6 +45,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The role represents an inner over a role player shared with the previous role in the path
         /// </remarks>
+        [Description("The role represents an inner over a role player shared with the previous role in the path")]
         PostInnerJoin = 1,
 
         /// <summary>
@@ -49,6 +54,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The role represents an outer join over a role player shared with the previous role in the path
         /// </remarks>
+        [Description("The role represents an outer join over a role player shared with the previous role in the path")]
         PostOuterJoin = 2,
 
         /// <summary>
@@ -58,6 +64,7 @@ namespace Kalliope.Core
         /// (DSL) The role is the beginning of a path and directly attached to the root object type
         /// </remarks>
         [Obsolete("Replaced by root projection and function input support and the PostInnerJoin value")]
+        [Description("The role is the beginning of a path and directly attached to the root object type")]
         StartRole = -2,
     }
 }

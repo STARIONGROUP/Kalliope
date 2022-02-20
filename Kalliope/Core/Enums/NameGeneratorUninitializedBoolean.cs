@@ -20,12 +20,18 @@
 
 namespace Kalliope.Core.Enums
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
     public enum NameGeneratorUninitializedBoolean
     {
+        [Description("")]
         Uninitialized = -1,
 
+        [Description("")]
         @false = 0,
 
+        [Description("")]
         @true = 1,
     }
 }

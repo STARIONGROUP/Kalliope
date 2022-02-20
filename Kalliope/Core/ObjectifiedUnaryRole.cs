@@ -20,15 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A role representing the identifying role in the fact type implied between the object type that objectifies a unary role and the unary role player.
     /// There is an implied equality constraint between this role and the referenced unary role
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "Role")]
     public class ObjectifiedUnaryRole : Role
     {
         /// <summary>
         /// Gets or sets the referenced <see cref="Role"/>
         /// </summary>
+        [Description("Links a unary role with the objectified unary role in the implied FactType. Implies a single-column equality constraint between the two roles.")]
+        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public Role TargetRole { get; set; }
     }
 }

@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values represent date and time information
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "TemporalDataType")]
     public class DateAndTimeTemporalDataType : TemporalDataType
     {
         /// <summary>

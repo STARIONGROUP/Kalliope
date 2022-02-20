@@ -20,10 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A calculated value in a role path must have a function specified to perform the calculation
     /// </summary>
-
+    [Description("A calculation is specified but does not have an associated function")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "CalculatedPathValue", propertyName: "FunctionRequiredError")]
     public class CalculatedPathValueRequiresFunctionError : ModelError
     {
     }

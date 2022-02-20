@@ -23,9 +23,14 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A simple value range
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "ValueConstraint", propertyName: "ValueRanges")]
     public class ValueRange : ORMModelElement
     {
         /// <summary>
@@ -40,33 +45,45 @@ namespace Kalliope.Core
         /// <summary>
         /// The lower bound for the range
         /// </summary>
+        [Description("The lower bound for the range. An equivalent MaxValue indicates that the range represents a single value")]
+        [Property(name: "MinValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string MinValue { get; set; }
 
         /// <summary>
         /// The upper bound of the range. Duplicate of the MinValue for a single value
         /// </summary>
+        [Description("The upper bound for the range. An equivalent MinValue indicates that the range represents a single value")]
+        [Property(name: "MaxValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string MaxValue { get; set; }
 
         /// <summary>
         /// Does the range include the lower bound?
         /// </summary>
+        [Description("")]
+        [Property(name: "MinInclusion", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotSet", typeName: "RangeInclusion")]
         public RangeInclusion MinInclusion { get; set; }
 
         /// <summary>
         /// Does the range include the upper bound?
         /// </summary>
+        [Description("")]
+        [Property(name: "MaxInclusion", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotSet", typeName: "RangeInclusion")]
         public RangeInclusion MaxInclusion { get; set; }
 
         /// <summary>
         /// A culture-invariant form of the minValue attribute.
         /// This value will not be set for a data type where any value is allowed (such as a string) or if the minValue could not be interpreted by the current data type
         /// </summary>
+        [Description("The culture-invariant form of the MinValue property")]
+        [Property(name: "InvariantMinValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string InvariantMinValue { get; set; }
 
         /// <summary>
         /// A culture-invariant form of the maxValue attribute.
         /// This value will not be set for a data type where any value is allowed (such as a string) or if the minValue could not be interpreted by the current data type
         /// </summary>
+        [Description("The culture-invariant form of the MaxValue property")]
+        [Property(name: "InvariantMaxValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string InvariantMaxValue { get; set; }
 
         /// <summary>
@@ -77,11 +94,15 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the owned <see cref="MaxValueMismatchError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "MaxValueMismatchError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MaxValueMismatchError")]
         public MaxValueMismatchError MaxValueMismatchError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="MinValueMismatchError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "MinValueMismatchError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MinValueMismatchError")]
         public MinValueMismatchError MinValueMismatchError { get; set; }
 
         /// <summary>

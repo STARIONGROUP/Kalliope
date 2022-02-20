@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A SetComparisonConstraint has an inconsistent number of columns
     /// </summary>
+    [Description("Constraint Role Sequences with Different Numbers of Roles")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "ArityMismatchError")]
     public class ExternalConstraintRoleSequenceArityMismatchError : ModelError
     {
     }

@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A reading has been automatically modified and must be edited by the user to restore its meaning
     /// </summary>
+    [Description("Reading Text Automatically Modified")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "Reading", propertyName: "RequiresUserModificationError")]
     public class ReadingRequiresUserModificationError : ModelError
     {
     }

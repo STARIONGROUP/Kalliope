@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An ObjectUnifier unifies path nodes with incompatible object types
     /// </summary>

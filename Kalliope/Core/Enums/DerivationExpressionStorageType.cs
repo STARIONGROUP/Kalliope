@@ -20,29 +20,36 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify how/whether the contents of the fact should be stored by generated systems
     /// </summary>
+    [Description("Specify how/whether the contents of the fact should be stored by generated systems")]
     public enum DerivationExpressionStorageType
     {
         /// <summary>
         /// The fact instance population is calculated on demand
         /// </summary>
+        [Description("The fact instance population is calculated on demand")]
         Derived = 0,
 
         /// <summary>
         /// The fact instance population is calculated immediately and stored
         /// </summary>
+        [Description("The fact instance population is calculated immediately and stored")]
         DerivedAndStored = 1,
 
         /// <summary>
         /// The fact instance population can be asserted as well as calculated on demand
         /// </summary>
+        [Description("The fact instance population can be asserted as well as calculated on demand")]
         PartiallyDerived = 2,
 
         /// <summary>
         /// The fact instance population can be asserted as well as calculated immediately and stored
         /// </summary>
+        [Description("The fact instance population can be asserted as well as calculated immediately and stored")]
         PartiallyDerivedAndStored = 3
     }
 }

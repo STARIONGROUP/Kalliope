@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint role sequence join path projection must project on every role in the sequence
     /// </summary>
+    [Description("A constraint role sequence join path projection must project on every role in the sequence")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PartialConstraintRoleSequenceJoinPathProjectionError : ModelError
     {
     }

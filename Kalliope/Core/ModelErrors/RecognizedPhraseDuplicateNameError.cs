@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple recognized phrases have the same text
     /// </summary>
+    [Description("Duplicate Recognized Phrases")]
+    [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class RecognizedPhraseDuplicateNameError : DuplicateNameError
     {
     }

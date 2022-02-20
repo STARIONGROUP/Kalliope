@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An equality constraint is implied by one or more mandatory constraints
     /// </summary>

@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A sequence of constraint roles
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMNamedElement")]
     public abstract class ConstraintRoleSequence : ORMNamedElement
     {
         /// <summary>
@@ -36,18 +40,24 @@ namespace Kalliope.Core
         }
 
         /// <summary>
-        /// Gets or sets the contained <see cref="Role"/>s
+        /// Gets or sets the referenced <see cref="Role"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public List<Role> Roles { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="JoinPathRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError")]
         public JoinPathRequiredError JoinPathRequiredError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ConstraintRoleSequenceJoinPath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath")]
         public ConstraintRoleSequenceJoinPath JoinPath { get; set; }
     }
 }

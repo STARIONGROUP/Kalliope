@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple readings have the same normalized signature, which is a normalized expanded form of the reading text and role player names
     /// </summary>
+    [Description("Duplicate Readings")]
+    [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class DuplicateReadingSignatureError : DuplicateNameError
     {
     }

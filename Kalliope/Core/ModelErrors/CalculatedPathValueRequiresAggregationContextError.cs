@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A calculated value in a role path with an aggregate function must specify an aggregation context
     /// </summary>
+    [Description("A calculation using an aggregate function requires an aggregation context")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "CalculatedPathValue", propertyName: "AggregationContextRequiredError")]
     public class CalculatedPathValueRequiresAggregationContextError : ModelError
     {
     }

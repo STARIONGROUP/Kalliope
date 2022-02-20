@@ -23,10 +23,15 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A derivation expression
     /// </summary>
     [Obsolete("Use FactTypeDerivationPath/InformalRule/DerivationNote instead")]
+    [Description("")]
+    [Domain(isAbstract: false, general: "Expression")]
+    [Container(typeName: "FactType", propertyName: "DerivationExpression")]
     public class FactTypeDerivationExpression : Expression
     {
         /// <summary>
@@ -40,6 +45,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the <see cref="DerivationExpressionStorageType"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Derived", typeName: "DerivationExpressionStorageType")]
         public DerivationExpressionStorageType DerivationStorage { get; set; }
 
         /// <summary>

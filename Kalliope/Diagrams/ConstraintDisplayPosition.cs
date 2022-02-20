@@ -20,19 +20,24 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Determines where internal constraints are drawn on FactTypeShapes
     /// </summary>
+    [Description("Determines where internal constraints are drawn on FactTypeShapes")]
     public enum ConstraintDisplayPosition
     {
         /// <summary>
         /// Draw the constraints above the top of the role boxes
         /// </summary>
+        [Description("Draw the constraints above the top of the role boxes")]
         Top = 0,
 
         /// <summary>
         /// Draw the constraints below the bottom of the role boxes
         /// </summary>
+        [Description("Draw the constraints below the bottom of the role boxes")]
         Bottom = 1,
     }
 }

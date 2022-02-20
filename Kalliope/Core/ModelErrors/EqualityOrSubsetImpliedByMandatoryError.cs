@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Mandatory Constraint Implies Equality or Subset Constraint
     /// </summary>
+    [Description("Mandatory Constraint Implies Equality or Subset Constraint")]
+    [Domain(isAbstract: false, general: "ImplicationError")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "EqualityOrSubsetImpliedByMandatoryError")]
     public class EqualityOrSubsetImpliedByMandatoryError : ImplicationError
     {
     }

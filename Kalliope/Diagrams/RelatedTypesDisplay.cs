@@ -20,29 +20,36 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Determines whether an <see cref="ObjectTypeShape"/> or objectified <see cref="FactTypeShape"/> is attached to its supertypes or subtypes
     /// </summary>
+    [Description("Determines whether an ObjectTypeShape or objectified FactTypeShape is attached to its supertypes or subtypes")]
     public enum RelatedTypesDisplay
     {
         /// <summary>
         /// The shape attaches to both its supertypes and its subtypes
         /// </summary>
+        [Description("The shape attaches to both its supertypes and its subtypes")]
         AttachAllTypes = 0,
 
         /// <summary>
         /// The shape attaches to its subtypes, but not its supertypes
         /// </summary>
+        [Description("The shape attaches to its subtypes, but not its supertypes")]
         AttachSubtypes = 1,
 
         /// <summary>
         /// The shape attaches to its supertypes, but not its subtypes
         /// </summary>
+        [Description("The shape attaches to its supertypes, but not its subtypes")]
         AttachSupertypes = 2,
 
         /// <summary>
         /// The shape attaches to neither its subtypes nor its supertypes
         /// </summary>
+        [Description("The shape attaches to neither its subtypes nor its supertypes")]
         AttachNoTypes = 3,
     }
 }

@@ -20,9 +20,12 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Determine how strictly group types control the group contents
     /// </summary>
+    [Description("Determine how strictly group types control the group contents")]
     public enum GroupingMembershipTypeCompliance
     {
         /// <summary>
@@ -31,6 +34,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Allow all elements that are not explicitly excluded by a GroupType
         /// </remarks>
+        [Description("Allow all elements that are not explicitly excluded by a GroupType")]
         NotExcluded = 0,
 
         /// <summary>
@@ -39,6 +43,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Allow all elements that are explicitly approved by at least one GroupType
         /// </remarks>
+        [Description("Allow all elements that are explicitly approved by at least one GroupType")]
         PartiallyApproved = 1,
 
         /// <summary>
@@ -47,6 +52,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Allow elements that are explicitly approved by all GroupTypes
         /// </remarks>
+        [Description("Allow elements that are explicitly approved by all GroupTypes")]
         FullyApproved = 2
     }
 }

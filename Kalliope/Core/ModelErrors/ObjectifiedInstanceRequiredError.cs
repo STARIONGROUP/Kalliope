@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An instance an objectifying entity does not have an associated instance for the objectifed fact type
     /// </summary>
+    [Description("Missing Objectified FactType Instance")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ObjectTypeInstance", propertyName: "ObjectifiedInstanceRequiredError")]
     public class ObjectifiedInstanceRequiredError : ModelError
     {
     }

@@ -20,11 +20,19 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "ObjectTypeInstance")]
+    [Container(typeName: "ObjectType", propertyName: "EntityTypeInstances")]
     public class EntityTypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// Gets or sets the owned <see cref="TooFewEntityTypeRoleInstancesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooFewEntityTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewEntityTypeRoleInstancesError")]
         public TooFewEntityTypeRoleInstancesError TooFewEntityTypeRoleInstancesError { get; set; }
+        
     }
 }

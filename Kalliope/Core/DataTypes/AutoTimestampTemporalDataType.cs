@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of automatically generated timestamps
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "TemporalDataType")]
     public class AutoTimestampTemporalDataType : TemporalDataType
     {
         /// <summary>

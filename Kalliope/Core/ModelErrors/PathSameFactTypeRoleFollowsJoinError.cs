@@ -20,10 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+    
     /// <summary>
     /// A PathedRole with a purpose of SameFactType must follow an entry into the fact type with a join or start role. 
     /// A role within a single fact type cannot be reused in a path without first joining to another instance of the same fact type
     /// </summary>
+    [Description("A role in a fact type was used without a join role entering that fact type, or a role from a single fact type was used multiple times without an intermediate join")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PathSameFactTypeRoleFollowsJoinError : ModelError
     {
     }

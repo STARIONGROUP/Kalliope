@@ -20,14 +20,18 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify whether the endpoint of a range is included in the range
     /// </summary>
+    [Description("Specify whether the endpoint of a range is included in the range")]
     public enum RangeInclusion
     {
         /// <summary>
         /// Inclusion not explicitly set
         /// </summary>
+        [Description("Inclusion not explicitly set")]
         NotSet = 0,
 
         /// <summary>
@@ -36,6 +40,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the specific value is not included in the range
         /// </remarks>
+        [Description("Indicates the specific value is not included in the range")]
         Open = 1,
 
         /// <summary>
@@ -44,6 +49,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the specific value is included in the range
         /// </remarks>
+        [Description("Indicates the specific value is included in the range")]
         Closed = 2
     }
 }

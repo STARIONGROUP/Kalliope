@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// pecify if these are the defaults for popular, unit based, or general reference modes
     /// </summary>

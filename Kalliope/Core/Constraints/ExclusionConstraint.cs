@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying that two set populations must not be equal
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetComparisonConstraint")]
     public class ExclusionConstraint : SetComparisonConstraint
     {
         /// <summary>
@@ -35,5 +39,12 @@ namespace Kalliope.Core
             base(model)
         {
         }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ExclusionContradictsMandatoryError"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
+        public ExclusionContradictsMandatoryError ExclusionContradictsMandatoryError { get; set; }
     }
 }

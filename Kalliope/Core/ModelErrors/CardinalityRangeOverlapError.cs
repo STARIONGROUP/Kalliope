@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Two or more cardinality constraint ranges are either overlapping or not increasing
     /// </summary>
+    [Description("Cardinality Ranges Overlap")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "CardinalityConstraint", propertyName: "CardinalityRangeOverlapError")]
     public class CardinalityRangeOverlapError : ModelError
     {
     }

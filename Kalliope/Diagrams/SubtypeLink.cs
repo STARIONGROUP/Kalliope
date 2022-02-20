@@ -20,11 +20,14 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents an <see cref="SubtypeFact"/>
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "")]
     public class SubtypeLink
     {
     }

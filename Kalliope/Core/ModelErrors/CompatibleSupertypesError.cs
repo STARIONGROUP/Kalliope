@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple supertypes are specified that do not share a common ancestor, or a supertype is specified that is implied by other supertypes
     /// </summary>
+    [Description("Incompatible or Transitive Supertypes")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ObjectType", propertyName: "CompatibleSupertypesError")]
     public class CompatibleSupertypesError : ModelError
     {
     }

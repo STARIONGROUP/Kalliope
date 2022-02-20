@@ -20,21 +20,26 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The strength of a <see cref="Constraint"/>
     /// </summary>
+    [Description("The strength of a Constraint")]
     public enum ConstraintModality
     {
         /// <summary>
-        /// A strong <see cref="Constraint"/> that is enforced by the structure of a generated system.
+        /// A strong Constraint that is enforced by the structure of a generated system.
         /// The constraint must hold.
         /// </summary>
+        [Description("A strong Constraint that is enforced by the structure of a generated system. The constraint must hold")]
         Alethic = 0,
 
         /// <summary>
-        /// A weak <see cref="Constraint"/> that should not be violated. Instances violating a deontic constraint can be structurally stored in a generated system
+        /// A weak Constraint that should not be violated. Instances violating a deontic constraint can be structurally stored in a generated system
         /// The constraint should hold
         /// </summary>
+        [Description("A weak Constraint that should not be violated. Instances violating a deontic constraint can be structurally stored in a generated system. The constraint should hold")]
         Deontic = 1
     }
 }

@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A projection onto a query role is not compatible with the role player of that role
     /// </summary>

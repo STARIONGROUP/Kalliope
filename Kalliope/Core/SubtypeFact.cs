@@ -23,9 +23,13 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A fact type representing the subtype meta relationship between a subtype and a supertype
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "FactType")]
     public class SubtypeFact : FactType
     {
         /// <summary>
@@ -44,6 +48,8 @@ namespace Kalliope.Core
         /// Deprecated property, use PreferredIdentificationPath instead
         /// </summary>
         [Obsolete("use PreferredIdentificationPath instead")]
+        [Description("")]
+        [Property(name: "IsPrimary", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool IsPrimary { get; set; }
 
         /// <summary>
@@ -55,6 +61,8 @@ namespace Kalliope.Core
         /// <summary>
         /// The preferred identification scheme for the subtype is provided by a supertype reached through this path
         /// </summary>
+        [Description("The preferred identification scheme for the subtype is provided by a supertype reached through this path")]
+        [Property(name: "ProvidesPreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool ProvidesPreferredIdentifier { get; set; }
 
         /// <summary>

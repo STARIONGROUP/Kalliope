@@ -20,9 +20,13 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Zero-size relative shape used as a proxy connection point for other shapes and links
     /// </summary>
+    [Description("Zero-size relative shape used as a proxy connection point for other shapes and links")]
+    [Domain(isAbstract: false, general: "")]
     public class LinkConnectorShape
     {
     }

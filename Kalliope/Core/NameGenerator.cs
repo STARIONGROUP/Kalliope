@@ -23,9 +23,14 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Name generation settings
     /// </summary>
+    [Description("Name generation settings")]
+    [Domain(isAbstract: false, general: "NameConsumer")]
+    [Container("NameGenerator", "RefinedByGenerators")]
     public class NameGenerator : NameConsumer
     {
         /// <summary>
@@ -33,7 +38,7 @@ namespace Kalliope.Core
         /// </summary>
         public NameGenerator()
         {
-            this.CasingOption = NameGeneratorCasingOption.None;
+            this.CasingOption = NameGeneratorCasingOption.Uninitialized;
             this.SpacingFormat = NameGeneratorSpacingFormat.Retain;
             this.SpacingReplacement = string.Empty;
             this.AutomaticallyShortenNames = true;
@@ -50,6 +55,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify upper/lower case settings of names generated for this context
         /// </remarks>
+        [Description("Specify upper/lower case settings of names generated for this context")]
+        [Property(name: "CasingOption", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized")]
         public NameGeneratorCasingOption CasingOption { get; set; }
 
         /// <summary>
@@ -59,6 +66,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify if whitespace is preserved, removed, or replaced in names generated for this context
         /// </remarks>
+        [Description("Specify if whitespace is preserved, removed, or replaced in names generated for this context")]
+        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized")]
         public NameGeneratorSpacingFormat SpacingFormat { get; set; }
 
         /// <summary>
@@ -68,11 +77,15 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify the characters used instead of spaces in names generated for this context
         /// </remarks>
+        [Description("Specify the characters used instead of spaces in names generated for this context")]
+        [Property(name: "SpacingReplacement", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string SpacingReplacement { get; set; }
 
         /// <summary>
         /// The usage associated with this Name Generator
         /// </summary>
+        [Description("")]
+        [Property(name: "NameUsage", AggregationKind.None, multiplicity: "1..1", typeKind:TypeKind.String)]
         public string NameUsage { get; set; }
 
         /// <summary>
@@ -82,6 +95,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify if names generated for this context should be automatically shortened if they are too long for the generation target
         /// </remarks>
+        [Description("Specify if names generated for this context should be automatically shortened if they are too long for the generation target")]
+        [Property(name: "AutomaticallyShortenNames", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool AutomaticallyShortenNames { get; set; }
 
         /// <summary>
@@ -91,6 +106,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify a custom maximum name length for this name generation context
         /// </remarks>
+        [Description("Specify a custom maximum name length for this name generation context")]
+        [Property(name: "UserDefinedMaximum", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "")]
         public int UserDefinedMaximum { get; set; }
 
         /// <summary>
@@ -100,12 +117,23 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Specify if the default maximum name length for this name generation context should be used when shortening names
         /// </remarks>
+        [Description("Specify if the default maximum name length for this name generation context should be used when shortening names")]
+        [Property(name: "UseTargetDefaultMaximum", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool UseTargetDefaultMaximum { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="NameGenerator"/>s that are refined by the current <see cref="NameGenerator"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "")]
         public List<NameGenerator> RefinedByGenerators { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ORMModelElement"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
+        public ORMModelElement RefinedInstance { get; set; }
 
         /// <summary>
         /// Generates a <see cref="NameGenerator"/> object from its XML representation.

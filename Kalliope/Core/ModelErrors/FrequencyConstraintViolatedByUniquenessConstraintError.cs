@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A frequency constraint covers the same roles as a uniqueness constraint
     /// </summary>
+    [Description("Frequency Constraint Violated By Uniqueness Constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintViolatedByUniquenessConstraintError")]
     public class FrequencyConstraintViolatedByUniquenessConstraintError : ModelError
     {
     }

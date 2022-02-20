@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
+    [Container(typeName: "ORMModel", propertyName: "Errors")]
     public abstract class ModelError : ORMModelElement
     {
         /// <summary>
@@ -38,8 +43,12 @@ namespace Kalliope.Core
         /// <summary>
         /// Description of the model validation error
         /// </summary>
+        [Description("")]
+        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ErrorText { get; set; }
 
+        [Description("")]
+        [Property(name: "ErrorState", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Error", typeName: "ModelErrorState")]
         public ModelErrorState ErrorState { get; set; }
     }
 }

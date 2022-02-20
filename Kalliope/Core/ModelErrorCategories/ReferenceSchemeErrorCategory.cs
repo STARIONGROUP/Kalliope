@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Reference Scheme Errors
     /// </summary>
+    [Description("Reference Scheme Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class ReferenceSchemeErrorCategory : ModelErrorCategory
     {
     }

@@ -20,19 +20,29 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An alternative name for the containing named element
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Container(typeName: "ObjectType", propertyName: "Abbreviations")]
+    [Container(typeName: "RecognizedPhrase", propertyName: "Abbreviations")]
     public class NameAlias : ORMNamedElement
     {
         /// <summary>
         /// The type of consumer for this form of the name. NameConsumer types are provided by extension models
         /// </summary>
+        [Description("")]
+        [Property(name: "NameConsumer", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string NameConsumer { get; set; }
 
         /// <summary>
         /// Additional extension-provided categorization type for how a name should be used
         /// </summary>
+        [Description("")]
+        [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string NameUsage { get; set; }
     }
 }

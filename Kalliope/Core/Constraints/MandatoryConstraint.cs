@@ -23,9 +23,14 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying that a set must be populated
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetConstraint")]
+    [Container(typeName: "ObjectType", propertyName: "ImpliedMandatoryConstraint")]
     public class MandatoryConstraint : SetConstraint
     {
         /// <summary>
@@ -43,23 +48,45 @@ namespace Kalliope.Core
         /// <summary>
         /// True if this is an internal constraint associated with a single role
         /// </summary>
+        [Description("")]
+        [Property(name: "IsSimple", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsSimple { get; set; }
 
         /// <summary>
         /// True if this constraint is implied by a lack of a mandatory role on any non-existential role on the non-independent role player.
         /// An implied mandatory constraint may have a single role or multiple roles, but IsSimple is never true for an implied mandatory constraint
         /// </summary>
+        [Description("")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
         public List<PopulationMandatoryError> PopulationMandatoryErrors { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the owned <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
         public NotWellModeledSubsetAndMandatoryError NotWellModeledSubsetAndMandatoryError { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ExclusionConstraint"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "ExclusiveOrExclusionConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionConstraint")]
+        public ExclusionConstraint ExclusiveOrExclusionConstraint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ExclusionContradictsMandatoryError"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
+        public ExclusionContradictsMandatoryError ExclusionContradictsMandatoryError { get; set; }
 
         /// <summary>
         /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.

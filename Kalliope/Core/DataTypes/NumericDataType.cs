@@ -20,6 +20,10 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "DataType")]
     public abstract class NumericDataType : DataType
     {
         /// <summary>

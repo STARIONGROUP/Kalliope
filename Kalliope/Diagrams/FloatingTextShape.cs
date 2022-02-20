@@ -20,6 +20,10 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
+    [Description("Shape that represents a FloatingTextShape")]
+    [Domain(isAbstract: true, general: "ORMBaseShape")]
     public abstract class FloatingTextShape : ORMBaseShape
     {
     }

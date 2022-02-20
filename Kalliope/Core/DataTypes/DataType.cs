@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The base type for all data types
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
+    [Container(typeName: "ORMModel", propertyName: "DataTypes")]
     public abstract class DataType : ORMModelElement
     {
         /// <summary>

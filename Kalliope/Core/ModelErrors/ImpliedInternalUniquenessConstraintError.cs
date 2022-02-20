@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// One or more internal uniqueness constraints in a fact type are implied by other internal uniqueness constraints on the same fact type
     /// </summary>
+    [Description("FactType has Implied Internal Uniqueness Constraint(s)")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FactType", propertyName: "ImpliedInternalUniquenessConstraintError")]
     public class ImpliedInternalUniquenessConstraintError : ModelError
     {
     }

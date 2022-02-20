@@ -20,14 +20,22 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The roles in a <see cref="SetConstraint"/> or a column of a <see cref="SetComparisonConstraint"/> have incompatible role players
     /// </summary>
+    [Description("Incompatible Constrained Role Players")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "CompatibleRolePlayerTypeErrors")]
+    [Container(typeName: "SetConstraint", propertyName: "CompatibleRolePlayerTypeError")]
     public class CompatibleRolePlayerTypeError : ModelError
     {
         /// <summary>
         /// The zero-based column with incompatible types (specified with a <see cref="SetComparisonConstraint"/>)
         /// </summary>
+        [Description("")]
+        [Property(name: "Column", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int Column { get; set; }
     }
 }

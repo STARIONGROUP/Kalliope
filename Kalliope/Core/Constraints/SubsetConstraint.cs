@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying that the population of one set must be included in the population of another set
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetComparisonConstraint")]
     public class SubsetConstraint : SetComparisonConstraint
     {
         /// <summary>
@@ -39,11 +43,15 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the owned <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
         public NotWellModeledSubsetAndMandatoryError NotWellModeledSubsetAndMandatoryError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError")]
         public SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError { get; set; }
     }
 }

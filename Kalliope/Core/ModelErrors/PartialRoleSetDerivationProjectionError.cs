@@ -20,10 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A fact type derivation projection must project on every role in the fact type
     /// </summary>
-    public class PartialRoleSetDerivationProjectionError : ModelError 
+    [Description("A fact type derivation projection must project on every role in the fact type.")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    public class PartialRoleSetDerivationProjectionError : ModelError
     {
     }
 }

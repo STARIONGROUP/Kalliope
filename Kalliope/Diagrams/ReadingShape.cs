@@ -20,16 +20,21 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="ReadingOrder"/>
     /// </summary>
+    [Description("Shape that represents a ReadingOrder")]
+    [Domain(isAbstract: false, general: "FloatingTextShape")]
     public class ReadingShape : FloatingTextShape
     {
         /// <summary>
         /// Gets or sets the <see cref="ReadingOrder"/> that is represented by this shape
         /// </summary>
+        [Description("The subject ReadingOrder that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingOrder")]
         public ReadingOrder Subject { get; set; }
     }
 }

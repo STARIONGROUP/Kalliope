@@ -20,12 +20,17 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A function parameter, defines the type of function input
     /// </summary>
     /// <remarks>
     /// A formal function parameter describing expected input to a function
     /// </remarks>
+    [Description("A formal function parameter describing expected input to a function")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Container(typeName: "Function", propertyName: "Parameters")]
     public class FunctionParameter : ORMNamedElement
     {
         /// <summary>
@@ -34,6 +39,8 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Set if a bag input is expected for this parameter, such as with an aggregation function
         /// </remarks>
+        [Description("")]
+        [Property(name: "BagInput", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool BagInput { get; set; }
         
         /// <summary>

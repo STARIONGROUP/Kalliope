@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A predicate reading has not been specified for a fact type
     /// </summary>
+    [Description("FactType Requires Reading")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FactType", propertyName: "ReadingRequiredError")]
     public class FactTypeRequiresReadingError : ModelError
     {
     }

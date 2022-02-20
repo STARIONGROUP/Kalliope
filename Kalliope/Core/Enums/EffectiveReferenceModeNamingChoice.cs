@@ -20,30 +20,37 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify default settings for how a reference mode is to be represented in a generated name
     /// </summary>
+    [Description("Specify how reference mode names are used in generated names for an ObjectType")]
     public enum EffectiveReferenceModeNamingChoice
     {
         /// <summary>
         /// The name of the ValueType is used for naming
         /// </summary>
+        [Description("Use the name of the identifying value type as the item names")]
         ValueTypeName,
 
         /// <summary>
         /// The name of the EntityType is used for naming
         /// </summary>
+        [Description("Use the name of the entity type as the item name")]
         EntityTypeName,
 
         /// <summary>
         /// The name of the ReferenceMode is used for naming
         /// </summary>
+        [Description("Use a custom format string using the other three values as replacement fields")]
         ReferenceModeName,
 
         /// <summary>
         /// A custom format string with any combination of the ValueTypeName/EntityTypeName/ReferenceModeName values is allowed.
-        /// Use CustomFormat if specified or the default CustomFormat for the corresponding reference mode kind
+        /// (DSL) Use CustomFormat if specified or the default CustomFormat for the corresponding reference mode kind
         /// </summary>
+        [Description("Use a custom format with the other three values as replacement fields")]
         CustomFormat
     }
 }

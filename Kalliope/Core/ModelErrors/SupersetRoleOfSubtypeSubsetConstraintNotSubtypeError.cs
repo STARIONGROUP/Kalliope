@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The roles in a SetConstraint or a column of a SetComparisonConstraint have incompatible role players
     /// </summary>
+    [Description("Superset Role on Subtype Subset Constraint Not a Subtype")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError : ModelError
     {
     }

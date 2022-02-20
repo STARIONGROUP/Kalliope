@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying that a comparison between two related values must be satisfied
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetConstraint")]
     public class ValueComparisonConstraint : SetConstraint
     {
         /// <summary>
@@ -34,21 +38,28 @@ namespace Kalliope.Core
         public ValueComparisonConstraint(ORMModel model) :
             base(model)
         {
+            this.Operator = ValueComparisonOperator.Undefined;
         }
 
         /// <summary>
         /// The operator used for comparing constrained values
         /// </summary>
+        [Description("")]
+        [Property(name: "Operator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "ValueComparisonOperator")]
         public ValueComparisonOperator Operator { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "OperatorNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonConstraintOperatorNotSpecifiedError")]
         public ValueComparisonConstraintOperatorNotSpecifiedError OperatorNotSpecifiedError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ValueComparisonRolesNotComparableError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RolesNotComparableError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonRolesNotComparableError")]
         public ValueComparisonRolesNotComparableError RolesNotComparableError { get; set; }
     }
 }

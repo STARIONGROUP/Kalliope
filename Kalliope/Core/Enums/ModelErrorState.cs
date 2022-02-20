@@ -20,16 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
     public enum ModelErrorState
     {
         /// <summary>
         /// Error is fully enabled
         /// </summary>
+        [Description("Error is fully enabled")]
         Error = 0,
 
         /// <summary>
         /// Error state is tracked, but ignored
         /// </summary>
+        [Description("Error state is tracked, but ignored")]
         Ignored = 1
     }
 }

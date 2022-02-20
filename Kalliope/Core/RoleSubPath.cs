@@ -20,9 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using Kalliope.Attributes;
 
     /// <summary>
     /// A role path that continues a parent path with a new root or a split condition
@@ -30,6 +28,9 @@ namespace Kalliope.Core
     /// <remarks>
     /// (DSL) A branched path split from the end of another path 
     /// </remarks>
+    [Description("A branched path split from the end of another path")]
+    [Domain(isAbstract: false, general: "RolePath")]
+    [Container(typeName: "RolePath", propertyName: "SubPaths")]
     public class RoleSubPath : RolePath
     {
     }

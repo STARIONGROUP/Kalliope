@@ -20,9 +20,13 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Zero-size relative shape used to disambiguate multiple duplicate links between FactTypeShape and other shape types
     /// </summary>
+    [Description("Zero-size relative shape used to disambiguate multiple duplicate links between FactTypeShape and other shape types")]
+    [Domain(isAbstract: false, general: "LinkConnectorShape")]
     public class FactTypeLinkConnectorShape : LinkConnectorShape
     {
     }

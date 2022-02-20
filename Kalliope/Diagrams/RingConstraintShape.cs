@@ -20,11 +20,14 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="RingConstraint"/>
     /// </summary>
+    [Description("Shape that represents a RingConstraintShape")]
+    [Domain(isAbstract: false, general: "ExternalConstraintShape")]
     public class RingConstraintShape : ExternalConstraintShape
     {
     }

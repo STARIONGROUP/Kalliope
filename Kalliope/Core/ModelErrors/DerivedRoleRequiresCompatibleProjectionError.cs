@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A role path projection onto a derived role must be of a type that is compatible with the derived role
     /// </summary>
+    [Description("A role path projection onto a derived role must be of a type that is compatible with the derived role")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class DerivedRoleRequiresCompatibleProjectionError : ModelError
     {
     }

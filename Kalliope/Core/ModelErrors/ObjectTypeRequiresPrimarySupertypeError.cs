@@ -22,6 +22,8 @@ namespace Kalliope.Core
 {
     using System;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Deprecated along with SubtypeFact.IsPrimary property
     /// </summary>

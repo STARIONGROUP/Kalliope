@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An instance is used twice by a role with a single-column uniqueness constraint
     /// </summary>
+    [Description("Population Violates Uniqueness Constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PopulationUniquenessError : ModelError
     {
     }

@@ -20,9 +20,12 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify how a reference mode is to be represented in a generated name. Includes and option to use context default settings
     /// </summary>
+    [Description("Specify how a reference mode is to be represented in a generated name. Includes and option to use context default settings")]
     public enum ReferenceModeNamingChoice
     {
         /// <summary>
@@ -31,6 +34,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Use the name of the identifying value type as the item name
         /// </remarks>
+        [Description("Use the name of the identifying value type as the item name")]
         ValueTypeName = 0,
 
         /// <summary>
@@ -39,6 +43,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Use the name of the entity type as the item name
         /// </remarks>
+        [Description("Use the name of the entity type as the item name")]
         EntityTypeName = 1,
 
         /// <summary>
@@ -47,6 +52,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Use the name of the reference mode as the item name
         /// </remarks>
+        [Description("Use the name of the reference mode as the item name")]
         ReferenceModeName = 2,
 
         /// <summary>
@@ -56,6 +62,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Use a custom format string using the other three values as replacement fields
         /// </remarks>
+        [Description("Use a custom format string using the other three values as replacement fields")]
         CustomFormat = 3,
 
         /// <summary>
@@ -64,6 +71,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Use the default setting from the model
         /// </remarks>
+        [Description("Use the default setting from the model")]
         ModelDefault = 4
     }
 }

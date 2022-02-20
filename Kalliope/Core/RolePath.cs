@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An ordered sequence of roles through ORM space with a tail split branching into other subpaths
     /// </summary>
+    [Description("Indicates if the tail split in its entirety should be treated as a negation")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
     public abstract class RolePath : ORMModelElement
     {
         /// <summary>
@@ -34,6 +38,7 @@ namespace Kalliope.Core
         {
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
             this.SubPaths = new List<RoleSubPath>();
+            this.Roles = new List<Role>();
         }
 
         /// <summary>
@@ -42,22 +47,41 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates if the tail split in its entirety should be treated as a negation
         /// </remarks>
+        [Description("Indicates if the tail split in its entirety should be treated as a negation")]
+        [Property(name: "SplitIsNegated", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool SplitIsNegated { get; set; }
 
         /// <summary>
         /// Determines the logical operator used to combine split paths
         /// </summary>
 
+        [Description("")]
+        [Property(name: "SplitCombinationOperator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "And", typeName: "LogicalCombinationOperator")]
         public LogicalCombinationOperator SplitCombinationOperator { get; set; }
 
         /// <summary>
         /// Gets or sets the Sub paths branched from the end of the current path
         /// </summary>
+        [Description("Sub paths branched from the end of the current path.")]
+        [Property(name: "", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleSubPath")]
         public List<RoleSubPath> SubPaths { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="PathRequiresRootObjectTypeError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RootObjectTypeRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathRequiresRootObjectTypeError")]
         public PathRequiresRootObjectTypeError RootObjectTypeRequiredError { get; set; }
+
+        [Description("RootObjectType")]
+        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        public ObjectType RootObjectType { get; set; }
+
+        /// <summary>
+        /// The roles included in this path
+        /// </summary>
+        [Description("The roles included in this path")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
+        public List<Role> Roles { get; set; }
     }
 }

@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A projection from a join path onto a constrained role is not compatible with the role player of that role
     /// </summary>

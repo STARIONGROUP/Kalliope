@@ -20,44 +20,54 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Restriction on the comparison operators allowed by a value comparison constraint
     /// </summary>
+    [Description("Restriction on the comparison operators allowed by a value comparison constraint")]
     public enum ValueComparisonOperator
     {
         /// <summary>
         /// The comparison operator is undefined. Corresponds to a model validation error
         /// </summary>
+        [Description("The comparison operator is undefined. Corresponds to a model validation error")]
         Undefined = 0,
 
         /// <summary>
         /// The first value is less than the second
         /// </summary>
+        [Description("The first value is less than the second")]
         LessThan = 1,
 
         /// <summary>
         /// The first value is greater than the second
         /// </summary>
+        [Description("The first value is greater than the second")]
         GreaterThan = 2,
 
         /// <summary>
         /// The first value is less than or equal to the second
         /// </summary>
+        [Description("The first value is less than or equal to the second")]
         LessThanOrEqual = 3,
 
         /// <summary>
         /// The first value is greater than or equal to the second
         /// </summary>
+        [Description("The first value is greater than or equal to the second")]
         GreaterThanOrEqual = 4,
 
         /// <summary>
         /// The two values must be equal
         /// </summary>
+        [Description("The two values must be equal")]
         Equal = 5,
 
         /// <summary>
         /// The two values must not be equal
         /// </summary>
+        [Description("The two values must not be equal")]
         NotEqual = 6,
     }
 }

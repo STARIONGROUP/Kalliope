@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of variable length strings. Supports the Length facet
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "TextDataType")]
     public class VariableLengthTextDataType : TextDataType
     {
         /// <summary>

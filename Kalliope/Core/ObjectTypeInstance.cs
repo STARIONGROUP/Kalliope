@@ -22,6 +22,11 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
+    [Container(typeName: "ObjectType", propertyName: "ObjectTypeInstances")]
     public abstract class ObjectTypeInstance : ORMModelElement
     {
         /// <summary>
@@ -35,16 +40,22 @@ namespace Kalliope.Core
         /// <summary>
         /// An ordered tuple of values for this instance, ignores objectification of the associated <see cref="ObjectType"/>
         /// </summary>
+        [Description("An ordered tuple of values for this instance, ignores objectification of the associated ObjectType")]
+        [Property(name: "IdentifierName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string IdentifierName { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ObjectifiedInstanceRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifiedInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifiedInstanceRequiredError")]
         public ObjectifiedInstanceRequiredError ObjectifiedInstanceRequiredError { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
         public List<PopulationMandatoryError> PopulationMandatoryErrors { get; set; }
     }
 }

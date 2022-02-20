@@ -20,21 +20,32 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "ObjectTypeInstance")]
+    [Container(typeName: "ObjectType", propertyName: "ValueTypeInstances")]
     public class ValueTypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// The instance value
         /// </summary>
+        [Description("")]
+        [Property(name: "Value", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Value { get; set; }
 
         /// <summary>
         /// The culture-invariant form of the value property
         /// </summary>
+        [Description("The culture-invariant form of the value property")]
+        [Property(name: "InvariantValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string InvariantValue { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="CompatibleValueTypeInstanceValueError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "CompatibleValueTypeInstanceValueError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CompatibleValueTypeInstanceValueError")]
         public CompatibleValueTypeInstanceValueError CompatibleValueTypeInstanceValueError { get; set; }
     }
 }

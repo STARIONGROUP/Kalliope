@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A frequency constraints maximum values is less that its minimum value
     /// </summary>
+    [Description("Inconsistent Frequency Constraint Minimum and Maximum Values")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintMinMaxError")]
     public class FrequencyConstraintMinMaxError : ModelError
     {
     }

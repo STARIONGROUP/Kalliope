@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Value Constraint Value Invalid for DataType
     /// </summary>
+    [Description("Value Constraint Value Invalid for DataType")]
+    [Domain(isAbstract: true, general: "ModelError")]
     public abstract class ValueConstraintError : ModelError
     {
     }

@@ -20,9 +20,12 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specifies the logical operator used to combine 2 or more elements
     /// </summary>
+    [Description("Specifies the logical operator used to combine 2 or more elements")]
     public enum LogicalCombinationOperator
     {
         /// <summary>
@@ -31,6 +34,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The logical and operator
         /// </remarks>
+        [Description("The logical and operator")]
         And = 0,
 
         /// <summary>
@@ -39,6 +43,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The logical inclusive-or operator
         /// </remarks>
+        [Description("The logical inclusive-or operator")]
         Or = 1,
 
         /// <summary>
@@ -47,6 +52,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The logical exclusive-or operator
         /// </remarks>
+        [Description("The logical exclusive-or operator")]
         Xor = 3
     }
 }

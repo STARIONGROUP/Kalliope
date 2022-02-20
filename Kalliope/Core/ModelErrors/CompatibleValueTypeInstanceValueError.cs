@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The value of an instance is not compatible with the data type of the corresponding value type
     /// </summary>
+    [Description("Sample Population Value Invalid for DataType")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ValueTypeInstance", propertyName: "CompatibleValueTypeInstanceValueError")]
     public class CompatibleValueTypeInstanceValueError : ModelError
     {
     }

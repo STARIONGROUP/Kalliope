@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A role path does not have a specified root object type
     /// </summary>
+    [Description("A LeadRolePath must specify a root object type")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "RolePath", propertyName: "RootObjectTypeRequiredError")]
     public class PathRequiresRootObjectTypeError : ModelError
     {
     }

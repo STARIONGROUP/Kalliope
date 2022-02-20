@@ -20,9 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An informal note describing the purpose of a derivation rule
     /// </summary>
+    [Description("An informal note describing the purpose of a derivation rule")]
+    [Domain(isAbstract: false, general: "Expression")]
+    [Container(typeName: "FactTypeDerivationRule", propertyName: "DerivationNote")]
+    [Container(typeName: "SubtypeDerivationRule", propertyName: "DerivationNote")]
     public class DerivationNote : Expression
     {
     }

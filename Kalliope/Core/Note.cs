@@ -20,14 +20,29 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A note for the containing element
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "CardinalityConstraint", propertyName: "Note")]
+    [Container(typeName: "ElementGrouping", propertyName: "Note")]
+    [Container(typeName: "FactType", propertyName: "Note")]
+    [Container(typeName: "LeadRolePath", propertyName: "Note")]
+    [Container(typeName: "ObjectType", propertyName: "Note")]
+    [Container(typeName: "ORMModel", propertyName: "Note")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "Note")]
+    [Container(typeName: "SetConstraint", propertyName: "Note")]
+    [Container(typeName: "ValueConstraint", propertyName: "Note")]
     public class Note : ORMModelElement
     {
         /// <summary>
         /// Plain text note
         /// </summary>
+        [Description("The note contents")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
     }
 }

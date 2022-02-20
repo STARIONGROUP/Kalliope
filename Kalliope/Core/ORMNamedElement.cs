@@ -22,11 +22,17 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
     public abstract class ORMNamedElement : ORMModelElement
     {
         /// <summary>
         /// A name for this element
         /// </summary>
+        [Description("A name for this element")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string Name { get; set; }
         
         /// <summary>

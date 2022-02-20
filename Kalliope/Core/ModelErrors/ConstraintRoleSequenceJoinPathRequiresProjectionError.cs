@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
-    /// 
+    /// Roles in a constraint role sequence join path must be projected from at least one role path
     /// </summary>
+    [Description("Roles in a constraint role sequence join path must be projected from at least one role path")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ConstraintRoleSequenceJoinPath", propertyName: "ProjectionRequiredError")]
     public class ConstraintRoleSequenceJoinPathRequiresProjectionError : ModelError
     {
     }

@@ -18,13 +18,19 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Core
 {
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
-    /// represents the relationship between the entity type and the referenced fact type
+    /// Represents the relationship between the entity type and the referenced fact type
     /// </summary>
+    [Description("Represents the relationship between the entity type and the referenced fact type")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
     public class Objectification : ORMModelElement
     {
         private string nestedFactTypeReference = string.Empty;
@@ -36,11 +42,21 @@ namespace Kalliope.Core
         /// True if the objectification relationship is implied by a spanning uniqueness constraint on a binary fact type
         /// or an n-ary fact type where n&gt;2. The objectifying entity type for an implied fact type is always independent
         /// </remarks>
+        [Description("")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
 
+        [Description("")]
+        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ObjectType")]
         public ObjectType NestingType { get; set; }
 
+        [Description("")]
+        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "FactType")]
         public FactType NestedFactType { get; set; }
+        
+        [Description("")]
+        [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
+        public List<FactType> ImpliedFactTypes { get; set; }
 
         /// <summary>
         /// Generates a <see cref="Objectification"/> object from its XML representation.

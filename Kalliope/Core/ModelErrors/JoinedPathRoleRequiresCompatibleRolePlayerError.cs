@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A <see cref="PathedRole"/> is joined to a preceding <see cref="PathedRole"/> with an incompatible role player or is a start role attached to an incompatible RootObjectType
     /// </summary>
+    [Description("A joined pathed roles must have a role player that is compatible with the join source, and a start role must be compatible with the root object type")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class JoinedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {
     }

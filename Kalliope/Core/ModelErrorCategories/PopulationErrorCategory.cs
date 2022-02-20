@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Sample Population Errors
     /// </summary>
+    [Description("Sample Population Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class PopulationErrorCategory : ModelErrorCategory
     {
     }

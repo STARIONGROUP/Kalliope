@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
+    [Container(typeName: "FactType", propertyName: "Roles")]
     public abstract class RoleBase : ORMModelElement
     {
         /// <summary>

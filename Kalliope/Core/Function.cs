@@ -18,31 +18,42 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specifies a function definition used for calculating values
     /// </summary>
     /// <remarks>
     /// (DSL) A function or operator used to represented a calculation algorithm
     /// </remarks>
+    [Description("A function or operator used to represented a calculation algorithm.")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Container(typeName: "ORMModel", propertyName: "Functions")]
     public class Function : ORMNamedElement
     {
         /// <summary>
         /// True if this function or operator returns a boolean value, making it appropriate for use as a path condition
         /// </summary>
+        [Description("Set if this function returns a boolean value that can be evaluated directly as a condition")]
+        [Property(name: "IsBoolean", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsBoolean { get; set; }
 
         /// <summary>
         /// Set if this function defines a bag input parameter
         /// </summary>
+        [Description("Set if this function defines a bag input parameter")]
+        [Property(name: "IsAggregate", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsAggregate { get; set; }
 
         /// <summary>
         /// A symbol used to display this function as an operator. Treated as an infix operator for binary functions and a prefix operator for unary functions
         /// </summary>
+        [Description("A string indicating this function should be displayed as an operator instead of using functional notation. Represents infix notation for a binary operator and prefix notation for a unary")]
+        [Property(name: "OperatorSymbol", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string OperatorSymbol { get; set; }
 
         /// <summary>
@@ -56,6 +67,15 @@ namespace Kalliope.Core
         /// <remarks>
         /// Parameters defined by this function
         /// </remarks>
+        [Description("Parameters defined by this function")]
+        [Property(name: "Parameters", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FunctionParameter")]
         public List<FunctionParameter> Parameters { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="FunctionDuplicateNameError"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FunctionDuplicateNameError")]
+        public FunctionDuplicateNameError DuplicateNameError { get; set; }
     }
 }

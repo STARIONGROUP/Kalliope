@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Two value ranges for the same value constraint have overlapping ranges
     /// </summary>
+    [Description("Value Ranges Overlap")]
+    [Domain(isAbstract: false, general: "ValueConstraintError")]
+    [Container(typeName: "ValueConstraint", propertyName: "ValueRangeOverlapError")]
     public class ValueRangeOverlapError : ValueConstraintError
     {
     }

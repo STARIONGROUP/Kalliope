@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "ValueConstraint")]
+    [Container(typeName: "ObjectType", propertyName: "ValueConstraint")]
     public class ValueTypeValueConstraint : ValueConstraint
     {
     }

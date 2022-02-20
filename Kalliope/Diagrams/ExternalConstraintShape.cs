@@ -20,16 +20,21 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="SetComparisonConstraint"/> or a <see cref="SetConstraint"/>
     /// </summary>
+    [Description("Shape that represents a SetComparisonConstraint or a SetConstraint")]
+    [Domain(isAbstract: false, general: "ORMBaseShape")]
     public class ExternalConstraintShape : ORMBaseShape
     {
         /// <summary>
         /// Gets or sets the <see cref="SetComparisonConstraint"/> or the <see cref="SetConstraint"/> that is represented by the shape
         /// </summary>
+        [Description("The subject SetComparisonConstraint or SetConstraint that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMNamedElement")]
         public ORMNamedElement Subject { get; set; }
     }
 }

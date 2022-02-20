@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The formal derivation rule for a query
     /// </summary>
+    [Description("Role path(s) defining a query")]
+    [Domain(isAbstract: false, general: "RoleProjectedDerivationRule")]
     public class QueryDerivationRule : RoleProjectedDerivationRule
     {
     }

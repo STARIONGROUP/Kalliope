@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group")]
+    [Container(typeName: "ElementGrouping", propertyName: "GroupingTypes")]
     public abstract class ElementGroupingType
     {
     }

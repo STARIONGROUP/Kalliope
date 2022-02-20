@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An abstract owner for one or more path objects.
     /// </summary>
+    [Description("An abstract owner for one or more path objects")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
     public abstract class RolePathOwner : ORMModelElement
     {
         /// <summary>
@@ -34,16 +38,60 @@ namespace Kalliope.Core
         {
             this.LeadRolePaths = new List<LeadRolePath>();
             this.Subqueries = new List<Subquery>();
+            this.OwnedLeadRolePaths = new List<LeadRolePath>();
+            this.SharedLeadRolePaths = new List<LeadRolePath>();
+            this.OwnedSubqueries = new List<Subquery>();
+            this.SharedSubqueries = new List<Subquery>();
+            this.CalculatedConditions = new List<CalculatedPathValue>();
         }
 
         /// <summary>
         /// Gets or sets the contained <see cref="LeadRolePath"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "LeadRolePaths", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<LeadRolePath> LeadRolePaths { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="Subquery"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "Subqueries", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
         public List<Subquery> Subqueries { get; set; }
+
+        [Description("")]
+        [Property(name: "PathComponent", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        public LeadRolePath PathComponent { get; set; }
+
+        [Description("")]
+        [Property(name: "OwnedLeadRolePaths", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        public List<LeadRolePath> OwnedLeadRolePaths { get; set; }
+
+        [Description("")]
+        [Property(name: "SharedLeadRolePaths", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        public List<LeadRolePath> SharedLeadRolePaths { get; set; }
+
+        [Description("")]
+        [Property(name: "SingleLeadRolePath", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        public LeadRolePath SingleLeadRolePath { get; set; }
+
+        [Description("")]
+        [Property(name: "SingleOwnedLeadRolePath", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        public LeadRolePath SingleOwnedLeadRolePath { get; set; }
+
+        [Description("")]
+        [Property(name: "OwnedSubqueries", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
+        public List<Subquery> OwnedSubqueries { get; set; }
+
+        [Description("")]
+        [Property(name: "SharedSubqueries", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
+        public List<Subquery> SharedSubqueries { get; set; }
+
+        /// <summary>
+        /// The calculated values that must be satisfied by the path
+        /// </summary>
+        [Description("")]
+        [Property(name: "CalculatedConditions", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
+        public List<CalculatedPathValue> CalculatedConditions { get; set; }
     }
 }

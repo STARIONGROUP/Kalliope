@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Unified path elements must have compatible object types
     /// </summary>
+    [Description("Unified path elements must have compatible object types")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "PathObjectUnifier", propertyName: "CompatibilityError")]
     public class PathObjectUnifierRequiresCompatibleObjectTypesError : ModelError
     {
     }

@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Roles in a fact type derivation rule must be projected from at least one role path
     /// </summary>
+    [Description("Roles in a fact type derivation rule must be projected from at least one role path")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "RoleProjectedDerivationRule", propertyName: "ProjectionRequiredError")]
     public class RoleProjectedDerivationRequiresProjectionError : ModelError
     {
     }

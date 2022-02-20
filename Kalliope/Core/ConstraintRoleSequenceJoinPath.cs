@@ -22,9 +22,14 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A role path used to define the path between roles in different fact types in the same join path
     /// </summary>
+    [Description("A role path defining cross fact type relationships within a constraint role sequence")]
+    [Domain(isAbstract: false, general: "RolePathOwner")]
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "JoinPath")]
     public class ConstraintRoleSequenceJoinPath : RolePathOwner
     {
         /// <summary>
@@ -38,16 +43,22 @@ namespace Kalliope.Core
         /// <summary>
         /// The join path is automatically created from the constraint sequence
         /// </summary>
+        [Description("")]
+        [Property(name: "IsAutomatic", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsAutomatic { get; set; }
 
         /// <summary>
         /// Gets or sets the referenced list of <see cref="LeadRolePath"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<LeadRolePath> ProjectedPathComponents { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ConstraintRoleSequenceJoinPathRequiresProjectionError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPathRequiresProjectionError")]
         public ConstraintRoleSequenceJoinPathRequiresProjectionError ProjectionRequiredError { get; set; }
     }
 }

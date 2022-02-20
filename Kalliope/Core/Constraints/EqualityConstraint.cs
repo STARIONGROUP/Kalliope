@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint specifying that two set populations must be equal
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "SetComparisonConstraint")]
     public class EqualityConstraint : SetComparisonConstraint
     {
         /// <summary>

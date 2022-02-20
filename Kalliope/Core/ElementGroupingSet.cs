@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A Group owner, allows group containment, order, and naming enforcement
     /// </summary>
+    [Description("A Group owner, allows group containment, order, and naming enforcement")]
+    [Domain(isAbstract: false, general: "")]
     public class ElementGroupingSet
     {
         /// <summary>
@@ -32,9 +36,20 @@ namespace Kalliope.Core
         /// </summary>
         public ElementGroupingSet()
         {
-            this.Grouping = new List<ElementGrouping>();
+            this.Groupings = new List<ElementGrouping>();
+            this.Elements = new List<ORMModelElement>();
         }
 
-        public List<ElementGrouping> Grouping { get; set; }
+        [Description("")]
+        [Property(name: "Groupings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
+        public List<ElementGrouping> Groupings { get; set; }
+
+        [Description("")]
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
+        public ORMModel Model { get; set; }
+
+        [Description("")]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
+        public List<ORMModelElement> Elements { get; set; }
     }
 }

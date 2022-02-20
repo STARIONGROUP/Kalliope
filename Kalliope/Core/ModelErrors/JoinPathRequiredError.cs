@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The roles in a constraint role sequence span multiple fact types that are not implicitly joined
     /// </summary>
+    [Description("Join Required for Multiple Fact Types")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "JoinPathRequiredError")]
     public class JoinPathRequiredError : ModelError
     {
     }

@@ -20,26 +20,31 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Determines whether a <see cref="FactTypeShape"/> is drawn horizontally or vertically
     /// </summary>
+    [Description("Determines whether a FactTypeShape is drawn horizontally or vertically")]
     public enum DisplayOrientation
     {
         /// <summary>
         /// The <see cref="FactType"/> is drawn with a horizontal orientation
         /// </summary>
+        [Description("The fact type is drawn with a horizontal orientation")]
         Horizontal = 0,
 
         /// <summary>
         /// The <see cref="FactType"/> is drawn with a vertical orientation rotated to the right
         /// </summary>
+        [Description("The fact type is drawn with a vertical orientation rotated to the right")]
         VerticalRotatedRight = 1,
 
         /// <summary>
         /// The <see cref="FactType"/> is drawn with a vertical orientation rotated to the left
         /// </summary>
+        [Description("The fact type is drawn with a vertical orientation rotated to the left")]
         VerticalRotatedLeft = 2,
     }
 }

@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An entity type requires a reference scheme or a supertype that provides a preferred identification path
     /// </summary>
+    [Description("EntityType Requires Reference Scheme")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ObjectType", propertyName: "ReferenceSchemeError")]
     public class EntityTypeRequiresReferenceSchemeError : ModelError
     {
     }

@@ -20,16 +20,21 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="ObjectTypeCardinalityConstraint"/> or a <see cref="UnaryRoleCardinalityConstraint"/>
     /// </summary>
+    [Description("Shape that represents a ObjectTypeCardinalityConstraint or a UnaryRoleCardinalityConstraint")]
+    [Domain(isAbstract: false, general: "FloatingTextShape")]
     public class CardinalityConstraintShape : FloatingTextShape
     {
         /// <summary>
         /// Gets or sets the <see cref="CardinalityConstraint"/> that is represented by the shape
         /// </summary>
+        [Description("The subject CardinalityConstraint that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraint")]
         public CardinalityConstraint Subject { get; set; }
     }
 }

@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The type of a ring constraint is not specified
     /// </summary>
+    [Description("Ring Constraint Type Not Specified")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "RingConstraint", propertyName: "RingConstraintTypeNotSpecifiedError")]
     public class RingConstraintTypeNotSpecifiedError : ModelError
     {
     }

@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Constraint Implication and Contradiction Errors
     /// </summary>
+    [Description("Constraint Implication and Contradiction Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class ConstraintImplicationAndContradictionErrorCategory : ModelErrorCategory
     {
     }

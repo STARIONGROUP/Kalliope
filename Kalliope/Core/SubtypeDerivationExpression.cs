@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "Expression")]
+    [Container(typeName: "ObjectType", propertyName: "DerivationExpression")]
     public class SubtypeDerivationExpression : Expression
     {
     }

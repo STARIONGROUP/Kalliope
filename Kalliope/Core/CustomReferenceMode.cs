@@ -22,9 +22,13 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Definition of a custom reference mode pattern
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "")]
     public class CustomReferenceMode : ReferenceMode
     {
         /// <summary>
@@ -48,6 +52,8 @@ namespace Kalliope.Core
         /// A string with replacement fields representing a custom format for a value type name based on the entity type name
         /// (replacement field {0}) and reference mode name (replacement field {1}). If not specified, defaults to the ReferenceModeKind FormatString attribute
         /// </summary>
+        [Description("Custom format string for this reference mode pattern. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
+        [Property(name: "CustomFormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormatString { get; set; }
         
         /// <summary>

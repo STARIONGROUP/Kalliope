@@ -20,9 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A <see cref="SetConstraint"/> has too many roles for the constraint type, or a <see cref="SetComparisonConstraint"/> has too many role sequences
     /// </summary>
+    [Description("Too Many Role Sequences")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "TooManyRoleSequencesError")]
+    [Container(typeName: "SetConstraint", propertyName: "TooManyRoleSequencesError")]
     public class TooManyRoleSequencesError : ModelError
     {
     }

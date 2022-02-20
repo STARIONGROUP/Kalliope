@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of moveable decimal point exact numbers. Supports the Precision and Scale facets
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "NumericDataType")]
     public class DecimalNumericDataType : NumericDataType
     {
         /// <summary>

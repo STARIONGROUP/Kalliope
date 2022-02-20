@@ -20,17 +20,22 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="ObjectType"/>
     /// </summary>
+    [Description("Shape that represents a ObjectType")]
+    [Domain(isAbstract: true, general: "FloatingTextShape")]
     public class ObjectifiedFactTypeNameShape : FloatingTextShape
     {
         /// <summary>
         /// Gets or sets a value indicating whether shapes for the <see cref="FactType"/> and <see cref="ValueType"/> corresponding to this
         /// ReferenceMode pattern be displayed on the <see cref="ORMDiagram"/>
         /// </summary>
+        [Description("Should shapes for the FactType and ValueType corresponding to this ReferenceMode pattern be displayed on the diagram")]
+        [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExpandRefMode { get; set; }
     }
 }

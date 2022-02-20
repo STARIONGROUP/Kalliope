@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A join path projection must project on all roles in the constraint role sequence
     /// </summary>

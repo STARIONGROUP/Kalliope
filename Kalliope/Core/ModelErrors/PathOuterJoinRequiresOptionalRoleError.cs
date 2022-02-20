@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An <see cref="PathedRole"/> with outer join semantics is joined to a mandatory role and can never be null
     /// </summary>
+    [Description("Outer join semantics are not supported for roles with explicit or implied simple mandatory constraints")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PathOuterJoinRequiresOptionalRoleError : ModelError
     {
     }

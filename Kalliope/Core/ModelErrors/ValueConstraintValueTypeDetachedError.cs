@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Path to Identifying ValueType Detached
     /// </summary>
+    [Description("Path to Identifying ValueType Detached")]
+    [Domain(isAbstract: false, general: "ValueConstraintError")]
+    [Container(typeName: "ValueConstraint", propertyName: "ValueTypeDetachedError")]
     public class ValueConstraintValueTypeDetachedError : ValueConstraintError
     {
     }

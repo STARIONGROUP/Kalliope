@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Element Required and Blocked in one Group
     /// </summary>
+    [Description("Element Required and Blocked in one Group")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ElementGrouping", propertyName: "MembershipContradictionErrors")]
     public class ElementGroupingMembershipContradictionError : ModelError
     {
     }

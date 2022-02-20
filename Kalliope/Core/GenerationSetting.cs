@@ -20,14 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A generation setting representing the extension-defined algorithm used to generate elements from the ORM elements
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: true, general: "")]
+    [Container("GenerationState", "GenerationSettings")]
     public abstract class GenerationSetting
     {
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string Id { get; set; }
     }
 }

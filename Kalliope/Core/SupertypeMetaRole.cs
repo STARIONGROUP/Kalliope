@@ -20,6 +20,10 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "Role")]
     public class SupertypeMetaRole : Role
     {
     }

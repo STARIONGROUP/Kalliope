@@ -20,7 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMNamedElement")]
     public abstract class ReferenceMode : ORMNamedElement
     {
+        [Description("")]
+        [Property(name: "Kind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
+        public ReferenceModeKind Kind { get; set; }
     }
 }

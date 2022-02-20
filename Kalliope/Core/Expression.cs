@@ -23,16 +23,24 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: true, general: "ORMModelElement")]
     public abstract class Expression : ORMModelElement
     {
         /// <summary>
         /// Gets or sets the Body text of the <see cref="Expression"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Body", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or sets the Language of the <see cref="Expression"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Language { get; set; }
 
         /// <summary>

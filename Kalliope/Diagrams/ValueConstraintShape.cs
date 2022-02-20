@@ -20,11 +20,14 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="RoleValueConstraint"/> or a <see cref="ValueTypeValueConstraint"/>
     /// </summary>
+    [Description("Shape that represents a RoleValueConstraint or a ValueTypeValueConstraint")]
+    [Domain(isAbstract: false, general: "FloatingTextShape")]
     public class ValueConstraintShape : FloatingTextShape
     {
         /// <summary>
@@ -39,16 +42,22 @@ namespace Kalliope.Diagrams
         /// <summary>
         /// Gets or sets the <see cref="ValueConstraint"/> that is represented by the shape
         /// </summary>
+        [Description("The subject ValueConstraint that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraint")]
         public ValueConstraint Subject { get; set; }
 
         /// <summary>
         /// The maximum total number of values and ranges to be displayed with this shape
         /// </summary>
+        [Description("The maximum total number of values and ranges to be displayed with this shape")]
+        [Property(name: "MaximumDisplayedValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int MaximumDisplayedValues { get; set; }
 
         /// <summary>
         /// The maximum number of columns to be used to display the values and ranges in this shape
         /// </summary>
+        [Description("The maximum number of columns to be used to display the values and ranges in this shape")]
+        [Property(name: "MaximumDisplayedColumns", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int MaximumDisplayedColumns { get; set; }
     }
 }

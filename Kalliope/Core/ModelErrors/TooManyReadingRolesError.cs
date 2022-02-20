@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Reading text does not have enough placeholders for all roles
     /// </summary>
+    [Description("FactType has More Roles than Reading Text")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "Reading", propertyName: "TooManyRolesError")]
     public class TooManyReadingRolesError : ModelError
     {
     }

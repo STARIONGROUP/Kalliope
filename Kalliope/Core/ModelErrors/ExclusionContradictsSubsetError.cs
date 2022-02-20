@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Exclusion and subset constraints defined on intersecting roles contradict
     /// </summary>
+    [Description("Contradicting Exclusion and Subset Constraints")]
+    [Domain(isAbstract: false, general: "ContradictionError")]
     public class ExclusionContradictsSubsetError : ContradictionError
     {
     }

@@ -20,17 +20,22 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
-    /// Specify how name spaces are treated during name generation. 
+    /// Specify how name spaces are treated during name generation.
     /// If not specified, the default SpacingFormat is the value from the nearest refining parent with this attribute. The root default is Retain
     /// </summary>
+    [Description("Specify how name spaces are treated during name generation.")]
     public enum NameGeneratorSpacingFormat
     {
+        [Description("")]
         Uninitialized = -1,
 
         /// <summary>
         /// Keep any spaces specified in names used in the ORM model
         /// </summary>
+        [Description("Keep any spaces specified in names used in the ORM model")]
         Retain = 0,
 
         /// <summary>
@@ -39,6 +44,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates that spaces are Removed
         /// </remarks>
+        [Description("Indicates that spaces are Removed")]
         Remove = 1,
 
         /// <summary>
@@ -47,6 +53,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates that spaces are ReplacedWith a different string
         /// </remarks>
+        [Description("Indicates that spaces are ReplacedWith a different string")]
         ReplaceWith = 2
     }
 }

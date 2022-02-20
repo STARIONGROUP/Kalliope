@@ -20,17 +20,22 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify casing modifications for name parts and combinations.
-    /// sIf not specified, the default CasingOption is the value from the nearest refining parent with this attribute. The root default is None
+    /// If not specified, the default CasingOption is the value from the nearest refining parent with this attribute. The root default is None
     /// </summary>
+    [Description("Specify casing modifications for name parts and combinations.")]
     public enum NameGeneratorCasingOption
     {
+        [Description("")]
         Uninitialized = -1,
 
         /// <summary>
         /// No casing options specified
         /// </summary>
+        [Description("No casing options specified")]
         None = 0,
 
         /// <summary>
@@ -39,6 +44,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the casing of the string is Camel
         /// </remarks>
+        [Description("Indicates the casing of the string is Camel")]
         Camel = 1,
 
         /// <summary>
@@ -47,6 +53,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the casing of the string is Pascal
         /// </remarks>
+        [Description("Indicates the casing of the string is Pascal")]
         Pascal = 2,
 
         /// <summary>
@@ -55,6 +62,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the casing of the string is Upper
         /// </remarks>
+        [Description("Indicates the casing of the string is Upper")]
         Upper = 3,
 
         /// <summary>
@@ -63,6 +71,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) Indicates the casing of the string is Lower
         /// </remarks>
+        [Description("Indicates the casing of the string is Lower")]
         Lower = 4
     }
 }

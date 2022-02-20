@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Subset and mandatory constraints on intersecting roles are incorrectly modeled
     /// </summary>
+    [Description("Contradicting Subset and Mandatory Constraints")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "MandatoryConstraint", propertyName: "NotWellModeledSubsetAndMandatoryError")]
     public class NotWellModeledSubsetAndMandatoryError : ModelError
     {
     }

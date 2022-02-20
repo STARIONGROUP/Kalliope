@@ -20,11 +20,14 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="ValueComparisonConstraint"/>
     /// </summary>
+    [Description("Shape that represents a ValueComparisonConstraintShape")]
+    [Domain(isAbstract: false, general: "ExternalConstraintShape")]
     public class ValueComparisonConstraintShape : ExternalConstraintShape
     {
     }

@@ -107,7 +107,7 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.Model.CustomReferenceModes.Count, Is.EqualTo(0));
 
             // ModelNotes
-            Assert.That(ormRoot.Model.ModelNotes.Count, Is.EqualTo(0));
+            Assert.That(ormRoot.Model.Notes.Count, Is.EqualTo(0));
 
             // ReferenceModeKinds
             Assert.That(ormRoot.Model.ReferenceModeKinds.Count, Is.EqualTo(3));

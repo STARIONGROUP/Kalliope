@@ -20,16 +20,21 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="ModelNote"/>
     /// </summary>
+    [Description("Shape that represents a ModelNote")]
+    [Domain(isAbstract: false, general: "FloatingTextShape")]
     public class ModelNoteShape : FloatingTextShape
     {
         /// <summary>
         /// Gets or sets the <see cref="ModelNote"/> that is represented by the shape
         /// </summary>
+        [Description("The subject ModelNote that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelNote")]
         public ModelNote Subject { get; set; }
     }
 }

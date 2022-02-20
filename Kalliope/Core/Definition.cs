@@ -22,9 +22,21 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An informal description for the containing element
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "CardinalityConstraint", propertyName: "Definition")]
+    [Container(typeName: "ElementGrouping", propertyName: "Definition")]
+    [Container(typeName: "FactType", propertyName: "Definition")]
+    [Container(typeName: "ObjectType", propertyName: "Definition")]
+    [Container(typeName: "ORMModel", propertyName: "Definition")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "Definition")]
+    [Container(typeName: "SetConstraint", propertyName: "Definition")]
+    [Container(typeName: "ValueConstraint", propertyName: "Definition")]
     public class Definition : ORMModelElement
     {
         /// <summary>
@@ -35,6 +47,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Plain text description
         /// </summary>
+        [Description("The description contents.")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
 
         /// <summary>

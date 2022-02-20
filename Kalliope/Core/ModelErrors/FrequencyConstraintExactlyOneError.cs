@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A frequency constraint with a minimum and maximum range of 1 should be represented by a uniqueness constraint
     /// </summary>
+    [Description("Represent Frequency Constraint of Exactly One as Uniqueneness")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintExactlyOneError")]
     public class FrequencyConstraintExactlyOneError : ModelError
     {
     }

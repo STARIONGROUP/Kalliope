@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Naming Errors
     /// </summary>
+    [Description("Naming Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class NameErrorCategory : ModelErrorCategory
     {
     }

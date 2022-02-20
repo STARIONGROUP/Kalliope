@@ -20,14 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An input value or bag passed to a function parameter calculate a value
     /// </summary>
+    [Description("An input value or bag passed to a function parameter calculate a value")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "CalculatedPathValue", propertyName: "Inputs")]
     public class CalculatedPathValueInput : ORMModelElement
     {
         /// <summary>
         /// Should the bag be limited to distinct values, resulting in a set of values instead of a bag of values?
         /// </summary>
+        [Description("")]
+        [Property(name: "DistinctValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool DistinctValues { get; set; }
 
         /// <summary>
@@ -36,6 +43,22 @@ namespace Kalliope.Core
         /// <remarks>
         /// The constant value bound to this function input
         /// </remarks>
+        [Description("The constant value bound to this function input")]
+        [Property(name: "SourceConstant", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathConstant")]
         public PathConstant SourceConstant { get; set; }
+
+        /// <summary>
+        /// The function parameter associated with this input value
+        /// </summary>
+        [Description("The function parameter associated with this input value")]
+        [Property(name: "Parameter", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FunctionParameter")]
+        public FunctionParameter Parameter { get; set; }
+
+        /// <summary>
+        /// The pathed value bound to this function input
+        /// </summary>
+        [Description("The pathed value bound to this function input")]
+        [Property(name: "SourceCalculatedValue", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
+        public CalculatedPathValue SourceCalculatedValue { get; set; }
     }
 }

@@ -20,10 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are either yes or no
     /// </summary>
-    public class YesOrNoLogicalDataType : DataType
+    [Description("")]
+    [Domain(isAbstract: false, general: "LogicalDataType")]
+    public class YesOrNoLogicalDataType : LogicalDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="YesOrNoLogicalDataType"/> class

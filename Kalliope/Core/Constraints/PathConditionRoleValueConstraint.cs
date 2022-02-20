@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Value constraint applied to a pathed role in a role path
     /// </summary>
+    [Description("Value constraint applied to a pathed role in a role path")]
+    [Domain(isAbstract: false, general: "ValueConstraint")]
     public class PathConditionRoleValueConstraint : ValueConstraint
     {
     }

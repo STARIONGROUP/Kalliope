@@ -22,9 +22,14 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A phrase with one or more words that can be abbreviated during name generation
     /// </summary>
+    [Description("A phrase with one or more words that can be abbreviated during name generation")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Container(typeName: "ORMModel", propertyName: "RecognizedPhrases")]
     public class RecognizedPhrase : ORMNamedElement
     {
         /// <summary>
@@ -38,6 +43,15 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the contained <see cref="NameAlias"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameAlias")]
         public List<NameAlias> Abbreviations { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="RecognizedPhraseDuplicateNameError"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhraseDuplicateNameError")]
+        public RecognizedPhraseDuplicateNameError DuplicateNameError { get; set; }
     }
 }

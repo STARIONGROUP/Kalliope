@@ -20,9 +20,12 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Classification of reference mode patterns
     /// </summary>
+    [Description("Classification of reference mode patterns")]
     public enum ReferenceModeType
     {
         /// <summary>
@@ -31,6 +34,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) That other reference mode type
         /// </remarks>
+        [Description("That other reference mode type")]
         General = 0,
 
         /// <summary>
@@ -40,6 +44,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The 'in' and 'fashionable' reference mode type
         /// </remarks>
+        [Description("The 'in' and 'fashionable' reference mode type")]
         Popular = 1,
 
         /// <summary>
@@ -48,6 +53,7 @@ namespace Kalliope.Core
         /// <remarks>
         /// (DSL) The reference mode type based on units
         /// </remarks>
+        [Description("The reference mode type based on units")]
         UnitBased = 2
     }
 }

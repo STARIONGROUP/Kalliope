@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A fact instance is missing instance associations for some roles in the fact type
     /// </summary>
+    [Description("Incomplete FactType Sample Population")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "FactTypeInstance", propertyName: "TooFewFactTypeRoleInstancesError")]
     public class TooFewFactTypeRoleInstancesError : ModelError
     {
     }

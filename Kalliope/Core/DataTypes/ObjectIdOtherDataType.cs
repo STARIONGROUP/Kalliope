@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values represent an object identifier
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "OtherDataType")]
     public class ObjectIdOtherDataType : OtherDataType
     {
         /// <summary>

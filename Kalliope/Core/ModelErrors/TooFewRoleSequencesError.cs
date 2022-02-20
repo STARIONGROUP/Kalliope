@@ -20,9 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An external constraint requires multiple roles (SetConstraint) or multiple role sequences (SetComparisonConstraint)
     /// </summary>
+    [Description("Too Few Role Sequences")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "TooFewRoleSequencesError")]
+    [Container(typeName: "SetConstraint", propertyName: "TooFewRoleSequencesError")]
     public class TooFewRoleSequencesError : ModelError
     {
     }

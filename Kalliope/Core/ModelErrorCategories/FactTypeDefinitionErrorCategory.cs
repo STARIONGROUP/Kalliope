@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Fact Type Definition Errors
     /// </summary>
+    [Description("Fact Type Definition Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class FactTypeDefinitionErrorCategory : ModelErrorCategory
     {
     }

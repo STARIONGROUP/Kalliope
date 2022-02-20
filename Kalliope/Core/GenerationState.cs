@@ -23,9 +23,13 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// State information relating to automatic mapping algorithms
     /// </summary>
+    [Description("State information relating to automatic mapping algorithms")]
+    [Domain(isAbstract: false, general: "")]
     public class GenerationState
     {
         /// <summary>
@@ -39,11 +43,15 @@ namespace Kalliope.Core
         /// <summary>
         /// A unique identifier for this element
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="GenerationSetting"/>s
         /// </summary>
+        [Description("")]
+        [Property(name: "GenerationSettings", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationSetting")]
         public List<GenerationSetting> GenerationSettings { get; set; }
 
         /// <summary>

@@ -20,15 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Validation error display filters based on error type and category
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "ModelErrorDisplayFilter")]
     public class ModelErrorDisplayFilter
     {
+        [Description("")]
+        [Property(name: "ExcludedCategories", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string ExcludedCategories { get; set; }
 
+        [Description("")]
+        [Property(name: "IncludedErrors", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string IncludedErrors { get; set; }
 
+        [Description("")]
+        [Property(name: "ExcludedErrors", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string ExcludedErrors { get; set; }
     }
 }

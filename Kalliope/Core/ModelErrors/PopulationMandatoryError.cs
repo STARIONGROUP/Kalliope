@@ -20,9 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The role player of the roles in a mandatory constraint has an instance that is not used by any of the roles
     /// </summary>
+    [Description("Missing Mandatory Sample Population")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "MandatoryConstraint", propertyName: "PopulationMandatoryErrors")]
+    [Container(typeName: "ObjectTypeInstance", propertyName: "PopulationMandatoryErrors")]
     public class PopulationMandatoryError : ModelError
     {
     }

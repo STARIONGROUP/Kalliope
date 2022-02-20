@@ -20,14 +20,21 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
     /// </summary>
+    [Description("An instance of an EntityType Subtype that uses the preferred identification scheme of a parent")]
+    [Domain(isAbstract: false, general: "ObjectTypeInstance")]
+    [Container(typeName: "ObjectType", propertyName: "EntityTypeSubtypeInstances")]
     public class EntityTypeSubtypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// Gets or sets the referenced <see cref="EntityTypeInstance"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance")]
         public EntityTypeInstance SupertypeInstance { get; set; }
     }
 }

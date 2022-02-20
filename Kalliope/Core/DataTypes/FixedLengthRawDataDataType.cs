@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Values are in the set of fixed length binary data. Supports the Length facet
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "RawDataDataType")]
     public class FixedLengthRawDataDataType : RawDataDataType
     {
         /// <summary>

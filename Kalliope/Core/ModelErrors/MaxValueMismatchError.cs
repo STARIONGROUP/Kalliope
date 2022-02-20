@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The maximum value of a value range cannot be interpreted as the specified data type
     /// </summary>
+    [Description("Maximum Bound of Value Range Invalid for DataType")]
+    [Domain(isAbstract: false, general: "ValueConstraintError")]
+    [Container(typeName: "ValueRange", propertyName: "MaxValueMismatchError")]
     public class MaxValueMismatchError : ValueConstraintError
     {
     }

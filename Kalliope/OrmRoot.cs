@@ -23,6 +23,7 @@ namespace Kalliope
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
     using Kalliope.Core;
     using Kalliope.Diagrams;
 
@@ -32,6 +33,7 @@ namespace Kalliope
     /// <summary>
     /// The <see cref="OrmRoot"/> represents the root node of an .orm file
     /// </summary>
+    [Domain(isRoot:true, isAbstract:false, general:"")]
     public class OrmRoot
     {
         /// <summary>
@@ -69,21 +71,25 @@ namespace Kalliope
         /// <summary>
         /// Gets or sets the <see cref="ORMModel"/> contained by .orm file
         /// </summary>
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, typeName: "ORMModel")]
         public ORMModel Model { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="NameGenerator"/> contained by .orm file
         /// </summary>
+        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object)]
         public NameGenerator NameGenerator { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="GenerationState"/> contained by .orm file
         /// </summary>
+        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object)]
         public GenerationState GenerationState { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="ORMDiagram"/>s contained by the .orm file
         /// </summary>
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object)]
         public List<ORMDiagram> Diagrams { get; set; }
 
         /// <summary>

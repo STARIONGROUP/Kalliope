@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The roles opposite a preferred identifier must have at least one mandatory constraint that covers a subset of the opposite roles
     /// </summary>
+    [Description("EntityType with Compound Preferred Identifier Requires Mandatory Constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ObjectType", propertyName: "PreferredIdentifierRequiresMandatoryError")]
     public class PreferredIdentifierRequiresMandatoryError : ModelError
     {
     }

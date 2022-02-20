@@ -20,13 +20,13 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using Kalliope.Attributes;
 
     /// <summary>
     /// Duplicate Group Names
     /// </summary>
+    [Description("Duplicate Group Names")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public class ElementGroupingDuplicateNameError : DuplicateNameError
     {
     }

@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple functions have the same name
     /// </summary>
+    [Description("Duplicate Function Names")]
+    [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class FunctionDuplicateNameError : DuplicateNameError
     {
     }

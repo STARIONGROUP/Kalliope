@@ -20,6 +20,11 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
+    [Description("")]
+    [Domain(isAbstract: false, general: "CardinalityConstraint")]
+    [Container(typeName: "Role", propertyName: "Cardinality")]
     public class UnaryRoleCardinalityConstraint : CardinalityConstraint
     {
     }

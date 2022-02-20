@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A parameter binding is missing for the parameters associated with the function that calculates a calculated value
     /// </summary>
+    [Description("A path calculation is missing an input for a function parameter")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "CalculatedPathValue", propertyName: "ParameterBindingErrors")]
     public class CalculatedPathValueParameterBindingError : ModelError
     {
     }

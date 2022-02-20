@@ -22,6 +22,8 @@ namespace Kalliope.Core
 {
     using System;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A PathedRole has an explicit correlation with a PathedRole that has an incompatible role player
     /// </summary>

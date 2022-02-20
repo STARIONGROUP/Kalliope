@@ -20,15 +20,17 @@
 
 namespace Kalliope.Diagrams
 {
-    using System;
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// A diagram that represents items contained by an <see cref="ORMModel"/>
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "")]
     public class ORMDiagram
     {
         private string subjectReference = string.Empty;
@@ -50,31 +52,43 @@ namespace Kalliope.Diagrams
         /// <summary>
         /// Gets or sets the subject <see cref="ORMModel"/> that is represented by this shape
         /// </summary>
+        [Description("The subject ORMModel that is represented by this Diagram")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
         public ORMModel Subject { get; set; }
 
         /// <summary>
         /// Gets or sets the unique identifier
         /// </summary>
+        [Description("")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the human readable name
         /// </summary>
+        [Description("")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the base font
         /// </summary>
+        [Description("")]
+        [Property(name: "BaseFontName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string BaseFontName { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the base font
         /// </summary>
+        [Description("")]
+        [Property(name: "BaseFontSize", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Double, defaultValue: "", typeName: "")]
         public double BaseFontSize { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this a complete view or not
         /// </summary>
+        [Description("")]
+        [Property(name: "IsCompleteView", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsCompleteView { get; set; }
 
         /// <summary>
@@ -84,41 +98,57 @@ namespace Kalliope.Diagrams
         /// If this is set to true, then all shapes in the model will be loaded onto this diagram when the diagram is first loaded.
         /// AutoPopulateShapes is never written, but is useful for importing models with no diagram information
         /// </remarks>
+        [Description("If this is set to true, then all shapes in the model will be loaded onto this diagram when the diagram is first loaded. AutoPopulateShapes is never written, but is useful for importing models with no diagram information")]
+        [Property(name: "AutoPopulateShapes", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool AutoPopulateShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="ObjectTypeShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectTypeShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeShape")]
         public List<ObjectTypeShape> ObjectTypeShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="FactTypeShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FactTypeShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeShape")]
         public List<FactTypeShape> FactTypeShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="ExternalConstraintShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ExternalConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExternalConstraintShape")]
         public List<ExternalConstraintShape> ExternalConstraintShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="FrequencyConstraintShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintShape")]
         public List<FrequencyConstraintShape> FrequencyConstraintShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="RingConstraintShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RingConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RingConstraintShape")]
         public List<RingConstraintShape> RingConstraintShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="ValueComparisonConstraintShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ValueComparisonConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonConstraintShape")]
         public List<ValueComparisonConstraintShape> ValueComparisonConstraintShapes { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="ModelNoteShape"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ModelNoteShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelNoteShape")]
         public List<ModelNoteShape> ModelNoteShapes { get; set; }
 
         /// <summary>

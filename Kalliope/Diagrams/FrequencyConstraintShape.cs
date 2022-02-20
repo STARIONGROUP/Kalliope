@@ -20,11 +20,14 @@
 
 namespace Kalliope.Diagrams
 {
+    using Kalliope.Attributes;
     using Kalliope.Core;
 
     /// <summary>
     /// Shape that represents a <see cref="FrequencyConstraint"/>
     /// </summary>
+    [Description("Shape that represents a FrequencyConstraint")]
+    [Domain(isAbstract: false, general: "ExternalConstraintShape")]
     public class FrequencyConstraintShape : ExternalConstraintShape
     {
     }

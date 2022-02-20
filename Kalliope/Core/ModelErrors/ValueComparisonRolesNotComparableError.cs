@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// The roles in a value comparison constraint cannot be compared
     /// </summary>
+    [Description("Value Comparison Roles Not Comparable")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "ValueComparisonConstraint", propertyName: "RolesNotComparableError")]
     public class ValueComparisonRolesNotComparableError : ModelError
     {
     }

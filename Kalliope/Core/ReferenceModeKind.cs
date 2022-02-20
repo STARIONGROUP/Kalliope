@@ -23,9 +23,14 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Setting for a specific kind of reference mode pattern
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "ORMModel", propertyName: "ReferenceModeKinds")]
     public class ReferenceModeKind : ORMModelElement
     {
         /// <summary>
@@ -52,11 +57,15 @@ namespace Kalliope.Core
         /// and reference mode name (replacement field {1}). Given an entity type name and a value type name, reference mode FormatStrings are used to 
         /// determine the associated reference mode and reference mode kind
         /// </summary>
+        [Description("Default format string for reference mode patterns with this ReferenceModeKind. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
+        [Property(name: "FormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string FormatString { get; set; }
 
         /// <summary>
         /// One of Popular, UnitBased, or General
         /// </summary>
+        [Description("One of Popular, UnitBased, or General")]
+        [Property(name: "ReferenceModeType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "General", typeName: "ReferenceModeType")]
         public ReferenceModeType ReferenceModeType { get; set; }
 
         /// <summary>

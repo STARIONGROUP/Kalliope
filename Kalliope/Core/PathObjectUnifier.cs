@@ -18,16 +18,25 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type
     /// </summary>
+    [Description("A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "LeadRolePath", propertyName: "ObjectUnifiers")]
     public class PathObjectUnifier : ORMModelElement
     {
         /// <summary>
         /// Gets or sets the owned <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "CompatibilityError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifierRequiresCompatibleObjectTypesError")]
         public PathObjectUnifierRequiresCompatibleObjectTypesError CompatibilityError { get; set; }
     }
 }

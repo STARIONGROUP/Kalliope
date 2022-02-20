@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// An internal uniqueness constraint must span at least n minus one roles, where n is the number of roles in the fact type
     /// </summary>
+    [Description("Insufficient Roles for Internal Uniqueness Constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "UniquenessConstraint", propertyName: "NMinusOneError")]
     public class NMinusOneError : ModelError
     {
     }

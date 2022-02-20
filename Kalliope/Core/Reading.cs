@@ -24,9 +24,14 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Predicate text corresponding to a specific role traversal
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "ReadingOrder", propertyName: "Readings")]
     public class Reading : ORMModelElement
     {
         /// <summary>
@@ -60,14 +65,24 @@ namespace Kalliope.Core
         /// <summary>
         /// The text of this reading. Includes ordered replacement fields corresponding to the parent ReadingOrder
         /// </summary>
+        [Description("The text of this reading. Includes ordered replacement fields corresponding to the parent ReadingOrder")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
 
+        [Description("")]
+        [Property(name: "Signature", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Signature { get; set; }
 
+        [Description("")]
+        [Property(name: "IsPrimaryForReadingOrder", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsPrimaryForReadingOrder { get; set; }
 
+        [Description("")]
+        [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Language { get; set; }
 
+        [Description("")]
+        [Property(name: "IsPrimaryForFactType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsPrimaryForFactType { get; set; }
 
         /// <summary>
@@ -78,18 +93,31 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the owned <see cref="TooManyReadingRolesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooManyRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooManyReadingRolesError")]
         public TooManyReadingRolesError TooManyRolesError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="TooManyReadingRolesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooFewRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewReadingRolesError")]
         public TooFewReadingRolesError TooFewRolesError { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="ReadingRequiresUserModificationError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RequiresUserModificationError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingRequiresUserModificationError")]
         public ReadingRequiresUserModificationError RequiresUserModificationError { get; set; }
 
+        /// <summary>
+        /// Gets or sets the referenced <see cref="DuplicateReadingSignatureError"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateSignatureError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DuplicateReadingSignatureError")]
+        public DuplicateReadingSignatureError DuplicateSignatureError { get; set; }
+        
         /// <summary>
         /// Generates a <see cref="Reading"/> object from its XML representation.
         /// </summary>

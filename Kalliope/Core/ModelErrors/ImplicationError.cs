@@ -20,9 +20,14 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// A constraint is implied by another constraint in the model
     /// </summary>
+    [Description("Constraint Implied by Intersecting Constraints")]
+    [Domain(isAbstract: false, general: "ModelError")]
+    [Container(typeName: "SetConstraint", propertyName: "ImplicationError")]
     public class ImplicationError : ModelError
     {
     }

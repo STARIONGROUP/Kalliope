@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Derivation Path and Join Path Errors
     /// </summary>
+    [Description("Derivation Path and Join Path Errors")]
+    [Domain(isAbstract: true, general: "ModelErrorCategory")]
     public abstract class RolePathErrorCategory : ModelErrorCategory
     {
     }

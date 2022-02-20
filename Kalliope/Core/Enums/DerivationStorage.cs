@@ -20,19 +20,24 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Specify if derived fact or object instances should be recalculated on demand, or calculated on change and stored
     /// </summary>
+    [Description("Specify if derived fact or object instances should be recalculated on demand, or calculated on change and stored")]
     public enum DerivationStorage
     {
         /// <summary>
         /// Fact instances are recalculated on demand
         /// </summary>
+        [Description("Fact instances are recalculated on demand")]
         NotStored = 0,
 
         /// <summary>
         /// Fact instances are calculated on change and stored
         /// </summary>
+        [Description("Fact instances are calculated on change and stored")]
         Stored = 1
     }
 }

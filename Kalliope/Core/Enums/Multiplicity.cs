@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Defines the multiplicity for the roles.
     /// The UML-style multiplicity for a role in a binary fact type. Derived from internal uniqueness and mandatory constraints

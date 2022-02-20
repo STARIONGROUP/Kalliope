@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Attributes;
+
     /// <summary>
     /// Multiple constraints share the same name
     /// </summary>
+    [Description("Duplicate Constraint Names")]
+    [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class ConstraintDuplicateNameError : DuplicateNameError
     {
     }
