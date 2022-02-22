@@ -129,7 +129,7 @@ namespace Kalliope.Tests
             Assert.That(ormRoot.NameGenerator.AutomaticallyShortenNames, Is.True);
             Assert.That(ormRoot.NameGenerator.UseTargetDefaultMaximum, Is.True);
             Assert.That(ormRoot.NameGenerator.UserDefinedMaximum, Is.EqualTo(128));
-            Assert.That(ormRoot.NameGenerator.CasingOption, Is.EqualTo(NameGeneratorCasingOption.None));
+            Assert.That(ormRoot.NameGenerator.CasingOption, Is.EqualTo(NameGeneratorCasingOption.Uninitialized));
             Assert.That(ormRoot.NameGenerator.SpacingFormat, Is.EqualTo(NameGeneratorSpacingFormat.Retain));
             Assert.That(ormRoot.NameGenerator.SpacingReplacement, Is.Empty);
         }
