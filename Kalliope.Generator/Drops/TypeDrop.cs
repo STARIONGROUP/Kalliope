@@ -24,7 +24,6 @@ namespace Kalliope.Generator.Drops
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using System.Text;
 
     using DotLiquid;
 
@@ -79,11 +78,20 @@ namespace Kalliope.Generator.Drops
         /// Gets the <see cref="Type"/> that is encapsulated by the <see cref="Drop"/>
         /// </summary>
         public Type Type { get; private set; }
-        
+
+        /// <summary>
+        /// Gets the <see cref="DomainAttribute"/> that provides metadata about the <see cref="Type"/>
+        /// </summary>
         public DomainAttribute DomainAttribute { get; private set; }
 
+        /// <summary>
+        /// Gets the <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="Type"/>
+        /// </summary>
         public DescriptionAttribute DescriptionAttribute { get; private set; }
 
+        /// <summary>
+        /// Gets the contained <see cref="PropertyDrop"/>s of the current type <see cref="TypeDrop"/>
+        /// </summary>
         public List<PropertyDrop> Properties { get; private set;  }
 
         /// <summary>

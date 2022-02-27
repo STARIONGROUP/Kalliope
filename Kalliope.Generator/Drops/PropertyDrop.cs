@@ -21,9 +21,7 @@
 namespace Kalliope.Generator.Drops
 {
     using System;
-    using System.Collections.Generic;
     using System.Reflection;
-    using System.Text;
 
     using DotLiquid;
 
@@ -35,6 +33,18 @@ namespace Kalliope.Generator.Drops
     /// </summary>
     public class PropertyDrop : Drop
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PropertyDrop"/> class
+        /// </summary>
+        /// <param name="propertyInfo">
+        /// The <see cref="PropertyInfo"/> that is encapsulated by the <see cref="Drop"/>
+        /// </param>
+        /// <param name="propertyAttribute">
+        /// The <see cref="PropertyAttribute"/> that provides metadata about the <see cref="Type"/>
+        /// </param>
+        /// <param name="descriptionAttribute">
+        /// The <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="PropertyInfo"/>
+        /// </param>
         public PropertyDrop(PropertyInfo propertyInfo, PropertyAttribute propertyAttribute, DescriptionAttribute descriptionAttribute)
         {
             this.PropertyInfo = propertyInfo;
