@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Contradicting Exclusion and Subset Constraints
+    /// A Data Transfer Object that represents a ExclusionContradictsSubsetError
     /// </summary>
-    public  partial class ExclusionContradictsSubsetError : ContradictionError
+    /// <remarks>
+    /// Contradicting Exclusion and Subset Constraints
+    /// </remarks>
+    public partial class ExclusionContradictsSubsetError : ContradictionError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExclusionContradictsSubsetError"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a RoleProxy
     /// </summary>
-    public  partial class RoleProxy : RoleBase
+    public partial class RoleProxy : RoleBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleProxy"/> class.

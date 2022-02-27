@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A Group owner, allows group containment, order, and naming enforcement
+    /// A Data Transfer Object that represents a ElementGroupingSet
     /// </summary>
-    public  partial class ElementGroupingSet
+    /// <remarks>
+    /// A Group owner, allows group containment, order, and naming enforcement
+    /// </remarks>
+    public partial class ElementGroupingSet
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingSet"/> class.

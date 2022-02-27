@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a FrequencyConstraint
+    /// A Data Transfer Object that represents a FrequencyConstraintShape
     /// </summary>
-    public  partial class FrequencyConstraintShape : ExternalConstraintShape
+    /// <remarks>
+    /// Shape that represents a FrequencyConstraint
+    /// </remarks>
+    public partial class FrequencyConstraintShape : ExternalConstraintShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraintShape"/> class.

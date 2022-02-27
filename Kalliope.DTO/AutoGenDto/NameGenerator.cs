@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Name generation settings
+    /// A Data Transfer Object that represents a NameGenerator
     /// </summary>
-    public  partial class NameGenerator : NameConsumer
+    /// <remarks>
+    /// Name generation settings
+    /// </remarks>
+    public partial class NameGenerator : NameConsumer
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameGenerator"/> class.

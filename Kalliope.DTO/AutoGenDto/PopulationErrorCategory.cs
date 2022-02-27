@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Sample Population Errors
+    /// A Data Transfer Object that represents a PopulationErrorCategory
     /// </summary>
-    public  abstract partial class PopulationErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Sample Population Errors
+    /// </remarks>
+    public abstract partial class PopulationErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PopulationErrorCategory"/> class.

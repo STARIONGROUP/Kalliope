@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SetComparisonConstraint
     /// </summary>
-    public  abstract partial class SetComparisonConstraint : ORMNamedElement
+    public abstract partial class SetComparisonConstraint : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.

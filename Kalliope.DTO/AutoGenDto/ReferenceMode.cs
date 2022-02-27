@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ReferenceMode
     /// </summary>
-    public  abstract partial class ReferenceMode : ORMNamedElement
+    public abstract partial class ReferenceMode : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceMode"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A calculation using an aggregate function requires an aggregation context
+    /// A Data Transfer Object that represents a CalculatedPathValueRequiresAggregationContextError
     /// </summary>
-    public  partial class CalculatedPathValueRequiresAggregationContextError : ModelError
+    /// <remarks>
+    /// A calculation using an aggregate function requires an aggregation context
+    /// </remarks>
+    public partial class CalculatedPathValueRequiresAggregationContextError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueRequiresAggregationContextError"/> class.

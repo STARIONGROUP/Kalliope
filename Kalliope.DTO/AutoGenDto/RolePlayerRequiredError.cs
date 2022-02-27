@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Role Player Required
+    /// A Data Transfer Object that represents a RolePlayerRequiredError
     /// </summary>
-    public  partial class RolePlayerRequiredError : ModelError
+    /// <remarks>
+    /// Role Player Required
+    /// </remarks>
+    public partial class RolePlayerRequiredError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePlayerRequiredError"/> class.

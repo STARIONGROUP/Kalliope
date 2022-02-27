@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Missing Objectified FactType Instance
+    /// A Data Transfer Object that represents a ObjectifiedInstanceRequiredError
     /// </summary>
-    public  partial class ObjectifiedInstanceRequiredError : ModelError
+    /// <remarks>
+    /// Missing Objectified FactType Instance
+    /// </remarks>
+    public partial class ObjectifiedInstanceRequiredError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedInstanceRequiredError"/> class.

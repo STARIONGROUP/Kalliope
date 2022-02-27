@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A role path defining a fact type derivation
+    /// A Data Transfer Object that represents a FactTypeDerivationRule
     /// </summary>
-    public  partial class FactTypeDerivationRule : RoleProjectedDerivationRule
+    /// <remarks>
+    /// A role path defining a fact type derivation
+    /// </remarks>
+    public partial class FactTypeDerivationRule : RoleProjectedDerivationRule
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeDerivationRule"/> class.

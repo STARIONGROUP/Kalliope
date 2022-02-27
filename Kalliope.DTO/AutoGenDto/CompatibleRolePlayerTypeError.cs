@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Incompatible Constrained Role Players
+    /// A Data Transfer Object that represents a CompatibleRolePlayerTypeError
     /// </summary>
-    public  partial class CompatibleRolePlayerTypeError : ModelError
+    /// <remarks>
+    /// Incompatible Constrained Role Players
+    /// </remarks>
+    public partial class CompatibleRolePlayerTypeError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CompatibleRolePlayerTypeError"/> class.

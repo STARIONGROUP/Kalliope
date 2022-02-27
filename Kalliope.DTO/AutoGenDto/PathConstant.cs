@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A constant value used directly in a path
+    /// A Data Transfer Object that represents a PathConstant
     /// </summary>
-    public  partial class PathConstant : ORMModelElement
+    /// <remarks>
+    /// A constant value used directly in a path
+    /// </remarks>
+    public partial class PathConstant : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathConstant"/> class.

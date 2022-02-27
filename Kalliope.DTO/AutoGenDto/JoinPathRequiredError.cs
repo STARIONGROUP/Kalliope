@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Join Required for Multiple Fact Types
+    /// A Data Transfer Object that represents a JoinPathRequiredError
     /// </summary>
-    public  partial class JoinPathRequiredError : ModelError
+    /// <remarks>
+    /// Join Required for Multiple Fact Types
+    /// </remarks>
+    public partial class JoinPathRequiredError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinPathRequiredError"/> class.

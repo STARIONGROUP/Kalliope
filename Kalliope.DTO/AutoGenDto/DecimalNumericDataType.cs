@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a DecimalNumericDataType
     /// </summary>
-    public  partial class DecimalNumericDataType : NumericDataType
+    public partial class DecimalNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DecimalNumericDataType"/> class.

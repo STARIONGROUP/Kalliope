@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a OrmRoot
     /// </summary>
-    public  partial class OrmRoot
+    /// <remarks>
+    /// 
+    /// </remarks>
+    public partial class OrmRoot
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OrmRoot"/> class.

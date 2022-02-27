@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SubsetConstraint
     /// </summary>
-    public  partial class SubsetConstraint : SetComparisonConstraint
+    public partial class SubsetConstraint : SetComparisonConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.

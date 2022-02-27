@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Cardinality Ranges Overlap
+    /// A Data Transfer Object that represents a CardinalityRangeOverlapError
     /// </summary>
-    public  partial class CardinalityRangeOverlapError : ModelError
+    /// <remarks>
+    /// Cardinality Ranges Overlap
+    /// </remarks>
+    public partial class CardinalityRangeOverlapError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityRangeOverlapError"/> class.

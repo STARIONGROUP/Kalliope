@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// EntityType Requires Reference Scheme
+    /// A Data Transfer Object that represents a EntityTypeRequiresReferenceSchemeError
     /// </summary>
-    public  partial class EntityTypeRequiresReferenceSchemeError : ModelError
+    /// <remarks>
+    /// EntityType Requires Reference Scheme
+    /// </remarks>
+    public partial class EntityTypeRequiresReferenceSchemeError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTypeRequiresReferenceSchemeError"/> class.

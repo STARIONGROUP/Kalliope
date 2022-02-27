@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A constraint role sequence join path projection must project on every role in the sequence
+    /// A Data Transfer Object that represents a PartialConstraintRoleSequenceJoinPathProjectionError
     /// </summary>
-    public  partial class PartialConstraintRoleSequenceJoinPathProjectionError : ModelError
+    /// <remarks>
+    /// A constraint role sequence join path projection must project on every role in the sequence
+    /// </remarks>
+    public partial class PartialConstraintRoleSequenceJoinPathProjectionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PartialConstraintRoleSequenceJoinPathProjectionError"/> class.

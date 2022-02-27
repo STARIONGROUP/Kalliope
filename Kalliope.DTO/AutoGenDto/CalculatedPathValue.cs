@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A calculated value used in a role path
+    /// A Data Transfer Object that represents a CalculatedPathValue
     /// </summary>
-    public  partial class CalculatedPathValue : ORMModelElement
+    /// <remarks>
+    /// A calculated value used in a role path
+    /// </remarks>
+    public partial class CalculatedPathValue : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValue"/> class.

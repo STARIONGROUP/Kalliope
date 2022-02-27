@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a LargeLengthRawDataDataType
     /// </summary>
-    public  partial class LargeLengthRawDataDataType : RawDataDataType
+    public partial class LargeLengthRawDataDataType : RawDataDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LargeLengthRawDataDataType"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Maximum Bound of Value Range Invalid for DataType
+    /// A Data Transfer Object that represents a MaxValueMismatchError
     /// </summary>
-    public  partial class MaxValueMismatchError : ValueConstraintError
+    /// <remarks>
+    /// Maximum Bound of Value Range Invalid for DataType
+    /// </remarks>
+    public partial class MaxValueMismatchError : ValueConstraintError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MaxValueMismatchError"/> class.

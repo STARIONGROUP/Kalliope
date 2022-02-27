@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a ModelNote
+    /// A Data Transfer Object that represents a ModelNoteShape
     /// </summary>
-    public  partial class ModelNoteShape : FloatingTextShape
+    /// <remarks>
+    /// Shape that represents a ModelNote
+    /// </remarks>
+    public partial class ModelNoteShape : FloatingTextShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelNoteShape"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ObjectTypeCardinalityConstraint
     /// </summary>
-    public  partial class ObjectTypeCardinalityConstraint : CardinalityConstraint
+    public partial class ObjectTypeCardinalityConstraint : CardinalityConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeCardinalityConstraint"/> class.

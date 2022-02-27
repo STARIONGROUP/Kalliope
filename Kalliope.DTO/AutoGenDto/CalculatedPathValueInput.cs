@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An input value or bag passed to a function parameter calculate a value
+    /// A Data Transfer Object that represents a CalculatedPathValueInput
     /// </summary>
-    public  partial class CalculatedPathValueInput : ORMModelElement
+    /// <remarks>
+    /// An input value or bag passed to a function parameter calculate a value
+    /// </remarks>
+    public partial class CalculatedPathValueInput : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueInput"/> class.

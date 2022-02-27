@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A role path defining subtype population
+    /// A Data Transfer Object that represents a SubtypeDerivationRule
     /// </summary>
-    public  partial class SubtypeDerivationRule : RolePathOwner
+    /// <remarks>
+    /// A role path defining subtype population
+    /// </remarks>
+    public partial class SubtypeDerivationRule : RolePathOwner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeDerivationRule"/> class.

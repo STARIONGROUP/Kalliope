@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a RoleValueConstraint or a ValueTypeValueConstraint
+    /// A Data Transfer Object that represents a ValueConstraintShape
     /// </summary>
-    public  partial class ValueConstraintShape : FloatingTextShape
+    /// <remarks>
+    /// Shape that represents a RoleValueConstraint or a ValueTypeValueConstraint
+    /// </remarks>
+    public partial class ValueConstraintShape : FloatingTextShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraintShape"/> class.

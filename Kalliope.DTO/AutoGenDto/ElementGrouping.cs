@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A group of elements. A GroupType is associated with the Group to control the group contents
+    /// A Data Transfer Object that represents a ElementGrouping
     /// </summary>
-    public  partial class ElementGrouping : ORMNamedElement
+    /// <remarks>
+    /// A group of elements. A GroupType is associated with the Group to control the group contents
+    /// </remarks>
+    public partial class ElementGrouping : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGrouping"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a ReadingOrder
+    /// A Data Transfer Object that represents a ReadingShape
     /// </summary>
-    public  partial class ReadingShape : FloatingTextShape
+    /// <remarks>
+    /// Shape that represents a ReadingOrder
+    /// </remarks>
+    public partial class ReadingShape : FloatingTextShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReadingShape"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Abstract super-type from which all shape classes derive
+    /// A Data Transfer Object that represents a ORMBaseShape
     /// </summary>
-    public  abstract partial class ORMBaseShape
+    /// <remarks>
+    /// Abstract super-type from which all shape classes derive
+    /// </remarks>
+    public abstract partial class ORMBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMBaseShape"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SubtypeFact
     /// </summary>
-    public  partial class SubtypeFact : FactType
+    public partial class SubtypeFact : FactType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeFact"/> class.

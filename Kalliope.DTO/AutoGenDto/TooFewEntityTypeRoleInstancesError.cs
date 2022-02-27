@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Incomplete Sample Population to Identify EntityType
+    /// A Data Transfer Object that represents a TooFewEntityTypeRoleInstancesError
     /// </summary>
-    public  partial class TooFewEntityTypeRoleInstancesError : ModelError
+    /// <remarks>
+    /// Incomplete Sample Population to Identify EntityType
+    /// </remarks>
+    public partial class TooFewEntityTypeRoleInstancesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TooFewEntityTypeRoleInstancesError"/> class.

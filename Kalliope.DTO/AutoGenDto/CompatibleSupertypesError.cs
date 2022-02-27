@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Incompatible or Transitive Supertypes
+    /// A Data Transfer Object that represents a CompatibleSupertypesError
     /// </summary>
-    public  partial class CompatibleSupertypesError : ModelError
+    /// <remarks>
+    /// Incompatible or Transitive Supertypes
+    /// </remarks>
+    public partial class CompatibleSupertypesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CompatibleSupertypesError"/> class.

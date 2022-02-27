@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A function or operator used to represented a calculation algorithm.
+    /// A Data Transfer Object that represents a Function
     /// </summary>
-    public  partial class Function : ORMNamedElement
+    /// <remarks>
+    /// A function or operator used to represented a calculation algorithm.
+    /// </remarks>
+    public partial class Function : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Function"/> class.

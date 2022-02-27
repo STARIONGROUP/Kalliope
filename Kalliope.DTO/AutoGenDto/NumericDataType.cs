@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a NumericDataType
     /// </summary>
-    public  abstract partial class NumericDataType : DataType
+    public abstract partial class NumericDataType : DataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NumericDataType"/> class.

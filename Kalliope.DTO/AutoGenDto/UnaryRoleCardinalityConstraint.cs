@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a UnaryRoleCardinalityConstraint
     /// </summary>
-    public  partial class UnaryRoleCardinalityConstraint : CardinalityConstraint
+    public partial class UnaryRoleCardinalityConstraint : CardinalityConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnaryRoleCardinalityConstraint"/> class.

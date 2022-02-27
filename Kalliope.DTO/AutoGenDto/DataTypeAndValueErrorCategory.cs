@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// DataType and Value Errors
+    /// A Data Transfer Object that represents a DataTypeAndValueErrorCategory
     /// </summary>
-    public  abstract partial class DataTypeAndValueErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// DataType and Value Errors
+    /// </remarks>
+    public abstract partial class DataTypeAndValueErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataTypeAndValueErrorCategory"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a FloatingPointNumericDataType
     /// </summary>
-    public  partial class FloatingPointNumericDataType : NumericDataType
+    public partial class FloatingPointNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FloatingPointNumericDataType"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A query used as a component of a role path
+    /// A Data Transfer Object that represents a Subquery
     /// </summary>
-    public  partial class Subquery : QueryBase
+    /// <remarks>
+    /// A query used as a component of a role path
+    /// </remarks>
+    public partial class Subquery : QueryBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Subquery"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Incomplete FactType Sample Population
+    /// A Data Transfer Object that represents a TooFewFactTypeRoleInstancesError
     /// </summary>
-    public  partial class TooFewFactTypeRoleInstancesError : ModelError
+    /// <remarks>
+    /// Incomplete FactType Sample Population
+    /// </remarks>
+    public partial class TooFewFactTypeRoleInstancesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TooFewFactTypeRoleInstancesError"/> class.

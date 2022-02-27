@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A path calculation is missing an input for a function parameter
+    /// A Data Transfer Object that represents a CalculatedPathValueParameterBindingError
     /// </summary>
-    public  partial class CalculatedPathValueParameterBindingError : ModelError
+    /// <remarks>
+    /// A path calculation is missing an input for a function parameter
+    /// </remarks>
+    public partial class CalculatedPathValueParameterBindingError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueParameterBindingError"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A branched path split from the end of another path
+    /// A Data Transfer Object that represents a RoleSubPath
     /// </summary>
-    public  partial class RoleSubPath : RolePath
+    /// <remarks>
+    /// A branched path split from the end of another path
+    /// </remarks>
+    public partial class RoleSubPath : RolePath
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleSubPath"/> class.

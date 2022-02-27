@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An abstract owner for one or more path objects
+    /// A Data Transfer Object that represents a SubtypeDerivationPath
     /// </summary>
-    public  abstract partial class SubtypeDerivationPath : ORMModelElement
+    /// <remarks>
+    /// An abstract owner for one or more path objects
+    /// </remarks>
+    public abstract partial class SubtypeDerivationPath : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeDerivationPath"/> class.

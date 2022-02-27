@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Unified path elements must have compatible object types
+    /// A Data Transfer Object that represents a PathObjectUnifierRequiresCompatibleObjectTypesError
     /// </summary>
-    public  partial class PathObjectUnifierRequiresCompatibleObjectTypesError : ModelError
+    /// <remarks>
+    /// Unified path elements must have compatible object types
+    /// </remarks>
+    public partial class PathObjectUnifierRequiresCompatibleObjectTypesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/> class.

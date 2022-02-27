@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A role path projection onto a derived role must be of a type that is compatible with the derived role
+    /// A Data Transfer Object that represents a DerivedRoleRequiresCompatibleProjectionError
     /// </summary>
-    public  partial class DerivedRoleRequiresCompatibleProjectionError : ModelError
+    /// <remarks>
+    /// A role path projection onto a derived role must be of a type that is compatible with the derived role
+    /// </remarks>
+    public partial class DerivedRoleRequiresCompatibleProjectionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DerivedRoleRequiresCompatibleProjectionError"/> class.

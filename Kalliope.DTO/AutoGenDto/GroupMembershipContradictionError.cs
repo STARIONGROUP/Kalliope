@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a GroupMembershipContradictionError
     /// </summary>
-    public  abstract partial class GroupMembershipContradictionError : ORMModelElement
+    public abstract partial class GroupMembershipContradictionError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMembershipContradictionError"/> class.

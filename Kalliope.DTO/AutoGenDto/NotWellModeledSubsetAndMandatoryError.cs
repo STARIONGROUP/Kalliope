@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Contradicting Subset and Mandatory Constraints
+    /// A Data Transfer Object that represents a NotWellModeledSubsetAndMandatoryError
     /// </summary>
-    public  partial class NotWellModeledSubsetAndMandatoryError : ModelError
+    /// <remarks>
+    /// Contradicting Subset and Mandatory Constraints
+    /// </remarks>
+    public partial class NotWellModeledSubsetAndMandatoryError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NotWellModeledSubsetAndMandatoryError"/> class.

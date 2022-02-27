@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// FactType Requires Internal Uniqueness Constraint
+    /// A Data Transfer Object that represents a FactTypeRequiresInternalUniquenessConstraintError
     /// </summary>
-    public  partial class FactTypeRequiresInternalUniquenessConstraintError : ModelError
+    /// <remarks>
+    /// FactType Requires Internal Uniqueness Constraint
+    /// </remarks>
+    public partial class FactTypeRequiresInternalUniquenessConstraintError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeRequiresInternalUniquenessConstraintError"/> class.

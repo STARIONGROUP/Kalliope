@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a InformalDerivationRule
     /// </summary>
-    public  abstract partial class InformalDerivationRule
+    public abstract partial class InformalDerivationRule
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InformalDerivationRule"/> class.

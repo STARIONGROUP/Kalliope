@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ModelNote
     /// </summary>
-    public  partial class ModelNote : Note
+    public partial class ModelNote : Note
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelNote"/> class.

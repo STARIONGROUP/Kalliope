@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SupertypeMetaRole
     /// </summary>
-    public  partial class SupertypeMetaRole : Role
+    public partial class SupertypeMetaRole : Role
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SupertypeMetaRole"/> class.

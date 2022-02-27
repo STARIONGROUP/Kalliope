@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Frequency Constraint Violated By Uniqueness Constraint
+    /// A Data Transfer Object that represents a FrequencyConstraintViolatedByUniquenessConstraintError
     /// </summary>
-    public  partial class FrequencyConstraintViolatedByUniquenessConstraintError : ModelError
+    /// <remarks>
+    /// Frequency Constraint Violated By Uniqueness Constraint
+    /// </remarks>
+    public partial class FrequencyConstraintViolatedByUniquenessConstraintError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraintViolatedByUniquenessConstraintError"/> class.

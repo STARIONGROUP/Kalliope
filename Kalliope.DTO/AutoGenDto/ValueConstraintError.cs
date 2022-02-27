@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Value Constraint Value Invalid for DataType
+    /// A Data Transfer Object that represents a ValueConstraintError
     /// </summary>
-    public  abstract partial class ValueConstraintError : ModelError
+    /// <remarks>
+    /// Value Constraint Value Invalid for DataType
+    /// </remarks>
+    public abstract partial class ValueConstraintError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraintError"/> class.

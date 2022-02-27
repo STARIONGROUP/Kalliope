@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ObjectUnifierRequiresCompatibleObjectTypesError
     /// </summary>
-    public  abstract partial class ObjectUnifierRequiresCompatibleObjectTypesError : ORMModelElement
+    public abstract partial class ObjectUnifierRequiresCompatibleObjectTypesError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectUnifierRequiresCompatibleObjectTypesError"/> class.

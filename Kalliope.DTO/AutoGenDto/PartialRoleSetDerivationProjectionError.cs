@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A fact type derivation projection must project on every role in the fact type.
+    /// A Data Transfer Object that represents a PartialRoleSetDerivationProjectionError
     /// </summary>
-    public  partial class PartialRoleSetDerivationProjectionError : ModelError
+    /// <remarks>
+    /// A fact type derivation projection must project on every role in the fact type.
+    /// </remarks>
+    public partial class PartialRoleSetDerivationProjectionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PartialRoleSetDerivationProjectionError"/> class.

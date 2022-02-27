@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate Group Names
+    /// A Data Transfer Object that represents a ElementGroupingDuplicateNameError
     /// </summary>
-    public  abstract partial class ElementGroupingDuplicateNameError : ModelErrorCategory
+    /// <remarks>
+    /// Duplicate Group Names
+    /// </remarks>
+    public abstract partial class ElementGroupingDuplicateNameError : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingDuplicateNameError"/> class.

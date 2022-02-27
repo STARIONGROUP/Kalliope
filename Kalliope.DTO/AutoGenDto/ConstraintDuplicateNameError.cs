@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate Constraint Names
+    /// A Data Transfer Object that represents a ConstraintDuplicateNameError
     /// </summary>
-    public  partial class ConstraintDuplicateNameError : DuplicateNameError
+    /// <remarks>
+    /// Duplicate Constraint Names
+    /// </remarks>
+    public partial class ConstraintDuplicateNameError : DuplicateNameError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintDuplicateNameError"/> class.

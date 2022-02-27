@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a RoleValueConstraint
     /// </summary>
-    public  partial class RoleValueConstraint : ValueConstraint
+    public partial class RoleValueConstraint : ValueConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleValueConstraint"/> class.

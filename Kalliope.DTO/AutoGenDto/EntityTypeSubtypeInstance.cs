@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
+    /// A Data Transfer Object that represents a EntityTypeSubtypeInstance
     /// </summary>
-    public  partial class EntityTypeSubtypeInstance : ObjectTypeInstance
+    /// <remarks>
+    /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
+    /// </remarks>
+    public partial class EntityTypeSubtypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTypeSubtypeInstance"/> class.

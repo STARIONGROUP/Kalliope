@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a NameConsumer
     /// </summary>
-    public  partial class NameConsumer : ORMModelElement
+    public partial class NameConsumer : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameConsumer"/> class.

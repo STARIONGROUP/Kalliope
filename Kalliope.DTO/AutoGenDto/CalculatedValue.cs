@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a CalculatedValue
     /// </summary>
-    public  abstract partial class CalculatedValue
+    public abstract partial class CalculatedValue
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedValue"/> class.

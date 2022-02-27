@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A path calculation must be consumed as a path condition, an input to another calculation, or as a projection from the path
+    /// A Data Transfer Object that represents a CalculatedPathValueMustBeConsumedError
     /// </summary>
-    public  partial class CalculatedPathValueMustBeConsumedError : ModelError
+    /// <remarks>
+    /// A path calculation must be consumed as a path condition, an input to another calculation, or as a projection from the path
+    /// </remarks>
+    public partial class CalculatedPathValueMustBeConsumedError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueMustBeConsumedError"/> class.

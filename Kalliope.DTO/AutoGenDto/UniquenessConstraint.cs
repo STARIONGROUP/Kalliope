@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a UniquenessConstraint
     /// </summary>
-    public  partial class UniquenessConstraint : SetConstraint
+    public partial class UniquenessConstraint : SetConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UniquenessConstraint"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Minimum Bound of Value Range Invalid for DataType
+    /// A Data Transfer Object that represents a MinValueMismatchError
     /// </summary>
-    public  partial class MinValueMismatchError : ValueConstraintError
+    /// <remarks>
+    /// Minimum Bound of Value Range Invalid for DataType
+    /// </remarks>
+    public partial class MinValueMismatchError : ValueConstraintError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MinValueMismatchError"/> class.

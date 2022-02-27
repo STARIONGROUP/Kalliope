@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a GenerationSetting
     /// </summary>
-    public  abstract partial class GenerationSetting
+    public abstract partial class GenerationSetting
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationSetting"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Population Violates Uniqueness Constraint
+    /// A Data Transfer Object that represents a PopulationUniquenessError
     /// </summary>
-    public  partial class PopulationUniquenessError : ModelError
+    /// <remarks>
+    /// Population Violates Uniqueness Constraint
+    /// </remarks>
+    public partial class PopulationUniquenessError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PopulationUniquenessError"/> class.

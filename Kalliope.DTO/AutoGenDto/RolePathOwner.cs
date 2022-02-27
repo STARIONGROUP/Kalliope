@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An abstract owner for one or more path objects
+    /// A Data Transfer Object that represents a RolePathOwner
     /// </summary>
-    public  abstract partial class RolePathOwner : ORMModelElement
+    /// <remarks>
+    /// An abstract owner for one or more path objects
+    /// </remarks>
+    public abstract partial class RolePathOwner : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePathOwner"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a JoinPathRequiresProjectionError
     /// </summary>
-    public  abstract partial class JoinPathRequiresProjectionError : ORMModelElement
+    public abstract partial class JoinPathRequiresProjectionError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinPathRequiresProjectionError"/> class.

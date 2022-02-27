@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a ObjectType
+    /// A Data Transfer Object that represents a ObjectifiedFactTypeNameShape
     /// </summary>
-    public  abstract partial class ObjectifiedFactTypeNameShape : FloatingTextShape
+    /// <remarks>
+    /// Shape that represents a ObjectType
+    /// </remarks>
+    public abstract partial class ObjectifiedFactTypeNameShape : FloatingTextShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedFactTypeNameShape"/> class.

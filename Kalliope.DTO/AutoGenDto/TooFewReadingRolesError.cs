@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// FactType has Fewer Roles than Reading Text
+    /// A Data Transfer Object that represents a TooFewReadingRolesError
     /// </summary>
-    public  partial class TooFewReadingRolesError : ModelError
+    /// <remarks>
+    /// FactType has Fewer Roles than Reading Text
+    /// </remarks>
+    public partial class TooFewReadingRolesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TooFewReadingRolesError"/> class.

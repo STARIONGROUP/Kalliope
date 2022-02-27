@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Roles in a fact type derivation rule must be projected from at least one role path
+    /// A Data Transfer Object that represents a RoleProjectedDerivationRequiresProjectionError
     /// </summary>
-    public  partial class RoleProjectedDerivationRequiresProjectionError : ModelError
+    /// <remarks>
+    /// Roles in a fact type derivation rule must be projected from at least one role path
+    /// </remarks>
+    public partial class RoleProjectedDerivationRequiresProjectionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleProjectedDerivationRequiresProjectionError"/> class.

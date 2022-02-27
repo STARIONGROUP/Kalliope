@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Values are in the set of automatically generated unsigned long integers
+    /// A Data Transfer Object that represents a AutoCounterNumericDataType
     /// </summary>
-    public  partial class AutoCounterNumericDataType : NumericDataType
+    /// <remarks>
+    /// Values are in the set of automatically generated unsigned long integers
+    /// </remarks>
+    public partial class AutoCounterNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AutoCounterNumericDataType"/> class.

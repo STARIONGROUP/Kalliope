@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Path to Identifying ValueType Detached
+    /// A Data Transfer Object that represents a ValueConstraintValueTypeDetachedError
     /// </summary>
-    public  partial class ValueConstraintValueTypeDetachedError : ValueConstraintError
+    /// <remarks>
+    /// Path to Identifying ValueType Detached
+    /// </remarks>
+    public partial class ValueConstraintValueTypeDetachedError : ValueConstraintError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraintValueTypeDetachedError"/> class.

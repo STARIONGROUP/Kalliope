@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ValueRange
     /// </summary>
-    public  partial class ValueRange : ORMModelElement
+    public partial class ValueRange : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueRange"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A formal function parameter describing expected input to a function
+    /// A Data Transfer Object that represents a FunctionParameter
     /// </summary>
-    public  partial class FunctionParameter : ORMNamedElement
+    /// <remarks>
+    /// A formal function parameter describing expected input to a function
+    /// </remarks>
+    public partial class FunctionParameter : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FunctionParameter"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A role path defining cross fact type relationships within a constraint role sequence
+    /// A Data Transfer Object that represents a ConstraintRoleSequenceJoinPath
     /// </summary>
-    public  partial class ConstraintRoleSequenceJoinPath : RolePathOwner
+    /// <remarks>
+    /// A role path defining cross fact type relationships within a constraint role sequence
+    /// </remarks>
+    public partial class ConstraintRoleSequenceJoinPath : RolePathOwner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequenceJoinPath"/> class.

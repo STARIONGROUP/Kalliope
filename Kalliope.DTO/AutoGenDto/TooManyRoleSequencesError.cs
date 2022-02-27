@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Too Many Role Sequences
+    /// A Data Transfer Object that represents a TooManyRoleSequencesError
     /// </summary>
-    public  partial class TooManyRoleSequencesError : ModelError
+    /// <remarks>
+    /// Too Many Role Sequences
+    /// </remarks>
+    public partial class TooManyRoleSequencesError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TooManyRoleSequencesError"/> class.

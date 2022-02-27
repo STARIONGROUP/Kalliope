@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Reference Scheme Errors
+    /// A Data Transfer Object that represents a ReferenceSchemeErrorCategory
     /// </summary>
-    public  abstract partial class ReferenceSchemeErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Reference Scheme Errors
+    /// </remarks>
+    public abstract partial class ReferenceSchemeErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceSchemeErrorCategory"/> class.

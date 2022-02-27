@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a NameUsage
     /// </summary>
-    public  abstract partial class NameUsage
+    public abstract partial class NameUsage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameUsage"/> class.

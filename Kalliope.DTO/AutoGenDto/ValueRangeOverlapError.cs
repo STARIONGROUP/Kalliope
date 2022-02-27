@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Value Ranges Overlap
+    /// A Data Transfer Object that represents a ValueRangeOverlapError
     /// </summary>
-    public  partial class ValueRangeOverlapError : ValueConstraintError
+    /// <remarks>
+    /// Value Ranges Overlap
+    /// </remarks>
+    public partial class ValueRangeOverlapError : ValueConstraintError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueRangeOverlapError"/> class.

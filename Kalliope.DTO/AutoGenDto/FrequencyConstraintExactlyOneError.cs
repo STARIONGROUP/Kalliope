@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Represent Frequency Constraint of Exactly One as Uniqueneness
+    /// A Data Transfer Object that represents a FrequencyConstraintExactlyOneError
     /// </summary>
-    public  partial class FrequencyConstraintExactlyOneError : ModelError
+    /// <remarks>
+    /// Represent Frequency Constraint of Exactly One as Uniqueneness
+    /// </remarks>
+    public partial class FrequencyConstraintExactlyOneError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraintExactlyOneError"/> class.

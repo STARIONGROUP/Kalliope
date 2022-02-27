@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a GroupDuplicateNameError
     /// </summary>
-    public  abstract partial class GroupDuplicateNameError : ORMModelElement
+    public abstract partial class GroupDuplicateNameError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupDuplicateNameError"/> class.

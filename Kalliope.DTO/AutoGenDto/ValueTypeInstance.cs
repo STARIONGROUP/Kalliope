@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ValueTypeInstance
     /// </summary>
-    public  partial class ValueTypeInstance : ObjectTypeInstance
+    public partial class ValueTypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueTypeInstance"/> class.

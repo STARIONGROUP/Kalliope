@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Zero-size relative shape used as a proxy connection point for other shapes and links
+    /// A Data Transfer Object that represents a LinkConnectorShape
     /// </summary>
-    public  partial class LinkConnectorShape
+    /// <remarks>
+    /// Zero-size relative shape used as a proxy connection point for other shapes and links
+    /// </remarks>
+    public partial class LinkConnectorShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LinkConnectorShape"/> class.

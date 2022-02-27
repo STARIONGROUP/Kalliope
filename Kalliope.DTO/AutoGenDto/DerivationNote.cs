@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An informal note describing the purpose of a derivation rule
+    /// A Data Transfer Object that represents a DerivationNote
     /// </summary>
-    public  partial class DerivationNote : Expression
+    /// <remarks>
+    /// An informal note describing the purpose of a derivation rule
+    /// </remarks>
+    public partial class DerivationNote : Expression
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DerivationNote"/> class.

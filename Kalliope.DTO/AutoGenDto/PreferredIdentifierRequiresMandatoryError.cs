@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// EntityType with Compound Preferred Identifier Requires Mandatory Constraint
+    /// A Data Transfer Object that represents a PreferredIdentifierRequiresMandatoryError
     /// </summary>
-    public  partial class PreferredIdentifierRequiresMandatoryError : ModelError
+    /// <remarks>
+    /// EntityType with Compound Preferred Identifier Requires Mandatory Constraint
+    /// </remarks>
+    public partial class PreferredIdentifierRequiresMandatoryError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PreferredIdentifierRequiresMandatoryError"/> class.

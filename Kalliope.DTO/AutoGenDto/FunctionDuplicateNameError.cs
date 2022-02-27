@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate Function Names
+    /// A Data Transfer Object that represents a FunctionDuplicateNameError
     /// </summary>
-    public  partial class FunctionDuplicateNameError : DuplicateNameError
+    /// <remarks>
+    /// Duplicate Function Names
+    /// </remarks>
+    public partial class FunctionDuplicateNameError : DuplicateNameError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FunctionDuplicateNameError"/> class.

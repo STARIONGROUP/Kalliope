@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type
+    /// A Data Transfer Object that represents a PathObjectUnifier
     /// </summary>
-    public  partial class PathObjectUnifier : ORMModelElement
+    /// <remarks>
+    /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type
+    /// </remarks>
+    public partial class PathObjectUnifier : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathObjectUnifier"/> class.

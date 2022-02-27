@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Value constraint applied to a path root in a role path
+    /// A Data Transfer Object that represents a PathConditionRootValueConstraint
     /// </summary>
-    public  partial class PathConditionRootValueConstraint : ValueConstraint
+    /// <remarks>
+    /// Value constraint applied to a path root in a role path
+    /// </remarks>
+    public partial class PathConditionRootValueConstraint : ValueConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathConditionRootValueConstraint"/> class.

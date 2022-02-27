@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ObjectifiedUnaryRole
     /// </summary>
-    public  partial class ObjectifiedUnaryRole : Role
+    public partial class ObjectifiedUnaryRole : Role
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedUnaryRole"/> class.

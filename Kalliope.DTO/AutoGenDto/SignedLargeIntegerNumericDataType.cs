@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SignedLargeIntegerNumericDataType
     /// </summary>
-    public  partial class SignedLargeIntegerNumericDataType : NumericDataType
+    public partial class SignedLargeIntegerNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SignedLargeIntegerNumericDataType"/> class.

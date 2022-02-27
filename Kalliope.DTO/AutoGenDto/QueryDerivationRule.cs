@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Role path(s) defining a query
+    /// A Data Transfer Object that represents a QueryDerivationRule
     /// </summary>
-    public  partial class QueryDerivationRule : RoleProjectedDerivationRule
+    /// <remarks>
+    /// Role path(s) defining a query
+    /// </remarks>
+    public partial class QueryDerivationRule : RoleProjectedDerivationRule
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryDerivationRule"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A joined pathed roles must have a role player that is compatible with the join source, and a start role must be compatible with the root object type
+    /// A Data Transfer Object that represents a JoinedPathRoleRequiresCompatibleRolePlayerError
     /// </summary>
-    public  partial class JoinedPathRoleRequiresCompatibleRolePlayerError : ModelError
+    /// <remarks>
+    /// A joined pathed roles must have a role player that is compatible with the join source, and a start role must be compatible with the root object type
+    /// </remarks>
+    public partial class JoinedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinedPathRoleRequiresCompatibleRolePlayerError"/> class.

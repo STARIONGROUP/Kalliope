@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ValueTypeValueConstraint
     /// </summary>
-    public  partial class ValueTypeValueConstraint : ValueConstraint
+    public partial class ValueTypeValueConstraint : ValueConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueTypeValueConstraint"/> class.

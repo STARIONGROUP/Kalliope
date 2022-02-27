@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Definition of elements used in the primary definition of an ORM model
+    /// A Data Transfer Object that represents a ORMModel
     /// </summary>
-    public  partial class ORMModel : ORMNamedElement
+    /// <remarks>
+    /// Definition of elements used in the primary definition of an ORM model
+    /// </remarks>
+    public partial class ORMModel : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMModel"/> class.

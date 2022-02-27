@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Sample Population Value Invalid for DataType
+    /// A Data Transfer Object that represents a CompatibleValueTypeInstanceValueError
     /// </summary>
-    public  partial class CompatibleValueTypeInstanceValueError : ModelError
+    /// <remarks>
+    /// Sample Population Value Invalid for DataType
+    /// </remarks>
+    public partial class CompatibleValueTypeInstanceValueError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CompatibleValueTypeInstanceValueError"/> class.

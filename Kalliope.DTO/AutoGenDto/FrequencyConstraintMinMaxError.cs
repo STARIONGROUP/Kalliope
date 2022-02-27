@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Inconsistent Frequency Constraint Minimum and Maximum Values
+    /// A Data Transfer Object that represents a FrequencyConstraintMinMaxError
     /// </summary>
-    public  partial class FrequencyConstraintMinMaxError : ModelError
+    /// <remarks>
+    /// Inconsistent Frequency Constraint Minimum and Maximum Values
+    /// </remarks>
+    public partial class FrequencyConstraintMinMaxError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraintMinMaxError"/> class.

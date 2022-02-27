@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SubtypeLink
     /// </summary>
-    public  partial class SubtypeLink
+    public partial class SubtypeLink
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeLink"/> class.

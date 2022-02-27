@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Grouping Errors
+    /// A Data Transfer Object that represents a ElementGroupingErrorCategory
     /// </summary>
-    public  abstract partial class ElementGroupingErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Grouping Errors
+    /// </remarks>
+    public abstract partial class ElementGroupingErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingErrorCategory"/> class.

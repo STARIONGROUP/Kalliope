@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// DataType not Specified for ValueType
+    /// A Data Transfer Object that represents a DataTypeNotSpecifiedError
     /// </summary>
-    public  partial class DataTypeNotSpecifiedError : ModelError
+    /// <remarks>
+    /// DataType not Specified for ValueType
+    /// </remarks>
+    public partial class DataTypeNotSpecifiedError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataTypeNotSpecifiedError"/> class.

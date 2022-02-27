@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Constraint Implication and Contradiction Errors
+    /// A Data Transfer Object that represents a ConstraintImplicationAndContradictionErrorCategory
     /// </summary>
-    public  abstract partial class ConstraintImplicationAndContradictionErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Constraint Implication and Contradiction Errors
+    /// </remarks>
+    public abstract partial class ConstraintImplicationAndContradictionErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintImplicationAndContradictionErrorCategory"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a TrueOrFalseLogicalDataType
     /// </summary>
-    public  partial class TrueOrFalseLogicalDataType : LogicalDataType
+    public partial class TrueOrFalseLogicalDataType : LogicalDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueOrFalseLogicalDataType"/> class.

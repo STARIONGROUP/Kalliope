@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a SetComparisonConstraint or a SetConstraint
+    /// A Data Transfer Object that represents a ExternalConstraintShape
     /// </summary>
-    public  partial class ExternalConstraintShape : ORMBaseShape
+    /// <remarks>
+    /// Shape that represents a SetComparisonConstraint or a SetConstraint
+    /// </remarks>
+    public partial class ExternalConstraintShape : ORMBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalConstraintShape"/> class.

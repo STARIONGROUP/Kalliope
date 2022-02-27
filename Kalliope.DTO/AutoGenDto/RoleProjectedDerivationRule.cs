@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule
+    /// A Data Transfer Object that represents a RoleProjectedDerivationRule
     /// </summary>
-    public  abstract partial class RoleProjectedDerivationRule : RolePathOwner
+    /// <remarks>
+    /// Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule
+    /// </remarks>
+    public abstract partial class RoleProjectedDerivationRule : RolePathOwner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleProjectedDerivationRule"/> class.

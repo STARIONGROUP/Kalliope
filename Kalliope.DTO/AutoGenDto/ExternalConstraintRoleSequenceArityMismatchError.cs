@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Constraint Role Sequences with Different Numbers of Roles
+    /// A Data Transfer Object that represents a ExternalConstraintRoleSequenceArityMismatchError
     /// </summary>
-    public  partial class ExternalConstraintRoleSequenceArityMismatchError : ModelError
+    /// <remarks>
+    /// Constraint Role Sequences with Different Numbers of Roles
+    /// </remarks>
+    public partial class ExternalConstraintRoleSequenceArityMismatchError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalConstraintRoleSequenceArityMismatchError"/> class.

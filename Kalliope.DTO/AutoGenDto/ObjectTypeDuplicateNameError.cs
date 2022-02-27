@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate ObjectType Names
+    /// A Data Transfer Object that represents a ObjectTypeDuplicateNameError
     /// </summary>
-    public  partial class ObjectTypeDuplicateNameError : DuplicateNameError
+    /// <remarks>
+    /// Duplicate ObjectType Names
+    /// </remarks>
+    public partial class ObjectTypeDuplicateNameError : DuplicateNameError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeDuplicateNameError"/> class.

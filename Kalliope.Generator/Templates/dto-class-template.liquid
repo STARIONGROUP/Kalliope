@@ -26,9 +26,14 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// {{TypeDrop.Description}}
+    /// A Data Transfer Object that represents a {{TypeDrop.Name}}
     /// </summary>
-    public {% if TypeDrop.IsAbstract %} abstract{% endif %} partial class {{TypeDrop.Name}}{{TypeDrop.Generalization}}
+	{% if TypeDrop.Description != "" %}
+    /// <remarks>
+    /// {{ TypeDrop.Description }}
+    /// </remarks>
+	{% endif %}
+    public {% if TypeDrop.IsAbstract %}abstract {% endif %}partial class {{TypeDrop.Name}}{{TypeDrop.Generalization}}
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="{{ TypeDrop.Name }}"/> class.

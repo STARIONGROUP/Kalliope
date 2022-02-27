@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a VariableLengthTextDataType
     /// </summary>
-    public  partial class VariableLengthTextDataType : TextDataType
+    public partial class VariableLengthTextDataType : TextDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VariableLengthTextDataType"/> class.

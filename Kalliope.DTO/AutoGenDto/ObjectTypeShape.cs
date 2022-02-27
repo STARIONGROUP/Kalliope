@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents an ObjectType
+    /// A Data Transfer Object that represents a ObjectTypeShape
     /// </summary>
-    public  partial class ObjectTypeShape : ORMBaseShape
+    /// <remarks>
+    /// Shape that represents an ObjectType
+    /// </remarks>
+    public partial class ObjectTypeShape : ORMBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeShape"/> class.

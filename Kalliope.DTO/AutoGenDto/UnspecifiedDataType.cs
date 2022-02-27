@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a UnspecifiedDataType
     /// </summary>
-    public  partial class UnspecifiedDataType : DataType
+    public partial class UnspecifiedDataType : DataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnspecifiedDataType"/> class.

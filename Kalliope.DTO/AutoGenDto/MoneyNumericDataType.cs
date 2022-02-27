@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a MoneyNumericDataType
     /// </summary>
-    public  partial class MoneyNumericDataType : NumericDataType
+    public partial class MoneyNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MoneyNumericDataType"/> class.

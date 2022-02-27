@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A calculation is specified but does not have an associated function
+    /// A Data Transfer Object that represents a CalculatedPathValueRequiresFunctionError
     /// </summary>
-    public  partial class CalculatedPathValueRequiresFunctionError : ModelError
+    /// <remarks>
+    /// A calculation is specified but does not have an associated function
+    /// </remarks>
+    public partial class CalculatedPathValueRequiresFunctionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueRequiresFunctionError"/> class.

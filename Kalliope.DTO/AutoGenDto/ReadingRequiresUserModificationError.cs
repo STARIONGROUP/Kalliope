@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Reading Text Automatically Modified
+    /// A Data Transfer Object that represents a ReadingRequiresUserModificationError
     /// </summary>
-    public  partial class ReadingRequiresUserModificationError : ModelError
+    /// <remarks>
+    /// Reading Text Automatically Modified
+    /// </remarks>
+    public partial class ReadingRequiresUserModificationError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReadingRequiresUserModificationError"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a UnsignedSmallIntegerNumericDataType
     /// </summary>
-    public  partial class UnsignedSmallIntegerNumericDataType : NumericDataType
+    public partial class UnsignedSmallIntegerNumericDataType : NumericDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnsignedSmallIntegerNumericDataType"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a JoinedConstraintRoleProjectionCompatibilityError
     /// </summary>
-    public  abstract partial class JoinedConstraintRoleProjectionCompatibilityError : ORMModelElement
+    public abstract partial class JoinedConstraintRoleProjectionCompatibilityError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinedConstraintRoleProjectionCompatibilityError"/> class.

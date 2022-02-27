@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Element Required and Blocked in one Group
+    /// A Data Transfer Object that represents a ElementGroupingMembershipContradictionError
     /// </summary>
-    public  partial class ElementGroupingMembershipContradictionError : ModelError
+    /// <remarks>
+    /// Element Required and Blocked in one Group
+    /// </remarks>
+    public partial class ElementGroupingMembershipContradictionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingMembershipContradictionError"/> class.

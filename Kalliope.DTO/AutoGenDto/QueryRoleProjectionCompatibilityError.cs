@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a QueryRoleProjectionCompatibilityError
     /// </summary>
-    public  abstract partial class QueryRoleProjectionCompatibilityError : ORMModelElement
+    public abstract partial class QueryRoleProjectionCompatibilityError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryRoleProjectionCompatibilityError"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An abstract owner for one or more path objects
+    /// A Data Transfer Object that represents a QueryDerivationPath
     /// </summary>
-    public  abstract partial class QueryDerivationPath : ORMModelElement
+    /// <remarks>
+    /// An abstract owner for one or more path objects
+    /// </remarks>
+    public abstract partial class QueryDerivationPath : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryDerivationPath"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Missing Mandatory Sample Population
+    /// A Data Transfer Object that represents a PopulationMandatoryError
     /// </summary>
-    public  partial class PopulationMandatoryError : ModelError
+    /// <remarks>
+    /// Missing Mandatory Sample Population
+    /// </remarks>
+    public partial class PopulationMandatoryError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PopulationMandatoryError"/> class.

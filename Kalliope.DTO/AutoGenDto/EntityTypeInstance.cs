@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a EntityTypeInstance
     /// </summary>
-    public  partial class EntityTypeInstance : ObjectTypeInstance
+    public partial class EntityTypeInstance : ObjectTypeInstance
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTypeInstance"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate Readings
+    /// A Data Transfer Object that represents a DuplicateReadingSignatureError
     /// </summary>
-    public  partial class DuplicateReadingSignatureError : DuplicateNameError
+    /// <remarks>
+    /// Duplicate Readings
+    /// </remarks>
+    public partial class DuplicateReadingSignatureError : DuplicateNameError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DuplicateReadingSignatureError"/> class.

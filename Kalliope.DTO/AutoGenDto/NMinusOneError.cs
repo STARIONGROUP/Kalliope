@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Insufficient Roles for Internal Uniqueness Constraint
+    /// A Data Transfer Object that represents a NMinusOneError
     /// </summary>
-    public  partial class NMinusOneError : ModelError
+    /// <remarks>
+    /// Insufficient Roles for Internal Uniqueness Constraint
+    /// </remarks>
+    public partial class NMinusOneError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NMinusOneError"/> class.

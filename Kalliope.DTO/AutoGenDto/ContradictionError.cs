@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ContradictionError
     /// </summary>
-    public  abstract partial class ContradictionError : ModelError
+    public abstract partial class ContradictionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContradictionError"/> class.

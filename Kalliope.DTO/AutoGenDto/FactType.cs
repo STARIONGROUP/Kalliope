@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a FactType
     /// </summary>
-    public  partial class FactType : ORMModelElement
+    public partial class FactType : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactType"/> class.

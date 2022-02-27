@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Naming Errors
+    /// A Data Transfer Object that represents a NameErrorCategory
     /// </summary>
-    public  abstract partial class NameErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Naming Errors
+    /// </remarks>
+    public abstract partial class NameErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameErrorCategory"/> class.

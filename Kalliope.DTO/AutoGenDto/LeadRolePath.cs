@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A top level role path starting at a root object type. Provides a context for subpaths, functions, and constraints specific to this path
+    /// A Data Transfer Object that represents a LeadRolePath
     /// </summary>
-    public  partial class LeadRolePath : RolePath
+    /// <remarks>
+    /// A top level role path starting at a root object type. Provides a context for subpaths, functions, and constraints specific to this path
+    /// </remarks>
+    public partial class LeadRolePath : RolePath
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LeadRolePath"/> class.

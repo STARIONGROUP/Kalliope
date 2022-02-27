@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Contradicting Exclusion and Mandatory Constraints
+    /// A Data Transfer Object that represents a ExclusionContradictsMandatoryError
     /// </summary>
-    public  partial class ExclusionContradictsMandatoryError : ContradictionError
+    /// <remarks>
+    /// Contradicting Exclusion and Mandatory Constraints
+    /// </remarks>
+    public partial class ExclusionContradictsMandatoryError : ContradictionError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExclusionContradictsMandatoryError"/> class.

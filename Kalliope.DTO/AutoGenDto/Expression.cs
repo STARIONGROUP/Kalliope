@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a Expression
     /// </summary>
-    public  abstract partial class Expression : ORMModelElement
+    public abstract partial class Expression : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Expression"/> class.

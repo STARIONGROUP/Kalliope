@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Zero-size relative shape used to disambiguate multiple duplicate links between FactTypeShape and other shape types
+    /// A Data Transfer Object that represents a FactTypeLinkConnectorShape
     /// </summary>
-    public  partial class FactTypeLinkConnectorShape : LinkConnectorShape
+    /// <remarks>
+    /// Zero-size relative shape used to disambiguate multiple duplicate links between FactTypeShape and other shape types
+    /// </remarks>
+    public partial class FactTypeLinkConnectorShape : LinkConnectorShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeLinkConnectorShape"/> class.

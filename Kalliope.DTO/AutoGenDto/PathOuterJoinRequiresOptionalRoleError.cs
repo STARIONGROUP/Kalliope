@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Outer join semantics are not supported for roles with explicit or implied simple mandatory constraints
+    /// A Data Transfer Object that represents a PathOuterJoinRequiresOptionalRoleError
     /// </summary>
-    public  partial class PathOuterJoinRequiresOptionalRoleError : ModelError
+    /// <remarks>
+    /// Outer join semantics are not supported for roles with explicit or implied simple mandatory constraints
+    /// </remarks>
+    public partial class PathOuterJoinRequiresOptionalRoleError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathOuterJoinRequiresOptionalRoleError"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ORMModelElement
     /// </summary>
-    public  abstract partial class ORMModelElement
+    public abstract partial class ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMModelElement"/> class.

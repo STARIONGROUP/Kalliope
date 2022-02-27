@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a Definition
     /// </summary>
-    public  partial class Definition : ORMModelElement
+    public partial class Definition : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Definition"/> class.

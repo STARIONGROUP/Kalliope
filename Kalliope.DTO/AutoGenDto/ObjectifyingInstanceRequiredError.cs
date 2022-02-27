@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Missing Objectifying EntityType Instance
+    /// A Data Transfer Object that represents a ObjectifyingInstanceRequiredError
     /// </summary>
-    public  partial class ObjectifyingInstanceRequiredError : ModelError
+    /// <remarks>
+    /// Missing Objectifying EntityType Instance
+    /// </remarks>
+    public partial class ObjectifyingInstanceRequiredError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifyingInstanceRequiredError"/> class.

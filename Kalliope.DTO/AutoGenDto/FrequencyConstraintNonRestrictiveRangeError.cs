@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// One to Unbounded Frequency Range Always Satisfied
+    /// A Data Transfer Object that represents a FrequencyConstraintNonRestrictiveRangeError
     /// </summary>
-    public  partial class FrequencyConstraintNonRestrictiveRangeError : ModelError
+    /// <remarks>
+    /// One to Unbounded Frequency Range Always Satisfied
+    /// </remarks>
+    public partial class FrequencyConstraintNonRestrictiveRangeError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraintNonRestrictiveRangeError"/> class.

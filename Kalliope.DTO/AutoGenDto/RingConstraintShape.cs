@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a RingConstraintShape
+    /// A Data Transfer Object that represents a RingConstraintShape
     /// </summary>
-    public  partial class RingConstraintShape : ExternalConstraintShape
+    /// <remarks>
+    /// Shape that represents a RingConstraintShape
+    /// </remarks>
+    public partial class RingConstraintShape : ExternalConstraintShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RingConstraintShape"/> class.

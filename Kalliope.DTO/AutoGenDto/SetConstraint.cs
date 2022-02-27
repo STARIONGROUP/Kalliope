@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a SetConstraint
     /// </summary>
-    public  abstract partial class SetConstraint : ConstraintRoleSequence
+    public abstract partial class SetConstraint : ConstraintRoleSequence
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.

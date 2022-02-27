@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ModelError
     /// </summary>
-    public  abstract partial class ModelError : ORMModelElement
+    public abstract partial class ModelError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelError"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Represents the relationship between the entity type and the referenced fact type
+    /// A Data Transfer Object that represents a Objectification
     /// </summary>
-    public  partial class Objectification : ORMModelElement
+    /// <remarks>
+    /// Represents the relationship between the entity type and the referenced fact type
+    /// </remarks>
+    public partial class Objectification : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Objectification"/> class.

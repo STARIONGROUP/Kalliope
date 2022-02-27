@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// State information relating to automatic mapping algorithms
+    /// A Data Transfer Object that represents a GenerationState
     /// </summary>
-    public  partial class GenerationState
+    /// <remarks>
+    /// State information relating to automatic mapping algorithms
+    /// </remarks>
+    public partial class GenerationState
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationState"/> class.

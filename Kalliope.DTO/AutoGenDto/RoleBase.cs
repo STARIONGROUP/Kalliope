@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a RoleBase
     /// </summary>
-    public  abstract partial class RoleBase : ORMModelElement
+    public abstract partial class RoleBase : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleBase"/> class.

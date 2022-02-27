@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a QueryBase
     /// </summary>
-    public  abstract partial class QueryBase : FactType
+    public abstract partial class QueryBase : FactType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryBase"/> class.

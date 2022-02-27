@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a DateTemporalDataType
     /// </summary>
-    public  partial class DateTemporalDataType : TemporalDataType
+    public partial class DateTemporalDataType : TemporalDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DateTemporalDataType"/> class.

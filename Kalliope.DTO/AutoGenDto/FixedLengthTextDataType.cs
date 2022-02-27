@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a FixedLengthTextDataType
     /// </summary>
-    public  partial class FixedLengthTextDataType : TextDataType
+    public partial class FixedLengthTextDataType : TextDataType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedLengthTextDataType"/> class.

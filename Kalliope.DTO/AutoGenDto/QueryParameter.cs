@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// An input parameter for a query
+    /// A Data Transfer Object that represents a QueryParameter
     /// </summary>
-    public  partial class QueryParameter : ORMModelElement
+    /// <remarks>
+    /// An input parameter for a query
+    /// </remarks>
+    public partial class QueryParameter : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryParameter"/> class.

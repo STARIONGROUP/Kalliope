@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a EqualityConstraint
     /// </summary>
-    public  partial class EqualityConstraint : SetComparisonConstraint
+    public partial class EqualityConstraint : SetComparisonConstraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EqualityConstraint"/> class.

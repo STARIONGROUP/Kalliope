@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Superset Role on Subtype Subset Constraint Not a Subtype
+    /// A Data Transfer Object that represents a SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError
     /// </summary>
-    public  partial class SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError : ModelError
+    /// <remarks>
+    /// Superset Role on Subtype Subset Constraint Not a Subtype
+    /// </remarks>
+    public partial class SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError"/> class.

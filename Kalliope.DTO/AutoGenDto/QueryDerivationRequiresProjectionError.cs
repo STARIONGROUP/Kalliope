@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a QueryDerivationRequiresProjectionError
     /// </summary>
-    public  abstract partial class QueryDerivationRequiresProjectionError : ORMModelElement
+    public abstract partial class QueryDerivationRequiresProjectionError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryDerivationRequiresProjectionError"/> class.

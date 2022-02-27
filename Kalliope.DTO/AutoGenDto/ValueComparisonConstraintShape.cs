@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a ValueComparisonConstraintShape
+    /// A Data Transfer Object that represents a ValueComparisonConstraintShape
     /// </summary>
-    public  partial class ValueComparisonConstraintShape : ExternalConstraintShape
+    /// <remarks>
+    /// Shape that represents a ValueComparisonConstraintShape
+    /// </remarks>
+    public partial class ValueComparisonConstraintShape : ExternalConstraintShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonConstraintShape"/> class.

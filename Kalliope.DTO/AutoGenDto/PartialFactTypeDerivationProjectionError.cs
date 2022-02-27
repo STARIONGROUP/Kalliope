@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a PartialFactTypeDerivationProjectionError
     /// </summary>
-    public  abstract partial class PartialFactTypeDerivationProjectionError : ORMModelElement
+    public abstract partial class PartialFactTypeDerivationProjectionError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PartialFactTypeDerivationProjectionError"/> class.

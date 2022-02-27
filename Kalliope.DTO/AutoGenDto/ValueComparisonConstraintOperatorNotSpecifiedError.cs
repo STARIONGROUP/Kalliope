@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Value Comparison Operator Not Specified
+    /// A Data Transfer Object that represents a ValueComparisonConstraintOperatorNotSpecifiedError
     /// </summary>
-    public  partial class ValueComparisonConstraintOperatorNotSpecifiedError : ModelError
+    /// <remarks>
+    /// Value Comparison Operator Not Specified
+    /// </remarks>
+    public partial class ValueComparisonConstraintOperatorNotSpecifiedError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/> class.

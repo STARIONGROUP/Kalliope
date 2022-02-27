@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a ObjectTypeRequiresPrimarySupertypeError
     /// </summary>
-    public  abstract partial class ObjectTypeRequiresPrimarySupertypeError : ORMModelElement
+    public abstract partial class ObjectTypeRequiresPrimarySupertypeError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeRequiresPrimarySupertypeError"/> class.

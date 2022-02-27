@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A role in a fact type was used without a join role entering that fact type, or a role from a single fact type was used multiple times without an intermediate join
+    /// A Data Transfer Object that represents a PathSameFactTypeRoleFollowsJoinError
     /// </summary>
-    public  partial class PathSameFactTypeRoleFollowsJoinError : ModelError
+    /// <remarks>
+    /// A role in a fact type was used without a join role entering that fact type, or a role from a single fact type was used multiple times without an intermediate join
+    /// </remarks>
+    public partial class PathSameFactTypeRoleFollowsJoinError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathSameFactTypeRoleFollowsJoinError"/> class.

@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a EqualityConstraintImpliedByMandatoryConstraintsError
     /// </summary>
-    public  abstract partial class EqualityConstraintImpliedByMandatoryConstraintsError : ORMModelElement
+    public abstract partial class EqualityConstraintImpliedByMandatoryConstraintsError : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EqualityConstraintImpliedByMandatoryConstraintsError"/> class.

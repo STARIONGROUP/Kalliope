@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Constraint Implied by Intersecting Constraints
+    /// A Data Transfer Object that represents a ImplicationError
     /// </summary>
-    public  partial class ImplicationError : ModelError
+    /// <remarks>
+    /// Constraint Implied by Intersecting Constraints
+    /// </remarks>
+    public partial class ImplicationError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ImplicationError"/> class.

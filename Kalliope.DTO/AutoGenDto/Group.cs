@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a Group
     /// </summary>
-    public  abstract partial class Group : ORMModelElement
+    public abstract partial class Group : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Group"/> class.

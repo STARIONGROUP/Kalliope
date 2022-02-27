@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Duplicate Recognized Phrases
+    /// A Data Transfer Object that represents a RecognizedPhraseDuplicateNameError
     /// </summary>
-    public  partial class RecognizedPhraseDuplicateNameError : DuplicateNameError
+    /// <remarks>
+    /// Duplicate Recognized Phrases
+    /// </remarks>
+    public partial class RecognizedPhraseDuplicateNameError : DuplicateNameError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognizedPhraseDuplicateNameError"/> class.

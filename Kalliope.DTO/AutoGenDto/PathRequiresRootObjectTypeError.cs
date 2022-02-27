@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A LeadRolePath must specify a root object type
+    /// A Data Transfer Object that represents a PathRequiresRootObjectTypeError
     /// </summary>
-    public  partial class PathRequiresRootObjectTypeError : ModelError
+    /// <remarks>
+    /// A LeadRolePath must specify a root object type
+    /// </remarks>
+    public partial class PathRequiresRootObjectTypeError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathRequiresRootObjectTypeError"/> class.

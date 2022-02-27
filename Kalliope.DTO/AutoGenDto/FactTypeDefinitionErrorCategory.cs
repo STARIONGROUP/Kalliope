@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Fact Type Definition Errors
+    /// A Data Transfer Object that represents a FactTypeDefinitionErrorCategory
     /// </summary>
-    public  abstract partial class FactTypeDefinitionErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Fact Type Definition Errors
+    /// </remarks>
+    public abstract partial class FactTypeDefinitionErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeDefinitionErrorCategory"/> class.

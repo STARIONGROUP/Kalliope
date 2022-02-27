@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// FactType Requires Reading
+    /// A Data Transfer Object that represents a FactTypeRequiresReadingError
     /// </summary>
-    public  partial class FactTypeRequiresReadingError : ModelError
+    /// <remarks>
+    /// FactType Requires Reading
+    /// </remarks>
+    public partial class FactTypeRequiresReadingError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeRequiresReadingError"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Indicates if the tail split in its entirety should be treated as a negation
+    /// A Data Transfer Object that represents a RolePath
     /// </summary>
-    public  abstract partial class RolePath : ORMModelElement
+    /// <remarks>
+    /// Indicates if the tail split in its entirety should be treated as a negation
+    /// </remarks>
+    public abstract partial class RolePath : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePath"/> class.

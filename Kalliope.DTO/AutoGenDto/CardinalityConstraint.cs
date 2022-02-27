@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a CardinalityConstraint
     /// </summary>
-    public  abstract partial class CardinalityConstraint : ORMNamedElement
+    public abstract partial class CardinalityConstraint : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class.

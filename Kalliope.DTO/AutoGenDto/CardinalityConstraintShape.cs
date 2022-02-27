@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Shape that represents a ObjectTypeCardinalityConstraint or a UnaryRoleCardinalityConstraint
+    /// A Data Transfer Object that represents a CardinalityConstraintShape
     /// </summary>
-    public  partial class CardinalityConstraintShape : FloatingTextShape
+    /// <remarks>
+    /// Shape that represents a ObjectTypeCardinalityConstraint or a UnaryRoleCardinalityConstraint
+    /// </remarks>
+    public partial class CardinalityConstraintShape : FloatingTextShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraintShape"/> class.

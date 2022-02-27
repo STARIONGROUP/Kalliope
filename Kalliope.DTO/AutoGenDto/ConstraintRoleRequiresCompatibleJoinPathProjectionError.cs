@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A constraint role join path projection must be of a type that is compatible with the constrained role
+    /// A Data Transfer Object that represents a ConstraintRoleRequiresCompatibleJoinPathProjectionError
     /// </summary>
-    public  partial class ConstraintRoleRequiresCompatibleJoinPathProjectionError : ModelError
+    /// <remarks>
+    /// A constraint role join path projection must be of a type that is compatible with the constrained role
+    /// </remarks>
+    public partial class ConstraintRoleRequiresCompatibleJoinPathProjectionError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleRequiresCompatibleJoinPathProjectionError"/> class.

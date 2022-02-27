@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Derivation Path and Join Path Errors
+    /// A Data Transfer Object that represents a RolePathErrorCategory
     /// </summary>
-    public  abstract partial class RolePathErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Derivation Path and Join Path Errors
+    /// </remarks>
+    public abstract partial class RolePathErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePathErrorCategory"/> class.

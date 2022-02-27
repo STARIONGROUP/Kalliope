@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Mandatory Constraint Implies Equality or Subset Constraint
+    /// A Data Transfer Object that represents a EqualityOrSubsetImpliedByMandatoryError
     /// </summary>
-    public  partial class EqualityOrSubsetImpliedByMandatoryError : ImplicationError
+    /// <remarks>
+    /// Mandatory Constraint Implies Equality or Subset Constraint
+    /// </remarks>
+    public partial class EqualityOrSubsetImpliedByMandatoryError : ImplicationError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EqualityOrSubsetImpliedByMandatoryError"/> class.

@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Value Comparison Roles Not Comparable
+    /// A Data Transfer Object that represents a ValueComparisonRolesNotComparableError
     /// </summary>
-    public  partial class ValueComparisonRolesNotComparableError : ModelError
+    /// <remarks>
+    /// Value Comparison Roles Not Comparable
+    /// </remarks>
+    public partial class ValueComparisonRolesNotComparableError : ModelError
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonRolesNotComparableError"/> class.

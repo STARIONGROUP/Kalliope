@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// Constraint Structure Errors
+    /// A Data Transfer Object that represents a ConstraintStructureErrorCategory
     /// </summary>
-    public  abstract partial class ConstraintStructureErrorCategory : ModelErrorCategory
+    /// <remarks>
+    /// Constraint Structure Errors
+    /// </remarks>
+    public abstract partial class ConstraintStructureErrorCategory : ModelErrorCategory
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintStructureErrorCategory"/> class.

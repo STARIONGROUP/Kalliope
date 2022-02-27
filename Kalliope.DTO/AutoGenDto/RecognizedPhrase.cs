@@ -26,9 +26,12 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// A phrase with one or more words that can be abbreviated during name generation
+    /// A Data Transfer Object that represents a RecognizedPhrase
     /// </summary>
-    public  partial class RecognizedPhrase : ORMNamedElement
+    /// <remarks>
+    /// A phrase with one or more words that can be abbreviated during name generation
+    /// </remarks>
+    public partial class RecognizedPhrase : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognizedPhrase"/> class.

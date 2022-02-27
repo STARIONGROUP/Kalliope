@@ -26,9 +26,9 @@ namespace Kalliope.DTO
     using Kalliope.Common;
  
     /// <summary>
-    /// 
+    /// A Data Transfer Object that represents a IntrinsicReferenceMode
     /// </summary>
-    public  partial class IntrinsicReferenceMode : ReferenceMode
+    public partial class IntrinsicReferenceMode : ReferenceMode
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="IntrinsicReferenceMode"/> class.
