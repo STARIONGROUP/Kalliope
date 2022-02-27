@@ -16,8 +16,11 @@
 //   limitations under the License.
 //
 // </copyright>
+ 
 // ------------------------------------------------------------------------------------------------
-
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------
+ 
 namespace Kalliope.DTO
 {
     using System;
@@ -57,3 +60,7 @@ namespace Kalliope.DTO
  
     }
 }
+
+// ------------------------------------------------------------------------------------------------
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------
