@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A calculated value in a role path must be consumed as a path condition, an input to another calculation, or a projection onto a path

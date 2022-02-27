@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Values are in the set of 8-byte unsigned integers

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Multiple groups share the same name

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// The value of an instance is not compatible with the data type of the corresponding value type

@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A phrase with one or more words that can be abbreviated during name generation

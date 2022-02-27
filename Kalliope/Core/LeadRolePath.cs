@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A role path starting from a root object type

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Mandatory Constraint Implies Equality or Subset Constraint

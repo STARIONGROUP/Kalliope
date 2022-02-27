@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Multiple supertypes are specified that do not share a common ancestor, or a supertype is specified that is implied by other supertypes

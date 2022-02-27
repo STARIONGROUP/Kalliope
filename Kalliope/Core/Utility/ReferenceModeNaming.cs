@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
     
     /// <summary>
     /// Reference mode naming options for a specific object type. Used by extension models, which must add their own reference to the modified object type

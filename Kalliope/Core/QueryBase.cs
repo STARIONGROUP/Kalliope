@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A query representation based on a fact type structure. Queries support parameterization and do not need readings

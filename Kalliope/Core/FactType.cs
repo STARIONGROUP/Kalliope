@@ -24,7 +24,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A fact type directly specified by the modeler
@@ -123,7 +123,7 @@ namespace Kalliope.Core
         /// Storage options for a derived FactType
         /// </summary>
         [Description("Storage options for a derived FactType")]
-        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "")]
+        [Property(name: "DerivationStorageDisplay", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "DerivationExpressionStorageType")]
         public DerivationExpressionStorageType DerivationStorageDisplay { get; set; }
 
         /// <summary>

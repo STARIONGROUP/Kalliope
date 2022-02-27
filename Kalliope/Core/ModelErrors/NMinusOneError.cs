@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// An internal uniqueness constraint must span at least n minus one roles, where n is the number of roles in the fact type

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// An equality constraint is implied by a mandatory constraint (Deprecated, replaced by <see cref="EqualityConstraintImpliedByMandatoryConstraintsError"/>)

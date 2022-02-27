@@ -20,7 +20,7 @@
 
 namespace Kalliope.Diagrams
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
     using Kalliope.Core;
 
     /// <summary>

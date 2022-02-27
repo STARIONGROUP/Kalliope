@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// An <see cref="PathedRole"/> with outer join semantics is joined to a mandatory role and can never be null

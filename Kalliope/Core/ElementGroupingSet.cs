@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A Group owner, allows group containment, order, and naming enforcement

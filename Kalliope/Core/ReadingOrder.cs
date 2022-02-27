@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A sequence of roles from a single fact type representing representing a complete role traversal. Also called a predicate

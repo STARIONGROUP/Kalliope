@@ -20,7 +20,7 @@
 
 namespace Kalliope.Diagrams
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Zero-size relative shape used to disambiguate multiple duplicate links between FactTypeShape and other shape types

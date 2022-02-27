@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A <see cref="PathedRole"/> is joined to a preceding <see cref="PathedRole"/> with an incompatible role player or is a start role attached to an incompatible RootObjectType

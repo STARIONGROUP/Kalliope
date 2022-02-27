@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Deprecated along with SubtypeFact.IsPrimary property

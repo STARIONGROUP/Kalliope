@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A frequency constraint requires more role players than are allowed by an internal uniqueness constraint

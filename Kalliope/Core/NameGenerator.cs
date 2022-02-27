@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Name generation settings
@@ -56,7 +56,7 @@ namespace Kalliope.Core
         /// (DSL) Specify upper/lower case settings of names generated for this context
         /// </remarks>
         [Description("Specify upper/lower case settings of names generated for this context")]
-        [Property(name: "CasingOption", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized")]
+        [Property(name: "CasingOption", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized", typeName: "NameGeneratorCasingOption")]
         public NameGeneratorCasingOption CasingOption { get; set; }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Kalliope.Core
         /// (DSL) Specify if whitespace is preserved, removed, or replaced in names generated for this context
         /// </remarks>
         [Description("Specify if whitespace is preserved, removed, or replaced in names generated for this context")]
-        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized")]
+        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized", typeName: "NameGeneratorSpacingFormat")]
         public NameGeneratorSpacingFormat SpacingFormat { get; set; }
 
         /// <summary>
@@ -125,14 +125,14 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="NameGenerator"/>s that are refined by the current <see cref="NameGenerator"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "")]
+        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "NameGenerator")]
         public List<NameGenerator> RefinedByGenerators { get; set; }
 
         /// <summary>
         /// Gets or sets the referenced <see cref="ORMModelElement"/>
         /// </summary>
         [Description("")]
-        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
+        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public ORMModelElement RefinedInstance { get; set; }
 
         /// <summary>

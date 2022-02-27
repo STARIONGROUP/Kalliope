@@ -18,15 +18,13 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Net.Mime;
-
 namespace Kalliope.Core
 {
     using System;
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     [Description("")]
     [Domain(isAbstract: true, general: "ORMNamedElement")]
@@ -189,7 +187,7 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="DataType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DataType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "DataType")]
+        [Property(name: "DataType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType")]
         public DataType DataType { get; set; }
 
         /// <summary>
@@ -201,21 +199,21 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="MandatoryConstraint"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ImpliedMandatoryConstraint", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "MandatoryConstraint")]
+        [Property(name: "ImpliedMandatoryConstraint", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MandatoryConstraint")]
         public MandatoryConstraint ImpliedMandatoryConstraint { get; set; }
 
         /// <summary>
         /// Gets or sets the referenced <see cref="MandatoryConstraint"/>
         /// </summary>
         [Description("")]
-        [Property(name: "InherentMandatoryConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "MandatoryConstraint")]
+        [Property(name: "InherentMandatoryConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MandatoryConstraint")]
         public MandatoryConstraint InherentMandatoryConstraint { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="NameAlias"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..8", typeKind: TypeKind.String, defaultValue: "", typeName: "NameAlias")]
+        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameAlias")]
         public List<NameAlias> Abbreviations { get; set; }
 
         /// <summary>

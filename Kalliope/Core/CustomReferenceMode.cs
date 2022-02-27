@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Definition of a custom reference mode pattern

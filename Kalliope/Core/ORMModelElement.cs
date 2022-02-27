@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     [Description("")]
     [Domain(isAbstract: true, general: "")]
@@ -34,6 +34,7 @@ namespace Kalliope.Core
         /// </summary>
         protected ORMModelElement()
         {
+            this.AssociatedModelErrors = new List<ModelError>();
             this.ExtensionModelErrors = new List<ModelError>();
         }
 
@@ -45,7 +46,7 @@ namespace Kalliope.Core
         public string Id { get; set; }
 
         [Description("")]
-        [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..9", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
+        [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<ModelError> ExtensionModelErrors { get; set; }
 
         [Description("")]

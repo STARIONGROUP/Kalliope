@@ -24,7 +24,7 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Represents the relationship between the entity type and the referenced fact type

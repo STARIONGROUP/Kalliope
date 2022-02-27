@@ -1,0 +1,77 @@
+﻿// -------------------------------------------------------------------------------------------------
+// <copyright file="{{ TypeDrop.Name }}.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// ------------------------------------------------------------------------------------------------
+
+namespace Kalliope.DTO
+{
+    using System;
+    using System.Collections.Generic;
+ 
+    using Kalliope.Common;
+ 
+    /// <summary>
+    /// {{TypeDrop.Description}}
+    /// </summary>
+    public {% if TypeDrop.IsAbstract %} abstract{% endif %} partial class {{TypeDrop.Name}}{{TypeDrop.Generalization}}
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="{{ TypeDrop.Name }}"/> class.
+        /// </summary>
+        {% if TypeDrop.IsAbstract %}protected {% else %}public {% endif %} {{ TypeDrop.Name }}()
+        {
+			{% for property in TypeDrop.Properties %}
+			{% if property.IsEnumerable == true and property.IsValueType %}
+            this.{{ property.Name }} = new List<{{ property.TypeName }}>();
+			{% elseif property.IsEnumerable == true and property.IsReferenceType %}
+            this.{{ property.Name }} = new List<Guid>();
+			{% elseif property.IsEnumeration == true and property.DefaultValue != '' %}
+            this.{{ property.Name }} = {{property.TypeName}}.{{ property.DefaultValue }};
+			{% endif %}
+			{% endfor %}
+        }
+ 
+		{% for property in TypeDrop.Properties %}
+		{% if property.IsEnumerable == true and property.IsValueType %}
+        /// <summary>
+        /// Gets or sets a list of {{ property.Name }}
+        /// </summary>
+        public List<{{ property.TypeName }}> {{ property.Name }} { get; set; }
+ 
+		{% elseif property.IsEnumerable == true and property.IsReferenceType %}
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/> instances
+        /// </summary>
+        public List<Guid> {{ property.Name }} { get; set; }
+ 
+		{% elseif property.IsEnumerable != true and property.IsValueType %}
+        /// <summary>
+        /// Gets or sets a {{ property.Name }}
+        /// </summary>
+        public {{ property.TypeName }} {{ property.Name }} { get; set; }
+ 
+		{% elseif property.IsEnumerable != true and property.IsReferenceType %}
+        /// <summary>
+        /// Gets or sets the unique identifier of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/>
+        /// </summary>
+        public Guid {{ property.Name }} { get; set; }
+ 
+		{% endif %}
+		{% endfor %}
+    }
+}

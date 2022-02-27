@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A constraint limiting the number of instances in a population

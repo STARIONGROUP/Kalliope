@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A constraint specifying the number of times an instance must occur in a set population. Applies only if the instance appears at all

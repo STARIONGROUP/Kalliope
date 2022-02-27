@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     /// <summary>
     /// References to set of related elements
     /// </summary>

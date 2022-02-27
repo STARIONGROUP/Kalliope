@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// User-defined and rule-based element groupings
@@ -72,7 +72,7 @@ namespace Kalliope.Core
         /// Approved by All Types: Allow elements explicitly approved by all selected GroupTypes
         /// </summary>
         [Description("Specify the level of GroupType compliance for elements in this group. Not Excluded: Allow elements not explicitly excluded by a selected GroupType. by Some Type: Allow elements explicitly approved by at least one GroupType. Approved by All Types: Allow elements explicitly approved by all selected GroupTypes")]
-        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded")]
+        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
 
         /// <summary>

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// The roles opposite a preferred identifier must have at least one mandatory constraint that covers a subset of the opposite roles

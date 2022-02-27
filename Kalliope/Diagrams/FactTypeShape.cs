@@ -24,7 +24,7 @@ namespace Kalliope.Diagrams
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
     using Kalliope.Core;
 
     /// <summary>

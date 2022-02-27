@@ -20,12 +20,12 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Values are in the set of automatically generated unsigned long integers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of automatically generated unsigned long integers")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class AutoCounterNumericDataType : NumericDataType
     {

@@ -24,7 +24,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A primary role declaration
@@ -55,7 +55,7 @@ namespace Kalliope.Core
         /// The multiplicity specification for a Role of a binary FactType. Affects the uniqueness and mandatory constraints on the opposite Role
         /// </summary>
         [Description("The multiplicity specification for a Role of a binary FactType. Affects the uniqueness and mandatory constraints on the opposite Role")]
-        [Property(name: "Multiplicity", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Unspecified")]
+        [Property(name: "Multiplicity", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Unspecified", typeName: "Multiplicity")]
         public Multiplicity Multiplicity { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Kalliope.Core
         /// Deontic modality means that data violating the constraint can be recorded
         /// </summary>
         [Description("The Modality of the simple mandatory constraint on this Role. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded")]
-        [Property(name: "MandatoryConstraintModality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "")]
+        [Property(name: "MandatoryConstraintModality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "ConstraintModality")]
         public ConstraintModality MandatoryConstraintModality { get; set; }
 
         /// <summary>

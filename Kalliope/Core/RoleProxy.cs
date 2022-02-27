@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// The role in an implied fact type that corresponds to a role in the objectified fact type.

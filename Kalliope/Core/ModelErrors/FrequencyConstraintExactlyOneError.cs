@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A frequency constraint with a minimum and maximum range of 1 should be represented by a uniqueness constraint

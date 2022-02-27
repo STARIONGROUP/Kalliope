@@ -20,7 +20,7 @@
 
 namespace Kalliope.Diagrams
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Zero-size relative shape used as a proxy connection point for other shapes and links

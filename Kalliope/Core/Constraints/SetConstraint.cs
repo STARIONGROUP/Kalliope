@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     [Description("")]
     [Domain(isAbstract: true, general: "ConstraintRoleSequence")]

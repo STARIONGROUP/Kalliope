@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// One or more internal uniqueness constraints in a fact type are implied by other internal uniqueness constraints on the same fact type

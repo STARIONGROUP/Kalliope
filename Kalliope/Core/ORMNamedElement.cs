@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     [Description("")]
     [Domain(isAbstract: true, general: "ORMModelElement")]

@@ -24,6 +24,7 @@ namespace Kalliope.Tests
     using System.Linq;
     
     using Kalliope;
+    using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.Diagrams;
 

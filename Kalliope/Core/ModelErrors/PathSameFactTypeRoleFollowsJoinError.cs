@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
     
     /// <summary>
     /// A PathedRole with a purpose of SameFactType must follow an entry into the fact type with a join or start role. 

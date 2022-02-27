@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<Description>A library that provides the Common Kalliope classes</Description>
+	<PackageId>Kalliope.Common</PackageId>
+	<Company>RHEA System S.A.</Company>
+	<Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+	<PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
+	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+	<RepositoryType>Git</RepositoryType>
+	<PackageTags>ORM</PackageTags>
+	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	<Authors>Sam Gerene</Authors>
+	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>

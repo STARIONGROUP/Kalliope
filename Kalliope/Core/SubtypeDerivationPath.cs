@@ -23,6 +23,8 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
+    using Kalliope.Common;
+
     /// <summary>
     /// A role path used to define the population of a derived subtype
     /// </summary>

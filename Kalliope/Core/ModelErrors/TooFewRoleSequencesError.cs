@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// An external constraint requires multiple roles (SetConstraint) or multiple role sequences (SetComparisonConstraint)

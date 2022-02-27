@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Placeholder for an unspecified data type. Each use of this type results in a DataTypeNotSpecified model validation error

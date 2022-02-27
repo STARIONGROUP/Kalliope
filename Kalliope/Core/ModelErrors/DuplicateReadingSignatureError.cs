@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Multiple readings have the same normalized signature, which is a normalized expanded form of the reading text and role player names

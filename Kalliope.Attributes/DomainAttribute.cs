@@ -46,9 +46,9 @@ namespace Kalliope.Attributes
             this.IsAbstract = isAbstract;
             this.General = general;
         }
-
+        
         /// <summary>
-        /// Gets or sets a value indicating whether this class is the root class of the domain model
+        /// Gets a value indicating whether this class is the root class of the domain model
         /// </summary>
         /// <remarks>
         /// the root class is represents the first node in a tree-graph. Only one class may be the root
@@ -56,12 +56,12 @@ namespace Kalliope.Attributes
         public bool IsRoot { get; private set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this is an abstract class
+        /// Gets a value indicating whether this is an abstract class
         /// </summary>
         public bool IsAbstract { get; private set; }
 
         /// <summary>
-        /// Gets or sets the name of the abstract super type
+        /// Gets the name(s) of the abstract super type
         /// </summary>
         public string General { get; private set; }
     }

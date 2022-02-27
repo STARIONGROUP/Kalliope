@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System;
     
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// (Deprecated, StartRole is no longer used) A PathedRole with a purpose of StartRole must be the first <see cref="PathedRole"/> after the path root

@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A fact type representing the subtype meta relationship between a subtype and a supertype

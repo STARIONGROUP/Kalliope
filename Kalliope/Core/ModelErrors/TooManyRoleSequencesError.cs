@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A <see cref="SetConstraint"/> has too many roles for the constraint type, or a <see cref="SetComparisonConstraint"/> has too many role sequences

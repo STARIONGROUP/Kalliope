@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     [Description("")]
     [Domain(isAbstract: true, general: "ORMModelElement")]
@@ -44,7 +44,7 @@ namespace Kalliope.Core
         /// Description of the model validation error
         /// </summary>
         [Description("")]
-        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "ErrorText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ErrorText { get; set; }
 
         [Description("")]

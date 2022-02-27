@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A frequency constraint with a minimum of 1 and an unbounded maximum is always true and should not be specified

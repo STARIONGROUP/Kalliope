@@ -20,7 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// The roles in a SetConstraint or a column of a SetComparisonConstraint have incompatible role players

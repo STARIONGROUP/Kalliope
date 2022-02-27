@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type

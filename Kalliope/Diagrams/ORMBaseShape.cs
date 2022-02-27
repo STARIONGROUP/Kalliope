@@ -22,7 +22,7 @@ namespace Kalliope.Diagrams
 {
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// Abstract super-type from which all shape classes derive

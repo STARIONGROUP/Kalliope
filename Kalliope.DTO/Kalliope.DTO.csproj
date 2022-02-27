@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<Version>0.0.1</Version>
+	<Description>A library that provides the Data Transfer Object (DTO) Kalliope classes</Description>
+	<PackageId>Kalliope.DTO</PackageId>
+	<Company>RHEA System S.A.</Company>
+	<Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+	<PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
+	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+	<RepositoryType>Git</RepositoryType>
+	<PackageTags>ORM</PackageTags>
+	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	<Authors>Sam Gerene</Authors>
+	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AutoGenDto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kalliope.Common\Kalliope.Common.csproj" />
+  </ItemGroup>
+
+</Project>

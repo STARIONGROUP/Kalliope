@@ -1,0 +1,109 @@
+﻿// -------------------------------------------------------------------------------------------------
+// <copyright file="TypeDrop.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// ------------------------------------------------------------------------------------------------
+
+namespace Kalliope.Generator.Drops
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+
+    using DotLiquid;
+
+    using Kalliope.Common;
+
+    /// <summary>
+    /// The purpose of the <see cref="TypeDrop"/> is to encapsulate a <see cref="Type"/> in a <see cref="Drop"/>
+    /// for the purpose of code generation
+    /// </summary>
+    public class TypeDrop : Drop
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeDrop"/> class
+        /// </summary>
+        /// <param name="type">
+        /// The <see cref="Type"/> that is encapsulated by the <see cref="Drop"/>
+        /// </param>
+        /// <param name="domainAttribute">
+        /// The <see cref="DomainAttribute"/> that provides metadata about the <see cref="Type"/>
+        /// </param>
+        /// <param name="descriptionAttribute">
+        /// The <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="Type"/>
+        /// </param>
+        public TypeDrop(Type type, DomainAttribute domainAttribute, DescriptionAttribute descriptionAttribute)
+        {
+            this.Type = type;
+            this.DomainAttribute = domainAttribute;
+            this.DescriptionAttribute = descriptionAttribute;
+            
+            this.CreatePropertyDrops();
+        }
+
+        private void CreatePropertyDrops()
+        {
+            this.Properties = new List<PropertyDrop>();
+
+            var properties = this.Type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).OrderBy(x => x.Name);
+            foreach (var propertyInfo in properties)
+            {
+                var propertyAttribute = propertyInfo.GetCustomAttribute<PropertyAttribute>();
+                var descriptionAttribute = propertyInfo.GetCustomAttribute<DescriptionAttribute>();
+                
+                if (propertyAttribute != null)
+                {
+                    var propertyDrop = new PropertyDrop(propertyInfo, propertyAttribute, descriptionAttribute);
+                    this.Properties.Add(propertyDrop);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the <see cref="Type"/> that is encapsulated by the <see cref="Drop"/>
+        /// </summary>
+        public Type Type { get; private set; }
+        
+        public DomainAttribute DomainAttribute { get; private set; }
+
+        public DescriptionAttribute DescriptionAttribute { get; private set; }
+
+        public List<PropertyDrop> Properties { get; private set;  }
+
+        /// <summary>
+        /// Gets the name of the Class / Type
+        /// </summary>
+        public string Name => Type.Name;
+        
+        /// <summary>
+        /// Gets a value indicating whether this is an abstract class
+        /// </summary>
+        public bool IsAbstract => this.DomainAttribute.IsAbstract;
+
+        /// <summary>
+        /// Gets the description of the associated <see cref="Type"/>
+        /// </summary>
+        public string Description => this.DescriptionAttribute?.Description;
+
+        /// <summary>
+        /// Gets the generalization statement ( e.g. : supertypename)
+        /// </summary>
+        public string Generalization  => !string.IsNullOrEmpty(this.DomainAttribute.General) ? $" : {this.DomainAttribute.General}" : string.Empty;
+    }
+}

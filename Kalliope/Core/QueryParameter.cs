@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace Kalliope.Core
 {
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// A parameter defined as the input for a query element

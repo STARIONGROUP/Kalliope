@@ -22,7 +22,7 @@ namespace Kalliope.Core
 {
     using System.Collections.Generic;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
 
     /// <summary>
     /// An ordered sequence of roles through ORM space with a tail split branching into other subpaths
@@ -63,7 +63,7 @@ namespace Kalliope.Core
         /// Gets or sets the Sub paths branched from the end of the current path
         /// </summary>
         [Description("Sub paths branched from the end of the current path.")]
-        [Property(name: "", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleSubPath")]
+        [Property(name: "SubPaths", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleSubPath")]
         public List<RoleSubPath> SubPaths { get; set; }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Kalliope.Core
         public PathRequiresRootObjectTypeError RootObjectTypeRequiredError { get; set; }
 
         [Description("RootObjectType")]
-        [Property(name: "", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "RootObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public ObjectType RootObjectType { get; set; }
 
         /// <summary>

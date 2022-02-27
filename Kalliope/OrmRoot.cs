@@ -23,7 +23,7 @@ namespace Kalliope
     using System.Collections.Generic;
     using System.Xml;
 
-    using Kalliope.Attributes;
+    using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.Diagrams;
 
