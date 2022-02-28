@@ -1,4 +1,5 @@
-# Kalliope
+![Kalliope](Kalliope-logo.png?raw=true)
+
 Kalliope is a C# library used to read and write NORMA ORM files. Kalliope is used in RHEA products and projects to perform code generation.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
