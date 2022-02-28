@@ -39,30 +39,31 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="OrmRoot"/> class.
         /// </summary>
-        public  OrmRoot()
+        public OrmRoot()
         {
-            this.Diagrams = new List<Guid>();
+            this.Diagrams = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
         /// </summary>
-        public List<Guid> Diagrams { get; set; }
+        public List<string> Diagrams { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref=""/>
         /// </summary>
-        public Guid GenerationState { get; set; }
+        public string GenerationState { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ORMModel"/>
         /// </summary>
-        public Guid Model { get; set; }
+        public string Model { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref=""/>
         /// </summary>
-        public Guid NameGenerator { get; set; }
+        public string NameGenerator { get; set; }
  
     }
 }

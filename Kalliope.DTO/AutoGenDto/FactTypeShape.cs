@@ -39,24 +39,30 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeShape"/> class.
         /// </summary>
-        public  FactTypeShape()
+        public FactTypeShape()
         {
-            this.CardinalityConstraintShapes = new List<Guid>();
+            this.CardinalityConstraintShapes = new List<string>();
             this.ConstraintDisplayPosition = ConstraintDisplayPosition.Top;
             this.DisplayOrientation = DisplayOrientation.Horizontal;
             this.DisplayRelatedTypes = RelatedTypesDisplay.AttachAllTypes;
             this.DisplayRoleNames = DisplayRoleNames.UserDefault;
-            this.ObjectifiedFactTypeNameShapes = new List<Guid>();
-            this.ReadingShapes = new List<Guid>();
-            this.RoleDisplayOrder = new List<Guid>();
-            this.RoleNameShapes = new List<Guid>();
-            this.ValueConstraintShapes = new List<Guid>();
+            this.ObjectifiedFactTypeNameShapes = new List<string>();
+            this.ReadingShapes = new List<string>();
+            this.RoleDisplayOrder = new List<string>();
+            this.RoleNameShapes = new List<string>();
+            this.ValueConstraintShapes = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityConstraintShape"/> instances
         /// </summary>
-        public List<Guid> CardinalityConstraintShapes { get; set; }
+        public List<string> CardinalityConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a ConstraintDisplayPosition
@@ -91,32 +97,32 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectTypeShape"/> instances
         /// </summary>
-        public List<Guid> ObjectifiedFactTypeNameShapes { get; set; }
+        public List<string> ObjectifiedFactTypeNameShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReadingShape"/> instances
         /// </summary>
-        public List<Guid> ReadingShapes { get; set; }
+        public List<string> ReadingShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="RoleBase"/> instances
         /// </summary>
-        public List<Guid> RoleDisplayOrder { get; set; }
+        public List<string> RoleDisplayOrder { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleNameShape"/> instances
         /// </summary>
-        public List<Guid> RoleNameShapes { get; set; }
+        public List<string> RoleNameShapes { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="FactType"/>
         /// </summary>
-        public Guid Subject { get; set; }
+        public string Subject { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueConstraintShape"/> instances
         /// </summary>
-        public List<Guid> ValueConstraintShapes { get; set; }
+        public List<string> ValueConstraintShapes { get; set; }
  
     }
 }

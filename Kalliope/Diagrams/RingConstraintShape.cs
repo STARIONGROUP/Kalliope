@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a RingConstraintShape")]
     [Domain(isAbstract: false, general: "ExternalConstraintShape")]
+    [Container(typeName: "ORMDiagram", propertyName: "RingConstraintShapes")]
     public class RingConstraintShape : ExternalConstraintShape
     {
     }

@@ -20,9 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -104,31 +101,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "MinValueMismatchError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MinValueMismatchError")]
         public MinValueMismatchError MinValueMismatchError { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ValueRange"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            this.MinValue = reader.GetAttribute("MinValue");
-            this.MaxValue = reader.GetAttribute("MaxValue");
-
-            var minInclusionAttribute = reader.GetAttribute("MinInclusion");
-            if (Enum.TryParse(minInclusionAttribute, out RangeInclusion minInclusion))
-            {
-                this.MinInclusion = minInclusion;
-            }
-
-            var maxInclusionAttribute = reader.GetAttribute("MaxInclusion");
-            if (Enum.TryParse(maxInclusionAttribute, out RangeInclusion maxInclusion))
-            {
-                this.MaxInclusion = maxInclusion;
-            }
-        }
     }
 }

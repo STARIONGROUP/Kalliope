@@ -31,14 +31,25 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ImpliedFactType
     /// </summary>
-    public partial class ImpliedFactType : ORMModelElement
+    public partial class ImpliedFactType : FactType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ImpliedFactType"/> class.
         /// </summary>
-        public  ImpliedFactType()
+        public ImpliedFactType()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="Objectification"/>
+        /// </summary>
+        public string ImpliedByObjectification { get; set; }
  
     }
 }

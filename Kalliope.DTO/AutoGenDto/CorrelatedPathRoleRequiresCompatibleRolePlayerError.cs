@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CorrelatedPathRoleRequiresCompatibleRolePlayerError"/> class.
         /// </summary>
-        protected  CorrelatedPathRoleRequiresCompatibleRolePlayerError()
+        protected CorrelatedPathRoleRequiresCompatibleRolePlayerError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

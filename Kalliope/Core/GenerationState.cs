@@ -21,16 +21,15 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
-    using System.Xml;
-
+    
     using Kalliope.Common;
 
     /// <summary>
     /// State information relating to automatic mapping algorithms
     /// </summary>
     [Description("State information relating to automatic mapping algorithms")]
-    [Domain(isAbstract: false, general: "")]
-    public class GenerationState
+    [Domain(isAbstract: false, general: "ModelThing")]
+    public class GenerationState : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationState"/> class.
@@ -53,16 +52,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "GenerationSettings", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationSetting")]
         public List<GenerationSetting> GenerationSettings { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="NameGenerator"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal void ReadXml(XmlReader reader)
-        {
-            this.Id = reader.GetAttribute("id");
-        }
     }
 }

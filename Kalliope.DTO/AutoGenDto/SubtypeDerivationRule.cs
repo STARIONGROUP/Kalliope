@@ -39,12 +39,18 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeDerivationRule"/> class.
         /// </summary>
-        public  SubtypeDerivationRule()
+        public SubtypeDerivationRule()
         {
             this.DerivationCompleteness = DerivationCompleteness.FullyDerived;
             this.DerivationStorage = DerivationStorage.NotStored;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a DerivationCompleteness
         /// </summary>

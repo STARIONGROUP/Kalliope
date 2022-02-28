@@ -36,7 +36,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="NameConsumer"/> class.
         /// </summary>
-        public  NameConsumer()
+        public NameConsumer()
         {
         }
  

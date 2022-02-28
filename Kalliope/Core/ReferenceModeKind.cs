@@ -20,9 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -67,25 +64,5 @@ namespace Kalliope.Core
         [Description("One of Popular, UnitBased, or General")]
         [Property(name: "ReferenceModeType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "General", typeName: "ReferenceModeType")]
         public ReferenceModeType ReferenceModeType { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            this.FormatString = reader.GetAttribute("FormatString");
-
-            var referenceModeTypeAttribute = reader.GetAttribute("ReferenceModeType");
-
-            if (Enum.TryParse(referenceModeTypeAttribute, out ReferenceModeType referenceModeType))
-            {
-                this.ReferenceModeType = referenceModeType;
-            }
-        }
     }
 }

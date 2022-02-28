@@ -64,8 +64,8 @@ namespace Kalliope.Tests
             // DataTypes
 
             // CustomReferenceModes
-            Assert.That(ormRoot.Model.CustomReferenceModes.Count, Is.EqualTo(1));
-            var customReferenceMode = ormRoot.Model.CustomReferenceModes.Single(x => x.Id == "_924FEE50-B6A2-490B-ACFC-9623A7425CDB");
+            Assert.That(ormRoot.Model.ReferenceModes.Count, Is.EqualTo(1));
+            var customReferenceMode = ormRoot.Model.ReferenceModes.Single(x => x.Id == "_924FEE50-B6A2-490B-ACFC-9623A7425CDB");
             Assert.That(customReferenceMode.Name, Is.EqualTo("size"));
 
             // ModelNotes

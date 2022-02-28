@@ -31,22 +31,23 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ORMDiagram
     /// </summary>
-    public partial class ORMDiagram
+    public partial class ORMDiagram : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMDiagram"/> class.
         /// </summary>
-        public  ORMDiagram()
+        public ORMDiagram()
         {
-            this.ExternalConstraintShapes = new List<Guid>();
-            this.FactTypeShapes = new List<Guid>();
-            this.FrequencyConstraintShapes = new List<Guid>();
-            this.ModelNoteShapes = new List<Guid>();
-            this.ObjectTypeShapes = new List<Guid>();
-            this.RingConstraintShapes = new List<Guid>();
-            this.ValueComparisonConstraintShapes = new List<Guid>();
+            this.ExternalConstraintShapes = new List<string>();
+            this.FactTypeShapes = new List<string>();
+            this.FrequencyConstraintShapes = new List<string>();
+            this.ModelNoteShapes = new List<string>();
+            this.ObjectTypeShapes = new List<string>();
+            this.RingConstraintShapes = new List<string>();
+            this.ValueComparisonConstraintShapes = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a AutoPopulateShapes
         /// </summary>
@@ -65,17 +66,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ExternalConstraintShape"/> instances
         /// </summary>
-        public List<Guid> ExternalConstraintShapes { get; set; }
+        public List<string> ExternalConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactTypeShape"/> instances
         /// </summary>
-        public List<Guid> FactTypeShapes { get; set; }
+        public List<string> FactTypeShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FrequencyConstraintShape"/> instances
         /// </summary>
-        public List<Guid> FrequencyConstraintShapes { get; set; }
+        public List<string> FrequencyConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
@@ -90,7 +91,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ModelNoteShape"/> instances
         /// </summary>
-        public List<Guid> ModelNoteShapes { get; set; }
+        public List<string> ModelNoteShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a Name
@@ -100,22 +101,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectTypeShape"/> instances
         /// </summary>
-        public List<Guid> ObjectTypeShapes { get; set; }
+        public List<string> ObjectTypeShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RingConstraintShape"/> instances
         /// </summary>
-        public List<Guid> RingConstraintShapes { get; set; }
+        public List<string> RingConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
         /// </summary>
-        public Guid Subject { get; set; }
+        public string Subject { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueComparisonConstraintShape"/> instances
         /// </summary>
-        public List<Guid> ValueComparisonConstraintShapes { get; set; }
+        public List<string> ValueComparisonConstraintShapes { get; set; }
  
     }
 }

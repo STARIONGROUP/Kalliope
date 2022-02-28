@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// A Group owner, allows group containment, order, and naming enforcement
     /// </summary>
     [Description("A Group owner, allows group containment, order, and naming enforcement")]
-    [Domain(isAbstract: false, general: "")]
-    public class ElementGroupingSet
+    [Domain(isAbstract: false, general: "ModelThing")]
+    public class ElementGroupingSet : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingSet"/> class

@@ -47,11 +47,12 @@ namespace Kalliope.Generator.Drops
         /// <param name="descriptionAttribute">
         /// The <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="Type"/>
         /// </param>
-        public TypeDrop(Type type, DomainAttribute domainAttribute, DescriptionAttribute descriptionAttribute)
+        public TypeDrop(Type type, DomainAttribute domainAttribute, DescriptionAttribute descriptionAttribute, ContainerAttribute[] containerAttributes)
         {
             this.Type = type;
             this.DomainAttribute = domainAttribute;
             this.DescriptionAttribute = descriptionAttribute;
+            this.ContainerAttributes = containerAttributes ?? new List<ContainerAttribute>().ToArray();
             
             this.CreatePropertyDrops();
         }
@@ -90,6 +91,11 @@ namespace Kalliope.Generator.Drops
         public DescriptionAttribute DescriptionAttribute { get; private set; }
 
         /// <summary>
+        /// Gets the <see cref="ContainerAttribute"/> that contains the name of the Type that contains the current Type
+        /// </summary>
+        public ContainerAttribute[] ContainerAttributes { get; private set; }
+
+        /// <summary>
         /// Gets the contained <see cref="PropertyDrop"/>s of the current type <see cref="TypeDrop"/>
         /// </summary>
         public List<PropertyDrop> Properties { get; private set;  }
@@ -113,5 +119,10 @@ namespace Kalliope.Generator.Drops
         /// Gets the generalization statement ( e.g. : supertypename)
         /// </summary>
         public string Generalization  => !string.IsNullOrEmpty(this.DomainAttribute.General) ? $" : {this.DomainAttribute.General}" : string.Empty;
+
+        /// <summary>
+        /// Gets a value indicating whether the Type is contained (part of a composite aggregation) by another type
+        /// </summary>
+        public bool IsContained => this.ContainerAttributes.Any();
     }
 }

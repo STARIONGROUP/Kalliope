@@ -36,29 +36,35 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelNote"/> class.
         /// </summary>
-        public  ModelNote()
+        public ModelNote()
         {
-            this.Elements = new List<Guid>();
-            this.FactTypes = new List<Guid>();
-            this.ObjectTypes = new List<Guid>();
+            this.Elements = new List<string>();
+            this.FactTypes = new List<string>();
+            this.ObjectTypes = new List<string>();
             this.SetComparisonConstraints = new List<string>();
-            this.SetConstraints = new List<Guid>();
+            this.SetConstraints = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
-        public List<Guid> Elements { get; set; }
+        public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
         /// </summary>
-        public List<Guid> FactTypes { get; set; }
+        public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ObjectType"/> instances
         /// </summary>
-        public List<Guid> ObjectTypes { get; set; }
+        public List<string> ObjectTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list of SetComparisonConstraints
@@ -68,7 +74,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="SetConstraint"/> instances
         /// </summary>
-        public List<Guid> SetConstraints { get; set; }
+        public List<string> SetConstraints { get; set; }
  
     }
 }

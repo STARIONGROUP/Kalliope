@@ -39,14 +39,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="PathObjectUnifier"/> class.
         /// </summary>
-        public  PathObjectUnifier()
+        public PathObjectUnifier()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>
         /// </summary>
-        public Guid CompatibilityError { get; set; }
+        public string CompatibilityError { get; set; }
  
     }
 }

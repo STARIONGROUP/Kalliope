@@ -39,10 +39,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueInput"/> class.
         /// </summary>
-        public  CalculatedPathValueInput()
+        public CalculatedPathValueInput()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a DistinctValues
         /// </summary>
@@ -51,17 +57,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="FunctionParameter"/>
         /// </summary>
-        public Guid Parameter { get; set; }
+        public string Parameter { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="CalculatedPathValue"/>
         /// </summary>
-        public Guid SourceCalculatedValue { get; set; }
+        public string SourceCalculatedValue { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathConstant"/>
         /// </summary>
-        public Guid SourceConstant { get; set; }
+        public string SourceConstant { get; set; }
  
     }
 }

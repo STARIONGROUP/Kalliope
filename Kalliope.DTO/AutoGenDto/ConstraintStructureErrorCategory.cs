@@ -39,7 +39,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintStructureErrorCategory"/> class.
         /// </summary>
-        protected  ConstraintStructureErrorCategory()
+        protected ConstraintStructureErrorCategory()
         {
         }
  

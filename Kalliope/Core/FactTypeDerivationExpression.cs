@@ -21,7 +21,6 @@
 namespace Kalliope.Core
 {
     using System;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -48,22 +47,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Derived", typeName: "DerivationExpressionStorageType")]
         public DerivationExpressionStorageType DerivationStorage { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="FactTypeDerivationExpression"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            var derivationStorageAttribute = reader.GetAttribute("DerivationStorage");
-            if (Enum.TryParse(derivationStorageAttribute, out DerivationExpressionStorageType derivationExpressionStorageType))
-            {
-                this.DerivationStorage = derivationExpressionStorageType;
-            }
-
-            base.ReadXml(reader);
-        }
     }
 }

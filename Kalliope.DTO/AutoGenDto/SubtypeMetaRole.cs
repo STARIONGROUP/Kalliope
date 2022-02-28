@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeMetaRole"/> class.
         /// </summary>
-        public  SubtypeMetaRole()
+        public SubtypeMetaRole()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

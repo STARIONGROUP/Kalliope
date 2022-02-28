@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleProxy"/> class.
         /// </summary>
-        public  RoleProxy()
+        public RoleProxy()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Role"/>
         /// </summary>
-        public Guid TargetRole { get; set; }
+        public string TargetRole { get; set; }
  
     }
 }

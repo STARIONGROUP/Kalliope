@@ -36,25 +36,26 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class.
         /// </summary>
-        protected  ConstraintRoleSequence()
+        protected ConstraintRoleSequence()
         {
-            this.Roles = new List<Guid>();
+            this.Roles = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPath"/>
         /// </summary>
-        public Guid JoinPath { get; set; }
+        public string JoinPath { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="JoinPathRequiredError"/>
         /// </summary>
-        public Guid JoinPathRequiredError { get; set; }
+        public string JoinPathRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>
-        public List<Guid> Roles { get; set; }
+        public List<string> Roles { get; set; }
  
     }
 }

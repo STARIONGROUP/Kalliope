@@ -34,31 +34,32 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A Group owner, allows group containment, order, and naming enforcement
     /// </remarks>
-    public partial class ElementGroupingSet
+    public partial class ElementGroupingSet : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGroupingSet"/> class.
         /// </summary>
-        public  ElementGroupingSet()
+        public ElementGroupingSet()
         {
-            this.Elements = new List<Guid>();
-            this.Groupings = new List<Guid>();
+            this.Elements = new List<string>();
+            this.Groupings = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
-        public List<Guid> Elements { get; set; }
+        public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGrouping"/> instances
         /// </summary>
-        public List<Guid> Groupings { get; set; }
+        public List<string> Groupings { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
         /// </summary>
-        public Guid Model { get; set; }
+        public string Model { get; set; }
  
     }
 }

@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a Role")]
     [Domain(isAbstract: false, general: "FloatingTextShape")]
+    [Container(typeName: "FactTypeShape", propertyName: "RoleNameShapes")]
     public class RoleNameShape : FloatingTextShape
     {
         /// <summary>

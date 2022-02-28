@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.DTO", "Kalliope.DT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Common", "Kalliope.Common\Kalliope.Common.csproj", "{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Xml", "Kalliope.Xml\Kalliope.Xml.csproj", "{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Xml.Tests", "Kalliope.Xml.Tests\Kalliope.Xml.Tests.csproj", "{B67E8F3F-A999-44A3-9749-614CFE2EE14D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +56,14 @@ Global
 		{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67E8F3F-A999-44A3-9749-614CFE2EE14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67E8F3F-A999-44A3-9749-614CFE2EE14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67E8F3F-A999-44A3-9749-614CFE2EE14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67E8F3F-A999-44A3-9749-614CFE2EE14D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

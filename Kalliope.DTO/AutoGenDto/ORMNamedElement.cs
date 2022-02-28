@@ -36,10 +36,11 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMNamedElement"/> class.
         /// </summary>
-        protected  ORMNamedElement()
+        protected ORMNamedElement()
         {
         }
  
+
         /// <summary>
         /// Gets or sets a Name
         /// </summary>

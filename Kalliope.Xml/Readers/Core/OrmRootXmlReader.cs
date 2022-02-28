@@ -1,0 +1,105 @@
+﻿// -------------------------------------------------------------------------------------------------
+// <copyright file="OrmRootXmlReader.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// ------------------------------------------------------------------------------------------------
+
+namespace Kalliope.Xml.Readers
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Xml;
+
+    using Kalliope.DTO;
+
+    /// <summary>
+    /// The purpose of the <see cref="OrmRootXmlReader"/> is to read the contents of the
+    /// <see cref="OrmRoot"/> XML element
+    /// </summary>
+    public class OrmRootXmlReader
+    {
+        /// <summary>
+        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/>
+        /// </param>
+        /// <param name="modelThings">
+        /// The <see cref="List{ModelThing}"/> to which the read <see cref="ModelThing"/> are added
+        /// </param>
+        public void ReadXml(XmlReader reader, List<ModelThing> modelThings)
+        {
+            if (modelThings == null)
+            {
+                throw new ArgumentNullException(nameof(modelThings), $"The {nameof(modelThings)} may not be null");
+            }
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ORMModel":
+                            using (var ormModelSubtree = reader.ReadSubtree())
+                            {
+                                ormModelSubtree.MoveToContent();
+                                var ormModel = new ORMModel();
+                                var ormModelReader = new ORMModelXmlReader();
+                                ormModelReader.ReadXml(ormModel, ormModelSubtree, modelThings);
+                                modelThings.Add(ormModel);
+                            }
+                            break;
+                        case "NameGenerator":
+                            using (var nameGeneratorSubtree = reader.ReadSubtree())
+                            {
+                                nameGeneratorSubtree.MoveToContent();
+                                var nameGenerator = new NameGenerator();
+                                var nameGeneratorXmlReader = new NameGeneratorXmlReader();
+                                nameGeneratorXmlReader.ReadXml(nameGenerator, nameGeneratorSubtree, modelThings);
+                                //TODO: set namegenerator container
+                            }
+                            break;
+                        case "GenerationState":
+                            using (var generationStateSubTree = reader.ReadSubtree())
+                            {
+                                generationStateSubTree.MoveToContent();
+                                var generationState = new GenerationState();
+                                var generationStateXmlReader = new GenerationStateXmlReader();
+                                generationStateXmlReader.ReadXml(generationState, generationStateSubTree, modelThings);
+                                //TODO: set namegenerator container
+                            }
+                            break;
+                        case "ORMDiagram":
+                            using (var diagramSubtree = reader.ReadSubtree())
+                            {
+                                diagramSubtree.MoveToContent();
+                                // TODO: xml readers for diagramming
+                                //var ormDiagram = new ORMDiagram();
+                                //ormDiagram.ReadXml(diagramSubtree);
+
+                                //this.Diagrams.Add(ormDiagram);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }
+}

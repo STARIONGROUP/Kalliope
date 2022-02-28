@@ -39,10 +39,11 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedFactTypeNameShape"/> class.
         /// </summary>
-        protected  ObjectifiedFactTypeNameShape()
+        protected ObjectifiedFactTypeNameShape()
         {
         }
  
+
         /// <summary>
         /// Gets or sets a ExpandRefMode
         /// </summary>

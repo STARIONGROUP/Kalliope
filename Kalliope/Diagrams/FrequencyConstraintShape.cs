@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a FrequencyConstraint")]
     [Domain(isAbstract: false, general: "ExternalConstraintShape")]
+    [Container(typeName: "ORMDiagram", propertyName: "FrequencyConstraintShapes")]
     public class FrequencyConstraintShape : ExternalConstraintShape
     {
     }

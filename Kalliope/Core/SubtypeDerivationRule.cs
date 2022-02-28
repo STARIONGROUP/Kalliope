@@ -20,9 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -77,42 +74,5 @@ namespace Kalliope.Core
         /// Gets or sets the owned <see cref="SubtypeDerivationPath"/>
         /// </summary>
         public SubtypeDerivationPath SubtypeDerivationPath { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="SubtypeDerivationRule"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-            
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "SubtypeDerivationPath":
-
-                            using (var subtypeDerivationPathSubtree = reader.ReadSubtree())
-                            {
-                                subtypeDerivationPathSubtree.MoveToContent();
-                                var subtypeDerivationPath = new SubtypeDerivationPath();
-                                subtypeDerivationPath.ReadXml(subtypeDerivationPathSubtree);
-                                this.SubtypeDerivationPath = subtypeDerivationPath;
-                            }
-                            
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-
-                    }
-                }
-            }
-        }
     }
 }

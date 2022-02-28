@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
         /// </summary>
-        public  SubsetConstraint()
+        public SubsetConstraint()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
-        public Guid NotWellModeledSubsetAndMandatoryError { get; set; }
+        public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError

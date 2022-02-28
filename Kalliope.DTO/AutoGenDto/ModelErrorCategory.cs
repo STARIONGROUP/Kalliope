@@ -31,12 +31,12 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ModelErrorCategory
     /// </summary>
-    public abstract partial class ModelErrorCategory
+    public abstract partial class ModelErrorCategory : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelErrorCategory"/> class.
         /// </summary>
-        protected  ModelErrorCategory()
+        protected ModelErrorCategory()
         {
         }
  

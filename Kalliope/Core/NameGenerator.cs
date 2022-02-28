@@ -21,7 +21,6 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -134,34 +133,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public ORMModelElement RefinedInstance { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="NameGenerator"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-            
-            var automaticallyShortenNames = reader.GetAttribute("AutomaticallyShortenNames");
-            if (automaticallyShortenNames != null)
-            {
-                this.AutomaticallyShortenNames = XmlConvert.ToBoolean(automaticallyShortenNames);
-            }
-
-            var useTargetDefaultMaximum = reader.GetAttribute("UseTargetDefaultMaximum");
-            if (useTargetDefaultMaximum != null)
-            {
-                this.UseTargetDefaultMaximum = XmlConvert.ToBoolean(useTargetDefaultMaximum);
-            }
-
-            var userDefinedMaximum = reader.GetAttribute("UserDefinedMaximum");
-            if (userDefinedMaximum != null)
-            {
-                this.UserDefinedMaximum = XmlConvert.ToInt32(userDefinedMaximum);
-            }
-        }
     }
 }

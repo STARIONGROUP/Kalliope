@@ -36,29 +36,35 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyConstraint"/> class.
         /// </summary>
-        public  FrequencyConstraint()
+        public FrequencyConstraint()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintExactlyOneError"/>
         /// </summary>
-        public Guid FrequencyConstraintExactlyOneError { get; set; }
+        public string FrequencyConstraintExactlyOneError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintMinMaxError"/>
         /// </summary>
-        public Guid FrequencyConstraintMinMaxError { get; set; }
+        public string FrequencyConstraintMinMaxError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintNonRestrictiveRangeError"/>
         /// </summary>
-        public Guid FrequencyConstraintNonRestrictiveRangeError { get; set; }
+        public string FrequencyConstraintNonRestrictiveRangeError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintViolatedByUniquenessConstraintError"/>
         /// </summary>
-        public Guid FrequencyConstraintViolatedByUniquenessConstraintError { get; set; }
+        public string FrequencyConstraintViolatedByUniquenessConstraintError { get; set; }
  
         /// <summary>
         /// Gets or sets a MaxFrequency

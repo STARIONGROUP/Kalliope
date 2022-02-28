@@ -39,14 +39,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTypeSubtypeInstance"/> class.
         /// </summary>
-        public  EntityTypeSubtypeInstance()
+        public EntityTypeSubtypeInstance()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="EntityTypeInstance"/>
         /// </summary>
-        public Guid SupertypeInstance { get; set; }
+        public string SupertypeInstance { get; set; }
  
     }
 }

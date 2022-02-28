@@ -25,8 +25,9 @@ namespace Kalliope.Core
     /// <summary>
     /// Validation error display filters based on error type and category
     /// </summary>
+    [Domain(isAbstract: false, general: "ModelThing")]
     [Container(typeName: "ORMModel", propertyName: "ModelErrorDisplayFilter")]
-    public class ModelErrorDisplayFilter
+    public class ModelErrorDisplayFilter : ModelThing
     {
         [Description("")]
         [Property(name: "ExcludedCategories", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]

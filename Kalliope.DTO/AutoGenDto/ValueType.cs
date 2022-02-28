@@ -31,14 +31,22 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueType
     /// </summary>
-    public abstract partial class ValueType : ORMNamedElement
+    /// <remarks>
+    /// An ObjectType representing a self-identifying value
+    /// </remarks>
+    public partial class ValueType : ObjectType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueType"/> class.
         /// </summary>
-        protected  ValueType()
+        public ValueType()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

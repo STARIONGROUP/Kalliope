@@ -20,9 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using System;
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -138,89 +136,5 @@ namespace Kalliope.Core
         [Description("The constant value used to populate this role in the derived fact type")]
         [Property(name: "DerivedFromConstant", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathConstant")]
         public PathConstant DerivedFromConstant { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var isMandatory = reader.GetAttribute("_IsMandatory");
-            if (!string.IsNullOrEmpty(isMandatory))
-            {
-                this.IsMandatory = XmlConvert.ToBoolean(isMandatory);
-            }
-
-            var multiplicityAttribute = reader.GetAttribute("_Multiplicity");
-            if (Enum.TryParse(multiplicityAttribute, out Multiplicity multiplicity))
-            {
-                this.Multiplicity = multiplicity;
-            }
-
-            using (var roleSubtree = reader.ReadSubtree())
-            {
-                roleSubtree.MoveToContent();
-
-                while (roleSubtree.Read())
-                {
-                    if (roleSubtree.MoveToContent() == XmlNodeType.Element)
-                    {
-                        var localName = roleSubtree.LocalName;
-
-                        switch (localName)
-                        {
-                            case "RolePlayer":
-                                var rolePlayerReference = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(rolePlayerReference))
-                                {
-                                    rolePlayerReferences.Add(rolePlayerReference);
-                                }
-                                break;
-                            case "ValueRestriction":
-                                using (var valueRestrictionSubTree = reader.ReadSubtree())
-                                {
-                                    valueRestrictionSubTree.MoveToContent();
-                                    this.ReadValueRestriction(valueRestrictionSubTree);
-                                }
-                                break;
-                            default:
-                                Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
-                                break;
-                        }
-                    }
-                }
-            }
-        }
-
-        private void ReadValueRestriction(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "RoleValueConstraint":
-                            using (var valueRestrictionSubTree = reader.ReadSubtree())
-                            {
-                                valueRestrictionSubTree.MoveToContent();
-
-                                var roleValueConstraint = new RoleValueConstraint();
-                                roleValueConstraint.ReadXml(valueRestrictionSubTree);
-                                this.ValueConstraint = roleValueConstraint;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

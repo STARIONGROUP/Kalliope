@@ -36,14 +36,31 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="Reading"/> class.
         /// </summary>
-        public  Reading()
+        public Reading()
         {
+            this.ExpandedData = new List<string>();
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
+        /// Gets or sets a Data
+        /// </summary>
+        public string Data { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="DuplicateReadingSignatureError"/>
         /// </summary>
-        public Guid DuplicateSignatureError { get; set; }
+        public string DuplicateSignatureError { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="RoleText"/> instances
+        /// </summary>
+        public List<string> ExpandedData { get; set; }
  
         /// <summary>
         /// Gets or sets a IsPrimaryForFactType
@@ -63,7 +80,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ReadingRequiresUserModificationError"/>
         /// </summary>
-        public Guid RequiresUserModificationError { get; set; }
+        public string RequiresUserModificationError { get; set; }
  
         /// <summary>
         /// Gets or sets a Signature
@@ -78,12 +95,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewReadingRolesError"/>
         /// </summary>
-        public Guid TooFewRolesError { get; set; }
+        public string TooFewRolesError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooManyReadingRolesError"/>
         /// </summary>
-        public Guid TooManyRolesError { get; set; }
+        public string TooManyRolesError { get; set; }
  
     }
 }

@@ -31,26 +31,27 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ORMModelElement
     /// </summary>
-    public abstract partial class ORMModelElement
+    public abstract partial class ORMModelElement : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMModelElement"/> class.
         /// </summary>
-        protected  ORMModelElement()
+        protected ORMModelElement()
         {
-            this.AssociatedModelErrors = new List<Guid>();
-            this.ExtensionModelErrors = new List<Guid>();
+            this.AssociatedModelErrors = new List<string>();
+            this.ExtensionModelErrors = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
-        public List<Guid> AssociatedModelErrors { get; set; }
+        public List<string> AssociatedModelErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
-        public List<Guid> ExtensionModelErrors { get; set; }
+        public List<string> ExtensionModelErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a Id

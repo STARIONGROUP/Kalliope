@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<Version>0.1.0</Version>
-	<Description>A library to read and write orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
+	<Description>The Kalliope POCO class library</Description>
 	<PackageId>Kalliope</PackageId>
 	<Company>RHEA System S.A.</Company>
 	<Copyright>Copyright 2022 RHEA System S.A.</Copyright>

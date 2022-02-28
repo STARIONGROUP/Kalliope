@@ -20,9 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using System;
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -91,72 +89,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
         public ConstraintDuplicateNameError DuplicateNameError { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ValueConstraint"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "ValueRanges":
-                            using (var valueRangesSubtree = reader.ReadSubtree())
-                            {
-                                valueRangesSubtree.MoveToContent();
-                                this.ReadValueRanges(valueRangesSubtree);
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reads the <see cref="ValueRange"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadValueRanges(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "ValueRange":
-                            using (var valueRangeSubtree = reader.ReadSubtree())
-                            {
-                                valueRangeSubtree.MoveToContent();
-                                var valueRange = new ValueRange();
-                                valueRange.ReadXml(valueRangeSubtree);
-
-                                valueRange.ValueConstraint = this;
-                                this.ValueRanges.Add(valueRange);
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-            
-        }
     }
 }

@@ -31,18 +31,19 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a DefaultReferenceModeNaming
     /// </summary>
-    public abstract partial class DefaultReferenceModeNaming
+    public abstract partial class DefaultReferenceModeNaming : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultReferenceModeNaming"/> class.
         /// </summary>
-        protected  DefaultReferenceModeNaming()
+        protected DefaultReferenceModeNaming()
         {
             this.NamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;
             this.PrimaryIdentifierNamingChoice = EffectiveReferenceModeNamingChoice.ValueTypeName;
             this.ReferenceModeTargetKind = ReferenceModeType.Popular;
         }
  
+
         /// <summary>
         /// Gets or sets a CustomFormat
         /// </summary>

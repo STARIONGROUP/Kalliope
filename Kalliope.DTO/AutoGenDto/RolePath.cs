@@ -39,27 +39,28 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePath"/> class.
         /// </summary>
-        protected  RolePath()
+        protected RolePath()
         {
-            this.Roles = new List<Guid>();
+            this.Roles = new List<string>();
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
-            this.SubPaths = new List<Guid>();
+            this.SubPaths = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>
-        public List<Guid> Roles { get; set; }
+        public List<string> Roles { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
-        public Guid RootObjectType { get; set; }
+        public string RootObjectType { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathRequiresRootObjectTypeError"/>
         /// </summary>
-        public Guid RootObjectTypeRequiredError { get; set; }
+        public string RootObjectTypeRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a SplitCombinationOperator
@@ -74,7 +75,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleSubPath"/> instances
         /// </summary>
-        public List<Guid> SubPaths { get; set; }
+        public List<string> SubPaths { get; set; }
  
     }
 }

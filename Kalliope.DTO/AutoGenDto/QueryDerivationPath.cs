@@ -39,7 +39,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryDerivationPath"/> class.
         /// </summary>
-        protected  QueryDerivationPath()
+        protected QueryDerivationPath()
         {
         }
  

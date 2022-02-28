@@ -39,10 +39,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraintShape"/> class.
         /// </summary>
-        public  ValueConstraintShape()
+        public ValueConstraintShape()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a MaximumDisplayedColumns
         /// </summary>
@@ -56,7 +62,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ValueConstraint"/>
         /// </summary>
-        public Guid Subject { get; set; }
+        public string Subject { get; set; }
  
     }
 }

@@ -20,15 +20,13 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
     /// Definition of a custom reference mode pattern
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "")]
+    [Domain(isAbstract: false, general: "ReferenceMode")]
     public class CustomReferenceMode : ReferenceMode
     {
         /// <summary>
@@ -40,7 +38,7 @@ namespace Kalliope.Core
         public CustomReferenceMode(ORMModel model)
         {
             this.Model = model;
-            model.CustomReferenceModes.Add(this);
+            model.ReferenceModes.Add(this);
         }
 
         /// <summary>
@@ -55,18 +53,5 @@ namespace Kalliope.Core
         [Description("Custom format string for this reference mode pattern. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
         [Property(name: "CustomFormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormatString { get; set; }
-        
-        /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            this.CustomFormatString = reader.GetAttribute("FormatString");
-        }
     }
 }

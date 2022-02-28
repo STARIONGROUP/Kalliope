@@ -39,9 +39,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FunctionDuplicateNameError"/> class.
         /// </summary>
-        public  FunctionDuplicateNameError()
+        public FunctionDuplicateNameError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

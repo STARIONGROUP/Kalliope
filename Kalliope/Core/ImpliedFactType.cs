@@ -20,12 +20,12 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using Kalliope.Common;
 
+    [Description("")]
+    [Domain(isAbstract: false, general: "FactType")]
     public class ImpliedFactType : FactType
     {
-        private string impliedByObjectificationReference = string.Empty;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeFact"/> class
         /// </summary>
@@ -41,6 +41,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the referenced <see cref="Objectification"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
         public Objectification ImpliedByObjectification { get; set; }
 
         /// <summary>
@@ -49,9 +51,9 @@ namespace Kalliope.Core
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        internal override void ReadImpliedByObjectification(XmlReader reader)
-        {
-            this.impliedByObjectificationReference = reader.GetAttribute("ref");
-        }
+        //internal override void ReadImpliedByObjectification(XmlReader reader)
+        //{
+        //    this.impliedByObjectificationReference = reader.GetAttribute("ref");
+        //}
     }
 }

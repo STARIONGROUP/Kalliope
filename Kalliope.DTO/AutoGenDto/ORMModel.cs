@@ -39,90 +39,91 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMModel"/> class.
         /// </summary>
-        public  ORMModel()
+        public ORMModel()
         {
-            this.DataTypes = new List<Guid>();
-            this.Errors = new List<Guid>();
-            this.FactTypes = new List<Guid>();
-            this.Functions = new List<Guid>();
-            this.Notes = new List<Guid>();
-            this.ObjectTypes = new List<Guid>();
-            this.RecognizedPhrases = new List<Guid>();
-            this.ReferenceModeKinds = new List<Guid>();
-            this.ReferenceModes = new List<Guid>();
-            this.SetComparisonConstraints = new List<Guid>();
-            this.SetConstraints = new List<Guid>();
+            this.DataTypes = new List<string>();
+            this.Errors = new List<string>();
+            this.FactTypes = new List<string>();
+            this.Functions = new List<string>();
+            this.Notes = new List<string>();
+            this.ObjectTypes = new List<string>();
+            this.RecognizedPhrases = new List<string>();
+            this.ReferenceModeKinds = new List<string>();
+            this.ReferenceModes = new List<string>();
+            this.SetComparisonConstraints = new List<string>();
+            this.SetConstraints = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="DataType"/> instances
         /// </summary>
-        public List<Guid> DataTypes { get; set; }
+        public List<string> DataTypes { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ModelError"/> instances
         /// </summary>
-        public List<Guid> Errors { get; set; }
+        public List<string> Errors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactType"/> instances
         /// </summary>
-        public List<Guid> FactTypes { get; set; }
+        public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Function"/> instances
         /// </summary>
-        public List<Guid> Functions { get; set; }
+        public List<string> Functions { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ModelErrorDisplayFilter"/>
         /// </summary>
-        public Guid ModelErrorDisplayFilter { get; set; }
+        public string ModelErrorDisplayFilter { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ModelNote"/> instances
         /// </summary>
-        public List<Guid> Notes { get; set; }
+        public List<string> Notes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectType"/> instances
         /// </summary>
-        public List<Guid> ObjectTypes { get; set; }
+        public List<string> ObjectTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RecognizedPhrase"/> instances
         /// </summary>
-        public List<Guid> RecognizedPhrases { get; set; }
+        public List<string> RecognizedPhrases { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReferenceModeKind"/> instances
         /// </summary>
-        public List<Guid> ReferenceModeKinds { get; set; }
+        public List<string> ReferenceModeKinds { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReferenceMode"/> instances
         /// </summary>
-        public List<Guid> ReferenceModes { get; set; }
+        public List<string> ReferenceModes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="SetComparisonConstraint"/> instances
         /// </summary>
-        public List<Guid> SetComparisonConstraints { get; set; }
+        public List<string> SetComparisonConstraints { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="SetConstraint"/> instances
         /// </summary>
-        public List<Guid> SetConstraints { get; set; }
+        public List<string> SetConstraints { get; set; }
  
     }
 }

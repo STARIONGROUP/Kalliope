@@ -36,15 +36,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraint"/> class.
         /// </summary>
-        protected  ValueConstraint()
+        protected ValueConstraint()
         {
-            this.ValueRanges = new List<Guid>();
+            this.ValueRanges = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets a DuplicateNameError
@@ -54,7 +55,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a Text
@@ -64,17 +65,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueRangeOverlapError"/>
         /// </summary>
-        public Guid ValueRangeOverlapError { get; set; }
+        public string ValueRangeOverlapError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueRange"/> instances
         /// </summary>
-        public List<Guid> ValueRanges { get; set; }
+        public List<string> ValueRanges { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueConstraintValueTypeDetachedError"/>
         /// </summary>
-        public Guid ValueTypeDetachedError { get; set; }
+        public string ValueTypeDetachedError { get; set; }
  
     }
 }

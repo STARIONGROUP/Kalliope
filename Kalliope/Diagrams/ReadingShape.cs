@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a ReadingOrder")]
     [Domain(isAbstract: false, general: "FloatingTextShape")]
+    [Container(typeName: "FactTypeShape", propertyName: "ReadingShapes")]
     public class ReadingShape : FloatingTextShape
     {
         /// <summary>

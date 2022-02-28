@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ContradictionError"/> class.
         /// </summary>
-        protected  ContradictionError()
+        protected ContradictionError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

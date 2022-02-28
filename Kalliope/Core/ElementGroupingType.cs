@@ -26,9 +26,9 @@ namespace Kalliope.Core
     /// A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group
     /// </summary>
     [Description("A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group")]
-    [Domain(isAbstract: true, general: "")]
+    [Domain(isAbstract: true, general: "ModelThing")]
     [Container(typeName: "ElementGrouping", propertyName: "GroupingTypes")]
-    public abstract class ElementGroupingType
+    public abstract class ElementGroupingType : ModelThing
     {
     }
 }

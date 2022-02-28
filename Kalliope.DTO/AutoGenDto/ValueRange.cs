@@ -36,12 +36,18 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueRange"/> class.
         /// </summary>
-        public  ValueRange()
+        public ValueRange()
         {
             this.MaxInclusion = RangeInclusion.NotSet;
             this.MinInclusion = RangeInclusion.NotSet;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a InvariantMaxValue
         /// </summary>
@@ -65,7 +71,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="MaxValueMismatchError"/>
         /// </summary>
-        public Guid MaxValueMismatchError { get; set; }
+        public string MaxValueMismatchError { get; set; }
  
         /// <summary>
         /// Gets or sets a MinInclusion
@@ -80,7 +86,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="MinValueMismatchError"/>
         /// </summary>
-        public Guid MinValueMismatchError { get; set; }
+        public string MinValueMismatchError { get; set; }
  
     }
 }

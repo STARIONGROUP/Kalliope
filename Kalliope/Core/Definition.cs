@@ -20,8 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -50,29 +48,5 @@ namespace Kalliope.Core
         [Description("The description contents.")]
         [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="Definition"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    switch (reader.LocalName)
-                    {
-                        case "Text":
-                            this.Text = reader.ReadElementContentAsString();
-                            break;
-                    }
-                }
-            }
-        }
     }
 }

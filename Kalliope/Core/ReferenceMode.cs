@@ -24,6 +24,7 @@ namespace Kalliope.Core
 
     [Description("")]
     [Domain(isAbstract: true, general: "ORMNamedElement")]
+    [Container("ORMModel", "ReferenceModes")]
     public abstract class ReferenceMode : ORMNamedElement
     {
         [Description("")]

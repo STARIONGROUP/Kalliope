@@ -39,13 +39,19 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="NameGenerator"/> class.
         /// </summary>
-        public  NameGenerator()
+        public NameGenerator()
         {
             this.CasingOption = NameGeneratorCasingOption.Uninitialized;
-            this.RefinedByGenerators = new List<Guid>();
+            this.RefinedByGenerators = new List<string>();
             this.SpacingFormat = NameGeneratorSpacingFormat.Uninitialized;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a AutomaticallyShortenNames
         /// </summary>
@@ -64,12 +70,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
         /// </summary>
-        public List<Guid> RefinedByGenerators { get; set; }
+        public List<string> RefinedByGenerators { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModelElement"/>
         /// </summary>
-        public Guid RefinedInstance { get; set; }
+        public string RefinedInstance { get; set; }
  
         /// <summary>
         /// Gets or sets a SpacingFormat

@@ -20,9 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -42,38 +39,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public Role TargetRole { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="RoleProxy"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Role":
-                            using (var rolesSubtree = reader.ReadSubtree())
-                            {
-                                rolesSubtree.MoveToContent();
-
-                                this.roleReference = rolesSubtree.GetAttribute("ref");
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

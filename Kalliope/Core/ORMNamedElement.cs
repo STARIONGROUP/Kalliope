@@ -20,8 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
-
     using Kalliope.Common;
 
     [Description("")]
@@ -34,18 +32,5 @@ namespace Kalliope.Core
         [Description("A name for this element")]
         [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string Name { get; set; }
-        
-        /// <summary>
-        /// Generates a <see cref="ORMNamedElement"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            this.Name = reader.GetAttribute("Name");
-        }
     }
 }

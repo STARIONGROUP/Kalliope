@@ -36,10 +36,11 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="Expression"/> class.
         /// </summary>
-        protected  Expression()
+        protected Expression()
         {
         }
  
+
         /// <summary>
         /// Gets or sets a Body
         /// </summary>

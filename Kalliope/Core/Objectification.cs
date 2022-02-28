@@ -18,11 +18,9 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using System.Collections.Generic;
 
     using Kalliope.Common;
 
@@ -33,8 +31,6 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ORMModelElement")]
     public class Objectification : ORMModelElement
     {
-        private string nestedFactTypeReference = string.Empty;
-
         /// <summary>
         /// Gets or sets a value indicating whether the <see cref="Objectification"/> is implied or not
         /// </summary>
@@ -57,28 +53,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<FactType> ImpliedFactTypes { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="Objectification"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var isImpliedAttribute = reader.GetAttribute("IsImplied");
-            if (isImpliedAttribute != null)
-            {
-                this.IsImplied = XmlConvert.ToBoolean(isImpliedAttribute);
-            }
-
-            var nestedFactTypeReferenceAttribute = reader.GetAttribute("ref");
-            if (nestedFactTypeReferenceAttribute != null)
-            {
-                this.nestedFactTypeReference = nestedFactTypeReferenceAttribute;
-            }
-        }
     }
 }

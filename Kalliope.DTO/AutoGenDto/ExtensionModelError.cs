@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtensionModelError"/> class.
         /// </summary>
-        protected  ExtensionModelError()
+        protected ExtensionModelError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

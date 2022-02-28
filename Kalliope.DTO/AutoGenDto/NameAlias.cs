@@ -36,10 +36,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="NameAlias"/> class.
         /// </summary>
-        public  NameAlias()
+        public NameAlias()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a NameConsumer
         /// </summary>

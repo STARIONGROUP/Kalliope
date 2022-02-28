@@ -20,13 +20,15 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using Kalliope.Common;
 
     using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// An <see cref="ObjectType"/> with an external identification scheme
     /// </summary>
+    [Description("An ObjectType with an external identification scheme")]
+    [Domain(isAbstract: false, general: "ObjectType")]
     public class EntityType : ObjectType
     {
         /// <summary>

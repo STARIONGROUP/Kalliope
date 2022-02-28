@@ -39,15 +39,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="Objectification"/> class.
         /// </summary>
-        public  Objectification()
+        public Objectification()
         {
-            this.ImpliedFactTypes = new List<Guid>();
+            this.ImpliedFactTypes = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactType"/> instances
         /// </summary>
-        public List<Guid> ImpliedFactTypes { get; set; }
+        public List<string> ImpliedFactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied

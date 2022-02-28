@@ -39,9 +39,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="PathSameFactTypeRoleFollowsJoinError"/> class.
         /// </summary>
-        public  PathSameFactTypeRoleFollowsJoinError()
+        public PathSameFactTypeRoleFollowsJoinError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

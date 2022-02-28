@@ -31,14 +31,25 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a InformalDerivationRule
     /// </summary>
-    public abstract partial class InformalDerivationRule
+    public partial class InformalDerivationRule : ORMModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InformalDerivationRule"/> class.
         /// </summary>
-        protected  InformalDerivationRule()
+        public InformalDerivationRule()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="DerivationNote"/>
+        /// </summary>
+        public string DerivationNote { get; set; }
  
     }
 }

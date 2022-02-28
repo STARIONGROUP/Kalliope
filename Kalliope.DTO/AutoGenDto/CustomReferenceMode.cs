@@ -31,15 +31,21 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CustomReferenceMode
     /// </summary>
-    public partial class CustomReferenceMode
+    public partial class CustomReferenceMode : ReferenceMode
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomReferenceMode"/> class.
         /// </summary>
-        public  CustomReferenceMode()
+        public CustomReferenceMode()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a CustomFormatString
         /// </summary>

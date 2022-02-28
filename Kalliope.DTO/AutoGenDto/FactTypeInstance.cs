@@ -36,10 +36,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeInstance"/> class.
         /// </summary>
-        public  FactTypeInstance()
+        public FactTypeInstance()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a Name
         /// </summary>
@@ -48,17 +54,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
-        public Guid ObjectifiedInstance { get; set; }
+        public string ObjectifiedInstance { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifyingInstanceRequiredError"/>
         /// </summary>
-        public Guid ObjectifyingInstanceRequiredError { get; set; }
+        public string ObjectifyingInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewFactTypeRoleInstancesError"/>
         /// </summary>
-        public Guid TooFewFactTypeRoleInstancesError { get; set; }
+        public string TooFewFactTypeRoleInstancesError { get; set; }
  
     }
 }

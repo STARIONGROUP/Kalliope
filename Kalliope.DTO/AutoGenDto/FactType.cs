@@ -36,22 +36,28 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FactType"/> class.
         /// </summary>
-        public  FactType()
+        public FactType()
         {
-            this.FactTypeInstances = new List<Guid>();
-            this.ReadingOrders = new List<Guid>();
-            this.Roles = new List<Guid>();
+            this.FactTypeInstances = new List<string>();
+            this.ReadingOrders = new List<string>();
+            this.Roles = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FactTypeDerivationExpression"/>
         /// </summary>
-        public Guid DerivationExpression { get; set; }
+        public string DerivationExpression { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationNoteDisplay
@@ -71,17 +77,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactTypeInstance"/> instances
         /// </summary>
-        public List<Guid> FactTypeInstances { get; set; }
+        public List<string> FactTypeInstances { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ImpliedInternalUniquenessConstraintError"/>
         /// </summary>
-        public Guid ImpliedInternalUniquenessConstraintError { get; set; }
+        public string ImpliedInternalUniquenessConstraintError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FactTypeRequiresInternalUniquenessConstraintError"/>
         /// </summary>
-        public Guid InternalUniquenessConstraintRequiredError { get; set; }
+        public string InternalUniquenessConstraintRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a IsExternal
@@ -96,22 +102,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReadingOrder"/> instances
         /// </summary>
-        public List<Guid> ReadingOrders { get; set; }
+        public List<string> ReadingOrders { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FactTypeRequiresReadingError"/>
         /// </summary>
-        public Guid ReadingRequiredError { get; set; }
+        public string ReadingRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleBase"/> instances
         /// </summary>
-        public List<Guid> Roles { get; set; }
+        public List<string> Roles { get; set; }
  
     }
 }

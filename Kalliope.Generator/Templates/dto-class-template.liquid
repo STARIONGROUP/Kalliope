@@ -41,19 +41,27 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="{{ TypeDrop.Name }}"/> class.
         /// </summary>
-        {% if TypeDrop.IsAbstract %}protected {% else %}public {% endif %} {{ TypeDrop.Name }}()
+        {% if TypeDrop.IsAbstract %}protected{% else %}public{% endif %} {{ TypeDrop.Name }}()
         {
 			{% for property in TypeDrop.Properties %}
 			{% if property.IsEnumerable == true and property.IsValueType %}
             this.{{ property.Name }} = new List<{{ property.TypeName }}>();
 			{% elseif property.IsEnumerable == true and property.IsReferenceType %}
-            this.{{ property.Name }} = new List<Guid>();
+            this.{{ property.Name }} = new List<string>();
 			{% elseif property.IsEnumeration == true and property.DefaultValue != '' %}
             this.{{ property.Name }} = {{property.TypeName}}.{{ property.DefaultValue }};
 			{% endif %}
 			{% endfor %}
         }
  
+		{% if TypeDrop.IsContained == true %}
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+		{% endif %}
+
 		{% for property in TypeDrop.Properties %}
 		{% if property.IsEnumerable == true and property.IsValueType %}
         /// <summary>
@@ -65,7 +73,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/> instances
         /// </summary>
-        public List<Guid> {{ property.Name }} { get; set; }
+        public List<string> {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable != true and property.IsValueType %}
         /// <summary>
@@ -77,7 +85,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/>
         /// </summary>
-        public Guid {{ property.Name }} { get; set; }
+        public string {{ property.Name }} { get; set; }
  
 		{% endif %}
 		{% endfor %}

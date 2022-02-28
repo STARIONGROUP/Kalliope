@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a ObjectTypeCardinalityConstraint or a UnaryRoleCardinalityConstraint")]
     [Domain(isAbstract: false, general: "FloatingTextShape")]
+    [Container(typeName: "ObjectTypeShape", propertyName: "CardinalityConstraintShapes")]
     public class CardinalityConstraintShape : FloatingTextShape
     {
         /// <summary>

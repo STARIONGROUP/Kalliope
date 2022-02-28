@@ -34,12 +34,12 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Zero-size relative shape used as a proxy connection point for other shapes and links
     /// </remarks>
-    public partial class LinkConnectorShape
+    public partial class LinkConnectorShape : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="LinkConnectorShape"/> class.
         /// </summary>
-        public  LinkConnectorShape()
+        public LinkConnectorShape()
         {
         }
  

@@ -36,26 +36,27 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class.
         /// </summary>
-        protected  CardinalityConstraint()
+        protected CardinalityConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
-            this.Ranges = new List<Guid>();
+            this.Ranges = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CardinalityRangeOverlapError"/>
         /// </summary>
-        public Guid CardinalityRangeOverlapError { get; set; }
+        public string CardinalityRangeOverlapError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a Modality
@@ -65,12 +66,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityRange"/> instances
         /// </summary>
-        public List<Guid> Ranges { get; set; }
+        public List<string> Ranges { get; set; }
  
         /// <summary>
         /// Gets or sets a Text

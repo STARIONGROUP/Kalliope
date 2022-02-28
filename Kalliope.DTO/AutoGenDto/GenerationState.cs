@@ -34,20 +34,21 @@ namespace Kalliope.DTO
     /// <remarks>
     /// State information relating to automatic mapping algorithms
     /// </remarks>
-    public partial class GenerationState
+    public partial class GenerationState : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationState"/> class.
         /// </summary>
-        public  GenerationState()
+        public GenerationState()
         {
-            this.GenerationSettings = new List<Guid>();
+            this.GenerationSettings = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="GenerationSetting"/> instances
         /// </summary>
-        public List<Guid> GenerationSettings { get; set; }
+        public List<string> GenerationSettings { get; set; }
  
         /// <summary>
         /// Gets or sets a Id

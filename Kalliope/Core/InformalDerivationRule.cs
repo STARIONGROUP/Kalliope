@@ -20,52 +20,21 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
+    using Kalliope.Common;
 
     /// <summary>
     /// An informal description of the intent of a derivation rule
     /// </summary>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Container(typeName: "SubtypeDerivationPath", propertyName: "InformalDerivationRule")]
     public class InformalDerivationRule : ORMModelElement
     {
         /// <summary>
         /// Gets or sets the owned <see cref="DerivationNote"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationNote", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DerivationNote")]
         public DerivationNote DerivationNote { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="InformalDerivationRule"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "DerivationNote":
-                            using (var derivationNoteSubtree = reader.ReadSubtree())
-                            {
-                                derivationNoteSubtree.MoveToContent();
-                                var derivationNote = new DerivationNote();
-                                derivationNote.ReadXml(derivationNoteSubtree);
-
-                                this.DerivationNote = derivationNote;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

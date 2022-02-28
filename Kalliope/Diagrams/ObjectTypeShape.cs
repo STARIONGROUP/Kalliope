@@ -21,8 +21,7 @@
 namespace Kalliope.Diagrams
 {
     using System.Collections.Generic;
-    using System.Xml;
-
+    
     using Kalliope.Common;
     using Kalliope.Core;
 
@@ -31,9 +30,9 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents an ObjectType")]
     [Domain(isAbstract: false, general: "ORMBaseShape")]
+    [Container(typeName: "FactTypeShape", propertyName: "ObjectifiedFactTypeNameShapes")]
     public class ObjectTypeShape : ORMBaseShape
     {
-        private string subjectReference = string.Empty;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeShape"/>
@@ -81,87 +80,5 @@ namespace Kalliope.Diagrams
         [Description("")]
         [Property(name: "CardinalityConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraintShape")]
         public List<CardinalityConstraintShape> CardinalityConstraintShapes { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ObjectTypeShape"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var expandRefMode = reader.GetAttribute("ExpandRefMode");
-            if (!string.IsNullOrEmpty(expandRefMode))
-            {
-                this.ExpandRefMode = XmlConvert.ToBoolean(expandRefMode);
-            }
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "RelativeShapes":
-                            using (var relativeShapesSubtree = reader.ReadSubtree())
-                            {
-                                relativeShapesSubtree.MoveToContent();
-                                this.ReadRelativeShapes(relativeShapesSubtree);
-                            }
-                            break;
-                        case "Subject":
-                            this.subjectReference = reader.GetAttribute("ref");
-                            break;
-                        default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reads the relative shapes
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadRelativeShapes(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "ValueConstraintShape":
-                            using (var valueConstraintShapeSubtree = reader.ReadSubtree())
-                            {
-                                valueConstraintShapeSubtree.MoveToContent();
-                                var valueConstraintShape = new ValueConstraintShape();
-                                valueConstraintShape.ReadXml(valueConstraintShapeSubtree);
-                                this.ValueConstraintShapes.Add(valueConstraintShape);
-                            }
-                            break;
-                        case "CardinalityConstraintShape":
-                            using (var cardinalityConstraintShapeSubtree = reader.ReadSubtree())
-                            {
-                                cardinalityConstraintShapeSubtree.MoveToContent();
-                                var cardinalityConstraintShape = new CardinalityConstraintShape();
-                                cardinalityConstraintShape.ReadXml(cardinalityConstraintShapeSubtree);
-                                this.CardinalityConstraintShapes.Add(cardinalityConstraintShape);
-                            }
-                            break;
-                        default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

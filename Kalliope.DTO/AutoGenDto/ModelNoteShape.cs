@@ -39,14 +39,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelNoteShape"/> class.
         /// </summary>
-        public  ModelNoteShape()
+        public ModelNoteShape()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ModelNote"/>
         /// </summary>
-        public Guid Subject { get; set; }
+        public string Subject { get; set; }
  
     }
 }

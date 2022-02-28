@@ -20,53 +20,43 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using Kalliope.Common;
 
     /// <summary>
     /// Text bound to or occurring after a given role.
     /// Roles with no text are not represented
     /// </summary>
-    public class RoleText
+    [Description("")]
+    [Domain(isAbstract: false, general: "ModelThing")]
+    [Container(typeName: "Reading", propertyName: "ExpandedData")]
+    public class RoleText : ModelThing
     {
         /// <summary>
         /// The zero-based index of the role
         /// </summary>
+        [Description("The zero-based index of the role")]
+        [Property(name: "RoleIndex", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int RoleIndex { get; set; }
 
         /// <summary>
         /// Text that is bound to the role as leading text through hyphen binding semantics in the full reading text
         /// </summary>
+        [Description("Text that is bound to the role as leading text through hyphen binding semantics in the full reading text")]
+        [Property(name: "PreBoundText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PreBoundText { get; set; }
 
         /// <summary>
         /// Text that is bound to the role as trailing text through hyphen binding semantics in the full reading text
         /// </summary>
+        [Description("Text that is bound to the role as trailing text through hyphen binding semantics in the full reading text")]
+        [Property(name: "PostBoundText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PostBoundText { get; set; }
 
         /// <summary>
         /// Text following a role replacement field and associated bound text
         /// </summary>
+        [Description("Text following a role replacement field and associated bound text")]
+        [Property(name: "FollowingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string FollowingText { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="Reading"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal  void ReadXml(XmlReader reader)
-        {
-            var roleIndexAttribute = reader.GetAttribute("RoleIndex");
-            if (!string.IsNullOrEmpty(roleIndexAttribute))
-            {
-                this.RoleIndex = XmlConvert.ToInt32(roleIndexAttribute);
-            }
-
-            this.PreBoundText = reader.GetAttribute("PreBoundText");
-
-            this.PostBoundText = reader.GetAttribute("PostBoundText");
-
-            this.FollowingText = reader.GetAttribute("FollowingText");
-        }
     }
 }

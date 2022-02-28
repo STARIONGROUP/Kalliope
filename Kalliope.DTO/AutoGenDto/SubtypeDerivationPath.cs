@@ -32,16 +32,39 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a SubtypeDerivationPath
     /// </summary>
     /// <remarks>
-    /// An abstract owner for one or more path objects
+    /// A role path used to define the population of a derived subtype
     /// </remarks>
-    public abstract partial class SubtypeDerivationPath : ORMModelElement
+    public partial class SubtypeDerivationPath : RolePathOwner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeDerivationPath"/> class.
         /// </summary>
-        protected  SubtypeDerivationPath()
+        public SubtypeDerivationPath()
         {
+            this.DerivationCompleteness = DerivationCompleteness.FullyDerived;
+            this.DerivationStorage = DerivationStorage.NotStored;
         }
+ 
+
+        /// <summary>
+        /// Gets or sets a DerivationCompleteness
+        /// </summary>
+        public DerivationCompleteness DerivationCompleteness { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a DerivationStorage
+        /// </summary>
+        public DerivationStorage DerivationStorage { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a ExternalDerivation
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="InformalDerivationRule"/>
+        /// </summary>
+        public string InformalRule { get; set; }
  
     }
 }

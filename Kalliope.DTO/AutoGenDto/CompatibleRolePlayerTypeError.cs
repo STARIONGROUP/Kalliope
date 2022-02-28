@@ -39,10 +39,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CompatibleRolePlayerTypeError"/> class.
         /// </summary>
-        public  CompatibleRolePlayerTypeError()
+        public CompatibleRolePlayerTypeError()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a Column
         /// </summary>

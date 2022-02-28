@@ -36,15 +36,21 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RingConstraint"/> class.
         /// </summary>
-        public  RingConstraint()
+        public RingConstraint()
         {
             this.RingType = RingConstraintType.Undefined;
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RingConstraintTypeNotSpecifiedError"/>
         /// </summary>
-        public Guid RingConstraintTypeNotSpecifiedError { get; set; }
+        public string RingConstraintTypeNotSpecifiedError { get; set; }
  
         /// <summary>
         /// Gets or sets a RingType

@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedUnaryRole"/> class.
         /// </summary>
-        public  ObjectifiedUnaryRole()
+        public ObjectifiedUnaryRole()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Role"/>
         /// </summary>
-        public Guid TargetRole { get; set; }
+        public string TargetRole { get; set; }
  
     }
 }

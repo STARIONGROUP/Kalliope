@@ -110,7 +110,7 @@ namespace Kalliope.Tests
             Assert.That(trueOrFalseLogicalDataType.Id, Is.EqualTo("_33BFD2D0-785B-4750-8215-AE04CB185578"));
 
             // CustomReferenceModes
-            Assert.That(ormRoot.Model.CustomReferenceModes.Count, Is.EqualTo(0));
+            Assert.That(ormRoot.Model.ReferenceModes.Count, Is.EqualTo(0));
 
             // ModelNotes
             Assert.That(ormRoot.Model.Notes.Count, Is.EqualTo(1));

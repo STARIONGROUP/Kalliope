@@ -36,26 +36,32 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="Role"/> class.
         /// </summary>
-        public  Role()
+        public Role()
         {
             this.Multiplicity = Multiplicity.Unspecified;
-            this.ObjectTypeInstances = new List<Guid>();
+            this.ObjectTypeInstances = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="UnaryRoleCardinalityConstraint"/>
         /// </summary>
-        public Guid Cardinality { get; set; }
+        public string Cardinality { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="CalculatedPathValue"/>
         /// </summary>
-        public Guid DerivedFromCalculatedValue { get; set; }
+        public string DerivedFromCalculatedValue { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="PathConstant"/>
         /// </summary>
-        public Guid DerivedFromConstant { get; set; }
+        public string DerivedFromConstant { get; set; }
  
         /// <summary>
         /// Gets or sets a IsMandatory
@@ -85,22 +91,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ObjectTypeInstance"/> instances
         /// </summary>
-        public List<Guid> ObjectTypeInstances { get; set; }
+        public List<string> ObjectTypeInstances { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
-        public Guid RolePlayer { get; set; }
+        public string RolePlayer { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RolePlayerRequiredError"/>
         /// </summary>
-        public Guid RolePlayerRequiredError { get; set; }
+        public string RolePlayerRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RoleValueConstraint"/>
         /// </summary>
-        public Guid ValueConstraint { get; set; }
+        public string ValueConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a ValueRangeText

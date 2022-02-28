@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueTypeInstance"/> class.
         /// </summary>
-        public  ValueTypeInstance()
+        public ValueTypeInstance()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CompatibleValueTypeInstanceValueError"/>
         /// </summary>
-        public Guid CompatibleValueTypeInstanceValueError { get; set; }
+        public string CompatibleValueTypeInstanceValueError { get; set; }
  
         /// <summary>
         /// Gets or sets a InvariantValue

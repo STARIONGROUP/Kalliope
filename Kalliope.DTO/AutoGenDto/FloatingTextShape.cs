@@ -39,7 +39,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FloatingTextShape"/> class.
         /// </summary>
-        protected  FloatingTextShape()
+        protected FloatingTextShape()
         {
         }
  

@@ -23,8 +23,8 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class NameUsage
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class NameUsage : ModelThing
     {
     }
 }

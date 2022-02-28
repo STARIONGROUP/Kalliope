@@ -20,14 +20,13 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
     /// A role path used to define the population of a derived subtype
     /// </summary>
+    [Description("A role path used to define the population of a derived subtype")]
+    [Domain(isAbstract: false, general: "RolePathOwner")]
     public class SubtypeDerivationPath : RolePathOwner
     {
         /// <summary>
@@ -42,62 +41,29 @@ namespace Kalliope.Core
         /// <summary>
         /// An empty derivation rule is externally defined
         /// </summary>
+        [Description("An empty derivation rule is externally defined")]
+        [Property(name: "ExternalDerivation", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "")]
         public bool ExternalDerivation { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="DerivationCompleteness"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationCompleteness", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "FullyDerived", typeName: "DerivationCompleteness")]
         public DerivationCompleteness DerivationCompleteness { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="DerivationStorage"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotStored", typeName: "DerivationStorage")]
         public DerivationStorage DerivationStorage { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="InformalDerivationRule"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "InformalRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "InformalDerivationRule")]
         public InformalDerivationRule InformalRule { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="SubtypeDerivationPath"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var externalDerivation = reader.GetAttribute("ExternalDerivation");
-            if (externalDerivation != null)
-            {
-                this.ExternalDerivation = XmlConvert.ToBoolean(externalDerivation);
-            }
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "InformalRule":
-                            using (var informalRuleSubtree = reader.ReadSubtree())
-                            {
-                                informalRuleSubtree.MoveToContent();
-                                var informalDerivationRule = new InformalDerivationRule();
-                                informalDerivationRule.ReadXml(informalRuleSubtree);
-                                
-                                this.InformalRule = informalDerivationRule;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

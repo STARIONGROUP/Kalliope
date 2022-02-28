@@ -21,7 +21,6 @@
 namespace Kalliope
 {
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
     using Kalliope.Core;
@@ -98,56 +97,56 @@ namespace Kalliope
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/>
         /// </param>
-        internal void ReadXml(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
+        //internal void ReadXml(XmlReader reader)
+        //{
+        //    while (reader.Read())
+        //    {
+        //        if (reader.MoveToContent() == XmlNodeType.Element)
+        //        {
+        //            var localName = reader.LocalName;
 
-                    switch (localName)
-                    {
-                        case "ORMModel":
-                            using (var ormModelSubtree = reader.ReadSubtree())
-                            {
-                                ormModelSubtree.MoveToContent();
-                                var ormModel = new ORMModel(this.loggerFactory);
-                                ormModel.ReadXml(ormModelSubtree);
-                                this.Model = ormModel;
-                            }
-                            break;
-                        case "NameGenerator":
-                            using (var nameGeneratorSubtree = reader.ReadSubtree())
-                            {
-                                nameGeneratorSubtree.MoveToContent();
-                                var nameGenerator = new NameGenerator();
-                                nameGenerator.ReadXml(nameGeneratorSubtree);
-                                this.NameGenerator = nameGenerator;
-                            }
-                            break;
-                        case "GenerationState":
-                            using (var generationStateSubTree = reader.ReadSubtree())
-                            {
-                                generationStateSubTree.MoveToContent();
-                                var generationState = new GenerationState();
-                                generationState.ReadXml(generationStateSubTree);
-                                this.GenerationState = generationState;
-                            }
-                            break;
-                        case "ORMDiagram":
-                            using (var diagramSubtree = reader.ReadSubtree())
-                            {
-                                diagramSubtree.MoveToContent();
-                                var ormDiagram = new ORMDiagram();
-                                ormDiagram.ReadXml(diagramSubtree);
+        //            switch (localName)
+        //            {
+        //                case "ORMModel":
+        //                    using (var ormModelSubtree = reader.ReadSubtree())
+        //                    {
+        //                        ormModelSubtree.MoveToContent();
+        //                        var ormModel = new ORMModel(this.loggerFactory);
+        //                        ormModel.ReadXml(ormModelSubtree);
+        //                        this.Model = ormModel;
+        //                    }
+        //                    break;
+        //                case "NameGenerator":
+        //                    using (var nameGeneratorSubtree = reader.ReadSubtree())
+        //                    {
+        //                        nameGeneratorSubtree.MoveToContent();
+        //                        var nameGenerator = new NameGenerator();
+        //                        nameGenerator.ReadXml(nameGeneratorSubtree);
+        //                        this.NameGenerator = nameGenerator;
+        //                    }
+        //                    break;
+        //                case "GenerationState":
+        //                    using (var generationStateSubTree = reader.ReadSubtree())
+        //                    {
+        //                        generationStateSubTree.MoveToContent();
+        //                        var generationState = new GenerationState();
+        //                        generationState.ReadXml(generationStateSubTree);
+        //                        this.GenerationState = generationState;
+        //                    }
+        //                    break;
+        //                case "ORMDiagram":
+        //                    using (var diagramSubtree = reader.ReadSubtree())
+        //                    {
+        //                        diagramSubtree.MoveToContent();
+        //                        var ormDiagram = new ORMDiagram();
+        //                        ormDiagram.ReadXml(diagramSubtree);
 
-                                this.Diagrams.Add(ormDiagram);
-                            }
-                            break;
-                    }
-                }
-            }
-        }
+        //                        this.Diagrams.Add(ormDiagram);
+        //                    }
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

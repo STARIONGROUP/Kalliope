@@ -39,15 +39,21 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="Function"/> class.
         /// </summary>
-        public  Function()
+        public Function()
         {
-            this.Parameters = new List<Guid>();
+            this.Parameters = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="FunctionDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a IsAggregate
@@ -67,7 +73,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FunctionParameter"/> instances
         /// </summary>
-        public List<Guid> Parameters { get; set; }
+        public List<string> Parameters { get; set; }
  
     }
 }

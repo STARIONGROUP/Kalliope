@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Generator.Generators
 {
     using System;
@@ -65,9 +67,10 @@ namespace Kalliope.Generator.Generators
             {
                 var domainAttribute = (DomainAttribute) Attribute.GetCustomAttribute(type, typeof(DomainAttribute));
                 var descriptionAttribute = (DescriptionAttribute) Attribute.GetCustomAttribute(type, typeof(DescriptionAttribute));
+                var containerAttributes = (ContainerAttribute[]) Attribute.GetCustomAttributes(type, typeof(ContainerAttribute));
                 if (domainAttribute != null)
                 {
-                    var typeDrop = new TypeDrop(type, domainAttribute, descriptionAttribute);
+                    var typeDrop = new TypeDrop(type, domainAttribute, descriptionAttribute, containerAttributes);
                     var generatedType = this.GenerateType(typeDrop);
 
                     var fileName = $"{typeDrop.Name}.cs";

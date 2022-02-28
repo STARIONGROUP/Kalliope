@@ -39,41 +39,47 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValue"/> class.
         /// </summary>
-        public  CalculatedPathValue()
+        public CalculatedPathValue()
         {
-            this.Inputs = new List<Guid>();
-            this.ParameterBindingErrors = new List<Guid>();
+            this.Inputs = new List<string>();
+            this.ParameterBindingErrors = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueRequiresAggregationContextError"/>
         /// </summary>
-        public Guid AggregationContextRequiredError { get; set; }
+        public string AggregationContextRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueMustBeConsumedError"/>
         /// </summary>
-        public Guid ConsumptionRequiredError { get; set; }
+        public string ConsumptionRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Function"/>
         /// </summary>
-        public Guid Function { get; set; }
+        public string Function { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueRequiresFunctionError"/>
         /// </summary>
-        public Guid FunctionRequiredError { get; set; }
+        public string FunctionRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValueInput"/> instances
         /// </summary>
-        public List<Guid> Inputs { get; set; }
+        public List<string> Inputs { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValueParameterBindingError"/> instances
         /// </summary>
-        public List<Guid> ParameterBindingErrors { get; set; }
+        public List<string> ParameterBindingErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a UniversalAggregationContext

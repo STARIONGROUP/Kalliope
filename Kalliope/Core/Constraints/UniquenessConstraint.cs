@@ -20,8 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
-
     using Kalliope.Common;
 
     /// <summary>
@@ -64,28 +62,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "NMinusOneError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NMinusOneError")]
         public NMinusOneError NMinusOneError { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var isPreferred = reader.GetAttribute("IsPreferred");
-            if (isPreferred != null)
-            {
-                this.IsPreferred = XmlConvert.ToBoolean(isPreferred);
-            }
-
-            var isInternal = reader.GetAttribute("IsInternal");
-            if (isInternal != null)
-            {
-                this.IsInternal = XmlConvert.ToBoolean(isInternal);
-            }
-        }
     }
 }

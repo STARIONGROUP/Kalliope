@@ -31,12 +31,12 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a NameUsage
     /// </summary>
-    public abstract partial class NameUsage
+    public abstract partial class NameUsage : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameUsage"/> class.
         /// </summary>
-        protected  NameUsage()
+        protected NameUsage()
         {
         }
  

@@ -34,15 +34,16 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Abstract super-type from which all shape classes derive
     /// </remarks>
-    public abstract partial class ORMBaseShape
+    public abstract partial class ORMBaseShape : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMBaseShape"/> class.
         /// </summary>
-        protected  ORMBaseShape()
+        protected ORMBaseShape()
         {
         }
  
+
         /// <summary>
         /// Gets or sets a AbsoluteBounds
         /// </summary>

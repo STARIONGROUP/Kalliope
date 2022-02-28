@@ -21,13 +21,12 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class ORMModelElement
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class ORMModelElement : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ORMModelElement"/> class
@@ -52,16 +51,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "AssociatedModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<ModelError> AssociatedModelErrors { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMModelElement"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal virtual void ReadXml(XmlReader reader)
-        {
-            this.Id = reader.GetAttribute("id");
-        }
     }
 }

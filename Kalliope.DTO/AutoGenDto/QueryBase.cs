@@ -36,15 +36,21 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        protected  QueryBase()
+        protected QueryBase()
         {
-            this.Parameters = new List<Guid>();
+            this.Parameters = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="QueryParameter"/> instances
         /// </summary>
-        public List<Guid> Parameters { get; set; }
+        public List<string> Parameters { get; set; }
  
     }
 }

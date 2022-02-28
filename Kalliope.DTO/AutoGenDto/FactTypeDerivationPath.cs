@@ -32,16 +32,32 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a FactTypeDerivationPath
     /// </summary>
     /// <remarks>
-    /// An abstract owner for one or more path objects
+    /// A role path with projected nodes used to define the population of a derived fact type
     /// </remarks>
-    public abstract partial class FactTypeDerivationPath : ORMModelElement
+    public partial class FactTypeDerivationPath : RolePathOwner
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeDerivationPath"/> class.
         /// </summary>
-        protected  FactTypeDerivationPath()
+        public FactTypeDerivationPath()
         {
         }
+ 
+
+        /// <summary>
+        /// Gets or sets a ExternalDerivation
+        /// </summary>
+        public bool ExternalDerivation { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a Name
+        /// </summary>
+        public string Name { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a SetProjection
+        /// </summary>
+        public bool SetProjection { get; set; }
  
     }
 }

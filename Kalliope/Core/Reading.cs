@@ -20,9 +20,7 @@
 
 namespace Kalliope.Core
 {
-    using System;
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -49,12 +47,16 @@ namespace Kalliope.Core
         /// To enable hyphen binding with no space before the role player, 'WORD-- ROLEPLAYER' collapses the trailing space, resulting in 'WORD-ROLEPLAYER'. 
         /// 'WORD- ROLEPLAYER' can be achived with two hyphens and two spaces
         /// </summary>
+        [Description("Reading text with numbered replacemented fields in the format {n}, where n is a zero-based index into the corresponding role traversal order. ")]
+        [Property(name: "Data", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Data { get; set; }
 
         /// <summary>
         /// An expanded form of the Data element with text decoration broken down on a per-role basis.
         /// Hyphen binding constructs are fully resolved with hyphens removed
         /// </summary>
+        [Description("An expanded form of the Data element with text decoration broken down on a per-role basis. Hyphen binding constructs are fully resolved with hyphens removed")]
+        [Property(name: "ExpandedData", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleText")]
         public List<RoleText> ExpandedData { get; set; }
 
         /// <summary>
@@ -117,70 +119,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "DuplicateSignatureError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DuplicateReadingSignatureError")]
         public DuplicateReadingSignatureError DuplicateSignatureError { get; set; }
-        
-        /// <summary>
-        /// Generates a <see cref="Reading"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Data":
-                            this.Data = reader.ReadElementContentAsString();
-                            break;
-                        case "ExpandedData":
-                            using (var expandedDataSubtree = reader.ReadSubtree())
-                            {
-                                expandedDataSubtree.MoveToContent();
-                                this.ReadExpandedData(expandedDataSubtree);
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Reads <see cref="RoleText"/>s from the .orm file
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadExpandedData(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "RoleText":
-
-                            var roleText = new RoleText();
-                            roleText.ReadXml(reader);
-                            this.ExpandedData.Add(roleText);
-
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

@@ -36,14 +36,25 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeFact"/> class.
         /// </summary>
-        public  SubtypeFact()
+        public SubtypeFact()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a IsPrimary
         /// </summary>
         public bool IsPrimary { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a PreferredIdentificationPath
+        /// </summary>
+        public bool PreferredIdentificationPath { get; set; }
  
         /// <summary>
         /// Gets or sets a ProvidesPreferredIdentifier

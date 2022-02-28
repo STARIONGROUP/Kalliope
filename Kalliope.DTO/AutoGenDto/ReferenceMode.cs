@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceMode"/> class.
         /// </summary>
-        protected  ReferenceMode()
+        protected ReferenceMode()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ReferenceModeKind"/>
         /// </summary>
-        public Guid Kind { get; set; }
+        public string Kind { get; set; }
  
     }
 }

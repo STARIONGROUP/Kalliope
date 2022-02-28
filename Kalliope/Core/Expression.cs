@@ -20,9 +20,6 @@
 
 namespace Kalliope.Core
 {
-    using System;
-    using System.Xml;
-
     using Kalliope.Common;
 
     [Description("")]
@@ -42,38 +39,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Language { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="Expression"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            using (var bodySubtree = reader.ReadSubtree())
-            {
-                bodySubtree.MoveToContent();
-
-                while (bodySubtree.Read())
-                {
-                    if (bodySubtree.MoveToContent() == XmlNodeType.Element)
-                    {
-                        var localName = bodySubtree.LocalName;
-
-                        switch (localName)
-                        {
-                            case "Body":
-                                this.Body = bodySubtree.ReadElementContentAsString();
-                                break;
-                            default:
-                                throw new NotSupportedException($"{localName} not yet supported");
-                        }
-                    }
-                }
-            }
-        }
     }
 }

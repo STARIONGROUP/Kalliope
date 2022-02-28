@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a SetComparisonConstraint or a SetConstraint")]
     [Domain(isAbstract: false, general: "ORMBaseShape")]
+    [Container(typeName: "ORMDiagram", propertyName: "ExternalConstraintShapes")]
     public class ExternalConstraintShape : ORMBaseShape
     {
         /// <summary>

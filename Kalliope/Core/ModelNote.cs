@@ -18,10 +18,10 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     using Kalliope.Common;
 
     /// <summary>
@@ -32,6 +32,9 @@ namespace Kalliope.Core
     [Container(typeName: "ORMModel", propertyName: "Notes")]
     public class ModelNote : Note
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModelNote"/> class
+        /// </summary>
         public ModelNote()
         {
             this.Elements = new List<ORMModelElement>();

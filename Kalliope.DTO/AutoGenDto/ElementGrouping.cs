@@ -39,67 +39,73 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGrouping"/> class.
         /// </summary>
-        public  ElementGrouping()
+        public ElementGrouping()
         {
-            this.ChildGroupings = new List<Guid>();
-            this.ExcludedChildGroupings = new List<Guid>();
-            this.ExcludedElements = new List<Guid>();
-            this.GroupingTypes = new List<Guid>();
-            this.IncludedChildGroupings = new List<Guid>();
-            this.IncludedElements = new List<Guid>();
-            this.MembershipContradictionErrors = new List<Guid>();
+            this.ChildGroupings = new List<string>();
+            this.ExcludedChildGroupings = new List<string>();
+            this.ExcludedElements = new List<string>();
+            this.GroupingTypes = new List<string>();
+            this.IncludedChildGroupings = new List<string>();
+            this.IncludedElements = new List<string>();
+            this.MembershipContradictionErrors = new List<string>();
             this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
-        public List<Guid> ChildGroupings { get; set; }
+        public List<string> ChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ElementGroupingDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
-        public List<Guid> ExcludedChildGroupings { get; set; }
+        public List<string> ExcludedChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
-        public List<Guid> ExcludedElements { get; set; }
+        public List<string> ExcludedElements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingType"/> instances
         /// </summary>
-        public List<Guid> GroupingTypes { get; set; }
+        public List<string> GroupingTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
-        public List<Guid> IncludedChildGroupings { get; set; }
+        public List<string> IncludedChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
-        public List<Guid> IncludedElements { get; set; }
+        public List<string> IncludedElements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingMembershipContradictionError"/> instances
         /// </summary>
-        public List<Guid> MembershipContradictionErrors { get; set; }
+        public List<string> MembershipContradictionErrors { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a Priority

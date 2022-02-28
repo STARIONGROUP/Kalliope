@@ -27,8 +27,8 @@ namespace Kalliope.Core
     /// This type must be extended in extension models to associate another element as the owning context for this default
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class DefaultReferenceModeNaming
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class DefaultReferenceModeNaming : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultReferenceModeNaming"/> class.

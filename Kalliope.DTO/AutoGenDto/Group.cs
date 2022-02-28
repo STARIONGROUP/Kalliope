@@ -31,14 +31,26 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Group
     /// </summary>
-    public abstract partial class Group : ORMModelElement
+    public partial class Group : ORMNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Group"/> class.
         /// </summary>
-        protected  Group()
+        public Group()
         {
+            this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
         }
+ 
+
+        /// <summary>
+        /// Gets or sets a Priority
+        /// </summary>
+        public int Priority { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a TypeCompliance
+        /// </summary>
+        public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
  
     }
 }

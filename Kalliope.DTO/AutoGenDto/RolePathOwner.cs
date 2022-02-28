@@ -39,66 +39,67 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePathOwner"/> class.
         /// </summary>
-        protected  RolePathOwner()
+        protected RolePathOwner()
         {
-            this.CalculatedConditions = new List<Guid>();
-            this.LeadRolePaths = new List<Guid>();
-            this.OwnedLeadRolePaths = new List<Guid>();
-            this.OwnedSubqueries = new List<Guid>();
-            this.SharedLeadRolePaths = new List<Guid>();
-            this.SharedSubqueries = new List<Guid>();
-            this.Subqueries = new List<Guid>();
+            this.CalculatedConditions = new List<string>();
+            this.LeadRolePaths = new List<string>();
+            this.OwnedLeadRolePaths = new List<string>();
+            this.OwnedSubqueries = new List<string>();
+            this.SharedLeadRolePaths = new List<string>();
+            this.SharedSubqueries = new List<string>();
+            this.Subqueries = new List<string>();
         }
  
+
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="CalculatedPathValue"/> instances
         /// </summary>
-        public List<Guid> CalculatedConditions { get; set; }
+        public List<string> CalculatedConditions { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="LeadRolePath"/> instances
         /// </summary>
-        public List<Guid> LeadRolePaths { get; set; }
+        public List<string> LeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
-        public List<Guid> OwnedLeadRolePaths { get; set; }
+        public List<string> OwnedLeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Subquery"/> instances
         /// </summary>
-        public List<Guid> OwnedSubqueries { get; set; }
+        public List<string> OwnedSubqueries { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
-        public Guid PathComponent { get; set; }
+        public string PathComponent { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
-        public List<Guid> SharedLeadRolePaths { get; set; }
+        public List<string> SharedLeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Subquery"/> instances
         /// </summary>
-        public List<Guid> SharedSubqueries { get; set; }
+        public List<string> SharedSubqueries { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
-        public Guid SingleLeadRolePath { get; set; }
+        public string SingleLeadRolePath { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
-        public Guid SingleOwnedLeadRolePath { get; set; }
+        public string SingleOwnedLeadRolePath { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Subquery"/> instances
         /// </summary>
-        public List<Guid> Subqueries { get; set; }
+        public List<string> Subqueries { get; set; }
  
     }
 }

@@ -20,45 +20,34 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using Kalliope.Common;
 
     /// <summary>
     /// A role path with projected nodes used to define the population of a derived fact type
     /// </summary>
+    [Description("A role path with projected nodes used to define the population of a derived fact type")]
+    [Domain(isAbstract: false, general: "RolePathOwner")]
     public class FactTypeDerivationPath : RolePathOwner
     {
         /// <summary>
         /// The derivation rule results in a set of distinct facts instead of a bag that might contain duplicates
         /// </summary>
+        [Description("The derivation rule results in a set of distinct facts instead of a bag that might contain duplicates")]
+        [Property(name: "SetProjection", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool SetProjection { get; set; }
 
         /// <summary>
         /// The name of a fully derived fact type
         /// </summary>
+        [Description("The name of a fully derived fact type")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
 
         /// <summary>
         /// An empty derivation rule is externally defined
         /// </summary>
+        [Description("An empty derivation rule is externally defined")]
+        [Property(name: "ExternalDerivation", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExternalDerivation { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="FactTypeDerivationPath"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            this.Name = reader.GetAttribute("Name");
-
-            var externalDerivation = reader.GetAttribute("ExternalDerivation");
-            if (externalDerivation != null)
-            {
-                this.ExternalDerivation = XmlConvert.ToBoolean(externalDerivation);
-            }
-        }
     }
 }

@@ -20,16 +20,15 @@
 
 namespace Kalliope.Diagrams
 {
-    using System.Xml;
-
     using Kalliope.Common;
+    using Kalliope.Core;
 
     /// <summary>
     /// Abstract super-type from which all shape classes derive
     /// </summary>
     [Description("Abstract super-type from which all shape classes derive")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class ORMBaseShape
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class ORMBaseShape : ModelThing
     {
         /// <summary>
         /// Gets or sets the unique identifier
@@ -51,24 +50,5 @@ namespace Kalliope.Diagrams
         [Description("absolute bounds")]
         [Property(name: "AbsoluteBounds", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string AbsoluteBounds { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMBaseShape"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal virtual void ReadXml(XmlReader reader)
-        {
-            this.Id = reader.GetAttribute("id");
-
-            var isExpanded = reader.GetAttribute("IsExpanded");
-            if (!string.IsNullOrEmpty(isExpanded))
-            {
-                this.IsExpanded = XmlConvert.ToBoolean(isExpanded);
-            }
-
-            this.AbsoluteBounds = reader.GetAttribute("AbsoluteBounds");
-        }
     }
 }

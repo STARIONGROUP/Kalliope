@@ -36,11 +36,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelError"/> class.
         /// </summary>
-        protected  ModelError()
+        protected ModelError()
         {
             this.ErrorState = ModelErrorState.Error;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a ErrorState
         /// </summary>

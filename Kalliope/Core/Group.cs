@@ -28,6 +28,8 @@ namespace Kalliope.Core
     /// <remarks>
     /// (DSL) A group of elements. A <see cref="GroupType"/> is associated with the <see cref="Group"/> to control the <see cref="Group"/> contents
     /// </remarks>
+    [Description("")]
+    [Domain(isAbstract: false, general: "ORMNamedElement")]
     public class Group : ORMNamedElement
     {
         /// <summary>
@@ -42,11 +44,15 @@ namespace Kalliope.Core
         /// The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type.
         /// Higher numbers have higher priority
         /// </summary>
+        [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
+        [Property(name: "Priority", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int Priority { get; set; }
 
         /// <summary>
         /// Determine how strictly group types control the group contents
         /// </summary>
+        [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
+        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
     }
 }

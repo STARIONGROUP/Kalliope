@@ -36,36 +36,42 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
-        protected  SetConstraint()
+        protected SetConstraint()
         {
-            this.FactTypes = new List<Guid>();
+            this.FactTypes = new List<string>();
             this.Modality = ConstraintModality.Alethic;
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CompatibleRolePlayerTypeError"/>
         /// </summary>
-        public Guid CompatibleRolePlayerTypeError { get; set; }
+        public string CompatibleRolePlayerTypeError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
         /// </summary>
-        public List<Guid> FactTypes { get; set; }
+        public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ImplicationError"/>
         /// </summary>
-        public Guid ImplicationError { get; set; }
+        public string ImplicationError { get; set; }
  
         /// <summary>
         /// Gets or sets a Modality
@@ -75,17 +81,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewRoleSequencesError"/>
         /// </summary>
-        public Guid TooFewRoleSequencesError { get; set; }
+        public string TooFewRoleSequencesError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooManyRoleSequencesError"/>
         /// </summary>
-        public Guid TooManyRoleSequencesError { get; set; }
+        public string TooManyRoleSequencesError { get; set; }
  
     }
 }

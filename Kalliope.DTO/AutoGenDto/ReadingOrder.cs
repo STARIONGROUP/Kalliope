@@ -36,16 +36,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ReadingOrder"/> class.
         /// </summary>
-        public  ReadingOrder()
+        public ReadingOrder()
         {
-            this.Readings = new List<Guid>();
-            this.Roles = new List<Guid>();
+            this.Readings = new List<string>();
+            this.Roles = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Reading"/> instances
         /// </summary>
-        public List<Guid> Readings { get; set; }
+        public List<string> Readings { get; set; }
  
         /// <summary>
         /// Gets or sets a ReadingText
@@ -55,7 +61,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="RoleBase"/> instances
         /// </summary>
-        public List<Guid> Roles { get; set; }
+        public List<string> Roles { get; set; }
  
     }
 }

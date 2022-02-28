@@ -39,12 +39,18 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeDerivationRule"/> class.
         /// </summary>
-        public  FactTypeDerivationRule()
+        public FactTypeDerivationRule()
         {
             this.DerivationCompleteness = DerivationCompleteness.FullyDerived;
             this.DerivationStorage = DerivationStorage.NotStored;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a DerivationCompleteness
         /// </summary>
@@ -53,7 +59,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="DerivationNote"/>
         /// </summary>
-        public Guid DerivationNote { get; set; }
+        public string DerivationNote { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationStorage

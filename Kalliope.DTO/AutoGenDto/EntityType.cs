@@ -31,14 +31,22 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a EntityType
     /// </summary>
-    public abstract partial class EntityType : ORMNamedElement
+    /// <remarks>
+    /// An ObjectType with an external identification scheme
+    /// </remarks>
+    public partial class EntityType : ObjectType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityType"/> class.
         /// </summary>
-        protected  EntityType()
+        public EntityType()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

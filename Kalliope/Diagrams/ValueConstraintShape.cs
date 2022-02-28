@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a RoleValueConstraint or a ValueTypeValueConstraint")]
     [Domain(isAbstract: false, general: "FloatingTextShape")]
+    [Container(typeName: "ObjectTypeShape", propertyName: "ValueConstraintShapes")]
     public class ValueConstraintShape : FloatingTextShape
     {
         /// <summary>

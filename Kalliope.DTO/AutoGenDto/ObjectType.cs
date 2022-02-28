@@ -36,34 +36,40 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectType"/> class.
         /// </summary>
-        protected  ObjectType()
+        protected ObjectType()
         {
-            this.Abbreviations = new List<Guid>();
-            this.EntityTypeInstances = new List<Guid>();
-            this.EntityTypeSubtypeInstances = new List<Guid>();
-            this.ObjectTypeInstances = new List<Guid>();
-            this.ValueTypeInstances = new List<Guid>();
+            this.Abbreviations = new List<string>();
+            this.EntityTypeInstances = new List<string>();
+            this.EntityTypeSubtypeInstances = new List<string>();
+            this.ObjectTypeInstances = new List<string>();
+            this.ValueTypeInstances = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="NameAlias"/> instances
         /// </summary>
-        public List<Guid> Abbreviations { get; set; }
+        public List<string> Abbreviations { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectTypeCardinalityConstraint"/>
         /// </summary>
-        public Guid Cardinality { get; set; }
+        public string Cardinality { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CompatibleSupertypesError"/>
         /// </summary>
-        public Guid CompatibleSupertypesError { get; set; }
+        public string CompatibleSupertypesError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="DataType"/>
         /// </summary>
-        public Guid DataType { get; set; }
+        public string DataType { get; set; }
  
         /// <summary>
         /// Gets or sets a DataTypeLength
@@ -78,12 +84,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="SubtypeDerivationExpression"/>
         /// </summary>
-        public Guid DerivationExpression { get; set; }
+        public string DerivationExpression { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationNoteDisplay
@@ -93,7 +99,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="SubtypeDerivationRule"/>
         /// </summary>
-        public Guid DerivationRule { get; set; }
+        public string DerivationRule { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationStorageDisplay
@@ -103,27 +109,32 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectTypeDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="EntityTypeInstance"/> instances
         /// </summary>
-        public List<Guid> EntityTypeInstances { get; set; }
+        public List<string> EntityTypeInstances { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="EntityTypeSubtypeInstance"/> instances
         /// </summary>
-        public List<Guid> EntityTypeSubtypeInstances { get; set; }
+        public List<string> EntityTypeSubtypeInstances { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="FactType"/>
+        /// </summary>
+        public string FactType { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="MandatoryConstraint"/>
         /// </summary>
-        public Guid ImpliedMandatoryConstraint { get; set; }
+        public string ImpliedMandatoryConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="MandatoryConstraint"/>
         /// </summary>
-        public Guid InherentMandatoryConstraint { get; set; }
+        public string InherentMandatoryConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a IsExternal
@@ -156,24 +167,29 @@ namespace Kalliope.DTO
         public bool IsValueType { get; set; }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="Objectification"/>
+        /// </summary>
+        public string NestedPredicate { get; set; }
+ 
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectTypeInstance"/> instances
         /// </summary>
-        public List<Guid> ObjectTypeInstances { get; set; }
+        public List<string> ObjectTypeInstances { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="UniquenessConstraint"/>
         /// </summary>
-        public Guid PreferredIdentifier { get; set; }
+        public string PreferredIdentifier { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PreferredIdentifierRequiresMandatoryError"/>
         /// </summary>
-        public Guid PreferredIdentifierRequiresMandatoryError { get; set; }
+        public string PreferredIdentifierRequiresMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a ReferenceMode
@@ -188,7 +204,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="EntityTypeRequiresReferenceSchemeError"/>
         /// </summary>
-        public Guid ReferenceSchemeError { get; set; }
+        public string ReferenceSchemeError { get; set; }
  
         /// <summary>
         /// Gets or sets a TreatAsPersonal
@@ -198,7 +214,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueTypeValueConstraint"/>
         /// </summary>
-        public Guid ValueConstraint { get; set; }
+        public string ValueConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a ValueRangeText
@@ -208,7 +224,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueTypeInstance"/> instances
         /// </summary>
-        public List<Guid> ValueTypeInstances { get; set; }
+        public List<string> ValueTypeInstances { get; set; }
  
         /// <summary>
         /// Gets or sets a ValueTypeValueRangeText

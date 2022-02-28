@@ -36,11 +36,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeInstance"/> class.
         /// </summary>
-        protected  ObjectTypeInstance()
+        protected ObjectTypeInstance()
         {
-            this.PopulationMandatoryErrors = new List<Guid>();
+            this.PopulationMandatoryErrors = new List<string>();
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a IdentifierName
         /// </summary>
@@ -49,12 +55,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifiedInstanceRequiredError"/>
         /// </summary>
-        public Guid ObjectifiedInstanceRequiredError { get; set; }
+        public string ObjectifiedInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
-        public List<Guid> PopulationMandatoryErrors { get; set; }
+        public List<string> PopulationMandatoryErrors { get; set; }
  
     }
 }

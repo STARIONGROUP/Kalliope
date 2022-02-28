@@ -39,11 +39,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequenceJoinPath"/> class.
         /// </summary>
-        public  ConstraintRoleSequenceJoinPath()
+        public ConstraintRoleSequenceJoinPath()
         {
-            this.ProjectedPathComponents = new List<Guid>();
+            this.ProjectedPathComponents = new List<string>();
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a IsAutomatic
         /// </summary>
@@ -52,12 +58,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="LeadRolePath"/> instances
         /// </summary>
-        public List<Guid> ProjectedPathComponents { get; set; }
+        public List<string> ProjectedPathComponents { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPathRequiresProjectionError"/>
         /// </summary>
-        public Guid ProjectionRequiredError { get; set; }
+        public string ProjectionRequiredError { get; set; }
  
     }
 }

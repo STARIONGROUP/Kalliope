@@ -31,14 +31,22 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ObjectifiedType
     /// </summary>
-    public abstract partial class ObjectifiedType : ORMNamedElement
+    /// <remarks>
+    /// An entity type that objectifies a fact type
+    /// </remarks>
+    public partial class ObjectifiedType : ObjectType
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedType"/> class.
         /// </summary>
-        protected  ObjectifiedType()
+        public ObjectifiedType()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

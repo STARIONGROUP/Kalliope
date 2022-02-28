@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeRequiresPrimarySupertypeError"/> class.
         /// </summary>
-        protected  ObjectTypeRequiresPrimarySupertypeError()
+        protected ObjectTypeRequiresPrimarySupertypeError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

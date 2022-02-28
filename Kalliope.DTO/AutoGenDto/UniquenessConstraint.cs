@@ -36,10 +36,16 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="UniquenessConstraint"/> class.
         /// </summary>
-        public  UniquenessConstraint()
+        public UniquenessConstraint()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a IsInternal
         /// </summary>
@@ -53,7 +59,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="NMinusOneError"/>
         /// </summary>
-        public Guid NMinusOneError { get; set; }
+        public string NMinusOneError { get; set; }
  
     }
 }

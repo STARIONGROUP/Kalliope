@@ -26,8 +26,8 @@ namespace Kalliope.Core
     /// Reference mode naming options for a specific object type. Used by extension models, which must add their own reference to the modified object type
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class ReferenceModeNaming
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class ReferenceModeNaming : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceModeNaming"/> class.

@@ -39,7 +39,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="PathConditionRootValueConstraint"/> class.
         /// </summary>
-        public  PathConditionRootValueConstraint()
+        public PathConditionRootValueConstraint()
         {
         }
  

@@ -36,59 +36,65 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.
         /// </summary>
-        protected  SetComparisonConstraint()
+        protected SetComparisonConstraint()
         {
-            this.CompatibleRolePlayerTypeErrors = new List<Guid>();
-            this.ContradictionError = new List<Guid>();
-            this.FactTypes = new List<Guid>();
+            this.CompatibleRolePlayerTypeErrors = new List<string>();
+            this.ContradictionError = new List<string>();
+            this.FactTypes = new List<string>();
             this.Modality = ConstraintModality.Alethic;
-            this.RoleSequences = new List<Guid>();
+            this.RoleSequences = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ExternalConstraintRoleSequenceArityMismatchError"/>
         /// </summary>
-        public Guid ArityMismatchError { get; set; }
+        public string ArityMismatchError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CompatibleRolePlayerTypeError"/> instances
         /// </summary>
-        public List<Guid> CompatibleRolePlayerTypeErrors { get; set; }
+        public List<string> CompatibleRolePlayerTypeErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ContradictionError"/> instances
         /// </summary>
-        public List<Guid> ContradictionError { get; set; }
+        public List<string> ContradictionError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
-        public Guid Definition { get; set; }
+        public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="EqualityOrSubsetImpliedByMandatoryError"/>
         /// </summary>
-        public Guid EqualityOrSubsetImpliedByMandatoryError { get; set; }
+        public string EqualityOrSubsetImpliedByMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsEqualityError"/>
         /// </summary>
-        public Guid ExclusionContradictsEqualityError { get; set; }
+        public string ExclusionContradictsEqualityError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsSubsetError"/>
         /// </summary>
-        public Guid ExclusionContradictsSubsetError { get; set; }
+        public string ExclusionContradictsSubsetError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
         /// </summary>
-        public List<Guid> FactTypes { get; set; }
+        public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a ImplicationError
@@ -103,22 +109,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="SetComparisonConstraintRoleSequence"/> instances
         /// </summary>
-        public List<Guid> RoleSequences { get; set; }
+        public List<string> RoleSequences { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewRoleSequencesError"/>
         /// </summary>
-        public Guid TooFewRoleSequencesError { get; set; }
+        public string TooFewRoleSequencesError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooManyRoleSequencesError"/>
         /// </summary>
-        public Guid TooManyRoleSequencesError { get; set; }
+        public string TooManyRoleSequencesError { get; set; }
  
     }
 }

@@ -36,11 +36,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonConstraint"/> class.
         /// </summary>
-        public  ValueComparisonConstraint()
+        public ValueComparisonConstraint()
         {
             this.Operator = ValueComparisonOperator.Undefined;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a Operator
         /// </summary>
@@ -49,12 +55,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/>
         /// </summary>
-        public Guid OperatorNotSpecifiedError { get; set; }
+        public string OperatorNotSpecifiedError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonRolesNotComparableError"/>
         /// </summary>
-        public Guid RolesNotComparableError { get; set; }
+        public string RolesNotComparableError { get; set; }
  
     }
 }

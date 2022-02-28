@@ -39,14 +39,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleProjectedDerivationRule"/> class.
         /// </summary>
-        protected  RoleProjectedDerivationRule()
+        protected RoleProjectedDerivationRule()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RoleProjectedDerivationRequiresProjectionError"/>
         /// </summary>
-        public Guid ProjectionRequiredError { get; set; }
+        public string ProjectionRequiredError { get; set; }
  
     }
 }

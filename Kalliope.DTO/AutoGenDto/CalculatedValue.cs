@@ -31,12 +31,12 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CalculatedValue
     /// </summary>
-    public abstract partial class CalculatedValue
+    public abstract partial class CalculatedValue : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedValue"/> class.
         /// </summary>
-        protected  CalculatedValue()
+        protected CalculatedValue()
         {
         }
  

@@ -31,15 +31,21 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a GenerationSetting
     /// </summary>
-    public abstract partial class GenerationSetting
+    public abstract partial class GenerationSetting : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationSetting"/> class.
         /// </summary>
-        protected  GenerationSetting()
+        protected GenerationSetting()
         {
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a Id
         /// </summary>

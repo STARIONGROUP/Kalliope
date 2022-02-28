@@ -36,20 +36,26 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="MandatoryConstraint"/> class.
         /// </summary>
-        public  MandatoryConstraint()
+        public MandatoryConstraint()
         {
-            this.PopulationMandatoryErrors = new List<Guid>();
+            this.PopulationMandatoryErrors = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsMandatoryError"/>
         /// </summary>
-        public Guid ExclusionContradictsMandatoryError { get; set; }
+        public string ExclusionContradictsMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionConstraint"/>
         /// </summary>
-        public Guid ExclusiveOrExclusionConstraint { get; set; }
+        public string ExclusiveOrExclusionConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied
@@ -64,12 +70,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
-        public Guid NotWellModeledSubsetAndMandatoryError { get; set; }
+        public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
-        public List<Guid> PopulationMandatoryErrors { get; set; }
+        public List<string> PopulationMandatoryErrors { get; set; }
  
     }
 }

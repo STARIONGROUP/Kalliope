@@ -39,9 +39,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueRequiresAggregationContextError"/> class.
         /// </summary>
-        public  CalculatedPathValueRequiresAggregationContextError()
+        public CalculatedPathValueRequiresAggregationContextError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

@@ -39,16 +39,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeShape"/> class.
         /// </summary>
-        public  ObjectTypeShape()
+        public ObjectTypeShape()
         {
-            this.CardinalityConstraintShapes = new List<Guid>();
-            this.ValueConstraintShapes = new List<Guid>();
+            this.CardinalityConstraintShapes = new List<string>();
+            this.ValueConstraintShapes = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityConstraintShape"/> instances
         /// </summary>
-        public List<Guid> CardinalityConstraintShapes { get; set; }
+        public List<string> CardinalityConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a DisplayRelatedTypes
@@ -63,12 +69,12 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
-        public Guid Subject { get; set; }
+        public string Subject { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueConstraintShape"/> instances
         /// </summary>
-        public List<Guid> ValueConstraintShapes { get; set; }
+        public List<string> ValueConstraintShapes { get; set; }
  
     }
 }

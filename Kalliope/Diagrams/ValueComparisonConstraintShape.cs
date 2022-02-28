@@ -28,6 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a ValueComparisonConstraintShape")]
     [Domain(isAbstract: false, general: "ExternalConstraintShape")]
+    [Container(typeName: "ORMDiagram", propertyName: "ValueComparisonConstraintShapes")]
     public class ValueComparisonConstraintShape : ExternalConstraintShape
     {
     }

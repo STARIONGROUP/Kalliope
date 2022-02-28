@@ -21,11 +21,8 @@
 namespace Kalliope
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
-    using System.IO.Compression;
-    using System.Linq;
     using System.Reflection;
     using System.Resources;
     using System.Threading;
@@ -248,7 +245,7 @@ namespace Kalliope
                     if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "ormRoot:ORM2"))
                     {
                         ormRoot = new OrmRoot(this.loggerFactory);
-                        ormRoot.ReadXml(xmlReader);
+                        //ormRoot.ReadXml(xmlReader);
                     }
                 }
 

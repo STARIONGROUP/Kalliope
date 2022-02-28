@@ -20,11 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// An entity type that objectifies a fact type
     /// </summary>
+    [Description("An entity type that objectifies a fact type")]
+    [Domain(isAbstract: false, general: "ObjectType")]
     public class ObjectifiedType : ObjectType
     {
         /// <summary>

@@ -21,7 +21,6 @@
 namespace Kalliope.Core
 {
     using System.Collections.Generic;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -87,28 +86,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
         public ExclusionContradictsMandatoryError ExclusionContradictsMandatoryError { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="MandatoryConstraint"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-
-            var isSimple = reader.GetAttribute("IsSimple");
-            if (isSimple != null)
-            {
-                this.IsSimple = XmlConvert.ToBoolean(isSimple);
-            }
-
-            var isImplied = reader.GetAttribute("IsImplied");
-            if (isImplied != null)
-            {
-                this.IsImplied = XmlConvert.ToBoolean(isImplied);
-            }
-        }
     }
 }

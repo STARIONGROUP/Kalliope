@@ -36,14 +36,20 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityTypeInstance"/> class.
         /// </summary>
-        public  EntityTypeInstance()
+        public EntityTypeInstance()
         {
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewEntityTypeRoleInstancesError"/>
         /// </summary>
-        public Guid TooFewEntityTypeRoleInstancesError { get; set; }
+        public string TooFewEntityTypeRoleInstancesError { get; set; }
  
     }
 }

@@ -23,8 +23,8 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class ModelErrorCategory
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class ModelErrorCategory : ModelThing
     {
     }
 }

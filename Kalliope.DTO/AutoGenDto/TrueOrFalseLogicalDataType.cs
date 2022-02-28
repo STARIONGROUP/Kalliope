@@ -36,9 +36,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="TrueOrFalseLogicalDataType"/> class.
         /// </summary>
-        public  TrueOrFalseLogicalDataType()
+        public TrueOrFalseLogicalDataType()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

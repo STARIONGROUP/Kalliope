@@ -20,10 +20,8 @@
 
 namespace Kalliope.Core
 {
-    using System;
     using System.Collections.Generic;
-    using System.Xml;
-
+    
     using Kalliope.Common;
 
     [Description("")]
@@ -32,14 +30,6 @@ namespace Kalliope.Core
 
     public abstract class ObjectType : ORMNamedElement
     {
-        protected List<string> playedRolesReferences = new List<string>();
-
-        protected string preferredIdentifierReference = string.Empty;
-
-        protected string conceptualDataTypeReference = string.Empty;
-
-        protected string dataTypeRef = string.Empty;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectType"/> class
         /// </summary>
@@ -193,6 +183,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the referenced <see cref="FactType"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public FactType FactType { get; set; }
 
         /// <summary>
@@ -317,6 +309,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the owned <see cref="Objectification"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NestedPredicate", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
         public Objectification NestedPredicate { get; set; }
 
         /// <summary>
@@ -325,225 +319,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint")]
         public UniquenessConstraint PreferredIdentifier { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            base.ReadXml(reader);
-            
-            var isImplicitBooleanValue = reader.GetAttribute("IsImplicitBooleanValue");
-            if (isImplicitBooleanValue != null)
-            {
-                this.IsImplicitBooleanValue = XmlConvert.ToBoolean(isImplicitBooleanValue);
-            }
-
-            var isIndependent = reader.GetAttribute("IsIndependent");
-            if (isIndependent != null)
-            {
-                this.IsIndependent = XmlConvert.ToBoolean(isIndependent);
-            }
-            
-            this.ReferenceMode = reader.GetAttribute("_ReferenceMode");
-
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Definitions":
-                            using (var definitionSubtree = reader.ReadSubtree())
-                            {
-                                definitionSubtree.MoveToContent();
-                                this.ReadDefinitions(definitionSubtree);
-                            }
-                            break;
-                        case "Notes":
-                            using (var notesSubtree = reader.ReadSubtree())
-                            {
-                                notesSubtree.MoveToContent();
-                                this.ReadNotes(notesSubtree);
-                            }
-                            break;
-                        case "PlayedRoles":
-                            using (var roleSubtree = reader.ReadSubtree())
-                            {
-                                roleSubtree.MoveToContent();
-                                this.ReadPlayedRoles(roleSubtree);
-                            }
-                            break;
-                        case "PreferredIdentifier":
-                            using (var preferredIdentifierSubtree = reader.ReadSubtree())
-                            {
-                                if (preferredIdentifierSubtree.MoveToContent() == XmlNodeType.Element)
-                                {
-                                    if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
-                                    {
-                                        var reference = preferredIdentifierSubtree.GetAttribute("ref");
-                                        if (!string.IsNullOrEmpty(reference))
-                                        {
-                                            this.preferredIdentifierReference = reference;
-                                        }
-                                    }
-                                }
-                            }
-                            break;
-                        case "ConceptualDataType":
-                            if (reader.MoveToContent() == XmlNodeType.Element)
-                            {
-                                var reference = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(reference))
-                                {
-                                    this.conceptualDataTypeReference = reference;
-                                }
-                            }
-                            break;
-                        case "NestedPredicate":
-                            using (var nestedPredicateSubtree = reader.ReadSubtree())
-                            {
-                                nestedPredicateSubtree.MoveToContent();
-                                this.ReadNestedPredicate(nestedPredicateSubtree);
-                            }
-                            break;
-                        case "ValueRestriction":
-                            //TODO: implement ValueRestriction
-                            break;
-                        case "ValueConstraint":
-
-                            using (var valueTypeValueConstraintSubtree = reader.ReadSubtree())
-                            {
-                                valueTypeValueConstraintSubtree.MoveToContent();
-                                var valueTypeValueConstraint = new ValueTypeValueConstraint();
-                                valueTypeValueConstraint.ReadXml(valueTypeValueConstraintSubtree);
-                                this.ValueConstraint = valueTypeValueConstraint;
-                            }
-                            
-                            break;
-                        case "SubtypeDerivationRule":
-                            using (var subtypeDerivationRuleSubtree = reader.ReadSubtree())
-                            {
-                                subtypeDerivationRuleSubtree.MoveToContent();
-                                var subtypeDerivationRule = new SubtypeDerivationRule();
-                                subtypeDerivationRule.ReadXml(subtypeDerivationRuleSubtree);
-                                this.DerivationRule = subtypeDerivationRule;
-                            }
-
-                            break;
-                        default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// reads the contained <see cref="Definition"/>s
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadDefinitions(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Definition":
-                            using (var definitionSubtree = reader.ReadSubtree())
-                            {
-                                definitionSubtree.MoveToContent();
-                                var definition = new Definition();
-                                definition.ReadXml(definitionSubtree);
-                                this.Definition = definition;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// reads the contained <see cref="Note"/>s
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadNotes(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Note":
-
-                            using (var noteSubtree = reader.ReadSubtree())
-                            {
-                                noteSubtree.MoveToContent();
-                                var note = new Note();
-                                note.ReadXml(noteSubtree);
-                                this.Note = note;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// reads the referenced played Role
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadPlayedRoles(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                var localName = reader.LocalName;
-
-                if (localName == "Role")
-                {
-                    var roleReference = reader.GetAttribute("ref");
-                    if (!string.IsNullOrEmpty(roleReference))
-                    {
-                        this.playedRolesReferences.Add(roleReference);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// reads the <see cref="Objectification"/>
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        private void ReadNestedPredicate(XmlReader reader)
-        {
-            var objectification = new Objectification();
-            objectification.ReadXml(reader);
-
-            this.NestedPredicate = objectification;
-            objectification.NestingType = this;
-        }
     }
 }

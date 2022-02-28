@@ -21,7 +21,6 @@
 namespace Kalliope.Core
 {
     using System;
-    using System.Xml;
 
     using Kalliope.Common;
 
@@ -56,6 +55,9 @@ namespace Kalliope.Core
         /// The subtype fact is a possible path through the subtype graph for retrieving the identifying supertype for the subtype.
         /// The identifying supertype can be a direct or indirect supertype
         /// </summary>
+        [Obsolete("use PreferredIdentificationPath instead")]
+        [Description("The subtype fact is a possible path through the subtype graph for retrieving the identifying supertype for the subtype.")]
+        [Property(name: "PreferredIdentificationPath", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool PreferredIdentificationPath { get; set; }
 
         /// <summary>
@@ -64,75 +66,5 @@ namespace Kalliope.Core
         [Description("The preferred identification scheme for the subtype is provided by a supertype reached through this path")]
         [Property(name: "ProvidesPreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
         public bool ProvidesPreferredIdentifier { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="SubtypeFact"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadXml(XmlReader reader)
-        {
-            var isPrimary = reader.GetAttribute("IsPrimary");
-            if (!string.IsNullOrEmpty(isPrimary))
-            {
-                this.IsPrimary = XmlConvert.ToBoolean(isPrimary);
-            }
-
-            var preferredIdentificationPath = reader.GetAttribute("PreferredIdentificationPath");
-            if (!string.IsNullOrEmpty(preferredIdentificationPath))
-            {
-                this.PreferredIdentificationPath = XmlConvert.ToBoolean(preferredIdentificationPath);
-            }
-
-            var providesPreferredIdentifier = reader.GetAttribute("ProvidesPreferredIdentifier");
-            if (!string.IsNullOrEmpty(providesPreferredIdentifier))
-            {
-                this.ProvidesPreferredIdentifier = XmlConvert.ToBoolean(providesPreferredIdentifier);
-            }
-
-            base.ReadXml(reader);
-        }
-
-        /// <summary>
-        /// Reads <see cref="SubtypeMetaRole"/>s and <see cref="SupertypeMetaRole"/> from the .orm file
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        internal override void ReadFactRoles(XmlReader reader)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "SubtypeMetaRole":
-                            using (var subtypeMetaRoleSubtree = reader.ReadSubtree())
-                            {
-                                subtypeMetaRoleSubtree.MoveToContent();
-                                var subtypeMetaRole = new SubtypeMetaRole();
-                                subtypeMetaRole.ReadXml(subtypeMetaRoleSubtree);
-                                this.Roles.Add(subtypeMetaRole);
-                            }
-                            break;
-                        case "SupertypeMetaRole":
-                            using (var supertypeMetaRoleSubtree = reader.ReadSubtree())
-                            {
-                                supertypeMetaRoleSubtree.MoveToContent();
-                                var supertypeMetaRole = new SupertypeMetaRole();
-                                supertypeMetaRole.ReadXml(supertypeMetaRoleSubtree);
-                                this.Roles.Add(supertypeMetaRole);
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
     }
 }

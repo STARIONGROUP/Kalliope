@@ -20,13 +20,15 @@
 
 namespace Kalliope.Core
 {
-    using System.Xml;
+    using Kalliope.Common;
 
     using Microsoft.Extensions.Logging;
 
     /// <summary>
     /// An object type representing a self-identifying value
     /// </summary>
+    [Description("An ObjectType representing a self-identifying value")]
+    [Domain(isAbstract: false, general: "ObjectType")]
     public class ValueType : ObjectType
     {
         /// <summary>

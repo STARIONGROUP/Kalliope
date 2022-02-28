@@ -39,9 +39,14 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonRolesNotComparableError"/> class.
         /// </summary>
-        public  ValueComparisonRolesNotComparableError()
+        public ValueComparisonRolesNotComparableError()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

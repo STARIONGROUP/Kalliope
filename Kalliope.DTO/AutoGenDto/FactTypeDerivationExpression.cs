@@ -36,11 +36,17 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeDerivationExpression"/> class.
         /// </summary>
-        public  FactTypeDerivationExpression()
+        public FactTypeDerivationExpression()
         {
             this.DerivationStorage = DerivationExpressionStorageType.Derived;
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
         /// <summary>
         /// Gets or sets a DerivationStorage
         /// </summary>

@@ -39,20 +39,26 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognizedPhrase"/> class.
         /// </summary>
-        public  RecognizedPhrase()
+        public RecognizedPhrase()
         {
-            this.Abbreviations = new List<Guid>();
+            this.Abbreviations = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="NameAlias"/> instances
         /// </summary>
-        public List<Guid> Abbreviations { get; set; }
+        public List<string> Abbreviations { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="RecognizedPhraseDuplicateNameError"/>
         /// </summary>
-        public Guid DuplicateNameError { get; set; }
+        public string DuplicateNameError { get; set; }
  
     }
 }

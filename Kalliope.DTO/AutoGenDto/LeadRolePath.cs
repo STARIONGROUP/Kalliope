@@ -39,32 +39,38 @@ namespace Kalliope.DTO
         /// <summary>
         /// Initializes a new instance of the <see cref="LeadRolePath"/> class.
         /// </summary>
-        public  LeadRolePath()
+        public LeadRolePath()
         {
-            this.CalculatedValues = new List<Guid>();
-            this.ObjectUnifiers = new List<Guid>();
-            this.ProjectedPathComponents = new List<Guid>();
+            this.CalculatedValues = new List<string>();
+            this.ObjectUnifiers = new List<string>();
+            this.ProjectedPathComponents = new List<string>();
         }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValue"/> instances
         /// </summary>
-        public List<Guid> CalculatedValues { get; set; }
+        public List<string> CalculatedValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
-        public Guid Note { get; set; }
+        public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PathObjectUnifier"/> instances
         /// </summary>
-        public List<Guid> ObjectUnifiers { get; set; }
+        public List<string> ObjectUnifiers { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
-        public List<Guid> ProjectedPathComponents { get; set; }
+        public List<string> ProjectedPathComponents { get; set; }
  
     }
 }
