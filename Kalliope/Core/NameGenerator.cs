@@ -66,7 +66,7 @@ namespace Kalliope.Core
         /// (DSL) Specify if whitespace is preserved, removed, or replaced in names generated for this context
         /// </remarks>
         [Description("Specify if whitespace is preserved, removed, or replaced in names generated for this context")]
-        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized", typeName: "NameGeneratorSpacingFormat")]
+        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Retain", typeName: "NameGeneratorSpacingFormat")]
         public NameGeneratorSpacingFormat SpacingFormat { get; set; }
 
         /// <summary>

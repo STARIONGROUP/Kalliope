@@ -87,7 +87,7 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         case "ImpliedByObjectification":
-                            this.ReadImpliedByObjectification(reader);
+                            this.ReadImpliedByObjectification(factType, reader);
                             break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
@@ -102,7 +102,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        internal virtual void ReadImpliedByObjectification(XmlReader reader)
+        public virtual void ReadImpliedByObjectification(FactType impliedFactType, XmlReader reader)
         {
             throw new InvalidOperationException("shall only be implemented by ImpliedFact");
         }

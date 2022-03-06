@@ -46,6 +46,23 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(RoleNameShape roleNameShape, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(roleNameShape, reader, modelThings);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Subject":
+                            roleNameShape.Subject = reader.GetAttribute("ref");
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

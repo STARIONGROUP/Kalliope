@@ -33,7 +33,8 @@ namespace Kalliope.Xml
     using System.Xml;
     using System.Xml.Schema;
 
-    using Kalliope.Core;
+    using Kalliope.DTO;
+    using Kalliope.Xml.Readers;
 
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;
@@ -79,7 +80,7 @@ namespace Kalliope.Xml
         /// The <see cref="ValidationEventHandler"/> that processes the result of the <see cref="ORMModel"/> validation.
         /// </param>
         /// <returns>
-        /// An <see cref="IEnumerable{DTO.ModelThing}"/> which have been read from the data-source
+        /// An <see cref="IEnumerable{ModelThing}"/> which have been read from the data-source
         /// </returns>
         public IEnumerable<DTO.ModelThing> Read(string xmlFilePath, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
@@ -241,21 +242,23 @@ namespace Kalliope.Xml
             {
                 var sw = Stopwatch.StartNew();
 
-            //    DTO.OrmRoot ormRootDto = null;
+                OrmRoot ormRoot = null;
 
-            //    this.logger.LogTrace("starting to read xml");
+                this.logger.LogTrace("starting to read xml");
 
-            //    while (xmlReader.Read())
-            //    {
-            //        if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "ormRoot:ORM2"))
-            //        {
-            //            ormRootDto = new DTO.OrmRoot();
-            //            ormRootDto.ReadXml(xmlReader);
-            //        }
-            //    }
+                while (xmlReader.Read())
+                {
+                    if ((xmlReader.NodeType == XmlNodeType.Element) && (xmlReader.Name == "ormRoot:ORM2"))
+                    {
+                        ormRoot = new OrmRoot();
+                        var ormRootXmlReader = new OrmRootXmlReader();
+                        ormRootXmlReader.ReadXml(ormRoot, xmlReader, result);
+                        result.Add(ormRoot);
+                    }
+                }
 
-            //    this.logger.LogTrace("xml read in {time}", sw.ElapsedMilliseconds);
-            //    sw.Stop();
+                this.logger.LogTrace("xml read in {time}", sw.ElapsedMilliseconds);
+                sw.Stop();
             }
 
             return result;

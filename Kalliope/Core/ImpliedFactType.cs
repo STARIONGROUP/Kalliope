@@ -44,16 +44,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
         public Objectification ImpliedByObjectification { get; set; }
-
-        /// <summary>
-        /// Reads <see cref="Role"/>s from the .orm file
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        //internal override void ReadImpliedByObjectification(XmlReader reader)
-        //{
-        //    this.impliedByObjectificationReference = reader.GetAttribute("ref");
-        //}
     }
 }

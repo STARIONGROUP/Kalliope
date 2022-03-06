@@ -42,7 +42,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        protected void ReadXml(ORMModelElement ormModelElement, XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(ORMModelElement ormModelElement, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(ormModelElement, reader, modelThings);
 

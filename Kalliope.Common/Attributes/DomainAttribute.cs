@@ -40,20 +40,11 @@ namespace Kalliope.Common
         /// <param name="general">
         /// The name of the abstract super type
         /// </param>
-        public DomainAttribute(bool isRoot = false, bool isAbstract = false, string general = "")
+        public DomainAttribute(bool isAbstract = false, string general = "")
         {
-            this.IsRoot = isRoot;
             this.IsAbstract = isAbstract;
             this.General = general;
         }
-        
-        /// <summary>
-        /// Gets a value indicating whether this class is the root class of the domain model
-        /// </summary>
-        /// <remarks>
-        /// the root class is represents the first node in a tree-graph. Only one class may be the root
-        /// </remarks>
-        public bool IsRoot { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this is an abstract class

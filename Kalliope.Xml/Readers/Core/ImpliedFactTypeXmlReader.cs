@@ -46,8 +46,11 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(ImpliedFactType impliedFactType, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(impliedFactType, reader, modelThings);
+        }
 
-            impliedFactType.ImpliedByObjectification = reader.GetAttribute("ref");
+        public override void ReadImpliedByObjectification(FactType factType, XmlReader reader)
+        {
+            ((ImpliedFactType)factType).ImpliedByObjectification = reader.GetAttribute("ref");
         }
     }
 }

@@ -18,8 +18,6 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Generator.Generators
 {
     using System;

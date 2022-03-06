@@ -33,15 +33,18 @@ namespace Kalliope.Xml.Readers
     public class OrmRootXmlReader
     {
         /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// Generates a <see cref="OrmRoot"/> object from its XML representation.
         /// </summary>
+        /// <param name="ormRoot">
+        /// The subject <see cref="OrmRoot"/> that is to be deserialized
+        /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/>
         /// </param>
         /// <param name="modelThings">
         /// The <see cref="List{ModelThing}"/> to which the read <see cref="ModelThing"/> are added
         /// </param>
-        public void ReadXml(XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(OrmRoot ormRoot, XmlReader reader, List<ModelThing> modelThings)
         {
             if (modelThings == null)
             {
@@ -63,7 +66,7 @@ namespace Kalliope.Xml.Readers
                                 var ormModel = new ORMModel();
                                 var ormModelReader = new ORMModelXmlReader();
                                 ormModelReader.ReadXml(ormModel, ormModelSubtree, modelThings);
-                                modelThings.Add(ormModel);
+                                ormRoot.Model = ormModel.Id;
                             }
                             break;
                         case "NameGenerator":
@@ -73,7 +76,7 @@ namespace Kalliope.Xml.Readers
                                 var nameGenerator = new NameGenerator();
                                 var nameGeneratorXmlReader = new NameGeneratorXmlReader();
                                 nameGeneratorXmlReader.ReadXml(nameGenerator, nameGeneratorSubtree, modelThings);
-                                //TODO: set namegenerator container
+                                ormRoot.NameGenerator = nameGenerator.Id;
                             }
                             break;
                         case "GenerationState":
@@ -83,18 +86,17 @@ namespace Kalliope.Xml.Readers
                                 var generationState = new GenerationState();
                                 var generationStateXmlReader = new GenerationStateXmlReader();
                                 generationStateXmlReader.ReadXml(generationState, generationStateSubTree, modelThings);
-                                //TODO: set namegenerator container
+                                ormRoot.GenerationState = generationState.Id;
                             }
                             break;
                         case "ORMDiagram":
                             using (var diagramSubtree = reader.ReadSubtree())
                             {
                                 diagramSubtree.MoveToContent();
-                                // TODO: xml readers for diagramming
-                                //var ormDiagram = new ORMDiagram();
-                                //ormDiagram.ReadXml(diagramSubtree);
-
-                                //this.Diagrams.Add(ormDiagram);
+                                var ormDiagram = new ORMDiagram();
+                                var ormDiagramXmlReader = new ORMDiagramXmlReader();
+                                ormDiagramXmlReader.ReadXml(ormDiagram, diagramSubtree, modelThings);
+                                ormRoot.Diagrams.Add(ormDiagram.Id);
                             }
                             break;
                     }

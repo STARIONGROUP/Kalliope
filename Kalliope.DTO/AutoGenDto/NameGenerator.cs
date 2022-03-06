@@ -43,7 +43,7 @@ namespace Kalliope.DTO
         {
             this.CasingOption = NameGeneratorCasingOption.Uninitialized;
             this.RefinedByGenerators = new List<string>();
-            this.SpacingFormat = NameGeneratorSpacingFormat.Uninitialized;
+            this.SpacingFormat = NameGeneratorSpacingFormat.Retain;
         }
  
         /// <summary>

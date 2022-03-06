@@ -32,8 +32,8 @@ namespace Kalliope
     /// <summary>
     /// The <see cref="OrmRoot"/> represents the root node of an .orm file
     /// </summary>
-    [Domain(isRoot:true, isAbstract:false, general:"")]
-    public class OrmRoot
+    [Domain(isAbstract:false, general: "ModelThing")]
+    public class OrmRoot : ModelThing
     {
         /// <summary>
         /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
