@@ -18,14 +18,13 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Tests
+namespace Kalliope.Xml.Tests
 {
     using System.IO;
     using System.Linq;
-
-    using Kalliope;
+    
     using Kalliope.Common;
-    using Kalliope.Core;
+    using Kalliope.DTO;
 
     using NUnit.Framework;
 
@@ -34,58 +33,67 @@ namespace Kalliope.Tests
     {
         private string ormfilePath;
 
-        private OrmReader ormReader;
+        private OrmXmlReader ormXmlReader;
 
         [SetUp]
         public void Setup()
         {
             this.ormfilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", "ORM_Lab4.orm");
 
-            this.ormReader = new OrmReader();
+            this.ormXmlReader = new OrmXmlReader();
         }
 
         [Test]
         public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_ORMModel()
         {
-            Assert.Ignore("implement once assembler business logic is complete");
+            var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
-            var ormRoot = this.ormReader.Read(this.ormfilePath, false, null);
+            var ormRoot = modelThings.OfType<OrmRoot>().Single();
+
+            var ormModel = modelThings.OfType<ORMModel>().Single();
+            Assert.That(ormModel.Id, Is.EqualTo("_A0258532-8AB1-4D5E-83F3-A2B8C96B2329"));
+            Assert.That(ormModel.Name, Is.EqualTo("ORMModel4"));
             
-            Assert.That(ormRoot.Model.Id, Is.EqualTo("_A0258532-8AB1-4D5E-83F3-A2B8C96B2329"));
-            Assert.That(ormRoot.Model.Name, Is.EqualTo("ORMModel4"));
-            Assert.That(ormRoot.Model.ReferenceMode, Is.Null.Or.Empty);
-
             // Objects
-            Assert.That(ormRoot.Model.ObjectTypes.OfType<EntityType>().Count(), Is.EqualTo(14));
-            var entityType = ormRoot.Model.ObjectTypes.OfType<EntityType>().Single(x => x.Id == "_A5DE0D30-AC21-496C-9051-A8CE684C9548");
+            Assert.That(modelThings.OfType<EntityType>().Count(), Is.EqualTo(14));
+            var entityType = modelThings.OfType<EntityType>().Single(x => x.Id == "_A5DE0D30-AC21-496C-9051-A8CE684C9548");
             Assert.That(entityType.Name, Is.EqualTo("FemaleEmployee"));
-            var derivationRule = entityType.DerivationRule;
-            Assert.That(derivationRule.SubtypeDerivationPath.InformalRule.DerivationNote.Id, Is.EqualTo("_9F8C3C13-E7FB-4CCC-861C-C48727DBD2C9"));
-            Assert.That(derivationRule.SubtypeDerivationPath.InformalRule.DerivationNote.Body, Is.EqualTo(@"Each FemaleEmployee is an Employee of Gender 'F'"));
-            Assert.That(ormRoot.Model.ObjectTypes.OfType<ValueType>().Count(), Is.EqualTo(11));
-            var valueType = ormRoot.Model.ObjectTypes.OfType<ValueType>().Single(x => x.Id == "_59F9F65F-2F50-46FC-8AD5-28BA64446924");
+            var derivationRuleId = entityType.DerivationRule;
+
+            // TODO: fix SubtypeDerivationPath
+            //var subtypeDerivationPath = modelThings.OfType<SubtypeDerivationPath>().Single(x => x.Id == derivationRuleId);
+            //var derivationNote = modelThings.OfType<DerivationNote>().Single(x => x.Id == subtypeDerivationPath.InformalRule);
+            //Assert.That(derivationNote.Body, Is.EqualTo(@"Each FemaleEmployee is an Employee of Gender 'F'"));
+
+            Assert.That(modelThings.OfType<ValueType>().Count(), Is.EqualTo(11));
+            var valueType = modelThings.OfType<ValueType>().Single(x => x.Id == "_59F9F65F-2F50-46FC-8AD5-28BA64446924");
             Assert.That(valueType.Name, Is.EqualTo("Gender_code"));
-            var valueTypeValueConstraint = valueType.ValueConstraint;
+            var valueTypeValueConstraintId = valueType.ValueConstraint;
+            var valueTypeValueConstraint = modelThings.OfType<ValueTypeValueConstraint>().Single(x => x.Id == valueTypeValueConstraintId);
             Assert.That(valueTypeValueConstraint.Id, Is.EqualTo("_F2297911-44F2-4646-9E9F-B4E868CD8A24"));
             Assert.That(valueTypeValueConstraint.Name, Is.EqualTo("ValueTypeValueConstraint1"));
-            var valueRange = valueTypeValueConstraint.ValueRanges.Single();
+            var valueRangeId = valueTypeValueConstraint.ValueRanges.Single();
+            var valueRange = modelThings.OfType<ValueRange>().Single(x => x.Id == valueRangeId);
             Assert.That(valueRange.Id, Is.EqualTo("_40B7D8C4-CA40-4BA3-8137-FA995C42AE47"));
             Assert.That(valueRange.MinValue, Is.EqualTo("M, F"));
             Assert.That(valueRange.MaxValue, Is.EqualTo("M, F"));
             Assert.That(valueRange.MinInclusion, Is.EqualTo(RangeInclusion.NotSet));
             Assert.That(valueRange.MaxInclusion, Is.EqualTo(RangeInclusion.NotSet));
 
-            Assert.That(ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Count(), Is.EqualTo(4));
-            var objectifiedType = ormRoot.Model.ObjectTypes.OfType<ObjectifiedType>().Single(x => x.Id == "_76A2B645-0CF9-4BD5-81D7-31F22BE79BB7");
+            Assert.That(modelThings.OfType<ObjectifiedType>().Count(), Is.EqualTo(4));
+            var objectifiedType = modelThings.OfType<ObjectifiedType>().Single(x => x.Id == "_76A2B645-0CF9-4BD5-81D7-31F22BE79BB7");
             Assert.That(objectifiedType.Name, Is.EqualTo("FemaleManagerWasSentFlowersOnDate"));
             Assert.That(objectifiedType.IsIndependent, Is.True);
             Assert.That(objectifiedType.ReferenceMode, Is.Null.Or.Empty);
-            Assert.That(objectifiedType.NestedPredicate.Id, Is.EqualTo("_0979AE01-37FD-48F9-B690-2164D851238C"));
-            Assert.That(objectifiedType.NestedPredicate.IsImplied, Is.True);
+
+            //TODO: Fix NestedPredicate
+            //var nestedPredicateId = objectifiedType.NestedPredicate;
+            //var nestedPredicate = modelThings.OfType<Objectification>().Single(x => x.Id == nestedPredicateId);
+            //Assert.That(nestedPredicate.IsImplied, Is.True);
 
             // Facts
-            Assert.That(ormRoot.Model.FactTypes.Count, Is.EqualTo(38));
-            Assert.That(ormRoot.Model.FactTypes.OfType<SubtypeFact>().Count, Is.EqualTo(6));
+            Assert.That(ormModel.FactTypes.Count, Is.EqualTo(38));
+            Assert.That(modelThings.OfType<SubtypeFact>().Count, Is.EqualTo(6));
 
             // Constraints
 
