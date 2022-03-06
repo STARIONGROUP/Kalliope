@@ -23,8 +23,8 @@ namespace Kalliope.Xml.Tests
     using System.IO;
     using System.Linq;
 
-    using Kalliope.DTO;
     using Kalliope.Common;
+    using Kalliope.DTO;
     
     using NUnit.Framework;
 
