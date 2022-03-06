@@ -18,16 +18,14 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Tests
+namespace Kalliope.Xml.Tests
 {
     using System;
     using System.Reflection;
     using System.Xml.Schema;
 
     using NUnit.Framework;
-
-    using Kalliope;
-
+    
     /// <summary>
     /// Suite of tests for the <see cref="OrmSchemaResolver"/> class
     /// </summary>
@@ -38,7 +36,7 @@ namespace Kalliope.Tests
         public void VerifyThatReferencedSchemaCanBeLoaded()
         {
             var a = Assembly.GetExecutingAssembly();
-            var stream = a.GetManifestResourceStream("Kalliope.Tests.Resources.ORM2Core.xsd");
+            var stream = a.GetManifestResourceStream("Kalliope.Xml.Tests.Resources.ORM2Core.xsd");
 
             var schema = XmlSchema.Read(stream, this.ValidationEventHandler);
             Assert.DoesNotThrow(() => schema.Compile(this.ValidationEventHandler, new OrmSchemaResolver()));

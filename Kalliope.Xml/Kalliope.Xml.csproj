@@ -18,6 +18,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ORM2Core.xsd" />
+    <None Remove="Resources\ORM2Diagram.xsd" />
+    <None Remove="Resources\ORM2Root.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ORM2Core.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ORM2Diagram.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ORM2Root.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Kalliope.DTO\Kalliope.DTO.csproj" />
     <ProjectReference Include="..\Kalliope\Kalliope.csproj" />
   </ItemGroup>

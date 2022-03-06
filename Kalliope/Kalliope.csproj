@@ -24,9 +24,6 @@
 
   <ItemGroup>
     <None Remove="Resources\Framework.dsl" />
-    <None Remove="Resources\ORM2Core.xsd" />
-    <None Remove="Resources\ORM2Diagram.xsd" />
-    <None Remove="Resources\ORM2Root.xsd" />
     <None Remove="Resources\ORMCore.dsl" />
     <None Remove="Resources\ORMShape.dsl" />
     <None Remove="Resources\SystemCore.dsl" />
@@ -34,9 +31,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Framework.dsl" />
-    <EmbeddedResource Include="Resources\ORM2Core.xsd" />
-    <EmbeddedResource Include="Resources\ORM2Diagram.xsd" />
-    <EmbeddedResource Include="Resources\ORM2Root.xsd" />
     <EmbeddedResource Include="Resources\ORMCore.dsl" />
     <EmbeddedResource Include="Resources\ORMShape.dsl" />
     <EmbeddedResource Include="Resources\SystemCore.dsl" />

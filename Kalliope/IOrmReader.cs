@@ -20,11 +20,12 @@
 
 namespace Kalliope
 {
-    using Kalliope.Core;
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Xml.Schema;
+
+    using Kalliope.Core;
 
     /// <summary>
     /// The purpose of the <see cref="IOrmReader"/> is to read .orm models and return the content as an object graph
