@@ -218,8 +218,6 @@ namespace Kalliope.Tests
 
             // ModelNoteShapes
             Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(0));
-
-            // Subject
         }
     }
 }

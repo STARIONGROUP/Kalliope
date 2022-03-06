@@ -53,7 +53,6 @@ namespace Kalliope.Xml.Tests
 
             //ORM Model
             var ormModel = modelThings.OfType<ORMModel>().Single();
-            
             Assert.That(ormModel.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
             Assert.That(ormModel.Name, Is.EqualTo("ORMModel1"));
 
@@ -126,6 +125,9 @@ namespace Kalliope.Xml.Tests
         {
             var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
+            var ormRoot = modelThings.OfType<OrmRoot>().Single();
+            Assert.That(ormRoot.NameGenerator, Is.EqualTo("_D4D4915E-BE77-4172-92D8-B9F70B635140"));
+
             var nameGenerator = modelThings.OfType<NameGenerator>().Single();
 
             // Name Generator
@@ -165,6 +167,7 @@ namespace Kalliope.Xml.Tests
             Assert.That(diagram.Name, Is.EqualTo("ORMModel1"));
             Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));
             Assert.That(diagram.BaseFontSize, Is.EqualTo(0.0972222238779068));
+            Assert.That(diagram.Subject, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
 
             // ObjectTypeShapes
             Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(3));
@@ -173,8 +176,9 @@ namespace Kalliope.Xml.Tests
             Assert.That(objectTypeShape.AbsoluteBounds, Is.EqualTo("2.8487956374883652, 0.6539984866976738, 0.51518681168556213, 0.35900605320930479"));
             Assert.That(objectTypeShape.ExpandRefMode, Is.False);
             Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+            Assert.That(objectTypeShape.Container, Is.EqualTo("_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4"));
             Assert.That(objectTypeShape.Subject, Is.EqualTo("_2BBF304E-05AE-4A81-AFF9-AFAAECC9A8A7"));
-
+            
             // FactTypeShapes
             Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(3));
             var factTypeShape = modelThings.OfType<FactTypeShape>().Single(x => x.Id == "_82A927C5-1094-4600-A961-433A126ED626");
@@ -184,6 +188,7 @@ namespace Kalliope.Xml.Tests
             Assert.That(factTypeShape.DisplayRoleNames, Is.EqualTo(DisplayRoleNames.UserDefault));
             Assert.That(factTypeShape.DisplayOrientation, Is.EqualTo(DisplayOrientation.Horizontal));
             Assert.That(factTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
+            Assert.That(factTypeShape.Container, Is.EqualTo("_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4"));
             Assert.That(factTypeShape.Subject, Is.EqualTo("_86DD69FC-86B7-4807-A267-419D2B0F92F3"));
 
             // FactTypeShapes.ReadingShapes
@@ -197,6 +202,7 @@ namespace Kalliope.Xml.Tests
             Assert.That(factTypeShape.ConstraintDisplayPosition, Is.EqualTo(ConstraintDisplayPosition.Top));
             Assert.That(factTypeShape.DisplayRoleNames, Is.EqualTo(DisplayRoleNames.UserDefault));
             Assert.That(factTypeShape.DisplayOrientation, Is.EqualTo(DisplayOrientation.Horizontal));
+            Assert.That(factTypeShape.Container, Is.EqualTo("_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4"));
             Assert.That(factTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
             
             // FactTypeShapes.RoleNameShapes
@@ -206,6 +212,7 @@ namespace Kalliope.Xml.Tests
             Assert.That(roleNameShape.Id, Is.EqualTo("_81268D0A-D4C8-4C6F-ACB9-47D66FE744AD"));
             Assert.That(roleNameShape.IsExpanded, Is.True);
             Assert.That(roleNameShape.AbsoluteBounds, Is.EqualTo("3.9916667461395265, 1.4758333333333333, 0.40145307779312134, 0.12950302660465241"));
+            Assert.That(roleNameShape.Container, Is.EqualTo("_82A927C5-1094-4600-A961-433A126ED626"));
             Assert.That(roleNameShape.Subject, Is.EqualTo("_7786BF93-28FB-40BC-92FD-951FEFC9F3FB"));
 
             // ExternalConstraintShapes
@@ -227,9 +234,6 @@ namespace Kalliope.Xml.Tests
             // ModelNoteShapes
             Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(0));
             Assert.That(modelThings.OfType<ModelNoteShape>(), Is.Empty);
-
-            // Subject
-            Assert.That(diagram.Subject, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
         }
     }
 }
