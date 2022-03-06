@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="OrmReader_ORMLAB2_TestFixture.cs" company="RHEA System S.A.">
+// <copyright file="OrmReader_ORMLAB3_TestFixture.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -32,7 +32,7 @@ namespace Kalliope.Xml.Tests
     /// Suite of tests to verify that an .orm file (ORMLAB2) can be read and the expected object graph is available
     /// </summary>
     [TestFixture]
-    public class OrmReader_ORMLAB2_TestFixture
+    public class OrmReader_ORMLAB3_TestFixture
     {
         private string ormfilePath;
 
@@ -41,7 +41,7 @@ namespace Kalliope.Xml.Tests
         [SetUp]
         public void Setup()
         {
-            this.ormfilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", "ORM_Lab2.orm");
+            this.ormfilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Data", "ORM_Lab3.orm");
 
             this.ormXmlReader = new OrmXmlReader();
         }
@@ -51,63 +51,82 @@ namespace Kalliope.Xml.Tests
         {
             var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
-            //ORM Model
+            var ormRoot = modelThings.OfType<OrmRoot>().Single();
+
             var ormModel = modelThings.OfType<ORMModel>().Single();
             Assert.That(ormModel.Id, Is.EqualTo("_BBB698D9-5392-42EB-98F9-0DD34E05B957"));
             Assert.That(ormModel.Name, Is.EqualTo("ORM_Lab2.orm"));
-
+            
             // Objects
-            Assert.That(modelThings.OfType<EntityType>().Count(), Is.EqualTo(5));
-            Assert.That(modelThings.OfType<ValueType>().Count(), Is.EqualTo(10));
-            Assert.That(modelThings.OfType<ObjectifiedType>().Count(), Is.EqualTo(1));
+            Assert.That(modelThings.OfType<EntityType>().Count(), Is.EqualTo(7));
+            Assert.That(modelThings.OfType<ValueType>().Count(), Is.EqualTo(14));
+            Assert.That(modelThings.OfType<ObjectifiedType>().Count(), Is.EqualTo(4));
 
             var entityType = modelThings.OfType<EntityType>().Single(x => x.Id == "_2D2953A6-8E07-4158-93E5-FF241BC9838C");
             Assert.That(entityType.Name, Is.EqualTo("City"));
             Assert.That(entityType.ReferenceMode, Is.Empty);
+            Assert.That(entityType.Container, Is.EqualTo(ormModel.Id));
 
             var valueType = modelThings.OfType<ValueType>().Single(x => x.Id == "_EA2FBA06-5757-4B69-8823-BDD954075EE5");
             Assert.That(valueType.Name, Is.EqualTo("State_code"));
+            Assert.That(valueType.Container, Is.EqualTo(ormModel.Id));
+            Assert.That(valueType.Container, Is.EqualTo(ormModel.Id));
 
             var objectifiedType = modelThings.OfType<ObjectifiedType>().Single(x => x.Id == "_BB1CD3E9-9118-40A3-A23B-260ED585267A");
             Assert.That(objectifiedType.Name, Is.EqualTo("CinemaFirstShowedMovieOnDate"));
             Assert.That(objectifiedType.IsIndependent, Is.False);
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
+            Assert.That(objectifiedType.Container, Is.EqualTo(ormModel.Id));
 
             // Facts
-            Assert.That(modelThings.OfType<FactType>().Count, Is.EqualTo(16));
+            Assert.That(modelThings.OfType<FactType>().Count, Is.EqualTo(31));
             var factType = modelThings.OfType<FactType>().Single(x => x.Id == "_2904A934-2B98-4EC1-925E-F18E545A22B1");
             Assert.That(factType.Name, Is.EqualTo("StateHasStateCode"));
+            Assert.That(factType.Container, Is.EqualTo(ormModel.Id));
 
             // Constraints
-            Assert.That(modelThings.OfType<MandatoryConstraint>().Count(), Is.EqualTo(25));
-            var mandatoryConstraint = modelThings.OfType<MandatoryConstraint>().Single(x => x.Id == "_4AF1D6BC-4EFB-4AF9-A1E7-6EBBF9FE8396");
-            Assert.That(mandatoryConstraint.Name, Is.EqualTo("ImpliedMandatoryConstraint1"));
-            Assert.That(mandatoryConstraint.IsSimple, Is.False);
-            Assert.That(mandatoryConstraint.IsImplied, Is.True);
+            Assert.That(modelThings.OfType<MandatoryConstraint>().Count(), Is.EqualTo(39));
+            var mandatoryConstraint = modelThings.OfType<MandatoryConstraint>().Single(x => x.Id == "_8AB3A94E-E1C7-4E85-B5C2-7D72E57C0952");
+            Assert.That(mandatoryConstraint.Name, Is.EqualTo("SimpleMandatoryConstraint1"));
+            Assert.That(mandatoryConstraint.IsSimple, Is.True);
+            Assert.That(mandatoryConstraint.Container, Is.EqualTo(ormModel.Id));
 
-            Assert.That(modelThings.OfType<UniquenessConstraint>().Count(), Is.EqualTo(22));
+            Assert.That(modelThings.OfType<UniquenessConstraint>().Count(), Is.EqualTo(39));
             var uniquenessConstraint = modelThings.OfType<UniquenessConstraint>().Single(x => x.Id == "_2972925F-EF20-4D76-B52C-81F2B250B260");
             Assert.That(uniquenessConstraint.Name, Is.EqualTo("InternalUniquenessConstraint1"));
             Assert.That(uniquenessConstraint.IsInternal, Is.True);
-            
+            Assert.That(uniquenessConstraint.Container, Is.EqualTo(ormModel.Id));
+
             // DataTypes
+            Assert.That(modelThings.OfType<FixedLengthTextDataType>().Count(), Is.EqualTo(1));
             var fixedLengthTextDataType = modelThings.OfType<FixedLengthTextDataType>().Single();
             Assert.That(fixedLengthTextDataType.Id, Is.EqualTo("_D9C27BF7-D96F-43E5-95D3-8E3564C673C2"));
+            Assert.That(fixedLengthTextDataType.Container, Is.EqualTo(ormModel.Id));
 
+            Assert.That(modelThings.OfType<VariableLengthTextDataType>().Count(), Is.EqualTo(1));
             var variableLengthTextDataType = modelThings.OfType<VariableLengthTextDataType>().Single();
             Assert.That(variableLengthTextDataType.Id, Is.EqualTo("_E373F568-5861-412F-82E1-0B54D5C1E0FF"));
+            Assert.That(variableLengthTextDataType.Container, Is.EqualTo(ormModel.Id));
 
+            Assert.That(modelThings.OfType<SignedIntegerNumericDataType>().Count(), Is.EqualTo(1));
             var signedIntegerNumericDataType = modelThings.OfType<SignedIntegerNumericDataType>().Single();
             Assert.That(signedIntegerNumericDataType.Id, Is.EqualTo("_C468C021-B3F1-4D22-B757-956BD0D17B15"));
-            
+            Assert.That(signedIntegerNumericDataType.Container, Is.EqualTo(ormModel.Id));
+
+            Assert.That(modelThings.OfType<UnsignedIntegerNumericDataType>().Count(), Is.EqualTo(1));
             var unsignedIntegerNumericDataType = modelThings.OfType<UnsignedIntegerNumericDataType>().Single();
             Assert.That(unsignedIntegerNumericDataType.Id, Is.EqualTo("_AA1E2088-6261-4D48-A91E-2EE05ECBB067"));
+            Assert.That(unsignedIntegerNumericDataType.Container, Is.EqualTo(ormModel.Id));
 
+            Assert.That(modelThings.OfType<DateTemporalDataType>().Count(), Is.EqualTo(1));
             var dateTemporalDataType = modelThings.OfType<DateTemporalDataType>().Single();
             Assert.That(dateTemporalDataType.Id, Is.EqualTo("_52D54BE0-1507-4780-954B-80ACBE17F96A"));
+            Assert.That(dateTemporalDataType.Container, Is.EqualTo(ormModel.Id));
 
+            Assert.That(modelThings.OfType<TrueOrFalseLogicalDataType>().Count(), Is.EqualTo(1));
             var trueOrFalseLogicalDataType = modelThings.OfType<TrueOrFalseLogicalDataType>().Single();
             Assert.That(trueOrFalseLogicalDataType.Id, Is.EqualTo("_33BFD2D0-785B-4750-8215-AE04CB185578"));
+            Assert.That(trueOrFalseLogicalDataType.Container, Is.EqualTo(ormModel.Id));
 
             // CustomReferenceModes
             Assert.That(ormModel.ReferenceModes.Count, Is.EqualTo(0));
@@ -118,6 +137,7 @@ namespace Kalliope.Xml.Tests
             var modelNote = modelThings.OfType<ModelNote>().Single();
             Assert.That(modelNote.Id, Is.EqualTo("_122AC1BC-F9B4-4D43-B95C-0003BED9601D"));
             Assert.That(modelNote.Text, Is.EqualTo("Cinema is multiplex iff\nCinema has NrThreaters >=1"));
+            Assert.That(modelNote.Container, Is.EqualTo(ormModel.Id));
             //TODO: verify ReferencedBy property
 
             // ReferenceModeKinds
@@ -125,11 +145,9 @@ namespace Kalliope.Xml.Tests
             var referenceModeKindGeneral = modelThings.OfType<ReferenceModeKind>().Single(x => x.Id == "_2B4A7877-B9B5-40A5-854C-30392896A6A4");
             Assert.That(referenceModeKindGeneral.FormatString, Is.EqualTo("{1}"));
             Assert.That(referenceModeKindGeneral.ReferenceModeType, Is.EqualTo(ReferenceModeType.General));
-
             var referenceModeKindPopular = modelThings.OfType<ReferenceModeKind>().Single(x => x.Id == "_8ED25F0C-B843-45A9-8CA6-27D077590437");
             Assert.That(referenceModeKindPopular.FormatString, Is.EqualTo("{0}_{1}"));
             Assert.That(referenceModeKindPopular.ReferenceModeType, Is.EqualTo(ReferenceModeType.Popular));
-
             var referenceModeKindUnitBased = modelThings.OfType<ReferenceModeKind>().Single(x => x.Id == "_2FAF73C7-3C3E-4F9A-A381-03F7CA1BA108");
             Assert.That(referenceModeKindUnitBased.FormatString, Is.EqualTo("{1}Value"));
             Assert.That(referenceModeKindUnitBased.ReferenceModeType, Is.EqualTo(ReferenceModeType.UnitBased));
@@ -141,7 +159,7 @@ namespace Kalliope.Xml.Tests
             var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
             var ormRoot = modelThings.OfType<OrmRoot>().Single();
-            
+
             // Name Generator
             Assert.That(ormRoot.NameGenerator, Is.Null.Or.Empty);
         }
@@ -165,85 +183,37 @@ namespace Kalliope.Xml.Tests
             var ormRoot = modelThings.OfType<OrmRoot>().Single();
 
             // Diagrams
-            Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(1));
+            Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(2));
 
-            var diagram = modelThings.OfType<ORMDiagram>().Single(x => x.Id == "_019FB281-3506-4C64-9A83-7A64F7A01D55");
-            Assert.That(diagram.IsCompleteView, Is.False);
-            Assert.That(diagram.Name, Is.EqualTo("Cinema"));
+            var diagram = modelThings.OfType<ORMDiagram>().Single(x => x.Id == "_D80C0423-0227-477D-84AA-32E6BF3A0659");
+            Assert.That(diagram.IsCompleteView, Is.True);
+            Assert.That(diagram.Name, Is.EqualTo("Movie"));
             Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));
             Assert.That(diagram.BaseFontSize, Is.EqualTo(0.0972222238779068));
             Assert.That(diagram.Subject, Is.EqualTo("_BBB698D9-5392-42EB-98F9-0DD34E05B957"));
 
             // ObjectTypeShapes
-            Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(9));
-            var objectTypeShape = modelThings.OfType<ObjectTypeShape>().Single(x => x.Id == "_3D692D51-D04C-4AE0-96B4-50A7B3A07641");
+            Assert.That(diagram.ObjectTypeShapes.Count, Is.EqualTo(6));
+            var objectTypeShape = modelThings.OfType<ObjectTypeShape>().Single(x => x.Id == "_E8AC4E21-B2EA-44EE-AB64-BF9A46014FBD");
             Assert.That(objectTypeShape.IsExpanded, Is.True);
-            Assert.That(objectTypeShape.AbsoluteBounds, Is.EqualTo("3.1645833333333329, 1.3916666865348812, 0.34875072062015533, 0.22950302660465241"));
+            Assert.That(objectTypeShape.AbsoluteBounds, Is.EqualTo("1.5504014194011688, 2.59375, 0.72140424966812133, 0.22950302660465241"));
             Assert.That(objectTypeShape.ExpandRefMode, Is.False);
             Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
-            Assert.That(objectTypeShape.Container, Is.EqualTo("_019FB281-3506-4C64-9A83-7A64F7A01D55"));
-            Assert.That(objectTypeShape.Subject, Is.EqualTo("_2D2953A6-8E07-4158-93E5-FF241BC9838C"));
+            Assert.That(objectTypeShape.Subject, Is.EqualTo("_FF7C9E69-E901-42EA-9B45-4D282378C797"));
 
-            objectTypeShape = modelThings.OfType<ObjectTypeShape>().Single(x => x.Id == "_0B5F48A9-9454-436F-A3C5-F1D94D1491BB");
-            Assert.That(objectTypeShape.ExpandRefMode, Is.True);
-            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
-            Assert.That(objectTypeShape.Container, Is.EqualTo("_019FB281-3506-4C64-9A83-7A64F7A01D55"));
-
-            // ObjectTypeShapes.ValueConstraintShapes
-            objectTypeShape = modelThings.OfType<ObjectTypeShape>().Single(x => x.Id == "_6DB3F675-D1B1-41E9-9594-BFAE5AF23BFC");
-            Assert.That(objectTypeShape.ExpandRefMode, Is.False);
-            Assert.That(objectTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
-            Assert.That(objectTypeShape.Container, Is.EqualTo("_019FB281-3506-4C64-9A83-7A64F7A01D55"));
-
-            var constraintShapeId = objectTypeShape.ValueConstraintShapes.Single();
-            var constraintShape = modelThings.OfType<ValueConstraintShape>().Single(x => x.Id == constraintShapeId);
-            Assert.That(constraintShape.Id, Is.EqualTo("_03A3C5F1-A42A-4B68-A877-EE514FD2D03F"));
-            Assert.That(constraintShape.IsExpanded, Is.True);
-            Assert.That(constraintShape.AbsoluteBounds, Is.EqualTo("2.0143245685100544, 2.7697733173953991, 0.35341161489486694, 0.12950302660465241"));
-            Assert.That(constraintShape.Container, Is.EqualTo("_6DB3F675-D1B1-41E9-9594-BFAE5AF23BFC"));
-            Assert.That(constraintShape.Subject, Is.EqualTo("_BF638CD9-3932-47DB-A90D-C66D8EA33D25"));
+            // ObjectTypeShapes.RelativeShapes
+            var valueConstraintShapeId = objectTypeShape.ValueConstraintShapes.Single();
+            var valueConstraintShape = modelThings.OfType<ValueConstraintShape>().Single(x => x.Id == valueConstraintShapeId);
+            Assert.That(valueConstraintShape.Id, Is.EqualTo("_200444FA-B4DB-431C-9AE6-A9A6633B84ED"));
+            Assert.That(valueConstraintShape.IsExpanded, Is.True);
+            Assert.That(valueConstraintShape.AbsoluteBounds, Is.EqualTo("2.33180566906929, 2.4642469733953476, 0.93807417154312134, 0.12950302660465241"));
+            Assert.That(valueConstraintShape.Subject, Is.EqualTo("_5B9303F3-5217-4A2E-BFD5-667C9695F9A4"));
 
             // FactTypeShapes
-            Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(10));
-
-            var factTypeShape = modelThings.OfType<FactTypeShape>().Single(x => x.Id == "_A8606B42-36D8-4D98-BEC2-91439FCAB1A3");
-            Assert.That(factTypeShape.IsExpanded, Is.True);
-            Assert.That(factTypeShape.AbsoluteBounds, Is.EqualTo("3.1808333532015478, 1.8949999999999998, 0.24388888899236916, 0.38388888899236917"));
-            Assert.That(factTypeShape.ConstraintDisplayPosition, Is.EqualTo(ConstraintDisplayPosition.Top));
-            Assert.That(factTypeShape.DisplayRoleNames, Is.EqualTo(DisplayRoleNames.UserDefault));
-            Assert.That(factTypeShape.DisplayOrientation, Is.EqualTo(DisplayOrientation.VerticalRotatedLeft));
-            Assert.That(factTypeShape.DisplayRelatedTypes, Is.EqualTo(RelatedTypesDisplay.AttachAllTypes));
-            Assert.That(factTypeShape.Container, Is.EqualTo("_019FB281-3506-4C64-9A83-7A64F7A01D55"));
-            Assert.That(factTypeShape.Subject, Is.EqualTo("_71B6380B-34E5-4008-A65C-6CC5A89A16EE"));
-            
-            factTypeShape = modelThings.OfType<FactTypeShape>().Single(x => x.Id == "_37834249-0C31-425F-B243-574EA4A414D4");
-            Assert.That(factTypeShape.IsExpanded, Is.True);
-            Assert.That(factTypeShape.AbsoluteBounds, Is.EqualTo("6.276041666666667, 2.857083412806193, 0.38388888899236917, 0.24388888899236916"));
-            
-            // FactTypeShapes.ReadingShapes
-            Assert.That(factTypeShape.ReadingShapes.Count, Is.EqualTo(1));
-            var readingShapeId = factTypeShape.ReadingShapes.Single();
-            var readingShape = modelThings.OfType<ReadingShape>().Single(x => x.Id == readingShapeId);
-            Assert.That(readingShape.Id, Is.EqualTo("_236F58BD-0E3F-4886-98B2-2C5ABC5497F4"));
-            Assert.That(readingShape.IsExpanded, Is.True);
-            Assert.That(readingShape.AbsoluteBounds, Is.EqualTo("6.276041666666667, 3.1657238151008884, 0.099959753453731537, 0.12950302660465241"));
-            Assert.That(readingShape.Container, Is.EqualTo("_37834249-0C31-425F-B243-574EA4A414D4"));
-            Assert.That(readingShape.Subject, Is.EqualTo("_DF16EE23-9D8E-4A45-B9F3-0304707A2876"));
-
-            // FactTypeShapes.RoleNameShapes
-            Assert.That(factTypeShape.RoleNameShapes.Count, Is.EqualTo(0));
-
-            // FactTypeShapes.RoleDisplayOrder
-            factTypeShape = modelThings.OfType<FactTypeShape>().Single(x => x.Id == "_A8606B42-36D8-4D98-BEC2-91439FCAB1A3");
-            // TODO: assert RoleDisplayOrder are resolved
-            Assert.That(factTypeShape.RoleDisplayOrder.Count, Is.EqualTo(2));
+            Assert.That(diagram.FactTypeShapes.Count, Is.EqualTo(7));
             
             // ExternalConstraintShapes
             Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(2));
-            var externalConstraintShape = modelThings.OfType<ExternalConstraintShape>().Single(x => x.Id == "_9E865D21-E51C-481C-950D-DDDACF98A7D1");
-            Assert.That(externalConstraintShape.IsExpanded, Is.True);
-            Assert.That(externalConstraintShape.AbsoluteBounds, Is.EqualTo("4.5416667064030962, 1.4895833134651182, 0.16, 0.16"));
-            Assert.That(externalConstraintShape.Subject, Is.EqualTo("_E22DB884-CB67-4829-BD66-10815CD96318"));
 
             // FrequencyConstraintShapes
             Assert.That(diagram.FrequencyConstraintShapes.Count, Is.EqualTo(0));
@@ -255,10 +225,7 @@ namespace Kalliope.Xml.Tests
             Assert.That(diagram.ValueComparisonConstraintShapes.Count, Is.EqualTo(0));
 
             // ModelNoteShapes
-            Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(1));
-            var modelNoteShape = modelThings.OfType<ModelNoteShape>().Single(x => x.Id == "_37CA8B9B-31F0-4C31-B479-A01A2A0E6A8C");
-            Assert.That(modelNoteShape.IsExpanded, Is.True);
-            Assert.That(modelNoteShape.AbsoluteBounds, Is.EqualTo("2.03125, 4.1458334922790527, 1.3454351778030396, 0.2588533217906952"));
+            Assert.That(diagram.ModelNoteShapes.Count, Is.EqualTo(0));
         }
     }
 }

@@ -46,6 +46,23 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(ExternalConstraintShape externalConstraintShape, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(externalConstraintShape, reader, modelThings);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Subject":
+                            externalConstraintShape.Subject = reader.GetAttribute("ref");
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }
