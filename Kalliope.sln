@@ -12,19 +12,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		LICENSE = LICENSE
 		NOTICE = NOTICE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.Generator", "Kalliope.Generator\Kalliope.Generator.csproj", "{553B59EB-B9CD-4651-A9AE-2EB161F5A2A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.Generator.Tests", "Kalliope.Generator.Tests\Kalliope.Generator.Tests.csproj", "{74BD3A78-F2E1-40E7-8D15-DE34747697AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.DTO", "Kalliope.DTO\Kalliope.DTO.csproj", "{8209FA56-3751-4D22-A354-353C14F6DF93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.DTO", "Kalliope.DTO\Kalliope.DTO.csproj", "{8209FA56-3751-4D22-A354-353C14F6DF93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Common", "Kalliope.Common\Kalliope.Common.csproj", "{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.Common", "Kalliope.Common\Kalliope.Common.csproj", "{3777443A-BF52-4A6D-B4D1-7F1342A15DBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Xml", "Kalliope.Xml\Kalliope.Xml.csproj", "{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.Xml", "Kalliope.Xml\Kalliope.Xml.csproj", "{09817B1D-8ECD-4A6B-A689-5CDCD8914D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.Xml.Tests", "Kalliope.Xml.Tests\Kalliope.Xml.Tests.csproj", "{B67E8F3F-A999-44A3-9749-614CFE2EE14D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kalliope.Xml.Tests", "Kalliope.Xml.Tests\Kalliope.Xml.Tests.csproj", "{B67E8F3F-A999-44A3-9749-614CFE2EE14D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

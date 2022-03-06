@@ -1,6 +1,6 @@
 ![Kalliope](Kalliope-logo.png?raw=true)
 
-Kalliope is a C# library used to read and write NORMA ORM files. Kalliope is used in RHEA products and projects to perform code generation.
+Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in RHEA products and projects to perform code generation.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
@@ -15,13 +15,13 @@ Kalliope is a C# library used to read and write NORMA ORM files. Kalliope is use
 
 ## Installation
 
-The package is available on Nuget at https://www.nuget.org/packages/Kalliope/
+The packages are available on Nuget at https://www.nuget.org/packages/Kalliope/
 
 [![NuGet Badge](https://buildstats.info/nuget/Kalliope)](https://buildstats.info/nuget/Kalliope)
 
 ## Build Status
 
-GitHub actions are used to build and test the library
+GitHub actions are used to build and test the libraries
 
 Branch | Build Status
 ------- | :------------
@@ -37,7 +37,7 @@ Development | [![codecov](https://codecov.io/gh/RHEAGROUP/Kalliope/branch/develo
 
 # License
 
-The Kalliope library is provided to the community under the Apache License 2.0. The solution contains files that contain information about the ORM2 metamodel which are distributed with the [Common Public License 1.0](http://opensource.org/licenses/cpl) or the [zlib/libpng License](https://opensource.org/licenses/Zlib). The beforementioned files can be found in the resources folder of the Kalliope project.
+The Kalliope libraries are provided to the community under the Apache License 2.0. The solution contains files that contain information about the ORM2 metamodel which are distributed with the [Common Public License 1.0](http://opensource.org/licenses/cpl) or the [zlib/libpng License](https://opensource.org/licenses/Zlib). The beforementioned files can be found in the resources folder of the Kalliope project.
 
 # Contributions
 
