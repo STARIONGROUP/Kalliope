@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<Version>0.0.1</Version>
+	<Version>0.2.0</Version>
 	<Description>A library that provides the Data Transfer Object (DTO) Kalliope classes</Description>
 	<PackageId>Kalliope.DTO</PackageId>
 	<Company>RHEA System S.A.</Company>
