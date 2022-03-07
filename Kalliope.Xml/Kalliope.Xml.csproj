@@ -15,7 +15,12 @@
 	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 	<Authors>Sam Gerene</Authors>
 	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+   <PackageIcon>Kalliope-icon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+	<None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\ORM2Core.xsd" />
