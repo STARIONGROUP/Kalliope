@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Element Required and Blocked in one Group
     /// </remarks>
+    [Container(typeName: "ElementGrouping", propertyName: "MembershipContradictionErrors")]
     public partial class ElementGroupingMembershipContradictionError : ModelError
     {
         /// <summary>

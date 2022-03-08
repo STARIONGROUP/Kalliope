@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A path calculation is missing an input for a function parameter
     /// </remarks>
+    [Container(typeName: "CalculatedPathValue", propertyName: "ParameterBindingErrors")]
     public partial class CalculatedPathValueParameterBindingError : ModelError
     {
         /// <summary>

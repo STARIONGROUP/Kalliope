@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Value Ranges Overlap
     /// </remarks>
+    [Container(typeName: "ValueConstraint", propertyName: "ValueRangeOverlapError")]
     public partial class ValueRangeOverlapError : ValueConstraintError
     {
         /// <summary>

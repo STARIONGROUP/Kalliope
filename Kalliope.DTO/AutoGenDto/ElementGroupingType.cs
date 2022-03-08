@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group
     /// </remarks>
+    [Container(typeName: "ElementGrouping", propertyName: "GroupingTypes")]
     public abstract partial class ElementGroupingType : ModelThing
     {
         /// <summary>

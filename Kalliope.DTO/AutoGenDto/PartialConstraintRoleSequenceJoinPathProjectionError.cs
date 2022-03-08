@@ -43,11 +43,6 @@ namespace Kalliope.DTO
         {
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
     }
 }
 

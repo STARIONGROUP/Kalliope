@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SubtypeDerivationExpression
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "DerivationExpression")]
     public partial class SubtypeDerivationExpression : Expression
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Inconsistent Frequency Constraint Minimum and Maximum Values
     /// </remarks>
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintMinMaxError")]
     public partial class FrequencyConstraintMinMaxError : ModelError
     {
         /// <summary>

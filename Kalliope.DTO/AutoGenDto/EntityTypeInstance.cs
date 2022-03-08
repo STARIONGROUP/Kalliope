@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a EntityTypeInstance
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "EntityTypeInstances")]
     public partial class EntityTypeInstance : ObjectTypeInstance
     {
         /// <summary>

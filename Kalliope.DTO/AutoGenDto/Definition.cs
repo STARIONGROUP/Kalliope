@@ -31,6 +31,14 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Definition
     /// </summary>
+    [Container(typeName: "CardinalityConstraint", propertyName: "Definition")]
+    [Container(typeName: "ElementGrouping", propertyName: "Definition")]
+    [Container(typeName: "FactType", propertyName: "Definition")]
+    [Container(typeName: "ObjectType", propertyName: "Definition")]
+    [Container(typeName: "ORMModel", propertyName: "Definition")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "Definition")]
+    [Container(typeName: "SetConstraint", propertyName: "Definition")]
+    [Container(typeName: "ValueConstraint", propertyName: "Definition")]
     public partial class Definition : ORMModelElement
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Sample Population Value Invalid for DataType
     /// </remarks>
+    [Container(typeName: "ValueTypeInstance", propertyName: "CompatibleValueTypeInstanceValueError")]
     public partial class CompatibleValueTypeInstanceValueError : ModelError
     {
         /// <summary>

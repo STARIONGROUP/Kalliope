@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents an ObjectType
     /// </remarks>
+    [Container(typeName: "FactTypeShape", propertyName: "ObjectifiedFactTypeNameShapes")]
     public partial class ObjectTypeShape : ORMBaseShape
     {
         /// <summary>

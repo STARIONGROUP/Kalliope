@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Value Comparison Roles Not Comparable
     /// </remarks>
+    [Container(typeName: "ValueComparisonConstraint", propertyName: "RolesNotComparableError")]
     public partial class ValueComparisonRolesNotComparableError : ModelError
     {
         /// <summary>

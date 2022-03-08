@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ReadingOrder
     /// </summary>
+    [Container(typeName: "FactType", propertyName: "ReadingOrders")]
     public partial class ReadingOrder : ORMModelElement
     {
         /// <summary>

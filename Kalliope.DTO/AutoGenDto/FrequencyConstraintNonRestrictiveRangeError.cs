@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// One to Unbounded Frequency Range Always Satisfied
     /// </remarks>
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintNonRestrictiveRangeError")]
     public partial class FrequencyConstraintNonRestrictiveRangeError : ModelError
     {
         /// <summary>

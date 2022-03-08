@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SetComparisonConstraintRoleSequence
     /// </summary>
+    [Container(typeName: "SetComparisonConstraint", propertyName: "RoleSequences")]
     public partial class SetComparisonConstraintRoleSequence : ConstraintRoleSequence
     {
         /// <summary>

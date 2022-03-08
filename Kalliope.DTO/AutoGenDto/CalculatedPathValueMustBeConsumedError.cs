@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A path calculation must be consumed as a path condition, an input to another calculation, or as a projection from the path
     /// </remarks>
+    [Container(typeName: "CalculatedPathValue", propertyName: "ConsumptionRequiredError")]
     public partial class CalculatedPathValueMustBeConsumedError : ModelError
     {
         /// <summary>

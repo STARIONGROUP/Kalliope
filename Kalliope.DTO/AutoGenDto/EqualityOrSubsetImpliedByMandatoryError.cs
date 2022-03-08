@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Mandatory Constraint Implies Equality or Subset Constraint
     /// </remarks>
+    [Container(typeName: "SetComparisonConstraint", propertyName: "EqualityOrSubsetImpliedByMandatoryError")]
     public partial class EqualityOrSubsetImpliedByMandatoryError : ImplicationError
     {
         /// <summary>

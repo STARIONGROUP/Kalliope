@@ -34,6 +34,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// An informal note describing the purpose of a derivation rule
     /// </remarks>
+    [Container(typeName: "FactTypeDerivationRule", propertyName: "DerivationNote")]
+    [Container(typeName: "SubtypeDerivationRule", propertyName: "DerivationNote")]
     public partial class DerivationNote : Expression
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A query used as a component of a role path
     /// </remarks>
+    [Container(typeName: "RolePathOwner", propertyName: "Subqueries")]
     public partial class Subquery : QueryBase
     {
         /// <summary>

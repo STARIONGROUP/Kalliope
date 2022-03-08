@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Incompatible or Transitive Supertypes
     /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "CompatibleSupertypesError")]
     public partial class CompatibleSupertypesError : ModelError
     {
         /// <summary>

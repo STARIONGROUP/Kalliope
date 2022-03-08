@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Reading Text Automatically Modified
     /// </remarks>
+    [Container(typeName: "Reading", propertyName: "RequiresUserModificationError")]
     public partial class ReadingRequiresUserModificationError : ModelError
     {
         /// <summary>

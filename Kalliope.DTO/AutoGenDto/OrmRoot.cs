@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a OrmRoot
     /// </summary>
     /// <remarks>
-    /// Abstract super type from which all Kalliope Core classes derive
+    /// 
     /// </remarks>
     public partial class OrmRoot : ModelThing
     {

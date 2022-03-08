@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Name generation settings
     /// </remarks>
+    [Container(typeName: "NameGenerator", propertyName: "RefinedByGenerators")]
     public partial class NameGenerator : NameConsumer
     {
         /// <summary>

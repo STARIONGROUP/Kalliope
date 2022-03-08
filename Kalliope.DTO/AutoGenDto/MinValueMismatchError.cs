@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Minimum Bound of Value Range Invalid for DataType
     /// </remarks>
+    [Container(typeName: "ValueRange", propertyName: "MinValueMismatchError")]
     public partial class MinValueMismatchError : ValueConstraintError
     {
         /// <summary>

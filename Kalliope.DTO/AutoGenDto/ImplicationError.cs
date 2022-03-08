@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Constraint Implied by Intersecting Constraints
     /// </remarks>
+    [Container(typeName: "SetConstraint", propertyName: "ImplicationError")]
     public partial class ImplicationError : ModelError
     {
         /// <summary>

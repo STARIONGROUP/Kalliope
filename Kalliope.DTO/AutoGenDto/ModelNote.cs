@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ModelNote
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "Notes")]
     public partial class ModelNote : Note
     {
         /// <summary>

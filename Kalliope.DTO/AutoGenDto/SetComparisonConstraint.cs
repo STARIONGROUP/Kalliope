@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SetComparisonConstraint
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "SetComparisonConstraints")]
     public abstract partial class SetComparisonConstraint : ORMNamedElement
     {
         /// <summary>

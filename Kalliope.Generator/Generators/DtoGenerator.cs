@@ -27,7 +27,6 @@ namespace Kalliope.Generator.Generators
     using DotLiquid;
 
     using Kalliope.Common;
-    using Kalliope.Generator.Drops;
 
     /// <summary>
     /// The purpose of the <see cref="DtoGenerator"/> is to generate Kalliope DTO
@@ -57,25 +56,17 @@ namespace Kalliope.Generator.Generators
         {
             base.Generate(outputDirectory);
 
-            var ormRootType = typeof(OrmRoot);
-
-            var types = ormRootType.Assembly.GetTypes().ToList();
-
-            foreach (var type in types)
+            var dropGenerator = new DropGenerator();
+            var drops = dropGenerator.Generate();
+            
+            foreach (var drop in drops)
             {
-                var domainAttribute = (DomainAttribute) Attribute.GetCustomAttribute(type, typeof(DomainAttribute));
-                var descriptionAttribute = (DescriptionAttribute) Attribute.GetCustomAttribute(type, typeof(DescriptionAttribute));
-                var containerAttributes = (ContainerAttribute[]) Attribute.GetCustomAttributes(type, typeof(ContainerAttribute));
-                if (domainAttribute != null)
-                {
-                    var typeDrop = new TypeDrop(type, domainAttribute, descriptionAttribute, containerAttributes);
-                    var generatedType = this.GenerateType(typeDrop);
+                var generatedType = this.GenerateType(drop);
 
-                    var fileName = $"{typeDrop.Name}.cs";
-                    var filePath = Path.Combine(outputDirectory.FullName, fileName);
+                var fileName = $"{drop.Name}.cs";
+                var filePath = Path.Combine(outputDirectory.FullName, fileName);
 
-                    File.WriteAllText(filePath, generatedType);
-                }
+                File.WriteAllText(filePath, generatedType);
             }
         }
 

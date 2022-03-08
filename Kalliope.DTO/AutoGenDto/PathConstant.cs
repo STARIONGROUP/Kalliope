@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A constant value used directly in a path
     /// </remarks>
+    [Container(typeName: "CalculatedPathValueInput", propertyName: "SourceConstant")]
     public partial class PathConstant : ORMModelElement
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Incomplete FactType Sample Population
     /// </remarks>
+    [Container(typeName: "FactTypeInstance", propertyName: "TooFewFactTypeRoleInstancesError")]
     public partial class TooFewFactTypeRoleInstancesError : ModelError
     {
         /// <summary>

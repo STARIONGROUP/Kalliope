@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// An input parameter for a query
     /// </remarks>
+    [Container(typeName: "QueryBase", propertyName: "Parameters")]
     public partial class QueryParameter : ORMModelElement
     {
         /// <summary>

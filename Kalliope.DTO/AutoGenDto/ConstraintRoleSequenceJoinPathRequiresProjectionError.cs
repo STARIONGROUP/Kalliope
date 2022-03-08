@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Roles in a constraint role sequence join path must be projected from at least one role path
     /// </remarks>
+    [Container(typeName: "ConstraintRoleSequenceJoinPath", propertyName: "ProjectionRequiredError")]
     public partial class ConstraintRoleSequenceJoinPathRequiresProjectionError : ModelError
     {
         /// <summary>

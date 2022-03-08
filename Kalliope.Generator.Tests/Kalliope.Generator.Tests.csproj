@@ -30,4 +30,8 @@
 	  <ProjectReference Include="..\Kalliope.Generator\Kalliope.Generator.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Expected\" />
+	</ItemGroup>
+
 </Project>

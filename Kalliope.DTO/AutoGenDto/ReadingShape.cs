@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a ReadingOrder
     /// </remarks>
+    [Container(typeName: "FactTypeShape", propertyName: "ReadingShapes")]
     public partial class ReadingShape : FloatingTextShape
     {
         /// <summary>

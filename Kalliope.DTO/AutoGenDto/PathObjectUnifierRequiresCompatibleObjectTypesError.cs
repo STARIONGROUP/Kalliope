@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Unified path elements must have compatible object types
     /// </remarks>
+    [Container(typeName: "PathObjectUnifier", propertyName: "CompatibilityError")]
     public partial class PathObjectUnifierRequiresCompatibleObjectTypesError : ModelError
     {
         /// <summary>

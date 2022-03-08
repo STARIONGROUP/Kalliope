@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Incomplete Sample Population to Identify EntityType
     /// </remarks>
+    [Container(typeName: "EntityTypeInstance", propertyName: "TooFewEntityTypeRoleInstancesError")]
     public partial class TooFewEntityTypeRoleInstancesError : ModelError
     {
         /// <summary>

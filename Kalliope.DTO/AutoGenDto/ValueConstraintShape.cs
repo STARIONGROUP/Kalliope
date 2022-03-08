@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a RoleValueConstraint or a ValueTypeValueConstraint
     /// </remarks>
+    [Container(typeName: "ObjectTypeShape", propertyName: "ValueConstraintShapes")]
     public partial class ValueConstraintShape : FloatingTextShape
     {
         /// <summary>

@@ -102,6 +102,7 @@ namespace Kalliope.Generator
         protected virtual void RegisterSafeTypes()
         {
             var registrar = new TypeRegistrar.TypeRegistrar();
+            registrar.RegisterKalliopeCommonTypes();
             registrar.RegisterKalliopeTypes();
         }
 

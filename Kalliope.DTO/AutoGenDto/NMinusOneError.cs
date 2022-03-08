@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Insufficient Roles for Internal Uniqueness Constraint
     /// </remarks>
+    [Container(typeName: "UniquenessConstraint", propertyName: "NMinusOneError")]
     public partial class NMinusOneError : ModelError
     {
         /// <summary>

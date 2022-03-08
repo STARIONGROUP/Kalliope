@@ -42,11 +42,6 @@ namespace Kalliope.DTO
             this.ObjectTypeInstances = new List<string>();
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="UnaryRoleCardinalityConstraint"/>

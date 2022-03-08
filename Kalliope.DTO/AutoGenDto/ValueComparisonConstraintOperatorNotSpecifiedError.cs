@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Value Comparison Operator Not Specified
     /// </remarks>
+    [Container(typeName: "ValueComparisonConstraint", propertyName: "OperatorNotSpecifiedError")]
     public partial class ValueComparisonConstraintOperatorNotSpecifiedError : ModelError
     {
         /// <summary>

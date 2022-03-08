@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Cardinality Ranges Overlap
     /// </remarks>
+    [Container(typeName: "CardinalityConstraint", propertyName: "CardinalityRangeOverlapError")]
     public partial class CardinalityRangeOverlapError : ModelError
     {
         /// <summary>

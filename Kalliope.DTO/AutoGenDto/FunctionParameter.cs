@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A formal function parameter describing expected input to a function
     /// </remarks>
+    [Container(typeName: "Function", propertyName: "Parameters")]
     public partial class FunctionParameter : ORMNamedElement
     {
         /// <summary>

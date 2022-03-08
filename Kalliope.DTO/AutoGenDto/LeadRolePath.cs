@@ -34,6 +34,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A top level role path starting at a root object type. Provides a context for subpaths, functions, and constraints specific to this path
     /// </remarks>
+    [Container(typeName: "ConstraintRoleSequenceJoinPath", propertyName: "ProjectedPathComponents")]
+    [Container(typeName: "RolePathOwner", propertyName: "LeadRolePaths")]
     public partial class LeadRolePath : RolePath
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// EntityType with Compound Preferred Identifier Requires Mandatory Constraint
     /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "PreferredIdentifierRequiresMandatoryError")]
     public partial class PreferredIdentifierRequiresMandatoryError : ModelError
     {
         /// <summary>

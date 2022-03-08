@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// FactType has More Roles than Reading Text
     /// </remarks>
+    [Container(typeName: "Reading", propertyName: "TooManyRolesError")]
     public partial class TooManyReadingRolesError : ModelError
     {
         /// <summary>

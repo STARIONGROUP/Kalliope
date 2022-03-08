@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueTypeInstance
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "ValueTypeInstances")]
     public partial class ValueTypeInstance : ObjectTypeInstance
     {
         /// <summary>

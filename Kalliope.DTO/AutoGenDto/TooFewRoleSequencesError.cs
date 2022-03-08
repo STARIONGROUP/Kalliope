@@ -34,6 +34,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Too Few Role Sequences
     /// </remarks>
+    [Container(typeName: "SetComparisonConstraint", propertyName: "TooFewRoleSequencesError")]
+    [Container(typeName: "SetConstraint", propertyName: "TooFewRoleSequencesError")]
     public partial class TooFewRoleSequencesError : ModelError
     {
         /// <summary>

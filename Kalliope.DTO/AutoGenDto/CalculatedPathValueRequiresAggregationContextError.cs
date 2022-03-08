@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A calculation using an aggregate function requires an aggregation context
     /// </remarks>
+    [Container(typeName: "CalculatedPathValue", propertyName: "AggregationContextRequiredError")]
     public partial class CalculatedPathValueRequiresAggregationContextError : ModelError
     {
         /// <summary>

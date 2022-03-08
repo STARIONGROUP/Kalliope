@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a MandatoryConstraint
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "ImpliedMandatoryConstraint")]
     public partial class MandatoryConstraint : SetConstraint
     {
         /// <summary>

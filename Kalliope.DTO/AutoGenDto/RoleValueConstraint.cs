@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RoleValueConstraint
     /// </summary>
+    [Container(typeName: "Role", propertyName: "ValueConstraint")]
     public partial class RoleValueConstraint : ValueConstraint
     {
         /// <summary>

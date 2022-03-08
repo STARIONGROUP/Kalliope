@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A LeadRolePath must specify a root object type
     /// </remarks>
+    [Container(typeName: "RolePath", propertyName: "RootObjectTypeRequiredError")]
     public partial class PathRequiresRootObjectTypeError : ModelError
     {
         /// <summary>

@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ModelError
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "Errors")]
     public abstract partial class ModelError : ORMModelElement
     {
         /// <summary>

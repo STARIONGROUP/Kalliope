@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a ValueComparisonConstraintShape
     /// </remarks>
+    [Container(typeName: "ORMDiagram", propertyName: "ValueComparisonConstraintShapes")]
     public partial class ValueComparisonConstraintShape : ExternalConstraintShape
     {
         /// <summary>

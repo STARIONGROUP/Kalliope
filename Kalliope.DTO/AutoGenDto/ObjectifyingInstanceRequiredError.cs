@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Missing Objectifying EntityType Instance
     /// </remarks>
+    [Container(typeName: "FactTypeInstance", propertyName: "ObjectifyingInstanceRequiredError")]
     public partial class ObjectifyingInstanceRequiredError : ModelError
     {
         /// <summary>

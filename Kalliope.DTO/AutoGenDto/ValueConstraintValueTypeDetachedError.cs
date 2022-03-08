@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Path to Identifying ValueType Detached
     /// </remarks>
+    [Container(typeName: "ValueConstraint", propertyName: "ValueTypeDetachedError")]
     public partial class ValueConstraintValueTypeDetachedError : ValueConstraintError
     {
         /// <summary>

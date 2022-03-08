@@ -41,11 +41,6 @@ namespace Kalliope.DTO
             this.Operator = ValueComparisonOperator.Undefined;
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets a Operator

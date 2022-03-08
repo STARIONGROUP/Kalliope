@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="TypeDropTestFixture.cs" company="RHEA System S.A.">
+// <copyright file="DropGenerator.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,26 +18,29 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Generator.Tests.Drops
+namespace Kalliope.Generator
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
+    
     using Kalliope.Common;
-    using Kalliope.Generator.Drops;
 
-    using NUnit.Framework;
-
-    [TestFixture]
-    public class TypeDropTestFixture
+    /// <summary>
+    /// The purpose of the <see cref="DropGenerator"/> is to create and assemble the <see cref="TypeDrop"/> and <see cref="PropertyDrop"/>
+    /// instances from the Kalliope POCO classes.
+    /// </summary>
+    public class DropGenerator
     {
-        private List<TypeDrop> typeDrops;
-
-        [SetUp]
-        public void SetUp()
+        /// <summary>
+        /// Generates the <see cref="PropertyDrop"/> instances based on the Kalliope POCO classes.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IEnumerable{TypeDrop}"/>
+        /// </returns>
+        public IEnumerable<TypeDrop> Generate()
         {
-            this.typeDrops = new List<TypeDrop>();
+            var result = new List<TypeDrop>();
 
             var ormRootType = typeof(OrmRoot);
 
@@ -45,26 +48,18 @@ namespace Kalliope.Generator.Tests.Drops
 
             foreach (var type in types)
             {
-                var domainAttribute = (DomainAttribute)Attribute.GetCustomAttribute(type, typeof(DomainAttribute));
-                var descriptionAttribute = (Common.DescriptionAttribute)Attribute.GetCustomAttribute(type, typeof(System.ComponentModel.DescriptionAttribute));
-                var containerAttributes = (ContainerAttribute[])Attribute.GetCustomAttributes(type, typeof(ContainerAttribute));
+                var domainAttribute = (DomainAttribute)Attribute.GetCustomAttribute(type, typeof(DomainAttribute), false);
+                var descriptionAttribute = (DescriptionAttribute)Attribute.GetCustomAttribute(type, typeof(DescriptionAttribute), false);
+                var containerAttributes = (ContainerAttribute[])Attribute.GetCustomAttributes(type, typeof(ContainerAttribute), false);
+                containerAttributes = containerAttributes.OrderBy(x => x.TypeName).ToArray();
                 if (domainAttribute != null)
                 {
                     var typeDrop = new TypeDrop(type, domainAttribute, descriptionAttribute, containerAttributes);
-                    this.typeDrops.Add(typeDrop);
+                    result.Add(typeDrop);
                 }
             }
-        }
-
-        [Test]
-        public void Verify_That_TypeDrop_behaves_as_expected()
-        {
-            var objectTypeDrop = this.typeDrops.Single(x => x.Name == "ObjectType");
-
-            Assert.That(objectTypeDrop.IsAbstract, Is.True);
-            Assert.That(objectTypeDrop.Description, Is.Null);
-            Assert.That(objectTypeDrop.Generalization, Is.EqualTo(" : ORMNamedElement"));
-            Assert.That(objectTypeDrop.IsContained, Is.True);
+            
+            return result;
         }
     }
 }

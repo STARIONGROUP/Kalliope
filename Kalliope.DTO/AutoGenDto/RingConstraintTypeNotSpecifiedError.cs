@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Ring Constraint Type Not Specified
     /// </remarks>
+    [Container(typeName: "RingConstraint", propertyName: "RingConstraintTypeNotSpecifiedError")]
     public partial class RingConstraintTypeNotSpecifiedError : ModelError
     {
         /// <summary>

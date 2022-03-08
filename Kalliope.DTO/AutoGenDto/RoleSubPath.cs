@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A branched path split from the end of another path
     /// </remarks>
+    [Container(typeName: "RolePath", propertyName: "SubPaths")]
     public partial class RoleSubPath : RolePath
     {
         /// <summary>

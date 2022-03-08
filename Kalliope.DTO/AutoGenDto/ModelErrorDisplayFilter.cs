@@ -32,8 +32,9 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a ModelErrorDisplayFilter
     /// </summary>
     /// <remarks>
-    /// Abstract super type from which all Kalliope Core classes derive
+    /// 
     /// </remarks>
+    [Container(typeName: "ORMModel", propertyName: "ModelErrorDisplayFilter")]
     public partial class ModelErrorDisplayFilter : ModelThing
     {
         /// <summary>

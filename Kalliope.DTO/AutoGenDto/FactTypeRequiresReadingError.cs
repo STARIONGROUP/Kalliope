@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// FactType Requires Reading
     /// </remarks>
+    [Container(typeName: "FactType", propertyName: "ReadingRequiredError")]
     public partial class FactTypeRequiresReadingError : ModelError
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A role path defining subtype population
     /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "DerivationRule")]
     public partial class SubtypeDerivationRule : RolePathOwner
     {
         /// <summary>

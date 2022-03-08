@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a UnaryRoleCardinalityConstraint
     /// </summary>
+    [Container(typeName: "Role", propertyName: "Cardinality")]
     public partial class UnaryRoleCardinalityConstraint : CardinalityConstraint
     {
         /// <summary>

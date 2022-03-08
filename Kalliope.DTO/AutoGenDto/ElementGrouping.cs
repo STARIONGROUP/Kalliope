@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A group of elements. A GroupType is associated with the Group to control the group contents
     /// </remarks>
+    [Container(typeName: "ElementGroupingSet", propertyName: "Groupings")]
     public partial class ElementGrouping : ORMNamedElement
     {
         /// <summary>

@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ObjectType
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "ObjectTypes")]
     public abstract partial class ObjectType : ORMNamedElement
     {
         /// <summary>

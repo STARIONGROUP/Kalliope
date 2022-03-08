@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a ModelNote
     /// </remarks>
+    [Container(typeName: "ORMDiagram", propertyName: "ModelNoteShapes")]
     public partial class ModelNoteShape : FloatingTextShape
     {
         /// <summary>

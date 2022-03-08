@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Contradicting Subset and Mandatory Constraints
     /// </remarks>
+    [Container(typeName: "MandatoryConstraint", propertyName: "NotWellModeledSubsetAndMandatoryError")]
     public partial class NotWellModeledSubsetAndMandatoryError : ModelError
     {
         /// <summary>

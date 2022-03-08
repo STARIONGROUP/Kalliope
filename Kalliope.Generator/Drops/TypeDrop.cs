@@ -18,7 +18,9 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Generator.Drops
+using System.Text;
+
+namespace Kalliope.Generator
 {
     using System;
     using System.Collections.Generic;

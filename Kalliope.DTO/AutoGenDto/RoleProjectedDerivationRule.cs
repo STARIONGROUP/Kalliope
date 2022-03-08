@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Role path(s) projected onto a set of roles. Forms the base type for FactTypeDerivationRule and QueryDerivationRule
     /// </remarks>
+    [Container(typeName: "FactType", propertyName: "DerivationRule")]
     public abstract partial class RoleProjectedDerivationRule : RolePathOwner
     {
         /// <summary>

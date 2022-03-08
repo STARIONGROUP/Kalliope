@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a ObjectTypeCardinalityConstraint or a UnaryRoleCardinalityConstraint
     /// </remarks>
+    [Container(typeName: "ObjectTypeShape", propertyName: "CardinalityConstraintShapes")]
     public partial class CardinalityConstraintShape : FloatingTextShape
     {
         /// <summary>

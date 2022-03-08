@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A function or operator used to represented a calculation algorithm.
     /// </remarks>
+    [Container(typeName: "ORMModel", propertyName: "Functions")]
     public partial class Function : ORMNamedElement
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Join Required for Multiple Fact Types
     /// </remarks>
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "JoinPathRequiredError")]
     public partial class JoinPathRequiredError : ModelError
     {
         /// <summary>

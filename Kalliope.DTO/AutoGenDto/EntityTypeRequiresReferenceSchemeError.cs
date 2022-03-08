@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// EntityType Requires Reference Scheme
     /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "ReferenceSchemeError")]
     public partial class EntityTypeRequiresReferenceSchemeError : ModelError
     {
         /// <summary>

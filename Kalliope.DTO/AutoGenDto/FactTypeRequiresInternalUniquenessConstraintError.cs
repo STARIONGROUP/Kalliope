@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// FactType Requires Internal Uniqueness Constraint
     /// </remarks>
+    [Container(typeName: "FactType", propertyName: "InternalUniquenessConstraintRequiredError")]
     public partial class FactTypeRequiresInternalUniquenessConstraintError : ModelError
     {
         /// <summary>

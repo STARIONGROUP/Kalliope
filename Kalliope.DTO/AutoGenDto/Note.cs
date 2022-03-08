@@ -31,6 +31,15 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Note
     /// </summary>
+    [Container(typeName: "CardinalityConstraint", propertyName: "Note")]
+    [Container(typeName: "ElementGrouping", propertyName: "Note")]
+    [Container(typeName: "FactType", propertyName: "Note")]
+    [Container(typeName: "LeadRolePath", propertyName: "Note")]
+    [Container(typeName: "ObjectType", propertyName: "Note")]
+    [Container(typeName: "ORMModel", propertyName: "Note")]
+    [Container(typeName: "SetComparisonConstraint", propertyName: "Note")]
+    [Container(typeName: "SetConstraint", propertyName: "Note")]
+    [Container(typeName: "ValueConstraint", propertyName: "Note")]
     public partial class Note : ORMModelElement
     {
         /// <summary>

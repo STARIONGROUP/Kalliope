@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Missing Objectified FactType Instance
     /// </remarks>
+    [Container(typeName: "ObjectTypeInstance", propertyName: "ObjectifiedInstanceRequiredError")]
     public partial class ObjectifiedInstanceRequiredError : ModelError
     {
         /// <summary>

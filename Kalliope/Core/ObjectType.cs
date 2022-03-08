@@ -27,7 +27,6 @@ namespace Kalliope.Core
     [Description("")]
     [Domain(isAbstract: true, general: "ORMNamedElement")]
     [Container(typeName: "ORMModel", propertyName: "ObjectTypes")]
-
     public abstract class ObjectType : ORMNamedElement
     {
         /// <summary>

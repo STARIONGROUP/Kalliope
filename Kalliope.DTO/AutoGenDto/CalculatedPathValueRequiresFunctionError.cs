@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A calculation is specified but does not have an associated function
     /// </remarks>
+    [Container(typeName: "CalculatedPathValue", propertyName: "FunctionRequiredError")]
     public partial class CalculatedPathValueRequiresFunctionError : ModelError
     {
         /// <summary>

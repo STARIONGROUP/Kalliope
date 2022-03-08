@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Role Player Required
     /// </remarks>
+    [Container(typeName: "Role", propertyName: "RolePlayerRequiredError")]
     public partial class RolePlayerRequiredError : ModelError
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a SetComparisonConstraint or a SetConstraint
     /// </remarks>
+    [Container(typeName: "ORMDiagram", propertyName: "ExternalConstraintShapes")]
     public partial class ExternalConstraintShape : ORMBaseShape
     {
         /// <summary>

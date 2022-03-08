@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a GenerationSetting
     /// </summary>
+    [Container(typeName: "GenerationState", propertyName: "GenerationSettings")]
     public abstract partial class GenerationSetting : ModelThing
     {
         /// <summary>

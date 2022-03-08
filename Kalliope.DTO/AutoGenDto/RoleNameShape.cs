@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a Role
     /// </remarks>
+    [Container(typeName: "FactTypeShape", propertyName: "RoleNameShapes")]
     public partial class RoleNameShape : FloatingTextShape
     {
         /// <summary>

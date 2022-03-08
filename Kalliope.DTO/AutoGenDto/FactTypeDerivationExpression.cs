@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a FactTypeDerivationExpression
     /// </summary>
+    [Container(typeName: "FactType", propertyName: "DerivationExpression")]
     public partial class FactTypeDerivationExpression : Expression
     {
         /// <summary>

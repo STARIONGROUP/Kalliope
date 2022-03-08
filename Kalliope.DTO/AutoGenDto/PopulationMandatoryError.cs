@@ -34,6 +34,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Missing Mandatory Sample Population
     /// </remarks>
+    [Container(typeName: "MandatoryConstraint", propertyName: "PopulationMandatoryErrors")]
+    [Container(typeName: "ObjectTypeInstance", propertyName: "PopulationMandatoryErrors")]
     public partial class PopulationMandatoryError : ModelError
     {
         /// <summary>

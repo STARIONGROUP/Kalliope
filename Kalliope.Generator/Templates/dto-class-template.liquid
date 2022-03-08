@@ -36,6 +36,11 @@ namespace Kalliope.DTO
     /// {{ TypeDrop.Description }}
     /// </remarks>
 	{% endif %}
+	{% if TypeDrop.IsContained == true %}
+	{% for containerAttribute in TypeDrop.ContainerAttributes %}
+    [Container(typeName: "{{ containerAttribute.TypeName }}", propertyName: "{{ containerAttribute.PropertyName }}")]
+	{% endfor %}
+	{% endif %}
     public {% if TypeDrop.IsAbstract %}abstract {% endif %}partial class {{TypeDrop.Name}}{{TypeDrop.Generalization}}
     {
         /// <summary>

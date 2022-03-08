@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Constraint Role Sequences with Different Numbers of Roles
     /// </remarks>
+    [Container(typeName: "SetComparisonConstraint", propertyName: "ArityMismatchError")]
     public partial class ExternalConstraintRoleSequenceArityMismatchError : ModelError
     {
         /// <summary>

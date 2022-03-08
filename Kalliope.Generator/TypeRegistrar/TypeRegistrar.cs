@@ -26,12 +26,28 @@ namespace Kalliope.Generator.TypeRegistrar
 
     using DotLiquid;
 
+    using Kalliope.Common;
+
     /// <summary>
     /// The purpose of the <see cref="TypeRegistrar"/> class is to register
     /// all Kalliope type with DotLiquid
     /// </summary>
     public class TypeRegistrar
     {
+        /// <summary>
+        /// Registers all Kalliope.Common types with DotLiquid
+        /// </summary>
+        public void RegisterKalliopeCommonTypes()
+        {
+            var domainAttribute = typeof(DomainAttribute);
+            var types = domainAttribute.Assembly.GetTypes().ToList();
+
+            foreach (var type in types)
+            {
+                this.RegisterKalliopeTypeWithTemplate(type);
+            }
+        }
+
         /// <summary>
         /// Registers all Kalliope types with DotLiquid
         /// </summary>

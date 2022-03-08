@@ -34,6 +34,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Incompatible Constrained Role Players
     /// </remarks>
+    [Container(typeName: "SetComparisonConstraint", propertyName: "CompatibleRolePlayerTypeErrors")]
+    [Container(typeName: "SetConstraint", propertyName: "CompatibleRolePlayerTypeError")]
     public partial class CompatibleRolePlayerTypeError : ModelError
     {
         /// <summary>

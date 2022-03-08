@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Roles in a fact type derivation rule must be projected from at least one role path
     /// </remarks>
+    [Container(typeName: "RoleProjectedDerivationRule", propertyName: "ProjectionRequiredError")]
     public partial class RoleProjectedDerivationRequiresProjectionError : ModelError
     {
         /// <summary>

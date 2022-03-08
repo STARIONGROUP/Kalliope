@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RoleText
     /// </summary>
+    [Container(typeName: "Reading", propertyName: "ExpandedData")]
     public partial class RoleText : ModelThing
     {
         /// <summary>

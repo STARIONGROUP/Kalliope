@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Frequency Constraint Violated By Uniqueness Constraint
     /// </remarks>
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintViolatedByUniquenessConstraintError")]
     public partial class FrequencyConstraintViolatedByUniquenessConstraintError : ModelError
     {
         /// <summary>

@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueTypeValueConstraint
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "ValueConstraint")]
     public partial class ValueTypeValueConstraint : ValueConstraint
     {
         /// <summary>

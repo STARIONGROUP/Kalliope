@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ObjectTypeCardinalityConstraint
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "Cardinality")]
     public partial class ObjectTypeCardinalityConstraint : CardinalityConstraint
     {
         /// <summary>

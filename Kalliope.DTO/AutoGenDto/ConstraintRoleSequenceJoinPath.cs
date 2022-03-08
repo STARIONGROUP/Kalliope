@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A role path defining cross fact type relationships within a constraint role sequence
     /// </remarks>
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "JoinPath")]
     public partial class ConstraintRoleSequenceJoinPath : RolePathOwner
     {
         /// <summary>

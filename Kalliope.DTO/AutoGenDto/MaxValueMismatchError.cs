@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Maximum Bound of Value Range Invalid for DataType
     /// </remarks>
+    [Container(typeName: "ValueRange", propertyName: "MaxValueMismatchError")]
     public partial class MaxValueMismatchError : ValueConstraintError
     {
         /// <summary>

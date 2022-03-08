@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SetConstraint
     /// </summary>
+    [Container(typeName: "ORMModel", propertyName: "SetConstraints")]
     public abstract partial class SetConstraint : ConstraintRoleSequence
     {
         /// <summary>

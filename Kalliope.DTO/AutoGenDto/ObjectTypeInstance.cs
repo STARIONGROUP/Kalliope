@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ObjectTypeInstance
     /// </summary>
+    [Container(typeName: "ObjectType", propertyName: "ObjectTypeInstances")]
     public abstract partial class ObjectTypeInstance : ORMModelElement
     {
         /// <summary>

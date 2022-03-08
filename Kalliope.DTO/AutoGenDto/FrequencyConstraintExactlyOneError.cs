@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Represent Frequency Constraint of Exactly One as Uniqueneness
     /// </remarks>
+    [Container(typeName: "FrequencyConstraint", propertyName: "FrequencyConstraintExactlyOneError")]
     public partial class FrequencyConstraintExactlyOneError : ModelError
     {
         /// <summary>

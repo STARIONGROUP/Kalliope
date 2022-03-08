@@ -31,6 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CardinalityRange
     /// </summary>
+    [Container(typeName: "CardinalityConstraint", propertyName: "Ranges")]
     public partial class CardinalityRange : ORMModelElement
     {
         /// <summary>

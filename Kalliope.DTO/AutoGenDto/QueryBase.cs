@@ -41,11 +41,6 @@ namespace Kalliope.DTO
             this.Parameters = new List<string>();
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="QueryParameter"/> instances

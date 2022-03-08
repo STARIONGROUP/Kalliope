@@ -34,6 +34,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
     /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "EntityTypeSubtypeInstances")]
     public partial class EntityTypeSubtypeInstance : ObjectTypeInstance
     {
         /// <summary>
