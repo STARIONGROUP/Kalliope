@@ -41,6 +41,7 @@ namespace Kalliope.Core
             this.ObjectTypeInstances = new List<ObjectTypeInstance>();
             this.EntityTypeInstances = new List<EntityTypeInstance>();
             this.EntityTypeSubtypeInstances = new List<EntityTypeSubtypeInstance>();
+            this.PlayedRoles = new List<Role>();
         }
 
         /// <summary>
@@ -318,5 +319,19 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint")]
         public UniquenessConstraint PreferredIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="DataTypeRef"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "ConceptualDataType", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataTypeRef")]
+        public DataTypeRef ConceptualDataType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="Role"/>s
+        /// </summary>
+        [Description("")]
+        [Property(name: "PlayedRoles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
+        public List<Role> PlayedRoles { get; set; }
     }
 }

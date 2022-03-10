@@ -43,6 +43,7 @@ namespace Kalliope.DTO
             this.EntityTypeInstances = new List<string>();
             this.EntityTypeSubtypeInstances = new List<string>();
             this.ObjectTypeInstances = new List<string>();
+            this.PlayedRoles = new List<string>();
             this.ValueTypeInstances = new List<string>();
         }
  
@@ -66,6 +67,11 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="CompatibleSupertypesError"/>
         /// </summary>
         public string CompatibleSupertypesError { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="DataTypeRef"/>
+        /// </summary>
+        public string ConceptualDataType { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="DataType"/>
@@ -181,6 +187,11 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectTypeInstance"/> instances
         /// </summary>
         public List<string> ObjectTypeInstances { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
+        /// </summary>
+        public List<string> PlayedRoles { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="UniquenessConstraint"/>

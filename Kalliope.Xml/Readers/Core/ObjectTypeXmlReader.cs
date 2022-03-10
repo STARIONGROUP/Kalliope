@@ -108,13 +108,15 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         case "ConceptualDataType":
-                            if (reader.MoveToContent() == XmlNodeType.Element)
+                            using (var dataTypeRefSubtree = reader.ReadSubtree())
                             {
-                                var reference = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(reference))
+                                if (dataTypeRefSubtree.MoveToContent() == XmlNodeType.Element)
                                 {
-                                    //TODO: implement conceptualDataType
-                                    //this.conceptualDataTypeReference = reference;
+                                    var dataTypeRef = new DataTypeRef();
+                                    var dataTypeRefXmlReader = new DataTypeRefXmlReader();
+                                    dataTypeRefXmlReader.ReadXml(dataTypeRef, dataTypeRefSubtree, modelThings);
+                                    objectType.ConceptualDataType = dataTypeRef.Id;
+                                    dataTypeRef.Container = objectType.Id;
                                 }
                             }
                             break;
@@ -126,20 +128,10 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         case "ValueRestriction":
-                            //TODO: implement ValueRestriction
-                            break;
-                        case "ValueConstraint":
-
-                            using (var valueTypeValueConstraintSubtree = reader.ReadSubtree())
+                            using (var valueRestrictionSubtree = reader.ReadSubtree())
                             {
-                                valueTypeValueConstraintSubtree.MoveToContent();
-                                var valueTypeValueConstraint = new ValueTypeValueConstraint();
-                                var valueTypeValueConstraintXmlReader = new ValueTypeValueConstraintXmlReader();
-                                valueTypeValueConstraintXmlReader.ReadXml(valueTypeValueConstraint, valueTypeValueConstraintSubtree, modelThings);
-                                objectType.ValueConstraint = valueTypeValueConstraint.Id;
-                                valueTypeValueConstraint.Container = objectType.Id;
+                                this.ReadValueRestriction(objectType, valueRestrictionSubtree, modelThings);
                             }
-
                             break;
                         case "SubtypeDerivationRule":
                             using (var subtypeDerivationRuleSubtree = reader.ReadSubtree())
@@ -151,10 +143,9 @@ namespace Kalliope.Xml.Readers
                                 objectType.DerivationRule = subtypeDerivationRule.Id;
                                 subtypeDerivationRule.Container = objectType.Id;
                             }
-
                             break;
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
@@ -264,9 +255,37 @@ namespace Kalliope.Xml.Readers
                     var roleReference = reader.GetAttribute("ref");
                     if (!string.IsNullOrEmpty(roleReference))
                     {
-                        //TODO: implement playedRolesReferences
-                        //this.playedRolesReferences.Add(roleReference);
+                        objectType.PlayedRoles.Add(roleReference);
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the <see cref="ValueTypeValueConstraint"/>
+        /// </summary>
+        /// <param name="objectType">
+        /// The <see cref="ObjectType"/> that contains the <see cref="ValueTypeValueConstraint"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadValueRestriction(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                var localName = reader.LocalName;
+
+                if (localName == "ValueConstraint")
+                {
+                    var valueTypeValueConstraint = new ValueTypeValueConstraint();
+                    var valueTypeValueConstraintXmlReader = new ValueTypeValueConstraintXmlReader();
+                    valueTypeValueConstraintXmlReader.ReadXml(valueTypeValueConstraint,reader, modelThings);
+                    valueTypeValueConstraint.Container = objectType.Id;
+                    objectType.ValueConstraint = valueTypeValueConstraint.Id;
                 }
             }
         }

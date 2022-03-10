@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Xml.Tests
 {
     using System.IO;
@@ -64,14 +66,39 @@ namespace Kalliope.Xml.Tests
             var entityType = modelThings.OfType<EntityType>().Single(x => x.Id == "_2BBF304E-05AE-4A81-AFF9-AFAAECC9A8A7");
             Assert.That(entityType.Name, Is.EqualTo("Patient"));
             Assert.That(entityType.ReferenceMode, Is.EqualTo("nr"));
-
+            Assert.That(entityType.PlayedRoles, 
+                Is.EqualTo(new List<string>()
+                {
+                    "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5",
+                    "_D9168A8F-4925-4B0B-9D19-77F53CA4BA8C",
+                    "_573A2E66-F6A4-484C-95C0-B1F0FE447635",
+                    "_50F7D397-5AE3-4387-B752-9D0A9A62B3AE"
+                }));
+            
             var valueType = modelThings.OfType<ValueType>().Single(x => x.Id == "_7F75CE34-D410-48E7-85AB-DD4A567C3E3E");
             Assert.That(valueType.Name, Is.EqualTo("Patient_nr"));
-
+            Assert.That(valueType.ConceptualDataType, Is.EqualTo("_8E7F7E67-F6F1-4075-B768-B0563947EF82"));
+            var dataTypeRef = modelThings.OfType<DataTypeRef>().Single(x => x.Id == "_8E7F7E67-F6F1-4075-B768-B0563947EF82");
+            Assert.That(dataTypeRef.Container, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
+            Assert.That(dataTypeRef.Scale, Is.EqualTo(0));
+            Assert.That(dataTypeRef.Length, Is.EqualTo(0));
+            Assert.That(dataTypeRef.Reference, Is.EqualTo("_856C99EF-744D-442A-A661-29B0E7AFF452"));
+            
             var objectifiedType = modelThings.OfType<ObjectifiedType>().Single(x => x.Id == "_85FCF764-5AED-456D-A8F1-D8BAF3D5B098");
             Assert.That(objectifiedType.Name, Is.EqualTo("DrugAllergy"));
             Assert.That(objectifiedType.IsIndependent, Is.True);
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
+
+            var valueTypeValueConstraint = modelThings.OfType<ValueTypeValueConstraint>().Single(x => x.Id == "_75F3C566-D9CA-4E6C-ADDA-71E4849F4210");
+            Assert.That(valueTypeValueConstraint.Name, Is.EqualTo("ValueTypeValueConstraint1"));
+            Assert.That(valueTypeValueConstraint.Container, Is.EqualTo("_3381A8A4-F6FF-4EDD-AA10-59565A25EC8B"));
+
+            var valueRange = modelThings.OfType<ValueRange>().Single(x => x.Id == "_B2DE9302-B4F1-49C3-9857-0F91510C0EEF");
+            Assert.That(valueRange.Container, Is.EqualTo("_75F3C566-D9CA-4E6C-ADDA-71E4849F4210"));
+            Assert.That(valueRange.MaxValue, Is.EqualTo("True"));
+            Assert.That(valueRange.MinValue, Is.EqualTo("True"));
+            Assert.That(valueRange.MaxInclusion, Is.EqualTo(RangeInclusion.NotSet));
+            Assert.That(valueRange.MinInclusion, Is.EqualTo(RangeInclusion.NotSet));
 
             // Facts
             Assert.That(modelThings.OfType<FactType>().Count, Is.EqualTo(7));
