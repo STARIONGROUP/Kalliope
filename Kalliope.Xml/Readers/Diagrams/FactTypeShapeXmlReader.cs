@@ -217,7 +217,7 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         default:
-                            throw new System.NotSupportedException($"{localName} not yet supported");
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }

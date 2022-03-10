@@ -224,16 +224,14 @@ namespace Kalliope.Xml.Readers
                             var mandatoryConstraintReference = reader.GetAttribute("ref");
                             if (string.IsNullOrEmpty(mandatoryConstraintReference))
                             {
-                                //TODO: set reference to MandatoryConstraint
-                                //factType.SetConstraintReferences.Add(mandatoryConstraintReference);
+                                factType.InternalConstraints.Add(mandatoryConstraintReference);
                             }
                             break;
                         case "UniquenessConstraint":
                             var uniquenessConstraintReference = reader.GetAttribute("ref");
                             if (string.IsNullOrEmpty(uniquenessConstraintReference))
                             {
-                                //TODO: set reference to UniquenessConstraint
-                                //this.SetConstraintReferences.Add(uniquenessConstraintReference);
+                                factType.InternalConstraints.Add(uniquenessConstraintReference);
                             }
                             break;
                         default:

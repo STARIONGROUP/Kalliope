@@ -18,6 +18,8 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Kalliope.Xml.Tests
 {
     using System.IO;
@@ -77,6 +79,11 @@ namespace Kalliope.Xml.Tests
             Assert.That(modelThings.OfType<FactType>().Count, Is.EqualTo(16));
             var factType = modelThings.OfType<FactType>().Single(x => x.Id == "_2904A934-2B98-4EC1-925E-F18E545A22B1");
             Assert.That(factType.Name, Is.EqualTo("StateHasStateCode"));
+            var role =  modelThings.OfType<Role>().Single(x => x.Id == "_E3CEFCF4-3BAB-45FF-94DE-03C809CA74F1");
+            Assert.That(role.Container, Is.EqualTo("_2904A934-2B98-4EC1-925E-F18E545A22B1"));
+            Assert.That(role.IsMandatory, Is.True);
+            Assert.That(role.Multiplicity, Is.EqualTo(Multiplicity.ZeroToOne));
+            Assert.That(role.RolePlayer, Is.EqualTo("_C6B9AD7F-49B7-4544-8ECA-027951176339"));
 
             // Constraints
             Assert.That(modelThings.OfType<MandatoryConstraint>().Count(), Is.EqualTo(25));
@@ -237,7 +244,8 @@ namespace Kalliope.Xml.Tests
             factTypeShape = modelThings.OfType<FactTypeShape>().Single(x => x.Id == "_A8606B42-36D8-4D98-BEC2-91439FCAB1A3");
             // TODO: assert RoleDisplayOrder are resolved
             Assert.That(factTypeShape.RoleDisplayOrder.Count, Is.EqualTo(2));
-            
+            Assert.That(factTypeShape.RoleDisplayOrder, Is.EquivalentTo(new List<string> { "_D0540760-B4B6-4CBB-9191-E7E995E540E4", "_F128251D-A24E-42B1-B3A5-C2814577978A" }));
+
             // ExternalConstraintShapes
             Assert.That(diagram.ExternalConstraintShapes.Count, Is.EqualTo(2));
             var externalConstraintShape = modelThings.OfType<ExternalConstraintShape>().Single(x => x.Id == "_9E865D21-E51C-481C-950D-DDDACF98A7D1");

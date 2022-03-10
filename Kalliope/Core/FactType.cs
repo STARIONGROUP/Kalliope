@@ -41,6 +41,7 @@ namespace Kalliope.Core
             this.ReadingOrders = new List<ReadingOrder>();
             this.Roles = new List<RoleBase>();
             this.FactTypeInstances = new List<FactTypeInstance>();
+            this.InternalConstraints = new List<SetConstraint>();
         }
 
         /// <summary>
@@ -161,5 +162,12 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "RoleProjectedDerivationRule")]
         public RoleProjectedDerivationRule DerivationRule { get; set; }
+
+        /// <summary>
+        /// Gets or sets the constraints that are internal to the <see cref="FactType"/>
+        /// </summary>
+        [Description("constraints that are internal to a fact type")]
+        [Property(name: "InternalConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
+        public List<SetConstraint> InternalConstraints { get; set; }
     }
 }

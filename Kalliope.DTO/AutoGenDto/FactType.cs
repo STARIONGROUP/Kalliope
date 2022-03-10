@@ -41,6 +41,7 @@ namespace Kalliope.DTO
         public FactType()
         {
             this.FactTypeInstances = new List<string>();
+            this.InternalConstraints = new List<string>();
             this.ReadingOrders = new List<string>();
             this.Roles = new List<string>();
         }
@@ -85,6 +86,11 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="ImpliedInternalUniquenessConstraintError"/>
         /// </summary>
         public string ImpliedInternalUniquenessConstraintError { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the referenced <see cref="SetConstraint"/> instances
+        /// </summary>
+        public List<string> InternalConstraints { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FactTypeRequiresInternalUniquenessConstraintError"/>
