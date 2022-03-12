@@ -74,10 +74,10 @@ namespace Kalliope.DTO
         public List<string> ObjectTypes { get; set; }
  
         /// <summary>
-        /// Gets or sets a list of SetComparisonConstraints
+        /// Gets or sets a list unique identifiers of the referenced <see cref="SetComparisonConstraint"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.String, defaultValue: "", typeName: "SetComparisonConstraint")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]
         public List<string> SetComparisonConstraints { get; set; }
  
         /// <summary>

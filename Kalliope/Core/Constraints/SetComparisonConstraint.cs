@@ -156,7 +156,7 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="ImplicationError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ImplicationError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ImplicationError")]
+        [Property(name: "ImplicationError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ImplicationError")]
         public ImplicationError ImplicationError { get; set; }
     }
 }

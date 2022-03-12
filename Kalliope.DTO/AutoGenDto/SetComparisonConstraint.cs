@@ -116,10 +116,10 @@ namespace Kalliope.DTO
         public List<string> FactTypes { get; set; }
  
         /// <summary>
-        /// Gets or sets a ImplicationError
+        /// Gets or sets the unique identifier of the referenced <see cref="ImplicationError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ImplicationError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ImplicationError")]
+        [Property(name: "ImplicationError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ImplicationError")]
         public string ImplicationError { get; set; }
  
         /// <summary>

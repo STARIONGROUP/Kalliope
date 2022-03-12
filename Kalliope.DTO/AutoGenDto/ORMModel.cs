@@ -91,13 +91,6 @@ namespace Kalliope.DTO
         public List<string> Functions { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="ModelErrorDisplayFilter"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "ModelErrorDisplayFilter", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelErrorDisplayFilter")]
-        public string ModelErrorDisplayFilter { get; set; }
- 
-        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
         [Description("")]

@@ -11,6 +11,39 @@
 	<IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Expected\AutoGenDto\EntityType.cs" />
+    <Compile Remove="Expected\AutoGenDto\ObjectType.cs" />
+    <Compile Remove="Expected\AutoGenDto\RoleText.cs" />
+    <Compile Remove="Expected\AutoGenExtension\EntityTypeExtensions.cs" />
+    <Compile Remove="Expected\AutoGenExtension\FactTypeShapeExtensions.cs" />
+    <Compile Remove="Expected\AutoGenExtension\ObjectTypeExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Expected\AutoGenDto\RoleText.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Expected\AutoGenDto\EntityType.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expected\AutoGenDto\ObjectType.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expected\AutoGenExtension\EntityTypeExtensions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expected\AutoGenExtension\FactTypeShapeExtensions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expected\AutoGenExtension\ObjectTypeExtensions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
 		<PackageReference Include="NUnit" Version="3.13.2" />
@@ -28,10 +61,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Kalliope.Generator\Kalliope.Generator.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Expected\" />
 	</ItemGroup>
 
 </Project>

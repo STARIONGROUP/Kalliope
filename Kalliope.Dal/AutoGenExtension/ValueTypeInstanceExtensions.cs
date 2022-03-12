@@ -1,0 +1,118 @@
+// -------------------------------------------------------------------------------------------------
+// <copyright file="ValueTypeInstanceExtensions.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// ------------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------------
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------
+
+namespace Kalliope.Dal
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Kalliope.Common;
+    using Kalliope.Core;
+
+    /// <summary>
+    /// A static class that provides extension methods for the <see cref="ValueTypeInstance"/> class
+    /// </summary>
+    public static class ValueTypeInstanceExtensions
+    {
+        /// <summary>
+        /// Updates the value properties of the <see cref="ValueTypeInstance"/> by setting the value equal to that of the dto
+        /// Removes deleted objects from the reference properties and returns the unique identifiers
+        /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="ValueTypeInstance"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="ValueTypeInstance"/> with
+        /// </param>
+        /// <returns>
+        /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
+        /// </exception>
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ValueTypeInstance poco, Kalliope.DTO.ValueTypeInstance dto)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            var identifiersOfObjectsToDelete = new List<string>();
+ 
+            var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
+            foreach (var identifier in associatedModelErrorsToDelete)
+            {
+                var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
+                poco.AssociatedModelErrors.Remove(modelError);
+            }
+ 
+            if (poco.CompatibleValueTypeInstanceValueError != null && poco.CompatibleValueTypeInstanceValueError.Id != dto.CompatibleValueTypeInstanceValueError)
+            {
+                identifiersOfObjectsToDelete.Add(poco.CompatibleValueTypeInstanceValueError.Id);
+                poco.CompatibleValueTypeInstanceValueError = null;
+            }
+ 
+            var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
+            foreach (var identifier in extensionModelErrorsToDelete)
+            {
+                var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
+                poco.ExtensionModelErrors.Remove(modelError);
+            }
+ 
+            poco.IdentifierName = dto.IdentifierName;
+ 
+            poco.InvariantValue = dto.InvariantValue;
+ 
+            if (poco.ObjectifiedInstanceRequiredError != null && poco.ObjectifiedInstanceRequiredError.Id != dto.ObjectifiedInstanceRequiredError)
+            {
+                identifiersOfObjectsToDelete.Add(poco.ObjectifiedInstanceRequiredError.Id);
+                poco.ObjectifiedInstanceRequiredError = null;
+            }
+ 
+            var populationMandatoryErrorsToDelete = poco.PopulationMandatoryErrors.Select(x => x.Id).Except(dto.PopulationMandatoryErrors);
+            identifiersOfObjectsToDelete.AddRange(populationMandatoryErrorsToDelete);
+            foreach (var identifier in populationMandatoryErrorsToDelete)
+            {
+                var populationMandatoryError = poco.PopulationMandatoryErrors.Single(x => x.Id == identifier);
+                poco.PopulationMandatoryErrors.Remove(populationMandatoryError);
+            }
+ 
+            poco.Value = dto.Value;
+ 
+
+            return identifiersOfObjectsToDelete;
+        }
+    }
+}
+
+// ------------------------------------------------------------------------------------------------
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------

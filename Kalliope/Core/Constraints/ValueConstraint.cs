@@ -87,7 +87,7 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
         public ConstraintDuplicateNameError DuplicateNameError { get; set; }
     }
 }

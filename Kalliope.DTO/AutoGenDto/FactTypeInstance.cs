@@ -58,8 +58,8 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
-        public string ObjectifiedInstance { get; set; }
+        [Property(name: "ObjectifyingInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
+        public string ObjectifyingInstance { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifyingInstanceRequiredError"/>

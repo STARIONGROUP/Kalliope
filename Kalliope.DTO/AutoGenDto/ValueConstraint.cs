@@ -50,10 +50,10 @@ namespace Kalliope.DTO
         public string Definition { get; set; }
  
         /// <summary>
-        /// Gets or sets a DuplicateNameError
+        /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
         public string DuplicateNameError { get; set; }
  
         /// <summary>

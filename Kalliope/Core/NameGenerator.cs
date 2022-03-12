@@ -77,14 +77,14 @@ namespace Kalliope.Core
         /// (DSL) Specify the characters used instead of spaces in names generated for this context
         /// </remarks>
         [Description("Specify the characters used instead of spaces in names generated for this context")]
-        [Property(name: "SpacingReplacement", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
+        [Property(name: "SpacingReplacement", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string SpacingReplacement { get; set; }
 
         /// <summary>
         /// The usage associated with this Name Generator
         /// </summary>
         [Description("")]
-        [Property(name: "NameUsage", AggregationKind.None, multiplicity: "1..1", typeKind:TypeKind.String)]
+        [Property(name: "NameUsage", AggregationKind.None, multiplicity: "1..1", typeKind:TypeKind.String, defaultValue: "", typeName: "")]
         public string NameUsage { get; set; }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Kalliope.Core
         /// Gets or sets the contained <see cref="NameGenerator"/>s that are refined by the current <see cref="NameGenerator"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "NameGenerator")]
+        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator")]
         public List<NameGenerator> RefinedByGenerators { get; set; }
 
         /// <summary>

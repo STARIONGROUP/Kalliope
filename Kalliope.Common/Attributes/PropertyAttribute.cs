@@ -107,7 +107,10 @@ namespace Kalliope.Common
         /// <param name="typeName">
         /// the name of the type, this property should only be set when the <see cref="TypeKind"/> is set to <see cref="TypeKind.Object"/>
         /// </param>
-        public PropertyAttribute(string name, AggregationKind aggregation = AggregationKind.None, string multiplicity = "1..1", TypeKind typeKind = TypeKind.Object, string defaultValue = "none", string typeName = "")
+        /// <param name="isDerived">
+        /// a value indicating whether the property is derived. In case the property is derived it requires manual implementation in code generated files.
+        /// </param>
+        public PropertyAttribute(string name, AggregationKind aggregation = AggregationKind.None, string multiplicity = "1..1", TypeKind typeKind = TypeKind.Object, string defaultValue = "none", string typeName = "", bool isDerived = false)
         {
             this.Name = name;
             this.Aggregation = aggregation;
@@ -115,6 +118,7 @@ namespace Kalliope.Common
             this.TypeKind = typeKind;
             this.DefaultValue = defaultValue;
             this.TypeName = typeName;
+            this.IsDerived = isDerived;
         }
 
         /// <summary>
@@ -146,5 +150,11 @@ namespace Kalliope.Common
         /// Gets or sets the string representation of the default value
         /// </summary>
         public string DefaultValue { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property is derived. In case the property is derived it requires
+        /// manual implementation in code generated files.
+        /// </summary>
+        public bool IsDerived { get; private set; }
     }
 }

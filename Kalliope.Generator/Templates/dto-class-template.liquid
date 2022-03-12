@@ -68,7 +68,15 @@ namespace Kalliope.DTO
 		{% endif %}
 
 		{% for property in TypeDrop.Properties %}
-		{% if property.IsEnumerable == true and property.IsValueType %}
+		{% if property.IsDerived == true  %}
+        /// <summary>
+        /// Gets the derived {{ property.Name }}
+        /// </summary>
+        [Description("{{ property.DescriptionAttribute.Description }}")]
+        [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", isDerived: true)]
+        public {{ property.TypeName }} {{ property.Name }} => this.Compute{{ property.Name }}();
+ 
+		{% elseif property.IsEnumerable == true and property.IsValueType %}
         /// <summary>
         /// Gets or sets a list of {{ property.Name }}
         /// </summary>

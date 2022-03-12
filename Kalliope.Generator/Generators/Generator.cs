@@ -28,12 +28,17 @@ namespace Kalliope.Generator
 
     using DotLiquid;
     using DotLiquid.NamingConventions;
-    
+
     /// <summary>
     /// Abstract superclass from which all generators should derive
     /// </summary>
     public abstract class Generator
     {
+        /// <summary>
+        /// Backing field for the <see cref="TypeDrops"/> property
+        /// </summary>
+        private IEnumerable<TypeDrop> typeDrops;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratorBase"/> class.
         /// </summary>
@@ -79,6 +84,23 @@ namespace Kalliope.Generator
                 fileInfo.Delete();
             }
         }
+        
+        /// <summary>
+        /// Gets the <see cref="TypeDrop"/> used by this generator
+        /// </summary>
+        public IEnumerable<TypeDrop> TypeDrops
+        {
+            get
+            {
+                if (typeDrops == null || typeDrops.Any())
+                {
+                    var dropGenerator = new DropGenerator();
+                    this.typeDrops = dropGenerator.Generate();
+                }
+
+                return this.typeDrops;
+            }
+        }
 
         /// <summary>
         /// load a liquid template by name
@@ -111,8 +133,9 @@ namespace Kalliope.Generator
         /// </summary>
         protected virtual void RegisterFilters()
         {
+            Template.RegisterFilter(typeof(GenericFilter));
         }
-
+        
         /// <summary>
         /// Removes the lines from the code that start with a tab character
         /// </summary>

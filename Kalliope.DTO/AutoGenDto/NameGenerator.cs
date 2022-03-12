@@ -71,14 +71,14 @@ namespace Kalliope.DTO
         /// Gets or sets a NameUsage
         /// </summary>
         [Description("")]
-        [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "none", typeName: "")]
+        [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string NameUsage { get; set; }
  
         /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
+        /// Gets or sets a list unique identifiers of the contained <see cref="NameGenerator"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "NameGenerator", typeName: "")]
+        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator")]
         public List<string> RefinedByGenerators { get; set; }
  
         /// <summary>

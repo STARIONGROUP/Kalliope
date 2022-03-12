@@ -95,6 +95,7 @@ namespace Kalliope.Core
         /// </summary>
         [Description("")]
         [Property(name: "GroupingTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingType")]
+        [Ignore("This class derives from ModelThing and therefore has no Id property and is an abstract class that has no subclasses defined in the domain model")]
         public List<ElementGroupingType> GroupingTypes { get; set; }
 
         [Description("")]

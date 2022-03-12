@@ -45,7 +45,6 @@ namespace Kalliope.DTO
             this.ChildGroupings = new List<string>();
             this.ExcludedChildGroupings = new List<string>();
             this.ExcludedElements = new List<string>();
-            this.GroupingTypes = new List<string>();
             this.IncludedChildGroupings = new List<string>();
             this.IncludedElements = new List<string>();
             this.MembershipContradictionErrors = new List<string>();
@@ -92,13 +91,6 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<string> ExcludedElements { get; set; }
- 
-        /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingType"/> instances
-        /// </summary>
-        [Description("")]
-        [Property(name: "GroupingTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingType")]
-        public List<string> GroupingTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances

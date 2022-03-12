@@ -43,11 +43,11 @@ namespace Kalliope.Core
         public bool IsImplied { get; set; }
 
         [Description("")]
-        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public ObjectType NestingType { get; set; }
 
         [Description("")]
-        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "FactType")]
+        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public FactType NestedFactType { get; set; }
         
         [Description("")]

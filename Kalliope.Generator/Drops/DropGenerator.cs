@@ -48,11 +48,13 @@ namespace Kalliope.Generator
 
             foreach (var type in types)
             {
+                var ignoreAttribute = (IgnoreAttribute)Attribute.GetCustomAttribute(type, typeof(IgnoreAttribute), true);
+
                 var domainAttribute = (DomainAttribute)Attribute.GetCustomAttribute(type, typeof(DomainAttribute), false);
                 var descriptionAttribute = (DescriptionAttribute)Attribute.GetCustomAttribute(type, typeof(DescriptionAttribute), false);
                 var containerAttributes = (ContainerAttribute[])Attribute.GetCustomAttributes(type, typeof(ContainerAttribute), false);
                 containerAttributes = containerAttributes.OrderBy(x => x.TypeName).ToArray();
-                if (domainAttribute != null)
+                if (ignoreAttribute == null && domainAttribute != null)
                 {
                     var typeDrop = new TypeDrop(type, domainAttribute, descriptionAttribute, containerAttributes);
                     result.Add(typeDrop);

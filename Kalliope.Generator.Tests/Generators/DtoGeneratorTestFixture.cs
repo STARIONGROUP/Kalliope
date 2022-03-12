@@ -21,6 +21,7 @@
 namespace Kalliope.Generator.Tests.Generators
 {
     using System.IO;
+    using System.Linq;
 
     using Kalliope.Generator.Generators;
 
@@ -47,6 +48,54 @@ namespace Kalliope.Generator.Tests.Generators
         public void Verify_that_DTOs_are_generated()
         {
             Assert.DoesNotThrow(() => this.dtoGenerator.Generate(this.autogenDtoDirectoryInfo));
+        }
+
+        [Test]
+        public void Verify_That_Generate_Class_For_EntityType_Returns_Expected_Result()
+        {
+            var entityType = this.dtoGenerator.TypeDrops.Single(x => x.Name == "EntityType");
+            
+            var dto = this.dtoGenerator.GenerateType(entityType);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "EntityType.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/EntityType.cs"));
+
+            Assert.AreEqual(expected, dto);
+        }
+
+        [Test]
+        public void Verify_That_Generate_Class_For_ObjectType_Returns_Expected_Result()
+        {
+            var objectType = this.dtoGenerator.TypeDrops.Single(x => x.Name == "ObjectType");
+
+            var dto = this.dtoGenerator.GenerateType(objectType);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "ObjectType.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ObjectType.cs"));
+
+            Assert.AreEqual(expected, dto);
+        }
+
+        [Test]
+        public void Verify_That_Generate_Class_For_RoleIndex_Returns_Expected_Result()
+        {
+            var roleText = this.dtoGenerator.TypeDrops.Single(x => x.Name == "RoleText");
+
+            var dto = this.dtoGenerator.GenerateType(roleText);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "RoleText.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/RoleText.cs"));
+
+            Assert.AreEqual(expected, dto);
         }
     }
 }

@@ -142,6 +142,11 @@ namespace Kalliope.Generator
         public bool IsComposite => this.PropertyAttribute.Aggregation == AggregationKind.Composite;
 
         /// <summary>
+        /// Gets a value indicating whether the property is a derived property
+        /// </summary>
+        public bool IsDerived => this.PropertyAttribute.IsDerived;
+
+        /// <summary>
         /// Gets the default value for the property
         /// </summary>
         public string DefaultValue => this.PropertyAttribute.DefaultValue;

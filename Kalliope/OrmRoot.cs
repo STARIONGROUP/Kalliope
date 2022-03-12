@@ -70,83 +70,25 @@ namespace Kalliope
         /// <summary>
         /// Gets or sets the <see cref="ORMModel"/> contained by .orm file
         /// </summary>
-        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, typeName: "ORMModel")]
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue:"", typeName: "ORMModel")]
         public ORMModel Model { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="NameGenerator"/> contained by .orm file
         /// </summary>
-        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object)]
+        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator")]
         public NameGenerator NameGenerator { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="GenerationState"/> contained by .orm file
         /// </summary>
-        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object)]
+        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationState")]
         public GenerationState GenerationState { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="ORMDiagram"/>s contained by the .orm file
         /// </summary>
-        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object)]
-        public List<ORMDiagram> Diagrams { get; set; }
-
-        /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
-        /// </summary>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/>
-        /// </param>
-        //internal void ReadXml(XmlReader reader)
-        //{
-        //    while (reader.Read())
-        //    {
-        //        if (reader.MoveToContent() == XmlNodeType.Element)
-        //        {
-        //            var localName = reader.LocalName;
-
-        //            switch (localName)
-        //            {
-        //                case "ORMModel":
-        //                    using (var ormModelSubtree = reader.ReadSubtree())
-        //                    {
-        //                        ormModelSubtree.MoveToContent();
-        //                        var ormModel = new ORMModel(this.loggerFactory);
-        //                        ormModel.ReadXml(ormModelSubtree);
-        //                        this.Model = ormModel;
-        //                    }
-        //                    break;
-        //                case "NameGenerator":
-        //                    using (var nameGeneratorSubtree = reader.ReadSubtree())
-        //                    {
-        //                        nameGeneratorSubtree.MoveToContent();
-        //                        var nameGenerator = new NameGenerator();
-        //                        nameGenerator.ReadXml(nameGeneratorSubtree);
-        //                        this.NameGenerator = nameGenerator;
-        //                    }
-        //                    break;
-        //                case "GenerationState":
-        //                    using (var generationStateSubTree = reader.ReadSubtree())
-        //                    {
-        //                        generationStateSubTree.MoveToContent();
-        //                        var generationState = new GenerationState();
-        //                        generationState.ReadXml(generationStateSubTree);
-        //                        this.GenerationState = generationState;
-        //                    }
-        //                    break;
-        //                case "ORMDiagram":
-        //                    using (var diagramSubtree = reader.ReadSubtree())
-        //                    {
-        //                        diagramSubtree.MoveToContent();
-        //                        var ormDiagram = new ORMDiagram();
-        //                        ormDiagram.ReadXml(diagramSubtree);
-
-        //                        this.Diagrams.Add(ormDiagram);
-        //                    }
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //}
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue:"", typeName: "ORMDiagram")]
+        public List<ORMDiagram> Diagrams { get; set; }  
     }
 }

@@ -46,31 +46,31 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
+        /// Gets or sets a list unique identifiers of the contained <see cref="ORMDiagram"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMDiagram")]
         public List<string> Diagrams { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref=""/>
+        /// Gets or sets the unique identifier of the contained <see cref="GenerationState"/>
         /// </summary>
         [Description("")]
-        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
+        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationState")]
         public string GenerationState { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ORMModel"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "ORMModel")]
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
         public string Model { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref=""/>
+        /// Gets or sets the unique identifier of the contained <see cref="NameGenerator"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
+        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator")]
         public string NameGenerator { get; set; }
  
     }

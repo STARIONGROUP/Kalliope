@@ -78,7 +78,7 @@ namespace Kalliope.Core
         public List<SetConstraint> SetConstraints { get; set; }
 
         [Description("")]
-        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.String, defaultValue: "", typeName: "SetComparisonConstraint")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]
         public List<SetComparisonConstraint> SetComparisonConstraints { get; set; }
     }
 }

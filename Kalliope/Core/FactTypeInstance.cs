@@ -49,7 +49,7 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
+        [Property(name: "ObjectifyingInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
         public ObjectTypeInstance ObjectifyingInstance { get; set; }
     }
 }

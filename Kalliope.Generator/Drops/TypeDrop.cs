@@ -18,8 +18,6 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Text;
-
 namespace Kalliope.Generator
 {
     using System;
@@ -59,20 +57,31 @@ namespace Kalliope.Generator
             this.CreatePropertyDrops();
         }
 
+        /// <summary>
+        /// Creates <see cref="PropertyDrop"/>
+        /// </summary>
         private void CreatePropertyDrops()
         {
             this.Properties = new List<PropertyDrop>();
+            this.AllProperties = new List<PropertyDrop>();
 
-            var properties = this.Type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly).OrderBy(x => x.Name);
+            var properties = this.Type.GetProperties(BindingFlags.Public | BindingFlags.Instance).OrderBy(x => x.Name);
             foreach (var propertyInfo in properties)
             {
+                var ignoreAttribute = propertyInfo.GetCustomAttribute<IgnoreAttribute>();
                 var propertyAttribute = propertyInfo.GetCustomAttribute<PropertyAttribute>();
                 var descriptionAttribute = propertyInfo.GetCustomAttribute<DescriptionAttribute>();
                 
-                if (propertyAttribute != null)
+                if (ignoreAttribute == null && propertyAttribute != null)
                 {
                     var propertyDrop = new PropertyDrop(propertyInfo, propertyAttribute, descriptionAttribute);
-                    this.Properties.Add(propertyDrop);
+
+                    if (propertyInfo.DeclaringType == this.Type)
+                    {
+                        this.Properties.Add(propertyDrop);
+                    }
+
+                    this.AllProperties.Add(propertyDrop);
                 }
             }
         }
@@ -103,6 +112,11 @@ namespace Kalliope.Generator
         public List<PropertyDrop> Properties { get; private set;  }
 
         /// <summary>
+        /// Gets all the properties that are defined on the Type, including the properties of the super classes
+        /// </summary>
+        public List<PropertyDrop> AllProperties { get; internal set; }
+
+        /// <summary>
         /// Gets the name of the Class / Type
         /// </summary>
         public string Name => Type.Name;
@@ -126,5 +140,10 @@ namespace Kalliope.Generator
         /// Gets a value indicating whether the Type is contained (part of a composite aggregation) by another type
         /// </summary>
         public bool IsContained => this.ContainerAttributes.Any();
+
+        /// <summary>
+        /// Gets the namespace of the encapsulated <see cref="Type"/>
+        /// </summary>
+        public string Namespace => this.Type.Namespace;
     }
 }

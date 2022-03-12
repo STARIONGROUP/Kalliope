@@ -60,17 +60,17 @@ namespace Kalliope.DTO
         public bool IsImplied { get; set; }
  
         /// <summary>
-        /// Gets or sets a NestedFactType
+        /// Gets or sets the unique identifier of the referenced <see cref="FactType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "FactType")]
+        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public string NestedFactType { get; set; }
  
         /// <summary>
-        /// Gets or sets a NestingType
+        /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public string NestingType { get; set; }
  
     }

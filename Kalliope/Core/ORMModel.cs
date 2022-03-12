@@ -202,6 +202,7 @@ namespace Kalliope.Core
         /// </summary>
         [Description("")]
         [Property(name: "ModelErrorDisplayFilter", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelErrorDisplayFilter")]
+        [Ignore(description: "The ModelErrorDisplayFilter class does not have an Id property. This class is most likely tool specific (display oriented) and is therefore ignored")]
         public ModelErrorDisplayFilter ModelErrorDisplayFilter { get; set; }
     }
 }

@@ -55,11 +55,8 @@ namespace Kalliope.Generator.Generators
         public override void Generate(DirectoryInfo outputDirectory)
         {
             base.Generate(outputDirectory);
-
-            var dropGenerator = new DropGenerator();
-            var drops = dropGenerator.Generate();
             
-            foreach (var drop in drops)
+            foreach (var drop in this.TypeDrops)
             {
                 var generatedType = this.GenerateType(drop);
 
@@ -79,7 +76,7 @@ namespace Kalliope.Generator.Generators
         /// <returns>
         /// returns the generated code
         /// </returns>
-        internal string GenerateType(TypeDrop drop)
+        public string GenerateType(TypeDrop drop)
         {
             string dtoTemplate;
             if (!this.LiquidTemplates.TryGetValue(Dtotemplate, out dtoTemplate))
