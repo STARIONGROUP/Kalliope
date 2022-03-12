@@ -57,21 +57,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValue"/> instances
         /// </summary>
+        [Description("The values calculated using roles in this component")]
+        [Property(name: "CalculatedValues", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
         public List<string> CalculatedValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PathObjectUnifier"/> instances
         /// </summary>
+        [Description("The object unifier that uses pathed roles and path roots in this role path")]
+        [Property(name: "ObjectUnifiers", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifier")]
         public List<string> ObjectUnifiers { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> ProjectedPathComponents { get; set; }
  
     }

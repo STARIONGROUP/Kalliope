@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a LexicalValue
         /// </summary>
+        [Description("A lexical constant value interpreted based on context")]
+        [Property(name: "LexicalValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string LexicalValue { get; set; }
  
     }

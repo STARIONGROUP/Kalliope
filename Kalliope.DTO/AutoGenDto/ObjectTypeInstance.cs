@@ -51,16 +51,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a IdentifierName
         /// </summary>
+        [Description("An ordered tuple of values for this instance, ignores objectification of the associated ObjectType")]
+        [Property(name: "IdentifierName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string IdentifierName { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifiedInstanceRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifiedInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifiedInstanceRequiredError")]
         public string ObjectifiedInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
         public List<string> PopulationMandatoryErrors { get; set; }
  
     }

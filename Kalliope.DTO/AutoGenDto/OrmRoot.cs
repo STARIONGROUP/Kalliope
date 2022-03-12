@@ -48,21 +48,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
         public List<string> Diagrams { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref=""/>
         /// </summary>
+        [Description("")]
+        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
         public string GenerationState { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "ORMModel")]
         public string Model { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref=""/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "none", typeName: "")]
         public string NameGenerator { get; set; }
  
     }

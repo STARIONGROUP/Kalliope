@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a BagInput
         /// </summary>
+        [Description("")]
+        [Property(name: "BagInput", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool BagInput { get; set; }
  
     }

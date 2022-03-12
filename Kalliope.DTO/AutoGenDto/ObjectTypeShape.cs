@@ -55,26 +55,36 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityConstraintShape"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "CardinalityConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraintShape")]
         public List<string> CardinalityConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a DisplayRelatedTypes
         /// </summary>
+        [Description("hould links to subtypes and supertypes be attached to this shape")]
+        [Property(name: "DisplayRelatedTypes", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "RelatedTypesDisplay")]
         public RelatedTypesDisplay DisplayRelatedTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a ExpandRefMode
         /// </summary>
+        [Description("Should shapes for the FactType and ValueType corresponding to this ReferenceMode pattern be displayed on the diagram")]
+        [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExpandRefMode { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
+        [Description("The subject ObjectType that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public string Subject { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueConstraintShape"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ValueConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraintShape")]
         public List<string> ValueConstraintShapes { get; set; }
  
     }

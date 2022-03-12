@@ -54,11 +54,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="NameAlias"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameAlias")]
         public List<string> Abbreviations { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="RecognizedPhraseDuplicateNameError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhraseDuplicateNameError")]
         public string DuplicateNameError { get; set; }
  
     }

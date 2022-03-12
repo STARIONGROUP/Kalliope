@@ -56,46 +56,64 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a AutomaticallyShortenNames
         /// </summary>
+        [Description("Specify if names generated for this context should be automatically shortened if they are too long for the generation target")]
+        [Property(name: "AutomaticallyShortenNames", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool AutomaticallyShortenNames { get; set; }
  
         /// <summary>
         /// Gets or sets a CasingOption
         /// </summary>
+        [Description("Specify upper/lower case settings of names generated for this context")]
+        [Property(name: "CasingOption", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Uninitialized", typeName: "NameGeneratorCasingOption")]
         public NameGeneratorCasingOption CasingOption { get; set; }
  
         /// <summary>
         /// Gets or sets a NameUsage
         /// </summary>
+        [Description("")]
+        [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "none", typeName: "")]
         public string NameUsage { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref=""/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "RefinedByGenerators", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "NameGenerator", typeName: "")]
         public List<string> RefinedByGenerators { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModelElement"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public string RefinedInstance { get; set; }
  
         /// <summary>
         /// Gets or sets a SpacingFormat
         /// </summary>
+        [Description("Specify if whitespace is preserved, removed, or replaced in names generated for this context")]
+        [Property(name: "SpacingFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Retain", typeName: "NameGeneratorSpacingFormat")]
         public NameGeneratorSpacingFormat SpacingFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a SpacingReplacement
         /// </summary>
+        [Description("Specify the characters used instead of spaces in names generated for this context")]
+        [Property(name: "SpacingReplacement", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string SpacingReplacement { get; set; }
  
         /// <summary>
         /// Gets or sets a UserDefinedMaximum
         /// </summary>
+        [Description("Specify a custom maximum name length for this name generation context")]
+        [Property(name: "UserDefinedMaximum", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int UserDefinedMaximum { get; set; }
  
         /// <summary>
         /// Gets or sets a UseTargetDefaultMaximum
         /// </summary>
+        [Description("Specify if the default maximum name length for this name generation context should be used when shortening names")]
+        [Property(name: "UseTargetDefaultMaximum", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool UseTargetDefaultMaximum { get; set; }
  
     }

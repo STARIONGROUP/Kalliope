@@ -51,11 +51,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a ErrorState
         /// </summary>
+        [Description("")]
+        [Property(name: "ErrorState", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Error", typeName: "ModelErrorState")]
         public ModelErrorState ErrorState { get; set; }
  
         /// <summary>
         /// Gets or sets a ErrorText
         /// </summary>
+        [Description("")]
+        [Property(name: "ErrorText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ErrorText { get; set; }
  
     }

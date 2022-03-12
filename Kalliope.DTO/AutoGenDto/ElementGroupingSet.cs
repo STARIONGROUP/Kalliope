@@ -49,16 +49,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGrouping"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Groupings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
         public List<string> Groupings { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
         public string Model { get; set; }
  
     }

@@ -47,16 +47,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a AbsoluteBounds
         /// </summary>
+        [Description("absolute bounds")]
+        [Property(name: "AbsoluteBounds", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string AbsoluteBounds { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
         /// </summary>
+        [Description("the unique identifier")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
  
         /// <summary>
         /// Gets or sets a IsExpanded
         /// </summary>
+        [Description("a value indicating whether this shape is expanded or not")]
+        [Property(name: "IsExpanded", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "")]
         public bool IsExpanded { get; set; }
  
     }

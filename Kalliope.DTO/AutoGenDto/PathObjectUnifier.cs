@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "CompatibilityError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifierRequiresCompatibleObjectTypesError")]
         public string CompatibilityError { get; set; }
  
     }

@@ -54,6 +54,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Column
         /// </summary>
+        [Description("")]
+        [Property(name: "Column", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int Column { get; set; }
  
     }

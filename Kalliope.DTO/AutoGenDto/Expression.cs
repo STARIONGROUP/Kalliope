@@ -44,11 +44,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Body
         /// </summary>
+        [Description("")]
+        [Property(name: "Body", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Body { get; set; }
  
         /// <summary>
         /// Gets or sets a Language
         /// </summary>
+        [Description("")]
+        [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Language { get; set; }
  
     }

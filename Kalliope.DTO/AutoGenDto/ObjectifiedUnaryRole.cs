@@ -44,6 +44,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Role"/>
         /// </summary>
+        [Description("Links a unary role with the objectified unary role in the implied FactType. Implies a single-column equality constraint between the two roles.")]
+        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public string TargetRole { get; set; }
  
     }

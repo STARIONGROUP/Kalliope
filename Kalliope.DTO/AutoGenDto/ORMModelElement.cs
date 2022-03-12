@@ -46,16 +46,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "AssociatedModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<string> AssociatedModelErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<string> ExtensionModelErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
  
     }

@@ -45,11 +45,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RingConstraintTypeNotSpecifiedError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RingConstraintTypeNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RingConstraintTypeNotSpecifiedError")]
         public string RingConstraintTypeNotSpecifiedError { get; set; }
  
         /// <summary>
         /// Gets or sets a RingType
         /// </summary>
+        [Description("")]
+        [Property(name: "RingType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "RingConstraintType")]
         public RingConstraintType RingType { get; set; }
  
     }

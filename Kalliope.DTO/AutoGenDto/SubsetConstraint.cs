@@ -44,11 +44,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
         public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError
         /// </summary>
+        [Description("")]
+        [Property(name: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError")]
         public string SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError { get; set; }
  
     }

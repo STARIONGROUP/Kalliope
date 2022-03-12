@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="RoleProjectedDerivationRequiresProjectionError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleProjectedDerivationRequiresProjectionError")]
         public string ProjectionRequiredError { get; set; }
  
     }

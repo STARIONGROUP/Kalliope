@@ -55,26 +55,36 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ObjectType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public List<string> ObjectTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list of SetComparisonConstraints
         /// </summary>
+        [Description("")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.String, defaultValue: "", typeName: "SetComparisonConstraint")]
         public List<string> SetComparisonConstraints { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="SetConstraint"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "SetConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
         public List<string> SetConstraints { get; set; }
  
     }

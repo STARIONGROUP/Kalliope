@@ -61,61 +61,85 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ChildGroupings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
         public List<string> ChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
         public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ElementGroupingDuplicateNameError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingDuplicateNameError")]
         public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ExcludedChildGroupings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
         public List<string> ExcludedChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<string> ExcludedElements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "GroupingTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingType")]
         public List<string> GroupingTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ElementGrouping"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "IncludedChildGroupings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
         public List<string> IncludedChildGroupings { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "IncludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<string> IncludedElements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingMembershipContradictionError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "MembershipContradictionErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingMembershipContradictionError")]
         public List<string> MembershipContradictionErrors { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a Priority
         /// </summary>
+        [Description("Specify a priority relative to other Groups. If an element is included in two groups of the same type, the settings for the Group with the highest GroupPriority are given precedence")]
+        [Property(name: "Priority", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int Priority { get; set; }
  
         /// <summary>
         /// Gets or sets a TypeCompliance
         /// </summary>
+        [Description("Specify the level of GroupType compliance for elements in this group. Not Excluded: Allow elements not explicitly excluded by a selected GroupType. by Some Type: Allow elements explicitly approved by at least one GroupType. Approved by All Types: Allow elements explicitly approved by all selected GroupTypes")]
+        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
  
     }

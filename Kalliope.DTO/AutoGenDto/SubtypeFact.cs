@@ -44,16 +44,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a IsPrimary
         /// </summary>
+        [Description("")]
+        [Property(name: "IsPrimary", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsPrimary { get; set; }
  
         /// <summary>
         /// Gets or sets a PreferredIdentificationPath
         /// </summary>
+        [Description("The subtype fact is a possible path through the subtype graph for retrieving the identifying supertype for the subtype.")]
+        [Property(name: "PreferredIdentificationPath", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool PreferredIdentificationPath { get; set; }
  
         /// <summary>
         /// Gets or sets a ProvidesPreferredIdentifier
         /// </summary>
+        [Description("The preferred identification scheme for the subtype is provided by a supertype reached through this path")]
+        [Property(name: "ProvidesPreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ProvidesPreferredIdentifier { get; set; }
  
     }

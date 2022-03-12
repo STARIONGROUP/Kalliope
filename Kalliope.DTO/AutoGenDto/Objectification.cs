@@ -48,21 +48,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<string> ImpliedFactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied
         /// </summary>
+        [Description("")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
  
         /// <summary>
         /// Gets or sets a NestedFactType
         /// </summary>
+        [Description("")]
+        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "FactType")]
         public string NestedFactType { get; set; }
  
         /// <summary>
         /// Gets or sets a NestingType
         /// </summary>
+        [Description("")]
+        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "ObjectType")]
         public string NestingType { get; set; }
  
     }

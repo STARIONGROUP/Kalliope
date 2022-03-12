@@ -55,21 +55,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a DerivationCompleteness
         /// </summary>
+        [Description("Specify if a subtype can be explicitly populated without satisfying the derivation path.")]
+        [Property(name: "DerivationCompleteness", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "FullyDerived", typeName: "DerivationCompleteness")]
         public DerivationCompleteness DerivationCompleteness { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationNote
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationNote", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.String, defaultValue: "", typeName: "DerivationNote")]
         public string DerivationNote { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationStorage
         /// </summary>
+        [Description("Specify if the derivation results are determined on demand or stored when derivation path components are changed")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotStored", typeName: "DerivationStorage")]
         public DerivationStorage DerivationStorage { get; set; }
  
         /// <summary>
         /// Gets or sets a ExternalDerivation
         /// </summary>
+        [Description("An empty path is a placeholder for an externally defined derivation rule and is not validated")]
+        [Property(name: "ExternalDerivation", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExternalDerivation { get; set; }
  
     }

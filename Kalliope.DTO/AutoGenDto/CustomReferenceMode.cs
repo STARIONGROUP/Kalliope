@@ -44,6 +44,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a CustomFormatString
         /// </summary>
+        [Description("Custom format string for this reference mode pattern. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
+        [Property(name: "CustomFormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormatString { get; set; }
  
     }

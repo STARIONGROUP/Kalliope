@@ -44,6 +44,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Name
         /// </summary>
+        [Description("A name for this element")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
  
     }

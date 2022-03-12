@@ -50,21 +50,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a FollowingText
         /// </summary>
+        [Description("Text following a role replacement field and associated bound text")]
+        [Property(name: "FollowingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string FollowingText { get; set; }
  
         /// <summary>
         /// Gets or sets a PostBoundText
         /// </summary>
+        [Description("Text that is bound to the role as trailing text through hyphen binding semantics in the full reading text")]
+        [Property(name: "PostBoundText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PostBoundText { get; set; }
  
         /// <summary>
         /// Gets or sets a PreBoundText
         /// </summary>
+        [Description("Text that is bound to the role as leading text through hyphen binding semantics in the full reading text")]
+        [Property(name: "PreBoundText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PreBoundText { get; set; }
  
         /// <summary>
         /// Gets or sets a RoleIndex
         /// </summary>
+        [Description("The zero-based index of the role")]
+        [Property(name: "RoleIndex", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int RoleIndex { get; set; }
  
     }

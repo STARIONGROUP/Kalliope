@@ -47,6 +47,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a ExpandRefMode
         /// </summary>
+        [Description("Should shapes for the FactType and ValueType corresponding to this ReferenceMode pattern be displayed on the diagram")]
+        [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExpandRefMode { get; set; }
  
     }

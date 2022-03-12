@@ -54,16 +54,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a IsAutomatic
         /// </summary>
+        [Description("")]
+        [Property(name: "IsAutomatic", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsAutomatic { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> ProjectedPathComponents { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPathRequiresProjectionError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPathRequiresProjectionError")]
         public string ProjectionRequiredError { get; set; }
  
     }

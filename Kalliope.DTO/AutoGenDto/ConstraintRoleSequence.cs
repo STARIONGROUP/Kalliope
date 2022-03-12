@@ -45,16 +45,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath")]
         public string JoinPath { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="JoinPathRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError")]
         public string JoinPathRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public List<string> Roles { get; set; }
  
     }

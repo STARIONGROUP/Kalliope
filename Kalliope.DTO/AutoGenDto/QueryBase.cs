@@ -45,6 +45,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="QueryParameter"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Parameters", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "QueryParameter")]
         public List<string> Parameters { get; set; }
  
     }

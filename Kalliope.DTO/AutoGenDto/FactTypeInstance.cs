@@ -50,21 +50,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Name
         /// </summary>
+        [Description("")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
         public string ObjectifiedInstance { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifyingInstanceRequiredError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectifyingInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifyingInstanceRequiredError")]
         public string ObjectifyingInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewFactTypeRoleInstancesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooFewFactTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewFactTypeRoleInstancesError")]
         public string TooFewFactTypeRoleInstancesError { get; set; }
  
     }

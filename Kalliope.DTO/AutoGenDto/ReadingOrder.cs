@@ -52,16 +52,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Reading"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Readings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Reading")]
         public List<string> Readings { get; set; }
  
         /// <summary>
         /// Gets or sets a ReadingText
         /// </summary>
+        [Description("The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder")]
+        [Property(name: "ReadingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ReadingText { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="RoleBase"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
         public List<string> Roles { get; set; }
  
     }

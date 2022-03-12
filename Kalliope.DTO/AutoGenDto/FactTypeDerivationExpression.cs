@@ -51,6 +51,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a DerivationStorage
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Derived", typeName: "DerivationExpressionStorageType")]
         public DerivationExpressionStorageType DerivationStorage { get; set; }
  
     }

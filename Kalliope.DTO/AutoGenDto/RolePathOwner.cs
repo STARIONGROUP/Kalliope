@@ -54,51 +54,71 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="CalculatedPathValue"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "CalculatedConditions", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
         public List<string> CalculatedConditions { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "LeadRolePaths", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> LeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "OwnedLeadRolePaths", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> OwnedLeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Subquery"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "OwnedSubqueries", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
         public List<string> OwnedSubqueries { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "PathComponent", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public string PathComponent { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "SharedLeadRolePaths", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> SharedLeadRolePaths { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Subquery"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "SharedSubqueries", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
         public List<string> SharedSubqueries { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SingleLeadRolePath", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public string SingleLeadRolePath { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="LeadRolePath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SingleOwnedLeadRolePath", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public string SingleOwnedLeadRolePath { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Subquery"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Subqueries", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Subquery")]
         public List<string> Subqueries { get; set; }
  
     }

@@ -50,6 +50,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="DerivationNote"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationNote", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DerivationNote")]
         public string DerivationNote { get; set; }
  
     }

@@ -53,21 +53,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a DistinctValues
         /// </summary>
+        [Description("")]
+        [Property(name: "DistinctValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool DistinctValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="FunctionParameter"/>
         /// </summary>
+        [Description("The function parameter associated with this input value")]
+        [Property(name: "Parameter", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FunctionParameter")]
         public string Parameter { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="CalculatedPathValue"/>
         /// </summary>
+        [Description("The pathed value bound to this function input")]
+        [Property(name: "SourceCalculatedValue", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
         public string SourceCalculatedValue { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathConstant"/>
         /// </summary>
+        [Description("The constant value bound to this function input")]
+        [Property(name: "SourceConstant", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathConstant")]
         public string SourceConstant { get; set; }
  
     }

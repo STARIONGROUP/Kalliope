@@ -47,31 +47,43 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a CustomFormat
         /// </summary>
+        [Description("The default custom naming format used for references to EntityTypes with custom naming formats.")]
+        [Property(name: "CustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
  
         /// <summary>
         /// Gets or sets a NamingChoice
         /// </summary>
+        [Description("")]
+        [Property(name: "NamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice")]
         public EffectiveReferenceModeNamingChoice NamingChoice { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierCustomFormat
         /// </summary>
+        [Description("The default custom naming format used for simple primary identification of EntityTypes with custom naming formats")]
+        [Property(name: "PrimaryIdentifierCustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PrimaryIdentifierCustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierNamingChoice
         /// </summary>
+        [Description("The default naming pattern used for simple primary identification of EntityTypes with this kind of reference mode")]
+        [Property(name: "PrimaryIdentifierNamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice")]
         public EffectiveReferenceModeNamingChoice PrimaryIdentifierNamingChoice { get; set; }
  
         /// <summary>
         /// Gets or sets a ReferenceModeTargetKind
         /// </summary>
+        [Description("")]
+        [Property(name: "ReferenceModeTargetKind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Popular", typeName: "ReferenceModeType")]
         public ReferenceModeType ReferenceModeTargetKind { get; set; }
  
     }

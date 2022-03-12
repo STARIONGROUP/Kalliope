@@ -51,11 +51,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a NameConsumer
         /// </summary>
+        [Description("")]
+        [Property(name: "NameConsumer", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string NameConsumer { get; set; }
  
         /// <summary>
         /// Gets or sets a NameUsage
         /// </summary>
+        [Description("")]
+        [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string NameUsage { get; set; }
  
     }

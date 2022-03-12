@@ -44,6 +44,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
         public string ExclusionContradictsMandatoryError { get; set; }
  
     }

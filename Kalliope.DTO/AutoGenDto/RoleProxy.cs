@@ -44,6 +44,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Role"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public string TargetRole { get; set; }
  
     }

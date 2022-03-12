@@ -49,21 +49,29 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a DerivationCompleteness
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationCompleteness", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "FullyDerived", typeName: "DerivationCompleteness")]
         public DerivationCompleteness DerivationCompleteness { get; set; }
  
         /// <summary>
         /// Gets or sets a DerivationStorage
         /// </summary>
+        [Description("")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotStored", typeName: "DerivationStorage")]
         public DerivationStorage DerivationStorage { get; set; }
  
         /// <summary>
         /// Gets or sets a ExternalDerivation
         /// </summary>
+        [Description("An empty derivation rule is externally defined")]
+        [Property(name: "ExternalDerivation", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "")]
         public bool ExternalDerivation { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="InformalDerivationRule"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "InformalRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "InformalDerivationRule")]
         public string InformalRule { get; set; }
  
     }

@@ -48,11 +48,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="GenerationSetting"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "GenerationSettings", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationSetting")]
         public List<string> GenerationSettings { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
  
     }

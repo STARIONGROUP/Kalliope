@@ -58,71 +58,99 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="DataType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "DataTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType")]
         public List<string> DataTypes { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
         public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ModelError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Errors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<string> Errors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="FactType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "FactTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Function"/> instances
         /// </summary>
+        [Description("Function definitions used for calculated role path values")]
+        [Property(name: "Functions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Function")]
         public List<string> Functions { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ModelErrorDisplayFilter"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ModelErrorDisplayFilter", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelErrorDisplayFilter")]
         public string ModelErrorDisplayFilter { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ModelNote"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Notes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelNote")]
         public List<string> Notes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ObjectType"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ObjectTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public List<string> ObjectTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RecognizedPhrase"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "RecognizedPhrases", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhrase")]
         public List<string> RecognizedPhrases { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReferenceModeKind"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ReferenceModeKinds", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
         public List<string> ReferenceModeKinds { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ReferenceMode"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ReferenceModes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceMode")]
         public List<string> ReferenceModes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="SetComparisonConstraint"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]
         public List<string> SetComparisonConstraints { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="SetConstraint"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "SetConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
         public List<string> SetConstraints { get; set; }
  
     }

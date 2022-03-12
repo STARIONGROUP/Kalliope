@@ -50,11 +50,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a LowerBound
         /// </summary>
+        [Description("The lower bound for the cardinality range. An equivalent upper bound indicates a discrete value. This has a minimum number of 0")]
+        [Property(name: "LowerBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int LowerBound { get; set; }
  
         /// <summary>
         /// Gets or sets a UpperBound
         /// </summary>
+        [Description("The upper bound of the range, or -1 if the range is unbounded")]
+        [Property(name: "UpperBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "-1", typeName: "")]
         public int UpperBound { get; set; }
  
     }

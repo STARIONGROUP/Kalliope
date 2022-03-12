@@ -51,31 +51,43 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
         public string ExclusionContradictsMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionConstraint"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ExclusiveOrExclusionConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionConstraint")]
         public string ExclusiveOrExclusionConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied
         /// </summary>
+        [Description("")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
  
         /// <summary>
         /// Gets or sets a IsSimple
         /// </summary>
+        [Description("")]
+        [Property(name: "IsSimple", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsSimple { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
         public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
         public List<string> PopulationMandatoryErrors { get; set; }
  
     }

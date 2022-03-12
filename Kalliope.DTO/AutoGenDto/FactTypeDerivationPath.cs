@@ -47,16 +47,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a ExternalDerivation
         /// </summary>
+        [Description("An empty derivation rule is externally defined")]
+        [Property(name: "ExternalDerivation", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool ExternalDerivation { get; set; }
  
         /// <summary>
         /// Gets or sets a Name
         /// </summary>
+        [Description("The name of a fully derived fact type")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
  
         /// <summary>
         /// Gets or sets a SetProjection
         /// </summary>
+        [Description("The derivation rule results in a set of distinct facts instead of a bag that might contain duplicates")]
+        [Property(name: "SetProjection", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool SetProjection { get; set; }
  
     }

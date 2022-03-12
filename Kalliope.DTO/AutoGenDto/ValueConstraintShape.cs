@@ -53,16 +53,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a MaximumDisplayedColumns
         /// </summary>
+        [Description("The maximum number of columns to be used to display the values and ranges in this shape")]
+        [Property(name: "MaximumDisplayedColumns", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int MaximumDisplayedColumns { get; set; }
  
         /// <summary>
         /// Gets or sets a MaximumDisplayedValues
         /// </summary>
+        [Description("The maximum total number of values and ranges to be displayed with this shape")]
+        [Property(name: "MaximumDisplayedValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
         public int MaximumDisplayedValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ValueConstraint"/>
         /// </summary>
+        [Description("The subject ValueConstraint that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraint")]
         public string Subject { get; set; }
  
     }

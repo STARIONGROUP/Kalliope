@@ -50,6 +50,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ReferenceModeKind"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Kind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
         public string Kind { get; set; }
  
     }

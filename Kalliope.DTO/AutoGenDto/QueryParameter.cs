@@ -54,16 +54,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Name
         /// </summary>
+        [Description("The explicit name for this parameter")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ParameterType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public string ParameterType { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "PathBindings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<string> PathBindings { get; set; }
  
     }

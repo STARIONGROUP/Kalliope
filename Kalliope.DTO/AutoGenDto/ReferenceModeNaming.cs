@@ -46,26 +46,36 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a CustomFormat
         /// </summary>
+        [Description("The custom naming format used for references to this EntityType")]
+        [Property(name: "CustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string CustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a Id
         /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Id { get; set; }
  
         /// <summary>
         /// Gets or sets a NamingChoice
         /// </summary>
+        [Description("The naming pattern used for references to this EntityType")]
+        [Property(name: "NamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ModelDefault", typeName: "ReferenceModeNamingChoice")]
         public ReferenceModeNamingChoice NamingChoice { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierCustomFormat
         /// </summary>
+        [Description("The custom naming format used for simple primary identification of this EntityType")]
+        [Property(name: "PrimaryIdentifierCustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string PrimaryIdentifierCustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierNamingChoice
         /// </summary>
+        [Description("The naming pattern used for simple primary identification of this EntityType")]
+        [Property(name: "PrimaryIdentifierNamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ModelDefault", typeName: "ReferenceModeNamingChoice")]
         public ReferenceModeNamingChoice PrimaryIdentifierNamingChoice { get; set; }
  
     }

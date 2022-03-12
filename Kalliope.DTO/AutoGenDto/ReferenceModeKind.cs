@@ -51,11 +51,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a FormatString
         /// </summary>
+        [Description("Default format string for reference mode patterns with this ReferenceModeKind. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
+        [Property(name: "FormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string FormatString { get; set; }
  
         /// <summary>
         /// Gets or sets a ReferenceModeType
         /// </summary>
+        [Description("One of Popular, UnitBased, or General")]
+        [Property(name: "ReferenceModeType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "General", typeName: "ReferenceModeType")]
         public ReferenceModeType ReferenceModeType { get; set; }
  
     }

@@ -45,16 +45,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Operator
         /// </summary>
+        [Description("")]
+        [Property(name: "Operator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "ValueComparisonOperator")]
         public ValueComparisonOperator Operator { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "OperatorNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonConstraintOperatorNotSpecifiedError")]
         public string OperatorNotSpecifiedError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonRolesNotComparableError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "RolesNotComparableError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonRolesNotComparableError")]
         public string RolesNotComparableError { get; set; }
  
     }

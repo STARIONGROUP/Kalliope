@@ -55,36 +55,50 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueRequiresAggregationContextError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "AggregationContextRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValueRequiresAggregationContextError")]
         public string AggregationContextRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueMustBeConsumedError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "ConsumptionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValueMustBeConsumedError")]
         public string ConsumptionRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Function"/>
         /// </summary>
+        [Description("The Function used to calculate this value")]
+        [Property(name: "Function", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Function")]
         public string Function { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CalculatedPathValueRequiresFunctionError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FunctionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValueRequiresFunctionError")]
         public string FunctionRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValueInput"/> instances
         /// </summary>
+        [Description("Inputs used to calculate this value")]
+        [Property(name: "Inputs", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValueInput")]
         public List<string> Inputs { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValueParameterBindingError"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "ParameterBindingErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValueParameterBindingError")]
         public List<string> ParameterBindingErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a UniversalAggregationContext
         /// </summary>
+        [Description("Set for a calculation with an aggregate function to use universal context (meaning all elements of the given type in the universal of discourse) instead of a context at one or more specific path nodes")]
+        [Property(name: "UniversalAggregationContext", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "false")]
         public bool UniversalAggregationContext { get; set; }
  
     }

@@ -53,16 +53,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a ExcludedCategories
         /// </summary>
+        [Description("")]
+        [Property(name: "ExcludedCategories", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ExcludedCategories { get; set; }
  
         /// <summary>
         /// Gets or sets a ExcludedErrors
         /// </summary>
+        [Description("")]
+        [Property(name: "ExcludedErrors", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ExcludedErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a IncludedErrors
         /// </summary>
+        [Description("")]
+        [Property(name: "IncludedErrors", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string IncludedErrors { get; set; }
  
     }

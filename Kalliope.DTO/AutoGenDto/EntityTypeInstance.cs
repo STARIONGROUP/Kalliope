@@ -50,6 +50,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewEntityTypeRoleInstancesError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "TooFewEntityTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewEntityTypeRoleInstancesError")]
         public string TooFewEntityTypeRoleInstancesError { get; set; }
  
     }

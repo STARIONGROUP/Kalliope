@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="EntityTypeInstance"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance")]
         public string SupertypeInstance { get; set; }
  
     }

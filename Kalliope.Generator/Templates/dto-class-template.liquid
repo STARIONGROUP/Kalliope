@@ -72,24 +72,32 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a list of {{ property.Name }}
         /// </summary>
+        [Description("{{ property.DescriptionAttribute.Description }}")]
+        [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}")]
         public List<{{ property.TypeName }}> {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable == true and property.IsReferenceType %}
         /// <summary>
         /// Gets or sets a list unique identifiers of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/> instances
         /// </summary>
+        [Description("{{ property.DescriptionAttribute.Description }}")]
+        [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}")]
         public List<string> {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable != true and property.IsValueType %}
         /// <summary>
         /// Gets or sets a {{ property.Name }}
         /// </summary>
+        [Description("{{ property.DescriptionAttribute.Description }}")]
+        [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}")]
         public {{ property.TypeName }} {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable != true and property.IsReferenceType %}
         /// <summary>
         /// Gets or sets the unique identifier of the {% if property.IsComposite == true %}contained {% else %}referenced {% endif %}<see cref="{{ property.TypeName }}"/>
         /// </summary>
+        [Description("{{ property.DescriptionAttribute.Description }}")]
+        [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}")]
         public string {{ property.Name }} { get; set; }
  
 		{% endif %}

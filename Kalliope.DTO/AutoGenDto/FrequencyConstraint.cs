@@ -44,31 +44,43 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintExactlyOneError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintExactlyOneError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintExactlyOneError")]
         public string FrequencyConstraintExactlyOneError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintMinMaxError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintMinMaxError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintMinMaxError")]
         public string FrequencyConstraintMinMaxError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintNonRestrictiveRangeError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintNonRestrictiveRangeError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintNonRestrictiveRangeError")]
         public string FrequencyConstraintNonRestrictiveRangeError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="FrequencyConstraintViolatedByUniquenessConstraintError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "FrequencyConstraintViolatedByUniquenessConstraintError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FrequencyConstraintViolatedByUniquenessConstraintError")]
         public string FrequencyConstraintViolatedByUniquenessConstraintError { get; set; }
  
         /// <summary>
         /// Gets or sets a MaxFrequency
         /// </summary>
+        [Description("The maximum number of occurrences for each instance that plays the restricted roles")]
+        [Property(name: "MaxFrequency", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "2", typeName: "")]
         public int MaxFrequency { get; set; }
  
         /// <summary>
         /// Gets or sets a MinFrequency
         /// </summary>
+        [Description("The minimum number of occurrences for each instance that plays the restricted roles")]
+        [Property(name: "MinFrequency", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "1", typeName: "")]
         public int MinFrequency { get; set; }
  
     }

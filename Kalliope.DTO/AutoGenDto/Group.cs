@@ -45,11 +45,15 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Priority
         /// </summary>
+        [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
+        [Property(name: "Priority", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int Priority { get; set; }
  
         /// <summary>
         /// Gets or sets a TypeCompliance
         /// </summary>
+        [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
+        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
  
     }

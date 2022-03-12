@@ -53,6 +53,8 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMNamedElement"/>
         /// </summary>
+        [Description("The subject SetComparisonConstraint or SetConstraint that is represented by this shape")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMNamedElement")]
         public string Subject { get; set; }
  
     }

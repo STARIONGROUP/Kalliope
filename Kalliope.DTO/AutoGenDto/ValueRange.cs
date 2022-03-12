@@ -52,41 +52,57 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a InvariantMaxValue
         /// </summary>
+        [Description("The culture-invariant form of the MaxValue property")]
+        [Property(name: "InvariantMaxValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string InvariantMaxValue { get; set; }
  
         /// <summary>
         /// Gets or sets a InvariantMinValue
         /// </summary>
+        [Description("The culture-invariant form of the MinValue property")]
+        [Property(name: "InvariantMinValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string InvariantMinValue { get; set; }
  
         /// <summary>
         /// Gets or sets a MaxInclusion
         /// </summary>
+        [Description("")]
+        [Property(name: "MaxInclusion", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotSet", typeName: "RangeInclusion")]
         public RangeInclusion MaxInclusion { get; set; }
  
         /// <summary>
         /// Gets or sets a MaxValue
         /// </summary>
+        [Description("The upper bound for the range. An equivalent MinValue indicates that the range represents a single value")]
+        [Property(name: "MaxValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string MaxValue { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="MaxValueMismatchError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "MaxValueMismatchError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MaxValueMismatchError")]
         public string MaxValueMismatchError { get; set; }
  
         /// <summary>
         /// Gets or sets a MinInclusion
         /// </summary>
+        [Description("")]
+        [Property(name: "MinInclusion", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotSet", typeName: "RangeInclusion")]
         public RangeInclusion MinInclusion { get; set; }
  
         /// <summary>
         /// Gets or sets a MinValue
         /// </summary>
+        [Description("The lower bound for the range. An equivalent MaxValue indicates that the range represents a single value")]
+        [Property(name: "MinValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string MinValue { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="MinValueMismatchError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "MinValueMismatchError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "MinValueMismatchError")]
         public string MinValueMismatchError { get; set; }
  
     }

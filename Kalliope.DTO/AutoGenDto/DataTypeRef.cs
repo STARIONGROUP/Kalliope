@@ -53,16 +53,22 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets a Length
         /// </summary>
+        [Description("The value of the Length facet. Holds the Precision fact for Decimal and Money data types")]
+        [Property(name: "Length", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int Length { get; set; }
  
         /// <summary>
         /// Gets or sets a Reference
         /// </summary>
+        [Description("The value of the referenced element's unique id")]
+        [Property(name: "Reference", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Reference { get; set; }
  
         /// <summary>
         /// Gets or sets a Scale
         /// </summary>
+        [Description("The value of the Scale facet")]
+        [Property(name: "Scale", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
         public int Scale { get; set; }
  
     }

@@ -46,36 +46,50 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="CardinalityRangeOverlapError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "CardinalityRangeOverlapError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityRangeOverlapError")]
         public string CardinalityRangeOverlapError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
         public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
         public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets a Modality
         /// </summary>
+        [Description("he constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded")]
+        [Property(name: "Modality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Alethic", typeName: "ConstraintModality")]
         public ConstraintModality Modality { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityRange"/> instances
         /// </summary>
+        [Description("")]
+        [Property(name: "Ranges", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityRange")]
         public List<string> Ranges { get; set; }
  
         /// <summary>
         /// Gets or sets a Text
         /// </summary>
+        [Description("Set the ranges for this cardinality constraint. The following patterns are recognized:&#xd;&#xa;&#xd;&#xa;Range with a zero lower bound: 0..n, ..n, &lt;n, &lt;=n&#xd;&#xa;Range with no upper bound: &gt;n, &gt;=n, n..&#xd;&#xa;Fixed range: n..m&#xd;&#xa;&#xd;&#xa;Cardinality supports multiple non-overlapping ranges and single values. A range of 0 indicates that an empty population is allowed. For example, 0,4.. will allow either an empty population or a population with four or more instances")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
  
     }
