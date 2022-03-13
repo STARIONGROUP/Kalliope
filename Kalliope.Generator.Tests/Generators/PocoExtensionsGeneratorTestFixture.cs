@@ -18,11 +18,10 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Linq;
-
 namespace Kalliope.Generator.Tests.Generators
 {
     using System.IO;
+    using System.Linq;
 
     using Kalliope.Generator.Generators;
 
