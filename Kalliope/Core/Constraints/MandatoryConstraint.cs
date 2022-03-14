@@ -35,6 +35,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="MandatoryConstraint"/> class.
         /// </summary>
+        public MandatoryConstraint()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MandatoryConstraint"/> class.
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="MandatoryConstraint"/>
         /// </param>

@@ -29,6 +29,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeFact"/> class
         /// </summary>
+        public ImpliedFactType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubtypeFact"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="SubtypeFact"/>
         /// </param>

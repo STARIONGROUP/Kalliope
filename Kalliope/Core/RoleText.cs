@@ -35,8 +35,8 @@ namespace Kalliope.Core
         /// Gets the unique identifier of the <see cref="RoleText"/>
         /// </summary>
         [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", isDerived: true)]
-        public string Id => this.GetHashCode().ToString();
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id => this.GetHashCode().ToString();
         
         /// <summary>
         /// The zero-based index of the role

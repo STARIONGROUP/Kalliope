@@ -32,6 +32,14 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="RingConstraint"/> class.
         /// </summary>
+        public RingConstraint()
+        {
+            this.RingType = RingConstraintType.Undefined;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RingConstraint"/> class.
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="RingConstraint"/>
         /// </param>

@@ -99,18 +99,24 @@ namespace Kalliope.Common
         /// The range of allowable cardinality values - the size - that a set may assume
         /// </param>
         /// <param name="typeKind">
-        /// the kind of type for this property
+        /// The kind of type for this property
         /// </param>
         /// <param name="defaultValue">
-        /// the string based default value for this property
+        /// The string based default value for this property
         /// </param>
         /// <param name="typeName">
         /// the name of the type, this property should only be set when the <see cref="TypeKind"/> is set to <see cref="TypeKind.Object"/>
         /// </param>
-        /// <param name="isDerived">
-        /// a value indicating whether the property is derived. In case the property is derived it requires manual implementation in code generated files.
+        /// <param name="allowOverride">
+        /// A value indicating whether the property may be overriden
         /// </param>
-        public PropertyAttribute(string name, AggregationKind aggregation = AggregationKind.None, string multiplicity = "1..1", TypeKind typeKind = TypeKind.Object, string defaultValue = "none", string typeName = "", bool isDerived = false)
+        /// <param name="isOverride">
+        /// A value indicating whether the property is an override
+        /// </param>
+        /// <param name="isDerived">
+        /// A value indicating whether the property is derived. In case the property is derived it requires manual implementation in code generated files.
+        /// </param>
+        public PropertyAttribute(string name, AggregationKind aggregation = AggregationKind.None, string multiplicity = "1..1", TypeKind typeKind = TypeKind.Object, string defaultValue = "none", string typeName = "", bool allowOverride = false, bool isOverride = false, bool isDerived = false)
         {
             this.Name = name;
             this.Aggregation = aggregation;
@@ -118,6 +124,8 @@ namespace Kalliope.Common
             this.TypeKind = typeKind;
             this.DefaultValue = defaultValue;
             this.TypeName = typeName;
+            this.AllowOverride = allowOverride;
+            this.IsOverride = isOverride;
             this.IsDerived = isDerived;
         }
 
@@ -142,14 +150,27 @@ namespace Kalliope.Common
         public string TypeName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the range of allowable cardinality values - the size - that a set may assume
+        /// Gets the range of allowable cardinality values - the size - that a set may assume
         /// </summary>
         public string Multiplicity { get; private set; }
 
         /// <summary>
-        /// Gets or sets the string representation of the default value
+        /// Gets the string representation of the default value
         /// </summary>
         public string DefaultValue { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property may be overriden
+        /// </summary>
+        /// <remarks>
+        /// for code generation this means that the property should be declared as virtual
+        /// </remarks>
+        public bool AllowOverride { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the property is an override
+        /// </summary>
+        public bool IsOverride { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether the property is derived. In case the property is derived it requires

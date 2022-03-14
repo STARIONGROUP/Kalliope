@@ -33,5 +33,11 @@ namespace Kalliope.Core
     [Domain(isAbstract: true, general: "")]
     public abstract class ModelThing
     {
+        /// <summary>
+        /// A unique identifier for this element
+        /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
+        public virtual string Id { get; set; }
     }
 }

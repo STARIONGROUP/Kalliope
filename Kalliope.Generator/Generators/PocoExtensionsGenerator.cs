@@ -18,7 +18,6 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-
 namespace Kalliope.Generator.Generators
 {
     using System;

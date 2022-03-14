@@ -31,7 +31,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SubtypeLink
     /// </summary>
-    public partial class SubtypeLink
+    public partial class SubtypeLink : ModelThing
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SubtypeLink"/> class.

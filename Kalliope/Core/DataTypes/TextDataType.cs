@@ -29,6 +29,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="TextDataType"/> class
         /// </summary>
+        protected TextDataType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TextDataType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="TextDataType"/>
         /// </param>

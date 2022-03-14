@@ -32,6 +32,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
         /// </summary>
+        public SubsetConstraint()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="SubsetConstraint"/>
         /// </param>

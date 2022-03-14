@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="OrmRoot"/> class
@@ -66,7 +68,7 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var diagramsToDelete = poco.Diagrams.Select(x => x.Id).Except(dto.Diagrams);
             identifiersOfObjectsToDelete.AddRange(diagramsToDelete);
             foreach (var identifier in diagramsToDelete)
@@ -74,27 +76,95 @@ namespace Kalliope.Dal
                 var oRMDiagram = poco.Diagrams.Single(x => x.Id == identifier);
                 poco.Diagrams.Remove(oRMDiagram);
             }
- 
+
             if (poco.GenerationState != null && poco.GenerationState.Id != dto.GenerationState)
             {
                 identifiersOfObjectsToDelete.Add(poco.GenerationState.Id);
                 poco.GenerationState = null;
             }
- 
+
             if (poco.Model != null && poco.Model.Id != dto.Model)
             {
                 identifiersOfObjectsToDelete.Add(poco.Model.Id);
                 poco.Model = null;
             }
- 
+
             if (poco.NameGenerator != null && poco.NameGenerator.Id != dto.NameGenerator)
             {
                 identifiersOfObjectsToDelete.Add(poco.NameGenerator.Id);
                 poco.NameGenerator = null;
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="OrmRoot"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="OrmRoot"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="OrmRoot"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.OrmRoot poco, Kalliope.DTO.OrmRoot dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var diagramsToAdd = dto.Diagrams.Except(poco.Diagrams.Select(x => x.Id));
+            foreach (var identifier in diagramsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var oRMDiagram = (ORMDiagram)lazyPoco.Value;
+                    poco.Diagrams.Add(oRMDiagram);
+                }
+            }
+
+            if (poco.GenerationState == null)
+            {
+                if (cache.TryGetValue(dto.GenerationState, out lazyPoco))
+                {
+                    poco.GenerationState = (GenerationState)lazyPoco.Value;
+                }
+            }
+
+            if (poco.Model == null)
+            {
+                if (cache.TryGetValue(dto.Model, out lazyPoco))
+                {
+                    poco.Model = (ORMModel)lazyPoco.Value;
+                }
+            }
+
+            if (poco.NameGenerator == null)
+            {
+                if (cache.TryGetValue(dto.NameGenerator, out lazyPoco))
+                {
+                    poco.NameGenerator = (NameGenerator)lazyPoco.Value;
+                }
+            }
         }
     }
 }

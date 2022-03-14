@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="ObjectType"/> class

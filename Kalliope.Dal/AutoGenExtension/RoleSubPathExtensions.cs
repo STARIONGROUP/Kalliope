@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="RoleSubPath"/> class
@@ -66,43 +68,43 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
             foreach (var identifier in rolesToDelete)
             {
                 var role = poco.Roles.Single(x => x.Id == identifier);
                 poco.Roles.Remove(role);
             }
- 
+
             if (poco.RootObjectType != null && poco.RootObjectType.Id != dto.RootObjectType)
             {
                 poco.RootObjectType = null;
             }
- 
+
             if (poco.RootObjectTypeRequiredError != null && poco.RootObjectTypeRequiredError.Id != dto.RootObjectTypeRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.RootObjectTypeRequiredError.Id);
                 poco.RootObjectTypeRequiredError = null;
             }
- 
+
             poco.SplitCombinationOperator = dto.SplitCombinationOperator;
- 
+
             poco.SplitIsNegated = dto.SplitIsNegated;
- 
+
             var subPathsToDelete = poco.SubPaths.Select(x => x.Id).Except(dto.SubPaths);
             identifiersOfObjectsToDelete.AddRange(subPathsToDelete);
             foreach (var identifier in subPathsToDelete)
@@ -110,9 +112,99 @@ namespace Kalliope.Dal
                 var roleSubPath = poco.SubPaths.Single(x => x.Id == identifier);
                 poco.SubPaths.Remove(roleSubPath);
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="RoleSubPath"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="RoleSubPath"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="RoleSubPath"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.RoleSubPath poco, Kalliope.DTO.RoleSubPath dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));
+            foreach (var identifier in rolesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var role = (Role)lazyPoco.Value;
+                    poco.Roles.Add(role);
+                }
+            }
+
+            if (poco.RootObjectType == null)
+            {
+                if (cache.TryGetValue(dto.RootObjectType, out lazyPoco))
+                {
+                    poco.RootObjectType = (ObjectType)lazyPoco.Value;
+                }
+            }
+
+            if (poco.RootObjectTypeRequiredError == null)
+            {
+                if (cache.TryGetValue(dto.RootObjectTypeRequiredError, out lazyPoco))
+                {
+                    poco.RootObjectTypeRequiredError = (PathRequiresRootObjectTypeError)lazyPoco.Value;
+                }
+            }
+
+            var subPathsToAdd = dto.SubPaths.Except(poco.SubPaths.Select(x => x.Id));
+            foreach (var identifier in subPathsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var roleSubPath = (RoleSubPath)lazyPoco.Value;
+                    poco.SubPaths.Add(roleSubPath);
+                }
+            }
         }
     }
 }

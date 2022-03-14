@@ -31,13 +31,6 @@ namespace Kalliope.Diagrams
     public abstract class ORMBaseShape : ModelThing
     {
         /// <summary>
-        /// Gets or sets the unique identifier
-        /// </summary>
-        [Description("the unique identifier")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether this shape is expanded or not
         /// </summary>
         [Description("a value indicating whether this shape is expanded or not")]

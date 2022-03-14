@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="ORMDiagram"/> class
@@ -66,13 +68,13 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             poco.AutoPopulateShapes = dto.AutoPopulateShapes;
- 
+
             poco.BaseFontName = dto.BaseFontName;
- 
+
             poco.BaseFontSize = dto.BaseFontSize;
- 
+
             var externalConstraintShapesToDelete = poco.ExternalConstraintShapes.Select(x => x.Id).Except(dto.ExternalConstraintShapes);
             identifiersOfObjectsToDelete.AddRange(externalConstraintShapesToDelete);
             foreach (var identifier in externalConstraintShapesToDelete)
@@ -80,7 +82,7 @@ namespace Kalliope.Dal
                 var externalConstraintShape = poco.ExternalConstraintShapes.Single(x => x.Id == identifier);
                 poco.ExternalConstraintShapes.Remove(externalConstraintShape);
             }
- 
+
             var factTypeShapesToDelete = poco.FactTypeShapes.Select(x => x.Id).Except(dto.FactTypeShapes);
             identifiersOfObjectsToDelete.AddRange(factTypeShapesToDelete);
             foreach (var identifier in factTypeShapesToDelete)
@@ -88,7 +90,7 @@ namespace Kalliope.Dal
                 var factTypeShape = poco.FactTypeShapes.Single(x => x.Id == identifier);
                 poco.FactTypeShapes.Remove(factTypeShape);
             }
- 
+
             var frequencyConstraintShapesToDelete = poco.FrequencyConstraintShapes.Select(x => x.Id).Except(dto.FrequencyConstraintShapes);
             identifiersOfObjectsToDelete.AddRange(frequencyConstraintShapesToDelete);
             foreach (var identifier in frequencyConstraintShapesToDelete)
@@ -96,9 +98,9 @@ namespace Kalliope.Dal
                 var frequencyConstraintShape = poco.FrequencyConstraintShapes.Single(x => x.Id == identifier);
                 poco.FrequencyConstraintShapes.Remove(frequencyConstraintShape);
             }
- 
+
             poco.IsCompleteView = dto.IsCompleteView;
- 
+
             var modelNoteShapesToDelete = poco.ModelNoteShapes.Select(x => x.Id).Except(dto.ModelNoteShapes);
             identifiersOfObjectsToDelete.AddRange(modelNoteShapesToDelete);
             foreach (var identifier in modelNoteShapesToDelete)
@@ -106,9 +108,9 @@ namespace Kalliope.Dal
                 var modelNoteShape = poco.ModelNoteShapes.Single(x => x.Id == identifier);
                 poco.ModelNoteShapes.Remove(modelNoteShape);
             }
- 
+
             poco.Name = dto.Name;
- 
+
             var objectTypeShapesToDelete = poco.ObjectTypeShapes.Select(x => x.Id).Except(dto.ObjectTypeShapes);
             identifiersOfObjectsToDelete.AddRange(objectTypeShapesToDelete);
             foreach (var identifier in objectTypeShapesToDelete)
@@ -116,7 +118,7 @@ namespace Kalliope.Dal
                 var objectTypeShape = poco.ObjectTypeShapes.Single(x => x.Id == identifier);
                 poco.ObjectTypeShapes.Remove(objectTypeShape);
             }
- 
+
             var ringConstraintShapesToDelete = poco.RingConstraintShapes.Select(x => x.Id).Except(dto.RingConstraintShapes);
             identifiersOfObjectsToDelete.AddRange(ringConstraintShapesToDelete);
             foreach (var identifier in ringConstraintShapesToDelete)
@@ -124,12 +126,12 @@ namespace Kalliope.Dal
                 var ringConstraintShape = poco.RingConstraintShapes.Single(x => x.Id == identifier);
                 poco.RingConstraintShapes.Remove(ringConstraintShape);
             }
- 
+
             if (poco.Subject != null && poco.Subject.Id != dto.Subject)
             {
                 poco.Subject = null;
             }
- 
+
             var valueComparisonConstraintShapesToDelete = poco.ValueComparisonConstraintShapes.Select(x => x.Id).Except(dto.ValueComparisonConstraintShapes);
             identifiersOfObjectsToDelete.AddRange(valueComparisonConstraintShapesToDelete);
             foreach (var identifier in valueComparisonConstraintShapesToDelete)
@@ -137,9 +139,121 @@ namespace Kalliope.Dal
                 var valueComparisonConstraintShape = poco.ValueComparisonConstraintShapes.Single(x => x.Id == identifier);
                 poco.ValueComparisonConstraintShapes.Remove(valueComparisonConstraintShape);
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="ORMDiagram"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="ORMDiagram"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="ORMDiagram"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Diagrams.ORMDiagram poco, Kalliope.DTO.ORMDiagram dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var externalConstraintShapesToAdd = dto.ExternalConstraintShapes.Except(poco.ExternalConstraintShapes.Select(x => x.Id));
+            foreach (var identifier in externalConstraintShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var externalConstraintShape = (ExternalConstraintShape)lazyPoco.Value;
+                    poco.ExternalConstraintShapes.Add(externalConstraintShape);
+                }
+            }
+
+            var factTypeShapesToAdd = dto.FactTypeShapes.Except(poco.FactTypeShapes.Select(x => x.Id));
+            foreach (var identifier in factTypeShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var factTypeShape = (FactTypeShape)lazyPoco.Value;
+                    poco.FactTypeShapes.Add(factTypeShape);
+                }
+            }
+
+            var frequencyConstraintShapesToAdd = dto.FrequencyConstraintShapes.Except(poco.FrequencyConstraintShapes.Select(x => x.Id));
+            foreach (var identifier in frequencyConstraintShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var frequencyConstraintShape = (FrequencyConstraintShape)lazyPoco.Value;
+                    poco.FrequencyConstraintShapes.Add(frequencyConstraintShape);
+                }
+            }
+
+            var modelNoteShapesToAdd = dto.ModelNoteShapes.Except(poco.ModelNoteShapes.Select(x => x.Id));
+            foreach (var identifier in modelNoteShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelNoteShape = (ModelNoteShape)lazyPoco.Value;
+                    poco.ModelNoteShapes.Add(modelNoteShape);
+                }
+            }
+
+            var objectTypeShapesToAdd = dto.ObjectTypeShapes.Except(poco.ObjectTypeShapes.Select(x => x.Id));
+            foreach (var identifier in objectTypeShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var objectTypeShape = (ObjectTypeShape)lazyPoco.Value;
+                    poco.ObjectTypeShapes.Add(objectTypeShape);
+                }
+            }
+
+            var ringConstraintShapesToAdd = dto.RingConstraintShapes.Except(poco.RingConstraintShapes.Select(x => x.Id));
+            foreach (var identifier in ringConstraintShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var ringConstraintShape = (RingConstraintShape)lazyPoco.Value;
+                    poco.RingConstraintShapes.Add(ringConstraintShape);
+                }
+            }
+
+            if (poco.Subject == null)
+            {
+                if (cache.TryGetValue(dto.Subject, out lazyPoco))
+                {
+                    poco.Subject = (ORMModel)lazyPoco.Value;
+                }
+            }
+
+            var valueComparisonConstraintShapesToAdd = dto.ValueComparisonConstraintShapes.Except(poco.ValueComparisonConstraintShapes.Select(x => x.Id));
+            foreach (var identifier in valueComparisonConstraintShapesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var valueComparisonConstraintShape = (ValueComparisonConstraintShape)lazyPoco.Value;
+                    poco.ValueComparisonConstraintShapes.Add(valueComparisonConstraintShape);
+                }
+            }
         }
     }
 }

@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="SubtypeFact"/> class
@@ -66,43 +68,43 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             if (poco.Definition != null && poco.Definition.Id != dto.Definition)
             {
                 identifiersOfObjectsToDelete.Add(poco.Definition.Id);
                 poco.Definition = null;
             }
- 
+
             if (poco.DerivationExpression != null && poco.DerivationExpression.Id != dto.DerivationExpression)
             {
                 identifiersOfObjectsToDelete.Add(poco.DerivationExpression.Id);
                 poco.DerivationExpression = null;
             }
- 
+
             poco.DerivationNoteDisplay = dto.DerivationNoteDisplay;
- 
+
             if (poco.DerivationRule != null && poco.DerivationRule.Id != dto.DerivationRule)
             {
                 identifiersOfObjectsToDelete.Add(poco.DerivationRule.Id);
                 poco.DerivationRule = null;
             }
- 
+
             poco.DerivationStorageDisplay = dto.DerivationStorageDisplay;
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             var factTypeInstancesToDelete = poco.FactTypeInstances.Select(x => x.Id).Except(dto.FactTypeInstances);
             identifiersOfObjectsToDelete.AddRange(factTypeInstancesToDelete);
             foreach (var identifier in factTypeInstancesToDelete)
@@ -110,42 +112,42 @@ namespace Kalliope.Dal
                 var factTypeInstance = poco.FactTypeInstances.Single(x => x.Id == identifier);
                 poco.FactTypeInstances.Remove(factTypeInstance);
             }
- 
+
             if (poco.ImpliedInternalUniquenessConstraintError != null && poco.ImpliedInternalUniquenessConstraintError.Id != dto.ImpliedInternalUniquenessConstraintError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ImpliedInternalUniquenessConstraintError.Id);
                 poco.ImpliedInternalUniquenessConstraintError = null;
             }
- 
+
             var internalConstraintsToDelete = poco.InternalConstraints.Select(x => x.Id).Except(dto.InternalConstraints);
             foreach (var identifier in internalConstraintsToDelete)
             {
                 var setConstraint = poco.InternalConstraints.Single(x => x.Id == identifier);
                 poco.InternalConstraints.Remove(setConstraint);
             }
- 
+
             if (poco.InternalUniquenessConstraintRequiredError != null && poco.InternalUniquenessConstraintRequiredError.Id != dto.InternalUniquenessConstraintRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.InternalUniquenessConstraintRequiredError.Id);
                 poco.InternalUniquenessConstraintRequiredError = null;
             }
- 
+
             poco.IsExternal = dto.IsExternal;
- 
+
             poco.IsPrimary = dto.IsPrimary;
- 
+
             poco.Name = dto.Name;
- 
+
             if (poco.Note != null && poco.Note.Id != dto.Note)
             {
                 identifiersOfObjectsToDelete.Add(poco.Note.Id);
                 poco.Note = null;
             }
- 
+
             poco.PreferredIdentificationPath = dto.PreferredIdentificationPath;
- 
+
             poco.ProvidesPreferredIdentifier = dto.ProvidesPreferredIdentifier;
- 
+
             var readingOrdersToDelete = poco.ReadingOrders.Select(x => x.Id).Except(dto.ReadingOrders);
             identifiersOfObjectsToDelete.AddRange(readingOrdersToDelete);
             foreach (var identifier in readingOrdersToDelete)
@@ -153,13 +155,13 @@ namespace Kalliope.Dal
                 var readingOrder = poco.ReadingOrders.Single(x => x.Id == identifier);
                 poco.ReadingOrders.Remove(readingOrder);
             }
- 
+
             if (poco.ReadingRequiredError != null && poco.ReadingRequiredError.Id != dto.ReadingRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ReadingRequiredError.Id);
                 poco.ReadingRequiredError = null;
             }
- 
+
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
             identifiersOfObjectsToDelete.AddRange(rolesToDelete);
             foreach (var identifier in rolesToDelete)
@@ -167,9 +169,159 @@ namespace Kalliope.Dal
                 var roleBase = poco.Roles.Single(x => x.Id == identifier);
                 poco.Roles.Remove(roleBase);
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="SubtypeFact"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="SubtypeFact"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="SubtypeFact"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.SubtypeFact poco, Kalliope.DTO.SubtypeFact dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            if (poco.Definition == null)
+            {
+                if (cache.TryGetValue(dto.Definition, out lazyPoco))
+                {
+                    poco.Definition = (Definition)lazyPoco.Value;
+                }
+            }
+
+            if (poco.DerivationExpression == null)
+            {
+                if (cache.TryGetValue(dto.DerivationExpression, out lazyPoco))
+                {
+                    poco.DerivationExpression = (FactTypeDerivationExpression)lazyPoco.Value;
+                }
+            }
+
+            if (poco.DerivationRule == null)
+            {
+                if (cache.TryGetValue(dto.DerivationRule, out lazyPoco))
+                {
+                    poco.DerivationRule = (RoleProjectedDerivationRule)lazyPoco.Value;
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var factTypeInstancesToAdd = dto.FactTypeInstances.Except(poco.FactTypeInstances.Select(x => x.Id));
+            foreach (var identifier in factTypeInstancesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var factTypeInstance = (FactTypeInstance)lazyPoco.Value;
+                    poco.FactTypeInstances.Add(factTypeInstance);
+                }
+            }
+
+            if (poco.ImpliedInternalUniquenessConstraintError == null)
+            {
+                if (cache.TryGetValue(dto.ImpliedInternalUniquenessConstraintError, out lazyPoco))
+                {
+                    poco.ImpliedInternalUniquenessConstraintError = (ImpliedInternalUniquenessConstraintError)lazyPoco.Value;
+                }
+            }
+
+            var internalConstraintsToAdd = dto.InternalConstraints.Except(poco.InternalConstraints.Select(x => x.Id));
+            foreach (var identifier in internalConstraintsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var setConstraint = (SetConstraint)lazyPoco.Value;
+                    poco.InternalConstraints.Add(setConstraint);
+                }
+            }
+
+            if (poco.InternalUniquenessConstraintRequiredError == null)
+            {
+                if (cache.TryGetValue(dto.InternalUniquenessConstraintRequiredError, out lazyPoco))
+                {
+                    poco.InternalUniquenessConstraintRequiredError = (FactTypeRequiresInternalUniquenessConstraintError)lazyPoco.Value;
+                }
+            }
+
+            if (poco.Note == null)
+            {
+                if (cache.TryGetValue(dto.Note, out lazyPoco))
+                {
+                    poco.Note = (Note)lazyPoco.Value;
+                }
+            }
+
+            var readingOrdersToAdd = dto.ReadingOrders.Except(poco.ReadingOrders.Select(x => x.Id));
+            foreach (var identifier in readingOrdersToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var readingOrder = (ReadingOrder)lazyPoco.Value;
+                    poco.ReadingOrders.Add(readingOrder);
+                }
+            }
+
+            if (poco.ReadingRequiredError == null)
+            {
+                if (cache.TryGetValue(dto.ReadingRequiredError, out lazyPoco))
+                {
+                    poco.ReadingRequiredError = (FactTypeRequiresReadingError)lazyPoco.Value;
+                }
+            }
+
+            var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));
+            foreach (var identifier in rolesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var roleBase = (RoleBase)lazyPoco.Value;
+                    poco.Roles.Add(roleBase);
+                }
+            }
         }
     }
 }

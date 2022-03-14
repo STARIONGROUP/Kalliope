@@ -52,13 +52,6 @@ namespace Kalliope.DTO
         public string AbsoluteBounds { get; set; }
  
         /// <summary>
-        /// Gets or sets a Id
-        /// </summary>
-        [Description("the unique identifier")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
- 
-        /// <summary>
         /// Gets or sets a IsExpanded
         /// </summary>
         [Description("a value indicating whether this shape is expanded or not")]

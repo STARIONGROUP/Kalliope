@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="ElementGrouping"/> class
@@ -66,67 +68,67 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var childGroupingsToDelete = poco.ChildGroupings.Select(x => x.Id).Except(dto.ChildGroupings);
             foreach (var identifier in childGroupingsToDelete)
             {
                 var elementGrouping = poco.ChildGroupings.Single(x => x.Id == identifier);
                 poco.ChildGroupings.Remove(elementGrouping);
             }
- 
+
             if (poco.Definition != null && poco.Definition.Id != dto.Definition)
             {
                 identifiersOfObjectsToDelete.Add(poco.Definition.Id);
                 poco.Definition = null;
             }
- 
+
             if (poco.DuplicateNameError != null && poco.DuplicateNameError.Id != dto.DuplicateNameError)
             {
                 poco.DuplicateNameError = null;
             }
- 
+
             var excludedChildGroupingsToDelete = poco.ExcludedChildGroupings.Select(x => x.Id).Except(dto.ExcludedChildGroupings);
             foreach (var identifier in excludedChildGroupingsToDelete)
             {
                 var elementGrouping = poco.ExcludedChildGroupings.Single(x => x.Id == identifier);
                 poco.ExcludedChildGroupings.Remove(elementGrouping);
             }
- 
+
             var excludedElementsToDelete = poco.ExcludedElements.Select(x => x.Id).Except(dto.ExcludedElements);
             foreach (var identifier in excludedElementsToDelete)
             {
                 var oRMModelElement = poco.ExcludedElements.Single(x => x.Id == identifier);
                 poco.ExcludedElements.Remove(oRMModelElement);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             var includedChildGroupingsToDelete = poco.IncludedChildGroupings.Select(x => x.Id).Except(dto.IncludedChildGroupings);
             foreach (var identifier in includedChildGroupingsToDelete)
             {
                 var elementGrouping = poco.IncludedChildGroupings.Single(x => x.Id == identifier);
                 poco.IncludedChildGroupings.Remove(elementGrouping);
             }
- 
+
             var includedElementsToDelete = poco.IncludedElements.Select(x => x.Id).Except(dto.IncludedElements);
             foreach (var identifier in includedElementsToDelete)
             {
                 var oRMModelElement = poco.IncludedElements.Single(x => x.Id == identifier);
                 poco.IncludedElements.Remove(oRMModelElement);
             }
- 
+
             var membershipContradictionErrorsToDelete = poco.MembershipContradictionErrors.Select(x => x.Id).Except(dto.MembershipContradictionErrors);
             identifiersOfObjectsToDelete.AddRange(membershipContradictionErrorsToDelete);
             foreach (var identifier in membershipContradictionErrorsToDelete)
@@ -134,21 +136,159 @@ namespace Kalliope.Dal
                 var elementGroupingMembershipContradictionError = poco.MembershipContradictionErrors.Single(x => x.Id == identifier);
                 poco.MembershipContradictionErrors.Remove(elementGroupingMembershipContradictionError);
             }
- 
+
             poco.Name = dto.Name;
- 
+
             if (poco.Note != null && poco.Note.Id != dto.Note)
             {
                 identifiersOfObjectsToDelete.Add(poco.Note.Id);
                 poco.Note = null;
             }
- 
+
             poco.Priority = dto.Priority;
- 
+
             poco.TypeCompliance = dto.TypeCompliance;
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="ElementGrouping"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="ElementGrouping"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="ElementGrouping"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.ElementGrouping poco, Kalliope.DTO.ElementGrouping dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var childGroupingsToAdd = dto.ChildGroupings.Except(poco.ChildGroupings.Select(x => x.Id));
+            foreach (var identifier in childGroupingsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var elementGrouping = (ElementGrouping)lazyPoco.Value;
+                    poco.ChildGroupings.Add(elementGrouping);
+                }
+            }
+
+            if (poco.Definition == null)
+            {
+                if (cache.TryGetValue(dto.Definition, out lazyPoco))
+                {
+                    poco.Definition = (Definition)lazyPoco.Value;
+                }
+            }
+
+            if (poco.DuplicateNameError == null)
+            {
+                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
+                {
+                    poco.DuplicateNameError = (ElementGroupingDuplicateNameError)lazyPoco.Value;
+                }
+            }
+
+            var excludedChildGroupingsToAdd = dto.ExcludedChildGroupings.Except(poco.ExcludedChildGroupings.Select(x => x.Id));
+            foreach (var identifier in excludedChildGroupingsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var elementGrouping = (ElementGrouping)lazyPoco.Value;
+                    poco.ExcludedChildGroupings.Add(elementGrouping);
+                }
+            }
+
+            var excludedElementsToAdd = dto.ExcludedElements.Except(poco.ExcludedElements.Select(x => x.Id));
+            foreach (var identifier in excludedElementsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var oRMModelElement = (ORMModelElement)lazyPoco.Value;
+                    poco.ExcludedElements.Add(oRMModelElement);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var includedChildGroupingsToAdd = dto.IncludedChildGroupings.Except(poco.IncludedChildGroupings.Select(x => x.Id));
+            foreach (var identifier in includedChildGroupingsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var elementGrouping = (ElementGrouping)lazyPoco.Value;
+                    poco.IncludedChildGroupings.Add(elementGrouping);
+                }
+            }
+
+            var includedElementsToAdd = dto.IncludedElements.Except(poco.IncludedElements.Select(x => x.Id));
+            foreach (var identifier in includedElementsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var oRMModelElement = (ORMModelElement)lazyPoco.Value;
+                    poco.IncludedElements.Add(oRMModelElement);
+                }
+            }
+
+            var membershipContradictionErrorsToAdd = dto.MembershipContradictionErrors.Except(poco.MembershipContradictionErrors.Select(x => x.Id));
+            foreach (var identifier in membershipContradictionErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var elementGroupingMembershipContradictionError = (ElementGroupingMembershipContradictionError)lazyPoco.Value;
+                    poco.MembershipContradictionErrors.Add(elementGroupingMembershipContradictionError);
+                }
+            }
+
+            if (poco.Note == null)
+            {
+                if (cache.TryGetValue(dto.Note, out lazyPoco))
+                {
+                    poco.Note = (Note)lazyPoco.Value;
+                }
+            }
         }
     }
 }

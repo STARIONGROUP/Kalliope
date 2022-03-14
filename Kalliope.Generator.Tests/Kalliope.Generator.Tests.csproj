@@ -18,6 +18,8 @@
     <Compile Remove="Expected\AutoGenExtension\EntityTypeExtensions.cs" />
     <Compile Remove="Expected\AutoGenExtension\FactTypeShapeExtensions.cs" />
     <Compile Remove="Expected\AutoGenExtension\ObjectTypeExtensions.cs" />
+    <Compile Remove="Expected\AutoGenModelThingFactories\EntityTypeFactory.cs" />
+    <Compile Remove="Expected\AutoGenModelThingFactories\FactTypeShapeFactory.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +44,12 @@
     <None Include="Expected\AutoGenExtension\ObjectTypeExtensions.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Expected\AutoGenModelThingFactories\EntityTypeFactory.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Expected\AutoGenModelThingFactories\FactTypeShapeFactory.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 	<ItemGroup>
@@ -61,6 +69,10 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Kalliope.Generator\Kalliope.Generator.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Expected\AutoGenModelThingFactory\" />
 	</ItemGroup>
 
 </Project>

@@ -39,6 +39,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueType"/> class
         /// </summary>
+        public ValueType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValueType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="ValueType"/>
         /// </param>

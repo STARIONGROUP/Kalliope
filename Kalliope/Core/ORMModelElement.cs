@@ -23,7 +23,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
 
     using Kalliope.Common;
-
+    
     [Description("")]
     [Domain(isAbstract: true, general: "ModelThing")]
     public abstract class ORMModelElement : ModelThing
@@ -36,14 +36,7 @@ namespace Kalliope.Core
             this.AssociatedModelErrors = new List<ModelError>();
             this.ExtensionModelErrors = new List<ModelError>();
         }
-
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
-        public string Id { get; set; }
-
+        
         [Description("")]
         [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<ModelError> ExtensionModelErrors { get; set; }

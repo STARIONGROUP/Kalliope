@@ -33,6 +33,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="DataType"/> class
         /// </summary>
+        protected DataType()
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DataType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="DataType"/>
         /// </param>

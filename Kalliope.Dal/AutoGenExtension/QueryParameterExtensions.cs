@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="QueryParameter"/> class
@@ -66,37 +68,109 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             poco.Name = dto.Name;
- 
+
             if (poco.ParameterType != null && poco.ParameterType.Id != dto.ParameterType)
             {
                 poco.ParameterType = null;
             }
- 
+
             var pathBindingsToDelete = poco.PathBindings.Select(x => x.Id).Except(dto.PathBindings);
             foreach (var identifier in pathBindingsToDelete)
             {
                 var leadRolePath = poco.PathBindings.Single(x => x.Id == identifier);
                 poco.PathBindings.Remove(leadRolePath);
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="QueryParameter"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="QueryParameter"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="QueryParameter"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.QueryParameter poco, Kalliope.DTO.QueryParameter dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            if (poco.ParameterType == null)
+            {
+                if (cache.TryGetValue(dto.ParameterType, out lazyPoco))
+                {
+                    poco.ParameterType = (ObjectType)lazyPoco.Value;
+                }
+            }
+
+            var pathBindingsToAdd = dto.PathBindings.Except(poco.PathBindings.Select(x => x.Id));
+            foreach (var identifier in pathBindingsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
+                    poco.PathBindings.Add(leadRolePath);
+                }
+            }
         }
     }
 }

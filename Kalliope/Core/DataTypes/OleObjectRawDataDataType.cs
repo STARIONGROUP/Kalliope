@@ -32,6 +32,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="OleObjectRawDataDataType"/> class
         /// </summary>
+        public OleObjectRawDataDataType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OleObjectRawDataDataType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="OleObjectRawDataDataType"/>
         /// </param>

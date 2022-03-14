@@ -40,13 +40,6 @@ namespace Kalliope.Core
         }
 
         /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
-        public string Id { get; set; }
-
-        /// <summary>
         /// Gets or sets the contained <see cref="GenerationSetting"/>s
         /// </summary>
         [Description("")]

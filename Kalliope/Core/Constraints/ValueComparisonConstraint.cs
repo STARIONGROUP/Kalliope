@@ -32,6 +32,14 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueComparisonConstraint"/> class.
         /// </summary>
+        public ValueComparisonConstraint()
+        {
+            this.Operator = ValueComparisonOperator.Undefined;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValueComparisonConstraint"/> class.
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="ValueComparisonConstraint"/>
         /// </param>

@@ -32,6 +32,15 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
+        protected SetConstraint()
+        {
+            this.Modality = ConstraintModality.Alethic;
+            this.FactTypes = new List<FactType>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetConstraint"/> class.
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="SetComparisonConstraint"/>
         /// </param>

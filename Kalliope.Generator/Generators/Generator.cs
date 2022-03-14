@@ -95,7 +95,7 @@ namespace Kalliope.Generator
                 if (typeDrops == null || typeDrops.Any())
                 {
                     var dropGenerator = new DropGenerator();
-                    this.typeDrops = dropGenerator.Generate();
+                    this.typeDrops = dropGenerator.Generate().OrderBy(x => x.Name);
                 }
 
                 return this.typeDrops;

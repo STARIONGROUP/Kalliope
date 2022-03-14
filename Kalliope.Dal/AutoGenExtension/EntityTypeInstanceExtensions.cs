@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="EntityTypeInstance"/> class
@@ -66,29 +68,29 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             poco.IdentifierName = dto.IdentifierName;
- 
+
             if (poco.ObjectifiedInstanceRequiredError != null && poco.ObjectifiedInstanceRequiredError.Id != dto.ObjectifiedInstanceRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ObjectifiedInstanceRequiredError.Id);
                 poco.ObjectifiedInstanceRequiredError = null;
             }
- 
+
             var populationMandatoryErrorsToDelete = poco.PopulationMandatoryErrors.Select(x => x.Id).Except(dto.PopulationMandatoryErrors);
             identifiersOfObjectsToDelete.AddRange(populationMandatoryErrorsToDelete);
             foreach (var identifier in populationMandatoryErrorsToDelete)
@@ -96,15 +98,95 @@ namespace Kalliope.Dal
                 var populationMandatoryError = poco.PopulationMandatoryErrors.Single(x => x.Id == identifier);
                 poco.PopulationMandatoryErrors.Remove(populationMandatoryError);
             }
- 
+
             if (poco.TooFewEntityTypeRoleInstancesError != null && poco.TooFewEntityTypeRoleInstancesError.Id != dto.TooFewEntityTypeRoleInstancesError)
             {
                 identifiersOfObjectsToDelete.Add(poco.TooFewEntityTypeRoleInstancesError.Id);
                 poco.TooFewEntityTypeRoleInstancesError = null;
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="EntityTypeInstance"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="EntityTypeInstance"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="EntityTypeInstance"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.EntityTypeInstance poco, Kalliope.DTO.EntityTypeInstance dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            if (poco.ObjectifiedInstanceRequiredError == null)
+            {
+                if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
+                {
+                    poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
+                }
+            }
+
+            var populationMandatoryErrorsToAdd = dto.PopulationMandatoryErrors.Except(poco.PopulationMandatoryErrors.Select(x => x.Id));
+            foreach (var identifier in populationMandatoryErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var populationMandatoryError = (PopulationMandatoryError)lazyPoco.Value;
+                    poco.PopulationMandatoryErrors.Add(populationMandatoryError);
+                }
+            }
+
+            if (poco.TooFewEntityTypeRoleInstancesError == null)
+            {
+                if (cache.TryGetValue(dto.TooFewEntityTypeRoleInstancesError, out lazyPoco))
+                {
+                    poco.TooFewEntityTypeRoleInstancesError = (TooFewEntityTypeRoleInstancesError)lazyPoco.Value;
+                }
+            }
         }
     }
 }

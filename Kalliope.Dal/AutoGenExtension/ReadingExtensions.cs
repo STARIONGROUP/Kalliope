@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="Reading"/> class
@@ -66,21 +68,21 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             poco.Data = dto.Data;
- 
+
             if (poco.DuplicateSignatureError != null && poco.DuplicateSignatureError.Id != dto.DuplicateSignatureError)
             {
                 poco.DuplicateSignatureError = null;
             }
- 
+
             var expandedDataToDelete = poco.ExpandedData.Select(x => x.Id).Except(dto.ExpandedData);
             identifiersOfObjectsToDelete.AddRange(expandedDataToDelete);
             foreach (var identifier in expandedDataToDelete)
@@ -88,44 +90,140 @@ namespace Kalliope.Dal
                 var roleText = poco.ExpandedData.Single(x => x.Id == identifier);
                 poco.ExpandedData.Remove(roleText);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             poco.IsPrimaryForFactType = dto.IsPrimaryForFactType;
- 
+
             poco.IsPrimaryForReadingOrder = dto.IsPrimaryForReadingOrder;
- 
+
             poco.Language = dto.Language;
- 
+
             if (poco.RequiresUserModificationError != null && poco.RequiresUserModificationError.Id != dto.RequiresUserModificationError)
             {
                 identifiersOfObjectsToDelete.Add(poco.RequiresUserModificationError.Id);
                 poco.RequiresUserModificationError = null;
             }
- 
+
             poco.Signature = dto.Signature;
- 
+
             poco.Text = dto.Text;
- 
+
             if (poco.TooFewRolesError != null && poco.TooFewRolesError.Id != dto.TooFewRolesError)
             {
                 identifiersOfObjectsToDelete.Add(poco.TooFewRolesError.Id);
                 poco.TooFewRolesError = null;
             }
- 
+
             if (poco.TooManyRolesError != null && poco.TooManyRolesError.Id != dto.TooManyRolesError)
             {
                 identifiersOfObjectsToDelete.Add(poco.TooManyRolesError.Id);
                 poco.TooManyRolesError = null;
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="Reading"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="Reading"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="Reading"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.Reading poco, Kalliope.DTO.Reading dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            if (poco.DuplicateSignatureError == null)
+            {
+                if (cache.TryGetValue(dto.DuplicateSignatureError, out lazyPoco))
+                {
+                    poco.DuplicateSignatureError = (DuplicateReadingSignatureError)lazyPoco.Value;
+                }
+            }
+
+            var expandedDataToAdd = dto.ExpandedData.Except(poco.ExpandedData.Select(x => x.Id));
+            foreach (var identifier in expandedDataToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var roleText = (RoleText)lazyPoco.Value;
+                    poco.ExpandedData.Add(roleText);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            if (poco.RequiresUserModificationError == null)
+            {
+                if (cache.TryGetValue(dto.RequiresUserModificationError, out lazyPoco))
+                {
+                    poco.RequiresUserModificationError = (ReadingRequiresUserModificationError)lazyPoco.Value;
+                }
+            }
+
+            if (poco.TooFewRolesError == null)
+            {
+                if (cache.TryGetValue(dto.TooFewRolesError, out lazyPoco))
+                {
+                    poco.TooFewRolesError = (TooFewReadingRolesError)lazyPoco.Value;
+                }
+            }
+
+            if (poco.TooManyRolesError == null)
+            {
+                if (cache.TryGetValue(dto.TooManyRolesError, out lazyPoco))
+                {
+                    poco.TooManyRolesError = (TooManyReadingRolesError)lazyPoco.Value;
+                }
+            }
         }
     }
 }

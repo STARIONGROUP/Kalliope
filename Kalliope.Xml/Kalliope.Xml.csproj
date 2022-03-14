@@ -41,6 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kalliope.Dal\Kalliope.Dal.csproj" />
     <ProjectReference Include="..\Kalliope.DTO\Kalliope.DTO.csproj" />
     <ProjectReference Include="..\Kalliope\Kalliope.csproj" />
   </ItemGroup>

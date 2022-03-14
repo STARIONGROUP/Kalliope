@@ -37,14 +37,7 @@ namespace Kalliope.Core
             this.NamingChoice = ReferenceModeNamingChoice.ModelDefault;
             this.PrimaryIdentifierNamingChoice = ReferenceModeNamingChoice.ModelDefault;
         }
-
-        /// <summary>
-        /// A unique identifier for this element
-        /// </summary>
-        [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
-
+        
         /// <summary>
         /// Specify how a reference to a reference-mode identified instance is to be represented
         /// </summary>

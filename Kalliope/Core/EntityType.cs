@@ -36,6 +36,10 @@ namespace Kalliope.Core
         /// </summary>
         private readonly ILoggerFactory loggerFactory;
 
+        public EntityType()
+        {
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EntityType"/> class
         /// </summary>

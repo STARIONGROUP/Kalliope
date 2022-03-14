@@ -29,6 +29,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="RawDataDataType"/> class
         /// </summary>
+        protected RawDataDataType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RawDataDataType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="RawDataDataType"/>
         /// </param>

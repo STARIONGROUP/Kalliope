@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="FactTypeDerivationRule"/> class
@@ -66,40 +68,40 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var calculatedConditionsToDelete = poco.CalculatedConditions.Select(x => x.Id).Except(dto.CalculatedConditions);
             foreach (var identifier in calculatedConditionsToDelete)
             {
                 var calculatedPathValue = poco.CalculatedConditions.Single(x => x.Id == identifier);
                 poco.CalculatedConditions.Remove(calculatedPathValue);
             }
- 
+
             poco.DerivationCompleteness = dto.DerivationCompleteness;
- 
+
             if (poco.DerivationNote != null && poco.DerivationNote.Id != dto.DerivationNote)
             {
                 identifiersOfObjectsToDelete.Add(poco.DerivationNote.Id);
                 poco.DerivationNote = null;
             }
- 
+
             poco.DerivationStorage = dto.DerivationStorage;
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             poco.ExternalDerivation = dto.ExternalDerivation;
- 
+
             var leadRolePathsToDelete = poco.LeadRolePaths.Select(x => x.Id).Except(dto.LeadRolePaths);
             identifiersOfObjectsToDelete.AddRange(leadRolePathsToDelete);
             foreach (var identifier in leadRolePathsToDelete)
@@ -107,60 +109,60 @@ namespace Kalliope.Dal
                 var leadRolePath = poco.LeadRolePaths.Single(x => x.Id == identifier);
                 poco.LeadRolePaths.Remove(leadRolePath);
             }
- 
+
             poco.Name = dto.Name;
- 
+
             var ownedLeadRolePathsToDelete = poco.OwnedLeadRolePaths.Select(x => x.Id).Except(dto.OwnedLeadRolePaths);
             foreach (var identifier in ownedLeadRolePathsToDelete)
             {
                 var leadRolePath = poco.OwnedLeadRolePaths.Single(x => x.Id == identifier);
                 poco.OwnedLeadRolePaths.Remove(leadRolePath);
             }
- 
+
             var ownedSubqueriesToDelete = poco.OwnedSubqueries.Select(x => x.Id).Except(dto.OwnedSubqueries);
             foreach (var identifier in ownedSubqueriesToDelete)
             {
                 var subquery = poco.OwnedSubqueries.Single(x => x.Id == identifier);
                 poco.OwnedSubqueries.Remove(subquery);
             }
- 
+
             if (poco.PathComponent != null && poco.PathComponent.Id != dto.PathComponent)
             {
                 poco.PathComponent = null;
             }
- 
+
             if (poco.ProjectionRequiredError != null && poco.ProjectionRequiredError.Id != dto.ProjectionRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ProjectionRequiredError.Id);
                 poco.ProjectionRequiredError = null;
             }
- 
+
             poco.SetProjection = dto.SetProjection;
- 
+
             var sharedLeadRolePathsToDelete = poco.SharedLeadRolePaths.Select(x => x.Id).Except(dto.SharedLeadRolePaths);
             foreach (var identifier in sharedLeadRolePathsToDelete)
             {
                 var leadRolePath = poco.SharedLeadRolePaths.Single(x => x.Id == identifier);
                 poco.SharedLeadRolePaths.Remove(leadRolePath);
             }
- 
+
             var sharedSubqueriesToDelete = poco.SharedSubqueries.Select(x => x.Id).Except(dto.SharedSubqueries);
             foreach (var identifier in sharedSubqueriesToDelete)
             {
                 var subquery = poco.SharedSubqueries.Single(x => x.Id == identifier);
                 poco.SharedSubqueries.Remove(subquery);
             }
- 
+
             if (poco.SingleLeadRolePath != null && poco.SingleLeadRolePath.Id != dto.SingleLeadRolePath)
             {
                 poco.SingleLeadRolePath = null;
             }
- 
+
             if (poco.SingleOwnedLeadRolePath != null && poco.SingleOwnedLeadRolePath.Id != dto.SingleOwnedLeadRolePath)
             {
                 poco.SingleOwnedLeadRolePath = null;
             }
- 
+
             var subqueriesToDelete = poco.Subqueries.Select(x => x.Id).Except(dto.Subqueries);
             identifiersOfObjectsToDelete.AddRange(subqueriesToDelete);
             foreach (var identifier in subqueriesToDelete)
@@ -168,9 +170,173 @@ namespace Kalliope.Dal
                 var subquery = poco.Subqueries.Single(x => x.Id == identifier);
                 poco.Subqueries.Remove(subquery);
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="FactTypeDerivationRule"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="FactTypeDerivationRule"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="FactTypeDerivationRule"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.FactTypeDerivationRule poco, Kalliope.DTO.FactTypeDerivationRule dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var calculatedConditionsToAdd = dto.CalculatedConditions.Except(poco.CalculatedConditions.Select(x => x.Id));
+            foreach (var identifier in calculatedConditionsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var calculatedPathValue = (CalculatedPathValue)lazyPoco.Value;
+                    poco.CalculatedConditions.Add(calculatedPathValue);
+                }
+            }
+
+            if (poco.DerivationNote == null)
+            {
+                if (cache.TryGetValue(dto.DerivationNote, out lazyPoco))
+                {
+                    poco.DerivationNote = (DerivationNote)lazyPoco.Value;
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var leadRolePathsToAdd = dto.LeadRolePaths.Except(poco.LeadRolePaths.Select(x => x.Id));
+            foreach (var identifier in leadRolePathsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
+                    poco.LeadRolePaths.Add(leadRolePath);
+                }
+            }
+
+            var ownedLeadRolePathsToAdd = dto.OwnedLeadRolePaths.Except(poco.OwnedLeadRolePaths.Select(x => x.Id));
+            foreach (var identifier in ownedLeadRolePathsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
+                    poco.OwnedLeadRolePaths.Add(leadRolePath);
+                }
+            }
+
+            var ownedSubqueriesToAdd = dto.OwnedSubqueries.Except(poco.OwnedSubqueries.Select(x => x.Id));
+            foreach (var identifier in ownedSubqueriesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var subquery = (Subquery)lazyPoco.Value;
+                    poco.OwnedSubqueries.Add(subquery);
+                }
+            }
+
+            if (poco.PathComponent == null)
+            {
+                if (cache.TryGetValue(dto.PathComponent, out lazyPoco))
+                {
+                    poco.PathComponent = (LeadRolePath)lazyPoco.Value;
+                }
+            }
+
+            if (poco.ProjectionRequiredError == null)
+            {
+                if (cache.TryGetValue(dto.ProjectionRequiredError, out lazyPoco))
+                {
+                    poco.ProjectionRequiredError = (RoleProjectedDerivationRequiresProjectionError)lazyPoco.Value;
+                }
+            }
+
+            var sharedLeadRolePathsToAdd = dto.SharedLeadRolePaths.Except(poco.SharedLeadRolePaths.Select(x => x.Id));
+            foreach (var identifier in sharedLeadRolePathsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
+                    poco.SharedLeadRolePaths.Add(leadRolePath);
+                }
+            }
+
+            var sharedSubqueriesToAdd = dto.SharedSubqueries.Except(poco.SharedSubqueries.Select(x => x.Id));
+            foreach (var identifier in sharedSubqueriesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var subquery = (Subquery)lazyPoco.Value;
+                    poco.SharedSubqueries.Add(subquery);
+                }
+            }
+
+            if (poco.SingleLeadRolePath == null)
+            {
+                if (cache.TryGetValue(dto.SingleLeadRolePath, out lazyPoco))
+                {
+                    poco.SingleLeadRolePath = (LeadRolePath)lazyPoco.Value;
+                }
+            }
+
+            if (poco.SingleOwnedLeadRolePath == null)
+            {
+                if (cache.TryGetValue(dto.SingleOwnedLeadRolePath, out lazyPoco))
+                {
+                    poco.SingleOwnedLeadRolePath = (LeadRolePath)lazyPoco.Value;
+                }
+            }
+
+            var subqueriesToAdd = dto.Subqueries.Except(poco.Subqueries.Select(x => x.Id));
+            foreach (var identifier in subqueriesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var subquery = (Subquery)lazyPoco.Value;
+                    poco.Subqueries.Add(subquery);
+                }
+            }
         }
     }
 }

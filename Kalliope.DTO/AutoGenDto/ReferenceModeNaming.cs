@@ -51,13 +51,6 @@ namespace Kalliope.DTO
         public string CustomFormat { get; set; }
  
         /// <summary>
-        /// Gets or sets a Id
-        /// </summary>
-        [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
- 
-        /// <summary>
         /// Gets or sets a NamingChoice
         /// </summary>
         [Description("The naming pattern used for references to this EntityType")]

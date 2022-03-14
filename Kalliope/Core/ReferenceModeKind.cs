@@ -33,6 +33,14 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceModeKind"/> class
         /// </summary>
+        public ReferenceModeKind()
+        {
+            this.ReferenceModeType = ReferenceModeType.General;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReferenceModeKind"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="ReferenceMode"/>
         /// </param>

@@ -39,6 +39,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectifiedType"/> class
         /// </summary>
+        public ObjectifiedType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectifiedType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="ObjectifiedType"/>
         /// </param>

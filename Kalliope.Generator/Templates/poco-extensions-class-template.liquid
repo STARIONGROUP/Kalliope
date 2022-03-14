@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="{{TypeDrop.Name}}"/> class
@@ -67,11 +69,11 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
 			{% for property in TypeDrop.AllProperties %}
 			{% if property.IsValueType and property.Name != "Id" %}
             poco.{{ property.Name }} = dto.{{ property.Name }};
- 
+
 			{% elseif property.IsReferenceType and property.IsEnumerable == true %}
             var {{ property.Name | LowerCaseFirstLetter}}ToDelete = poco.{{ property.Name }}.Select(x => x.Id).Except(dto.{{ property.Name }});
 			{% if property.IsComposite %}
@@ -82,7 +84,7 @@ namespace Kalliope.Dal
                 var {{ property.TypeName | LowerCaseFirstLetter}} = poco.{{ property.Name }}.Single(x => x.Id == identifier);
                 poco.{{ property.Name }}.Remove({{ property.TypeName | LowerCaseFirstLetter}});
             }
- 
+
 			{% elseif property.IsReferenceType and property.IsEnumerable == false %}
             if (poco.{{ property.Name }} != null && poco.{{ property.Name }}.Id != dto.{{ property.Name }})
             {
@@ -91,11 +93,74 @@ namespace Kalliope.Dal
 				{% endif %}
                 poco.{{ property.Name }} = null;
             }
- 
+
 			{% endif %}
 			{% endfor %}
 
             return identifiersOfObjectsToDelete;
+        }
+		{% endif %}
+
+		{% if TypeDrop.IsAbstract == false %}
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="{{TypeDrop.Name}}"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="{{TypeDrop.Name}}"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="{{TypeDrop.Name}}"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this {{ TypeDrop.Namespace }}.{{TypeDrop.Name}} poco, Kalliope.DTO.{{TypeDrop.Name}} dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+			{% for property in TypeDrop.AllProperties %}
+			{% if property.IsReferenceType %}
+			{% if property.IsEnumerable == true %}
+            var {{ property.Name | LowerCaseFirstLetter }}ToAdd = dto.{{ property.Name }}.Except(poco.{{ property.Name }}.Select(x => x.Id));
+            foreach (var identifier in {{ property.Name | LowerCaseFirstLetter }}ToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var {{ property.TypeName | LowerCaseFirstLetter }} = ({{ property.TypeName }})lazyPoco.Value;
+                    poco.{{ property.Name }}.Add({{ property.TypeName | LowerCaseFirstLetter }});
+                }
+            }
+
+			{% elseif property.IsEnumerable == false %}
+            if (poco.{{ property.Name }} == null)
+            {
+                if (cache.TryGetValue(dto.{{ property.Name }}, out lazyPoco))
+                {
+                    poco.{{ property.Name }} = ({{ property.TypeName }})lazyPoco.Value;
+                }
+            }
+
+			{% endif %}
+			{% endif %}
+			{% endfor %}
         }
 		{% endif %}
     }

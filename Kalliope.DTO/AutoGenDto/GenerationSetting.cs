@@ -46,14 +46,6 @@ namespace Kalliope.DTO
         /// </summary>
         public string Container {get; set;}
  
-
-        /// <summary>
-        /// Gets or sets a Id
-        /// </summary>
-        [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
- 
     }
 }
 

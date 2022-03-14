@@ -91,13 +91,6 @@ namespace Kalliope.DTO
         public List<string> FrequencyConstraintShapes { get; set; }
  
         /// <summary>
-        /// Gets or sets a Id
-        /// </summary>
-        [Description("")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
- 
-        /// <summary>
         /// Gets or sets a IsCompleteView
         /// </summary>
         [Description("")]

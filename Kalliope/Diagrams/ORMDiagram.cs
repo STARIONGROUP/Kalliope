@@ -52,14 +52,7 @@ namespace Kalliope.Diagrams
         [Description("The subject ORMModel that is represented by this Diagram")]
         [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
         public ORMModel Subject { get; set; }
-
-        /// <summary>
-        /// Gets or sets the unique identifier
-        /// </summary>
-        [Description("")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
-        public string Id { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the human readable name
         /// </summary>

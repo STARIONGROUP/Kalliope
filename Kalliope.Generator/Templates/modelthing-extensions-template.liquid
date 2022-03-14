@@ -1,0 +1,133 @@
+﻿// -------------------------------------------------------------------------------------------------
+// <copyright file="ModelThingExtensions.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// ------------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------------
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------
+
+namespace Kalliope.Dal
+{
+    using System;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
+
+    using Kalliope.Common;
+
+    /// <summary>
+    /// A static class that provides extension methods for the <see cref="ModelThingExtensions"/> class
+    /// </summary>
+    public static class ModelThingExtensionsExtensions
+    {
+        /// <summary>
+        /// Updates the value properties of the <see cref="Kalliope.Core.ModelThing"/> by setting the value equal to that of the dto
+        /// Removes deleted objects from the reference properties and returns the unique identifiers
+        /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="Kalliope.Core.ModelThing"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="Kalliope.Core.ModelThing"/> with
+        /// </param>
+        /// <returns>
+        /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
+        /// </exception>
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ModelThing poco, Kalliope.DTO.ModelThing dto)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            var typeName = poco.GetType().Name;
+
+            switch (typeName)
+            {
+				{% for typeDrop in TypeDrops %}
+                case "{{ typeDrop.Name }}":
+                    var {{ typeDrop.Name | LowerCaseFirstLetter }} = poco as {{ typeDrop.Namespace }}.{{ typeDrop.Name }};
+                    return {{ typeDrop.Name | LowerCaseFirstLetter }}.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.{{ typeDrop.Name }})dto);
+				{% endfor %}
+                default:
+                    throw new System.NotSupportedException($"{poco.GetType().Name} not yet supported");
+            }
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="{{typeDrop.Name}}"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="{{typeDrop.Name}}"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="{{typeDrop.Name}}"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.ModelThing poco, Kalliope.DTO.ModelThing dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            var typeName = poco.GetType().Name;
+
+            switch (typeName)
+            {
+				{% for typeDrop in TypeDrops %}
+                case "{{ typeDrop.Name }}":
+                    var {{ typeDrop.Name | LowerCaseFirstLetter }} = poco as {{ typeDrop.Namespace }}.{{ typeDrop.Name }};
+                    {{ typeDrop.Name | LowerCaseFirstLetter }}.UpdateReferenceProperties((Kalliope.DTO.{{ typeDrop.Name }})dto, cache);
+                    break;
+				{% endfor %}
+                default:
+                    throw new System.NotSupportedException($"{poco.GetType().Name} not yet supported");
+            }
+        }
+    }
+}
+
+// ------------------------------------------------------------------------------------------------
+// --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
+// ------------------------------------------------------------------------------------------------
+ 

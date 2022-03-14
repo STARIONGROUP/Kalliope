@@ -32,6 +32,13 @@ namespace Kalliope.Core
         /// <summary>
         /// Initializes a new instance of the <see cref="FixedLengthRawDataDataType"/> class
         /// </summary>
+        public FixedLengthRawDataDataType()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FixedLengthRawDataDataType"/> class
+        /// </summary>
         /// <param name="model">
         /// The <see cref="ORMModel"/> that contains the current <see cref="FixedLengthRawDataDataType"/>
         /// </param>

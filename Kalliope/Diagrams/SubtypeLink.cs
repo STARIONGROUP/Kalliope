@@ -27,8 +27,8 @@ namespace Kalliope.Diagrams
     /// Shape that represents an <see cref="SubtypeFact"/>
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "")]
-    public class SubtypeLink
+    [Domain(isAbstract: false, general: "ModelThing")]
+    public class SubtypeLink : ModelThing
     {
     }
 }

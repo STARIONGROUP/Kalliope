@@ -25,11 +25,13 @@
 namespace Kalliope.Dal
 {
     using System;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
     /// A static class that provides extension methods for the <see cref="Objectification"/> class
@@ -66,21 +68,21 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
- 
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
                 var modelError = poco.AssociatedModelErrors.Single(x => x.Id == identifier);
                 poco.AssociatedModelErrors.Remove(modelError);
             }
- 
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
             }
- 
+
             var impliedFactTypesToDelete = poco.ImpliedFactTypes.Select(x => x.Id).Except(dto.ImpliedFactTypes);
             identifiersOfObjectsToDelete.AddRange(impliedFactTypesToDelete);
             foreach (var identifier in impliedFactTypesToDelete)
@@ -88,21 +90,101 @@ namespace Kalliope.Dal
                 var factType = poco.ImpliedFactTypes.Single(x => x.Id == identifier);
                 poco.ImpliedFactTypes.Remove(factType);
             }
- 
+
             poco.IsImplied = dto.IsImplied;
- 
+
             if (poco.NestedFactType != null && poco.NestedFactType.Id != dto.NestedFactType)
             {
                 poco.NestedFactType = null;
             }
- 
+
             if (poco.NestingType != null && poco.NestingType.Id != dto.NestingType)
             {
                 poco.NestingType = null;
             }
- 
 
             return identifiersOfObjectsToDelete;
+        }
+
+        /// <summary>
+        /// Updates the Reference properties of the <see cref="Objectification"/> using the data (identifiers) encapsulated in the DTO
+        /// and the provided cache to find the referenced object.
+        /// </summary>
+        /// <param name="poco">
+        /// The <see cref="Objectification"/> that is to be updated
+        /// </param>
+        /// <param name="dto">
+        /// The DTO that is used to update the <see cref="Objectification"/> with
+        /// </param>
+        /// <param name="cache">
+        /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
+        /// <see cref="ModelThing"/>s that are know and cached.
+        /// </param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static void UpdateReferenceProperties(this Kalliope.Core.Objectification poco, Kalliope.DTO.Objectification dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        {
+            if (poco == null)
+            {
+                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
+            }
+
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            if (cache == null)
+            {
+                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
+            }
+
+            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
+            foreach (var identifier in associatedModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.AssociatedModelErrors.Add(modelError);
+                }
+            }
+
+            var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
+            foreach (var identifier in extensionModelErrorsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelError = (ModelError)lazyPoco.Value;
+                    poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var impliedFactTypesToAdd = dto.ImpliedFactTypes.Except(poco.ImpliedFactTypes.Select(x => x.Id));
+            foreach (var identifier in impliedFactTypesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var factType = (FactType)lazyPoco.Value;
+                    poco.ImpliedFactTypes.Add(factType);
+                }
+            }
+
+            if (poco.NestedFactType == null)
+            {
+                if (cache.TryGetValue(dto.NestedFactType, out lazyPoco))
+                {
+                    poco.NestedFactType = (FactType)lazyPoco.Value;
+                }
+            }
+
+            if (poco.NestingType == null)
+            {
+                if (cache.TryGetValue(dto.NestingType, out lazyPoco))
+                {
+                    poco.NestingType = (ObjectType)lazyPoco.Value;
+                }
+            }
         }
     }
 }
