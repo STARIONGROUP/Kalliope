@@ -24,35 +24,12 @@ namespace Kalliope.Xml
     using System.Threading.Tasks;
 
     using Kalliope.Dal;
-
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Abstractions;
-
+    
+    /// <summary>
+    /// The purpose of the <see cref="OrmFileReader"/> is to read and write the contents of an XML based ORM2 file
+    /// </summary>
     public class OrmFileReader
     {
-        /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
-        /// The <see cref="ILogger"/> used to log
-        /// </summary>
-        private readonly ILogger<OrmFileReader> logger;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OrmFileReader"/>
-        /// </summary>
-        /// <param name="loggerFactory">
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </param>
-        public OrmFileReader(ILoggerFactory loggerFactory = null)
-        {
-            this.loggerFactory = loggerFactory;
-
-            this.logger = this.loggerFactory == null ? NullLogger<OrmFileReader>.Instance : this.loggerFactory.CreateLogger<OrmFileReader>();
-        }
-
         /// <summary>
         /// Gets the <see cref="Assembler"/> associated with the FileReader
         /// </summary>
@@ -72,10 +49,8 @@ namespace Kalliope.Xml
         /// <returns></returns>
         public void Read(string xmlFilePath)
         {
-            var uri = new Uri(xmlFilePath);
-            
             var dtos = this.OrmXmlReader.Read(xmlFilePath, false, null);
-
+            
             this.Assembler = new Assembler();
             this.Assembler.Synchronize(dtos);
         }
