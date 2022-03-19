@@ -63,5 +63,17 @@ namespace Kalliope.Generator.Tests
             var valueTypeDrop = this.typeDrops.Single(x => x.Name == "EntityType");
             Assert.That(valueTypeDrop.IsContained, Is.False);
         }
+
+        [Test]
+        public void Verify_that_TypeDrop_properties_return_expected_Resulst()
+        {
+            var roleTextDrop = this.typeDrops.Single(x => x.Name == "RoleText");
+            Assert.That(roleTextDrop.IsContained, Is.True);
+            Assert.That(roleTextDrop.AllReferencePropertiesCount, Is.EqualTo(0));
+
+            var objectTypeDrop = this.typeDrops.Single(x => x.Name == "ObjectType");
+            Assert.That(objectTypeDrop.IsContained, Is.True);
+            Assert.That(objectTypeDrop.AllReferencePropertiesCount, Is.EqualTo(25));
+        }
     }
 }

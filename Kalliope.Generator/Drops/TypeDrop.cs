@@ -124,6 +124,11 @@ namespace Kalliope.Generator
         public List<PropertyDrop> AllProperties { get; internal set; }
 
         /// <summary>
+        /// Gets the amount of reference properties from the <see cref="AllProperties"/> property
+        /// </summary>
+        public int AllReferencePropertiesCount => this.AllProperties.Count(x => x.IsReferenceType);
+
+        /// <summary>
         /// Gets the name of the Class / Type
         /// </summary>
         public string Name => Type.Name;

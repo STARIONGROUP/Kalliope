@@ -57,19 +57,7 @@ namespace Kalliope.Dal
         /// </exception>
         public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Diagrams.FactTypeLinkConnectorShape poco, Kalliope.DTO.FactTypeLinkConnectorShape dto)
         {
-            if (poco == null)
-            {
-                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
-            }
-
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
-            }
-
-            var identifiersOfObjectsToDelete = new List<string>();
-
-            return identifiersOfObjectsToDelete;
+            return new List<string>();
         }
 
         /// <summary>
@@ -89,22 +77,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException"></exception>
         public static void UpdateReferenceProperties(this Kalliope.Diagrams.FactTypeLinkConnectorShape poco, Kalliope.DTO.FactTypeLinkConnectorShape dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
-            if (poco == null)
-            {
-                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
-            }
-
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
-            }
-
-            if (cache == null)
-            {
-                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
-            }
-
-            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+            // do nothing - The FactTypeLinkConnectorShape class does not have any reference properties to update
         }
     }
 }

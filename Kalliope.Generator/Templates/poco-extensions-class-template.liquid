@@ -58,6 +58,7 @@ namespace Kalliope.Dal
         /// </exception>
         public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this {{ TypeDrop.Namespace }}.{{ TypeDrop.Name }} poco, Kalliope.DTO.{{ TypeDrop.Name }} dto)
         {
+			{% if TypeDrop.AllReferencePropertiesCount != 0 %}
             if (poco == null)
             {
                 throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
@@ -98,6 +99,9 @@ namespace Kalliope.Dal
 			{% endfor %}
 
             return identifiersOfObjectsToDelete;
+			{% else %}
+            return new List<string>();
+			{% endif %}
         }
 		{% endif %}
 
@@ -119,6 +123,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException"></exception>
         public static void UpdateReferenceProperties(this {{ TypeDrop.Namespace }}.{{TypeDrop.Name}} poco, Kalliope.DTO.{{TypeDrop.Name}} dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
+			{% if TypeDrop.AllReferencePropertiesCount != 0 %}
             if (poco == null)
             {
                 throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
@@ -158,6 +163,9 @@ namespace Kalliope.Dal
 			{% endif %}
 			{% endif %}
 			{% endfor %}
+			{% else %}
+            // do nothing - The {{TypeDrop.Name}} class does not have any reference properties to update
+			{% endif %}
         }
 		{% endif %}
     }

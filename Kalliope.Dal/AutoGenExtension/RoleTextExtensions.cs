@@ -57,27 +57,7 @@ namespace Kalliope.Dal
         /// </exception>
         public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.RoleText poco, Kalliope.DTO.RoleText dto)
         {
-            if (poco == null)
-            {
-                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
-            }
-
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
-            }
-
-            var identifiersOfObjectsToDelete = new List<string>();
-
-            poco.FollowingText = dto.FollowingText;
-
-            poco.PostBoundText = dto.PostBoundText;
-
-            poco.PreBoundText = dto.PreBoundText;
-
-            poco.RoleIndex = dto.RoleIndex;
-
-            return identifiersOfObjectsToDelete;
+            return new List<string>();
         }
 
         /// <summary>
@@ -97,22 +77,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException"></exception>
         public static void UpdateReferenceProperties(this Kalliope.Core.RoleText poco, Kalliope.DTO.RoleText dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
-            if (poco == null)
-            {
-                throw new ArgumentNullException(nameof(poco), $"the {nameof(poco)} may not be null");
-            }
-
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
-            }
-
-            if (cache == null)
-            {
-                throw new ArgumentNullException(nameof(cache), $"the {nameof(cache)} may not be null");
-            }
-
-            Lazy<Kalliope.Core.ModelThing> lazyPoco;
+            // do nothing - The RoleText class does not have any reference properties to update
         }
     }
 }
