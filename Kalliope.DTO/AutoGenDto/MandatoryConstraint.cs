@@ -43,11 +43,6 @@ namespace Kalliope.DTO
             this.PopulationMandatoryErrors = new List<string>();
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsMandatoryError"/>

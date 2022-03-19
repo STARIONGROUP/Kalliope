@@ -47,13 +47,20 @@ namespace Kalliope.Generator
         /// <param name="descriptionAttribute">
         /// The <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="Type"/>
         /// </param>
-        public TypeDrop(Type type, DomainAttribute domainAttribute, DescriptionAttribute descriptionAttribute, ContainerAttribute[] containerAttributes)
+        /// <param name="containerAttributes">
+        /// The array of  <see cref="ContainerAttribute"/> owned by this <see cref="TypeDrop"/>
+        /// </param>
+        /// <param name="isContainedThroughSuperClass">
+        /// a value indicating whether this Type is contained (part of a composite aggregation) through its inheritance hierarchy
+        /// </param>
+        public TypeDrop(Type type, DomainAttribute domainAttribute, DescriptionAttribute descriptionAttribute, ContainerAttribute[] containerAttributes, bool isContainedThroughSuperClass =false)
         {
             this.Type = type;
             this.DomainAttribute = domainAttribute;
             this.DescriptionAttribute = descriptionAttribute;
             this.ContainerAttributes = containerAttributes ?? new List<ContainerAttribute>().ToArray();
-            
+            this.IsContainedThroughSuperClass = isContainedThroughSuperClass;
+
             this.CreatePropertyDrops();
         }
 
@@ -135,6 +142,11 @@ namespace Kalliope.Generator
         /// Gets the generalization statement ( e.g. : supertypename)
         /// </summary>
         public string Generalization  => !string.IsNullOrEmpty(this.DomainAttribute.General) ? $" : {this.DomainAttribute.General}" : string.Empty;
+
+        /// <summary>
+        /// Gets a value indicating whether this Type is contained (part of a composite aggregation) through its inheritance hierarchy
+        /// </summary>
+        public bool IsContainedThroughSuperClass { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether the Type is contained (part of a composite aggregation) by another type

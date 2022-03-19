@@ -60,7 +60,7 @@ namespace Kalliope.DTO
 			{% endfor %}
         }
  
-		{% if TypeDrop.IsContained == true %}
+		{% if TypeDrop.IsContained == true and TypeDrop.IsContainedThroughSuperClass == false %}
         /// <summary>
         /// Gets or sets the unique identifier of the container
         /// </summary>

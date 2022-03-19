@@ -45,11 +45,6 @@ namespace Kalliope.DTO
         {
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="EntityTypeInstance"/>

@@ -47,11 +47,6 @@ namespace Kalliope.DTO
             this.SetConstraints = new List<string>();
         }
  
-        /// <summary>
-        /// Gets or sets the unique identifier of the container
-        /// </summary>
-        public string Container {get; set;}
- 
 
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
