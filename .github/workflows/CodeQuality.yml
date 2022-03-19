@@ -27,14 +27,14 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet tool install --global dotnet-sonarscanner
-          dotnet sonarscanner begin /k:"RHEAGROUP_Kalliope" /o:"rheagroup" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="./Kalliope.Tests/coverage.opencover.xml"
+          dotnet sonarscanner begin /k:"RHEAGROUP_Kalliope" /o:"rheagroup" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="./CoverageResults/coverage.opencover.xml"
 
       - name: Build
         run: dotnet build --no-restore /p:ContinuousIntegrationBuild=true
 
       - name: Test with the dotnet CLI
-        run: dotnet test --filter FullyQualifiedName!~Kalliope.Generator.Tests.Generators --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-
+        run: dotnet test --no-build --verbosity normal --filter FullyQualifiedName!~Kalliope.Generator.Tests.Generators /p:CollectCoverage=true /p:CoverletOutput=../CoverageResults/ /p:MergeWith="../CoverageResults/coverage.json" /p:CoverletOutputFormat=\"opencover,json\" -m:1
+        
       - name: Sonarqube end
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
         env:
