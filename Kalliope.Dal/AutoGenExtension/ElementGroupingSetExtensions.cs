@@ -146,7 +146,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Model == null)
+            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model))
             {
                 if (cache.TryGetValue(dto.Model, out lazyPoco))
                 {

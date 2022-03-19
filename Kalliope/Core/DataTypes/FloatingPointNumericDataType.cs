@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class FloatingPointNumericDataType : NumericDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FloatingPointNumericDataType"/> class
-        /// </summary>
-        public FloatingPointNumericDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FloatingPointNumericDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="FloatingPointNumericDataType"/>
-        /// </param>
-        public FloatingPointNumericDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a EntityTypeInstance
     /// </summary>
@@ -51,7 +52,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="TooFewEntityTypeRoleInstancesError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "TooFewEntityTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewEntityTypeRoleInstancesError")]
+        [Property(name: "TooFewEntityTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewEntityTypeRoleInstancesError", allowOverride: false, isOverride: false, isDerived: false)]
         public string TooFewEntityTypeRoleInstancesError { get; set; }
  
     }

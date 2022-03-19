@@ -23,10 +23,7 @@ namespace Kalliope.Core
     using System.Collections.Generic;
 
     using Kalliope.Common;
-
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Abstractions;
-
+    
     /// <summary>
     /// Definition of elements used in the primary definition of an ORM model
     /// </summary>
@@ -35,22 +32,10 @@ namespace Kalliope.Core
     public class ORMModel : ORMNamedElement
     {
         /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
-        /// The <see cref="ILogger"/> used to log
-        /// </summary>
-        private readonly ILogger<ORMModel> logger;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ORMModel"/> class
         /// </summary>
         public ORMModel()
         {
-            this.logger = NullLogger<ORMModel>.Instance;
-
             this.Definitions = new List<Definition>();
             this.ObjectTypes = new List<ObjectType>();
             this.FactTypes = new List<FactType>();
@@ -64,18 +49,6 @@ namespace Kalliope.Core
             this.Extensions = new List<Extension>();
             this.SetConstraints = new List<SetConstraint>();
             this.SetComparisonConstraints = new List<SetComparisonConstraint>();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ORMModel"/> class.
-        /// </summary>
-        /// <param name="loggerFactory">
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </param>
-        internal ORMModel(ILoggerFactory loggerFactory) : this()
-        {
-            this.loggerFactory = loggerFactory;
-            this.logger = this.loggerFactory == null ? NullLogger<ORMModel>.Instance : this.loggerFactory.CreateLogger<ORMModel>();
         }
         
         /// <summary>

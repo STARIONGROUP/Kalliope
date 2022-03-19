@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a Group
     /// </summary>
@@ -46,14 +47,14 @@ namespace Kalliope.DTO
         /// Gets or sets a Priority
         /// </summary>
         [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
-        [Property(name: "Priority", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
+        [Property(name: "Priority", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int Priority { get; set; }
  
         /// <summary>
         /// Gets or sets a TypeCompliance
         /// </summary>
         [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
-        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
+        [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance", allowOverride: false, isOverride: false, isDerived: false)]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
  
     }

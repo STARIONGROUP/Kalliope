@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ModelNote
     /// </summary>
@@ -56,35 +57,35 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
+        [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> FactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ObjectType"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "ObjectTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ObjectTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="SetComparisonConstraint"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]
+        [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> SetComparisonConstraints { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="SetConstraint"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "SetConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
+        [Property(name: "SetConstraints", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> SetConstraints { get; set; }
  
     }

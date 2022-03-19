@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ValueComparisonConstraint
     /// </summary>
@@ -46,21 +47,21 @@ namespace Kalliope.DTO
         /// Gets or sets a Operator
         /// </summary>
         [Description("")]
-        [Property(name: "Operator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "ValueComparisonOperator")]
+        [Property(name: "Operator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Undefined", typeName: "ValueComparisonOperator", allowOverride: false, isOverride: false, isDerived: false)]
         public ValueComparisonOperator Operator { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonConstraintOperatorNotSpecifiedError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "OperatorNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonConstraintOperatorNotSpecifiedError")]
+        [Property(name: "OperatorNotSpecifiedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonConstraintOperatorNotSpecifiedError", allowOverride: false, isOverride: false, isDerived: false)]
         public string OperatorNotSpecifiedError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueComparisonRolesNotComparableError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RolesNotComparableError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonRolesNotComparableError")]
+        [Property(name: "RolesNotComparableError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueComparisonRolesNotComparableError", allowOverride: false, isOverride: false, isDerived: false)]
         public string RolesNotComparableError { get; set; }
  
     }

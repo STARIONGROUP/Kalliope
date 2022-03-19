@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a Reading
     /// </summary>
@@ -52,77 +53,77 @@ namespace Kalliope.DTO
         /// Gets or sets a Data
         /// </summary>
         [Description("Reading text with numbered replacemented fields in the format {n}, where n is a zero-based index into the corresponding role traversal order. ")]
-        [Property(name: "Data", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Data", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Data { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="DuplicateReadingSignatureError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DuplicateSignatureError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DuplicateReadingSignatureError")]
+        [Property(name: "DuplicateSignatureError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DuplicateReadingSignatureError", allowOverride: false, isOverride: false, isDerived: false)]
         public string DuplicateSignatureError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleText"/> instances
         /// </summary>
         [Description("An expanded form of the Data element with text decoration broken down on a per-role basis. Hyphen binding constructs are fully resolved with hyphens removed")]
-        [Property(name: "ExpandedData", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleText")]
+        [Property(name: "ExpandedData", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleText", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ExpandedData { get; set; }
  
         /// <summary>
         /// Gets or sets a IsPrimaryForFactType
         /// </summary>
         [Description("")]
-        [Property(name: "IsPrimaryForFactType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsPrimaryForFactType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsPrimaryForFactType { get; set; }
  
         /// <summary>
         /// Gets or sets a IsPrimaryForReadingOrder
         /// </summary>
         [Description("")]
-        [Property(name: "IsPrimaryForReadingOrder", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsPrimaryForReadingOrder", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsPrimaryForReadingOrder { get; set; }
  
         /// <summary>
         /// Gets or sets a Language
         /// </summary>
         [Description("")]
-        [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Language", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Language { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ReadingRequiresUserModificationError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RequiresUserModificationError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingRequiresUserModificationError")]
+        [Property(name: "RequiresUserModificationError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingRequiresUserModificationError", allowOverride: false, isOverride: false, isDerived: false)]
         public string RequiresUserModificationError { get; set; }
  
         /// <summary>
         /// Gets or sets a Signature
         /// </summary>
         [Description("")]
-        [Property(name: "Signature", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Signature", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Signature { get; set; }
  
         /// <summary>
         /// Gets or sets a Text
         /// </summary>
         [Description("The text of this reading. Includes ordered replacement fields corresponding to the parent ReadingOrder")]
-        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Text { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewReadingRolesError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "TooFewRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewReadingRolesError")]
+        [Property(name: "TooFewRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewReadingRolesError", allowOverride: false, isOverride: false, isDerived: false)]
         public string TooFewRolesError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooManyReadingRolesError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "TooManyRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooManyReadingRolesError")]
+        [Property(name: "TooManyRolesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooManyReadingRolesError", allowOverride: false, isOverride: false, isDerived: false)]
         public string TooManyRolesError { get; set; }
  
     }

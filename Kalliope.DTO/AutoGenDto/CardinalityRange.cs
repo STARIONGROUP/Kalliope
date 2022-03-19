@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a CardinalityRange
     /// </summary>
@@ -51,14 +52,14 @@ namespace Kalliope.DTO
         /// Gets or sets a LowerBound
         /// </summary>
         [Description("The lower bound for the cardinality range. An equivalent upper bound indicates a discrete value. This has a minimum number of 0")]
-        [Property(name: "LowerBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
+        [Property(name: "LowerBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int LowerBound { get; set; }
  
         /// <summary>
         /// Gets or sets a UpperBound
         /// </summary>
         [Description("The upper bound of the range, or -1 if the range is unbounded")]
-        [Property(name: "UpperBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "-1", typeName: "")]
+        [Property(name: "UpperBound", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "-1", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int UpperBound { get; set; }
  
     }

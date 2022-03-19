@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a FactTypeInstance
     /// </summary>
@@ -51,28 +52,28 @@ namespace Kalliope.DTO
         /// Gets or sets a Name
         /// </summary>
         [Description("")]
-        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Name { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectTypeInstance"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectifyingInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance")]
+        [Property(name: "ObjectifyingInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeInstance", allowOverride: false, isOverride: false, isDerived: false)]
         public string ObjectifyingInstance { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifyingInstanceRequiredError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectifyingInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifyingInstanceRequiredError")]
+        [Property(name: "ObjectifyingInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifyingInstanceRequiredError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ObjectifyingInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewFactTypeRoleInstancesError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "TooFewFactTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewFactTypeRoleInstancesError")]
+        [Property(name: "TooFewFactTypeRoleInstancesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooFewFactTypeRoleInstancesError", allowOverride: false, isOverride: false, isDerived: false)]
         public string TooFewFactTypeRoleInstancesError { get; set; }
  
     }

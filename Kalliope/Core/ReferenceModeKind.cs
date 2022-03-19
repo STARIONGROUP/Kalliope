@@ -37,26 +37,7 @@ namespace Kalliope.Core
         {
             this.ReferenceModeType = ReferenceModeType.General;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ReferenceModeKind"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ReferenceMode"/>
-        /// </param>
-        public ReferenceModeKind(ORMModel model)
-        {
-            this.ReferenceModeType = ReferenceModeType.General;
-
-            this.Model = model;
-            model.ReferenceModeKinds.Add(this);
-        }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModel"/>
-        /// </summary>
-        public ORMModel Model { get; set; }
-
+        
         /// <summary>
         /// A string with replacement fields representing a custom format for a value type name based on the entity type name (replacement field {0}) 
         /// and reference mode name (replacement field {1}). Given an entity type name and a value type name, reference mode FormatStrings are used to 

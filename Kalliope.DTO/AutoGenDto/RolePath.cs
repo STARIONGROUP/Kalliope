@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a RolePath
     /// </summary>
@@ -51,42 +52,42 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>
         [Description("The roles included in this path")]
-        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Roles { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
         [Description("RootObjectType")]
-        [Property(name: "RootObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "RootObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public string RootObjectType { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PathRequiresRootObjectTypeError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RootObjectTypeRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathRequiresRootObjectTypeError")]
+        [Property(name: "RootObjectTypeRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathRequiresRootObjectTypeError", allowOverride: false, isOverride: false, isDerived: false)]
         public string RootObjectTypeRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a SplitCombinationOperator
         /// </summary>
         [Description("")]
-        [Property(name: "SplitCombinationOperator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "And", typeName: "LogicalCombinationOperator")]
+        [Property(name: "SplitCombinationOperator", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "And", typeName: "LogicalCombinationOperator", allowOverride: false, isOverride: false, isDerived: false)]
         public LogicalCombinationOperator SplitCombinationOperator { get; set; }
  
         /// <summary>
         /// Gets or sets a SplitIsNegated
         /// </summary>
         [Description("Indicates if the tail split in its entirety should be treated as a negation")]
-        [Property(name: "SplitIsNegated", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "SplitIsNegated", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool SplitIsNegated { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleSubPath"/> instances
         /// </summary>
         [Description("Sub paths branched from the end of the current path.")]
-        [Property(name: "SubPaths", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleSubPath")]
+        [Property(name: "SubPaths", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleSubPath", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> SubPaths { get; set; }
  
     }

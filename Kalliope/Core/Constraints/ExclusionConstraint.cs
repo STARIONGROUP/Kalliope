@@ -35,18 +35,7 @@ namespace Kalliope.Core
         public ExclusionConstraint()
         {
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExclusionConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ExclusionConstraint"/>
-        /// </param>
-        public ExclusionConstraint(ORMModel model) :
-            base(model)
-        {
-        }
-
+        
         /// <summary>
         /// Gets or sets the referenced <see cref="ExclusionContradictsMandatoryError"/>
         /// </summary>

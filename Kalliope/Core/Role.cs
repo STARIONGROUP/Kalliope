@@ -31,8 +31,6 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "RoleBase")]
     public class Role : RoleBase
     {
-        protected List<string> rolePlayerReferences = new List<string>();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Role"/> class
         /// </summary>

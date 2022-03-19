@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Compile Remove="Expected\AutoGenDto\EntityType.cs" />
+    <Compile Remove="Expected\AutoGenDto\ModelThing.cs" />
     <Compile Remove="Expected\AutoGenDto\ObjectType.cs" />
     <Compile Remove="Expected\AutoGenDto\RoleText.cs" />
     <Compile Remove="Expected\AutoGenExtension\EntityTypeExtensions.cs" />
@@ -23,6 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Expected\AutoGenDto\ModelThing.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Expected\AutoGenDto\RoleText.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

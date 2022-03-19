@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a DefaultReferenceModeNaming
     /// </summary>
@@ -48,35 +49,35 @@ namespace Kalliope.DTO
         /// Gets or sets a CustomFormat
         /// </summary>
         [Description("The default custom naming format used for references to EntityTypes with custom naming formats.")]
-        [Property(name: "CustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "CustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string CustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a NamingChoice
         /// </summary>
         [Description("")]
-        [Property(name: "NamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice")]
+        [Property(name: "NamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice", allowOverride: false, isOverride: false, isDerived: false)]
         public EffectiveReferenceModeNamingChoice NamingChoice { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierCustomFormat
         /// </summary>
         [Description("The default custom naming format used for simple primary identification of EntityTypes with custom naming formats")]
-        [Property(name: "PrimaryIdentifierCustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "PrimaryIdentifierCustomFormat", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string PrimaryIdentifierCustomFormat { get; set; }
  
         /// <summary>
         /// Gets or sets a PrimaryIdentifierNamingChoice
         /// </summary>
         [Description("The default naming pattern used for simple primary identification of EntityTypes with this kind of reference mode")]
-        [Property(name: "PrimaryIdentifierNamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice")]
+        [Property(name: "PrimaryIdentifierNamingChoice", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "ValueTypeName", typeName: "EffectiveReferenceModeNamingChoice", allowOverride: false, isOverride: false, isDerived: false)]
         public EffectiveReferenceModeNamingChoice PrimaryIdentifierNamingChoice { get; set; }
  
         /// <summary>
         /// Gets or sets a ReferenceModeTargetKind
         /// </summary>
         [Description("")]
-        [Property(name: "ReferenceModeTargetKind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Popular", typeName: "ReferenceModeType")]
+        [Property(name: "ReferenceModeTargetKind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Popular", typeName: "ReferenceModeType", allowOverride: false, isOverride: false, isDerived: false)]
         public ReferenceModeType ReferenceModeTargetKind { get; set; }
  
     }

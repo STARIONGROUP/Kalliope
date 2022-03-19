@@ -252,7 +252,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.PathComponent == null)
+            if (poco.PathComponent == null && !string.IsNullOrEmpty(dto.PathComponent))
             {
                 if (cache.TryGetValue(dto.PathComponent, out lazyPoco))
                 {
@@ -260,7 +260,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ProjectionRequiredError == null)
+            if (poco.ProjectionRequiredError == null && !string.IsNullOrEmpty(dto.ProjectionRequiredError))
             {
                 if (cache.TryGetValue(dto.ProjectionRequiredError, out lazyPoco))
                 {
@@ -288,7 +288,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SingleLeadRolePath == null)
+            if (poco.SingleLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleLeadRolePath))
             {
                 if (cache.TryGetValue(dto.SingleLeadRolePath, out lazyPoco))
                 {
@@ -296,7 +296,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SingleOwnedLeadRolePath == null)
+            if (poco.SingleOwnedLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleOwnedLeadRolePath))
             {
                 if (cache.TryGetValue(dto.SingleOwnedLeadRolePath, out lazyPoco))
                 {

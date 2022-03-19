@@ -43,6 +43,13 @@ namespace Kalliope.Core
         }
 
         /// <summary>
+        /// Gets the unique identifier of the <see cref="RoleText"/>
+        /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id { get; set; }
+
+        /// <summary>
         /// Specify if a subtype can be explicitly populated without satisfying the derivation path
         /// </summary>
         [Description("Specify if a subtype can be explicitly populated without satisfying the derivation path.")]

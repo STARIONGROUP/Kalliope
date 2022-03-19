@@ -51,6 +51,22 @@ namespace Kalliope.Generator.Tests.Generators
         }
 
         [Test]
+        public void Verify_That_Generate_Class_For_ModelThing_Returns_Expected_Result()
+        {
+            var entityType = this.dtoGenerator.TypeDrops.Single(x => x.Name == "ModelThing");
+
+            var dto = this.dtoGenerator.GenerateType(entityType);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "ModelThing.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ModelThing.cs"));
+
+            Assert.AreEqual(expected, dto);
+        }
+
+        [Test]
         public void Verify_That_Generate_Class_For_EntityType_Returns_Expected_Result()
         {
             var entityType = this.dtoGenerator.TypeDrops.Single(x => x.Name == "EntityType");

@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "TextDataType")]
     public class VariableLengthTextDataType : TextDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VariableLengthTextDataType"/> class
-        /// </summary>
-        public VariableLengthTextDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VariableLengthTextDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="VariableLengthTextDataType"/>
-        /// </param>
-        public VariableLengthTextDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

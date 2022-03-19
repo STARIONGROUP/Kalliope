@@ -30,15 +30,7 @@ namespace Kalliope.DTO
         /// <returns></returns>
         public string ComputeId()
         {
-            return this.GetHashCode().ToString();
+            return $"{this.Container}:{this.RoleIndex}";
         }
-
-        /// <summary>
-        /// Calculates the hash code
-        /// </summary>
-        /// <returns>
-        /// an integer representing the Hash code
-        /// </returns>
-        public override int GetHashCode() => (this.RoleIndex, this.PreBoundText, this.PostBoundText, this.FollowingText).GetHashCode();
     }
 }

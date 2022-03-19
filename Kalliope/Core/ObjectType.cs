@@ -38,29 +38,13 @@ namespace Kalliope.Core
             this.DataTypeLength = 0;
 
             this.Abbreviations = new List<NameAlias>();
-            this.ObjectTypeInstances = new List<ObjectTypeInstance>();
             this.EntityTypeInstances = new List<EntityTypeInstance>();
             this.EntityTypeSubtypeInstances = new List<EntityTypeSubtypeInstance>();
+            this.ObjectTypeInstances = new List<ObjectTypeInstance>();
             this.PlayedRoles = new List<Role>();
+            this.ValueTypeInstances = new List<ValueTypeInstance>();
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ObjectType"/>
-        /// </param>
-        internal ObjectType(ORMModel model)
-            : this()
-        {
-            this.Model = model;
-        }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModel"/>
-        /// </summary>
-        public ORMModel Model { get; set; }
-
+        
         /// <summary>
         /// An instance of this object type can exist without playing any non-identifying roles
         /// </summary>

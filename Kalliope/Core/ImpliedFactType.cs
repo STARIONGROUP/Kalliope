@@ -27,25 +27,6 @@ namespace Kalliope.Core
     public class ImpliedFactType : FactType
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SubtypeFact"/> class
-        /// </summary>
-        public ImpliedFactType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubtypeFact"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="SubtypeFact"/>
-        /// </param>
-        public ImpliedFactType(ORMModel model)
-        {
-            this.Model = model;
-            model.FactTypes.Add(this);
-        }
-
-        /// <summary>
         /// Gets or sets the referenced <see cref="Objectification"/>
         /// </summary>
         [Description("")]

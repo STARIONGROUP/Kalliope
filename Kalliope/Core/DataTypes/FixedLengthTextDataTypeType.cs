@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "TextDataType")]
     public class FixedLengthTextDataType : TextDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLengthTextDataType"/> class
-        /// </summary>
-        public FixedLengthTextDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FixedLengthTextDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="FixedLengthTextDataType"/>
-        /// </param>
-        public FixedLengthTextDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

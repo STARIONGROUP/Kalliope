@@ -30,24 +30,6 @@ namespace Kalliope.Core
     public class UniquenessConstraint : SetConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniquenessConstraint"/> class.
-        /// </summary>
-        public UniquenessConstraint()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UniquenessConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="UniquenessConstraint"/>
-        /// </param>
-        public UniquenessConstraint(ORMModel model) :
-            base(model)
-        {
-        }
-
-        /// <summary>
         /// Is this the preferred identifier for the EntityType role player of the opposite role(s)?
         /// The opposite role player of an internal constraint on an objectified FactType is the objectifying EntityType.
         /// Binary FactTypes with a spanning internal uniqueness constraint and ternary (or higher arity) FactTypes are automatically objectified

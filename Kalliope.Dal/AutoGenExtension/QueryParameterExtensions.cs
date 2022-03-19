@@ -154,7 +154,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ParameterType == null)
+            if (poco.ParameterType == null && !string.IsNullOrEmpty(dto.ParameterType))
             {
                 if (cache.TryGetValue(dto.ParameterType, out lazyPoco))
                 {

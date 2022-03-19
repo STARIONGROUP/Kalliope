@@ -145,7 +145,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TargetRole == null)
+            if (poco.TargetRole == null && !string.IsNullOrEmpty(dto.TargetRole))
             {
                 if (cache.TryGetValue(dto.TargetRole, out lazyPoco))
                 {

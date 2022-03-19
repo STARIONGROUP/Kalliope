@@ -136,7 +136,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibilityError == null)
+            if (poco.CompatibilityError == null && !string.IsNullOrEmpty(dto.CompatibilityError))
             {
                 if (cache.TryGetValue(dto.CompatibilityError, out lazyPoco))
                 {

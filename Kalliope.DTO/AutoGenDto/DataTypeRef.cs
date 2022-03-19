@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a DataTypeRef
     /// </summary>
@@ -54,21 +55,21 @@ namespace Kalliope.DTO
         /// Gets or sets a Length
         /// </summary>
         [Description("The value of the Length facet. Holds the Precision fact for Decimal and Money data types")]
-        [Property(name: "Length", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
+        [Property(name: "Length", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int Length { get; set; }
  
         /// <summary>
         /// Gets or sets a Reference
         /// </summary>
         [Description("The value of the referenced element's unique id")]
-        [Property(name: "Reference", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Reference", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Reference { get; set; }
  
         /// <summary>
         /// Gets or sets a Scale
         /// </summary>
         [Description("The value of the Scale facet")]
-        [Property(name: "Scale", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "")]
+        [Property(name: "Scale", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int Scale { get; set; }
  
     }

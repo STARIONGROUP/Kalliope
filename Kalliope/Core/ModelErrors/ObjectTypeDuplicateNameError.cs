@@ -29,6 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "DuplicateNameError")]
     public class ObjectTypeDuplicateNameError : DuplicateNameError
     {
-
     }
 }

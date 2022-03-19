@@ -223,7 +223,7 @@ namespace Kalliope
         /// </returns>
         private OrmRoot ReadOrmRoot(Stream stream, bool validate = false, ValidationEventHandler validationEventHandler = null)
         {
-            var ormRoot = new OrmRoot(this.loggerFactory);
+            var ormRoot = new OrmRoot();
             return ormRoot;
         }
 

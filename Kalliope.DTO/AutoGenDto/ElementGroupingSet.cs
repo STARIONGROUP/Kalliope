@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ElementGroupingSet
     /// </summary>
@@ -50,21 +51,21 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Elements { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ElementGrouping"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Groupings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]
+        [Property(name: "Groupings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Groupings { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel", allowOverride: false, isOverride: false, isDerived: false)]
         public string Model { get; set; }
  
     }

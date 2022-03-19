@@ -36,6 +36,15 @@ namespace Kalliope.Core
     public class Function : ORMNamedElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Function"/> class
+        /// </summary>
+        public Function()
+        {
+            this.DuplicateNameError = new FunctionDuplicateNameError();
+            this.Parameters = new List<FunctionParameter>();
+        }
+
+        /// <summary>
         /// True if this function or operator returns a boolean value, making it appropriate for use as a path condition
         /// </summary>
         [Description("Set if this function returns a boolean value that can be evaluated directly as a condition")]

@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ValueConstraint
     /// </summary>
@@ -46,49 +47,49 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
+        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition", allowOverride: false, isOverride: false, isDerived: false)]
         public string Definition { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError", allowOverride: false, isOverride: false, isDerived: false)]
         public string DuplicateNameError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note", allowOverride: false, isOverride: false, isDerived: false)]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a Text
         /// </summary>
         [Description("The range of possible values. To specify a range, use '..' between the range endpoints, square brackets to specify a closed endpoint, and parentheses to specify an open endpoint. Commas are used to entered multiple ranges or discrete values. Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30")]
-        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Text { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueRangeOverlapError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ValueRangeOverlapError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueRangeOverlapError")]
+        [Property(name: "ValueRangeOverlapError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueRangeOverlapError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ValueRangeOverlapError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueRange"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ValueRanges", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueRange")]
+        [Property(name: "ValueRanges", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueRange", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ValueRanges { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ValueConstraintValueTypeDetachedError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ValueTypeDetachedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraintValueTypeDetachedError")]
+        [Property(name: "ValueTypeDetachedError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraintValueTypeDetachedError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ValueTypeDetachedError { get; set; }
  
     }

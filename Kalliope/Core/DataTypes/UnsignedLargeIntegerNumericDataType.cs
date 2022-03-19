@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class UnsignedLargeIntegerNumericDataType : NumericDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnsignedLargeIntegerNumericDataType"/> class
-        /// </summary>
-        public UnsignedLargeIntegerNumericDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnsignedLargeIntegerNumericDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="UnsignedLargeIntegerNumericDataType"/>
-        /// </param>
-        public UnsignedLargeIntegerNumericDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

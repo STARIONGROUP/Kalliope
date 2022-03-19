@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ObjectTypeShape
     /// </summary>
@@ -56,35 +57,35 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="CardinalityConstraintShape"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "CardinalityConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraintShape")]
+        [Property(name: "CardinalityConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraintShape", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> CardinalityConstraintShapes { get; set; }
  
         /// <summary>
         /// Gets or sets a DisplayRelatedTypes
         /// </summary>
         [Description("hould links to subtypes and supertypes be attached to this shape")]
-        [Property(name: "DisplayRelatedTypes", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "RelatedTypesDisplay")]
+        [Property(name: "DisplayRelatedTypes", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "RelatedTypesDisplay", allowOverride: false, isOverride: false, isDerived: false)]
         public RelatedTypesDisplay DisplayRelatedTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a ExpandRefMode
         /// </summary>
         [Description("Should shapes for the FactType and ValueType corresponding to this ReferenceMode pattern be displayed on the diagram")]
-        [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool ExpandRefMode { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
         [Description("The subject ObjectType that is represented by this shape")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public string Subject { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="ValueConstraintShape"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ValueConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraintShape")]
+        [Property(name: "ValueConstraintShapes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraintShape", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ValueConstraintShapes { get; set; }
  
     }

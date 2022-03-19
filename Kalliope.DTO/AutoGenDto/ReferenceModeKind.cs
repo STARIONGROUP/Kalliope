@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ReferenceModeKind
     /// </summary>
@@ -52,14 +53,14 @@ namespace Kalliope.DTO
         /// Gets or sets a FormatString
         /// </summary>
         [Description("Default format string for reference mode patterns with this ReferenceModeKind. Replacement field {0}=EntityTypeName, {1}=ReferenceModeName")]
-        [Property(name: "FormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "FormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string FormatString { get; set; }
  
         /// <summary>
         /// Gets or sets a ReferenceModeType
         /// </summary>
         [Description("One of Popular, UnitBased, or General")]
-        [Property(name: "ReferenceModeType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "General", typeName: "ReferenceModeType")]
+        [Property(name: "ReferenceModeType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "General", typeName: "ReferenceModeType", allowOverride: false, isOverride: false, isDerived: false)]
         public ReferenceModeType ReferenceModeType { get; set; }
  
     }

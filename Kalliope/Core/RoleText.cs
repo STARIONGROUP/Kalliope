@@ -36,8 +36,8 @@ namespace Kalliope.Core
         /// </summary>
         [Description("A unique identifier for this element")]
         [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
-        public override string Id => this.GetHashCode().ToString();
-        
+        public override string Id { get; set; }
+
         /// <summary>
         /// The zero-based index of the role
         /// </summary>
@@ -65,13 +65,5 @@ namespace Kalliope.Core
         [Description("Text following a role replacement field and associated bound text")]
         [Property(name: "FollowingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string FollowingText { get; set; }
-
-        /// <summary>
-        /// Calculates the hash code
-        /// </summary>
-        /// <returns>
-        /// an integer representing the Hash code
-        /// </returns>
-        public override int GetHashCode() => (this.RoleIndex, this.PreBoundText, this.PostBoundText, this.FollowingText).GetHashCode();
     }
 }

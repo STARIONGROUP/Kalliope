@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ReadingOrder
     /// </summary>
@@ -53,21 +54,21 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="Reading"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Readings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Reading")]
+        [Property(name: "Readings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Reading", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Readings { get; set; }
  
         /// <summary>
         /// Gets or sets a ReadingText
         /// </summary>
         [Description("The text for the default Reading of this ReadingOrder. Includes ordered replacement fields corresponding to this ReadingOrder")]
-        [Property(name: "ReadingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "ReadingText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string ReadingText { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="RoleBase"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Roles { get; set; }
  
     }

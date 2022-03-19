@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ConstraintRoleSequenceJoinPath
     /// </summary>
@@ -55,21 +56,21 @@ namespace Kalliope.DTO
         /// Gets or sets a IsAutomatic
         /// </summary>
         [Description("")]
-        [Property(name: "IsAutomatic", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsAutomatic", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsAutomatic { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="LeadRolePath"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ProjectedPathComponents { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPathRequiresProjectionError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPathRequiresProjectionError")]
+        [Property(name: "ProjectionRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPathRequiresProjectionError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ProjectionRequiredError { get; set; }
  
     }

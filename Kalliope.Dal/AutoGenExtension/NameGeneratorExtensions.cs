@@ -177,7 +177,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RefinedInstance == null)
+            if (poco.RefinedInstance == null && !string.IsNullOrEmpty(dto.RefinedInstance))
             {
                 if (cache.TryGetValue(dto.RefinedInstance, out lazyPoco))
                 {

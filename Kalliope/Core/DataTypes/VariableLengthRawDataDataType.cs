@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "RawDataDataType")]
     public class VariableLengthRawDataDataType : RawDataDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VariableLengthRawDataDataType"/> class
-        /// </summary>
-        public VariableLengthRawDataDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VariableLengthRawDataDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="VariableLengthRawDataDataType"/>
-        /// </param>
-        public VariableLengthRawDataDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

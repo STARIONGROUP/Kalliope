@@ -34,31 +34,13 @@ namespace Kalliope.Core
         /// </summary>
         protected SetComparisonConstraint()
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="SetComparisonConstraint"/>
-        /// </param>
-        protected SetComparisonConstraint(ORMModel model)
-        {
             this.Modality = ConstraintModality.Alethic;
             this.FactTypes = new List<FactType>();
             this.RoleSequences = new List<SetComparisonConstraintRoleSequence>();
             this.CompatibleRolePlayerTypeErrors = new List<CompatibleRolePlayerTypeError>();
             this.ContradictionError = new List<ContradictionError>();
-
-            this.Model = model;
-            model.SetComparisonConstraints.Add(this);
         }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModel"/>
-        /// </summary>
-        public ORMModel Model { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the owned <see cref="Definition"/>
         /// </summary>

@@ -21,9 +21,7 @@
 namespace Kalliope.Core
 {
     using Kalliope.Common;
-
-    using Microsoft.Extensions.Logging;
-
+    
     /// <summary>
     /// An object type representing a self-identifying value
     /// </summary>
@@ -31,32 +29,6 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ObjectType")]
     public class ValueType : ObjectType
     {
-        /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ValueType"/> class
-        /// </summary>
-        public ValueType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ValueType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ValueType"/>
-        /// </param>
-        internal ValueType(ORMModel model, ILoggerFactory loggerFactory)
-            : base(model)
-        {
-            this.loggerFactory = loggerFactory;
-
-            model.ObjectTypes.Add(this);
-        }
-
         /// <summary>
         /// Gets or sets the owned <see cref="DataTypeNotSpecifiedError"/>
         /// </summary>

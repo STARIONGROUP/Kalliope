@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a SubsetConstraint
     /// </summary>
@@ -45,14 +46,14 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError", allowOverride: false, isOverride: false, isDerived: false)]
         public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError")]
+        [Property(name: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError", allowOverride: false, isOverride: false, isDerived: false)]
         public string SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError { get; set; }
  
     }

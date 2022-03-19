@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a OrmRoot
     /// </summary>
@@ -49,28 +50,35 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="ORMDiagram"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMDiagram")]
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMDiagram", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Diagrams { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="GenerationState"/>
         /// </summary>
         [Description("")]
-        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationState")]
+        [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationState", allowOverride: false, isOverride: false, isDerived: false)]
         public string GenerationState { get; set; }
+ 
+        /// <summary>
+        /// Gets the derived Id
+        /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id => this.ComputeId();
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ORMModel"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel", allowOverride: false, isOverride: false, isDerived: false)]
         public string Model { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="NameGenerator"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator")]
+        [Property(name: "NameGenerator", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameGenerator", allowOverride: false, isOverride: false, isDerived: false)]
         public string NameGenerator { get; set; }
  
     }

@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ImpliedFactType
     /// </summary>
@@ -45,7 +46,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="Objectification"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
+        [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification", allowOverride: false, isOverride: false, isDerived: false)]
         public string ImpliedByObjectification { get; set; }
  
     }

@@ -158,7 +158,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Parameter == null)
+            if (poco.Parameter == null && !string.IsNullOrEmpty(dto.Parameter))
             {
                 if (cache.TryGetValue(dto.Parameter, out lazyPoco))
                 {
@@ -166,7 +166,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SourceCalculatedValue == null)
+            if (poco.SourceCalculatedValue == null && !string.IsNullOrEmpty(dto.SourceCalculatedValue))
             {
                 if (cache.TryGetValue(dto.SourceCalculatedValue, out lazyPoco))
                 {
@@ -174,7 +174,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SourceConstant == null)
+            if (poco.SourceConstant == null && !string.IsNullOrEmpty(dto.SourceConstant))
             {
                 if (cache.TryGetValue(dto.SourceConstant, out lazyPoco))
                 {

@@ -37,7 +37,7 @@ namespace Kalliope.Core
         /// A unique identifier for this element
         /// </summary>
         [Description("A unique identifier for this element")]
-        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: true, isOverride: false, isDerived: false)]
         public virtual string Id { get; set; }
     }
 }

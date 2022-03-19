@@ -32,6 +32,14 @@ namespace Kalliope.Core
     public class Objectification : ORMModelElement
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="ImpliedFactTypes"/> class
+        /// </summary>
+        public Objectification()
+        {
+            this.ImpliedFactTypes = new List<FactType>();
+        }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the <see cref="Objectification"/> is implied or not
         /// </summary>
         /// <remarks>

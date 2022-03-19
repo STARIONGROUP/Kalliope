@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ORMBaseShape
     /// </summary>
@@ -48,14 +49,14 @@ namespace Kalliope.DTO
         /// Gets or sets a AbsoluteBounds
         /// </summary>
         [Description("absolute bounds")]
-        [Property(name: "AbsoluteBounds", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "AbsoluteBounds", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string AbsoluteBounds { get; set; }
  
         /// <summary>
         /// Gets or sets a IsExpanded
         /// </summary>
         [Description("a value indicating whether this shape is expanded or not")]
-        [Property(name: "IsExpanded", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "")]
+        [Property(name: "IsExpanded", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsExpanded { get; set; }
  
     }

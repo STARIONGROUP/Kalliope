@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a MandatoryConstraint
     /// </summary>
@@ -52,42 +53,42 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionContradictsMandatoryError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError")]
+        [Property(name: "ExclusionContradictsMandatoryError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionContradictsMandatoryError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ExclusionContradictsMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ExclusionConstraint"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ExclusiveOrExclusionConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionConstraint")]
+        [Property(name: "ExclusiveOrExclusionConstraint", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ExclusionConstraint", allowOverride: false, isOverride: false, isDerived: false)]
         public string ExclusiveOrExclusionConstraint { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied
         /// </summary>
         [Description("")]
-        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsImplied { get; set; }
  
         /// <summary>
         /// Gets or sets a IsSimple
         /// </summary>
         [Description("")]
-        [Property(name: "IsSimple", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsSimple", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsSimple { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError")]
+        [Property(name: "NotWellModeledSubsetAndMandatoryError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NotWellModeledSubsetAndMandatoryError", allowOverride: false, isOverride: false, isDerived: false)]
         public string NotWellModeledSubsetAndMandatoryError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> PopulationMandatoryErrors { get; set; }
  
     }

@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class DecimalNumericDataType : NumericDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DecimalNumericDataType"/> class
-        /// </summary>
-        public DecimalNumericDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DecimalNumericDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="DecimalNumericDataType"/>
-        /// </param>
-        public DecimalNumericDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

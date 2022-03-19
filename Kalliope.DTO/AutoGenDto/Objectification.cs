@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a Objectification
     /// </summary>
@@ -49,28 +50,28 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="FactType"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
+        [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ImpliedFactTypes { get; set; }
  
         /// <summary>
         /// Gets or sets a IsImplied
         /// </summary>
         [Description("")]
-        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
+        [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool IsImplied { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="FactType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
+        [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType", allowOverride: false, isOverride: false, isDerived: false)]
         public string NestedFactType { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public string NestingType { get; set; }
  
     }

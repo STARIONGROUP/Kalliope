@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a InformalDerivationRule
     /// </summary>
@@ -51,8 +52,15 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="DerivationNote"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DerivationNote", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DerivationNote")]
+        [Property(name: "DerivationNote", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DerivationNote", allowOverride: false, isOverride: false, isDerived: false)]
         public string DerivationNote { get; set; }
+ 
+        /// <summary>
+        /// Gets the derived Id
+        /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id => this.ComputeId();
  
     }
 }

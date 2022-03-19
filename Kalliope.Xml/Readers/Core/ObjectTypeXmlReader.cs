@@ -115,8 +115,8 @@ namespace Kalliope.Xml.Readers
                                     var dataTypeRef = new DataTypeRef();
                                     var dataTypeRefXmlReader = new DataTypeRefXmlReader();
                                     dataTypeRefXmlReader.ReadXml(dataTypeRef, dataTypeRefSubtree, modelThings);
-                                    objectType.ConceptualDataType = dataTypeRef.Id;
                                     dataTypeRef.Container = objectType.Id;
+                                    objectType.ConceptualDataType = dataTypeRef.Id;
                                 }
                             }
                             break;
@@ -140,8 +140,8 @@ namespace Kalliope.Xml.Readers
                                 var subtypeDerivationRule = new SubtypeDerivationRule();
                                 var subtypeDerivationRuleXmlReader = new SubtypeDerivationRuleXmlReader();
                                 subtypeDerivationRuleXmlReader.ReadXml(subtypeDerivationRule, subtypeDerivationRuleSubtree, modelThings);
-                                objectType.DerivationRule = subtypeDerivationRule.Id;
                                 subtypeDerivationRule.Container = objectType.Id;
+                                objectType.DerivationRule = subtypeDerivationRule.Id;
                             }
                             break;
                         default:
@@ -180,8 +180,8 @@ namespace Kalliope.Xml.Readers
                                 var definition = new Definition();
                                 var definitionXmlReader = new DefinitionXmlReader();
                                 definitionXmlReader.ReadXml(definition, definitionSubtree, modelThings);
-                                objectType.Definition = definition.Id;
                                 definition.Container = objectType.Id;
+                                objectType.Definition = definition.Id;
                             }
                             break;
                         default:
@@ -221,8 +221,8 @@ namespace Kalliope.Xml.Readers
                                 var note = new Note();
                                 var noteXmlReader = new NoteXmlReader();
                                 noteXmlReader.ReadXml(note, noteSubtree, modelThings);
-                                objectType.Note = note.Id;
                                 note.Container = objectType.Id;
+                                objectType.Note = note.Id;
                             }
                             break;
                         default:

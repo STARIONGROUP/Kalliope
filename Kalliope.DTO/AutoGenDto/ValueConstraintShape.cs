@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ValueConstraintShape
     /// </summary>
@@ -54,21 +55,21 @@ namespace Kalliope.DTO
         /// Gets or sets a MaximumDisplayedColumns
         /// </summary>
         [Description("The maximum number of columns to be used to display the values and ranges in this shape")]
-        [Property(name: "MaximumDisplayedColumns", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
+        [Property(name: "MaximumDisplayedColumns", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int MaximumDisplayedColumns { get; set; }
  
         /// <summary>
         /// Gets or sets a MaximumDisplayedValues
         /// </summary>
         [Description("The maximum total number of values and ranges to be displayed with this shape")]
-        [Property(name: "MaximumDisplayedValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "")]
+        [Property(name: "MaximumDisplayedValues", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "0", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int MaximumDisplayedValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ValueConstraint"/>
         /// </summary>
         [Description("The subject ValueConstraint that is represented by this shape")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraint")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ValueConstraint", allowOverride: false, isOverride: false, isDerived: false)]
         public string Subject { get; set; }
  
     }

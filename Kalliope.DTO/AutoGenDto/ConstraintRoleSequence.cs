@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ConstraintRoleSequence
     /// </summary>
@@ -46,21 +47,21 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPath"/>
         /// </summary>
         [Description("")]
-        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath")]
+        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath", allowOverride: false, isOverride: false, isDerived: false)]
         public string JoinPath { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="JoinPathRequiredError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError")]
+        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError", allowOverride: false, isOverride: false, isDerived: false)]
         public string JoinPathRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
+        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Roles { get; set; }
  
     }

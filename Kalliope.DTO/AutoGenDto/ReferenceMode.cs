@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ReferenceMode
     /// </summary>
@@ -51,7 +52,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="ReferenceModeKind"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Kind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
+        [Property(name: "Kind", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind", allowOverride: false, isOverride: false, isDerived: false)]
         public string Kind { get; set; }
  
     }

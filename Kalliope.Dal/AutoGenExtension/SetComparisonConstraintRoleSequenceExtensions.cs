@@ -161,7 +161,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPath == null)
+            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath))
             {
                 if (cache.TryGetValue(dto.JoinPath, out lazyPoco))
                 {
@@ -169,7 +169,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPathRequiredError == null)
+            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError))
             {
                 if (cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
                 {

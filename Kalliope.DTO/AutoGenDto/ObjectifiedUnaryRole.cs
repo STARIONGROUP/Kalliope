@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ObjectifiedUnaryRole
     /// </summary>
@@ -45,7 +46,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="Role"/>
         /// </summary>
         [Description("Links a unary role with the objectified unary role in the implied FactType. Implies a single-column equality constraint between the two roles.")]
-        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
+        [Property(name: "TargetRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role", allowOverride: false, isOverride: false, isDerived: false)]
         public string TargetRole { get; set; }
  
     }

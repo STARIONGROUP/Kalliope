@@ -209,7 +209,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null)
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
             {
                 if (cache.TryGetValue(dto.Note, out lazyPoco))
                 {
@@ -247,7 +247,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RootObjectType == null)
+            if (poco.RootObjectType == null && !string.IsNullOrEmpty(dto.RootObjectType))
             {
                 if (cache.TryGetValue(dto.RootObjectType, out lazyPoco))
                 {
@@ -255,7 +255,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RootObjectTypeRequiredError == null)
+            if (poco.RootObjectTypeRequiredError == null && !string.IsNullOrEmpty(dto.RootObjectTypeRequiredError))
             {
                 if (cache.TryGetValue(dto.RootObjectTypeRequiredError, out lazyPoco))
                 {

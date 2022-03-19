@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a RecognizedPhrase
     /// </summary>
@@ -55,14 +56,14 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="NameAlias"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameAlias")]
+        [Property(name: "Abbreviations", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "NameAlias", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Abbreviations { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="RecognizedPhraseDuplicateNameError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhraseDuplicateNameError")]
+        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhraseDuplicateNameError", allowOverride: false, isOverride: false, isDerived: false)]
         public string DuplicateNameError { get; set; }
  
     }

@@ -150,7 +150,7 @@ namespace Kalliope.Dal
             }
 
 			{% elseif property.IsEnumerable == false %}
-            if (poco.{{ property.Name }} == null)
+            if (poco.{{ property.Name }} == null && !string.IsNullOrEmpty(dto.{{ property.Name }}))
             {
                 if (cache.TryGetValue(dto.{{ property.Name }}, out lazyPoco))
                 {

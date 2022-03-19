@@ -155,7 +155,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateNameError == null)
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
             {
                 if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
                 {

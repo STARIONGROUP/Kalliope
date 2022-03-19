@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ORMModelElement
     /// </summary>
@@ -47,14 +48,14 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "AssociatedModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
+        [Property(name: "AssociatedModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> AssociatedModelErrors { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="ModelError"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
+        [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ExtensionModelErrors { get; set; }
  
     }

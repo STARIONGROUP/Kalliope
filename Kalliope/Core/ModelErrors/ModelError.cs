@@ -34,12 +34,7 @@ namespace Kalliope.Core
         {
             this.ErrorState = ModelErrorState.Error;
         }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModelElement"/>
-        /// </summary>
-        public ORMModelElement ORMModelElement { get; set; }
-
+        
         /// <summary>
         /// Description of the model validation error
         /// </summary>

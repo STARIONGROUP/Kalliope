@@ -219,7 +219,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null)
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
             {
                 if (cache.TryGetValue(dto.Definition, out lazyPoco))
                 {
@@ -227,7 +227,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivationExpression == null)
+            if (poco.DerivationExpression == null && !string.IsNullOrEmpty(dto.DerivationExpression))
             {
                 if (cache.TryGetValue(dto.DerivationExpression, out lazyPoco))
                 {
@@ -235,7 +235,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivationRule == null)
+            if (poco.DerivationRule == null && !string.IsNullOrEmpty(dto.DerivationRule))
             {
                 if (cache.TryGetValue(dto.DerivationRule, out lazyPoco))
                 {
@@ -263,7 +263,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImpliedInternalUniquenessConstraintError == null)
+            if (poco.ImpliedInternalUniquenessConstraintError == null && !string.IsNullOrEmpty(dto.ImpliedInternalUniquenessConstraintError))
             {
                 if (cache.TryGetValue(dto.ImpliedInternalUniquenessConstraintError, out lazyPoco))
                 {
@@ -281,7 +281,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.InternalUniquenessConstraintRequiredError == null)
+            if (poco.InternalUniquenessConstraintRequiredError == null && !string.IsNullOrEmpty(dto.InternalUniquenessConstraintRequiredError))
             {
                 if (cache.TryGetValue(dto.InternalUniquenessConstraintRequiredError, out lazyPoco))
                 {
@@ -289,7 +289,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null)
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
             {
                 if (cache.TryGetValue(dto.Note, out lazyPoco))
                 {
@@ -317,7 +317,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ReadingRequiredError == null)
+            if (poco.ReadingRequiredError == null && !string.IsNullOrEmpty(dto.ReadingRequiredError))
             {
                 if (cache.TryGetValue(dto.ReadingRequiredError, out lazyPoco))
                 {

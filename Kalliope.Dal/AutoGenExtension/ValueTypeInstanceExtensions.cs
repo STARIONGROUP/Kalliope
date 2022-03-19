@@ -156,7 +156,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleValueTypeInstanceValueError == null)
+            if (poco.CompatibleValueTypeInstanceValueError == null && !string.IsNullOrEmpty(dto.CompatibleValueTypeInstanceValueError))
             {
                 if (cache.TryGetValue(dto.CompatibleValueTypeInstanceValueError, out lazyPoco))
                 {
@@ -174,7 +174,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifiedInstanceRequiredError == null)
+            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError))
             {
                 if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
                 {

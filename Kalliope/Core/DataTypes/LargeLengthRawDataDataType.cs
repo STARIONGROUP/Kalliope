@@ -29,20 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "RawDataDataType")]
     public class LargeLengthRawDataDataType : RawDataDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LargeLengthRawDataDataType"/> class
-        /// </summary>
-        public LargeLengthRawDataDataType()
-        {
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LargeLengthRawDataDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="LargeLengthRawDataDataType"/>
-        /// </param>
-        public LargeLengthRawDataDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

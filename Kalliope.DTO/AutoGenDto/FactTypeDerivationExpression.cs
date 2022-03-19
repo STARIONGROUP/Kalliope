@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a FactTypeDerivationExpression
     /// </summary>
@@ -52,7 +53,7 @@ namespace Kalliope.DTO
         /// Gets or sets a DerivationStorage
         /// </summary>
         [Description("")]
-        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Derived", typeName: "DerivationExpressionStorageType")]
+        [Property(name: "DerivationStorage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Derived", typeName: "DerivationExpressionStorageType", allowOverride: false, isOverride: false, isDerived: false)]
         public DerivationExpressionStorageType DerivationStorage { get; set; }
  
     }

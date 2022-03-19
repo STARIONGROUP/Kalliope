@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a LeadRolePath
     /// </summary>
@@ -58,28 +59,28 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValue"/> instances
         /// </summary>
         [Description("The values calculated using roles in this component")]
-        [Property(name: "CalculatedValues", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
+        [Property(name: "CalculatedValues", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> CalculatedValues { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
+        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note", allowOverride: false, isOverride: false, isDerived: false)]
         public string Note { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PathObjectUnifier"/> instances
         /// </summary>
         [Description("The object unifier that uses pathed roles and path roots in this role path")]
-        [Property(name: "ObjectUnifiers", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifier")]
+        [Property(name: "ObjectUnifiers", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifier", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ObjectUnifiers { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ProjectedPathComponents { get; set; }
  
     }

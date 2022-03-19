@@ -26,21 +26,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: true, general: "DataType")]
     public class LogicalDataType : DataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LogicalDataType"/> class
-        /// </summary>
-        public LogicalDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LogicalDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="LogicalDataType"/>
-        /// </param>
-        public LogicalDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

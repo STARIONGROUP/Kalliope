@@ -67,6 +67,9 @@ namespace Kalliope.Core
         [Property(name: "CalculatedValues", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
         public List<CalculatedPathValue> CalculatedValues { get; set; }
 
+        /// <summary>
+        /// Gets or sets the referenced <see cref="LeadRolePath"/>s
+        /// </summary>
         [Description("")]
         [Property(name: "ProjectedPathComponents", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
         public List<LeadRolePath> ProjectedPathComponents { get; set; }

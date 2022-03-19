@@ -142,7 +142,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.GenerationState == null)
+            if (poco.GenerationState == null && !string.IsNullOrEmpty(dto.GenerationState))
             {
                 if (cache.TryGetValue(dto.GenerationState, out lazyPoco))
                 {
@@ -150,7 +150,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Model == null)
+            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model))
             {
                 if (cache.TryGetValue(dto.Model, out lazyPoco))
                 {
@@ -158,7 +158,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NameGenerator == null)
+            if (poco.NameGenerator == null && !string.IsNullOrEmpty(dto.NameGenerator))
             {
                 if (cache.TryGetValue(dto.NameGenerator, out lazyPoco))
                 {

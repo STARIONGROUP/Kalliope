@@ -229,7 +229,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleRolePlayerTypeError == null)
+            if (poco.CompatibleRolePlayerTypeError == null && !string.IsNullOrEmpty(dto.CompatibleRolePlayerTypeError))
             {
                 if (cache.TryGetValue(dto.CompatibleRolePlayerTypeError, out lazyPoco))
                 {
@@ -237,7 +237,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null)
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
             {
                 if (cache.TryGetValue(dto.Definition, out lazyPoco))
                 {
@@ -245,7 +245,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateNameError == null)
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
             {
                 if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
                 {
@@ -273,7 +273,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FrequencyConstraintExactlyOneError == null)
+            if (poco.FrequencyConstraintExactlyOneError == null && !string.IsNullOrEmpty(dto.FrequencyConstraintExactlyOneError))
             {
                 if (cache.TryGetValue(dto.FrequencyConstraintExactlyOneError, out lazyPoco))
                 {
@@ -281,7 +281,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FrequencyConstraintMinMaxError == null)
+            if (poco.FrequencyConstraintMinMaxError == null && !string.IsNullOrEmpty(dto.FrequencyConstraintMinMaxError))
             {
                 if (cache.TryGetValue(dto.FrequencyConstraintMinMaxError, out lazyPoco))
                 {
@@ -289,7 +289,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FrequencyConstraintNonRestrictiveRangeError == null)
+            if (poco.FrequencyConstraintNonRestrictiveRangeError == null && !string.IsNullOrEmpty(dto.FrequencyConstraintNonRestrictiveRangeError))
             {
                 if (cache.TryGetValue(dto.FrequencyConstraintNonRestrictiveRangeError, out lazyPoco))
                 {
@@ -297,7 +297,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FrequencyConstraintViolatedByUniquenessConstraintError == null)
+            if (poco.FrequencyConstraintViolatedByUniquenessConstraintError == null && !string.IsNullOrEmpty(dto.FrequencyConstraintViolatedByUniquenessConstraintError))
             {
                 if (cache.TryGetValue(dto.FrequencyConstraintViolatedByUniquenessConstraintError, out lazyPoco))
                 {
@@ -305,7 +305,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImplicationError == null)
+            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError))
             {
                 if (cache.TryGetValue(dto.ImplicationError, out lazyPoco))
                 {
@@ -313,7 +313,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPath == null)
+            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath))
             {
                 if (cache.TryGetValue(dto.JoinPath, out lazyPoco))
                 {
@@ -321,7 +321,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPathRequiredError == null)
+            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError))
             {
                 if (cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
                 {
@@ -329,7 +329,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null)
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
             {
                 if (cache.TryGetValue(dto.Note, out lazyPoco))
                 {
@@ -347,7 +347,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooFewRoleSequencesError == null)
+            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError))
             {
                 if (cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
                 {
@@ -355,7 +355,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooManyRoleSequencesError == null)
+            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError))
             {
                 if (cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
                 {

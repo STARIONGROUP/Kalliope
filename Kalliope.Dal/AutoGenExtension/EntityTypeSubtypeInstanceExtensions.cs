@@ -161,7 +161,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifiedInstanceRequiredError == null)
+            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError))
             {
                 if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
                 {
@@ -179,7 +179,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SupertypeInstance == null)
+            if (poco.SupertypeInstance == null && !string.IsNullOrEmpty(dto.SupertypeInstance))
             {
                 if (cache.TryGetValue(dto.SupertypeInstance, out lazyPoco))
                 {

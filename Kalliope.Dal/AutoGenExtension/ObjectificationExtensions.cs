@@ -170,7 +170,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NestedFactType == null)
+            if (poco.NestedFactType == null && !string.IsNullOrEmpty(dto.NestedFactType))
             {
                 if (cache.TryGetValue(dto.NestedFactType, out lazyPoco))
                 {
@@ -178,7 +178,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NestingType == null)
+            if (poco.NestingType == null && !string.IsNullOrEmpty(dto.NestingType))
             {
                 if (cache.TryGetValue(dto.NestingType, out lazyPoco))
                 {

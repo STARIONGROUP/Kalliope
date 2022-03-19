@@ -164,7 +164,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.MaxValueMismatchError == null)
+            if (poco.MaxValueMismatchError == null && !string.IsNullOrEmpty(dto.MaxValueMismatchError))
             {
                 if (cache.TryGetValue(dto.MaxValueMismatchError, out lazyPoco))
                 {
@@ -172,7 +172,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.MinValueMismatchError == null)
+            if (poco.MinValueMismatchError == null && !string.IsNullOrEmpty(dto.MinValueMismatchError))
             {
                 if (cache.TryGetValue(dto.MinValueMismatchError, out lazyPoco))
                 {

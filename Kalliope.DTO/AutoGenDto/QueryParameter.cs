@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a QueryParameter
     /// </summary>
@@ -55,21 +56,21 @@ namespace Kalliope.DTO
         /// Gets or sets a Name
         /// </summary>
         [Description("The explicit name for this parameter")]
-        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Name { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ParameterType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        [Property(name: "ParameterType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public string ParameterType { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="LeadRolePath"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "PathBindings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath")]
+        [Property(name: "PathBindings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "LeadRolePath", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> PathBindings { get; set; }
  
     }

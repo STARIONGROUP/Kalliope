@@ -37,20 +37,7 @@ namespace Kalliope.Core
             this.MinFrequency = 1;
             this.MaxFrequency = 2;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExclusionConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ExclusionConstraint"/>
-        /// </param>
-        public FrequencyConstraint(ORMModel model) :
-            base(model)
-        {
-            this.MinFrequency = 1;
-            this.MaxFrequency = 2;
-        }
-
+        
         /// <summary>
         /// The minimum number of times an instance must be played by the constrained role(s)
         /// </summary>

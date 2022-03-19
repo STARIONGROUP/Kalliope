@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ObjectTypeInstance
     /// </summary>
@@ -52,21 +53,21 @@ namespace Kalliope.DTO
         /// Gets or sets a IdentifierName
         /// </summary>
         [Description("An ordered tuple of values for this instance, ignores objectification of the associated ObjectType")]
-        [Property(name: "IdentifierName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "IdentifierName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string IdentifierName { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ObjectifiedInstanceRequiredError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "ObjectifiedInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifiedInstanceRequiredError")]
+        [Property(name: "ObjectifiedInstanceRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectifiedInstanceRequiredError", allowOverride: false, isOverride: false, isDerived: false)]
         public string ObjectifiedInstanceRequiredError { get; set; }
  
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="PopulationMandatoryError"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError")]
+        [Property(name: "PopulationMandatoryErrors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PopulationMandatoryError", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> PopulationMandatoryErrors { get; set; }
  
     }

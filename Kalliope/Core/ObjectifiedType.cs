@@ -22,8 +22,6 @@ namespace Kalliope.Core
 {
     using Kalliope.Common;
 
-    using Microsoft.Extensions.Logging;
-
     /// <summary>
     /// An entity type that objectifies a fact type
     /// </summary>
@@ -31,30 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ObjectType")]
     public class ObjectifiedType : ObjectType
     {
-        /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectifiedType"/> class
-        /// </summary>
-        public ObjectifiedType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectifiedType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ObjectifiedType"/>
-        /// </param>
-        internal ObjectifiedType(ORMModel model, ILoggerFactory loggerFactory)
-            : base(model)
-        {
-            this.loggerFactory = loggerFactory;
-
-            model.ObjectTypes.Add(this);
-        }
     }
 }

@@ -30,24 +30,6 @@ namespace Kalliope.Core
     public class SubsetConstraint : SetComparisonConstraint
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
-        /// </summary>
-        public SubsetConstraint()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubsetConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="SubsetConstraint"/>
-        /// </param>
-        public SubsetConstraint(ORMModel model) :
-            base(model)
-        {
-        }
-
-        /// <summary>
         /// Gets or sets the owned <see cref="NotWellModeledSubsetAndMandatoryError"/>
         /// </summary>
         [Description("")]

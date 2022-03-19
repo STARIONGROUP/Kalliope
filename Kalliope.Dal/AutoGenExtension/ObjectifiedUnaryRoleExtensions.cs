@@ -187,7 +187,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Cardinality == null)
+            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality))
             {
                 if (cache.TryGetValue(dto.Cardinality, out lazyPoco))
                 {
@@ -195,7 +195,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivedFromCalculatedValue == null)
+            if (poco.DerivedFromCalculatedValue == null && !string.IsNullOrEmpty(dto.DerivedFromCalculatedValue))
             {
                 if (cache.TryGetValue(dto.DerivedFromCalculatedValue, out lazyPoco))
                 {
@@ -203,7 +203,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivedFromConstant == null)
+            if (poco.DerivedFromConstant == null && !string.IsNullOrEmpty(dto.DerivedFromConstant))
             {
                 if (cache.TryGetValue(dto.DerivedFromConstant, out lazyPoco))
                 {
@@ -231,7 +231,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RolePlayer == null)
+            if (poco.RolePlayer == null && !string.IsNullOrEmpty(dto.RolePlayer))
             {
                 if (cache.TryGetValue(dto.RolePlayer, out lazyPoco))
                 {
@@ -239,7 +239,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RolePlayerRequiredError == null)
+            if (poco.RolePlayerRequiredError == null && !string.IsNullOrEmpty(dto.RolePlayerRequiredError))
             {
                 if (cache.TryGetValue(dto.RolePlayerRequiredError, out lazyPoco))
                 {
@@ -247,7 +247,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TargetRole == null)
+            if (poco.TargetRole == null && !string.IsNullOrEmpty(dto.TargetRole))
             {
                 if (cache.TryGetValue(dto.TargetRole, out lazyPoco))
                 {
@@ -255,7 +255,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ValueConstraint == null)
+            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint))
             {
                 if (cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
                 {

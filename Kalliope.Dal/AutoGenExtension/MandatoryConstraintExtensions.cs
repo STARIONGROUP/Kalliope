@@ -229,7 +229,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleRolePlayerTypeError == null)
+            if (poco.CompatibleRolePlayerTypeError == null && !string.IsNullOrEmpty(dto.CompatibleRolePlayerTypeError))
             {
                 if (cache.TryGetValue(dto.CompatibleRolePlayerTypeError, out lazyPoco))
                 {
@@ -237,7 +237,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null)
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
             {
                 if (cache.TryGetValue(dto.Definition, out lazyPoco))
                 {
@@ -245,7 +245,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateNameError == null)
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
             {
                 if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
                 {
@@ -253,7 +253,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ExclusionContradictsMandatoryError == null)
+            if (poco.ExclusionContradictsMandatoryError == null && !string.IsNullOrEmpty(dto.ExclusionContradictsMandatoryError))
             {
                 if (cache.TryGetValue(dto.ExclusionContradictsMandatoryError, out lazyPoco))
                 {
@@ -261,7 +261,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ExclusiveOrExclusionConstraint == null)
+            if (poco.ExclusiveOrExclusionConstraint == null && !string.IsNullOrEmpty(dto.ExclusiveOrExclusionConstraint))
             {
                 if (cache.TryGetValue(dto.ExclusiveOrExclusionConstraint, out lazyPoco))
                 {
@@ -289,7 +289,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImplicationError == null)
+            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError))
             {
                 if (cache.TryGetValue(dto.ImplicationError, out lazyPoco))
                 {
@@ -297,7 +297,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPath == null)
+            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath))
             {
                 if (cache.TryGetValue(dto.JoinPath, out lazyPoco))
                 {
@@ -305,7 +305,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPathRequiredError == null)
+            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError))
             {
                 if (cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
                 {
@@ -313,7 +313,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null)
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
             {
                 if (cache.TryGetValue(dto.Note, out lazyPoco))
                 {
@@ -321,7 +321,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NotWellModeledSubsetAndMandatoryError == null)
+            if (poco.NotWellModeledSubsetAndMandatoryError == null && !string.IsNullOrEmpty(dto.NotWellModeledSubsetAndMandatoryError))
             {
                 if (cache.TryGetValue(dto.NotWellModeledSubsetAndMandatoryError, out lazyPoco))
                 {
@@ -349,7 +349,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooFewRoleSequencesError == null)
+            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError))
             {
                 if (cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
                 {
@@ -357,7 +357,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooManyRoleSequencesError == null)
+            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError))
             {
                 if (cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
                 {

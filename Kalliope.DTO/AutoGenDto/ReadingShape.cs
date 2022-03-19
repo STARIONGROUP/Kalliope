@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ReadingShape
     /// </summary>
@@ -54,7 +55,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the referenced <see cref="ReadingOrder"/>
         /// </summary>
         [Description("The subject ReadingOrder that is represented by this shape")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingOrder")]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReadingOrder", allowOverride: false, isOverride: false, isDerived: false)]
         public string Subject { get; set; }
  
     }

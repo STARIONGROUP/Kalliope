@@ -142,10 +142,20 @@ namespace Kalliope.Generator
         public bool IsComposite => this.PropertyAttribute.Aggregation == AggregationKind.Composite;
 
         /// <summary>
+        /// Gets a value indicating whether the property is is allowed to be overriden
+        /// </summary>
+        public bool AllowOverride => this.PropertyAttribute.AllowOverride;
+
+        /// <summary>
+        /// Gets a value indicating whether the property is an override
+        /// </summary>
+        public bool IsOverride => this.PropertyAttribute.IsOverride;
+
+        /// <summary>
         /// Gets a value indicating whether the property is a derived property
         /// </summary>
         public bool IsDerived => this.PropertyAttribute.IsDerived;
-
+        
         /// <summary>
         /// Gets the default value for the property
         /// </summary>

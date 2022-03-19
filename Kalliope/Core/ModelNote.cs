@@ -44,23 +44,6 @@ namespace Kalliope.Core
             this.SetComparisonConstraints = new List<SetComparisonConstraint>();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelNote"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="ModelNote"/>
-        /// </param>
-        public ModelNote(ORMModel model) : this()
-        {
-            this.Model = model;
-            model.Notes.Add(this);
-        }
-
-        /// <summary>
-        /// Gets or sets the container <see cref="ORMModel"/>
-        /// </summary>
-        public ORMModel Model { get; set; }
-
         [Description("")]
         [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
         public List<ORMModelElement> Elements { get; set; }

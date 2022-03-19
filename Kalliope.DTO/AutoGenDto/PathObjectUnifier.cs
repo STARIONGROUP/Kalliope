@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a PathObjectUnifier
     /// </summary>
@@ -54,7 +55,7 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "CompatibilityError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifierRequiresCompatibleObjectTypesError")]
+        [Property(name: "CompatibilityError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathObjectUnifierRequiresCompatibleObjectTypesError", allowOverride: false, isOverride: false, isDerived: false)]
         public string CompatibilityError { get; set; }
  
     }

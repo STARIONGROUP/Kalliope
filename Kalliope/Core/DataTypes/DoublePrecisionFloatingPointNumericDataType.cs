@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class DoublePrecisionFloatingPointNumericDataType : NumericDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DoublePrecisionFloatingPointNumericDataType"/> class
-        /// </summary>
-        public DoublePrecisionFloatingPointNumericDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DoublePrecisionFloatingPointNumericDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="DoublePrecisionFloatingPointNumericDataType"/>
-        /// </param>
-        public DoublePrecisionFloatingPointNumericDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

@@ -26,9 +26,6 @@ namespace Kalliope
     using Kalliope.Core;
     using Kalliope.Diagrams;
 
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Logging.Abstractions;
-
     /// <summary>
     /// The <see cref="OrmRoot"/> represents the root node of an .orm file
     /// </summary>
@@ -36,36 +33,19 @@ namespace Kalliope
     public class OrmRoot : ModelThing
     {
         /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
-        /// The <see cref="ILogger"/> used to log
-        /// </summary>
-        private readonly ILogger<OrmRoot> logger;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="OrmRoot"/> class
         /// </summary>
         public OrmRoot()
         {
-            this.logger = NullLogger<OrmRoot>.Instance;
-
             this.Diagrams = new List<ORMDiagram>();
         }
-
+        
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrmRoot"/> class.
+        /// Gets the unique identifier of the <see cref="RoleText"/>
         /// </summary>
-        /// <param name="loggerFactory">
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </param>
-        internal OrmRoot(ILoggerFactory loggerFactory) : this()
-        {
-            this.loggerFactory = loggerFactory;
-            this.logger = this.loggerFactory == null ? NullLogger<OrmRoot>.Instance : this.loggerFactory.CreateLogger<OrmRoot>();
-        }
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="ORMModel"/> contained by .orm file

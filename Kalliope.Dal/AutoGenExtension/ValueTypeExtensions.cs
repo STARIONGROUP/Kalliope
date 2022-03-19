@@ -316,7 +316,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Cardinality == null)
+            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality))
             {
                 if (cache.TryGetValue(dto.Cardinality, out lazyPoco))
                 {
@@ -324,7 +324,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleSupertypesError == null)
+            if (poco.CompatibleSupertypesError == null && !string.IsNullOrEmpty(dto.CompatibleSupertypesError))
             {
                 if (cache.TryGetValue(dto.CompatibleSupertypesError, out lazyPoco))
                 {
@@ -332,7 +332,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ConceptualDataType == null)
+            if (poco.ConceptualDataType == null && !string.IsNullOrEmpty(dto.ConceptualDataType))
             {
                 if (cache.TryGetValue(dto.ConceptualDataType, out lazyPoco))
                 {
@@ -340,7 +340,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DataType == null)
+            if (poco.DataType == null && !string.IsNullOrEmpty(dto.DataType))
             {
                 if (cache.TryGetValue(dto.DataType, out lazyPoco))
                 {
@@ -348,7 +348,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null)
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
             {
                 if (cache.TryGetValue(dto.Definition, out lazyPoco))
                 {
@@ -356,7 +356,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivationExpression == null)
+            if (poco.DerivationExpression == null && !string.IsNullOrEmpty(dto.DerivationExpression))
             {
                 if (cache.TryGetValue(dto.DerivationExpression, out lazyPoco))
                 {
@@ -364,7 +364,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivationRule == null)
+            if (poco.DerivationRule == null && !string.IsNullOrEmpty(dto.DerivationRule))
             {
                 if (cache.TryGetValue(dto.DerivationRule, out lazyPoco))
                 {
@@ -372,7 +372,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateNameError == null)
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
             {
                 if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
                 {
@@ -410,7 +410,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FactType == null)
+            if (poco.FactType == null && !string.IsNullOrEmpty(dto.FactType))
             {
                 if (cache.TryGetValue(dto.FactType, out lazyPoco))
                 {
@@ -418,7 +418,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImpliedMandatoryConstraint == null)
+            if (poco.ImpliedMandatoryConstraint == null && !string.IsNullOrEmpty(dto.ImpliedMandatoryConstraint))
             {
                 if (cache.TryGetValue(dto.ImpliedMandatoryConstraint, out lazyPoco))
                 {
@@ -426,7 +426,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.InherentMandatoryConstraint == null)
+            if (poco.InherentMandatoryConstraint == null && !string.IsNullOrEmpty(dto.InherentMandatoryConstraint))
             {
                 if (cache.TryGetValue(dto.InherentMandatoryConstraint, out lazyPoco))
                 {
@@ -434,7 +434,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NestedPredicate == null)
+            if (poco.NestedPredicate == null && !string.IsNullOrEmpty(dto.NestedPredicate))
             {
                 if (cache.TryGetValue(dto.NestedPredicate, out lazyPoco))
                 {
@@ -442,7 +442,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null)
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
             {
                 if (cache.TryGetValue(dto.Note, out lazyPoco))
                 {
@@ -470,7 +470,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.PreferredIdentifier == null)
+            if (poco.PreferredIdentifier == null && !string.IsNullOrEmpty(dto.PreferredIdentifier))
             {
                 if (cache.TryGetValue(dto.PreferredIdentifier, out lazyPoco))
                 {
@@ -478,7 +478,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.PreferredIdentifierRequiresMandatoryError == null)
+            if (poco.PreferredIdentifierRequiresMandatoryError == null && !string.IsNullOrEmpty(dto.PreferredIdentifierRequiresMandatoryError))
             {
                 if (cache.TryGetValue(dto.PreferredIdentifierRequiresMandatoryError, out lazyPoco))
                 {
@@ -486,7 +486,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ReferenceSchemeError == null)
+            if (poco.ReferenceSchemeError == null && !string.IsNullOrEmpty(dto.ReferenceSchemeError))
             {
                 if (cache.TryGetValue(dto.ReferenceSchemeError, out lazyPoco))
                 {
@@ -494,7 +494,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ValueConstraint == null)
+            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint))
             {
                 if (cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
                 {

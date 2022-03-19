@@ -30,26 +30,7 @@ namespace Kalliope.Core
     [Description("")]
     [Domain(isAbstract: false, general: "FactType")]
     public class SubtypeFact : FactType
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubtypeFact"/> class
-        /// </summary>
-        public SubtypeFact()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SubtypeFact"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="SubtypeFact"/>
-        /// </param>
-        public SubtypeFact(ORMModel model)
-        {
-            this.Model = model;
-            model.FactTypes.Add(this);
-        }
-        
+    {   
         /// <summary>
         /// Deprecated property, use PreferredIdentificationPath instead
         /// </summary>

@@ -29,21 +29,5 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class SignedLargeIntegerNumericDataType : NumericDataType
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SignedLargeIntegerNumericDataType"/> class
-        /// </summary>
-        public SignedLargeIntegerNumericDataType()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SignedLargeIntegerNumericDataType"/> class
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="SignedLargeIntegerNumericDataType"/>
-        /// </param>
-        public SignedLargeIntegerNumericDataType(ORMModel model) : base(model)
-        {
-        }
     }
 }

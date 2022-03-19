@@ -136,7 +136,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DerivationNote == null)
+            if (poco.DerivationNote == null && !string.IsNullOrEmpty(dto.DerivationNote))
             {
                 if (cache.TryGetValue(dto.DerivationNote, out lazyPoco))
                 {

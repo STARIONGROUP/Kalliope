@@ -37,6 +37,7 @@ namespace Kalliope.Core
         protected CardinalityConstraint()
         {
             this.Modality = ConstraintModality.Alethic;
+            this.Ranges = new List<CardinalityRange>();
         }
 
         /// <summary>

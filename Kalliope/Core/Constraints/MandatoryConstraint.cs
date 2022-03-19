@@ -37,20 +37,9 @@ namespace Kalliope.Core
         /// </summary>
         public MandatoryConstraint()
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MandatoryConstraint"/> class.
-        /// </summary>
-        /// <param name="model">
-        /// The <see cref="ORMModel"/> that contains the current <see cref="MandatoryConstraint"/>
-        /// </param>
-        public MandatoryConstraint(ORMModel model) :
-            base(model)
-        {
             this.PopulationMandatoryErrors = new List<PopulationMandatoryError>();
         }
-
+        
         /// <summary>
         /// True if this is an internal constraint associated with a single role
         /// </summary>

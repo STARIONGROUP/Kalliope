@@ -173,7 +173,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateSignatureError == null)
+            if (poco.DuplicateSignatureError == null && !string.IsNullOrEmpty(dto.DuplicateSignatureError))
             {
                 if (cache.TryGetValue(dto.DuplicateSignatureError, out lazyPoco))
                 {
@@ -201,7 +201,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RequiresUserModificationError == null)
+            if (poco.RequiresUserModificationError == null && !string.IsNullOrEmpty(dto.RequiresUserModificationError))
             {
                 if (cache.TryGetValue(dto.RequiresUserModificationError, out lazyPoco))
                 {
@@ -209,7 +209,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooFewRolesError == null)
+            if (poco.TooFewRolesError == null && !string.IsNullOrEmpty(dto.TooFewRolesError))
             {
                 if (cache.TryGetValue(dto.TooFewRolesError, out lazyPoco))
                 {
@@ -217,7 +217,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooManyRolesError == null)
+            if (poco.TooManyRolesError == null && !string.IsNullOrEmpty(dto.TooManyRolesError))
             {
                 if (cache.TryGetValue(dto.TooManyRolesError, out lazyPoco))
                 {

@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a ValueTypeInstance
     /// </summary>
@@ -51,21 +52,21 @@ namespace Kalliope.DTO
         /// Gets or sets the unique identifier of the contained <see cref="CompatibleValueTypeInstanceValueError"/>
         /// </summary>
         [Description("")]
-        [Property(name: "CompatibleValueTypeInstanceValueError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CompatibleValueTypeInstanceValueError")]
+        [Property(name: "CompatibleValueTypeInstanceValueError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CompatibleValueTypeInstanceValueError", allowOverride: false, isOverride: false, isDerived: false)]
         public string CompatibleValueTypeInstanceValueError { get; set; }
  
         /// <summary>
         /// Gets or sets a InvariantValue
         /// </summary>
         [Description("The culture-invariant form of the value property")]
-        [Property(name: "InvariantValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "InvariantValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string InvariantValue { get; set; }
  
         /// <summary>
         /// Gets or sets a Value
         /// </summary>
         [Description("")]
-        [Property(name: "Value", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
+        [Property(name: "Value", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string Value { get; set; }
  
     }

@@ -16,18 +16,19 @@
 //   limitations under the License.
 //
 // </copyright>
- 
+// ------------------------------------------------------------------------------------------------
+
 // ------------------------------------------------------------------------------------------------
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
- 
+
 namespace Kalliope.DTO
 {
     using System;
     using System.Collections.Generic;
- 
+
     using Kalliope.Common;
- 
+
     /// <summary>
     /// A Data Transfer Object that represents a GenerationState
     /// </summary>
@@ -49,7 +50,7 @@ namespace Kalliope.DTO
         /// Gets or sets a list unique identifiers of the contained <see cref="GenerationSetting"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "GenerationSettings", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationSetting")]
+        [Property(name: "GenerationSettings", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationSetting", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> GenerationSettings { get; set; }
  
     }

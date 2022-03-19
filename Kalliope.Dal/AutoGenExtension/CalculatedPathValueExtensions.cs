@@ -161,7 +161,7 @@ namespace Kalliope.Dal
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
 
-            if (poco.AggregationContextRequiredError == null)
+            if (poco.AggregationContextRequiredError == null && !string.IsNullOrEmpty(dto.AggregationContextRequiredError))
             {
                 if (cache.TryGetValue(dto.AggregationContextRequiredError, out lazyPoco))
                 {
@@ -179,7 +179,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ConsumptionRequiredError == null)
+            if (poco.ConsumptionRequiredError == null && !string.IsNullOrEmpty(dto.ConsumptionRequiredError))
             {
                 if (cache.TryGetValue(dto.ConsumptionRequiredError, out lazyPoco))
                 {
@@ -197,7 +197,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Function == null)
+            if (poco.Function == null && !string.IsNullOrEmpty(dto.Function))
             {
                 if (cache.TryGetValue(dto.Function, out lazyPoco))
                 {
@@ -205,7 +205,7 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FunctionRequiredError == null)
+            if (poco.FunctionRequiredError == null && !string.IsNullOrEmpty(dto.FunctionRequiredError))
             {
                 if (cache.TryGetValue(dto.FunctionRequiredError, out lazyPoco))
                 {
