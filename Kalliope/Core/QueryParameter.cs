@@ -28,9 +28,9 @@ namespace Kalliope.Core
     /// A parameter defined as the input for a query element
     /// </summary>
     [Description("An input parameter for a query")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "QueryBase", propertyName: "Parameters")]
-    public class QueryParameter : ORMModelElement
+    public class QueryParameter : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryParameter"/> class.

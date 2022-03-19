@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// A calculated value used in a role path
     /// </remarks>
     [Container(typeName: "LeadRolePath", propertyName: "CalculatedValues")]
-    public partial class CalculatedPathValue : ORMModelElement
+    public partial class CalculatedPathValue : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValue"/> class.

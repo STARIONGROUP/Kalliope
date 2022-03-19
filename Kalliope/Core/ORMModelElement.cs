@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModelElement.cs" company="RHEA System S.A.">
+// <copyright file="OrmModelElement.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -26,12 +26,12 @@ namespace Kalliope.Core
     
     [Description("")]
     [Domain(isAbstract: true, general: "ModelThing")]
-    public abstract class ORMModelElement : ModelThing
+    public abstract class OrmModelElement : ModelThing
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMModelElement"/> class
+        /// Initializes a new instance of the <see cref="OrmModelElement"/> class
         /// </summary>
-        protected ORMModelElement()
+        protected OrmModelElement()
         {
             this.AssociatedModelErrors = new List<ModelError>();
             this.ExtensionModelErrors = new List<ModelError>();

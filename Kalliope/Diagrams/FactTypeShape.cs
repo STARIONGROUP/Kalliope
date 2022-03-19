@@ -29,9 +29,9 @@ namespace Kalliope.Diagrams
     /// Shape that represents a <see cref="FactType"/>
     /// </summary>
     [Description("Shape that represents a FactType")]
-    [Domain(isAbstract: false, general: "ORMBaseShape")]
-    [Container(typeName: "ORMDiagram", propertyName: "FactTypeShapes")]
-    public class FactTypeShape : ORMBaseShape
+    [Domain(isAbstract: false, general: "OrmBaseShape")]
+    [Container(typeName: "OrmDiagram", propertyName: "FactTypeShapes")]
+    public class FactTypeShape : OrmBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeShape"/>
@@ -95,7 +95,7 @@ namespace Kalliope.Diagrams
 
         /// <summary>
         /// Gets or sets a value indicating whether shapes for the <see cref="FactType"/> and <see cref="ValueType"/> corresponding to this
-        /// ReferenceMode pattern should be displayed on the <see cref="ORMDiagram"/>
+        /// ReferenceMode pattern should be displayed on the <see cref="OrmDiagram"/>
         /// </summary>
         [Description("Should shapes for the FactType and ValueType corresponding to this ReferenceMode pattern be displayed on the diagram")]
         [Property(name: "ExpandRefMode", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]

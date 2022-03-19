@@ -23,7 +23,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Specifies the function, scope, and inputs used for an algorithmic calculation
     /// </summary>
-    public class CalculatedValue : ORMModelElement
+    public class CalculatedValue : OrmModelElement
     {
         /// <summary>
         /// Set to true if the AggregationContext is not provided and the function is an aggregate, meaning that a parameter is marked as a BagInput

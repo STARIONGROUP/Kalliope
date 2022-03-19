@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="FactTypeInstanceXmlReader"/> is to deserialize a <see cref="FactTypeInstance"/>
     /// from an .orm XML file
     /// </summary>
-    public class FactTypeInstanceXmlReader : ORMModelElementXmlReader
+    public class FactTypeInstanceXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="FactTypeInstance"/> from the <see cref="XmlReader"/>

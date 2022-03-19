@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a FactTypeInstance
     /// </summary>
     [Container(typeName: "FactType", propertyName: "FactTypeInstances")]
-    public partial class FactTypeInstance : ORMModelElement
+    public partial class FactTypeInstance : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeInstance"/> class.

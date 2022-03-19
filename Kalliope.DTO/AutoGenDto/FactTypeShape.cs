@@ -35,8 +35,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a FactType
     /// </remarks>
-    [Container(typeName: "ORMDiagram", propertyName: "FactTypeShapes")]
-    public partial class FactTypeShape : ORMBaseShape
+    [Container(typeName: "OrmDiagram", propertyName: "FactTypeShapes")]
+    public partial class FactTypeShape : OrmBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactTypeShape"/> class.

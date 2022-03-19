@@ -29,9 +29,9 @@ namespace Kalliope.Diagrams
     /// Shape that represents an <see cref="ObjectType"/>
     /// </summary>
     [Description("Shape that represents an ObjectType")]
-    [Domain(isAbstract: false, general: "ORMBaseShape")]
+    [Domain(isAbstract: false, general: "OrmBaseShape")]
     [Container(typeName: "FactTypeShape", propertyName: "ObjectifiedFactTypeNameShapes")]
-    public class ObjectTypeShape : ORMBaseShape
+    public class ObjectTypeShape : OrmBaseShape
     {
 
         /// <summary>

@@ -48,10 +48,10 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
+        /// Gets or sets a list unique identifiers of the referenced <see cref="OrmModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Elements { get; set; }
  
         /// <summary>
@@ -62,10 +62,10 @@ namespace Kalliope.DTO
         public List<string> Groupings { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel", allowOverride: false, isOverride: false, isDerived: false)]
         public string Model { get; set; }
  
     }

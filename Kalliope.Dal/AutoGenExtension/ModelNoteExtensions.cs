@@ -79,8 +79,8 @@ namespace Kalliope.Dal
             var elementsToDelete = poco.Elements.Select(x => x.Id).Except(dto.Elements);
             foreach (var identifier in elementsToDelete)
             {
-                var oRMModelElement = poco.Elements.Single(x => x.Id == identifier);
-                poco.Elements.Remove(oRMModelElement);
+                var ormModelElement = poco.Elements.Single(x => x.Id == identifier);
+                poco.Elements.Remove(ormModelElement);
             }
 
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
@@ -172,8 +172,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var oRMModelElement = (ORMModelElement)lazyPoco.Value;
-                    poco.Elements.Add(oRMModelElement);
+                    var ormModelElement = (OrmModelElement)lazyPoco.Value;
+                    poco.Elements.Add(ormModelElement);
                 }
             }
 

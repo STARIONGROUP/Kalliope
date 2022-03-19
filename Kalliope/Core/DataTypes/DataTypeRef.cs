@@ -26,9 +26,9 @@ namespace Kalliope.Core
     /// A use of a data type, including facet information
     /// </summary>
     [Description("A use of a data type, including facet information")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName:"ObjectType", propertyName: "ConceptualDataType")]
-    public class DataTypeRef : ORMModelElement
+    public class DataTypeRef : OrmModelElement
     {
         /// <summary>
         /// Gets or sets the value of the Scale facet

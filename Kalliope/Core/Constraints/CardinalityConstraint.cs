@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// A constraint limiting the number of instances in a population
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMNamedElement")]
-    public abstract class CardinalityConstraint : ORMNamedElement
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
+    public abstract class CardinalityConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class

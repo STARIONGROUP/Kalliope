@@ -117,7 +117,7 @@ namespace Kalliope.Dal
 
             if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject) && cache.TryGetValue(dto.Subject, out lazyPoco))
             {
-                poco.Subject = (ORMNamedElement)lazyPoco.Value;
+                poco.Subject = (OrmNamedElement)lazyPoco.Value;
             }
         }
     }

@@ -28,7 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Shape that represents a ModelNote")]
     [Domain(isAbstract: false, general: "FloatingTextShape")]
-    [Container(typeName: "ORMDiagram", propertyName: "ModelNoteShapes")]
+    [Container(typeName: "OrmDiagram", propertyName: "ModelNoteShapes")]
     public class ModelNoteShape : FloatingTextShape
     {
         /// <summary>

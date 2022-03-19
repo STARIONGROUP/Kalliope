@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// Represents the relationship between the entity type and the referenced fact type
     /// </summary>
     [Description("Represents the relationship between the entity type and the referenced fact type")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
-    public class Objectification : ORMModelElement
+    [Domain(isAbstract: false, general: "OrmModelElement")]
+    public class Objectification : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ImpliedFactTypes"/> class

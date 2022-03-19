@@ -23,8 +23,8 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
-    public class NameConsumer : ORMModelElement
+    [Domain(isAbstract: false, general: "OrmModelElement")]
+    public class NameConsumer : OrmModelElement
     {
     }
 }

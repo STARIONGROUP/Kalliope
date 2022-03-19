@@ -36,11 +36,11 @@ namespace Kalliope.DTO
     [Container(typeName: "ElementGrouping", propertyName: "Definition")]
     [Container(typeName: "FactType", propertyName: "Definition")]
     [Container(typeName: "ObjectType", propertyName: "Definition")]
-    [Container(typeName: "ORMModel", propertyName: "Definition")]
+    [Container(typeName: "OrmModel", propertyName: "Definition")]
     [Container(typeName: "SetComparisonConstraint", propertyName: "Definition")]
     [Container(typeName: "SetConstraint", propertyName: "Definition")]
     [Container(typeName: "ValueConstraint", propertyName: "Definition")]
-    public partial class Definition : ORMModelElement
+    public partial class Definition : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Definition"/> class.

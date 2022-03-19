@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="CardinalityConstraintXmlReader"/> is to deserialize a <see cref="CardinalityConstraint"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class CardinalityConstraintXmlReader : ORMNamedElementXmlReader
+    public abstract class CardinalityConstraintXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="CardinalityConstraint"/> from the <see cref="XmlReader"/>

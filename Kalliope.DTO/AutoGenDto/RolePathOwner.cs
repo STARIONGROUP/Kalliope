@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// An abstract owner for one or more path objects
     /// </remarks>
-    public abstract partial class RolePathOwner : ORMModelElement
+    public abstract partial class RolePathOwner : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePathOwner"/> class.

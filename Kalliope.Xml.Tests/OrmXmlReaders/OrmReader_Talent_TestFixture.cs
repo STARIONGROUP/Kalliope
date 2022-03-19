@@ -48,7 +48,7 @@ namespace Kalliope.Xml.Tests
         {
             var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
-            var ormModel = modelThings.OfType<ORMModel>().Single();
+            var ormModel = modelThings.OfType<OrmModel>().Single();
             Assert.That(ormModel.Id, Is.EqualTo("_A1699447-0E2F-4761-A0F8-41728F39E722"));
             Assert.That(ormModel.Name, Is.EqualTo("TalentModel"));
 

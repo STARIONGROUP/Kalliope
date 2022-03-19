@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMBaseShape.cs" company="RHEA System S.A.">
+// <copyright file="OrmBaseShape.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -28,7 +28,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("Abstract super-type from which all shape classes derive")]
     [Domain(isAbstract: true, general: "ModelThing")]
-    public abstract class ORMBaseShape : ModelThing
+    public abstract class OrmBaseShape : ModelThing
     {
         /// <summary>
         /// Gets or sets a value indicating whether this shape is expanded or not

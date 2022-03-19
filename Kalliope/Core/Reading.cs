@@ -28,9 +28,9 @@ namespace Kalliope.Core
     /// Predicate text corresponding to a specific role traversal
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "ReadingOrder", propertyName: "Readings")]
-    public class Reading : ORMModelElement
+    public class Reading : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Reading"/> class.

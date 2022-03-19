@@ -34,7 +34,7 @@ namespace Kalliope.DTO
     /// </summary>
     [Container(typeName: "ObjectType", propertyName: "Abbreviations")]
     [Container(typeName: "RecognizedPhrase", propertyName: "Abbreviations")]
-    public partial class NameAlias : ORMNamedElement
+    public partial class NameAlias : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameAlias"/> class.

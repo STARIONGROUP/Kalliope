@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ModelNote
     /// </summary>
-    [Container(typeName: "ORMModel", propertyName: "Notes")]
+    [Container(typeName: "OrmModel", propertyName: "Notes")]
     public partial class ModelNote : Note
     {
         /// <summary>
@@ -49,10 +49,10 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
+        /// Gets or sets a list unique identifiers of the referenced <see cref="OrmModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Elements { get; set; }
  
         /// <summary>

@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="RolePathXmlReader"/> is to deserialize a <see cref="RolePath"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class RolePathXmlReader : ORMModelElementXmlReader
+    public abstract class RolePathXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="RolePath"/> from the <see cref="XmlReader"/>

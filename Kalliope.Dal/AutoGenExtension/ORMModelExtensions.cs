@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModelExtensions.cs" company="RHEA System S.A.">
+// <copyright file="OrmModelExtensions.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -34,20 +34,20 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// A static class that provides extension methods for the <see cref="ORMModel"/> class
+    /// A static class that provides extension methods for the <see cref="OrmModel"/> class
     /// </summary>
-    public static class ORMModelExtensions
+    public static class OrmModelExtensions
     {
         /// <summary>
-        /// Updates the value properties of the <see cref="ORMModel"/> by setting the value equal to that of the dto
+        /// Updates the value properties of the <see cref="OrmModel"/> by setting the value equal to that of the dto
         /// Removes deleted objects from the reference properties and returns the unique identifiers
         /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ORMModel"/> that is to be updated
+        /// The <see cref="OrmModel"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ORMModel"/> with
+        /// The DTO that is used to update the <see cref="OrmModel"/> with
         /// </param>
         /// <returns>
         /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
@@ -55,7 +55,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException">
         /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
         /// </exception>
-        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ORMModel poco, Kalliope.DTO.ORMModel dto)
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.OrmModel poco, Kalliope.DTO.OrmModel dto)
         {
             if (poco == null)
             {
@@ -189,21 +189,21 @@ namespace Kalliope.Dal
         }
 
         /// <summary>
-        /// Updates the Reference properties of the <see cref="ORMModel"/> using the data (identifiers) encapsulated in the DTO
+        /// Updates the Reference properties of the <see cref="OrmModel"/> using the data (identifiers) encapsulated in the DTO
         /// and the provided cache to find the referenced object.
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ORMModel"/> that is to be updated
+        /// The <see cref="OrmModel"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ORMModel"/> with
+        /// The DTO that is used to update the <see cref="OrmModel"/> with
         /// </param>
         /// <param name="cache">
         /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
         /// <see cref="ModelThing"/>s that are know and cached.
         /// </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void UpdateReferenceProperties(this Kalliope.Core.ORMModel poco, Kalliope.DTO.ORMModel dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        public static void UpdateReferenceProperties(this Kalliope.Core.OrmModel poco, Kalliope.DTO.OrmModel dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
             if (poco == null)
             {

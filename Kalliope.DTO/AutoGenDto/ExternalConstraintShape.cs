@@ -35,8 +35,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a SetComparisonConstraint or a SetConstraint
     /// </remarks>
-    [Container(typeName: "ORMDiagram", propertyName: "ExternalConstraintShapes")]
-    public partial class ExternalConstraintShape : ORMBaseShape
+    [Container(typeName: "OrmDiagram", propertyName: "ExternalConstraintShapes")]
+    public partial class ExternalConstraintShape : OrmBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalConstraintShape"/> class.
@@ -52,10 +52,10 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ORMNamedElement"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="OrmNamedElement"/>
         /// </summary>
         [Description("The subject SetComparisonConstraint or SetConstraint that is represented by this shape")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMNamedElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmNamedElement", allowOverride: false, isOverride: false, isDerived: false)]
         public string Subject { get; set; }
  
     }

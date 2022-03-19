@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// Shape that represents an ObjectType
     /// </remarks>
     [Container(typeName: "FactTypeShape", propertyName: "ObjectifiedFactTypeNameShapes")]
-    public partial class ObjectTypeShape : ORMBaseShape
+    public partial class ObjectTypeShape : OrmBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectTypeShape"/> class.

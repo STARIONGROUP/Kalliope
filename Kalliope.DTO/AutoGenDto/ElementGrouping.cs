@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// A group of elements. A GroupType is associated with the Group to control the group contents
     /// </remarks>
     [Container(typeName: "ElementGroupingSet", propertyName: "Groupings")]
-    public partial class ElementGrouping : ORMNamedElement
+    public partial class ElementGrouping : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGrouping"/> class.
@@ -87,10 +87,10 @@ namespace Kalliope.DTO
         public List<string> ExcludedChildGroupings { get; set; }
  
         /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
+        /// Gets or sets a list unique identifiers of the referenced <see cref="OrmModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ExcludedElements { get; set; }
  
         /// <summary>
@@ -101,10 +101,10 @@ namespace Kalliope.DTO
         public List<string> IncludedChildGroupings { get; set; }
  
         /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="ORMModelElement"/> instances
+        /// Gets or sets a list unique identifiers of the referenced <see cref="OrmModelElement"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "IncludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "IncludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> IncludedElements { get; set; }
  
         /// <summary>

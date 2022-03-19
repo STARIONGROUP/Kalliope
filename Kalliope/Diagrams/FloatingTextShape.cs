@@ -23,8 +23,8 @@ namespace Kalliope.Diagrams
     using Kalliope.Common;
 
     [Description("Shape that represents a FloatingTextShape")]
-    [Domain(isAbstract: true, general: "ORMBaseShape")]
-    public abstract class FloatingTextShape : ORMBaseShape
+    [Domain(isAbstract: true, general: "OrmBaseShape")]
+    public abstract class FloatingTextShape : OrmBaseShape
     {
     }
 }

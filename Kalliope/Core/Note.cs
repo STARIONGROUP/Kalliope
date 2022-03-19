@@ -26,17 +26,17 @@ namespace Kalliope.Core
     /// A note for the containing element
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CardinalityConstraint", propertyName: "Note")]
     [Container(typeName: "ElementGrouping", propertyName: "Note")]
     [Container(typeName: "FactType", propertyName: "Note")]
     [Container(typeName: "LeadRolePath", propertyName: "Note")]
     [Container(typeName: "ObjectType", propertyName: "Note")]
-    [Container(typeName: "ORMModel", propertyName: "Note")]
+    [Container(typeName: "OrmModel", propertyName: "Note")]
     [Container(typeName: "SetComparisonConstraint", propertyName: "Note")]
     [Container(typeName: "SetConstraint", propertyName: "Note")]
     [Container(typeName: "ValueConstraint", propertyName: "Note")]
-    public class Note : ORMModelElement
+    public class Note : OrmModelElement
     {
         /// <summary>
         /// Plain text note

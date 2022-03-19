@@ -29,9 +29,9 @@ namespace Kalliope.Core
     /// A formal function parameter describing expected input to a function
     /// </remarks>
     [Description("A formal function parameter describing expected input to a function")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
     [Container(typeName: "Function", propertyName: "Parameters")]
-    public class FunctionParameter : ORMNamedElement
+    public class FunctionParameter : OrmNamedElement
     {
         /// <summary>
         /// Set to true if this functions takes a bag input instead of a single value

@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type
     /// </remarks>
     [Container(typeName: "LeadRolePath", propertyName: "ObjectUnifiers")]
-    public partial class PathObjectUnifier : ORMModelElement
+    public partial class PathObjectUnifier : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PathObjectUnifier"/> class.

@@ -29,8 +29,8 @@ namespace Kalliope.Core
     /// (DSL) A group of elements. A <see cref="GroupType"/> is associated with the <see cref="Group"/> to control the <see cref="Group"/> contents
     /// </remarks>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
-    public class Group : ORMNamedElement
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    public class Group : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Group"/> class.

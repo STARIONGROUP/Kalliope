@@ -28,9 +28,9 @@ namespace Kalliope.Core
     /// A phrase with one or more words that can be abbreviated during name generation
     /// </summary>
     [Description("A phrase with one or more words that can be abbreviated during name generation")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
-    [Container(typeName: "ORMModel", propertyName: "RecognizedPhrases")]
-    public class RecognizedPhrase : ORMNamedElement
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Container(typeName: "OrmModel", propertyName: "RecognizedPhrases")]
+    public class RecognizedPhrase : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognizedPhrase"/> class

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMDiagram.cs" company="RHEA System S.A.">
+// <copyright file="OrmDiagram.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -26,16 +26,16 @@ namespace Kalliope.Diagrams
     using Kalliope.Core;
 
     /// <summary>
-    /// A diagram that represents items contained by an <see cref="ORMModel"/>
+    /// A diagram that represents items contained by an <see cref="OrmModel"/>
     /// </summary>
     [Description("")]
     [Domain(isAbstract: false, general: "ModelThing")]
-    public class ORMDiagram : ModelThing
+    public class OrmDiagram : ModelThing
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMDiagram"/>
+        /// Initializes a new instance of the <see cref="OrmDiagram"/>
         /// </summary>
-        public ORMDiagram()
+        public OrmDiagram()
         {
             this.ObjectTypeShapes = new List<ObjectTypeShape>();
             this.FactTypeShapes = new List<FactTypeShape>();
@@ -47,11 +47,11 @@ namespace Kalliope.Diagrams
         }
 
         /// <summary>
-        /// Gets or sets the subject <see cref="ORMModel"/> that is represented by this shape
+        /// Gets or sets the subject <see cref="OrmModel"/> that is represented by this shape
         /// </summary>
         [Description("The subject ORMModel that is represented by this Diagram")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
-        public ORMModel Subject { get; set; }
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel")]
+        public OrmModel Subject { get; set; }
         
         /// <summary>
         /// Gets or sets the human readable name

@@ -32,8 +32,8 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ReferenceModeKind
     /// </summary>
-    [Container(typeName: "ORMModel", propertyName: "ReferenceModeKinds")]
-    public partial class ReferenceModeKind : ORMModelElement
+    [Container(typeName: "OrmModel", propertyName: "ReferenceModeKinds")]
+    public partial class ReferenceModeKind : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferenceModeKind"/> class.

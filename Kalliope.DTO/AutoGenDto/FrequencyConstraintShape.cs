@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a FrequencyConstraint
     /// </remarks>
-    [Container(typeName: "ORMDiagram", propertyName: "FrequencyConstraintShapes")]
+    [Container(typeName: "OrmDiagram", propertyName: "FrequencyConstraintShapes")]
     public partial class FrequencyConstraintShape : ExternalConstraintShape
     {
         /// <summary>

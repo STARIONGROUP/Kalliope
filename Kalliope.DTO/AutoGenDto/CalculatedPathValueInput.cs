@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// An input value or bag passed to a function parameter calculate a value
     /// </remarks>
     [Container(typeName: "CalculatedPathValue", propertyName: "Inputs")]
-    public partial class CalculatedPathValueInput : ORMModelElement
+    public partial class CalculatedPathValueInput : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValueInput"/> class.

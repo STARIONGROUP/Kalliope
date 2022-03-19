@@ -26,9 +26,9 @@ namespace Kalliope.Core
     /// An informal description of the intent of a derivation rule
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "SubtypeDerivationPath", propertyName: "InformalDerivationRule")]
-    public class InformalDerivationRule : ORMModelElement
+    public class InformalDerivationRule : OrmModelElement
     {
         /// <summary>
         /// Gets the unique identifier of the <see cref="RoleText"/>

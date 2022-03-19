@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="InformalDerivationRuleXmlReader"/> is to deserialize a <see cref="InformalDerivationRule"/>
     /// from an .orm XML file
     /// </summary>
-    internal class InformalDerivationRuleXmlReader : ORMModelElementXmlReader
+    internal class InformalDerivationRuleXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="InformalDerivationRule"/> from the <see cref="XmlReader"/>

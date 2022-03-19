@@ -26,7 +26,7 @@ namespace Kalliope.Core
     /// Validation error display filters based on error type and category
     /// </summary>
     [Domain(isAbstract: false, general: "ModelThing")]
-    [Container(typeName: "ORMModel", propertyName: "ModelErrorDisplayFilter")]
+    [Container(typeName: "OrmModel", propertyName: "ModelErrorDisplayFilter")]
     [Ignore(description: "The ModelErrorDisplayFilter class does not have an Id property. This class is most likely tool specific (display oriented) and is therefore ignored")]
     public class ModelErrorDisplayFilter : ModelThing
     {

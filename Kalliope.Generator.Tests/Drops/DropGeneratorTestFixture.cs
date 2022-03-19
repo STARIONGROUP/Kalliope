@@ -50,7 +50,7 @@ namespace Kalliope.Generator.Tests
 
             Assert.That(objectTypeDrop.IsAbstract, Is.True);
             Assert.That(objectTypeDrop.Description, Is.Empty.Or.Null);
-            Assert.That(objectTypeDrop.Generalization, Is.EqualTo(" : ORMNamedElement"));
+            Assert.That(objectTypeDrop.Generalization, Is.EqualTo(" : OrmNamedElement"));
             Assert.That(objectTypeDrop.IsContained, Is.True);
         }
 

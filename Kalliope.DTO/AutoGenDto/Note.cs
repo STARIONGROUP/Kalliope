@@ -37,11 +37,11 @@ namespace Kalliope.DTO
     [Container(typeName: "FactType", propertyName: "Note")]
     [Container(typeName: "LeadRolePath", propertyName: "Note")]
     [Container(typeName: "ObjectType", propertyName: "Note")]
-    [Container(typeName: "ORMModel", propertyName: "Note")]
+    [Container(typeName: "OrmModel", propertyName: "Note")]
     [Container(typeName: "SetComparisonConstraint", propertyName: "Note")]
     [Container(typeName: "SetConstraint", propertyName: "Note")]
     [Container(typeName: "ValueConstraint", propertyName: "Note")]
-    public partial class Note : ORMModelElement
+    public partial class Note : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Note"/> class.

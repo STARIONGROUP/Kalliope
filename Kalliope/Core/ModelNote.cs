@@ -29,7 +29,7 @@ namespace Kalliope.Core
     /// </summary>
     [Description("")]
     [Domain(isAbstract: false, general: "Note")]
-    [Container(typeName: "ORMModel", propertyName: "Notes")]
+    [Container(typeName: "OrmModel", propertyName: "Notes")]
     public class ModelNote : Note
     {
         /// <summary>
@@ -37,7 +37,7 @@ namespace Kalliope.Core
         /// </summary>
         public ModelNote()
         {
-            this.Elements = new List<ORMModelElement>();
+            this.Elements = new List<OrmModelElement>();
             this.FactTypes = new List<FactType>();
             this.ObjectTypes = new List<ObjectType>();
             this.SetConstraints = new List<SetConstraint>();
@@ -45,8 +45,8 @@ namespace Kalliope.Core
         }
 
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
-        public List<ORMModelElement> Elements { get; set; }
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement")]
+        public List<OrmModelElement> Elements { get; set; }
 
         [Description("")]
         [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]

@@ -23,8 +23,8 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
-    public abstract class Expression : ORMModelElement
+    [Domain(isAbstract: true, general: "OrmModelElement")]
+    public abstract class Expression : OrmModelElement
     {
         /// <summary>
         /// Gets or sets the Body text of the <see cref="Expression"/>

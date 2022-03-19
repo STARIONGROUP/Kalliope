@@ -37,7 +37,7 @@ namespace Kalliope
         /// </summary>
         public OrmRoot()
         {
-            this.Diagrams = new List<ORMDiagram>();
+            this.Diagrams = new List<OrmDiagram>();
         }
         
         /// <summary>
@@ -48,10 +48,10 @@ namespace Kalliope
         public override string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="ORMModel"/> contained by .orm file
+        /// Gets or sets the <see cref="OrmModel"/> contained by .orm file
         /// </summary>
-        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue:"", typeName: "ORMModel")]
-        public ORMModel Model { get; set; }
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue:"", typeName: "OrmModel")]
+        public OrmModel Model { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="NameGenerator"/> contained by .orm file
@@ -66,9 +66,9 @@ namespace Kalliope
         public GenerationState GenerationState { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="ORMDiagram"/>s contained by the .orm file
+        /// Gets or sets the <see cref="OrmDiagram"/>s contained by the .orm file
         /// </summary>
-        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue:"", typeName: "ORMDiagram")]
-        public List<ORMDiagram> Diagrams { get; set; }  
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue:"", typeName: "OrmDiagram")]
+        public List<OrmDiagram> Diagrams { get; set; }  
     }
 }

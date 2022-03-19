@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueConstraint
     /// </summary>
-    public abstract partial class ValueConstraint : ORMNamedElement
+    public abstract partial class ValueConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraint"/> class.

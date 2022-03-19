@@ -47,10 +47,10 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref="ORMDiagram"/> instances
+        /// Gets or sets a list unique identifiers of the contained <see cref="OrmDiagram"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMDiagram", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmDiagram", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Diagrams { get; set; }
  
         /// <summary>
@@ -68,10 +68,10 @@ namespace Kalliope.DTO
         public override string Id => this.ComputeId();
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="ORMModel"/>
+        /// Gets or sets the unique identifier of the contained <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Model", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel", allowOverride: false, isOverride: false, isDerived: false)]
         public string Model { get; set; }
  
         /// <summary>

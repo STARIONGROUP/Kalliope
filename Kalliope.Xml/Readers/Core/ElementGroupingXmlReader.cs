@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ElementGroupingXmlReader"/> is to deserialize a <see cref="ElementGrouping"/>
     /// from an .orm XML file
     /// </summary>
-    public class ElementGroupingXmlReader : ORMNamedElementXmlReader
+    public class ElementGroupingXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ElementGrouping"/> from the <see cref="XmlReader"/>

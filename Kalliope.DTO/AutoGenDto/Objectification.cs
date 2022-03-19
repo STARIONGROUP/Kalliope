@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Represents the relationship between the entity type and the referenced fact type
     /// </remarks>
-    public partial class Objectification : ORMModelElement
+    public partial class Objectification : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Objectification"/> class.

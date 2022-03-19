@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="CalculatedPathValueInputXmlReader"/> is to deserialize a <see cref="CalculatedPathValueInput"/>
     /// from an .orm XML file
     /// </summary>
-    public class CalculatedPathValueInputXmlReader : ORMModelElementXmlReader
+    public class CalculatedPathValueInputXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="CalculatedPathValueInput"/> from the <see cref="XmlReader"/>

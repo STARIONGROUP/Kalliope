@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ExpressionXmlReader"/> is to deserialize a <see cref="Expression"/>
     /// from an .orm XML file
     /// </summary>
-    public class ExpressionXmlReader : ORMModelElementXmlReader
+    public class ExpressionXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="Expression"/> from the <see cref="XmlReader"/>

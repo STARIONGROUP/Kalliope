@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMDiagramExtensions.cs" company="RHEA System S.A.">
+// <copyright file="OrmDiagramExtensions.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -34,20 +34,20 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// A static class that provides extension methods for the <see cref="ORMDiagram"/> class
+    /// A static class that provides extension methods for the <see cref="OrmDiagram"/> class
     /// </summary>
-    public static class ORMDiagramExtensions
+    public static class OrmDiagramExtensions
     {
         /// <summary>
-        /// Updates the value properties of the <see cref="ORMDiagram"/> by setting the value equal to that of the dto
+        /// Updates the value properties of the <see cref="OrmDiagram"/> by setting the value equal to that of the dto
         /// Removes deleted objects from the reference properties and returns the unique identifiers
         /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ORMDiagram"/> that is to be updated
+        /// The <see cref="OrmDiagram"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ORMDiagram"/> with
+        /// The DTO that is used to update the <see cref="OrmDiagram"/> with
         /// </param>
         /// <returns>
         /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
@@ -55,7 +55,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException">
         /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
         /// </exception>
-        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Diagrams.ORMDiagram poco, Kalliope.DTO.ORMDiagram dto)
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Diagrams.OrmDiagram poco, Kalliope.DTO.OrmDiagram dto)
         {
             if (poco == null)
             {
@@ -144,21 +144,21 @@ namespace Kalliope.Dal
         }
 
         /// <summary>
-        /// Updates the Reference properties of the <see cref="ORMDiagram"/> using the data (identifiers) encapsulated in the DTO
+        /// Updates the Reference properties of the <see cref="OrmDiagram"/> using the data (identifiers) encapsulated in the DTO
         /// and the provided cache to find the referenced object.
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ORMDiagram"/> that is to be updated
+        /// The <see cref="OrmDiagram"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ORMDiagram"/> with
+        /// The DTO that is used to update the <see cref="OrmDiagram"/> with
         /// </param>
         /// <param name="cache">
         /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
         /// <see cref="ModelThing"/>s that are know and cached.
         /// </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void UpdateReferenceProperties(this Kalliope.Diagrams.ORMDiagram poco, Kalliope.DTO.ORMDiagram dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        public static void UpdateReferenceProperties(this Kalliope.Diagrams.OrmDiagram poco, Kalliope.DTO.OrmDiagram dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
             if (poco == null)
             {
@@ -239,7 +239,7 @@ namespace Kalliope.Dal
 
             if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject) && cache.TryGetValue(dto.Subject, out lazyPoco))
             {
-                poco.Subject = (ORMModel)lazyPoco.Value;
+                poco.Subject = (OrmModel)lazyPoco.Value;
             }
 
             var valueComparisonConstraintShapesToAdd = dto.ValueComparisonConstraintShapes.Except(poco.ValueComparisonConstraintShapes.Select(x => x.Id));

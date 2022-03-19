@@ -26,21 +26,21 @@ namespace Kalliope.Core
     /// An informal description for the containing element
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CardinalityConstraint", propertyName: "Definition")]
     [Container(typeName: "ElementGrouping", propertyName: "Definition")]
     [Container(typeName: "FactType", propertyName: "Definition")]
     [Container(typeName: "ObjectType", propertyName: "Definition")]
-    [Container(typeName: "ORMModel", propertyName: "Definition")]
+    [Container(typeName: "OrmModel", propertyName: "Definition")]
     [Container(typeName: "SetComparisonConstraint", propertyName: "Definition")]
     [Container(typeName: "SetConstraint", propertyName: "Definition")]
     [Container(typeName: "ValueConstraint", propertyName: "Definition")]
-    public class Definition : ORMModelElement
+    public class Definition : OrmModelElement
     {
         /// <summary>
-        /// Gets or sets the container <see cref="ORMModelElement"/>
+        /// Gets or sets the container <see cref="OrmModelElement"/>
         /// </summary>
-        public ORMModelElement Container { get; set; }
+        public OrmModelElement Container { get; set; }
 
         /// <summary>
         /// Plain text description

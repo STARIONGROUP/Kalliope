@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="PathConstantXmlReader"/> is to deserialize a <see cref="PathConstant"/>
     /// from an .orm XML file
     /// </summary>
-    public class PathConstantXmlReader : ORMModelElementXmlReader
+    public class PathConstantXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="PathConstant"/> from the <see cref="XmlReader"/>

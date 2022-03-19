@@ -104,8 +104,8 @@ namespace Kalliope.Dal
             var excludedElementsToDelete = poco.ExcludedElements.Select(x => x.Id).Except(dto.ExcludedElements);
             foreach (var identifier in excludedElementsToDelete)
             {
-                var oRMModelElement = poco.ExcludedElements.Single(x => x.Id == identifier);
-                poco.ExcludedElements.Remove(oRMModelElement);
+                var ormModelElement = poco.ExcludedElements.Single(x => x.Id == identifier);
+                poco.ExcludedElements.Remove(ormModelElement);
             }
 
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
@@ -125,8 +125,8 @@ namespace Kalliope.Dal
             var includedElementsToDelete = poco.IncludedElements.Select(x => x.Id).Except(dto.IncludedElements);
             foreach (var identifier in includedElementsToDelete)
             {
-                var oRMModelElement = poco.IncludedElements.Single(x => x.Id == identifier);
-                poco.IncludedElements.Remove(oRMModelElement);
+                var ormModelElement = poco.IncludedElements.Single(x => x.Id == identifier);
+                poco.IncludedElements.Remove(ormModelElement);
             }
 
             var membershipContradictionErrorsToDelete = poco.MembershipContradictionErrors.Select(x => x.Id).Except(dto.MembershipContradictionErrors);
@@ -231,8 +231,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var oRMModelElement = (ORMModelElement)lazyPoco.Value;
-                    poco.ExcludedElements.Add(oRMModelElement);
+                    var ormModelElement = (OrmModelElement)lazyPoco.Value;
+                    poco.ExcludedElements.Add(ormModelElement);
                 }
             }
 
@@ -261,8 +261,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var oRMModelElement = (ORMModelElement)lazyPoco.Value;
-                    poco.IncludedElements.Add(oRMModelElement);
+                    var ormModelElement = (OrmModelElement)lazyPoco.Value;
+                    poco.IncludedElements.Add(ormModelElement);
                 }
             }
 

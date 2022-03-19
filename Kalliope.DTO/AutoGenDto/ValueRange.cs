@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a ValueRange
     /// </summary>
     [Container(typeName: "ValueConstraint", propertyName: "ValueRanges")]
-    public partial class ValueRange : ORMModelElement
+    public partial class ValueRange : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueRange"/> class.

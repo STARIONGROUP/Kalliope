@@ -50,7 +50,7 @@ namespace Kalliope.Xml.Tests
 
             var ormRoot = modelThings.OfType<OrmRoot>().Single();
 
-            var ormModel = modelThings.OfType<ORMModel>().Single();
+            var ormModel = modelThings.OfType<OrmModel>().Single();
             Assert.That(ormModel.Id, Is.EqualTo("_A0258532-8AB1-4D5E-83F3-A2B8C96B2329"));
             Assert.That(ormModel.Name, Is.EqualTo("ORMModel4"));
             

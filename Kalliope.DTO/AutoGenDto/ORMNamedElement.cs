@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMNamedElement.cs" company="RHEA System S.A.">
+// <copyright file="OrmNamedElement.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,14 +30,14 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a ORMNamedElement
+    /// A Data Transfer Object that represents a OrmNamedElement
     /// </summary>
-    public abstract partial class ORMNamedElement : ORMModelElement
+    public abstract partial class OrmNamedElement : OrmModelElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMNamedElement"/> class.
+        /// Initializes a new instance of the <see cref="OrmNamedElement"/> class.
         /// </summary>
-        protected ORMNamedElement()
+        protected OrmNamedElement()
         {
         }
  

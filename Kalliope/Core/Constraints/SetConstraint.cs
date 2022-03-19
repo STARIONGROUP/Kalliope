@@ -26,7 +26,7 @@ namespace Kalliope.Core
 
     [Description("")]
     [Domain(isAbstract: true, general: "ConstraintRoleSequence")]
-    [Container(typeName: "ORMModel", propertyName: "SetConstraints")]
+    [Container(typeName: "OrmModel", propertyName: "SetConstraints")]
     public abstract class SetConstraint : ConstraintRoleSequence
     {
         /// <summary>

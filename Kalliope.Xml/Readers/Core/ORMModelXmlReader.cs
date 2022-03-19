@@ -26,16 +26,16 @@ namespace Kalliope.Xml.Readers
     using Kalliope.DTO;
     
     /// <summary>
-    /// The purpose of the <see cref="ORMModelXmlReader"/> is to read the contents of the
-    /// <see cref="ORMModel"/> XML element
+    /// The purpose of the <see cref="OrmModelXmlReader"/> is to read the contents of the
+    /// <see cref="OrmModel"/> XML element
     /// </summary>
-    public class ORMModelXmlReader : ORMNamedElementXmlReader
+    public class OrmModelXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
-        /// Generates a <see cref="ORMModel"/> object from its XML representation.
+        /// Generates a <see cref="OrmModel"/> object from its XML representation.
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized
+        /// The subject <see cref="OrmModel"/> that is to be deserialized
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -43,7 +43,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        public void ReadXml(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(ormModel, reader, modelThings);
 
@@ -115,7 +115,7 @@ namespace Kalliope.Xml.Readers
         /// Reads <see cref="ObjectType"/>s from the .orm file
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="ObjectType"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="ObjectType"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -123,7 +123,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadObjects(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadObjects(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -177,7 +177,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the <see cref="FactType"/>s
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="FactType"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="FactType"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -185,7 +185,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadFacts(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadFacts(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -239,7 +239,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the Constraints
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container
         /// of the <see cref="SetConstraint"/>s and <see cref="SetComparisonConstraint"/>s
         /// </param>
         /// <param name="reader">
@@ -248,7 +248,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadConstraints(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadConstraints(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -357,7 +357,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the <see cref="DataType"/>s
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="DataType"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="DataType"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -365,7 +365,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadDataTypes(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadDataTypes(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -718,7 +718,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the <see cref="ModelNote"/>s
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="ModelNote"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="ModelNote"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -726,7 +726,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadModelNotes(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadModelNotes(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -758,7 +758,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the <see cref="CustomReferenceMode"/>s
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="CustomReferenceMode"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="CustomReferenceMode"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -766,7 +766,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadCustomReferenceModes(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadCustomReferenceModes(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -798,7 +798,7 @@ namespace Kalliope.Xml.Readers
         /// Reads the <see cref="ReferenceModeKind"/>s
         /// </summary>
         /// <param name="ormModel">
-        /// The subject <see cref="ORMModel"/> that is to be deserialized and is the container of the <see cref="ReferenceModeKind"/>s
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="ReferenceModeKind"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -806,7 +806,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadReferenceModeKinds(ORMModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadReferenceModeKinds(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {

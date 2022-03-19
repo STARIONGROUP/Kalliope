@@ -368,12 +368,12 @@ namespace Kalliope.Dal
                 case "OleObjectRawDataDataType":
                     var oleObjectRawDataDataType = poco as Kalliope.Core.OleObjectRawDataDataType;
                     return oleObjectRawDataDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.OleObjectRawDataDataType)dto);
-                case "ORMDiagram":
-                    var oRMDiagram = poco as Kalliope.Diagrams.ORMDiagram;
-                    return oRMDiagram.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ORMDiagram)dto);
-                case "ORMModel":
-                    var oRMModel = poco as Kalliope.Core.ORMModel;
-                    return oRMModel.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ORMModel)dto);
+                case "OrmDiagram":
+                    var ormDiagram = poco as Kalliope.Diagrams.OrmDiagram;
+                    return ormDiagram.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.OrmDiagram)dto);
+                case "OrmModel":
+                    var ormModel = poco as Kalliope.Core.OrmModel;
+                    return ormModel.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.OrmModel)dto);
                 case "OrmRoot":
                     var ormRoot = poco as Kalliope.OrmRoot;
                     return ormRoot.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.OrmRoot)dto);
@@ -1055,13 +1055,13 @@ namespace Kalliope.Dal
                     var oleObjectRawDataDataType = poco as Kalliope.Core.OleObjectRawDataDataType;
                     oleObjectRawDataDataType.UpdateReferenceProperties((Kalliope.DTO.OleObjectRawDataDataType)dto, cache);
                     break;
-                case "ORMDiagram":
-                    var oRMDiagram = poco as Kalliope.Diagrams.ORMDiagram;
-                    oRMDiagram.UpdateReferenceProperties((Kalliope.DTO.ORMDiagram)dto, cache);
+                case "OrmDiagram":
+                    var ormDiagram = poco as Kalliope.Diagrams.OrmDiagram;
+                    ormDiagram.UpdateReferenceProperties((Kalliope.DTO.OrmDiagram)dto, cache);
                     break;
-                case "ORMModel":
-                    var oRMModel = poco as Kalliope.Core.ORMModel;
-                    oRMModel.UpdateReferenceProperties((Kalliope.DTO.ORMModel)dto, cache);
+                case "OrmModel":
+                    var ormModel = poco as Kalliope.Core.OrmModel;
+                    ormModel.UpdateReferenceProperties((Kalliope.DTO.OrmModel)dto, cache);
                     break;
                 case "OrmRoot":
                     var ormRoot = poco as Kalliope.OrmRoot;

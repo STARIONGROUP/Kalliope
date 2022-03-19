@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ExternalConstraintShapeXmlReader"/> is to deserialize a <see cref="ExternalConstraintShape"/>
     /// from an .orm XML file
     /// </summary>
-    public class ExternalConstraintShapeXmlReader : ORMBaseShapeXmlReader
+    public class ExternalConstraintShapeXmlReader : OrmBaseShapeXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ExternalConstraintShape"/> from the <see cref="XmlReader"/>

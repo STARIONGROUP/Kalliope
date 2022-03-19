@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Indicates if the tail split in its entirety should be treated as a negation
     /// </remarks>
-    public abstract partial class RolePath : ORMModelElement
+    public abstract partial class RolePath : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePath"/> class.

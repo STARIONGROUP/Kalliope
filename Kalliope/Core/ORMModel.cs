@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModel.cs" company="RHEA System S.A.">
+// <copyright file="OrmModel.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -28,13 +28,13 @@ namespace Kalliope.Core
     /// Definition of elements used in the primary definition of an ORM model
     /// </summary>
     [Description("Definition of elements used in the primary definition of an ORM model")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
-    public class ORMModel : ORMNamedElement
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    public class OrmModel : OrmNamedElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMModel"/> class
+        /// Initializes a new instance of the <see cref="OrmModel"/> class
         /// </summary>
-        public ORMModel()
+        public OrmModel()
         {
             this.Definitions = new List<Definition>();
             this.ObjectTypes = new List<ObjectType>();
@@ -67,33 +67,33 @@ namespace Kalliope.Core
         public ReferenceMode ReferenceMode { get; set; }
 
         /// <summary>
-        /// The <see cref="Definitions"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="Definitions"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         public List<Definition> Definitions { get; set; }
         
         /// <summary>
-        /// The <see cref="ObjectType"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="ObjectType"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "ObjectTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public List<ObjectType> ObjectTypes { get; set; }
 
         /// <summary>
-        /// The <see cref="FactType"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="FactType"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "FactTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<FactType> FactTypes { get; set; }
 
         /// <summary>
-        /// The <see cref="DataType"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="DataType"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "DataTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType")]
         public List<DataType> DataTypes { get; set; }
 
         /// <summary>
-        /// The <see cref="Function"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="Function"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         /// <remarks>
         /// Function definitions used for calculated role path values
@@ -103,21 +103,21 @@ namespace Kalliope.Core
         public List<Function> Functions { get; set; }
         
         /// <summary>
-        /// The <see cref="ModelNote"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="ModelNote"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "Notes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelNote")]
         public List<ModelNote> Notes { get; set; }
 
         /// <summary>
-        /// The <see cref="ModelError"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="ModelError"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "Errors", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<ModelError> Errors { get; set; }
 
         /// <summary>
-        /// The <see cref="ReferenceModeKind"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="ReferenceModeKind"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "ReferenceModeKinds", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ReferenceModeKind")]
@@ -131,26 +131,26 @@ namespace Kalliope.Core
         public List<ReferenceMode> ReferenceModes { get; set; }
 
         /// <summary>
-        /// The <see cref="RecognizedPhrase"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="RecognizedPhrase"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "RecognizedPhrases", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhrase")]
         public List<RecognizedPhrase> RecognizedPhrases { get; set; }
 
         /// <summary>
-        /// The <see cref="Extension"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="Extension"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         public List<Extension> Extensions { get; set; }
 
         /// <summary>
-        /// The <see cref="SetConstraint"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="SetConstraint"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "SetConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetConstraint")]
         public List<SetConstraint> SetConstraints { get; set; }
 
         /// <summary>
-        /// The <see cref="SetComparisonConstraint"/>s contained by the <see cref="ORMModel"/>
+        /// The <see cref="SetComparisonConstraint"/>s contained by the <see cref="OrmModel"/>
         /// </summary>
         [Description("")]
         [Property(name: "SetComparisonConstraints", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "SetComparisonConstraint")]

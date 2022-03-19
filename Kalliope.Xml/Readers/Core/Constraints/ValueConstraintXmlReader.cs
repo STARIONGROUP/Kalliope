@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ValueConstraintXmlReader"/> is to deserialize a <see cref="ValueConstraint"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class ValueConstraintXmlReader : ORMNamedElementXmlReader
+    public abstract class ValueConstraintXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ValueConstraint"/> from the <see cref="XmlReader"/>

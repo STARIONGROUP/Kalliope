@@ -31,7 +31,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ValueRangeXmlReader"/> is to deserialize a <see cref="ValueRange"/>
     /// from an .orm XML file
     /// </summary>
-    public class ValueRangeXmlReader : ORMModelElementXmlReader
+    public class ValueRangeXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ValueRange"/> from the <see cref="XmlReader"/>

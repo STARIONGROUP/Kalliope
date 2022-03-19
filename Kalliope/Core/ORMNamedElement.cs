@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMNamedElement.cs" company="RHEA System S.A.">
+// <copyright file="OrmNamedElement.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -23,8 +23,8 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
-    public abstract class ORMNamedElement : ORMModelElement
+    [Domain(isAbstract: true, general: "OrmModelElement")]
+    public abstract class OrmNamedElement : OrmModelElement
     {
         /// <summary>
         /// A name for this element

@@ -36,7 +36,7 @@ namespace Kalliope.DTO
     /// A use of a data type, including facet information
     /// </remarks>
     [Container(typeName: "ObjectType", propertyName: "ConceptualDataType")]
-    public partial class DataTypeRef : ORMModelElement
+    public partial class DataTypeRef : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataTypeRef"/> class.

@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CardinalityConstraint
     /// </summary>
-    public abstract partial class CardinalityConstraint : ORMNamedElement
+    public abstract partial class CardinalityConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class.

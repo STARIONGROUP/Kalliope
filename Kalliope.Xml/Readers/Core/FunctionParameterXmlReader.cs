@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="FunctionParameterXmlReader"/> is to deserialize a <see cref="FunctionParameter"/>
     /// from an .orm XML file
     /// </summary>
-    public class FunctionParameterXmlReader : ORMNamedElementXmlReader
+    public class FunctionParameterXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="FunctionParameter"/> from the <see cref="XmlReader"/>

@@ -63,8 +63,8 @@ namespace Kalliope.Xml.Readers
                             using (var ormModelSubtree = reader.ReadSubtree())
                             {
                                 ormModelSubtree.MoveToContent();
-                                var ormModel = new ORMModel();
-                                var ormModelReader = new ORMModelXmlReader();
+                                var ormModel = new OrmModel();
+                                var ormModelReader = new OrmModelXmlReader();
                                 ormModelReader.ReadXml(ormModel, ormModelSubtree, modelThings);
                                 ormRoot.Model = ormModel.Id;
                             }
@@ -93,8 +93,8 @@ namespace Kalliope.Xml.Readers
                             using (var diagramSubtree = reader.ReadSubtree())
                             {
                                 diagramSubtree.MoveToContent();
-                                var ormDiagram = new ORMDiagram();
-                                var ormDiagramXmlReader = new ORMDiagramXmlReader();
+                                var ormDiagram = new OrmDiagram();
+                                var ormDiagramXmlReader = new OrmDiagramXmlReader();
                                 ormDiagramXmlReader.ReadXml(ormDiagram, diagramSubtree, modelThings);
                                 ormRoot.Diagrams.Add(ormDiagram.Id);
                             }

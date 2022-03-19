@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// An ordered sequence of roles through ORM space with a tail split branching into other subpaths
     /// </summary>
     [Description("Indicates if the tail split in its entirety should be treated as a negation")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
-    public abstract class RolePath : ORMModelElement
+    [Domain(isAbstract: true, general: "OrmModelElement")]
+    public abstract class RolePath : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePath"/> class

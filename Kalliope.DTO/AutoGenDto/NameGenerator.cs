@@ -83,10 +83,10 @@ namespace Kalliope.DTO
         public List<string> RefinedByGenerators { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ORMModelElement"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="OrmModelElement"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement", allowOverride: false, isOverride: false, isDerived: false)]
         public string RefinedInstance { get; set; }
  
         /// <summary>

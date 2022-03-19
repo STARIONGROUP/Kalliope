@@ -28,10 +28,10 @@ namespace Kalliope.Core
     /// A fact type directly specified by the modeler
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "Objectification", propertyName: "ImpliedFactTypes")]
-    [Container(typeName: "ORMModel", propertyName: "FactTypes")]
-    public class FactType : ORMModelElement
+    [Container(typeName: "OrmModel", propertyName: "FactTypes")]
+    public class FactType : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FactType"/> class

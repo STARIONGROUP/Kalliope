@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a RoleBase
     /// </summary>
     [Container(typeName: "FactType", propertyName: "Roles")]
-    public abstract partial class RoleBase : ORMModelElement
+    public abstract partial class RoleBase : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleBase"/> class.

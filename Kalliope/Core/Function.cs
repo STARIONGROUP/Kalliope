@@ -31,9 +31,9 @@ namespace Kalliope.Core
     /// (DSL) A function or operator used to represented a calculation algorithm
     /// </remarks>
     [Description("A function or operator used to represented a calculation algorithm.")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
-    [Container(typeName: "ORMModel", propertyName: "Functions")]
-    public class Function : ORMNamedElement
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Container(typeName: "OrmModel", propertyName: "Functions")]
+    public class Function : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Function"/> class
@@ -68,7 +68,7 @@ namespace Kalliope.Core
         /// <summary>
         /// The model defining this function
         /// </summary>
-        public ORMModel Model { get; set; }
+        public OrmModel Model { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="FunctionParameter"/>s

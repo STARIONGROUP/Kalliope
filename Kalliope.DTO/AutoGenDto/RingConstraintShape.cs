@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a RingConstraintShape
     /// </remarks>
-    [Container(typeName: "ORMDiagram", propertyName: "RingConstraintShapes")]
+    [Container(typeName: "OrmDiagram", propertyName: "RingConstraintShapes")]
     public partial class RingConstraintShape : ExternalConstraintShape
     {
         /// <summary>

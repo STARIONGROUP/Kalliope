@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModel.cs" company="RHEA System S.A.">
+// <copyright file="OrmModel.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,17 +30,17 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a ORMModel
+    /// A Data Transfer Object that represents a OrmModel
     /// </summary>
     /// <remarks>
     /// Definition of elements used in the primary definition of an ORM model
     /// </remarks>
-    public partial class ORMModel : ORMNamedElement
+    public partial class OrmModel : OrmNamedElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMModel"/> class.
+        /// Initializes a new instance of the <see cref="OrmModel"/> class.
         /// </summary>
-        public ORMModel()
+        public OrmModel()
         {
             this.DataTypes = new List<string>();
             this.Errors = new List<string>();

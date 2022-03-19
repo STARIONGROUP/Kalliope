@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMBaseShape.cs" company="RHEA System S.A.">
+// <copyright file="OrmBaseShape.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,17 +30,17 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a ORMBaseShape
+    /// A Data Transfer Object that represents a OrmBaseShape
     /// </summary>
     /// <remarks>
     /// Abstract super-type from which all shape classes derive
     /// </remarks>
-    public abstract partial class ORMBaseShape : ModelThing
+    public abstract partial class OrmBaseShape : ModelThing
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMBaseShape"/> class.
+        /// Initializes a new instance of the <see cref="OrmBaseShape"/> class.
         /// </summary>
-        protected ORMBaseShape()
+        protected OrmBaseShape()
         {
         }
  

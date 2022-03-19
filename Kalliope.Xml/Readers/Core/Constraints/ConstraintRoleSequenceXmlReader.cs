@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ConstraintRoleSequenceXmlReader"/> is to deserialize a <see cref="ConstraintRoleSequence"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class ConstraintRoleSequenceXmlReader : ORMNamedElementXmlReader
+    public abstract class ConstraintRoleSequenceXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ConstraintRoleSequence"/> from the <see cref="XmlReader"/>

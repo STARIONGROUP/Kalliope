@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ObjectTypeInstanceXmlReader"/> is to deserialize a <see cref="ObjectTypeInstance"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class ObjectTypeInstanceXmlReader : ORMModelElementXmlReader
+    public abstract class ObjectTypeInstanceXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ObjectTypeInstance"/> from the <see cref="XmlReader"/>

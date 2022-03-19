@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="FactTypeXmlReader"/> is to deserialize a <see cref="FactType"/>
     /// from an .orm XML file
     /// </summary>
-    public class FactTypeXmlReader : ORMModelElementXmlReader
+    public class FactTypeXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="FactType"/> from the <see cref="XmlReader"/>

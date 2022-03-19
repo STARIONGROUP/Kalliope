@@ -53,7 +53,7 @@ namespace Kalliope.Xml.Tests
             var modelThings = this.ormXmlReader.Read(this.ormfilePath, false, null);
 
             //ORM Model
-            var ormModel = modelThings.OfType<ORMModel>().Single();
+            var ormModel = modelThings.OfType<OrmModel>().Single();
             Assert.That(ormModel.Id, Is.EqualTo("_E7741B74-3A9E-4F55-A891-9C7AEDF9EA45"));
             Assert.That(ormModel.Name, Is.EqualTo("ORMModel1"));
 
@@ -188,7 +188,7 @@ namespace Kalliope.Xml.Tests
             // Diagrams
             Assert.That(ormRoot.Diagrams.Count, Is.EqualTo(1));
 
-            var diagram = modelThings.OfType<ORMDiagram>().Single(x => x.Id == "_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4");
+            var diagram = modelThings.OfType<OrmDiagram>().Single(x => x.Id == "_6378BFE3-D9A5-4F4D-9FBF-D8B42E954DB4");
             Assert.That(diagram.IsCompleteView, Is.False);
             Assert.That(diagram.Name, Is.EqualTo("ORMModel1"));
             Assert.That(diagram.BaseFontName, Is.EqualTo("Tahoma"));

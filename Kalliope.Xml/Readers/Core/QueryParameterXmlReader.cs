@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="QueryParameterXmlReader"/> is to deserialize a <see cref="QueryParameter"/>
     /// from an .orm XML file
     /// </summary>
-    public class QueryParameterXmlReader : ORMModelElementXmlReader
+    public class QueryParameterXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="QueryParameter"/> from the <see cref="XmlReader"/>

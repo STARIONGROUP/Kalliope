@@ -128,10 +128,10 @@ namespace Kalliope.Core
         public List<NameGenerator> RefinedByGenerators { get; set; }
 
         /// <summary>
-        /// Gets or sets the referenced <see cref="ORMModelElement"/>
+        /// Gets or sets the referenced <see cref="OrmModelElement"/>
         /// </summary>
         [Description("")]
-        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
-        public ORMModelElement RefinedInstance { get; set; }
+        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement")]
+        public OrmModelElement RefinedInstance { get; set; }
     }
 }

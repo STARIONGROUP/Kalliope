@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="SetComparisonConstraintXmlReader"/> is to deserialize a <see cref="SetComparisonConstraint"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class SetComparisonConstraintXmlReader : ORMNamedElementXmlReader
+    public abstract class SetComparisonConstraintXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="SetComparisonConstraint"/> from the <see cref="XmlReader"/>

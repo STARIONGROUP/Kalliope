@@ -26,7 +26,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="DataTypeXmlReader"/> is to deserialize a <see cref="DataType"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class DataTypeXmlReader : ORMModelElementXmlReader
+    public abstract class DataTypeXmlReader : OrmModelElementXmlReader
     {
     }
 }

@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModelElementXmlReader.cs" company="RHEA System S.A.">
+// <copyright file="OrmModelElementXmlReader.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -26,12 +26,12 @@ namespace Kalliope.Xml.Readers
     using Kalliope.DTO;
 
     /// <summary>
-    /// The purpose of the <see cref="ORMModelElementXmlReader"/> is to read properties of the <see cref="ORMModelElement"/>
+    /// The purpose of the <see cref="OrmModelElementXmlReader"/> is to read properties of the <see cref="OrmModelElement"/>
     /// </summary>
-    public abstract class ORMModelElementXmlReader : ModelThingXmlReader
+    public abstract class OrmModelElementXmlReader : ModelThingXmlReader
     {
         /// <summary>
-        /// Reads the properties of the provided <see cref="ORMModelElement"/> from the <see cref="XmlReader"/>
+        /// Reads the properties of the provided <see cref="OrmModelElement"/> from the <see cref="XmlReader"/>
         /// </summary>
         /// <param name="ormModelElement">
         /// The subject <see cref="ModelThing"/> that is to be deserialized
@@ -42,7 +42,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        public void ReadXml(ORMModelElement ormModelElement, XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(OrmModelElement ormModelElement, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(ormModelElement, reader, modelThings);
 

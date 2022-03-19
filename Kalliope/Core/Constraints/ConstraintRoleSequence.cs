@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// A sequence of constraint roles
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMNamedElement")]
-    public abstract class ConstraintRoleSequence : ORMNamedElement
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
+    public abstract class ConstraintRoleSequence : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class

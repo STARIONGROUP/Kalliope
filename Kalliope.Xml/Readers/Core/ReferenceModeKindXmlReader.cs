@@ -31,7 +31,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ReferenceModeKindXmlReader"/> is to deserialize a <see cref="ReferenceModeKind"/>
     /// from an .orm XML file
     /// </summary>
-    public class ReferenceModeKindXmlReader : ORMModelElementXmlReader
+    public class ReferenceModeKindXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ReferenceModeKind"/> from the <see cref="XmlReader"/>

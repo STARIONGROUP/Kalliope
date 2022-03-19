@@ -28,9 +28,9 @@ namespace Kalliope.Core
     /// A calculated value used in a role path
     /// </summary>
     [Description("A calculated value used in a role path")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "LeadRolePath", propertyName: "CalculatedValues")]
-    public class CalculatedPathValue : ORMModelElement
+    public class CalculatedPathValue : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculatedPathValue"/> class

@@ -35,8 +35,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A phrase with one or more words that can be abbreviated during name generation
     /// </remarks>
-    [Container(typeName: "ORMModel", propertyName: "RecognizedPhrases")]
-    public partial class RecognizedPhrase : ORMNamedElement
+    [Container(typeName: "OrmModel", propertyName: "RecognizedPhrases")]
+    public partial class RecognizedPhrase : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognizedPhrase"/> class.

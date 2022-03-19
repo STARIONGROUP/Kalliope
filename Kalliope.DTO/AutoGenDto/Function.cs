@@ -35,8 +35,8 @@ namespace Kalliope.DTO
     /// <remarks>
     /// A function or operator used to represented a calculation algorithm.
     /// </remarks>
-    [Container(typeName: "ORMModel", propertyName: "Functions")]
-    public partial class Function : ORMNamedElement
+    [Container(typeName: "OrmModel", propertyName: "Functions")]
+    public partial class Function : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Function"/> class.

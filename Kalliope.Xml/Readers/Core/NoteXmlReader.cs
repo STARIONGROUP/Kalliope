@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="NoteXmlReader"/> is to deserialize a <see cref="Note"/>
     /// from an .orm XML file
     /// </summary>
-    public class NoteXmlReader : ORMModelElementXmlReader
+    public class NoteXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="Definition"/> from the <see cref="XmlReader"/>

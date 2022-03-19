@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="RoleBaseXmlReader"/> is to deserialize a <see cref="RoleBase"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class RoleBaseXmlReader : ORMModelElementXmlReader
+    public abstract class RoleBaseXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="RoleBase"/> from the <see cref="XmlReader"/>

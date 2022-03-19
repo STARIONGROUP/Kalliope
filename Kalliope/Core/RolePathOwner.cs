@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// An abstract owner for one or more path objects.
     /// </summary>
     [Description("An abstract owner for one or more path objects")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
-    public abstract class RolePathOwner : ORMModelElement
+    [Domain(isAbstract: true, general: "OrmModelElement")]
+    public abstract class RolePathOwner : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RolePathOwner"/> class

@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ConstraintRoleSequence
     /// </summary>
-    public abstract partial class ConstraintRoleSequence : ORMNamedElement
+    public abstract partial class ConstraintRoleSequence : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class.

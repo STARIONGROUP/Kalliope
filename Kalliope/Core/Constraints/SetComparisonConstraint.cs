@@ -25,9 +25,9 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMNamedElement")]
-    [Container(typeName: "ORMModel", propertyName: "SetComparisonConstraints")]
-    public abstract class SetComparisonConstraint : ORMNamedElement
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
+    [Container(typeName: "OrmModel", propertyName: "SetComparisonConstraints")]
+    public abstract class SetComparisonConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetComparisonConstraint"/> class.

@@ -31,9 +31,9 @@ namespace Kalliope.Core
     /// A group of elements. A GroupType is associated with the Group to control the group contents
     /// </remarks>
     [Description("A group of elements. A GroupType is associated with the Group to control the group contents")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
     [Container("ElementGroupingSet", "Groupings")]
-    public class ElementGrouping : ORMNamedElement
+    public class ElementGrouping : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElementGrouping"/> class
@@ -44,8 +44,8 @@ namespace Kalliope.Core
             this.Priority = 0;
             this.MembershipContradictionErrors = new List<ElementGroupingMembershipContradictionError>();
             this.GroupingTypes = new List<ElementGroupingType>();
-            this.IncludedElements = new List<ORMModelElement>();
-            this.ExcludedElements = new List<ORMModelElement>();
+            this.IncludedElements = new List<OrmModelElement>();
+            this.ExcludedElements = new List<OrmModelElement>();
             this.ChildGroupings = new List<ElementGrouping>();
             this.IncludedChildGroupings = new List<ElementGrouping>();
             this.ExcludedChildGroupings = new List<ElementGrouping>();
@@ -99,12 +99,12 @@ namespace Kalliope.Core
         public List<ElementGroupingType> GroupingTypes { get; set; }
 
         [Description("")]
-        [Property(name: "IncludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
-        public List<ORMModelElement> IncludedElements { get; set; }
+        [Property(name: "IncludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement")]
+        public List<OrmModelElement> IncludedElements { get; set; }
 
         [Description("")]
-        [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
-        public List<ORMModelElement> ExcludedElements { get; set; }
+        [Property(name: "ExcludedElements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement")]
+        public List<OrmModelElement> ExcludedElements { get; set; }
 
         [Description("")]
         [Property(name: "ChildGroupings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGrouping")]

@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a InformalDerivationRule
     /// </summary>
     [Container(typeName: "SubtypeDerivationPath", propertyName: "InformalDerivationRule")]
-    public partial class InformalDerivationRule : ORMModelElement
+    public partial class InformalDerivationRule : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InformalDerivationRule"/> class.

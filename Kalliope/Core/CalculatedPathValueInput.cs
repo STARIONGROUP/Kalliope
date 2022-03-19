@@ -26,9 +26,9 @@ namespace Kalliope.Core
     /// An input value or bag passed to a function parameter calculate a value
     /// </summary>
     [Description("An input value or bag passed to a function parameter calculate a value")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CalculatedPathValue", propertyName: "Inputs")]
-    public class CalculatedPathValueInput : ORMModelElement
+    public class CalculatedPathValueInput : OrmModelElement
     {
         /// <summary>
         /// Should the bag be limited to distinct values, resulting in a set of values instead of a bag of values?

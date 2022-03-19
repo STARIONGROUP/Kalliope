@@ -23,9 +23,9 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
-    [Container(typeName: "ORMModel", propertyName: "Errors")]
-    public abstract class ModelError : ORMModelElement
+    [Domain(isAbstract: true, general: "OrmModelElement")]
+    [Container(typeName: "OrmModel", propertyName: "Errors")]
+    public abstract class ModelError : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelError"/> class.

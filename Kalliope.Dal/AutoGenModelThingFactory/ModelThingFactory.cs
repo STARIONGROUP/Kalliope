@@ -455,14 +455,14 @@ namespace Kalliope.Dal
                     var oleObjectRawDataDataType = dto as Kalliope.DTO.OleObjectRawDataDataType;
                     var oleObjectRawDataDataTypeFactory = new OleObjectRawDataDataTypeFactory();
                     return oleObjectRawDataDataTypeFactory.Create(oleObjectRawDataDataType);
-                case "ORMDiagram":
-                    var oRMDiagram = dto as Kalliope.DTO.ORMDiagram;
-                    var oRMDiagramFactory = new ORMDiagramFactory();
-                    return oRMDiagramFactory.Create(oRMDiagram);
-                case "ORMModel":
-                    var oRMModel = dto as Kalliope.DTO.ORMModel;
-                    var oRMModelFactory = new ORMModelFactory();
-                    return oRMModelFactory.Create(oRMModel);
+                case "OrmDiagram":
+                    var ormDiagram = dto as Kalliope.DTO.OrmDiagram;
+                    var ormDiagramFactory = new OrmDiagramFactory();
+                    return ormDiagramFactory.Create(ormDiagram);
+                case "OrmModel":
+                    var ormModel = dto as Kalliope.DTO.OrmModel;
+                    var ormModelFactory = new OrmModelFactory();
+                    return ormModelFactory.Create(ormModel);
                 case "OrmRoot":
                     var ormRoot = dto as Kalliope.DTO.OrmRoot;
                     var ormRootFactory = new OrmRootFactory();

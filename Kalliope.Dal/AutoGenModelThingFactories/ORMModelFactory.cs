@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMModelFactory.cs" company="RHEA System S.A.">
+// <copyright file="OrmModelFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,38 +30,38 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// The purpose of the <see cref="ORMModelFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Core.ORMModel"/> based on a <see cref="Kalliope.DTO.ORMModel"/>
+    /// The purpose of the <see cref="OrmModelFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Core.OrmModel"/> based on a <see cref="Kalliope.DTO.OrmModel"/>
     /// </summary>
-    public class ORMModelFactory
+    public class OrmModelFactory
     {
         /// <summary>
-        /// Creates an instance of the <see cref="ORMModel"/> and sets the value properties
+        /// Creates an instance of the <see cref="OrmModel"/> and sets the value properties
         /// based on the DTO
         /// </summary>
         /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.ORMModel"/>
+        /// The instance of the <see cref="Kalliope.DTO.OrmModel"/>
         /// </param>
         /// <returns>
-        /// an instance of <see cref="Kalliope.Core.ORMModel"/>
+        /// an instance of <see cref="Kalliope.Core.OrmModel"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// thrown when <paramref name="dto"/> is null
         /// </exception>
-        public Kalliope.Core.ORMModel Create(Kalliope.DTO.ORMModel dto)
+        public Kalliope.Core.OrmModel Create(Kalliope.DTO.OrmModel dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
             }
 
-            var oRMModel = new Kalliope.Core.ORMModel()
+            var ormModel = new Kalliope.Core.OrmModel()
             {
                 Id = dto.Id,
                 Name = dto.Name,
             };
 
-            return oRMModel;
+            return ormModel;
         }
     }
 }

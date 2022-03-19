@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMDiagramFactory.cs" company="RHEA System S.A.">
+// <copyright file="OrmDiagramFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,32 +30,32 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// The purpose of the <see cref="ORMDiagramFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Diagrams.ORMDiagram"/> based on a <see cref="Kalliope.DTO.ORMDiagram"/>
+    /// The purpose of the <see cref="OrmDiagramFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Diagrams.OrmDiagram"/> based on a <see cref="Kalliope.DTO.OrmDiagram"/>
     /// </summary>
-    public class ORMDiagramFactory
+    public class OrmDiagramFactory
     {
         /// <summary>
-        /// Creates an instance of the <see cref="ORMDiagram"/> and sets the value properties
+        /// Creates an instance of the <see cref="OrmDiagram"/> and sets the value properties
         /// based on the DTO
         /// </summary>
         /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.ORMDiagram"/>
+        /// The instance of the <see cref="Kalliope.DTO.OrmDiagram"/>
         /// </param>
         /// <returns>
-        /// an instance of <see cref="Kalliope.Diagrams.ORMDiagram"/>
+        /// an instance of <see cref="Kalliope.Diagrams.OrmDiagram"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// thrown when <paramref name="dto"/> is null
         /// </exception>
-        public Kalliope.Diagrams.ORMDiagram Create(Kalliope.DTO.ORMDiagram dto)
+        public Kalliope.Diagrams.OrmDiagram Create(Kalliope.DTO.OrmDiagram dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
             }
 
-            var oRMDiagram = new Kalliope.Diagrams.ORMDiagram()
+            var ormDiagram = new Kalliope.Diagrams.OrmDiagram()
             {
                 AutoPopulateShapes = dto.AutoPopulateShapes,
                 BaseFontName = dto.BaseFontName,
@@ -65,7 +65,7 @@ namespace Kalliope.Dal
                 Name = dto.Name,
             };
 
-            return oRMDiagram;
+            return ormDiagram;
         }
     }
 }

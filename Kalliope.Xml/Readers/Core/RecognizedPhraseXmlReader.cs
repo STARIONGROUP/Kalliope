@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="RecognizedPhraseXmlReader"/> is to deserialize a <see cref="RecognizedPhrase"/>
     /// from an .orm XML file
     /// </summary>
-    public class RecognizedPhraseXmlReader : ORMNamedElementXmlReader
+    public class RecognizedPhraseXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="RecognizedPhrase"/> from the <see cref="XmlReader"/>

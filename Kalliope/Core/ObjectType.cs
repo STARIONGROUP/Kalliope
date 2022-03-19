@@ -25,9 +25,9 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMNamedElement")]
-    [Container(typeName: "ORMModel", propertyName: "ObjectTypes")]
-    public abstract class ObjectType : ORMNamedElement
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
+    [Container(typeName: "OrmModel", propertyName: "ObjectTypes")]
+    public abstract class ObjectType : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectType"/> class

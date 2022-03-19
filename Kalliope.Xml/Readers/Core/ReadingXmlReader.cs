@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ReadingXmlReader"/> is to deserialize a <see cref="Reading"/>
     /// from an .orm XML file
     /// </summary>
-    public class ReadingXmlReader : ORMModelElementXmlReader
+    public class ReadingXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="Reading"/> from the <see cref="XmlReader"/>

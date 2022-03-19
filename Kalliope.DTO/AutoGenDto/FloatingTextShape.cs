@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Shape that represents a FloatingTextShape
     /// </remarks>
-    public abstract partial class FloatingTextShape : ORMBaseShape
+    public abstract partial class FloatingTextShape : OrmBaseShape
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FloatingTextShape"/> class.

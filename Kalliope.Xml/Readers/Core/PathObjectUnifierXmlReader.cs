@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="PathObjectUnifierXmlReader"/> is to deserialize a <see cref="PathObjectUnifier"/>
     /// from an .orm XML file
     /// </summary>
-    public class PathObjectUnifierXmlReader : ORMModelElementXmlReader
+    public class PathObjectUnifierXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="PathObjectUnifier"/> from the <see cref="XmlReader"/>

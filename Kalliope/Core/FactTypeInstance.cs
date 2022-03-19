@@ -23,9 +23,9 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "FactType", propertyName: "FactTypeInstances")]
-    public class FactTypeInstance : ORMModelElement
+    public class FactTypeInstance : OrmModelElement
     {
         [Description("")]
         [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]

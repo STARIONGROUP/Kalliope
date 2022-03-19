@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ObjectificationXmlReader"/> is to deserialize a <see cref="Objectification"/>
     /// from an .orm XML file
     /// </summary>
-    public class ObjectificationXmlReader : ORMModelElementXmlReader
+    public class ObjectificationXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="Objectification"/> from the <see cref="XmlReader"/>

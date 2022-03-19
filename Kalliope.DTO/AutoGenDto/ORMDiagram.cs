@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ORMDiagram.cs" company="RHEA System S.A.">
+// <copyright file="OrmDiagram.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,14 +30,14 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a ORMDiagram
+    /// A Data Transfer Object that represents a OrmDiagram
     /// </summary>
-    public partial class ORMDiagram : ModelThing
+    public partial class OrmDiagram : ModelThing
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ORMDiagram"/> class.
+        /// Initializes a new instance of the <see cref="OrmDiagram"/> class.
         /// </summary>
-        public ORMDiagram()
+        public OrmDiagram()
         {
             this.ExternalConstraintShapes = new List<string>();
             this.FactTypeShapes = new List<string>();
@@ -127,10 +127,10 @@ namespace Kalliope.DTO
         public List<string> RingConstraintShapes { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ORMModel"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="OrmModel"/>
         /// </summary>
         [Description("The subject ORMModel that is represented by this Diagram")]
-        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Subject", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel", allowOverride: false, isOverride: false, isDerived: false)]
         public string Subject { get; set; }
  
         /// <summary>

@@ -26,10 +26,10 @@ namespace Kalliope.Core
     /// An alternative name for the containing named element
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "ORMNamedElement")]
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
     [Container(typeName: "ObjectType", propertyName: "Abbreviations")]
     [Container(typeName: "RecognizedPhrase", propertyName: "Abbreviations")]
-    public class NameAlias : ORMNamedElement
+    public class NameAlias : OrmNamedElement
     {
         /// <summary>
         /// The type of consumer for this form of the name. NameConsumer types are provided by extension models

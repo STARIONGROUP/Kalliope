@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="CardinalityRangeXmlReader"/> is to deserialize a <see cref="CardinalityRange"/>
     /// from an .orm XML file
     /// </summary>
-    public class CardinalityRangeXmlReader : ORMModelElementXmlReader
+    public class CardinalityRangeXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="CustomReferenceMode"/> from the <see cref="XmlReader"/>

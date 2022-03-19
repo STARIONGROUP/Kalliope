@@ -73,8 +73,8 @@ namespace Kalliope.Dal
             identifiersOfObjectsToDelete.AddRange(diagramsToDelete);
             foreach (var identifier in diagramsToDelete)
             {
-                var oRMDiagram = poco.Diagrams.Single(x => x.Id == identifier);
-                poco.Diagrams.Remove(oRMDiagram);
+                var ormDiagram = poco.Diagrams.Single(x => x.Id == identifier);
+                poco.Diagrams.Remove(ormDiagram);
             }
 
             if (poco.GenerationState != null && poco.GenerationState.Id != dto.GenerationState)
@@ -137,8 +137,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var oRMDiagram = (ORMDiagram)lazyPoco.Value;
-                    poco.Diagrams.Add(oRMDiagram);
+                    var ormDiagram = (OrmDiagram)lazyPoco.Value;
+                    poco.Diagrams.Add(ormDiagram);
                 }
             }
 
@@ -149,7 +149,7 @@ namespace Kalliope.Dal
 
             if (poco.Model == null && !string.IsNullOrEmpty(dto.Model) && cache.TryGetValue(dto.Model, out lazyPoco))
             {
-                poco.Model = (ORMModel)lazyPoco.Value;
+                poco.Model = (OrmModel)lazyPoco.Value;
             }
 
             if (poco.NameGenerator == null && !string.IsNullOrEmpty(dto.NameGenerator) && cache.TryGetValue(dto.NameGenerator, out lazyPoco))

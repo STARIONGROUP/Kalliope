@@ -37,7 +37,7 @@ namespace Kalliope.Core
         public ElementGroupingSet()
         {
             this.Groupings = new List<ElementGrouping>();
-            this.Elements = new List<ORMModelElement>();
+            this.Elements = new List<OrmModelElement>();
         }
 
         [Description("")]
@@ -45,11 +45,11 @@ namespace Kalliope.Core
         public List<ElementGrouping> Groupings { get; set; }
 
         [Description("")]
-        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModel")]
-        public ORMModel Model { get; set; }
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel")]
+        public OrmModel Model { get; set; }
 
         [Description("")]
-        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ORMModelElement")]
-        public List<ORMModelElement> Elements { get; set; }
+        [Property(name: "Elements", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModelElement")]
+        public List<OrmModelElement> Elements { get; set; }
     }
 }

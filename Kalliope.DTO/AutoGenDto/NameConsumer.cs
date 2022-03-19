@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a NameConsumer
     /// </summary>
-    public partial class NameConsumer : ORMModelElement
+    public partial class NameConsumer : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NameConsumer"/> class.

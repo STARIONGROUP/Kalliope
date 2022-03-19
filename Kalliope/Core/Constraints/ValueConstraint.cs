@@ -28,8 +28,8 @@ namespace Kalliope.Core
     /// A constraint limiting the set of allowed values
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMNamedElement")]
-    public abstract class ValueConstraint : ORMNamedElement
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
+    public abstract class ValueConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueConstraint"/> class

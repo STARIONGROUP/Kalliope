@@ -26,9 +26,9 @@ namespace Kalliope.Core
     /// A constant value used in a role path
     /// </summary>
     [Description("A constant value used directly in a path")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CalculatedPathValueInput", propertyName: "SourceConstant")]
-    public class PathConstant : ORMModelElement
+    public class PathConstant : OrmModelElement
     {
         /// <summary>
         /// The lexical constant value. The value is interpreted based on context

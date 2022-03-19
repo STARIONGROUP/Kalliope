@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ObjectTypeShapeXmlReader"/> is to deserialize a <see cref="ObjectTypeShape"/>
     /// from an .orm XML file
     /// </summary>
-    public class ObjectTypeShapeXmlReader : ORMBaseShapeXmlReader
+    public class ObjectTypeShapeXmlReader : OrmBaseShapeXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ObjectTypeShape"/> from the <see cref="XmlReader"/>

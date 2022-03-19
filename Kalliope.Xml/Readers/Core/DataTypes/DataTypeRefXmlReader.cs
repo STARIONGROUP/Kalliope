@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="DataTypeRefXmlReader"/> is to deserialize a <see cref="DataTypeRef"/>
     /// from an .orm XML file
     /// </summary>
-    public class DataTypeRefXmlReader : ORMModelElementXmlReader
+    public class DataTypeRefXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="DataTypeRef"/> from the <see cref="XmlReader"/>

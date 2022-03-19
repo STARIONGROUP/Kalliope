@@ -32,7 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Group
     /// </summary>
-    public partial class Group : ORMNamedElement
+    public partial class Group : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Group"/> class.

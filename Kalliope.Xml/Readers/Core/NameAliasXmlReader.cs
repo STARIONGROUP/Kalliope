@@ -29,7 +29,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="NameAliasXmlReader"/> is to deserialize a <see cref="NameAlias"/>
     /// from an .orm XML file
     /// </summary>
-    public class NameAliasXmlReader : ORMNamedElementXmlReader
+    public class NameAliasXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="NameAlias"/> from the <see cref="XmlReader"/>

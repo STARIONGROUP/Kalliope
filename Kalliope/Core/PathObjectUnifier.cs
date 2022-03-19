@@ -28,9 +28,9 @@ namespace Kalliope.Core
     /// A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type
     /// </summary>
     [Description("A unification indicating that pathed roles and path roots that are not naturally connected refer to the same object type")]
-    [Domain(isAbstract: false, general: "ORMModelElement")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "LeadRolePath", propertyName: "ObjectUnifiers")]
-    public class PathObjectUnifier : ORMModelElement
+    public class PathObjectUnifier : OrmModelElement
     {
         /// <summary>
         /// Gets or sets the owned <see cref="PathObjectUnifierRequiresCompatibleObjectTypesError"/>

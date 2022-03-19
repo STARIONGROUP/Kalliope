@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ORMBaseShapeXmlReader.cs" company="RHEA System S.A.">
+// <copyright file="OrmBaseShapeXmlReader.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -26,16 +26,16 @@ namespace Kalliope.Xml.Readers
     using Kalliope.DTO;
 
     /// <summary>
-    /// The purpose of the <see cref="ORMBaseShapeXmlReader"/> is to deserialize a <see cref="ORMBaseShape"/>
+    /// The purpose of the <see cref="OrmBaseShapeXmlReader"/> is to deserialize a <see cref="ORMBaseShape"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class ORMBaseShapeXmlReader : ModelThingXmlReader
+    public abstract class OrmBaseShapeXmlReader : ModelThingXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ORMBaseShape"/> from the <see cref="XmlReader"/>
         /// </summary>
         /// <param name="ormBaseShape">
-        /// The subject <see cref="ORMBaseShape"/> that is to be deserialized
+        /// The subject <see cref="OrmBaseShape"/> that is to be deserialized
         /// </param>
         /// <param name="reader">
         /// The <see cref="XmlReader"/> that contains the .orm XML
@@ -43,7 +43,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        public void ReadXml(ORMBaseShape ormBaseShape, XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(OrmBaseShape ormBaseShape, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(ormBaseShape, reader, modelThings);
 

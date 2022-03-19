@@ -26,7 +26,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="FloatingTextShapeXmlReader"/> is to deserialize a <see cref="FloatingTextShape"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class FloatingTextShapeXmlReader : ORMBaseShapeXmlReader
+    public abstract class FloatingTextShapeXmlReader : OrmBaseShapeXmlReader
     {
     }
 }

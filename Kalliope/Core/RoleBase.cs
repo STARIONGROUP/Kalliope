@@ -23,9 +23,9 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ORMModelElement")]
+    [Domain(isAbstract: true, general: "OrmModelElement")]
     [Container(typeName: "FactType", propertyName: "Roles")]
-    public abstract class RoleBase : ORMModelElement
+    public abstract class RoleBase : OrmModelElement
     {
         /// <summary>
         /// An explicit name for this role

@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a Reading
     /// </summary>
     [Container(typeName: "ReadingOrder", propertyName: "Readings")]
-    public partial class Reading : ORMModelElement
+    public partial class Reading : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Reading"/> class.
