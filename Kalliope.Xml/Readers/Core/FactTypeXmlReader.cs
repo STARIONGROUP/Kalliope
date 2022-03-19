@@ -76,7 +76,7 @@ namespace Kalliope.Xml.Readers
                             using (var internalConstraintsSubtree = reader.ReadSubtree())
                             {
                                 internalConstraintsSubtree.MoveToContent();
-                                this.ReadInternalConstraints(factType, internalConstraintsSubtree, modelThings);
+                                this.ReadInternalConstraints(factType, internalConstraintsSubtree);
                             }
                             break;
                         case "DerivationRule":
@@ -207,10 +207,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        /// <param name="modelThings">
-        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
-        /// </param>
-        private void ReadInternalConstraints(FactType factType, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadInternalConstraints(FactType factType, XmlReader reader)
         {
             while (reader.Read())
             {

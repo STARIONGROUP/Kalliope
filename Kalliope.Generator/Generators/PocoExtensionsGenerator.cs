@@ -20,14 +20,12 @@
 
 namespace Kalliope.Generator.Generators
 {
-    using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
     using DotLiquid;
-
-    using Kalliope.Common;
-
+    
     /// <summary>
     /// The purpose of the <see cref="PocoExtensionsGenerator"/> is to generate Kalliope POCO Extension classes
     /// </summary>
@@ -56,7 +54,7 @@ namespace Kalliope.Generator.Generators
         {
             base.Generate(outputDirectory);
             
-            foreach (var drop in this.TypeDrops.Where(x => x.IsAbstract == false))
+            foreach (var drop in this.TypeDrops.Where(x => !x.IsAbstract))
             {
                 var generatedExtensionClass = this.GenerateType(drop);
 
@@ -81,7 +79,7 @@ namespace Kalliope.Generator.Generators
             string pocoExtensionsTemplate;
             if (!this.LiquidTemplates.TryGetValue(PocoExtensionsTemplate, out pocoExtensionsTemplate))
             {
-                throw new Exception("Could not load the POCO Extensions Template");
+                throw new KeyNotFoundException("Could not load the POCO Extensions Template");
             }
 
             var template = Template.Parse(pocoExtensionsTemplate);

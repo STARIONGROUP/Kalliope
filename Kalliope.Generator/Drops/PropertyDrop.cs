@@ -111,7 +111,7 @@ namespace Kalliope.Generator
                     case TypeKind.Double:
                         return "double";
                     default:
-                        throw new Exception();
+                        throw new NotSupportedException($"The {this.PropertyAttribute.TypeKind} is not supported");
                 }
             }
         }

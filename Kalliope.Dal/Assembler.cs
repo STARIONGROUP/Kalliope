@@ -38,11 +38,6 @@ namespace Kalliope.Dal
     public class Assembler : IAssembler
     {
         /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
         /// The <see cref="ILogger"/> used to log
         /// </summary>
         private readonly ILogger<Assembler> logger;
@@ -52,9 +47,7 @@ namespace Kalliope.Dal
         /// </summary>
         public Assembler(ILoggerFactory loggerFactory = null)
         {
-            this.loggerFactory = loggerFactory;
-
-            this.logger = this.loggerFactory == null ? NullLogger<Assembler>.Instance : this.loggerFactory.CreateLogger<Assembler>();
+            this.logger = loggerFactory == null ? NullLogger<Assembler>.Instance : loggerFactory.CreateLogger<Assembler>();
 
             this.Cache = new ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>>();
         }

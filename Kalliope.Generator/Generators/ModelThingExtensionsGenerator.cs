@@ -20,7 +20,6 @@
 
 namespace Kalliope.Generator.Generators
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -55,7 +54,7 @@ namespace Kalliope.Generator.Generators
         {
             base.Generate(outputDirectory);
 
-            var drops = this.TypeDrops.Where(x => x.IsAbstract == false).ToList();
+            var drops = this.TypeDrops.Where(x => !x.IsAbstract).ToList();
             
             var generatedExtensionClass = this.GenerateType(drops);
             
@@ -78,7 +77,7 @@ namespace Kalliope.Generator.Generators
             string modelThingExtensionsTemplate;
             if (!this.LiquidTemplates.TryGetValue(ModelThingExtensionsTemplate, out modelThingExtensionsTemplate))
             {
-                throw new Exception("Could not load the ModelThing Extensions Template");
+                throw new KeyNotFoundException("Could not load the ModelThing Extensions Template");
             }
 
             var template = Template.Parse(modelThingExtensionsTemplate);

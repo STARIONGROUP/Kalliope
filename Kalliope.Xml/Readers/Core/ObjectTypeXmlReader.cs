@@ -88,7 +88,7 @@ namespace Kalliope.Xml.Readers
                             using (var roleSubtree = reader.ReadSubtree())
                             {
                                 roleSubtree.MoveToContent();
-                                this.ReadPlayedRoles(objectType, roleSubtree, modelThings);
+                                this.ReadPlayedRoles(objectType, roleSubtree);
                             }
                             break;
                         case "PreferredIdentifier":
@@ -241,10 +241,7 @@ namespace Kalliope.Xml.Readers
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        /// <param name="modelThings">
-        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
-        /// </param>
-        private void ReadPlayedRoles(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        private void ReadPlayedRoles(ObjectType objectType, XmlReader reader)
         {
             while (reader.Read())
             {

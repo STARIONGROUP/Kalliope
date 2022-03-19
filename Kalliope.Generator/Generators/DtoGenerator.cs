@@ -20,14 +20,11 @@
 
 namespace Kalliope.Generator.Generators
 {
-    using System;
+    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
 
     using DotLiquid;
-
-    using Kalliope.Common;
-
+    
     /// <summary>
     /// The purpose of the <see cref="DtoGenerator"/> is to generate Kalliope DTO
     /// </summary>
@@ -81,7 +78,7 @@ namespace Kalliope.Generator.Generators
             string dtoTemplate;
             if (!this.LiquidTemplates.TryGetValue(Dtotemplate, out dtoTemplate))
             {
-                throw new Exception("Could not load the DTO Template");
+                throw new KeyNotFoundException("Could not load the DTO Template");
             }
 
             var template = Template.Parse(dtoTemplate);

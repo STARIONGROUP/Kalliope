@@ -31,8 +31,6 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "RoleBase")]
     public class RoleProxy : RoleBase
     {
-        private string roleReference = string.Empty;
-
         /// <summary>
         /// Gets or sets the referenced <see cref="Role"/>
         /// </summary>

@@ -20,7 +20,7 @@
 
 namespace Kalliope.Generator.Generators
 {
-    using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
@@ -54,7 +54,7 @@ namespace Kalliope.Generator.Generators
         {
             base.Generate(outputDirectory);
 
-            foreach (var drop in this.TypeDrops.Where(x => x.IsAbstract == false))
+            foreach (var drop in this.TypeDrops.Where(x => !x.IsAbstract))
             {
                 var generatedType = this.GenerateType(drop);
 
@@ -79,7 +79,7 @@ namespace Kalliope.Generator.Generators
             string pocoFactorytemplate;
             if (!this.LiquidTemplates.TryGetValue(PocoFactorytemplate, out pocoFactorytemplate))
             {
-                throw new Exception("Could not load the POCO Factory Template");
+                throw new KeyNotFoundException("Could not load the POCO Factory Template");
             }
 
             var template = Template.Parse(pocoFactorytemplate);

@@ -43,11 +43,6 @@ namespace Kalliope.Xml
     public class OrmXmlReader : IOrmXmlReader
     {
         /// <summary>
-        /// The (injected) <see cref="ILoggerFactory"/> used to setup logging
-        /// </summary>
-        private readonly ILoggerFactory loggerFactory;
-
-        /// <summary>
         /// The <see cref="ILogger"/> used to log
         /// </summary>
         private readonly ILogger<OrmXmlReader> logger;
@@ -60,9 +55,7 @@ namespace Kalliope.Xml
         /// </param>
         public OrmXmlReader(ILoggerFactory loggerFactory = null)
         {
-            this.loggerFactory = loggerFactory;
-
-            this.logger = this.loggerFactory == null ? NullLogger<OrmXmlReader>.Instance : this.loggerFactory.CreateLogger<OrmXmlReader>();
+            this.logger = loggerFactory == null ? NullLogger<OrmXmlReader>.Instance : loggerFactory.CreateLogger<OrmXmlReader>();
         }
 
         /// <summary>
