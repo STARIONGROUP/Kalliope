@@ -161,20 +161,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath))
+            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath) && cache.TryGetValue(dto.JoinPath, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.JoinPath, out lazyPoco))
-                {
-                    poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
-                }
+                poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
             }
 
-            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError))
+            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError) && cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
-                {
-                    poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
-                }
+                poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
             }
 
             var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));

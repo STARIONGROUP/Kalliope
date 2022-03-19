@@ -316,68 +316,44 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality))
+            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality) && cache.TryGetValue(dto.Cardinality, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Cardinality, out lazyPoco))
-                {
-                    poco.Cardinality = (ObjectTypeCardinalityConstraint)lazyPoco.Value;
-                }
+                poco.Cardinality = (ObjectTypeCardinalityConstraint)lazyPoco.Value;
             }
 
-            if (poco.CompatibleSupertypesError == null && !string.IsNullOrEmpty(dto.CompatibleSupertypesError))
+            if (poco.CompatibleSupertypesError == null && !string.IsNullOrEmpty(dto.CompatibleSupertypesError) && cache.TryGetValue(dto.CompatibleSupertypesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.CompatibleSupertypesError, out lazyPoco))
-                {
-                    poco.CompatibleSupertypesError = (CompatibleSupertypesError)lazyPoco.Value;
-                }
+                poco.CompatibleSupertypesError = (CompatibleSupertypesError)lazyPoco.Value;
             }
 
-            if (poco.ConceptualDataType == null && !string.IsNullOrEmpty(dto.ConceptualDataType))
+            if (poco.ConceptualDataType == null && !string.IsNullOrEmpty(dto.ConceptualDataType) && cache.TryGetValue(dto.ConceptualDataType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ConceptualDataType, out lazyPoco))
-                {
-                    poco.ConceptualDataType = (DataTypeRef)lazyPoco.Value;
-                }
+                poco.ConceptualDataType = (DataTypeRef)lazyPoco.Value;
             }
 
-            if (poco.DataType == null && !string.IsNullOrEmpty(dto.DataType))
+            if (poco.DataType == null && !string.IsNullOrEmpty(dto.DataType) && cache.TryGetValue(dto.DataType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DataType, out lazyPoco))
-                {
-                    poco.DataType = (DataType)lazyPoco.Value;
-                }
+                poco.DataType = (DataType)lazyPoco.Value;
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Definition, out lazyPoco))
-                {
-                    poco.Definition = (Definition)lazyPoco.Value;
-                }
+                poco.Definition = (Definition)lazyPoco.Value;
             }
 
-            if (poco.DerivationExpression == null && !string.IsNullOrEmpty(dto.DerivationExpression))
+            if (poco.DerivationExpression == null && !string.IsNullOrEmpty(dto.DerivationExpression) && cache.TryGetValue(dto.DerivationExpression, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DerivationExpression, out lazyPoco))
-                {
-                    poco.DerivationExpression = (SubtypeDerivationExpression)lazyPoco.Value;
-                }
+                poco.DerivationExpression = (SubtypeDerivationExpression)lazyPoco.Value;
             }
 
-            if (poco.DerivationRule == null && !string.IsNullOrEmpty(dto.DerivationRule))
+            if (poco.DerivationRule == null && !string.IsNullOrEmpty(dto.DerivationRule) && cache.TryGetValue(dto.DerivationRule, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DerivationRule, out lazyPoco))
-                {
-                    poco.DerivationRule = (SubtypeDerivationRule)lazyPoco.Value;
-                }
+                poco.DerivationRule = (SubtypeDerivationRule)lazyPoco.Value;
             }
 
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-                {
-                    poco.DuplicateNameError = (ObjectTypeDuplicateNameError)lazyPoco.Value;
-                }
+                poco.DuplicateNameError = (ObjectTypeDuplicateNameError)lazyPoco.Value;
             }
 
             var entityTypeInstancesToAdd = dto.EntityTypeInstances.Except(poco.EntityTypeInstances.Select(x => x.Id));
@@ -410,44 +386,29 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.FactType == null && !string.IsNullOrEmpty(dto.FactType))
+            if (poco.FactType == null && !string.IsNullOrEmpty(dto.FactType) && cache.TryGetValue(dto.FactType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.FactType, out lazyPoco))
-                {
-                    poco.FactType = (FactType)lazyPoco.Value;
-                }
+                poco.FactType = (FactType)lazyPoco.Value;
             }
 
-            if (poco.ImpliedMandatoryConstraint == null && !string.IsNullOrEmpty(dto.ImpliedMandatoryConstraint))
+            if (poco.ImpliedMandatoryConstraint == null && !string.IsNullOrEmpty(dto.ImpliedMandatoryConstraint) && cache.TryGetValue(dto.ImpliedMandatoryConstraint, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ImpliedMandatoryConstraint, out lazyPoco))
-                {
-                    poco.ImpliedMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
-                }
+                poco.ImpliedMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
             }
 
-            if (poco.InherentMandatoryConstraint == null && !string.IsNullOrEmpty(dto.InherentMandatoryConstraint))
+            if (poco.InherentMandatoryConstraint == null && !string.IsNullOrEmpty(dto.InherentMandatoryConstraint) && cache.TryGetValue(dto.InherentMandatoryConstraint, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.InherentMandatoryConstraint, out lazyPoco))
-                {
-                    poco.InherentMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
-                }
+                poco.InherentMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
             }
 
-            if (poco.NestedPredicate == null && !string.IsNullOrEmpty(dto.NestedPredicate))
+            if (poco.NestedPredicate == null && !string.IsNullOrEmpty(dto.NestedPredicate) && cache.TryGetValue(dto.NestedPredicate, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.NestedPredicate, out lazyPoco))
-                {
-                    poco.NestedPredicate = (Objectification)lazyPoco.Value;
-                }
+                poco.NestedPredicate = (Objectification)lazyPoco.Value;
             }
 
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Note, out lazyPoco))
-                {
-                    poco.Note = (Note)lazyPoco.Value;
-                }
+                poco.Note = (Note)lazyPoco.Value;
             }
 
             var objectTypeInstancesToAdd = dto.ObjectTypeInstances.Except(poco.ObjectTypeInstances.Select(x => x.Id));
@@ -470,36 +431,24 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.PreferredIdentifier == null && !string.IsNullOrEmpty(dto.PreferredIdentifier))
+            if (poco.PreferredIdentifier == null && !string.IsNullOrEmpty(dto.PreferredIdentifier) && cache.TryGetValue(dto.PreferredIdentifier, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.PreferredIdentifier, out lazyPoco))
-                {
-                    poco.PreferredIdentifier = (UniquenessConstraint)lazyPoco.Value;
-                }
+                poco.PreferredIdentifier = (UniquenessConstraint)lazyPoco.Value;
             }
 
-            if (poco.PreferredIdentifierRequiresMandatoryError == null && !string.IsNullOrEmpty(dto.PreferredIdentifierRequiresMandatoryError))
+            if (poco.PreferredIdentifierRequiresMandatoryError == null && !string.IsNullOrEmpty(dto.PreferredIdentifierRequiresMandatoryError) && cache.TryGetValue(dto.PreferredIdentifierRequiresMandatoryError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.PreferredIdentifierRequiresMandatoryError, out lazyPoco))
-                {
-                    poco.PreferredIdentifierRequiresMandatoryError = (PreferredIdentifierRequiresMandatoryError)lazyPoco.Value;
-                }
+                poco.PreferredIdentifierRequiresMandatoryError = (PreferredIdentifierRequiresMandatoryError)lazyPoco.Value;
             }
 
-            if (poco.ReferenceSchemeError == null && !string.IsNullOrEmpty(dto.ReferenceSchemeError))
+            if (poco.ReferenceSchemeError == null && !string.IsNullOrEmpty(dto.ReferenceSchemeError) && cache.TryGetValue(dto.ReferenceSchemeError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ReferenceSchemeError, out lazyPoco))
-                {
-                    poco.ReferenceSchemeError = (EntityTypeRequiresReferenceSchemeError)lazyPoco.Value;
-                }
+                poco.ReferenceSchemeError = (EntityTypeRequiresReferenceSchemeError)lazyPoco.Value;
             }
 
-            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint))
+            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint) && cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
-                {
-                    poco.ValueConstraint = (ValueTypeValueConstraint)lazyPoco.Value;
-                }
+                poco.ValueConstraint = (ValueTypeValueConstraint)lazyPoco.Value;
             }
 
             var valueTypeInstancesToAdd = dto.ValueTypeInstances.Except(poco.ValueTypeInstances.Select(x => x.Id));

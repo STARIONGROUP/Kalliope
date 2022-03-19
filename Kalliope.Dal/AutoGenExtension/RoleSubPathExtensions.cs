@@ -180,20 +180,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RootObjectType == null && !string.IsNullOrEmpty(dto.RootObjectType))
+            if (poco.RootObjectType == null && !string.IsNullOrEmpty(dto.RootObjectType) && cache.TryGetValue(dto.RootObjectType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RootObjectType, out lazyPoco))
-                {
-                    poco.RootObjectType = (ObjectType)lazyPoco.Value;
-                }
+                poco.RootObjectType = (ObjectType)lazyPoco.Value;
             }
 
-            if (poco.RootObjectTypeRequiredError == null && !string.IsNullOrEmpty(dto.RootObjectTypeRequiredError))
+            if (poco.RootObjectTypeRequiredError == null && !string.IsNullOrEmpty(dto.RootObjectTypeRequiredError) && cache.TryGetValue(dto.RootObjectTypeRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RootObjectTypeRequiredError, out lazyPoco))
-                {
-                    poco.RootObjectTypeRequiredError = (PathRequiresRootObjectTypeError)lazyPoco.Value;
-                }
+                poco.RootObjectTypeRequiredError = (PathRequiresRootObjectTypeError)lazyPoco.Value;
             }
 
             var subPathsToAdd = dto.SubPaths.Except(poco.SubPaths.Select(x => x.Id));

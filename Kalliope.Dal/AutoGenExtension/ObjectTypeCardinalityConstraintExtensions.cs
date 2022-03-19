@@ -167,28 +167,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CardinalityRangeOverlapError == null && !string.IsNullOrEmpty(dto.CardinalityRangeOverlapError))
+            if (poco.CardinalityRangeOverlapError == null && !string.IsNullOrEmpty(dto.CardinalityRangeOverlapError) && cache.TryGetValue(dto.CardinalityRangeOverlapError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.CardinalityRangeOverlapError, out lazyPoco))
-                {
-                    poco.CardinalityRangeOverlapError = (CardinalityRangeOverlapError)lazyPoco.Value;
-                }
+                poco.CardinalityRangeOverlapError = (CardinalityRangeOverlapError)lazyPoco.Value;
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Definition, out lazyPoco))
-                {
-                    poco.Definition = (Definition)lazyPoco.Value;
-                }
+                poco.Definition = (Definition)lazyPoco.Value;
             }
 
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-                {
-                    poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
-                }
+                poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -201,12 +192,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Note, out lazyPoco))
-                {
-                    poco.Note = (Note)lazyPoco.Value;
-                }
+                poco.Note = (Note)lazyPoco.Value;
             }
 
             var rangesToAdd = dto.Ranges.Except(poco.Ranges.Select(x => x.Id));

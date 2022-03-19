@@ -146,12 +146,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model))
+            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model) && cache.TryGetValue(dto.Model, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Model, out lazyPoco))
-                {
-                    poco.Model = (ORMModel)lazyPoco.Value;
-                }
+                poco.Model = (ORMModel)lazyPoco.Value;
             }
         }
     }

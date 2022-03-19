@@ -182,28 +182,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality))
+            if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality) && cache.TryGetValue(dto.Cardinality, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Cardinality, out lazyPoco))
-                {
-                    poco.Cardinality = (UnaryRoleCardinalityConstraint)lazyPoco.Value;
-                }
+                poco.Cardinality = (UnaryRoleCardinalityConstraint)lazyPoco.Value;
             }
 
-            if (poco.DerivedFromCalculatedValue == null && !string.IsNullOrEmpty(dto.DerivedFromCalculatedValue))
+            if (poco.DerivedFromCalculatedValue == null && !string.IsNullOrEmpty(dto.DerivedFromCalculatedValue) && cache.TryGetValue(dto.DerivedFromCalculatedValue, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DerivedFromCalculatedValue, out lazyPoco))
-                {
-                    poco.DerivedFromCalculatedValue = (CalculatedPathValue)lazyPoco.Value;
-                }
+                poco.DerivedFromCalculatedValue = (CalculatedPathValue)lazyPoco.Value;
             }
 
-            if (poco.DerivedFromConstant == null && !string.IsNullOrEmpty(dto.DerivedFromConstant))
+            if (poco.DerivedFromConstant == null && !string.IsNullOrEmpty(dto.DerivedFromConstant) && cache.TryGetValue(dto.DerivedFromConstant, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DerivedFromConstant, out lazyPoco))
-                {
-                    poco.DerivedFromConstant = (PathConstant)lazyPoco.Value;
-                }
+                poco.DerivedFromConstant = (PathConstant)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -226,28 +217,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RolePlayer == null && !string.IsNullOrEmpty(dto.RolePlayer))
+            if (poco.RolePlayer == null && !string.IsNullOrEmpty(dto.RolePlayer) && cache.TryGetValue(dto.RolePlayer, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RolePlayer, out lazyPoco))
-                {
-                    poco.RolePlayer = (ObjectType)lazyPoco.Value;
-                }
+                poco.RolePlayer = (ObjectType)lazyPoco.Value;
             }
 
-            if (poco.RolePlayerRequiredError == null && !string.IsNullOrEmpty(dto.RolePlayerRequiredError))
+            if (poco.RolePlayerRequiredError == null && !string.IsNullOrEmpty(dto.RolePlayerRequiredError) && cache.TryGetValue(dto.RolePlayerRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RolePlayerRequiredError, out lazyPoco))
-                {
-                    poco.RolePlayerRequiredError = (RolePlayerRequiredError)lazyPoco.Value;
-                }
+                poco.RolePlayerRequiredError = (RolePlayerRequiredError)lazyPoco.Value;
             }
 
-            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint))
+            if (poco.ValueConstraint == null && !string.IsNullOrEmpty(dto.ValueConstraint) && cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ValueConstraint, out lazyPoco))
-                {
-                    poco.ValueConstraint = (RoleValueConstraint)lazyPoco.Value;
-                }
+                poco.ValueConstraint = (RoleValueConstraint)lazyPoco.Value;
             }
         }
     }

@@ -220,12 +220,9 @@ namespace Kalliope.Dal
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
 
-            if (poco.ArityMismatchError == null && !string.IsNullOrEmpty(dto.ArityMismatchError))
+            if (poco.ArityMismatchError == null && !string.IsNullOrEmpty(dto.ArityMismatchError) && cache.TryGetValue(dto.ArityMismatchError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ArityMismatchError, out lazyPoco))
-                {
-                    poco.ArityMismatchError = (ExternalConstraintRoleSequenceArityMismatchError)lazyPoco.Value;
-                }
+                poco.ArityMismatchError = (ExternalConstraintRoleSequenceArityMismatchError)lazyPoco.Value;
             }
 
             var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
@@ -258,44 +255,29 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Definition, out lazyPoco))
-                {
-                    poco.Definition = (Definition)lazyPoco.Value;
-                }
+                poco.Definition = (Definition)lazyPoco.Value;
             }
 
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-                {
-                    poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
-                }
+                poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
             }
 
-            if (poco.EqualityOrSubsetImpliedByMandatoryError == null && !string.IsNullOrEmpty(dto.EqualityOrSubsetImpliedByMandatoryError))
+            if (poco.EqualityOrSubsetImpliedByMandatoryError == null && !string.IsNullOrEmpty(dto.EqualityOrSubsetImpliedByMandatoryError) && cache.TryGetValue(dto.EqualityOrSubsetImpliedByMandatoryError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.EqualityOrSubsetImpliedByMandatoryError, out lazyPoco))
-                {
-                    poco.EqualityOrSubsetImpliedByMandatoryError = (EqualityOrSubsetImpliedByMandatoryError)lazyPoco.Value;
-                }
+                poco.EqualityOrSubsetImpliedByMandatoryError = (EqualityOrSubsetImpliedByMandatoryError)lazyPoco.Value;
             }
 
-            if (poco.ExclusionContradictsEqualityError == null && !string.IsNullOrEmpty(dto.ExclusionContradictsEqualityError))
+            if (poco.ExclusionContradictsEqualityError == null && !string.IsNullOrEmpty(dto.ExclusionContradictsEqualityError) && cache.TryGetValue(dto.ExclusionContradictsEqualityError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ExclusionContradictsEqualityError, out lazyPoco))
-                {
-                    poco.ExclusionContradictsEqualityError = (ExclusionContradictsEqualityError)lazyPoco.Value;
-                }
+                poco.ExclusionContradictsEqualityError = (ExclusionContradictsEqualityError)lazyPoco.Value;
             }
 
-            if (poco.ExclusionContradictsSubsetError == null && !string.IsNullOrEmpty(dto.ExclusionContradictsSubsetError))
+            if (poco.ExclusionContradictsSubsetError == null && !string.IsNullOrEmpty(dto.ExclusionContradictsSubsetError) && cache.TryGetValue(dto.ExclusionContradictsSubsetError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ExclusionContradictsSubsetError, out lazyPoco))
-                {
-                    poco.ExclusionContradictsSubsetError = (ExclusionContradictsSubsetError)lazyPoco.Value;
-                }
+                poco.ExclusionContradictsSubsetError = (ExclusionContradictsSubsetError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -318,28 +300,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError))
+            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError) && cache.TryGetValue(dto.ImplicationError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ImplicationError, out lazyPoco))
-                {
-                    poco.ImplicationError = (ImplicationError)lazyPoco.Value;
-                }
+                poco.ImplicationError = (ImplicationError)lazyPoco.Value;
             }
 
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Note, out lazyPoco))
-                {
-                    poco.Note = (Note)lazyPoco.Value;
-                }
+                poco.Note = (Note)lazyPoco.Value;
             }
 
-            if (poco.NotWellModeledSubsetAndMandatoryError == null && !string.IsNullOrEmpty(dto.NotWellModeledSubsetAndMandatoryError))
+            if (poco.NotWellModeledSubsetAndMandatoryError == null && !string.IsNullOrEmpty(dto.NotWellModeledSubsetAndMandatoryError) && cache.TryGetValue(dto.NotWellModeledSubsetAndMandatoryError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.NotWellModeledSubsetAndMandatoryError, out lazyPoco))
-                {
-                    poco.NotWellModeledSubsetAndMandatoryError = (NotWellModeledSubsetAndMandatoryError)lazyPoco.Value;
-                }
+                poco.NotWellModeledSubsetAndMandatoryError = (NotWellModeledSubsetAndMandatoryError)lazyPoco.Value;
             }
 
             var roleSequencesToAdd = dto.RoleSequences.Except(poco.RoleSequences.Select(x => x.Id));
@@ -352,28 +325,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError == null && !string.IsNullOrEmpty(dto.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError))
+            if (poco.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError == null && !string.IsNullOrEmpty(dto.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError) && cache.TryGetValue(dto.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError, out lazyPoco))
-                {
-                    poco.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError = (SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError)lazyPoco.Value;
-                }
+                poco.SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError = (SupersetRoleOfSubtypeSubsetConstraintNotSubtypeError)lazyPoco.Value;
             }
 
-            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError))
+            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError) && cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
-                {
-                    poco.TooFewRoleSequencesError = (TooFewRoleSequencesError)lazyPoco.Value;
-                }
+                poco.TooFewRoleSequencesError = (TooFewRoleSequencesError)lazyPoco.Value;
             }
 
-            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError))
+            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError) && cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
-                {
-                    poco.TooManyRoleSequencesError = (TooManyRoleSequencesError)lazyPoco.Value;
-                }
+                poco.TooManyRoleSequencesError = (TooManyRoleSequencesError)lazyPoco.Value;
             }
         }
     }

@@ -159,28 +159,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifyingInstance == null && !string.IsNullOrEmpty(dto.ObjectifyingInstance))
+            if (poco.ObjectifyingInstance == null && !string.IsNullOrEmpty(dto.ObjectifyingInstance) && cache.TryGetValue(dto.ObjectifyingInstance, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ObjectifyingInstance, out lazyPoco))
-                {
-                    poco.ObjectifyingInstance = (ObjectTypeInstance)lazyPoco.Value;
-                }
+                poco.ObjectifyingInstance = (ObjectTypeInstance)lazyPoco.Value;
             }
 
-            if (poco.ObjectifyingInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifyingInstanceRequiredError))
+            if (poco.ObjectifyingInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifyingInstanceRequiredError) && cache.TryGetValue(dto.ObjectifyingInstanceRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ObjectifyingInstanceRequiredError, out lazyPoco))
-                {
-                    poco.ObjectifyingInstanceRequiredError = (ObjectifyingInstanceRequiredError)lazyPoco.Value;
-                }
+                poco.ObjectifyingInstanceRequiredError = (ObjectifyingInstanceRequiredError)lazyPoco.Value;
             }
 
-            if (poco.TooFewFactTypeRoleInstancesError == null && !string.IsNullOrEmpty(dto.TooFewFactTypeRoleInstancesError))
+            if (poco.TooFewFactTypeRoleInstancesError == null && !string.IsNullOrEmpty(dto.TooFewFactTypeRoleInstancesError) && cache.TryGetValue(dto.TooFewFactTypeRoleInstancesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooFewFactTypeRoleInstancesError, out lazyPoco))
-                {
-                    poco.TooFewFactTypeRoleInstancesError = (TooFewFactTypeRoleInstancesError)lazyPoco.Value;
-                }
+                poco.TooFewFactTypeRoleInstancesError = (TooFewFactTypeRoleInstancesError)lazyPoco.Value;
             }
         }
     }

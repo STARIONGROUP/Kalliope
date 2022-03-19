@@ -162,12 +162,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError))
+            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError) && cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
-                {
-                    poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
-                }
+                poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
             }
 
             var populationMandatoryErrorsToAdd = dto.PopulationMandatoryErrors.Except(poco.PopulationMandatoryErrors.Select(x => x.Id));
@@ -180,12 +177,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooFewEntityTypeRoleInstancesError == null && !string.IsNullOrEmpty(dto.TooFewEntityTypeRoleInstancesError))
+            if (poco.TooFewEntityTypeRoleInstancesError == null && !string.IsNullOrEmpty(dto.TooFewEntityTypeRoleInstancesError) && cache.TryGetValue(dto.TooFewEntityTypeRoleInstancesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooFewEntityTypeRoleInstancesError, out lazyPoco))
-                {
-                    poco.TooFewEntityTypeRoleInstancesError = (TooFewEntityTypeRoleInstancesError)lazyPoco.Value;
-                }
+                poco.TooFewEntityTypeRoleInstancesError = (TooFewEntityTypeRoleInstancesError)lazyPoco.Value;
             }
         }
     }

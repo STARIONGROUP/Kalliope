@@ -237,12 +237,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject))
+            if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject) && cache.TryGetValue(dto.Subject, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Subject, out lazyPoco))
-                {
-                    poco.Subject = (ORMModel)lazyPoco.Value;
-                }
+                poco.Subject = (ORMModel)lazyPoco.Value;
             }
 
             var valueComparisonConstraintShapesToAdd = dto.ValueComparisonConstraintShapes.Except(poco.ValueComparisonConstraintShapes.Select(x => x.Id));

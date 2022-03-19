@@ -154,12 +154,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ParameterType == null && !string.IsNullOrEmpty(dto.ParameterType))
+            if (poco.ParameterType == null && !string.IsNullOrEmpty(dto.ParameterType) && cache.TryGetValue(dto.ParameterType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ParameterType, out lazyPoco))
-                {
-                    poco.ParameterType = (ObjectType)lazyPoco.Value;
-                }
+                poco.ParameterType = (ObjectType)lazyPoco.Value;
             }
 
             var pathBindingsToAdd = dto.PathBindings.Except(poco.PathBindings.Select(x => x.Id));

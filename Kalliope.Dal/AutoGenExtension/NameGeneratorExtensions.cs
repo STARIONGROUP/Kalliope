@@ -177,12 +177,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RefinedInstance == null && !string.IsNullOrEmpty(dto.RefinedInstance))
+            if (poco.RefinedInstance == null && !string.IsNullOrEmpty(dto.RefinedInstance) && cache.TryGetValue(dto.RefinedInstance, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RefinedInstance, out lazyPoco))
-                {
-                    poco.RefinedInstance = (ORMModelElement)lazyPoco.Value;
-                }
+                poco.RefinedInstance = (ORMModelElement)lazyPoco.Value;
             }
         }
     }

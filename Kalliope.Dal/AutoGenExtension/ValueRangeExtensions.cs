@@ -164,20 +164,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.MaxValueMismatchError == null && !string.IsNullOrEmpty(dto.MaxValueMismatchError))
+            if (poco.MaxValueMismatchError == null && !string.IsNullOrEmpty(dto.MaxValueMismatchError) && cache.TryGetValue(dto.MaxValueMismatchError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.MaxValueMismatchError, out lazyPoco))
-                {
-                    poco.MaxValueMismatchError = (MaxValueMismatchError)lazyPoco.Value;
-                }
+                poco.MaxValueMismatchError = (MaxValueMismatchError)lazyPoco.Value;
             }
 
-            if (poco.MinValueMismatchError == null && !string.IsNullOrEmpty(dto.MinValueMismatchError))
+            if (poco.MinValueMismatchError == null && !string.IsNullOrEmpty(dto.MinValueMismatchError) && cache.TryGetValue(dto.MinValueMismatchError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.MinValueMismatchError, out lazyPoco))
-                {
-                    poco.MinValueMismatchError = (MinValueMismatchError)lazyPoco.Value;
-                }
+                poco.MinValueMismatchError = (MinValueMismatchError)lazyPoco.Value;
             }
         }
     }

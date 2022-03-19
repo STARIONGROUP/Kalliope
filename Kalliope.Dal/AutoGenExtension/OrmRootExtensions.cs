@@ -142,28 +142,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.GenerationState == null && !string.IsNullOrEmpty(dto.GenerationState))
+            if (poco.GenerationState == null && !string.IsNullOrEmpty(dto.GenerationState) && cache.TryGetValue(dto.GenerationState, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.GenerationState, out lazyPoco))
-                {
-                    poco.GenerationState = (GenerationState)lazyPoco.Value;
-                }
+                poco.GenerationState = (GenerationState)lazyPoco.Value;
             }
 
-            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model))
+            if (poco.Model == null && !string.IsNullOrEmpty(dto.Model) && cache.TryGetValue(dto.Model, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Model, out lazyPoco))
-                {
-                    poco.Model = (ORMModel)lazyPoco.Value;
-                }
+                poco.Model = (ORMModel)lazyPoco.Value;
             }
 
-            if (poco.NameGenerator == null && !string.IsNullOrEmpty(dto.NameGenerator))
+            if (poco.NameGenerator == null && !string.IsNullOrEmpty(dto.NameGenerator) && cache.TryGetValue(dto.NameGenerator, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.NameGenerator, out lazyPoco))
-                {
-                    poco.NameGenerator = (NameGenerator)lazyPoco.Value;
-                }
+                poco.NameGenerator = (NameGenerator)lazyPoco.Value;
             }
         }
     }

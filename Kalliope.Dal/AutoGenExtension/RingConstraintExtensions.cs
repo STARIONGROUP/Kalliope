@@ -209,28 +209,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleRolePlayerTypeError == null && !string.IsNullOrEmpty(dto.CompatibleRolePlayerTypeError))
+            if (poco.CompatibleRolePlayerTypeError == null && !string.IsNullOrEmpty(dto.CompatibleRolePlayerTypeError) && cache.TryGetValue(dto.CompatibleRolePlayerTypeError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.CompatibleRolePlayerTypeError, out lazyPoco))
-                {
-                    poco.CompatibleRolePlayerTypeError = (CompatibleRolePlayerTypeError)lazyPoco.Value;
-                }
+                poco.CompatibleRolePlayerTypeError = (CompatibleRolePlayerTypeError)lazyPoco.Value;
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Definition, out lazyPoco))
-                {
-                    poco.Definition = (Definition)lazyPoco.Value;
-                }
+                poco.Definition = (Definition)lazyPoco.Value;
             }
 
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-                {
-                    poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
-                }
+                poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -253,44 +244,29 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError))
+            if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError) && cache.TryGetValue(dto.ImplicationError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ImplicationError, out lazyPoco))
-                {
-                    poco.ImplicationError = (ImplicationError)lazyPoco.Value;
-                }
+                poco.ImplicationError = (ImplicationError)lazyPoco.Value;
             }
 
-            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath))
+            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath) && cache.TryGetValue(dto.JoinPath, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.JoinPath, out lazyPoco))
-                {
-                    poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
-                }
+                poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
             }
 
-            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError))
+            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError) && cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
-                {
-                    poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
-                }
+                poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
             }
 
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Note, out lazyPoco))
-                {
-                    poco.Note = (Note)lazyPoco.Value;
-                }
+                poco.Note = (Note)lazyPoco.Value;
             }
 
-            if (poco.RingConstraintTypeNotSpecifiedError == null && !string.IsNullOrEmpty(dto.RingConstraintTypeNotSpecifiedError))
+            if (poco.RingConstraintTypeNotSpecifiedError == null && !string.IsNullOrEmpty(dto.RingConstraintTypeNotSpecifiedError) && cache.TryGetValue(dto.RingConstraintTypeNotSpecifiedError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RingConstraintTypeNotSpecifiedError, out lazyPoco))
-                {
-                    poco.RingConstraintTypeNotSpecifiedError = (RingConstraintTypeNotSpecifiedError)lazyPoco.Value;
-                }
+                poco.RingConstraintTypeNotSpecifiedError = (RingConstraintTypeNotSpecifiedError)lazyPoco.Value;
             }
 
             var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));
@@ -303,20 +279,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError))
+            if (poco.TooFewRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooFewRoleSequencesError) && cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooFewRoleSequencesError, out lazyPoco))
-                {
-                    poco.TooFewRoleSequencesError = (TooFewRoleSequencesError)lazyPoco.Value;
-                }
+                poco.TooFewRoleSequencesError = (TooFewRoleSequencesError)lazyPoco.Value;
             }
 
-            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError))
+            if (poco.TooManyRoleSequencesError == null && !string.IsNullOrEmpty(dto.TooManyRoleSequencesError) && cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooManyRoleSequencesError, out lazyPoco))
-                {
-                    poco.TooManyRoleSequencesError = (TooManyRoleSequencesError)lazyPoco.Value;
-                }
+                poco.TooManyRoleSequencesError = (TooManyRoleSequencesError)lazyPoco.Value;
             }
         }
     }

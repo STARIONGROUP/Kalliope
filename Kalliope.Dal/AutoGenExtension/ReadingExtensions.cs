@@ -173,12 +173,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.DuplicateSignatureError == null && !string.IsNullOrEmpty(dto.DuplicateSignatureError))
+            if (poco.DuplicateSignatureError == null && !string.IsNullOrEmpty(dto.DuplicateSignatureError) && cache.TryGetValue(dto.DuplicateSignatureError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateSignatureError, out lazyPoco))
-                {
-                    poco.DuplicateSignatureError = (DuplicateReadingSignatureError)lazyPoco.Value;
-                }
+                poco.DuplicateSignatureError = (DuplicateReadingSignatureError)lazyPoco.Value;
             }
 
             var expandedDataToAdd = dto.ExpandedData.Except(poco.ExpandedData.Select(x => x.Id));
@@ -201,28 +198,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.RequiresUserModificationError == null && !string.IsNullOrEmpty(dto.RequiresUserModificationError))
+            if (poco.RequiresUserModificationError == null && !string.IsNullOrEmpty(dto.RequiresUserModificationError) && cache.TryGetValue(dto.RequiresUserModificationError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.RequiresUserModificationError, out lazyPoco))
-                {
-                    poco.RequiresUserModificationError = (ReadingRequiresUserModificationError)lazyPoco.Value;
-                }
+                poco.RequiresUserModificationError = (ReadingRequiresUserModificationError)lazyPoco.Value;
             }
 
-            if (poco.TooFewRolesError == null && !string.IsNullOrEmpty(dto.TooFewRolesError))
+            if (poco.TooFewRolesError == null && !string.IsNullOrEmpty(dto.TooFewRolesError) && cache.TryGetValue(dto.TooFewRolesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooFewRolesError, out lazyPoco))
-                {
-                    poco.TooFewRolesError = (TooFewReadingRolesError)lazyPoco.Value;
-                }
+                poco.TooFewRolesError = (TooFewReadingRolesError)lazyPoco.Value;
             }
 
-            if (poco.TooManyRolesError == null && !string.IsNullOrEmpty(dto.TooManyRolesError))
+            if (poco.TooManyRolesError == null && !string.IsNullOrEmpty(dto.TooManyRolesError) && cache.TryGetValue(dto.TooManyRolesError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.TooManyRolesError, out lazyPoco))
-                {
-                    poco.TooManyRolesError = (TooManyReadingRolesError)lazyPoco.Value;
-                }
+                poco.TooManyRolesError = (TooManyReadingRolesError)lazyPoco.Value;
             }
         }
     }

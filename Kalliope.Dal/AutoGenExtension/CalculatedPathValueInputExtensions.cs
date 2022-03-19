@@ -158,28 +158,19 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Parameter == null && !string.IsNullOrEmpty(dto.Parameter))
+            if (poco.Parameter == null && !string.IsNullOrEmpty(dto.Parameter) && cache.TryGetValue(dto.Parameter, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Parameter, out lazyPoco))
-                {
-                    poco.Parameter = (FunctionParameter)lazyPoco.Value;
-                }
+                poco.Parameter = (FunctionParameter)lazyPoco.Value;
             }
 
-            if (poco.SourceCalculatedValue == null && !string.IsNullOrEmpty(dto.SourceCalculatedValue))
+            if (poco.SourceCalculatedValue == null && !string.IsNullOrEmpty(dto.SourceCalculatedValue) && cache.TryGetValue(dto.SourceCalculatedValue, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SourceCalculatedValue, out lazyPoco))
-                {
-                    poco.SourceCalculatedValue = (CalculatedPathValue)lazyPoco.Value;
-                }
+                poco.SourceCalculatedValue = (CalculatedPathValue)lazyPoco.Value;
             }
 
-            if (poco.SourceConstant == null && !string.IsNullOrEmpty(dto.SourceConstant))
+            if (poco.SourceConstant == null && !string.IsNullOrEmpty(dto.SourceConstant) && cache.TryGetValue(dto.SourceConstant, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SourceConstant, out lazyPoco))
-                {
-                    poco.SourceConstant = (PathConstant)lazyPoco.Value;
-                }
+                poco.SourceConstant = (PathConstant)lazyPoco.Value;
             }
         }
     }

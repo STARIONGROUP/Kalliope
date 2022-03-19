@@ -150,12 +150,9 @@ namespace Kalliope.Dal
             }
 
 			{% elseif property.IsEnumerable == false %}
-            if (poco.{{ property.Name }} == null && !string.IsNullOrEmpty(dto.{{ property.Name }}))
+            if (poco.{{ property.Name }} == null && !string.IsNullOrEmpty(dto.{{ property.Name }}) && cache.TryGetValue(dto.{{ property.Name }}, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.{{ property.Name }}, out lazyPoco))
-                {
-                    poco.{{ property.Name }} = ({{ property.TypeName }})lazyPoco.Value;
-                }
+                poco.{{ property.Name }} = ({{ property.TypeName }})lazyPoco.Value;
             }
 
 			{% endif %}

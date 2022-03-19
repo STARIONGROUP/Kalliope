@@ -161,12 +161,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError))
+            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError) && cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
-                {
-                    poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
-                }
+                poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
             }
 
             var populationMandatoryErrorsToAdd = dto.PopulationMandatoryErrors.Except(poco.PopulationMandatoryErrors.Select(x => x.Id));
@@ -179,12 +176,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SupertypeInstance == null && !string.IsNullOrEmpty(dto.SupertypeInstance))
+            if (poco.SupertypeInstance == null && !string.IsNullOrEmpty(dto.SupertypeInstance) && cache.TryGetValue(dto.SupertypeInstance, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SupertypeInstance, out lazyPoco))
-                {
-                    poco.SupertypeInstance = (EntityTypeInstance)lazyPoco.Value;
-                }
+                poco.SupertypeInstance = (EntityTypeInstance)lazyPoco.Value;
             }
         }
     }

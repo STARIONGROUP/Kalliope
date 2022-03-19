@@ -170,20 +170,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.NestedFactType == null && !string.IsNullOrEmpty(dto.NestedFactType))
+            if (poco.NestedFactType == null && !string.IsNullOrEmpty(dto.NestedFactType) && cache.TryGetValue(dto.NestedFactType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.NestedFactType, out lazyPoco))
-                {
-                    poco.NestedFactType = (FactType)lazyPoco.Value;
-                }
+                poco.NestedFactType = (FactType)lazyPoco.Value;
             }
 
-            if (poco.NestingType == null && !string.IsNullOrEmpty(dto.NestingType))
+            if (poco.NestingType == null && !string.IsNullOrEmpty(dto.NestingType) && cache.TryGetValue(dto.NestingType, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.NestingType, out lazyPoco))
-                {
-                    poco.NestingType = (ObjectType)lazyPoco.Value;
-                }
+                poco.NestingType = (ObjectType)lazyPoco.Value;
             }
         }
     }

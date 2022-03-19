@@ -136,12 +136,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibilityError == null && !string.IsNullOrEmpty(dto.CompatibilityError))
+            if (poco.CompatibilityError == null && !string.IsNullOrEmpty(dto.CompatibilityError) && cache.TryGetValue(dto.CompatibilityError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.CompatibilityError, out lazyPoco))
-                {
-                    poco.CompatibilityError = (PathObjectUnifierRequiresCompatibleObjectTypesError)lazyPoco.Value;
-                }
+                poco.CompatibilityError = (PathObjectUnifierRequiresCompatibleObjectTypesError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));

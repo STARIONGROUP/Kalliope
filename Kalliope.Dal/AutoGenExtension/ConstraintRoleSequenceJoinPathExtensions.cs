@@ -262,12 +262,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.PathComponent == null && !string.IsNullOrEmpty(dto.PathComponent))
+            if (poco.PathComponent == null && !string.IsNullOrEmpty(dto.PathComponent) && cache.TryGetValue(dto.PathComponent, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.PathComponent, out lazyPoco))
-                {
-                    poco.PathComponent = (LeadRolePath)lazyPoco.Value;
-                }
+                poco.PathComponent = (LeadRolePath)lazyPoco.Value;
             }
 
             var projectedPathComponentsToAdd = dto.ProjectedPathComponents.Except(poco.ProjectedPathComponents.Select(x => x.Id));
@@ -280,12 +277,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ProjectionRequiredError == null && !string.IsNullOrEmpty(dto.ProjectionRequiredError))
+            if (poco.ProjectionRequiredError == null && !string.IsNullOrEmpty(dto.ProjectionRequiredError) && cache.TryGetValue(dto.ProjectionRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ProjectionRequiredError, out lazyPoco))
-                {
-                    poco.ProjectionRequiredError = (ConstraintRoleSequenceJoinPathRequiresProjectionError)lazyPoco.Value;
-                }
+                poco.ProjectionRequiredError = (ConstraintRoleSequenceJoinPathRequiresProjectionError)lazyPoco.Value;
             }
 
             var sharedLeadRolePathsToAdd = dto.SharedLeadRolePaths.Except(poco.SharedLeadRolePaths.Select(x => x.Id));
@@ -308,20 +302,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.SingleLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleLeadRolePath))
+            if (poco.SingleLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleLeadRolePath) && cache.TryGetValue(dto.SingleLeadRolePath, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SingleLeadRolePath, out lazyPoco))
-                {
-                    poco.SingleLeadRolePath = (LeadRolePath)lazyPoco.Value;
-                }
+                poco.SingleLeadRolePath = (LeadRolePath)lazyPoco.Value;
             }
 
-            if (poco.SingleOwnedLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleOwnedLeadRolePath))
+            if (poco.SingleOwnedLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleOwnedLeadRolePath) && cache.TryGetValue(dto.SingleOwnedLeadRolePath, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.SingleOwnedLeadRolePath, out lazyPoco))
-                {
-                    poco.SingleOwnedLeadRolePath = (LeadRolePath)lazyPoco.Value;
-                }
+                poco.SingleOwnedLeadRolePath = (LeadRolePath)lazyPoco.Value;
             }
 
             var subqueriesToAdd = dto.Subqueries.Except(poco.Subqueries.Select(x => x.Id));

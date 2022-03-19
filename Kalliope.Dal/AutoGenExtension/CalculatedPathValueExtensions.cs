@@ -161,12 +161,9 @@ namespace Kalliope.Dal
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
 
-            if (poco.AggregationContextRequiredError == null && !string.IsNullOrEmpty(dto.AggregationContextRequiredError))
+            if (poco.AggregationContextRequiredError == null && !string.IsNullOrEmpty(dto.AggregationContextRequiredError) && cache.TryGetValue(dto.AggregationContextRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.AggregationContextRequiredError, out lazyPoco))
-                {
-                    poco.AggregationContextRequiredError = (CalculatedPathValueRequiresAggregationContextError)lazyPoco.Value;
-                }
+                poco.AggregationContextRequiredError = (CalculatedPathValueRequiresAggregationContextError)lazyPoco.Value;
             }
 
             var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
@@ -179,12 +176,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ConsumptionRequiredError == null && !string.IsNullOrEmpty(dto.ConsumptionRequiredError))
+            if (poco.ConsumptionRequiredError == null && !string.IsNullOrEmpty(dto.ConsumptionRequiredError) && cache.TryGetValue(dto.ConsumptionRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ConsumptionRequiredError, out lazyPoco))
-                {
-                    poco.ConsumptionRequiredError = (CalculatedPathValueMustBeConsumedError)lazyPoco.Value;
-                }
+                poco.ConsumptionRequiredError = (CalculatedPathValueMustBeConsumedError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -197,20 +191,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Function == null && !string.IsNullOrEmpty(dto.Function))
+            if (poco.Function == null && !string.IsNullOrEmpty(dto.Function) && cache.TryGetValue(dto.Function, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Function, out lazyPoco))
-                {
-                    poco.Function = (Function)lazyPoco.Value;
-                }
+                poco.Function = (Function)lazyPoco.Value;
             }
 
-            if (poco.FunctionRequiredError == null && !string.IsNullOrEmpty(dto.FunctionRequiredError))
+            if (poco.FunctionRequiredError == null && !string.IsNullOrEmpty(dto.FunctionRequiredError) && cache.TryGetValue(dto.FunctionRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.FunctionRequiredError, out lazyPoco))
-                {
-                    poco.FunctionRequiredError = (CalculatedPathValueRequiresFunctionError)lazyPoco.Value;
-                }
+                poco.FunctionRequiredError = (CalculatedPathValueRequiresFunctionError)lazyPoco.Value;
             }
 
             var inputsToAdd = dto.Inputs.Except(poco.Inputs.Select(x => x.Id));

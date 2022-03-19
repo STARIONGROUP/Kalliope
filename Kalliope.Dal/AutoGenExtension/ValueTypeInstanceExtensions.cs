@@ -156,12 +156,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.CompatibleValueTypeInstanceValueError == null && !string.IsNullOrEmpty(dto.CompatibleValueTypeInstanceValueError))
+            if (poco.CompatibleValueTypeInstanceValueError == null && !string.IsNullOrEmpty(dto.CompatibleValueTypeInstanceValueError) && cache.TryGetValue(dto.CompatibleValueTypeInstanceValueError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.CompatibleValueTypeInstanceValueError, out lazyPoco))
-                {
-                    poco.CompatibleValueTypeInstanceValueError = (CompatibleValueTypeInstanceValueError)lazyPoco.Value;
-                }
+                poco.CompatibleValueTypeInstanceValueError = (CompatibleValueTypeInstanceValueError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -174,12 +171,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError))
+            if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError) && cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))
-                {
-                    poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
-                }
+                poco.ObjectifiedInstanceRequiredError = (ObjectifiedInstanceRequiredError)lazyPoco.Value;
             }
 
             var populationMandatoryErrorsToAdd = dto.PopulationMandatoryErrors.Except(poco.PopulationMandatoryErrors.Select(x => x.Id));

@@ -171,20 +171,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition))
+            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Definition, out lazyPoco))
-                {
-                    poco.Definition = (Definition)lazyPoco.Value;
-                }
+                poco.Definition = (Definition)lazyPoco.Value;
             }
 
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError))
+            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-                {
-                    poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
-                }
+                poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
@@ -197,20 +191,14 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note))
+            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Note, out lazyPoco))
-                {
-                    poco.Note = (Note)lazyPoco.Value;
-                }
+                poco.Note = (Note)lazyPoco.Value;
             }
 
-            if (poco.ValueRangeOverlapError == null && !string.IsNullOrEmpty(dto.ValueRangeOverlapError))
+            if (poco.ValueRangeOverlapError == null && !string.IsNullOrEmpty(dto.ValueRangeOverlapError) && cache.TryGetValue(dto.ValueRangeOverlapError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ValueRangeOverlapError, out lazyPoco))
-                {
-                    poco.ValueRangeOverlapError = (ValueRangeOverlapError)lazyPoco.Value;
-                }
+                poco.ValueRangeOverlapError = (ValueRangeOverlapError)lazyPoco.Value;
             }
 
             var valueRangesToAdd = dto.ValueRanges.Except(poco.ValueRanges.Select(x => x.Id));
@@ -223,12 +211,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.ValueTypeDetachedError == null && !string.IsNullOrEmpty(dto.ValueTypeDetachedError))
+            if (poco.ValueTypeDetachedError == null && !string.IsNullOrEmpty(dto.ValueTypeDetachedError) && cache.TryGetValue(dto.ValueTypeDetachedError, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.ValueTypeDetachedError, out lazyPoco))
-                {
-                    poco.ValueTypeDetachedError = (ValueConstraintValueTypeDetachedError)lazyPoco.Value;
-                }
+                poco.ValueTypeDetachedError = (ValueConstraintValueTypeDetachedError)lazyPoco.Value;
             }
         }
     }

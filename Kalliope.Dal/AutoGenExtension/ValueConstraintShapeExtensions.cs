@@ -119,12 +119,9 @@ namespace Kalliope.Dal
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
 
-            if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject))
+            if (poco.Subject == null && !string.IsNullOrEmpty(dto.Subject) && cache.TryGetValue(dto.Subject, out lazyPoco))
             {
-                if (cache.TryGetValue(dto.Subject, out lazyPoco))
-                {
-                    poco.Subject = (ValueConstraint)lazyPoco.Value;
-                }
+                poco.Subject = (ValueConstraint)lazyPoco.Value;
             }
         }
     }
