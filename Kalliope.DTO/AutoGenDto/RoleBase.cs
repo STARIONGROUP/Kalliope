@@ -32,6 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RoleBase
     /// </summary>
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "Roles")]
     [Container(typeName: "FactType", propertyName: "Roles")]
     public abstract partial class RoleBase : OrmModelElement
     {

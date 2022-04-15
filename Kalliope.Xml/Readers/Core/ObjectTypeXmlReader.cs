@@ -92,20 +92,7 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         case "PreferredIdentifier":
-                            using (var preferredIdentifierSubtree = reader.ReadSubtree())
-                            {
-                                if (preferredIdentifierSubtree.MoveToContent() == XmlNodeType.Element)
-                                {
-                                    if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
-                                    {
-                                        var reference = preferredIdentifierSubtree.GetAttribute("ref");
-                                        if (!string.IsNullOrEmpty(reference))
-                                        {
-                                            objectType.PreferredIdentifier = reference;
-                                        }
-                                    }
-                                }
-                            }
+                            this.ReadPreferredIdentifier(reader, objectType);
                             break;
                         case "ConceptualDataType":
                             using (var dataTypeRefSubtree = reader.ReadSubtree())
@@ -149,6 +136,37 @@ namespace Kalliope.Xml.Readers
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Objectification"/>
+        /// </summary>
+        /// <param name="objectType">
+        /// The <see cref="ObjectType"/> that owns the <see cref="Objectification"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public virtual void ReadNestedPredicate(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new InvalidOperationException("only supported by ObjectifiedType");
+        }
+
+        /// <summary>
+        /// Reads the preferred identifier
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="objectType">
+        /// The <see cref="EntityType"/> or <see cref="ObjectifiedType"/> for which the PreferredIdentifier is to be read
+        /// </param>
+        public virtual void ReadPreferredIdentifier(XmlReader reader, ObjectType objectType)
+        {
+            throw new InvalidOperationException("only supported by EntityType and ObjectifiedType");
         }
 
         /// <summary>
@@ -287,26 +305,6 @@ namespace Kalliope.Xml.Readers
             }
         }
 
-        /// <summary>
-        /// reads the <see cref="Objectification"/>
-        /// </summary>
-        /// <param name="objectType">
-        /// The <see cref="ObjectType"/> that references the played roles
-        /// </param>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        /// <param name="modelThings">
-        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
-        /// </param>
-        private void ReadNestedPredicate(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
-        {
-            var objectification = new Objectification();
-            var objectificationXmlReader = new ObjectificationXmlReader();
-
-            objectificationXmlReader.ReadXml(objectification,reader,modelThings);
-            objectification.NestingType = objectType.Id;
-            //TODO: set container?
-        }
+        
     }
 }

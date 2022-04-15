@@ -191,12 +191,6 @@ namespace Kalliope.Dal
 
             poco.Name = dto.Name;
 
-            if (poco.NestedPredicate != null && poco.NestedPredicate.Id != dto.NestedPredicate)
-            {
-                identifiersOfObjectsToDelete.Add(poco.NestedPredicate.Id);
-                poco.NestedPredicate = null;
-            }
-
             if (poco.Note != null && poco.Note.Id != dto.Note)
             {
                 identifiersOfObjectsToDelete.Add(poco.Note.Id);
@@ -399,11 +393,6 @@ namespace Kalliope.Dal
             if (poco.InherentMandatoryConstraint == null && !string.IsNullOrEmpty(dto.InherentMandatoryConstraint) && cache.TryGetValue(dto.InherentMandatoryConstraint, out lazyPoco))
             {
                 poco.InherentMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
-            }
-
-            if (poco.NestedPredicate == null && !string.IsNullOrEmpty(dto.NestedPredicate) && cache.TryGetValue(dto.NestedPredicate, out lazyPoco))
-            {
-                poco.NestedPredicate = (Objectification)lazyPoco.Value;
             }
 
             if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))

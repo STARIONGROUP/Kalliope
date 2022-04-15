@@ -48,9 +48,18 @@ namespace Kalliope.Xml.Readers
             base.ReadXml(impliedFactType, reader, modelThings);
         }
 
-        public override void ReadImpliedByObjectification(FactType factType, XmlReader reader)
+        /// <summary>
+        /// Reads the referenced <see cref="Objectification"/>s from the .orm file
+        /// </summary>
+        /// <param name="impliedFactType">
+        /// The subject <see cref="ImpliedFactType"/> that is to be deserialized
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        public override void ReadImpliedByObjectification(FactType impliedFactType, XmlReader reader)
         {
-            ((ImpliedFactType)factType).ImpliedByObjectification = reader.GetAttribute("ref");
+            ((ImpliedFactType)impliedFactType).ImpliedByObjectification = reader.GetAttribute("ref");
         }
     }
 }

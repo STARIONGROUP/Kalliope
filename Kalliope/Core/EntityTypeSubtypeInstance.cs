@@ -20,11 +20,16 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     using Kalliope.Common;
 
     /// <summary>
     /// An instance of an EntityType Subtype that uses the preferred identification scheme of a parent
     /// </summary>
+    /// <remarks>
+    /// An instance of a subtype instance defined as a relationship to an instance of the identifying supertype
+    /// </remarks>
     [Description("An instance of an EntityType Subtype that uses the preferred identification scheme of a parent")]
     [Domain(isAbstract: false, general: "ObjectTypeInstance")]
     [Container(typeName: "ObjectType", propertyName: "EntityTypeSubtypeInstances")]
@@ -34,7 +39,19 @@ namespace Kalliope.Core
         /// Gets or sets the referenced <see cref="EntityTypeInstance"/>
         /// </summary>
         [Description("")]
-        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance")]
+        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance")]
         public EntityTypeInstance SupertypeInstance { get; set; }
+
+        /// <summary>
+        /// Gets or sets a reference to the fact instance associated with this subtype instance
+        /// </summary>
+        [Description("A reference to the fact instance associated with this subtype instance")]
+        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeInstance")]
+        public FactTypeInstance ObjectifiedInstance { get; set; }
+
+        /// <summary>
+        /// extension data related to the containing element
+        /// </summary>
+        public List<object> Extensions { get; set; }
     }
 }

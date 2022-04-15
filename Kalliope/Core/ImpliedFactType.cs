@@ -29,7 +29,10 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the referenced <see cref="Objectification"/>
         /// </summary>
-        [Description("")]
+        /// <remarks>
+        /// A reference to the objectification relationship that implies this fact type
+        /// </remarks>
+        [Description("A reference to the objectification relationship that implies this fact type")]
         [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
         public Objectification ImpliedByObjectification { get; set; }
     }

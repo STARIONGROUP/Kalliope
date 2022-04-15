@@ -289,21 +289,7 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeDuplicateNameError")]
         public ObjectTypeDuplicateNameError DuplicateNameError { get; set; }
-
-        /// <summary>
-        /// Gets or sets the owned <see cref="Objectification"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "NestedPredicate", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
-        public Objectification NestedPredicate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the referenced <see cref="UniquenessConstraint"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint")]
-        public UniquenessConstraint PreferredIdentifier { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the referenced <see cref="DataTypeRef"/>
         /// </summary>

@@ -47,10 +47,17 @@ namespace Kalliope.DTO
  
 
         /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="FactTypeInstance"/>
+        /// </summary>
+        [Description("A reference to the fact instance associated with this subtype instance")]
+        [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeInstance", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ObjectifiedInstance { get; set; }
+ 
+        /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="EntityTypeInstance"/>
         /// </summary>
         [Description("")]
-        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "SupertypeInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "EntityTypeInstance", allowOverride: false, isOverride: false, isDerived: false)]
         public string SupertypeInstance { get; set; }
  
     }

@@ -191,12 +191,6 @@ namespace Kalliope.Dal
 
             poco.Name = dto.Name;
 
-            if (poco.NestedPredicate != null && poco.NestedPredicate.Id != dto.NestedPredicate)
-            {
-                identifiersOfObjectsToDelete.Add(poco.NestedPredicate.Id);
-                poco.NestedPredicate = null;
-            }
-
             if (poco.Note != null && poco.Note.Id != dto.Note)
             {
                 identifiersOfObjectsToDelete.Add(poco.Note.Id);
@@ -216,11 +210,6 @@ namespace Kalliope.Dal
             {
                 var role = poco.PlayedRoles.Single(x => x.Id == identifier);
                 poco.PlayedRoles.Remove(role);
-            }
-
-            if (poco.PreferredIdentifier != null && poco.PreferredIdentifier.Id != dto.PreferredIdentifier)
-            {
-                poco.PreferredIdentifier = null;
             }
 
             if (poco.PreferredIdentifierRequiresMandatoryError != null && poco.PreferredIdentifierRequiresMandatoryError.Id != dto.PreferredIdentifierRequiresMandatoryError)
@@ -401,11 +390,6 @@ namespace Kalliope.Dal
                 poco.InherentMandatoryConstraint = (MandatoryConstraint)lazyPoco.Value;
             }
 
-            if (poco.NestedPredicate == null && !string.IsNullOrEmpty(dto.NestedPredicate) && cache.TryGetValue(dto.NestedPredicate, out lazyPoco))
-            {
-                poco.NestedPredicate = (Objectification)lazyPoco.Value;
-            }
-
             if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
             {
                 poco.Note = (Note)lazyPoco.Value;
@@ -429,11 +413,6 @@ namespace Kalliope.Dal
                     var role = (Role)lazyPoco.Value;
                     poco.PlayedRoles.Add(role);
                 }
-            }
-
-            if (poco.PreferredIdentifier == null && !string.IsNullOrEmpty(dto.PreferredIdentifier) && cache.TryGetValue(dto.PreferredIdentifier, out lazyPoco))
-            {
-                poco.PreferredIdentifier = (UniquenessConstraint)lazyPoco.Value;
             }
 
             if (poco.PreferredIdentifierRequiresMandatoryError == null && !string.IsNullOrEmpty(dto.PreferredIdentifierRequiresMandatoryError) && cache.TryGetValue(dto.PreferredIdentifierRequiresMandatoryError, out lazyPoco))

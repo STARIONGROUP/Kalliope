@@ -44,6 +44,21 @@ namespace Kalliope.DTO
         {
         }
  
+
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="Objectification"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "NestedPredicate", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification", allowOverride: false, isOverride: false, isDerived: false)]
+        public string NestedPredicate { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="UniquenessConstraint"/>
+        /// </summary>
+        [Description("A reference to the uniqueness constraint that provides the preferred identification scheme for this entity type")]
+        [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint", allowOverride: false, isOverride: false, isDerived: false)]
+        public string PreferredIdentifier { get; set; }
+ 
     }
 }
 

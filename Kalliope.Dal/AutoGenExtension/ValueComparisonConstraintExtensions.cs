@@ -144,10 +144,11 @@ namespace Kalliope.Dal
             }
 
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
+            identifiersOfObjectsToDelete.AddRange(rolesToDelete);
             foreach (var identifier in rolesToDelete)
             {
-                var role = poco.Roles.Single(x => x.Id == identifier);
-                poco.Roles.Remove(role);
+                var roleBase = poco.Roles.Single(x => x.Id == identifier);
+                poco.Roles.Remove(roleBase);
             }
 
             if (poco.RolesNotComparableError != null && poco.RolesNotComparableError.Id != dto.RolesNotComparableError)
@@ -280,8 +281,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var role = (Role)lazyPoco.Value;
-                    poco.Roles.Add(role);
+                    var roleBase = (RoleBase)lazyPoco.Value;
+                    poco.Roles.Add(roleBase);
                 }
             }
 

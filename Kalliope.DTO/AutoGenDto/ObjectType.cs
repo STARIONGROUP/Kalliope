@@ -223,13 +223,6 @@ namespace Kalliope.DTO
         public bool IsValueType { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="Objectification"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "NestedPredicate", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification", allowOverride: false, isOverride: false, isDerived: false)]
-        public string NestedPredicate { get; set; }
- 
-        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
         [Description("")]
@@ -249,13 +242,6 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "PlayedRoles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> PlayedRoles { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="UniquenessConstraint"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint", allowOverride: false, isOverride: false, isDerived: false)]
-        public string PreferredIdentifier { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="PreferredIdentifierRequiresMandatoryError"/>

@@ -45,7 +45,7 @@ namespace Kalliope.DTO
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="Objectification"/>
         /// </summary>
-        [Description("")]
+        [Description("A reference to the objectification relationship that implies this fact type")]
         [Property(name: "ImpliedByObjectification", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification", allowOverride: false, isOverride: false, isDerived: false)]
         public string ImpliedByObjectification { get; set; }
  

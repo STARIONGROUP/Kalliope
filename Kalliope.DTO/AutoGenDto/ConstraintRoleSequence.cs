@@ -58,10 +58,10 @@ namespace Kalliope.DTO
         public string JoinPathRequiredError { get; set; }
  
         /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
+        /// Gets or sets a list unique identifiers of the contained <see cref="RoleBase"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Roles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Roles { get; set; }
  
     }

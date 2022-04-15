@@ -20,6 +20,8 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System.Xml;
+
     using Kalliope.DTO;
 
     /// <summary>
@@ -28,5 +30,31 @@ namespace Kalliope.Xml.Readers
     /// </summary>
     public class EntityTypeXmlReader : ObjectTypeXmlReader
     {
+        /// <summary>
+        /// Reads the preferred identifier
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="objectType">
+        /// The <see cref="EntityType"/> for which the PreferredIdentifier is to be read
+        /// </param>
+        public override void ReadPreferredIdentifier(XmlReader reader, ObjectType objectType)
+        {
+            using (var preferredIdentifierSubtree = reader.ReadSubtree())
+            {
+                if (preferredIdentifierSubtree.MoveToContent() == XmlNodeType.Element)
+                {
+                    if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
+                    {
+                        var reference = preferredIdentifierSubtree.GetAttribute("ref");
+                        if (!string.IsNullOrEmpty(reference))
+                        {
+                            ((EntityType)objectType).PreferredIdentifier = reference;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

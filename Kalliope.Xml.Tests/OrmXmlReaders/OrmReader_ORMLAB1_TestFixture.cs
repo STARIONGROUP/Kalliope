@@ -66,17 +66,23 @@ namespace Kalliope.Xml.Tests
             Assert.That(entityType.Name, Is.EqualTo("Patient"));
             Assert.That(entityType.ReferenceMode, Is.EqualTo("nr"));
             Assert.That(entityType.PlayedRoles, 
-                Is.EqualTo(new List<string>()
+                Is.EqualTo(new List<string>
                 {
                     "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5",
                     "_D9168A8F-4925-4B0B-9D19-77F53CA4BA8C",
                     "_573A2E66-F6A4-484C-95C0-B1F0FE447635",
                     "_50F7D397-5AE3-4387-B752-9D0A9A62B3AE"
                 }));
-            
+            Assert.That(entityType.PreferredIdentifier, Is.EqualTo("_5724941F-9D32-4A9D-984C-11CD1F066233"));
+
             var valueType = modelThings.OfType<ValueType>().Single(x => x.Id == "_7F75CE34-D410-48E7-85AB-DD4A567C3E3E");
             Assert.That(valueType.Name, Is.EqualTo("Patient_nr"));
             Assert.That(valueType.ConceptualDataType, Is.EqualTo("_8E7F7E67-F6F1-4075-B768-B0563947EF82"));
+            Assert.That(valueType.PlayedRoles, Is.EqualTo(new List<string>
+            {
+                "_C598D67F-07F1-420A-8E9D-B4869078A35D"
+            }));
+
             var dataTypeRef = modelThings.OfType<DataTypeRef>().Single(x => x.Id == "_8E7F7E67-F6F1-4075-B768-B0563947EF82");
             Assert.That(dataTypeRef.Container, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
             Assert.That(dataTypeRef.Scale, Is.EqualTo(0));
@@ -87,7 +93,16 @@ namespace Kalliope.Xml.Tests
             Assert.That(objectifiedType.Name, Is.EqualTo("DrugAllergy"));
             Assert.That(objectifiedType.IsIndependent, Is.True);
             Assert.That(objectifiedType.ReferenceMode, Is.Empty);
-
+            Assert.That(objectifiedType.PlayedRoles, Is.EqualTo(new List<string>
+            {
+                "_CC5C82E3-17F8-4FC3-AA8F-65696824B596",
+                "_8981AD57-7CC8-4A74-95E2-ADFF7D23650F"
+            }));
+            Assert.That(objectifiedType.NestedPredicate, Is.EqualTo("_0D1799A7-85ED-43F4-A2A7-B67EA63EBE22"));
+            var objectification = modelThings.OfType<Objectification>().Single(x => x.Id == "_0D1799A7-85ED-43F4-A2A7-B67EA63EBE22");
+            Assert.That(objectification.IsImplied, Is.True);
+            Assert.That(objectification.Container, Is.EqualTo("_85FCF764-5AED-456D-A8F1-D8BAF3D5B098"));
+            
             var valueTypeValueConstraint = modelThings.OfType<ValueTypeValueConstraint>().Single(x => x.Id == "_75F3C566-D9CA-4E6C-ADDA-71E4849F4210");
             Assert.That(valueTypeValueConstraint.Name, Is.EqualTo("ValueTypeValueConstraint1"));
             Assert.That(valueTypeValueConstraint.Container, Is.EqualTo("_3381A8A4-F6FF-4EDD-AA10-59565A25EC8B"));
@@ -103,12 +118,42 @@ namespace Kalliope.Xml.Tests
             Assert.That(modelThings.OfType<FactType>().Count, Is.EqualTo(7));
             var factType = modelThings.OfType<FactType>().Single(x => x.Id == "_0EFF35AC-1E3B-43CF-AB58-454ABB8219EF");
             Assert.That(factType.Name, Is.EqualTo("PatientHasPatientNr"));
+            Assert.That(factType.Roles, Is.EqualTo(new List<string>
+            {
+                "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5",
+                "_C598D67F-07F1-420A-8E9D-B4869078A35D"
+            }));
+            var role = modelThings.OfType<Role>().Single(x => x.Id == "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5");
+            Assert.That(role.IsMandatory, Is.True);
+            Assert.That(role.Multiplicity, Is.EqualTo(Multiplicity.ZeroToOne));
+            Assert.That(role.RolePlayer, Is.EqualTo("_2BBF304E-05AE-4A81-AFF9-AFAAECC9A8A7"));
 
+            var impliedFactType = modelThings.OfType<ImpliedFactType>().Single(x => x.Id == "_42047AA2-277F-43F0-B6AD-5F29CC56193F");
+            Assert.That(impliedFactType.Name, Is.EqualTo("PatientIsInvolvedInDrugAllergy"));
+            Assert.That(impliedFactType.ImpliedByObjectification, Is.EqualTo("_0D1799A7-85ED-43F4-A2A7-B67EA63EBE22"));
+            
+            var impliedFactType2 = modelThings.OfType<ImpliedFactType>().Single(x => x.Id == "_C492AADC-A9A8-49E3-8D4D-00DE48CEF170");
+            Assert.That(impliedFactType2.Name, Is.EqualTo("DrugIsInvolvedInDrugAllergy"));
+            Assert.That(impliedFactType2.InternalConstraints, Is.EqualTo(new List<string>
+            {
+                "_6E46714C-268F-49C6-9173-4C4D98F64B41",
+                "_89CC03E1-C7BA-4627-AB01-B091E463F447"
+            }));
+            
             // Constraints
             Assert.That(modelThings.OfType<MandatoryConstraint>().Count(), Is.EqualTo(10));
             var mandatoryConstraint = modelThings.OfType<MandatoryConstraint>().Single(x => x.Id == "_9F2A5E20-6CE9-4ECB-BC70-226121961401");
             Assert.That(mandatoryConstraint.Name, Is.EqualTo("SimpleMandatoryConstraint1"));
             Assert.That(mandatoryConstraint.IsSimple, Is.True);
+
+            var impliedMandatoryConstraint = modelThings.OfType<MandatoryConstraint>().Single(x => x.Id == "_279D242B-5908-4EF9-B86D-968BB966F010");
+            Assert.That(impliedMandatoryConstraint.Name, Is.EqualTo("ImpliedMandatoryConstraint1"));
+            Assert.That(impliedMandatoryConstraint.IsSimple, Is.False);
+            Assert.That(impliedMandatoryConstraint.IsImplied, Is.True);
+            Assert.That(impliedMandatoryConstraint.Roles, Is.EqualTo(
+                new List<string> {"_D70EEC07-D503-45F6-8AD9-6CDA3984F932" }
+                ));
+            Assert.That(impliedMandatoryConstraint.ImpliedByObjectType, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
 
             Assert.That(modelThings.OfType<UniquenessConstraint>().Count(), Is.EqualTo(9));
             var uniquenessConstraint = modelThings.OfType<UniquenessConstraint>().Single(x => x.Id == "_5724941F-9D32-4A9D-984C-11CD1F066233");

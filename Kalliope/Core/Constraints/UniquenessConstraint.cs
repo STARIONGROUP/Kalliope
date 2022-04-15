@@ -46,6 +46,13 @@ namespace Kalliope.Core
         public bool IsInternal { get; set; }
 
         /// <summary>
+        /// Gets or sets the referenced <see cref="ObjectType"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "PreferredIdentifierFor", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        public ObjectType PreferredIdentifierFor { get; set; }
+
+        /// <summary>
         /// Gets or sets the owned <see cref="NMinusOneError"/>
         /// </summary>
         [Description("")]

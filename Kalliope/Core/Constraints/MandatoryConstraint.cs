@@ -55,6 +55,21 @@ namespace Kalliope.Core
         [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
 
+
+        /// <summary>
+        /// The object type with an explicit mandatory constraint pattern that implies this constraint
+        /// </summary>
+        [Description("The object type with an explicit mandatory constraint pattern that implies this constraint")]
+        [Property(name: "ImpliedByObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        public ObjectType ImpliedByObjectType { get; set; }
+
+        /// <summary>
+        /// The object type that would implicitly recreate this constraint if it were not explicit in the model
+        /// </summary>
+        [Description("The object type that would implicitly recreate this constraint if it were not explicit in the model")]
+        [Property(name: "InherentForObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
+        public ObjectType InherentForObjectType { get; set; }
+        
         /// <summary>
         /// Gets or sets the contained <see cref="PopulationMandatoryError"/>s
         /// </summary>

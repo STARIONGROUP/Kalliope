@@ -85,6 +85,11 @@ namespace Kalliope.Dal
 
             poco.IdentifierName = dto.IdentifierName;
 
+            if (poco.ObjectifiedInstance != null && poco.ObjectifiedInstance.Id != dto.ObjectifiedInstance)
+            {
+                poco.ObjectifiedInstance = null;
+            }
+
             if (poco.ObjectifiedInstanceRequiredError != null && poco.ObjectifiedInstanceRequiredError.Id != dto.ObjectifiedInstanceRequiredError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ObjectifiedInstanceRequiredError.Id);
@@ -159,6 +164,11 @@ namespace Kalliope.Dal
                     var modelError = (ModelError)lazyPoco.Value;
                     poco.ExtensionModelErrors.Add(modelError);
                 }
+            }
+
+            if (poco.ObjectifiedInstance == null && !string.IsNullOrEmpty(dto.ObjectifiedInstance) && cache.TryGetValue(dto.ObjectifiedInstance, out lazyPoco))
+            {
+                poco.ObjectifiedInstance = (FactTypeInstance)lazyPoco.Value;
             }
 
             if (poco.ObjectifiedInstanceRequiredError == null && !string.IsNullOrEmpty(dto.ObjectifiedInstanceRequiredError) && cache.TryGetValue(dto.ObjectifiedInstanceRequiredError, out lazyPoco))

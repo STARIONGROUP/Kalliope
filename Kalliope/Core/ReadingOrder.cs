@@ -55,6 +55,9 @@ namespace Kalliope.Core
         [Property(name: "Readings", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Reading")]
         public List<Reading> Readings { get; set; }
 
+        /// <summary>
+        /// Gets or sets the referenced <see cref="RoleBase"/> instances
+        /// </summary>
         [Description("")]
         [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
         public List<RoleBase> Roles { get; set; }

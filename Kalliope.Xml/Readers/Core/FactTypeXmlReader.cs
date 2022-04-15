@@ -97,8 +97,11 @@ namespace Kalliope.Xml.Readers
         }
 
         /// <summary>
-        /// Reads <see cref="Role"/>s from the .orm file
+        /// Reads the referenced <see cref="Objectification"/>s from the .orm file
         /// </summary>
+        /// <param name="impliedFactType">
+        /// The subject <see cref="ImpliedFactType"/> that is to be deserialized
+        /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
@@ -219,14 +222,14 @@ namespace Kalliope.Xml.Readers
                     {
                         case "MandatoryConstraint":
                             var mandatoryConstraintReference = reader.GetAttribute("ref");
-                            if (string.IsNullOrEmpty(mandatoryConstraintReference))
+                            if (!string.IsNullOrEmpty(mandatoryConstraintReference))
                             {
                                 factType.InternalConstraints.Add(mandatoryConstraintReference);
                             }
                             break;
                         case "UniquenessConstraint":
                             var uniquenessConstraintReference = reader.GetAttribute("ref");
-                            if (string.IsNullOrEmpty(uniquenessConstraintReference))
+                            if (!string.IsNullOrEmpty(uniquenessConstraintReference))
                             {
                                 factType.InternalConstraints.Add(uniquenessConstraintReference);
                             }

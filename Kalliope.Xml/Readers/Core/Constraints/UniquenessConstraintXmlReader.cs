@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -57,6 +58,39 @@ namespace Kalliope.Xml.Readers
             if (isInternal != null)
             {
                 uniquenessConstraint.IsInternal = XmlConvert.ToBoolean(isInternal);
+            }
+
+            using (var constraintSubtree = reader.ReadSubtree())
+            {
+                while (constraintSubtree.Read())
+                {
+                    if (constraintSubtree.MoveToContent() == XmlNodeType.Element)
+                    {
+                        var localName = reader.LocalName;
+
+                        switch (localName)
+                        {
+                            case "UniquenessConstraint":
+                                break;
+                            case "RoleSequence":
+                                using (var roleSequenceSubtree = constraintSubtree.ReadSubtree())
+                                {
+                                    roleSequenceSubtree.MoveToContent();
+                                    this.ReadRoleSequences(uniquenessConstraint, roleSequenceSubtree, modelThings);
+                                }
+                                break;
+                            case "PreferredIdentifierFor":
+                                var preferredIdentifierFor = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(preferredIdentifierFor))
+                                {
+                                    uniquenessConstraint.PreferredIdentifierFor = preferredIdentifierFor;
+                                }
+                                break;
+                            default:
+                                throw new NotSupportedException($"{localName} not yet supported");
+                        }
+                    }
+                }
             }
         }
     }

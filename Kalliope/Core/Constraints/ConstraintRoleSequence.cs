@@ -36,15 +36,18 @@ namespace Kalliope.Core
         /// </summary>
         protected ConstraintRoleSequence()
         {
-            this.Roles = new List<Role>();
+            this.Roles = new List<RoleBase>();
         }
 
         /// <summary>
-        /// Gets or sets the referenced <see cref="Role"/>s
+        /// Gets or sets the owned <see cref="RoleBase"/>s
         /// </summary>
+        /// <remarks>
+        /// This should only be instances of <see cref="RoleProxy"/> and not <see cref="Role"/>
+        /// </remarks>
         [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
-        public List<Role> Roles { get; set; }
+        [Property(name: "Roles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
+        public List<RoleBase> Roles { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="JoinPathRequiredError"/>

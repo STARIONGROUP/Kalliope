@@ -20,6 +20,9 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System.Collections.Generic;
+    using System.Xml;
+
     using Kalliope.DTO;
 
     /// <summary>
@@ -28,5 +31,53 @@ namespace Kalliope.Xml.Readers
     /// </summary>
     public class ObjectifiedTypeXmlReader : ObjectTypeXmlReader
     {
+        /// <summary>
+        /// Reads the preferred identifier
+        /// </summary>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="objectType">
+        /// The <see cref="ObjectifiedType"/> for which the PreferredIdentifier is to be read
+        /// </param>
+        public override void ReadPreferredIdentifier(XmlReader reader, ObjectType objectType)
+        {
+            using (var preferredIdentifierSubtree = reader.ReadSubtree())
+            {
+                if (preferredIdentifierSubtree.MoveToContent() == XmlNodeType.Element)
+                {
+                    if (preferredIdentifierSubtree.LocalName == "PreferredIdentifier")
+                    {
+                        var reference = preferredIdentifierSubtree.GetAttribute("ref");
+                        if (!string.IsNullOrEmpty(reference))
+                        {
+                            ((ObjectifiedType)objectType).PreferredIdentifier = reference;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Objectification"/>
+        /// </summary>
+        /// <param name="objectType">
+        /// The <see cref="ObjectType"/> that references the played roles
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public override void ReadNestedPredicate(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            var objectification = new Objectification();
+            var objectificationXmlReader = new ObjectificationXmlReader();
+            objectificationXmlReader.ReadXml(objectification, reader, modelThings);
+            objectification.Container = objectType.Id;
+            objectification.NestingType = objectType.Id;
+            ((ObjectifiedType)objectType).NestedPredicate = objectification.Id;
+        }
     }
 }

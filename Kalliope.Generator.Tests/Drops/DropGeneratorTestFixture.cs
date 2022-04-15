@@ -73,7 +73,7 @@ namespace Kalliope.Generator.Tests
 
             var objectTypeDrop = this.typeDrops.Single(x => x.Name == "ObjectType");
             Assert.That(objectTypeDrop.IsContained, Is.True);
-            Assert.That(objectTypeDrop.AllReferencePropertiesCount, Is.EqualTo(25));
+            Assert.That(objectTypeDrop.AllReferencePropertiesCount, Is.EqualTo(23));
         }
     }
 }

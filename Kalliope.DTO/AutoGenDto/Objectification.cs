@@ -35,6 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Represents the relationship between the entity type and the referenced fact type
     /// </remarks>
+    [Container(typeName: "ObjectifiedType", propertyName: "NestedPredicate")]
     public partial class Objectification : OrmModelElement
     {
         /// <summary>
@@ -44,6 +45,11 @@ namespace Kalliope.DTO
         {
             this.ImpliedFactTypes = new List<string>();
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
 
         /// <summary>

@@ -29,5 +29,11 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ObjectType")]
     public class EntityType : ObjectType
     {
+        /// <summary>
+        /// Gets or sets the referenced <see cref="UniquenessConstraint"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint")]
+        public UniquenessConstraint PreferredIdentifier { get; set; }
     }
 }

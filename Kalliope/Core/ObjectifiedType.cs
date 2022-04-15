@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     using Kalliope.Common;
 
     /// <summary>
@@ -29,5 +31,23 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ObjectType")]
     public class ObjectifiedType : ObjectType
     {
+        /// <summary>
+        /// Gets or sets a reference to the uniqueness constraint that provides the preferred identification scheme for this entity type
+        /// </summary>
+        [Description("A reference to the uniqueness constraint that provides the preferred identification scheme for this entity type")]
+        [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint")]
+        public UniquenessConstraint PreferredIdentifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets a referenced to teh <see cref="Objectification"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "NestedPredicate", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Objectification")]
+        public Objectification NestedPredicate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ObjectTypeInstance"/>
+        /// </summary>
+        public List<ObjectTypeInstance> Instances { get; set; }
     }
 }

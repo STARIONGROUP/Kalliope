@@ -63,6 +63,13 @@ namespace Kalliope.DTO
         [Property(name: "NMinusOneError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "NMinusOneError", allowOverride: false, isOverride: false, isDerived: false)]
         public string NMinusOneError { get; set; }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "PreferredIdentifierFor", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
+        public string PreferredIdentifierFor { get; set; }
+ 
     }
 }
 

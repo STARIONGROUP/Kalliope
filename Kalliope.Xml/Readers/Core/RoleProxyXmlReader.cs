@@ -48,6 +48,12 @@ namespace Kalliope.Xml.Readers
         {
             base.ReadXml(roleProxy, reader, modelThings);
 
+            var roleReference = reader.GetAttribute("ref");
+            if (!string.IsNullOrEmpty(roleReference))
+            {
+                roleProxy.TargetRole = roleReference;
+            }
+
             while (reader.Read())
             {
                 if (reader.MoveToContent() == XmlNodeType.Element)

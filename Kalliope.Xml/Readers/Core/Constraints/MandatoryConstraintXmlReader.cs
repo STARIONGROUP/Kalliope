@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -57,6 +58,53 @@ namespace Kalliope.Xml.Readers
             if (isImplied != null)
             {
                 mandatoryConstraint.IsImplied = XmlConvert.ToBoolean(isImplied);
+            }
+
+            using (var constraintSubtree = reader.ReadSubtree())
+            {
+                while (constraintSubtree.Read())
+                {
+                    if (constraintSubtree.MoveToContent() == XmlNodeType.Element)
+                    {
+                        var localName = reader.LocalName;
+
+                        switch (localName)
+                        {
+                            case "MandatoryConstraint":
+                                break;
+                            case "RoleSequence":
+                                using (var roleSequenceSubtree = constraintSubtree.ReadSubtree())
+                                {
+                                    roleSequenceSubtree.MoveToContent();
+                                    this.ReadRoleSequences(mandatoryConstraint, roleSequenceSubtree, modelThings);
+                                }
+                                break;
+                            case "ImpliedByObjectType":
+                                var impliedByObjectType = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(impliedByObjectType) )
+                                {
+                                    mandatoryConstraint.ImpliedByObjectType = impliedByObjectType;
+                                }
+                                break;
+                            case "InherentForObjectType":
+                                var inherentForObjectType = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(inherentForObjectType))
+                                {
+                                    mandatoryConstraint.InherentForObjectType = inherentForObjectType;
+                                }
+                                break;
+                            case "ExclusiveOrExclusionConstraint":
+                                var exclusiveOrExclusionConstraint = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(exclusiveOrExclusionConstraint))
+                                {
+                                    mandatoryConstraint.ExclusiveOrExclusionConstraint = exclusiveOrExclusionConstraint;
+                                }
+                                break;
+                            default:
+                                throw new NotSupportedException($"{localName} not yet supported");
+                        }
+                    }
+                }
             }
         }
     }

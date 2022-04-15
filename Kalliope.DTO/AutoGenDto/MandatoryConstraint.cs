@@ -59,6 +59,20 @@ namespace Kalliope.DTO
         public string ExclusiveOrExclusionConstraint { get; set; }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
+        /// </summary>
+        [Description("The object type with an explicit mandatory constraint pattern that implies this constraint")]
+        [Property(name: "ImpliedByObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ImpliedByObjectType { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
+        /// </summary>
+        [Description("The object type that would implicitly recreate this constraint if it were not explicit in the model")]
+        [Property(name: "InherentForObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
+        public string InherentForObjectType { get; set; }
+ 
+        /// <summary>
         /// Gets or sets a IsImplied
         /// </summary>
         [Description("")]

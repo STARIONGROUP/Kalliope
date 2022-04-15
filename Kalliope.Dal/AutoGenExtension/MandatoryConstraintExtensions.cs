@@ -123,6 +123,16 @@ namespace Kalliope.Dal
                 poco.ImplicationError = null;
             }
 
+            if (poco.ImpliedByObjectType != null && poco.ImpliedByObjectType.Id != dto.ImpliedByObjectType)
+            {
+                poco.ImpliedByObjectType = null;
+            }
+
+            if (poco.InherentForObjectType != null && poco.InherentForObjectType.Id != dto.InherentForObjectType)
+            {
+                poco.InherentForObjectType = null;
+            }
+
             poco.IsImplied = dto.IsImplied;
 
             poco.IsSimple = dto.IsSimple;
@@ -164,10 +174,11 @@ namespace Kalliope.Dal
             }
 
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
+            identifiersOfObjectsToDelete.AddRange(rolesToDelete);
             foreach (var identifier in rolesToDelete)
             {
-                var role = poco.Roles.Single(x => x.Id == identifier);
-                poco.Roles.Remove(role);
+                var roleBase = poco.Roles.Single(x => x.Id == identifier);
+                poco.Roles.Remove(roleBase);
             }
 
             if (poco.TooFewRoleSequencesError != null && poco.TooFewRoleSequencesError.Id != dto.TooFewRoleSequencesError)
@@ -279,6 +290,16 @@ namespace Kalliope.Dal
                 poco.ImplicationError = (ImplicationError)lazyPoco.Value;
             }
 
+            if (poco.ImpliedByObjectType == null && !string.IsNullOrEmpty(dto.ImpliedByObjectType) && cache.TryGetValue(dto.ImpliedByObjectType, out lazyPoco))
+            {
+                poco.ImpliedByObjectType = (ObjectType)lazyPoco.Value;
+            }
+
+            if (poco.InherentForObjectType == null && !string.IsNullOrEmpty(dto.InherentForObjectType) && cache.TryGetValue(dto.InherentForObjectType, out lazyPoco))
+            {
+                poco.InherentForObjectType = (ObjectType)lazyPoco.Value;
+            }
+
             if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath) && cache.TryGetValue(dto.JoinPath, out lazyPoco))
             {
                 poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
@@ -314,8 +335,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var role = (Role)lazyPoco.Value;
-                    poco.Roles.Add(role);
+                    var roleBase = (RoleBase)lazyPoco.Value;
+                    poco.Roles.Add(roleBase);
                 }
             }
 

@@ -18,10 +18,9 @@
 // </copyright>
 // ------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-
 namespace Kalliope.Xml.Tests
 {
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     

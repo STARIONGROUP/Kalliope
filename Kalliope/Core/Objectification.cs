@@ -27,8 +27,12 @@ namespace Kalliope.Core
     /// <summary>
     /// Represents the relationship between the entity type and the referenced fact type
     /// </summary>
+    /// <remarks>
+    /// sometimes called an ObjectifiedFactType
+    /// </remarks>
     [Description("Represents the relationship between the entity type and the referenced fact type")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
+    [Container(typeName: "ObjectifiedType", propertyName: "NestedPredicate")]
     public class Objectification : OrmModelElement
     {
         /// <summary>
@@ -50,14 +54,23 @@ namespace Kalliope.Core
         [Property(name: "IsImplied", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "")]
         public bool IsImplied { get; set; }
 
+        /// <summary>
+        /// Gets or sets the referenced <see cref="ObjectType"/>
+        /// </summary>
         [Description("")]
         [Property(name: "NestingType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
         public ObjectType NestingType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the referenced <see cref="FactType"/>
+        /// </summary>
         [Description("")]
         [Property(name: "NestedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public FactType NestedFactType { get; set; }
         
+        /// <summary>
+        /// Gets or sets the contained <see cref="FactType"/>
+        /// </summary>
         [Description("")]
         [Property(name: "ImpliedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "1..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
         public List<FactType> ImpliedFactTypes { get; set; }

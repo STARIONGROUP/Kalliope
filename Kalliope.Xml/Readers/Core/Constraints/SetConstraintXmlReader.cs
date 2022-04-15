@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -46,6 +47,79 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(setConstraint, reader, modelThings);
+        }
+
+        /// <summary>
+        /// Reads <see cref="Role"/> sequences from the .orm file
+        /// </summary>
+        /// <param name="setConstraint">
+        /// The <see cref="SetConstraint"/> that contains the <see cref="Role"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        protected void ReadRoleSequences(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Role":
+                            using (var roleProxySubTree = reader.ReadSubtree())
+                            {
+                                roleProxySubTree.MoveToContent();
+                                var roleProxy = new RoleProxy();
+                                var roleProxyXmlReader = new RoleProxyXmlReader();
+                                roleProxyXmlReader.ReadXml(roleProxy, roleProxySubTree, modelThings);
+                                roleProxy.Container = setConstraint.Id;
+                                setConstraint.Roles.Add(roleProxy.Id);
+                            }
+                            break;
+                        case "JoinRule":
+                            using (var joinRuleSubtree = reader.ReadSubtree())
+                            {
+                                joinRuleSubtree.MoveToContent();
+                                this.ReadJoinRules(setConstraint, joinRuleSubtree, modelThings);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
+        }
+
+        private void ReadJoinRules(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "JoinPath":
+                            using (var joinPathSubTree = reader.ReadSubtree())
+                            {
+                                joinPathSubTree.MoveToContent();
+                                var constraintRoleSequenceJoinPath = new ConstraintRoleSequenceJoinPath();
+                                var constraintRoleSequenceJoinPathXmlReader = new ConstraintRoleSequenceJoinPathXmlReader();
+                                constraintRoleSequenceJoinPathXmlReader.ReadXml(constraintRoleSequenceJoinPath, joinPathSubTree, modelThings);
+                                constraintRoleSequenceJoinPath.Container = setConstraint.Id;
+                                setConstraint.JoinPath = constraintRoleSequenceJoinPath.Id;
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

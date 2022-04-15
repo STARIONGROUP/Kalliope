@@ -24,6 +24,7 @@ namespace Kalliope.Core
 
     [Description("")]
     [Domain(isAbstract: true, general: "OrmModelElement")]
+    [Container(typeName: "ConstraintRoleSequence", propertyName: "Roles")]
     [Container(typeName: "FactType", propertyName: "Roles")]
     public abstract class RoleBase : OrmModelElement
     {

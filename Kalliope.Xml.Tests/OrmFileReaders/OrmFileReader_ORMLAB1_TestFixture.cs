@@ -21,6 +21,7 @@
 namespace Kalliope.Xml.Tests.OrmFileReaders
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
@@ -91,9 +92,18 @@ namespace Kalliope.Xml.Tests.OrmFileReaders
 
             // Constraints
             Assert.That(this.ormRoot.Model.SetConstraints.OfType<Core.MandatoryConstraint>().Count(), Is.EqualTo(10));
-            var mandatoryConstraint = this.ormRoot.Model.SetConstraints.OfType<Core.MandatoryConstraint>().Single(x => x.Id == "_9F2A5E20-6CE9-4ECB-BC70-226121961401");
-            Assert.That(mandatoryConstraint.Name, Is.EqualTo("SimpleMandatoryConstraint1"));
-            Assert.That(mandatoryConstraint.IsSimple, Is.True);
+            var simpleMandatoryConstraint = this.ormRoot.Model.SetConstraints.OfType<Core.MandatoryConstraint>().Single(x => x.Id == "_9F2A5E20-6CE9-4ECB-BC70-226121961401");
+            Assert.That(simpleMandatoryConstraint.Name, Is.EqualTo("SimpleMandatoryConstraint1"));
+            Assert.That(simpleMandatoryConstraint.IsSimple, Is.True);
+            var roleProxy = simpleMandatoryConstraint.Roles.OfType<Core.RoleProxy>().Single();
+            Assert.That(roleProxy.Id, Is.EqualTo("_D68AD717-A03B-4D42-8F42-E228C8117D72"));
+            Assert.That(roleProxy.TargetRole.Id, Is.EqualTo("_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5"));
+
+            var impliedMandatoryConstraint = this.ormRoot.Model.SetConstraints.OfType<Core.MandatoryConstraint>().Single(x => x.Id == "_279D242B-5908-4EF9-B86D-968BB966F010");
+            Assert.That(impliedMandatoryConstraint.Name, Is.EqualTo("ImpliedMandatoryConstraint1"));
+            Assert.That(impliedMandatoryConstraint.IsSimple, Is.False);
+            Assert.That(impliedMandatoryConstraint.IsImplied, Is.True);
+            Assert.That(impliedMandatoryConstraint.ImpliedByObjectType.Id, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
 
             Assert.That(this.ormRoot.Model.SetConstraints.OfType<Core.UniquenessConstraint>().Count(), Is.EqualTo(9));
             var uniquenessConstraint = this.ormRoot.Model.SetConstraints.OfType<Core.UniquenessConstraint>().Single(x => x.Id == "_5724941F-9D32-4A9D-984C-11CD1F066233");
