@@ -123,15 +123,35 @@ namespace Kalliope.Xml.Tests
                 "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5",
                 "_C598D67F-07F1-420A-8E9D-B4869078A35D"
             }));
+            Assert.That(factType.InternalConstraints, Is.EquivalentTo(new List<string> {
+                "_5724941F-9D32-4A9D-984C-11CD1F066233",
+                "_6CD720DD-6E1A-483A-A49F-19037EBB6803",
+                "_9F2A5E20-6CE9-4ECB-BC70-226121961401"
+            }));
+
             var role = modelThings.OfType<Role>().Single(x => x.Id == "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5");
             Assert.That(role.IsMandatory, Is.True);
             Assert.That(role.Multiplicity, Is.EqualTo(Multiplicity.ZeroToOne));
             Assert.That(role.RolePlayer, Is.EqualTo("_2BBF304E-05AE-4A81-AFF9-AFAAECC9A8A7"));
 
+            var readingOrder = modelThings.OfType<ReadingOrder>().Single(x => x.Id == "_29B91487-B5AE-427F-B69E-5EDFC3725AD7");
+            Assert.That(readingOrder.Container, Is.EqualTo("_0EFF35AC-1E3B-43CF-AB58-454ABB8219EF"));
+            Assert.That(readingOrder.Roles, Is.EquivalentTo(new List<string> { "_A8AC7568-EC79-438D-A49B-0CBB9C9B0EB5", "_C598D67F-07F1-420A-8E9D-B4869078A35D"  }));
+            var reading = modelThings.OfType<Reading>().Single(x => x.Id == "_76B4CE17-8622-4C32-9F33-A07942FDFB61");
+            Assert.That(reading.Container, Is.EqualTo("_29B91487-B5AE-427F-B69E-5EDFC3725AD7"));
+            Assert.That(reading.Data, Is.EqualTo("{0} has {1}"));
+            Assert.That(reading.ExpandedData, Is.EqualTo(new List<string> { "0" }));
+            var roleText = modelThings.OfType<RoleText>().Single(x => x.Id == "_76B4CE17-8622-4C32-9F33-A07942FDFB61:0");
+            Assert.That(roleText.FollowingText, Is.EqualTo(" has "));
+            
             var impliedFactType = modelThings.OfType<ImpliedFactType>().Single(x => x.Id == "_42047AA2-277F-43F0-B6AD-5F29CC56193F");
             Assert.That(impliedFactType.Name, Is.EqualTo("PatientIsInvolvedInDrugAllergy"));
             Assert.That(impliedFactType.ImpliedByObjectification, Is.EqualTo("_0D1799A7-85ED-43F4-A2A7-B67EA63EBE22"));
-            
+            Assert.That(impliedFactType.Roles, Is.EquivalentTo(new List<string> {
+                "_2AF6CA70-21C7-45E9-80B2-FF6C70C2DFFB",
+                "_CC5C82E3-17F8-4FC3-AA8F-65696824B596"
+            }));
+
             var impliedFactType2 = modelThings.OfType<ImpliedFactType>().Single(x => x.Id == "_C492AADC-A9A8-49E3-8D4D-00DE48CEF170");
             Assert.That(impliedFactType2.Name, Is.EqualTo("DrugIsInvolvedInDrugAllergy"));
             Assert.That(impliedFactType2.InternalConstraints, Is.EqualTo(new List<string>
