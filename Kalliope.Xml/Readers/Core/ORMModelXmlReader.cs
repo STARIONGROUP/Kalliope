@@ -55,6 +55,20 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
+                        case "Definitions":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                this.ReadDefinitions(ormModel, definitionSubtree, modelThings);
+                            }
+                            break;
+                        case "Notes":
+                            using (var notesSubtree = reader.ReadSubtree())
+                            {
+                                notesSubtree.MoveToContent();
+                                this.ReadNotes(ormModel, notesSubtree, modelThings);
+                            }
+                            break;
                         case "Objects":
                             using (var objectsSubtree = reader.ReadSubtree())
                             {
@@ -110,6 +124,88 @@ namespace Kalliope.Xml.Readers
                 }
             }
         }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="ormModel">
+        /// The container <see cref="OrmModel"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadDefinitions(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Definition":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                var definition = new Definition();
+                                var definitionXmlReader = new DefinitionXmlReader();
+                                definitionXmlReader.ReadXml(definition, definitionSubtree, modelThings);
+                                definition.Container = ormModel.Id;
+                                ormModel.Definition = definition.Id;
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Note"/>s
+        /// </summary>
+        /// <param name="ormModel">
+        /// The container <see cref="OrmModel"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadNotes(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Note":
+
+                            using (var noteSubtree = reader.ReadSubtree())
+                            {
+                                noteSubtree.MoveToContent();
+                                var note = new Note();
+                                var noteXmlReader = new NoteXmlReader();
+                                noteXmlReader.ReadXml(note, noteSubtree, modelThings);
+                                note.Container = ormModel.Id;
+                                ormModel.Note = note.Id;
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Reads <see cref="ObjectType"/>s from the .orm file

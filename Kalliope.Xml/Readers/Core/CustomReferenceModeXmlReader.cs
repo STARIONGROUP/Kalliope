@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -46,8 +47,21 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(CustomReferenceMode customReferenceMode, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(customReferenceMode, reader, modelThings);
+        }
 
-            customReferenceMode.CustomFormatString = reader.GetAttribute("FormatString");
+        /// <summary>
+        /// reads the CustomFormatString for the <see cref="ReferenceMode"/>
+        /// </summary>
+        /// <param name="referenceMode">
+        /// The subject <see cref="ReferenceMode"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        public override void ReadCustomFormatString(ReferenceMode referenceMode, XmlReader reader)
+        {
+            var customReferenceMode = (CustomReferenceMode)referenceMode;
+            customReferenceMode.CustomFormatString = string.Empty;
         }
     }
 }

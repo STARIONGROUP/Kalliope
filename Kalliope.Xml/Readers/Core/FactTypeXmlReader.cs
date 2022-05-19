@@ -58,6 +58,20 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
+                        case "Definitions":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                this.ReadDefinitions(factType, definitionSubtree, modelThings);
+                            }
+                            break;
+                        case "Notes":
+                            using (var notesSubtree = reader.ReadSubtree())
+                            {
+                                notesSubtree.MoveToContent();
+                                this.ReadNotes(factType, notesSubtree, modelThings);
+                            }
+                            break;
                         case "FactRoles":
                             using (var rolesSubtree = reader.ReadSubtree())
                             {
@@ -89,6 +103,13 @@ namespace Kalliope.Xml.Readers
                         case "ImpliedByObjectification":
                             this.ReadImpliedByObjectification(factType, reader);
                             break;
+                        case "Extensions":
+                            using (var extensionsSubtree = reader.ReadSubtree())
+                            {
+                                extensionsSubtree.MoveToContent();
+                                this.ReadExtensions(factType, extensionsSubtree, modelThings);
+                            }
+                            break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
@@ -108,6 +129,87 @@ namespace Kalliope.Xml.Readers
         public virtual void ReadImpliedByObjectification(FactType impliedFactType, XmlReader reader)
         {
             throw new InvalidOperationException("shall only be implemented by ImpliedFact");
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="factType">
+        /// The container <see cref="FactType"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadDefinitions(FactType factType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Definition":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                var definition = new Definition();
+                                var definitionXmlReader = new DefinitionXmlReader();
+                                definitionXmlReader.ReadXml(definition, definitionSubtree, modelThings);
+                                definition.Container = factType.Id;
+                                factType.Definition = definition.Id;
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Note"/>s
+        /// </summary>
+        /// <param name="factType">
+        /// The container <see cref="FactType"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadNotes(FactType factType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Note":
+
+                            using (var noteSubtree = reader.ReadSubtree())
+                            {
+                                noteSubtree.MoveToContent();
+                                var note = new Note();
+                                var noteXmlReader = new NoteXmlReader();
+                                noteXmlReader.ReadXml(note, noteSubtree, modelThings);
+                                note.Container = factType.Id;
+                                factType.Note = note.Id;
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -283,6 +385,47 @@ namespace Kalliope.Xml.Readers
                                 factTypeDerivationExpressionXmlReader.ReadXml(factTypeDerivationExpression, factTypeDerivationPathSubtree, modelThings);
 
                                 Console.WriteLine("TODO: no reference from FactType.FactTypeDerivationPath");
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Extension"/>s
+        /// </summary>
+        /// <param name="factType">
+        /// The <see cref="FactType"/> that contains the <see cref="Extension"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadExtensions(FactType factType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CustomProperty":
+
+                            using (var customPropertySubtree = reader.ReadSubtree())
+                            {
+                                customPropertySubtree.MoveToContent();
+                                var customProperty = new CustomProperty();
+                                var customPropertyXmlReader = new CustomPropertyXmlReader();
+                                customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
+                                customProperty.Container = factType.Id;
+                                factType.Extensions.Add(customProperty.Id);
                             }
                             break;
                         default:

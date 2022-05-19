@@ -42,14 +42,22 @@ namespace Kalliope.DTO
         /// </summary>
         public OrmRoot()
         {
+            this.CustomPropertyGroups = new List<string>();
             this.Diagrams = new List<string>();
         }
  
 
         /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="CustomPropertyGroup"/> instances
+        /// </summary>
+        [Description("Gets or sets the CustomPropertyGroups contained by the .orm file")]
+        [Property(name: "CustomPropertyGroups", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CustomPropertyGroup", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> CustomPropertyGroups { get; set; }
+ 
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="OrmDiagram"/> instances
         /// </summary>
-        [Description("")]
+        [Description("Gets or sets the OrmDiagrams contained by the .orm file")]
         [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmDiagram", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Diagrams { get; set; }
  

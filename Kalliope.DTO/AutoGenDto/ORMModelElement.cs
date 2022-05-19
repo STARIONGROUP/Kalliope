@@ -41,6 +41,7 @@ namespace Kalliope.DTO
         {
             this.AssociatedModelErrors = new List<string>();
             this.ExtensionModelErrors = new List<string>();
+            this.Extensions = new List<string>();
         }
  
 
@@ -57,6 +58,13 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "ExtensionModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> ExtensionModelErrors { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="Extension"/> instances
+        /// </summary>
+        [Description("extension data related to the containing element")]
+        [Property(name: "Extensions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Extension", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> Extensions { get; set; }
  
     }
 }

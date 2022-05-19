@@ -131,6 +131,13 @@ namespace Kalliope.Xml.Readers
                                 objectType.DerivationRule = subtypeDerivationRule.Id;
                             }
                             break;
+                        case "Extensions":
+                            using (var extensionsSubtree = reader.ReadSubtree())
+                            {
+                                extensionsSubtree.MoveToContent();
+                                this.ReadExtensions(objectType, extensionsSubtree, modelThings);
+                            }
+                            break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
@@ -263,14 +270,35 @@ namespace Kalliope.Xml.Readers
         {
             while (reader.Read())
             {
-                var localName = reader.LocalName;
-
-                if (localName == "Role")
+                if (reader.MoveToContent() == XmlNodeType.Element)
                 {
-                    var roleReference = reader.GetAttribute("ref");
-                    if (!string.IsNullOrEmpty(roleReference))
+                    var localName = reader.LocalName;
+
+                    switch (localName)
                     {
-                        objectType.PlayedRoles.Add(roleReference);
+                        case "Role":
+                            var roleReference = reader.GetAttribute("ref");
+                            if (!string.IsNullOrEmpty(roleReference))
+                            {
+                                objectType.PlayedRoles.Add(roleReference);
+                            }
+                            break;
+                        case "SubtypeMetaRole":
+                            var subtypeMetaRoleReference = reader.GetAttribute("ref");
+                            if (!string.IsNullOrEmpty(subtypeMetaRoleReference))
+                            {
+                                objectType.PlayedRoles.Add(subtypeMetaRoleReference);
+                            }
+                            break;
+                        case "SupertypeMetaRole":
+                            var supertypeMetaRoleReference = reader.GetAttribute("ref");
+                            if (!string.IsNullOrEmpty(supertypeMetaRoleReference))
+                            {
+                                objectType.PlayedRoles.Add(supertypeMetaRoleReference);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
@@ -305,6 +333,45 @@ namespace Kalliope.Xml.Readers
             }
         }
 
-        
+        /// <summary>
+        /// reads the <see cref="Extension"/>s
+        /// </summary>
+        /// <param name="objectType">
+        /// The <see cref="ObjectType"/> that contains the <see cref="Extension"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadExtensions(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CustomProperty":
+
+                            using (var customPropertySubtree = reader.ReadSubtree())
+                            {
+                                customPropertySubtree.MoveToContent();
+                                var customProperty = new CustomProperty();
+                                var customPropertyXmlReader = new CustomPropertyXmlReader();
+                                customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
+                                customProperty.Container = objectType.Id;
+                                objectType.Extensions.Add(customProperty.Id);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
     }
 }

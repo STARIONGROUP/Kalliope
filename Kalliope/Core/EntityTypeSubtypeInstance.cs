@@ -48,10 +48,5 @@ namespace Kalliope.Core
         [Description("A reference to the fact instance associated with this subtype instance")]
         [Property(name: "ObjectifiedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeInstance")]
         public FactTypeInstance ObjectifiedInstance { get; set; }
-
-        /// <summary>
-        /// extension data related to the containing element
-        /// </summary>
-        public List<object> Extensions { get; set; }
     }
 }

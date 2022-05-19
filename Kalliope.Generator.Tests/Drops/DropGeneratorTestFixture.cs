@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="TypeDropTestFixture.cs" company="RHEA System S.A.">
+// <copyright file="DropGeneratorTestFixture.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -25,6 +25,9 @@ namespace Kalliope.Generator.Tests
 
     using NUnit.Framework;
 
+    /// <summary>
+    /// Suite of tests for the <see cref="DropGenerator"/>
+    /// </summary>
     [TestFixture]
     public class DropGeneratorTestFixture
     {
@@ -40,7 +43,7 @@ namespace Kalliope.Generator.Tests
         [Test]
         public void Verify_that_the_generator_generates_the_expected_amount_of_type_drops()
         {
-            Assert.That(this.typeDrops.Count, Is.EqualTo(228));
+            Assert.That(this.typeDrops.Count, Is.EqualTo(232));
         }
 
         [Test]
@@ -73,7 +76,7 @@ namespace Kalliope.Generator.Tests
 
             var objectTypeDrop = this.typeDrops.Single(x => x.Name == "ObjectType");
             Assert.That(objectTypeDrop.IsContained, Is.True);
-            Assert.That(objectTypeDrop.AllReferencePropertiesCount, Is.EqualTo(23));
+            Assert.That(objectTypeDrop.AllReferencePropertiesCount, Is.EqualTo(24));
         }
     }
 }

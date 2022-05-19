@@ -62,7 +62,7 @@ namespace Kalliope.Xml.Tests
             // Constraints
 
             // DataTypes
-
+            
             // CustomReferenceModes
             Assert.That(ormModel.ReferenceModes.Count, Is.EqualTo(1));
             var customReferenceMode = modelThings.OfType<CustomReferenceMode>().Single(x => x.Id == "_924FEE50-B6A2-490B-ACFC-9623A7425CDB");

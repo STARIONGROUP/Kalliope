@@ -122,6 +122,15 @@ namespace Kalliope.Dal
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     return constraintRoleSequenceJoinPathRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto);
+                case "CustomProperty":
+                    var customProperty = poco as Kalliope.CustomProperties.CustomProperty;
+                    return customProperty.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CustomProperty)dto);
+                case "CustomPropertyDefinition":
+                    var customPropertyDefinition = poco as Kalliope.CustomProperties.CustomPropertyDefinition;
+                    return customPropertyDefinition.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CustomPropertyDefinition)dto);
+                case "CustomPropertyGroup":
+                    var customPropertyGroup = poco as Kalliope.CustomProperties.CustomPropertyGroup;
+                    return customPropertyGroup.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CustomPropertyGroup)dto);
                 case "CustomReferenceMode":
                     var customReferenceMode = poco as Kalliope.Core.CustomReferenceMode;
                     return customReferenceMode.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CustomReferenceMode)dto);
@@ -726,6 +735,18 @@ namespace Kalliope.Dal
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     constraintRoleSequenceJoinPathRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto, cache);
+                    break;
+                case "CustomProperty":
+                    var customProperty = poco as Kalliope.CustomProperties.CustomProperty;
+                    customProperty.UpdateReferenceProperties((Kalliope.DTO.CustomProperty)dto, cache);
+                    break;
+                case "CustomPropertyDefinition":
+                    var customPropertyDefinition = poco as Kalliope.CustomProperties.CustomPropertyDefinition;
+                    customPropertyDefinition.UpdateReferenceProperties((Kalliope.DTO.CustomPropertyDefinition)dto, cache);
+                    break;
+                case "CustomPropertyGroup":
+                    var customPropertyGroup = poco as Kalliope.CustomProperties.CustomPropertyGroup;
+                    customPropertyGroup.UpdateReferenceProperties((Kalliope.DTO.CustomPropertyGroup)dto, cache);
                     break;
                 case "CustomReferenceMode":
                     var customReferenceMode = poco as Kalliope.Core.CustomReferenceMode;

@@ -31,9 +31,6 @@ namespace Kalliope.Common
         /// <summary>
         /// Initializes a new instance of the <see cref="DomainAttribute"/> class
         /// </summary>
-        /// <param name="isRoot">
-        /// A value indicating whether this class is the root class of the domain model
-        /// </param>
         /// <param name="isAbstract">
         /// A value indicating whether this is an abstract class
         /// </param>

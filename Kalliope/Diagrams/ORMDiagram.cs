@@ -30,6 +30,7 @@ namespace Kalliope.Diagrams
     /// </summary>
     [Description("")]
     [Domain(isAbstract: false, general: "ModelThing")]
+    [Container(typeName: "OrmRoot", propertyName: "Diagrams")]
     public class OrmDiagram : ModelThing
     {
         /// <summary>

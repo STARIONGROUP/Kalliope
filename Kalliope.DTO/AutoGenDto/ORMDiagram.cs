@@ -32,6 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a OrmDiagram
     /// </summary>
+    [Container(typeName: "OrmRoot", propertyName: "Diagrams")]
     public partial class OrmDiagram : ModelThing
     {
         /// <summary>
@@ -47,6 +48,11 @@ namespace Kalliope.DTO
             this.RingConstraintShapes = new List<string>();
             this.ValueComparisonConstraintShapes = new List<string>();
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
 
         /// <summary>

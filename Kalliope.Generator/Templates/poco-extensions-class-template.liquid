@@ -31,6 +31,7 @@ namespace Kalliope.Dal
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.Diagrams;
 
     /// <summary>

@@ -20,10 +20,15 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     /// <summary>
     /// Extension data related to the containing element
     /// </summary>
-    public class Extension
+    [Description("")]
+    [Domain(isAbstract: true, general: "ModelThing")]
+    [Container(typeName: "OrmModelElement", propertyName: "Extensions")]
+    public abstract class Extension : ModelThing
     {
     }
 }

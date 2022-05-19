@@ -24,6 +24,7 @@ namespace Kalliope
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.Diagrams;
 
     /// <summary>
@@ -37,6 +38,7 @@ namespace Kalliope
         /// </summary>
         public OrmRoot()
         {
+            this.CustomPropertyGroups = new List<CustomPropertyGroup>();
             this.Diagrams = new List<OrmDiagram>();
         }
         
@@ -68,7 +70,15 @@ namespace Kalliope
         /// <summary>
         /// Gets or sets the <see cref="OrmDiagram"/>s contained by the .orm file
         /// </summary>
+        [Description("Gets or sets the OrmDiagrams contained by the .orm file")]
         [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue:"", typeName: "OrmDiagram")]
-        public List<OrmDiagram> Diagrams { get; set; }  
+        public List<OrmDiagram> Diagrams { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="CustomPropertyGroup"/>s contained by the .orm file
+        /// </summary>
+        [Description("Gets or sets the CustomPropertyGroups contained by the .orm file")]
+        [Property(name: "CustomPropertyGroups", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CustomPropertyGroup")]
+        public List<CustomPropertyGroup> CustomPropertyGroups { get; set; }
     }
 }

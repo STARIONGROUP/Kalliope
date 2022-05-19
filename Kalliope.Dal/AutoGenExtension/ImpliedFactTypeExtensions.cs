@@ -31,6 +31,7 @@ namespace Kalliope.Dal
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.Diagrams;
 
     /// <summary>
@@ -103,6 +104,14 @@ namespace Kalliope.Dal
             {
                 var modelError = poco.ExtensionModelErrors.Single(x => x.Id == identifier);
                 poco.ExtensionModelErrors.Remove(modelError);
+            }
+
+            var extensionsToDelete = poco.Extensions.Select(x => x.Id).Except(dto.Extensions);
+            identifiersOfObjectsToDelete.AddRange(extensionsToDelete);
+            foreach (var identifier in extensionsToDelete)
+            {
+                var extension = poco.Extensions.Single(x => x.Id == identifier);
+                poco.Extensions.Remove(extension);
             }
 
             var factTypeInstancesToDelete = poco.FactTypeInstances.Select(x => x.Id).Except(dto.FactTypeInstances);
@@ -238,6 +247,16 @@ namespace Kalliope.Dal
                 {
                     var modelError = (ModelError)lazyPoco.Value;
                     poco.ExtensionModelErrors.Add(modelError);
+                }
+            }
+
+            var extensionsToAdd = dto.Extensions.Except(poco.Extensions.Select(x => x.Id));
+            foreach (var identifier in extensionsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var extension = (Extension)lazyPoco.Value;
+                    poco.Extensions.Add(extension);
                 }
             }
 

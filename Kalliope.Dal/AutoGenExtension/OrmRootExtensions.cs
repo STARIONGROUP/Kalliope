@@ -31,6 +31,7 @@ namespace Kalliope.Dal
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.Diagrams;
 
     /// <summary>
@@ -68,6 +69,14 @@ namespace Kalliope.Dal
             }
 
             var identifiersOfObjectsToDelete = new List<string>();
+
+            var customPropertyGroupsToDelete = poco.CustomPropertyGroups.Select(x => x.Id).Except(dto.CustomPropertyGroups);
+            identifiersOfObjectsToDelete.AddRange(customPropertyGroupsToDelete);
+            foreach (var identifier in customPropertyGroupsToDelete)
+            {
+                var customPropertyGroup = poco.CustomPropertyGroups.Single(x => x.Id == identifier);
+                poco.CustomPropertyGroups.Remove(customPropertyGroup);
+            }
 
             var diagramsToDelete = poco.Diagrams.Select(x => x.Id).Except(dto.Diagrams);
             identifiersOfObjectsToDelete.AddRange(diagramsToDelete);
@@ -131,6 +140,16 @@ namespace Kalliope.Dal
             }
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var customPropertyGroupsToAdd = dto.CustomPropertyGroups.Except(poco.CustomPropertyGroups.Select(x => x.Id));
+            foreach (var identifier in customPropertyGroupsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var customPropertyGroup = (CustomPropertyGroup)lazyPoco.Value;
+                    poco.CustomPropertyGroups.Add(customPropertyGroup);
+                }
+            }
 
             var diagramsToAdd = dto.Diagrams.Except(poco.Diagrams.Select(x => x.Id));
             foreach (var identifier in diagramsToAdd)

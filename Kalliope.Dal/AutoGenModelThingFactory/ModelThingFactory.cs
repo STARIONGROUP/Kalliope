@@ -127,6 +127,18 @@ namespace Kalliope.Dal
                     var constraintRoleSequenceJoinPathRequiresProjectionError = dto as Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     var constraintRoleSequenceJoinPathRequiresProjectionErrorFactory = new ConstraintRoleSequenceJoinPathRequiresProjectionErrorFactory();
                     return constraintRoleSequenceJoinPathRequiresProjectionErrorFactory.Create(constraintRoleSequenceJoinPathRequiresProjectionError);
+                case "CustomProperty":
+                    var customProperty = dto as Kalliope.DTO.CustomProperty;
+                    var customPropertyFactory = new CustomPropertyFactory();
+                    return customPropertyFactory.Create(customProperty);
+                case "CustomPropertyDefinition":
+                    var customPropertyDefinition = dto as Kalliope.DTO.CustomPropertyDefinition;
+                    var customPropertyDefinitionFactory = new CustomPropertyDefinitionFactory();
+                    return customPropertyDefinitionFactory.Create(customPropertyDefinition);
+                case "CustomPropertyGroup":
+                    var customPropertyGroup = dto as Kalliope.DTO.CustomPropertyGroup;
+                    var customPropertyGroupFactory = new CustomPropertyGroupFactory();
+                    return customPropertyGroupFactory.Create(customPropertyGroup);
                 case "CustomReferenceMode":
                     var customReferenceMode = dto as Kalliope.DTO.CustomReferenceMode;
                     var customReferenceModeFactory = new CustomReferenceModeFactory();

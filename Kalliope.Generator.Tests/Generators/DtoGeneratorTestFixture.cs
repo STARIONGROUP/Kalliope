@@ -113,5 +113,21 @@ namespace Kalliope.Generator.Tests.Generators
 
             Assert.AreEqual(expected, dto);
         }
+
+        [Test]
+        public void Verify_That_Generate_Class_For_CustomPropertyDefinition_Returns_Expected_Result()
+        {
+            var customPropertyDefinition = this.dtoGenerator.TypeDrops.Single(x => x.Name == "CustomPropertyDefinition");
+
+            var dto = this.dtoGenerator.GenerateType(customPropertyDefinition);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "CustomPropertyDefinition.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/CustomPropertyDefinition.cs"));
+
+            Assert.AreEqual(expected, dto);
+        }
     }
 }

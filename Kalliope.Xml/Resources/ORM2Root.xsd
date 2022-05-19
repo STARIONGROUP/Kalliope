@@ -2,7 +2,7 @@
 <xs:schema
 	attributeFormDefault="unqualified"
 	elementFormDefault="qualified"
-	xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram"
+	xmlns:customProperty="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram"
 	xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore"
 	xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot"
 	targetNamespace="http://schemas.neumont.edu/ORM/2006-04/ORMRoot"

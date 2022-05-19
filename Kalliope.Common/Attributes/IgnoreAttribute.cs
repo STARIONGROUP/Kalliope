@@ -23,7 +23,7 @@ namespace Kalliope.Common
     using System;
     
     /// <summary>
-    /// The purpose of the <see cref="IgnoreAttribute"/> is to decorate classes and properties that are to be ingored
+    /// The purpose of the <see cref="IgnoreAttribute"/> is to decorate classes and properties that are to be ignored
     /// for code generation purposes. The rationale for ignoring is provided in the <see cref="Description"/>
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false)]

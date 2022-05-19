@@ -46,7 +46,6 @@ namespace Kalliope.Core
             this.ReferenceModes = new List<ReferenceMode>();
             this.ReferenceModeKinds = new List<ReferenceModeKind>();
             this.RecognizedPhrases = new List<RecognizedPhrase>();
-            this.Extensions = new List<Extension>();
             this.SetConstraints = new List<SetConstraint>();
             this.SetComparisonConstraints = new List<SetComparisonConstraint>();
         }
@@ -136,12 +135,7 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "RecognizedPhrases", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RecognizedPhrase")]
         public List<RecognizedPhrase> RecognizedPhrases { get; set; }
-
-        /// <summary>
-        /// The <see cref="Extension"/>s contained by the <see cref="OrmModel"/>
-        /// </summary>
-        public List<Extension> Extensions { get; set; }
-
+        
         /// <summary>
         /// The <see cref="SetConstraint"/>s contained by the <see cref="OrmModel"/>
         /// </summary>

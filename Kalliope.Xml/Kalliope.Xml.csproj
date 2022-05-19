@@ -49,6 +49,7 @@
   <ItemGroup>
     <Folder Include="Readers\Core\ModelErrorCategories\" />
     <Folder Include="Readers\Core\ModelErrors\" />
+    <Folder Include="Readers\CustomProperties\" />
   </ItemGroup>
 
 </Project>

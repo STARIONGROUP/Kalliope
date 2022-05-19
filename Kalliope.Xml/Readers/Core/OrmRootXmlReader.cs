@@ -99,6 +99,16 @@ namespace Kalliope.Xml.Readers
                                 ormRoot.Diagrams.Add(ormDiagram.Id);
                             }
                             break;
+                        case "CustomPropertyGroup":
+                            using (var customPropertyGroupSubtree = reader.ReadSubtree())
+                            {
+                                customPropertyGroupSubtree.MoveToContent();
+                                var customPropertyGroup = new CustomPropertyGroup();
+                                var customPropertyGroupXmlReader = new CustomPropertyGroupXmlReader();
+                                customPropertyGroupXmlReader.ReadXml(customPropertyGroup, customPropertyGroupSubtree, modelThings);
+                                ormRoot.CustomPropertyGroups.Add(customPropertyGroup.Id);
+                            }
+                            break;
                     }
                 }
             }

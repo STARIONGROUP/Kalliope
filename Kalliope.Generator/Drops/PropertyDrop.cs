@@ -110,6 +110,8 @@ namespace Kalliope.Generator
                         return "float";
                     case TypeKind.Double:
                         return "double";
+                    case TypeKind.Obj:
+                        return "object";
                     default:
                         throw new NotSupportedException($"The {this.PropertyAttribute.TypeKind} is not supported");
                 }

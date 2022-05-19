@@ -76,7 +76,12 @@ namespace Kalliope.Common
 
         Double = 13,
 
-        Enumeration  = 14
+        Enumeration  = 14,
+
+        /// <summary>
+        /// The <see cref="object"/> type
+        /// </summary>
+        Obj = 15
     }
     
     /// <summary>

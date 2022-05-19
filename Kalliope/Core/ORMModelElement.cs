@@ -35,6 +35,7 @@ namespace Kalliope.Core
         {
             this.AssociatedModelErrors = new List<ModelError>();
             this.ExtensionModelErrors = new List<ModelError>();
+            this.Extensions = new List<Extension>();
         }
         
         [Description("")]
@@ -44,5 +45,12 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "AssociatedModelErrors", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelError")]
         public List<ModelError> AssociatedModelErrors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained Extensions 
+        /// </summary>
+        [Description("extension data related to the containing element")]
+        [Property(name: "Extensions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Extension")]
+        public List<Extension> Extensions { get; set; }
     }
 }
