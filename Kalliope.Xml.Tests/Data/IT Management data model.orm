@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- sourced from https://www.ormfoundation.org/files/folders/it_management/entry2496.aspx-->
-<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:diagramDisplay="http://schemas.neumont.edu/ORM/2008-11/DiagramDisplay" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:cp="http://schemas.neumont.edu/ORM/2007-11/CustomProperties" xmlns:diagramDisplay="http://schemas.neumont.edu/ORM/2008-11/DiagramDisplay" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
 	<orm:ORMModel id="_8F1F2E20-E575-4533-9832-D033FA7E0A53" Name="IT Management">
 		<orm:Definitions>
 			<orm:Definition id="_2F18ED06-13A6-4E8D-A2C3-4089FBE2CB7D">
@@ -77,6 +76,11 @@ A set of features and functions that can be realized in computer software, exclu
 					<orm:Role ref="_FCDA3FD8-E99C-4090-A15F-58C71507C382" />
 					<orm:SubtypeMetaRole ref="_507A3471-15AD-4714-A1DE-F10305A46000" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_46CE9835-1FA9-45AE-91A1-FB18CDC88152" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_744D5394-44EC-49E2-8BF1-9EB2C4BD05B2" Name="Application Type">
 				<orm:PlayedRoles>
@@ -123,6 +127,11 @@ A set of features and functions that can be realized in computer software, exclu
 					<orm:Role ref="_8A76270A-F817-41E4-A713-24DBC7115115" />
 				</orm:PlayedRoles>
 				<orm:PreferredIdentifier ref="_BF99B3D7-A8CA-4B23-8F3F-E3703D936286" />
+				<orm:Extensions>
+					<cp:CustomProperty id="_CDDDBE02-B107-4505-A29E-F23CE89747C5" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_817C089B-02F2-4494-9B52-3D687EDA5A13" Name="Organization_ID">
 				<orm:PlayedRoles>
@@ -342,6 +351,11 @@ Projects are used to achieve Program objectives.</orm:Text>
 					<orm:Role ref="_36A330AC-4171-46E6-9ACA-8450C4A876FB" />
 				</orm:PlayedRoles>
 				<orm:PreferredIdentifier ref="_37EAFC4C-B3C0-4EE1-889F-07CA2F330863" />
+				<orm:Extensions>
+					<cp:CustomProperty id="_42C75B4E-6258-4586-BF1F-54E910F1B3EA" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_7D6EDEC9-7E34-4E15-8F75-FA1D043A9295" Name="Worker_ID">
 				<orm:PlayedRoles>
@@ -523,6 +537,11 @@ In business and accounting, assets are everything of value that is owned by a pe
 					<orm:Role ref="_4625AB9D-3AC0-452D-895B-DA1DFC2D2208" />
 					<orm:Role ref="_2B6E57DF-A85D-4BD2-8E95-0612FDF3DC5B" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_2402E379-41F6-4BDF-BE48-E71234D0792D" value="abstract">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:EntityType id="_F400349A-66DB-4E79-B3D1-0B859FBE64E2" Name="Location" _ReferenceMode="Name">
 				<orm:Definitions>
@@ -549,6 +568,11 @@ In business and accounting, assets are everything of value that is owned by a pe
 					<orm:SubtypeMetaRole ref="_484E14B3-BF49-484E-8154-6BBB10E691CD" />
 					<orm:SupertypeMetaRole ref="_4ED9EC6B-4D32-4BBF-BEF3-1F2738D51851" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_8452F47C-C107-480A-B97E-66E77BE0867F" value="abstract">
+						<cp:Definition ref="_818ED16B-FF28-4462-8454-180B95736AC0" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:EntityType id="_8FD1BAF8-9B69-4DF5-A741-95B8E799BB33" Name="Hardware Item" _ReferenceMode="">
 				<orm:Definitions>
@@ -559,6 +583,11 @@ In business and accounting, assets are everything of value that is owned by a pe
 				<orm:PlayedRoles>
 					<orm:SubtypeMetaRole ref="_57932B1D-B351-4E10-93E8-DAF1CED0AB41" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_D1E8B323-8B09-4A6A-8724-89375B7DE072" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_67BD2AC9-B2A3-4D89-BCB4-412B711B6094" Name="Book Value">
 				<orm:PlayedRoles>
@@ -679,6 +708,14 @@ In business and accounting, assets are everything of value that is owned by a pe
 					<orm:Role ref="_38CABD8F-EC37-4B5A-8B30-7F2B35D6E361" />
 				</orm:PlayedRoles>
 				<orm:PreferredIdentifier ref="_1DB44E4A-D63C-4C25-98B0-1FCB181ACCD1" />
+				<orm:Extensions>
+					<cp:CustomProperty id="_F5234868-2944-4BB9-AA05-032178ACE012" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+					<cp:CustomProperty id="_BC67F9D4-1471-45EC-9753-8441312D66D2" value="service provided by a company">
+						<cp:Definition ref="_818ED16B-FF28-4462-8454-180B95736AC0" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_B6DACD9C-9FB9-4DBB-B086-A9986D07CA9A" Name="Service_ID">
 				<orm:PlayedRoles>
@@ -717,6 +754,11 @@ In business and accounting, assets are everything of value that is owned by a pe
 					<orm:SubtypeMetaRole ref="_10F971FB-1C04-416C-8118-DF82A89B0A71" />
 					<orm:Role ref="_E72A03C6-B0A1-4E9A-A746-B09BBBEC52FB" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_A0ADF0E0-B028-40AD-956D-01148F00E6AA" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:EntityType id="_AB743678-A7D7-46DB-81C6-0E5478246FE2" Name="Utility" _ReferenceMode="">
 				<orm:Definitions>
@@ -728,6 +770,11 @@ In business and accounting, assets are everything of value that is owned by a pe
 					<orm:SubtypeMetaRole ref="_C9126BEF-7AE6-42A3-9900-C382A3CC7031" />
 					<orm:Role ref="_E961EC32-0805-40CA-9221-3D423637D2A7" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_86F4A29C-3295-4206-912A-B37E1DDA4D99" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:EntityType id="_EE22E53D-C6E9-485B-AC0F-20C7ACFE1D98" Name="Incident Response" _ReferenceMode="">
 				<orm:Definitions>
@@ -787,6 +834,11 @@ Includes equipment, office, furnishings, restroom, meeting rooms, parking, etc.<
 					<orm:Role ref="_91B189FF-0314-4A1D-BE48-7015B0220D33" />
 				</orm:PlayedRoles>
 				<orm:PreferredIdentifier ref="_B3AA390B-4C23-4BF8-AEFD-A803FCE45F9B" />
+				<orm:Extensions>
+					<cp:CustomProperty id="_C6AA7005-EEFA-499F-A795-761F1A004174" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_3E4B47D0-1B61-43CA-B981-A1ADADEA6BD9" Name="Facility_ID">
 				<orm:PlayedRoles>
@@ -835,6 +887,11 @@ Includes equipment, office, furnishings, restroom, meeting rooms, parking, etc.<
 					<orm:Role ref="_B502C385-0AD6-40D2-A222-3EC5BDEB1ABD" />
 					<orm:SubtypeMetaRole ref="_701FDB40-488B-43B4-AF2C-81246D9A3ECC" />
 				</orm:PlayedRoles>
+				<orm:Extensions>
+					<cp:CustomProperty id="_F5AA5D53-814C-46B1-A29E-C81959F8C2D2" value="instantiated">
+						<cp:Definition ref="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_3F615B17-A475-451E-A064-A8FC657E5C6B" Name="Service Type">
 				<orm:Definitions>
@@ -1576,7 +1633,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 			</orm:ObjectifiedType>
 		</orm:Objects>
 		<orm:Facts>
-			<orm:Fact id="_11CA6EC0-695F-452D-94EA-BF23AA444699" _Name="ApplicationHasApplication_ID">
+			<orm:Fact id="_11CA6EC0-695F-452D-94EA-BF23AA444699" _Name="ApplicationHasApplicationID">
 				<orm:FactRoles>
 					<orm:Role id="_57288232-F9B0-4C20-B81E-9F8DFBCBE3C0" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_928D32D0-A2F7-41EF-AF11-153480283C1F" />
@@ -1740,7 +1797,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_4DC759F6-3807-4437-B810-E66278794D53" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_B87903D6-8936-4510-BACE-1DEE2ABC8E1C" _Name="ServerHasServer_Name">
+			<orm:Fact id="_B87903D6-8936-4510-BACE-1DEE2ABC8E1C" _Name="ServerHasServerName">
 				<orm:FactRoles>
 					<orm:Role id="_FC950CCC-7E24-4AD7-B437-AF1206ED4B15" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_DEC98EF0-31CC-40E3-819A-FB4628EBA9F4" />
@@ -1871,7 +1928,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_19F10FAC-383B-44E8-814D-235A96CCDEC2" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_5C07F9F8-AAF1-4A10-A67E-4553B6C5E7AB" _Name="OrganizationHasOrganization_ID">
+			<orm:Fact id="_5C07F9F8-AAF1-4A10-A67E-4553B6C5E7AB" _Name="OrganizationHasOrganizationID">
 				<orm:FactRoles>
 					<orm:Role id="_1B317439-F6DE-4FD6-BD47-D9A4EE16B185" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_8F8EEFCF-7980-4559-8424-7CFEFD230F0C" />
@@ -2085,7 +2142,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_A24C1E8F-867C-4269-8981-6513BA337FB8" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_1A04808C-6B69-40B7-A52A-AA83BF90B6FF" _Name="PlatformHasPlatform_Name">
+			<orm:Fact id="_1A04808C-6B69-40B7-A52A-AA83BF90B6FF" _Name="PlatformHasPlatformName">
 				<orm:FactRoles>
 					<orm:Role id="_421C5FDD-74B0-40F6-BFD1-1E03354608C4" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_1BBA8058-A6E0-461E-A69E-40566D8FE28A" />
@@ -2263,7 +2320,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_3AE68CCD-0834-4757-A56F-90F8D81B3051" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_7657C971-C139-483B-8EEB-17E339BB683C" _Name="ApplicationVersionHasApplicationVersion_ID">
+			<orm:Fact id="_7657C971-C139-483B-8EEB-17E339BB683C" _Name="ApplicationVersionHasApplicationVersionID">
 				<orm:FactRoles>
 					<orm:Role id="_8DAB0EB3-24C0-4FEC-ACDE-C8C2B08C0AAB" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_93C45D0B-6A8C-4FB6-8BCA-9686273624D8" />
@@ -2747,7 +2804,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_B2A8CCDB-A0EF-4B09-AAC1-22EB860FCD78" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_3759E432-5B97-4F11-AD84-BB4494A0C75B" _Name="TaskHasTask_ID">
+			<orm:Fact id="_3759E432-5B97-4F11-AD84-BB4494A0C75B" _Name="TaskHasTaskID">
 				<orm:FactRoles>
 					<orm:Role id="_48A12CD5-8B42-4398-8956-A1362A739E63" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_C2FF64DC-1E30-459E-8C4E-1F2FA26A16ED" />
@@ -2835,7 +2892,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_248A5AF9-A81A-417A-BD1A-EC07D918685A" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_CA30DDF6-EF7A-4C2D-8AD1-5FC4DC1E6A90" _Name="WorkerHasWorker_ID">
+			<orm:Fact id="_CA30DDF6-EF7A-4C2D-8AD1-5FC4DC1E6A90" _Name="WorkerHasWorkerID">
 				<orm:FactRoles>
 					<orm:Role id="_A28A6F21-0E4C-4219-9A00-F3663B6F4CA4" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_E71AC5F6-778C-4DEA-9B42-B45CEDBB371A" />
@@ -3059,7 +3116,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_3B7CE303-BD49-4660-B7E2-F338AC239D04" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_BE857188-D2F7-4088-A725-1F8C4CA9A5A2" _Name="FiscalPeriodHasFiscalPeriod_Name">
+			<orm:Fact id="_BE857188-D2F7-4088-A725-1F8C4CA9A5A2" _Name="FiscalPeriodHasFiscalPeriodName">
 				<orm:FactRoles>
 					<orm:Role id="_32FE4E0B-B441-4164-99EF-4DF002DE0EC8" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_96003101-0E39-45CB-B541-7417AFA76573" />
@@ -3104,7 +3161,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:MandatoryConstraint ref="_EDEAEA3D-09F7-4B8F-BC54-578A2AD7ECF1" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_613EC065-96BA-492C-B9DE-5C03F9E500EC" _Name="MilestoneHasMilestone_Name">
+			<orm:Fact id="_613EC065-96BA-492C-B9DE-5C03F9E500EC" _Name="MilestoneHasMilestoneName">
 				<orm:FactRoles>
 					<orm:Role id="_B17ADEE7-34D7-4FF1-9652-42A2D0A255AD" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_B36CD9C5-9026-4A34-95E6-501E8F8E9FC0" />
@@ -3223,7 +3280,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_3B7CE303-BD49-4660-B7E2-F338AC239D04" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_943630A4-4CC4-4F42-BB79-61BCCD7434EF" _Name="ProgramHasProgram_Nr">
+			<orm:Fact id="_943630A4-4CC4-4F42-BB79-61BCCD7434EF" _Name="ProgramHasProgramNr">
 				<orm:FactRoles>
 					<orm:Role id="_7F0437B6-2A54-4D03-9E7D-5EB934459A21" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_519EB10F-7120-484B-8FE7-C5BD548E1BEA" />
@@ -3268,7 +3325,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:MandatoryConstraint ref="_B336612E-ABF1-4D35-B3C6-1506CACDCD70" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_078F42AD-E14E-4D1E-ACC1-0E1B6977E845" _Name="CostCategoryHasCostCategory_Code">
+			<orm:Fact id="_078F42AD-E14E-4D1E-ACC1-0E1B6977E845" _Name="CostCategoryHasCostCategoryCode">
 				<orm:FactRoles>
 					<orm:Role id="_317FA87C-71AA-4309-B5B8-62C8544D8ADF" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_A737B01D-FF89-4E11-93C4-10ED8F78E1D2" />
@@ -3452,7 +3509,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_41172E4E-5832-4123-AE7F-43D6B9A9A162" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_F1F1AFFF-8BEE-4E15-9905-270AE05C45F1" _Name="AssetHasAsset_ID">
+			<orm:Fact id="_F1F1AFFF-8BEE-4E15-9905-270AE05C45F1" _Name="AssetHasAssetID">
 				<orm:FactRoles>
 					<orm:Role id="_DB7991F1-0FCD-4D88-BED1-9814E3F02BC8" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_2CCC660B-8492-44BC-A675-260BEF650149" />
@@ -3525,6 +3582,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_FFC01018-F72C-40F5-B086-5C05D8FEC025" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_60FCF100-750C-4CB9-A60E-B9585FD225FD" value="protected">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:SubtypeFact id="_4FB386E7-4BE3-4237-9E57-3740509C62E2" _Name="Configuration ItemIsASubtypeOfAsset" PreferredIdentificationPath="true">
 				<orm:FactRoles>
@@ -3583,6 +3645,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_E1FB2772-8964-4BD8-8B8E-4C13357B4474" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_C9F3B1C7-E6BF-40E7-9962-B1E3917BB018" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_A569D344-1A93-43F5-8D2E-54350F635F5A" _Name="AssetHasLocation">
 				<orm:FactRoles>
@@ -3626,6 +3693,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_F1B2544E-C47B-404C-935D-4E65552144DF" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_587EB944-2AB6-44AC-9B1E-CA4636858873" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:SubtypeFact id="_23D04BDC-97F7-4469-B699-06821FDE2772" _Name="Software ItemIsASubtypeOfConfiguration Item" PreferredIdentificationPath="true">
 				<orm:FactRoles>
@@ -3714,6 +3786,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_2A59F77D-B102-4723-B972-472E0241A6AC" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_3B3DEB25-8C3F-44A7-9034-68EAFA665E1C" value="private">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_4F6C55F4-6D7A-4DE8-96CF-74030CCAD5E9" _Name="DescriptionOfAsset">
 				<orm:FactRoles>
@@ -3757,6 +3834,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_FA9BFB77-C750-4A51-B86B-C1EE47BF3A28" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_1B52058F-EE93-488C-B507-63E89C4030CB" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_17373A5A-3AD0-4F3A-8FC5-229BE2993613" _Name="ApplicationVersionRunsOnServer">
 				<orm:FactRoles>
@@ -4161,7 +4243,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_B609BD15-80A5-4379-A5BF-4534B3EEE585" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_4ED1B33E-9749-4C1B-B018-B4961272DDB4" _Name="PayLevelHasPayLevel_Nr">
+			<orm:Fact id="_4ED1B33E-9749-4C1B-B018-B4961272DDB4" _Name="PayLevelHasPayLevelNr">
 				<orm:FactRoles>
 					<orm:Role id="_3ADACEC3-950F-40F3-B964-FFC81BC4407A" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_6709F151-09D8-4D12-BD0E-2422FD02E39D" />
@@ -4391,7 +4473,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_929FEBA2-8873-4E3A-BF4F-325B50AB62BC" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_FC40C177-A7EC-4D1D-A57A-2FF1009C2788" _Name="ServiceHasService_ID">
+			<orm:Fact id="_FC40C177-A7EC-4D1D-A57A-2FF1009C2788" _Name="ServiceHasServiceID">
 				<orm:FactRoles>
 					<orm:Role id="_70CC0874-704C-461B-B85A-DA002C70E764" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_146BBBA4-7F89-498A-B467-A75192A11D15" />
@@ -4478,6 +4560,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_9394EFB7-62AE-4676-95D7-8354982F0014" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_FA034EA0-394B-41C5-9A82-7BB6AAFCF711" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_4454FCB4-D787-4458-9A54-3319E845B48E" _Name="ServiceHasDescription">
 				<orm:FactRoles>
@@ -4521,6 +4608,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_4D8A6512-A262-4CBF-9E96-E49F66999B5D" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_A63DA06D-70AC-4F02-9AA4-7BC9D5FCA0A0" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_922EE88F-24F5-44FC-A7A4-F1AFC6D9DCCC" _Name="Service Delivery">
 				<orm:FactRoles>
@@ -4571,6 +4663,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_D636830A-8B25-419C-B502-54FB483906BD" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_8B34AE2E-4F7B-46A7-A2FB-F5D2A872DF5A" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:ImpliedFact id="_8ADBDAFA-8691-41C1-892D-E0A535014F7C" _Name="ServiceIsInvolvedInServiceDelivery">
 				<orm:FactRoles>
@@ -4704,6 +4801,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_3809822E-685A-4BF3-B946-6B9824DC8682" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_E401FC4D-1C6C-4BA5-A81C-711D25B25208" value="private">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:SubtypeFact id="_FD2EB5A8-CF6B-4E21-8AAC-1EF9D69FA609" _Name="UtilityIsASubtypeOfService" PreferredIdentificationPath="true">
 				<orm:FactRoles>
@@ -4778,6 +4880,14 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_86914116-6E15-43C1-91CC-F730804F44FC" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_DF8920F0-705E-40BF-A305-246AF182E62C" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+					<cp:CustomProperty id="_154AF104-BF6D-4303-8FD5-8E5E6B34196F" value="allocation effort for a worker to a service in a day">
+						<cp:Definition ref="_818ED16B-FF28-4462-8454-180B95736AC0" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:ImpliedFact id="_9FDF2570-B7C0-4658-A2ED-E5B4E5048DA4" _Name="WorkerIsInvolvedInServiceTimeEntry">
 				<orm:FactRoles>
@@ -5149,6 +5259,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_0FB5D086-7BD0-4F73-B95C-2C7C93BAA8A0" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_ABA858D1-2FB5-473D-A3C3-5CB0BB38BA31" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_9A5BA803-3B85-49AD-BCCF-1FCB2A5E9C64" _Name="OrganizationReportsToOrganization">
 				<orm:FactRoles>
@@ -5179,7 +5294,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_7C0F15E4-74E1-4070-AA11-2D921C8556CB" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_97758235-2770-40F2-A0BF-275874EAD832" _Name="FacilityHasFacility_ID">
+			<orm:Fact id="_97758235-2770-40F2-A0BF-275874EAD832" _Name="FacilityHasFacilityID">
 				<orm:FactRoles>
 					<orm:Role id="_4FF0125F-6BD1-4BE1-B7BD-4017A458C524" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_9052642D-15FD-4E15-B38F-C67177ABBF72" />
@@ -5587,6 +5702,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_1AE7F8B9-7AF0-413B-8E14-2176D40449C1" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_5C3ACF9F-863A-4214-A349-B068A2962466" value="private">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_94A64039-3A26-4DCB-A133-C28CC66E96BD" _Name="WorkerReceivesPayLevel">
 				<orm:FactRoles>
@@ -5886,6 +6006,11 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_B1C219DB-53CE-4ADC-867F-1188A45054B5" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_F9CCA028-25B1-42B6-93E5-55F5FF4D626A" value="public">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:ImpliedFact id="_DF602902-200C-4A9E-B055-9ED0A062F105" _Name="AssetIsInvolvedInAssetRequiresFacility">
 				<orm:FactRoles>
@@ -6380,7 +6505,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_26DCA77A-7862-4C97-961B-A668FE0C36E6" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_7DDC7707-1E8C-4593-9317-8757522BC826" _Name="ProjectHasProject_ID">
+			<orm:Fact id="_7DDC7707-1E8C-4593-9317-8757522BC826" _Name="ProjectHasProjectID">
 				<orm:FactRoles>
 					<orm:Role id="_A5CB2B95-26D3-4E18-A185-3DF64BC8BFCD" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_6368EDBA-735B-44F8-9DFD-8050B638A7EA" />
@@ -6558,8 +6683,13 @@ The first in a series of actions. Used to begin changes to the way things are no
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_818D52F3-E85A-4762-BAF0-DD38DB24D3B9" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_A12CA23E-C1EB-4DDA-A005-38F96D3D7648" value="protected">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
-			<orm:Fact id="_BEE14FB5-7F5F-4575-BDB2-2F542516CD89" _Name="GoalHasGoal_Nr">
+			<orm:Fact id="_BEE14FB5-7F5F-4575-BDB2-2F542516CD89" _Name="GoalHasGoalNr">
 				<orm:FactRoles>
 					<orm:Role id="_D6EFE80D-90FB-4D93-99A9-D761450B2B7D" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_5D78511A-7788-4D8E-9203-ADA21C0D1139" />
@@ -6690,7 +6820,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_02E4BD66-1A63-41EF-B13F-9A170262554D" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_7CCDEDEB-EC2D-4FB2-9E9B-93EDB3F29E86" _Name="CapabilityHasCapability_Nr">
+			<orm:Fact id="_7CCDEDEB-EC2D-4FB2-9E9B-93EDB3F29E86" _Name="CapabilityHasCapabilityNr">
 				<orm:FactRoles>
 					<orm:Role id="_A7E85F62-5483-4192-88AC-E3C88F652961" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_A0067848-6030-4F2C-B50B-F35847BA10F0" />
@@ -6873,7 +7003,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_65B12B56-4BFC-4E5F-8936-A28829C628D9" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_E319E762-F873-4FA8-9AEB-B355F642F43A" _Name="MaturityHasMaturity_Level">
+			<orm:Fact id="_E319E762-F873-4FA8-9AEB-B355F642F43A" _Name="MaturityHasMaturityLevel">
 				<orm:FactRoles>
 					<orm:Role id="_32C0BF2C-A5CE-486F-B999-78E0B3B8238C" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_7656A05D-2879-4324-8514-ADE3E535AE6B" />
@@ -7699,7 +7829,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 				</orm:InternalConstraints>
 				<orm:ImpliedByObjectification ref="_E5046556-F479-4067-807B-F535F24D29E2" />
 			</orm:ImpliedFact>
-			<orm:Fact id="_F41FBD06-3025-4C0A-AC5D-3F6822109DC0" _Name="MethdologyHasMethdology_Name">
+			<orm:Fact id="_F41FBD06-3025-4C0A-AC5D-3F6822109DC0" _Name="MethdologyHasMethdologyName">
 				<orm:FactRoles>
 					<orm:Role id="_7F071548-99E6-4389-AC4F-D44ED5DA2D8E" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_EC00216B-7E20-497C-85E9-969740D6B7E5" />
@@ -7802,7 +7932,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_8E7A89B3-102A-47AC-ABC8-3AE709D0693B" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_AE425F21-7BC9-4F13-B575-3355D8F2F618" _Name="DeliverableHasDeliverable_Name">
+			<orm:Fact id="_AE425F21-7BC9-4F13-B575-3355D8F2F618" _Name="DeliverableHasDeliverableName">
 				<orm:FactRoles>
 					<orm:Role id="_76806FFC-E688-4398-8DB9-48838F44634B" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_3C867E13-1250-4E55-AD9D-1538472C9222" />
@@ -7847,7 +7977,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:MandatoryConstraint ref="_14B35C79-46A4-4B6D-A629-817F75EE341F" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_FB7C6DD2-AE31-4359-AC8E-F70A270DE479" _Name="DefectHasDefect_ID">
+			<orm:Fact id="_FB7C6DD2-AE31-4359-AC8E-F70A270DE479" _Name="DefectHasDefectID">
 				<orm:FactRoles>
 					<orm:Role id="_94CCACA4-F8A7-4E41-8BDF-48761018E4FE" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_2BF258EE-35D0-4484-AA76-88B439331131" />
@@ -7950,7 +8080,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 					<orm:UniquenessConstraint ref="_F989A88D-A2CF-4EB6-A4FD-B59D6E500690" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_01F29A78-0489-4198-98CE-31AE50E403AB" _Name="InitiativeHasInitiative_Name">
+			<orm:Fact id="_01F29A78-0489-4198-98CE-31AE50E403AB" _Name="InitiativeHasInitiativeName">
 				<orm:FactRoles>
 					<orm:Role id="_41BBFF76-A5CF-4933-B484-5D5FA86E4653" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_80BD6DBB-1933-4BD0-B228-D3D066C6C669" />
@@ -8248,6 +8378,11 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_4D055B4B-C399-435A-B6DE-4A05507C75C3" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_D78AA83B-6CCA-400F-A138-EB1DC95D0A75" value="protected">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
 			<orm:Fact id="_0F29355A-8DFB-458A-8CDF-A41303A5B9B0" _Name="ConfigurationItemHasMonitoringLevel">
 				<orm:FactRoles>
@@ -8377,8 +8512,13 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:InternalConstraints>
 					<orm:UniquenessConstraint ref="_A4DBD676-2AC4-48A0-9179-72D4481EC927" />
 				</orm:InternalConstraints>
+				<orm:Extensions>
+					<cp:CustomProperty id="_EFD6FD20-0CBE-4E47-BE3D-11C5D70CE4A6" value="protected">
+						<cp:Definition ref="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:Fact>
-			<orm:Fact id="_24F0DA5C-9117-4036-9D44-0466BC0A60B2" _Name="ProcessHasProcess_ID">
+			<orm:Fact id="_24F0DA5C-9117-4036-9D44-0466BC0A60B2" _Name="ProcessHasProcessID">
 				<orm:FactRoles>
 					<orm:Role id="_48E419C2-6CB6-4C80-97CE-947DBA8317FC" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_12FDF60F-164C-4E29-9332-4373DE4DC3F0" />
@@ -8826,7 +8966,7 @@ The project is an early example of the initiative - changing the way things are 
 					<orm:UniquenessConstraint ref="_E2ACE041-530D-48CC-9EEC-1B7E657B9CF8" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_C71587D8-0789-42F8-B0C5-CC7523282282" _Name="PerformanceHasPerformance_Level">
+			<orm:Fact id="_C71587D8-0789-42F8-B0C5-CC7523282282" _Name="PerformanceHasPerformanceLevel">
 				<orm:FactRoles>
 					<orm:Role id="_EF87A731-3F1B-48D3-8CDD-FB01FEC89D06" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_0040CDA0-2EAE-4BA6-907E-803D198858C4" />
@@ -9703,7 +9843,7 @@ The project is an early example of the initiative - changing the way things are 
 					<orm:UniquenessConstraint ref="_EE597D42-109B-49D2-AB91-844B0930D10C" />
 				</orm:InternalConstraints>
 			</orm:SubtypeFact>
-			<orm:Fact id="_05129A50-022D-4D42-912A-BD345A54F5F1" _Name="ResourceHasResource_Name">
+			<orm:Fact id="_05129A50-022D-4D42-912A-BD345A54F5F1" _Name="ResourceHasResourceName">
 				<orm:FactRoles>
 					<orm:Role id="_CFB8DD89-6829-4FB2-89D8-52ACD2F71B53" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_EF7788BC-EF06-4C89-BA97-807F4FAFA589" />
@@ -10001,7 +10141,7 @@ The project is an early example of the initiative - changing the way things are 
 					<orm:UniquenessConstraint ref="_7436648B-F4B3-44B1-9DDD-D0E7453566CF" />
 				</orm:InternalConstraints>
 			</orm:Fact>
-			<orm:Fact id="_1833DCC3-13D5-4ABF-87DF-9796ED0BB678" _Name="LocationHasLocation_Name">
+			<orm:Fact id="_1833DCC3-13D5-4ABF-87DF-9796ED0BB678" _Name="LocationHasLocationName">
 				<orm:FactRoles>
 					<orm:Role id="_D466AAA1-D3B5-4DFE-A421-EB67E3210A3D" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
 						<orm:RolePlayer ref="_F400349A-66DB-4E79-B3D1-0B859FBE64E2" />
@@ -10837,6 +10977,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_7DFEBD59-0094-4CF7-81B7-6722ED2F301A" ref="_560C87D9-6C0C-4E92-83F2-C7C8FA241E82" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_78C88C2C-B5BB-45F7-8C2B-9E9E2C27BCBD" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_00B8AAF8-57CA-430D-BEAA-758445A018BA" Name="InternalUniquenessConstraint57" IsInternal="true">
 				<orm:RoleSequence>
@@ -10949,6 +11090,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_F42DAA39-7C0E-4A06-BBD5-059BFD859C60" ref="_CD7719C4-D187-4C0E-BA1E-144E2BEA36D8" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_5621F655-0B51-41BC-9A78-6916A56BB525" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_F54AD025-6D74-41A7-8CE9-FA3A357647D4" Name="InternalUniquenessConstraint81" IsInternal="true">
 				<orm:RoleSequence>
@@ -11227,6 +11369,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_566CA7A5-57E3-4709-933D-544CD0D40DEB" ref="_57932B1D-B351-4E10-93E8-DAF1CED0AB41" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_8FD1BAF8-9B69-4DF5-A741-95B8E799BB33" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_C09F08F8-E598-4924-8491-28AF4BA86EA0" Name="InternalUniquenessConstraint113" IsInternal="true">
 				<orm:RoleSequence>
@@ -11355,6 +11498,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_8CA36614-A106-4AF0-8964-352C21160EED" ref="_505435F3-B8D0-427C-BBB4-EADA4B13BEC5" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_AAB7E738-AB3E-46A7-ACC2-F8FDE6318F99" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_E7F216AF-EA9A-4D30-AF8D-6EE71DD78D89" Name="InternalUniquenessConstraint26" IsInternal="true">
 				<orm:RoleSequence>
@@ -11439,6 +11583,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_923A0238-898E-49DA-AC95-B971FDF269BC" ref="_8EE611A3-0222-4525-A639-B85641EB400F" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_6E901DFC-2317-4027-9F73-B520EF96D6B4" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_671F1787-848A-41E1-B713-FD7A2E1B3DC3" Name="InternalUniquenessConstraint138" IsInternal="true">
 				<orm:RoleSequence>
@@ -11579,6 +11724,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_CB381401-BC97-45F2-9705-68B6036EF406" ref="_C7E452B3-B959-4935-BF4B-C014BF695E7A" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_69179515-B6DD-46F8-B08A-94BC8AF4D7BB" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_82C657A3-3055-4107-94A7-9EEF7B2D7616" Name="InternalUniquenessConstraint159" IsInternal="true">
 				<orm:RoleSequence>
@@ -11817,6 +11963,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_C9B19DB1-4868-4308-A958-A6BD2F7324A0" ref="_83322AB0-BB85-4FAF-81F9-6C216FA7B249" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_EE22E53D-C6E9-485B-AC0F-20C7ACFE1D98" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_698FB357-4A1D-4882-9C65-AC5B7A1F2193" Name="InternalUniquenessConstraint16" IsInternal="true">
 				<orm:RoleSequence>
@@ -11832,6 +11979,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_043301F5-C9C2-41E3-8EA5-93B3059F31EB" ref="_16F0EE4C-2C8C-494F-BA33-51F44B746BD7" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_E855CFBB-F9F4-4E1A-A2B6-4BFC2E9E4951" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_663BF4E8-3EF3-4218-81F5-3D6D0028CDA0" Name="InternalUniquenessConstraint126" IsInternal="true">
 				<orm:RoleSequence>
@@ -12043,6 +12191,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_60632877-7897-4FFE-B35B-13F39EE7E3B8" ref="_0DD2CAC3-EF63-4F68-9DAD-A40103EA341C" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_35D413EC-D045-40D9-BE59-645361B582C7" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_D86EE385-0614-4C2D-80A4-FFC73094C8BC" Name="InternalUniquenessConstraint21" IsInternal="true">
 				<orm:RoleSequence>
@@ -12317,6 +12466,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_9B1ED537-E88D-4F3D-A091-57388495F431" ref="_2589AB90-BF39-4197-92E6-2A3AD60F0A9D" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_6ECE1734-2332-4BB5-B629-1FB6E0B4A922" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_A8279CA3-0954-4623-BD4A-D3B9C9887720" Name="InternalUniquenessConstraint188" IsInternal="true">
 				<orm:RoleSequence>
@@ -12960,6 +13110,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_D161583A-6707-433F-92CB-31291C8A8426" ref="_54C9D5CF-C06E-4EF0-9ACF-6FD1EF09EB91" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_7DA5D57F-A460-4480-B015-0E00A0466CE5" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_1BA8CFAA-5961-4C29-B912-36D39A0668FE" Name="InternalUniquenessConstraint259" IsInternal="true">
 				<orm:RoleSequence>
@@ -13059,6 +13210,7 @@ The project is an early example of the initiative - changing the way things are 
 				<orm:RoleSequence>
 					<orm:Role id="_8C795782-61B4-4D0B-A104-9C7A1F74E4ED" ref="_A3D84C44-9EC9-4456-B66B-513534EBEDAD" />
 				</orm:RoleSequence>
+				<orm:InherentForObjectType ref="_DAD367B7-F61C-4B88-950D-0D616D96D40B" />
 			</orm:MandatoryConstraint>
 			<orm:UniquenessConstraint id="_AE196AA4-2B5A-4B4C-B96A-389D0F1A81D0" Name="InternalUniquenessConstraint268" IsInternal="true">
 				<orm:RoleSequence>
@@ -13447,7 +13599,7 @@ The project is an early example of the initiative - changing the way things are 
 			</ormDiagram:FactTypeShape>
 			<ormDiagram:FactTypeShape id="_4664679B-AC81-49F2-8E13-D87575F3B411" IsExpanded="true" AbsoluteBounds="2.04895579192131, 2.6930825583981246, 0.24388888899236916, 0.38388888899236917" DisplayOrientation="VerticalRotatedRight">
 				<ormDiagram:RelativeShapes>
-					<ormDiagram:ReadingShape id="_678A6E3F-D724-4401-83A9-BE45C1F6944A" IsExpanded="true" AbsoluteBounds="2.04895579192131, 3.14172296069282, 0.46430572867393494, 0.12950302660465241">
+					<ormDiagram:ReadingShape id="_678A6E3F-D724-4401-83A9-BE45C1F6944A" IsExpanded="true" AbsoluteBounds="2.04895579192131, 3.14172296069282, 0.519305728673935, 0.12950302660465241">
 						<ormDiagram:Subject ref="_F22329F1-1594-45CE-B6A1-A516FBDFBC3B" />
 					</ormDiagram:ReadingShape>
 				</ormDiagram:RelativeShapes>
@@ -14306,7 +14458,7 @@ The project is an early example of the initiative - changing the way things are 
 			</ormDiagram:ObjectTypeShape>
 			<ormDiagram:FactTypeShape id="_E4CC47D2-87FF-470B-BB44-8EE257EAE5E6" IsExpanded="true" AbsoluteBounds="1.7225749757987652, 1.7769894158833677, 0.30588888899236916, 0.6738888889923691" DisplayOrientation="VerticalRotatedRight">
 				<ormDiagram:RelativeShapes>
-					<ormDiagram:ReadingShape id="_D9120BCE-D341-4182-83D3-B8C69CD2223A" IsExpanded="true" AbsoluteBounds="1.7225749757987652, 2.5156298181780627, 0.61165815591812134, 0.12950302660465241">
+					<ormDiagram:ReadingShape id="_D9120BCE-D341-4182-83D3-B8C69CD2223A" IsExpanded="true" AbsoluteBounds="1.7225749757987652, 2.5156298181780627, 0.66665815591812139, 0.12950302660465241">
 						<ormDiagram:Subject ref="_AFA86FAD-3C06-4285-8E01-B9357A330649" />
 					</ormDiagram:ReadingShape>
 					<ormDiagram:ObjectifiedFactTypeNameShape id="_B1096F7E-FE3A-4B7A-B24D-A9145D7FB302" IsExpanded="true" AbsoluteBounds="1.7225749757987652, 1.5827348759763891, 0.81526464223861694, 0.12950302660465241">
@@ -14607,7 +14759,7 @@ The project is an early example of the initiative - changing the way things are 
 			</ormDiagram:ObjectTypeShape>
 			<ormDiagram:FactTypeShape id="_0B642A93-D1F8-4AAF-ADF9-A79129A1A63E" IsExpanded="true" AbsoluteBounds="4.8309374056657166, 3.2738773510179526, 0.30588888899236916, 0.83388888899236924" DisplayOrientation="VerticalRotatedRight">
 				<ormDiagram:RelativeShapes>
-					<ormDiagram:ReadingShape id="_DB931D3A-E37F-4304-8BCD-D32549D9CFEE" IsExpanded="true" AbsoluteBounds="4.8309374056657166, 4.172517753312647, 1.1339901685714722, 0.12950302660465241">
+					<ormDiagram:ReadingShape id="_DB931D3A-E37F-4304-8BCD-D32549D9CFEE" IsExpanded="true" AbsoluteBounds="4.8309374056657166, 4.172517753312647, 1.1889901685714721, 0.12950302660465241">
 						<ormDiagram:Subject ref="_8DA32284-159C-451A-B737-72C6AF6F625B" />
 					</ormDiagram:ReadingShape>
 					<ormDiagram:ObjectifiedFactTypeNameShape id="_DF6186E6-6421-4040-89BD-6C84763726B0" IsExpanded="true" AbsoluteBounds="4.8309374056657166, 3.079622811110974, 0.94125479459762573, 0.12950302660465241">
@@ -15363,16 +15515,43 @@ The project is an early example of the initiative - changing the way things are 
 		</ormDiagram:Shapes>
 		<ormDiagram:Subject ref="_8F1F2E20-E575-4533-9832-D033FA7E0A53" />
 	</ormDiagram:ORMDiagram>
+	<cp:CustomPropertyGroup id="_736E04B8-E3EE-4950-A402-3CEE1EBD715A" name="OSMoSEDoc: Diagrams" isDefault="false">
+		<cp:PropertyDefinitions>
+			<cp:Definition id="_867F0515-C4FE-4646-8CEA-BECE4F8ED994" name="Doc-01: Module Name" description="name of the conceptual module" category="OSMoSE Diagram" dataType="String" ORMTypes="ORMDiagram" />
+			<cp:Definition id="_7E7C8B96-9465-4C8D-8C02-A9C6D28E534D" name="Doc-02: Location Node Path" description="hierarchy node path, within the conceptual module, where the ORM diagram is located, if any" category="OSMoSE Diagram" dataType="String" ORMTypes="ORMDiagram" />
+			<cp:Definition id="_FD9D2914-ACA3-437D-BC7B-9DEBB818E4DD" name="Doc-03: ORM Diagram Name" description="name of the ORM diagram" category="OSMoSE Diagram" dataType="String" ORMTypes="ORMDiagram" />
+			<cp:Definition id="_BA93CF67-446F-4107-B6C7-2AD8ED6E5718" name="Doc-04: Introduction" category="OSMoSE Diagram" dataType="String" ORMTypes="ORMDiagram" />
+		</cp:PropertyDefinitions>
+	</cp:CustomPropertyGroup>
+	<cp:CustomPropertyGroup id="_D28F8A3B-DBEB-44F2-8D20-6E6BE9A2AD99" name="OSMoSEDoc: Glossary" isDefault="false">
+		<cp:PropertyDefinitions>
+			<cp:Definition id="_DE2FF1C2-5B3E-433F-9C8F-DDD995861FFB" name="Glo-01: Definition" description="Provide the definition (except if the term is defined in an external source)" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_71746863-BA86-4EF7-8165-A2686BF8646F" name="Glo-02: Note" description="Provide note(s) and examples where relevant" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_D97A7576-F3BE-4899-888A-88E5A1ADCE29" name="Glo-03: Acronym" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_952CC28D-5463-4834-8E13-8038B55DA16A" name="Glo-04: Main Concept?" description="=1, if main concept to be defined in chapter 3" category="OSMoSE Glossary" dataType="Integer" defaultValue="0" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_2C3E54AD-14C4-4953-8C06-F6D3244D8015" name="Glo-05: External Source" description="Provide the reference to the external Source, e.g. ISO reference document, ECSS reference document" category="OSMoSE Glossary" dataType="String" defaultValue="" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_ECDB8472-21E1-4E17-9EB3-E07A185DA5B8" name="Glo-06: Inherited/Adapted?" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, Role" />
+			<cp:Definition id="_8635EA83-75E5-422F-994F-8D54A7D496FD" name="Glo-07: ORM Diagram Page Name" description="Document page where the Object Type Term and Definition are provided" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, FactType, SubtypeFact, Role, AllConstraints" />
+			<cp:Definition id="_19E22BD9-2299-42A9-A830-F47D7FE0D1FD" name="Glo-08: Synonyms" category="OSMoSE Glossary" dataType="String" ORMTypes="EntityType, ValueType, Role" />
+		</cp:PropertyDefinitions>
+	</cp:CustomPropertyGroup>
+	<cp:CustomPropertyGroup id="_16E97372-8C9F-4921-9AB3-C1E19F97B593" name="KalliopeTestProperties" isDefault="false" description="properties used for generation of code">
+		<cp:PropertyDefinitions>
+			<cp:Definition id="_818ED16B-FF28-4462-8454-180B95736AC0" name="KAL-03 documentation" description="Code documentation associated" dataType="String" ORMTypes="EntityType, ValueType, FactType, SubtypeFact, Role, AllConstraints, Model, ORMDiagram" />
+			<cp:Definition id="_9CE3DE6D-5AE4-4739-B094-4A14D7E6F1B9" name="KAL-01classType" description="identifies whether some entity is abstract or not" dataType="String" ORMTypes="EntityType" />
+			<cp:Definition id="_B6EF9EB0-81ED-4714-9F85-AA49F75174D1" name="KAL-02 methodType" description="Whether a function is public, protected or private" dataType="String" ORMTypes="FactType, SubtypeFact" />
+		</cp:PropertyDefinitions>
+	</cp:CustomPropertyGroup>
 	<diagramDisplay:DiagramDisplay id="_362B362D-6E2E-498D-92F9-237A527CFC84" SaveDiagramPosition="true">
-		<diagramDisplay:Diagram id="_2C7804C1-9DEB-4B42-9E8A-4B910C55F34D" ref="_2A220031-1429-44B2-918B-44EB0D776B49" CenterPoint="5.0729166666666661, 3.653645833333333" />
-		<diagramDisplay:Diagram id="_07C9DADC-B1FD-4175-A697-6743A70E5716" ref="_9539E834-B219-460A-908E-5C3E2C8311E4" CenterPoint="5.0729166666666661, 3.348958333333333" />
-		<diagramDisplay:Diagram id="_F8B544BE-AD5E-4288-9BF5-4BFE4A67C890" ref="_8BF934CD-588E-4688-BE1B-691B624E7423" CenterPoint="5.0729166666666661, 3.364583333333333" />
-		<diagramDisplay:Diagram id="_EAC5435E-E2B8-4B1A-9F57-1B88456A03F5" ref="_33AFDF85-4236-483D-B528-C392DF84F2E8" CenterPoint="5.0729166666666661, 3.3697916666666665" IsActive="true" />
-		<diagramDisplay:Diagram id="_905DEB64-8612-49A7-BDCC-A1BC30B475F7" ref="_3DC538B7-C0BB-4B26-B9F6-ED6680D65F1B" CenterPoint="5.0729166666666661, 3.348958333333333" />
-		<diagramDisplay:Diagram id="_62F3164F-D6DD-4C55-B217-02305B956BFC" ref="_30792EDE-8A68-4E7F-9104-CFDB4D219511" CenterPoint="5.0729166666666661, 3.348958333333333" />
-		<diagramDisplay:Diagram id="_2140CF38-4F7C-4D35-802C-D134E7365528" ref="_F52D0C20-9070-403C-8F31-8E04E7015A2F" CenterPoint="5.0729166666666661, 3.364583333333333" />
-		<diagramDisplay:Diagram id="_2136402F-05AB-4828-9EF6-CA8FA90C32CD" ref="_CCAAE586-E941-42F8-B80B-CD09BFABA1AD" CenterPoint="5.0729166666666661, 3.380208333333333" />
-		<diagramDisplay:Diagram id="_9404CCC7-9CE1-4009-8DBC-FDB261D2D4F0" ref="_2A92400F-965D-4737-9E2D-B570F4B3EA39" CenterPoint="5.0729166666666661, 3.364583333333333" />
-		<diagramDisplay:Diagram id="_7E7A3F91-C4D3-4515-BD76-0D1C628A7FF5" ref="_221AD153-B546-49DD-BF39-C92E1D20AB94" CenterPoint="5.0729166666666661, 3.3697916666666665" />
+		<diagramDisplay:Diagram id="_2C7804C1-9DEB-4B42-9E8A-4B910C55F34D" ref="_2A220031-1429-44B2-918B-44EB0D776B49" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_07C9DADC-B1FD-4175-A697-6743A70E5716" ref="_9539E834-B219-460A-908E-5C3E2C8311E4" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_F8B544BE-AD5E-4288-9BF5-4BFE4A67C890" ref="_8BF934CD-588E-4688-BE1B-691B624E7423" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_EAC5435E-E2B8-4B1A-9F57-1B88456A03F5" ref="_33AFDF85-4236-483D-B528-C392DF84F2E8" CenterPoint="6.927083333333333, 4.53125" IsActive="true" />
+		<diagramDisplay:Diagram id="_905DEB64-8612-49A7-BDCC-A1BC30B475F7" ref="_3DC538B7-C0BB-4B26-B9F6-ED6680D65F1B" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_62F3164F-D6DD-4C55-B217-02305B956BFC" ref="_30792EDE-8A68-4E7F-9104-CFDB4D219511" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_2140CF38-4F7C-4D35-802C-D134E7365528" ref="_F52D0C20-9070-403C-8F31-8E04E7015A2F" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_2136402F-05AB-4828-9EF6-CA8FA90C32CD" ref="_CCAAE586-E941-42F8-B80B-CD09BFABA1AD" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_9404CCC7-9CE1-4009-8DBC-FDB261D2D4F0" ref="_2A92400F-965D-4737-9E2D-B570F4B3EA39" CenterPoint="6.927083333333333, 4.53125" />
+		<diagramDisplay:Diagram id="_7E7A3F91-C4D3-4515-BD76-0D1C628A7FF5" ref="_221AD153-B546-49DD-BF39-C92E1D20AB94" CenterPoint="6.927083333333333, 4.53125" />
 	</diagramDisplay:DiagramDisplay>
 </ormRoot:ORM2>
