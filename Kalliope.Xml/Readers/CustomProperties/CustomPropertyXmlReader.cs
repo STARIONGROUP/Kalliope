@@ -62,44 +62,11 @@ namespace Kalliope.Xml.Readers
                         case "Definition":
                             using (var definitionSubtree = reader.ReadSubtree())
                             {
-                                definitionSubtree.MoveToContent();
-                                this.ReadDefinitions(customProperty, definitionSubtree, modelThings);
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// reads the contained <see cref="Definition"/>s
-        /// </summary>
-        /// <param name="customProperty">
-        /// The container <see cref="ObjectType"/> of the <see cref="CustomProperty"/>
-        /// </param>
-        /// <param name="reader">
-        /// an instance of <see cref="XmlReader"/> used to read the .orm file
-        /// </param>
-        /// <param name="modelThings">
-        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
-        /// </param>
-        private void ReadDefinitions(CustomProperty customProperty, XmlReader reader, List<ModelThing> modelThings)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "Definition":
-                            var definitionReference = reader.GetAttribute("ref");
-                            if (!string.IsNullOrEmpty(definitionReference))
-                            {
-                                customProperty.CustomPropertyDefinition = definitionReference;
+                                var definitionReference = reader.GetAttribute("ref");
+                                if (!string.IsNullOrEmpty(definitionReference))
+                                {
+                                    customProperty.CustomPropertyDefinition = definitionReference;
+                                }
                             }
                             break;
                         default:
