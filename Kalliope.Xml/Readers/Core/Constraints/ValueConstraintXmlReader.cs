@@ -56,11 +56,59 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
+                        case "Definitions":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                this.ReadDefinitions(valueConstraint, definitionSubtree, modelThings);
+                            }
+                            break;
+
                         case "ValueRanges":
                             using (var valueRangesSubtree = reader.ReadSubtree())
                             {
                                 valueRangesSubtree.MoveToContent();
                                 this.ReadValueRanges(valueConstraint, valueRangesSubtree, modelThings);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="valueConstraint">
+        /// The container <see cref="ValueConstraint"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadDefinitions(ValueConstraint valueConstraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Definition":
+                            using (var definitionSubtree = reader.ReadSubtree())
+                            {
+                                definitionSubtree.MoveToContent();
+                                var definition = new Definition();
+                                var definitionXmlReader = new DefinitionXmlReader();
+                                definitionXmlReader.ReadXml(definition, definitionSubtree, modelThings);
+                                definition.Container = valueConstraint.Id;
+                                valueConstraint.Definition = definition.Id;
                             }
                             break;
                         default:
