@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>0.4.0</Version>
+	<Version>0.5.0</Version>
 	<Description>A library to read and write XML based orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
 	<PackageId>Kalliope.Xml</PackageId>
 	<Company>RHEA System S.A.</Company>
@@ -16,6 +16,9 @@
 	<Authors>Sam Gerene</Authors>
 	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
    <PackageIcon>Kalliope-icon.png</PackageIcon>
+	  <PackageReleaseNotes>
+		  [Add] ValueConstraintXmlReader read Definitions
+	  </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
