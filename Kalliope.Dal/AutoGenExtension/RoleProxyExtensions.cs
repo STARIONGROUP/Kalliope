@@ -92,6 +92,8 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
+            poco.Name = dto.Name;
+
             if (poco.TargetRole != null && poco.TargetRole.Id != dto.TargetRole)
             {
                 poco.TargetRole = null;

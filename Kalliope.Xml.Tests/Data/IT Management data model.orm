@@ -3590,7 +3590,7 @@ The first in a series of actions. Used to begin changes to the way things are no
 			</orm:Fact>
 			<orm:SubtypeFact id="_4FB386E7-4BE3-4237-9E57-3740509C62E2" _Name="Configuration ItemIsASubtypeOfAsset" PreferredIdentificationPath="true">
 				<orm:FactRoles>
-					<orm:SubtypeMetaRole id="_94668E20-DBF6-4936-85B5-310B85896C45" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="">
+					<orm:SubtypeMetaRole id="_94668E20-DBF6-4936-85B5-310B85896C45" _IsMandatory="true" _Multiplicity="ZeroToOne" Name="SubtypeMetaRoleName">
 						<orm:RolePlayer ref="_3B0B884D-BFB9-441F-BC6C-6E241EC25757" />
 					</orm:SubtypeMetaRole>
 					<orm:SupertypeMetaRole id="_B05698B7-C635-4C9E-A5CE-D651F7D12CB6" _IsMandatory="false" _Multiplicity="ExactlyOne" Name="">

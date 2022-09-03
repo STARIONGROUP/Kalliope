@@ -31,6 +31,8 @@ namespace Kalliope.Core
         /// <summary>
         /// An explicit name for this role
         /// </summary>
+        [Description("An explicit name for this role")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Name { get; set; }
     }
 }

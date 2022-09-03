@@ -62,6 +62,7 @@ namespace Kalliope.Dal
                 MandatoryConstraintModality = dto.MandatoryConstraintModality,
                 MandatoryConstraintName = dto.MandatoryConstraintName,
                 Multiplicity = dto.Multiplicity,
+                Name = dto.Name,
                 ObjectificationOppositeRoleName = dto.ObjectificationOppositeRoleName,
                 ValueRangeText = dto.ValueRangeText,
             };

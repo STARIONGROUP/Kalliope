@@ -48,6 +48,14 @@ namespace Kalliope.DTO
         /// </summary>
         public string Container {get; set;}
  
+
+        /// <summary>
+        /// Gets or sets a Name
+        /// </summary>
+        [Description("An explicit name for this role")]
+        [Property(name: "Name", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
+        public string Name { get; set; }
+ 
     }
 }
 

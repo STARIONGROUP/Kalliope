@@ -45,6 +45,8 @@ namespace Kalliope.Xml.Readers
         /// </param>
         public void ReadXml(RoleBase roleBase, XmlReader reader, List<ModelThing> modelThings)
         {
+            roleBase.Name = reader.GetAttribute("Name");
+
             base.ReadXml(roleBase, reader, modelThings);
         }
     }

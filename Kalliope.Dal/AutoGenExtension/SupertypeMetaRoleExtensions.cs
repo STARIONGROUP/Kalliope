@@ -116,6 +116,8 @@ namespace Kalliope.Dal
 
             poco.Multiplicity = dto.Multiplicity;
 
+            poco.Name = dto.Name;
+
             poco.ObjectificationOppositeRoleName = dto.ObjectificationOppositeRoleName;
 
             var objectTypeInstancesToDelete = poco.ObjectTypeInstances.Select(x => x.Id).Except(dto.ObjectTypeInstances);

@@ -58,6 +58,7 @@ namespace Kalliope.Dal
             var roleProxy = new Kalliope.Core.RoleProxy()
             {
                 Id = dto.Id,
+                Name = dto.Name,
             };
 
             return roleProxy;

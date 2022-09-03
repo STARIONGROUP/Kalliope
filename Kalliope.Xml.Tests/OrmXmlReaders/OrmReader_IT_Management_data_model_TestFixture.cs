@@ -151,6 +151,9 @@ namespace Kalliope.Xml.Tests
             var referenceModeKindPopular = modelThings.OfType<ReferenceModeKind>().Single(x => x.Id == "_56AB076B-E6F0-4AF3-8C13-5545E5B5B9EC");
             Assert.That(referenceModeKindPopular.FormatString, Is.EqualTo("{0}_{1}"));
             Assert.That(referenceModeKindPopular.ReferenceModeType, Is.EqualTo(ReferenceModeType.Popular));
+
+            var subtypeMetaRole = modelThings.OfType<SubtypeMetaRole>().Single(x => x.Id == "_94668E20-DBF6-4936-85B5-310B85896C45");
+            Assert.That(subtypeMetaRole.Name, Is.EqualTo("SubtypeMetaRoleName"));
         }
 
         [Test]
