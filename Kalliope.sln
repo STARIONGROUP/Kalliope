@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\CodeQuality.yml = .github\workflows\CodeQuality.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.OO", "Kalliope.OO\Kalliope.OO.csproj", "{FF4D9729-2E90-48A4-B41E-DF4827945BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalliope.OO.Tests", "Kalliope.OO.Tests\Kalliope.OO.Tests.csproj", "{F3953611-C1B0-466C-93BF-6C72C2E9AB93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,14 @@ Global
 		{22578B43-5610-478D-8D4E-3300A24424E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22578B43-5610-478D-8D4E-3300A24424E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22578B43-5610-478D-8D4E-3300A24424E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4D9729-2E90-48A4-B41E-DF4827945BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4D9729-2E90-48A4-B41E-DF4827945BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4D9729-2E90-48A4-B41E-DF4827945BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4D9729-2E90-48A4-B41E-DF4827945BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3953611-C1B0-466C-93BF-6C72C2E9AB93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3953611-C1B0-466C-93BF-6C72C2E9AB93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3953611-C1B0-466C-93BF-6C72C2E9AB93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3953611-C1B0-466C-93BF-6C72C2E9AB93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
