@@ -1,0 +1,113 @@
+﻿// -------------------------------------------------------------------------------------------------
+// <copyright file="ClassGenerator.cs" company="RHEA System S.A.">
+//
+//   Copyright 2022 RHEA System S.A.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+// </copyright>
+// -------------------------------------------------------------------------------------------------
+
+namespace Kalliope.OO.Generation
+{
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Kalliope.Core;
+    using Kalliope.OO.StructuralFeature;
+
+    public class ClassGenerator
+    {
+        /// <summary>
+        /// Gets the <see cref="OrmModel"/>
+        /// </summary>
+        public OrmModel OrmModel { get; }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="ClassGenerator"/>
+        /// </summary>
+        public ClassGenerator(OrmRoot ormModel)
+        {
+            this.OrmModel = ormModel.Model;
+        }
+
+        /// <summary>
+        /// Generates a <see cref="List{T}"/> of <see cref="Class"/> based on all <see cref="EntityType"/>s and <see cref="ObjectifiedType"/>in the <see cref="OrmModel"/>
+        /// </summary>
+        /// <returns>a <see cref="List{T}"/> of <see cref="Class"/></returns>
+        public List<Class> Generate()
+        {
+            return this.Generate(
+                this.OrmModel.ObjectTypes.OfType<EntityType>()
+                    .Cast<ObjectType>()
+                    .Union(
+                        this.OrmModel.ObjectTypes.OfType<ObjectifiedType>()
+                        ));
+        }
+
+        /// <summary>
+        /// Generates a <see cref="List{T}"/> of <see cref="Class"/> based on a <see cref="List{T}"/> of <see cref="Class"/>s
+        /// </summary>
+        /// <param name="objectTypes">The <see cref="List{T}"/> of <see cref="ObjectType"/></param>
+        /// <returns>a <see cref="List{T}"/> of <see cref="Class"/></returns>
+        public List<Class> Generate(IEnumerable<ObjectType> objectTypes)
+        {
+            var generatedClasses = new List<Class>();
+
+            var entityTypes = objectTypes.OfType<EntityType>();
+
+            foreach (var entityType in entityTypes)
+            {
+                var generatedClass = this.GenerateClassFromEntityType(entityType);
+                generatedClasses.Add(generatedClass);
+            }
+
+            var objectifiedTypes = objectTypes.OfType<ObjectifiedType>();
+
+            foreach (var objectifiedType in objectifiedTypes)
+            {
+                if (this.TryGenerateClassFromObjectifiedType(objectifiedType, out var generatedClass))
+                {
+                    generatedClasses.Add(generatedClass);
+                }
+            }
+
+            return generatedClasses;
+        }
+
+        /// <summary>
+        /// Generates the <see cref="Class"/>
+        /// </summary>
+        /// <param name="entityType"><see cref="EntityType"/></param>
+        /// <returns>A <see cref="Class"/></returns>
+        private Class GenerateClassFromEntityType(EntityType entityType)
+        {
+            var entityClass = new EntityClass(this.OrmModel, entityType);
+
+            return entityClass;
+        }
+
+        /// <summary>
+        /// Generates the <see cref="Class"/>
+        /// </summary>
+        /// <param name="objectifiedType"><see cref="ObjectifiedType"/></param>
+        /// <param name="objectifiedClass">The to be returned <see cref="Class"/></param>
+        /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
+        private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, out Class objectifiedClass)
+        {
+            objectifiedClass = new ObjectifiedClass(this.OrmModel, objectifiedType);
+
+            return true;
+        }
+    }
+}

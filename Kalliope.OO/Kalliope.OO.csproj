@@ -16,9 +16,11 @@
 		<Authors>Sam Gerene</Authors>
 		<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
 		<PackageIcon>Kalliope-icon.png</PackageIcon>
+		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Kalliope.Xml\Kalliope.Xml.csproj" />
 	  <ProjectReference Include="..\Kalliope\Kalliope.csproj" />
 	</ItemGroup>
 
