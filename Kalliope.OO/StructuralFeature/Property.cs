@@ -21,6 +21,7 @@
 namespace Kalliope.OO.StructuralFeature
 {
     using System.Linq;
+    using System.Runtime.CompilerServices;
 
     using Kalliope.Common;
     using Kalliope.Core;
@@ -37,14 +38,38 @@ namespace Kalliope.OO.StructuralFeature
         public string DataType { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the multiplicity of the <see cref="Property{T}"/> relationship
+        /// Gets or sets the <see cref="IProperty"/>'s Raw DataType as a string
         /// </summary>
-        public Multiplicity Multiplicity { get; protected set; } = Multiplicity.Unspecified;
+        public string RawDataType => this.GetRawDataType();
+
+        private string GetRawDataType()
+        {
+            if (!this.IsReferenceProperty)
+            {
+                return this.DataType;
+            }
+
+            var rawDataType = "Guid";
+
+            rawDataType = this.UpdateDataTypeStringWithMultiplicity(rawDataType);
+
+            return rawDataType;
+        }
 
         /// <summary>
-        /// The <see cref="Role"/>
+        /// Gets or sets the multiplicity of the <see cref="Property{T}"/> relationship
         /// </summary>
-        public Role FactRole { get; }
+        public Multiplicity Multiplicity => this.PropertyRole.Multiplicity;
+
+        /// <summary>
+        /// The property's <see cref="Role"/>
+        /// </summary>
+        public Role PropertyRole { get; }
+
+        /// <summary>
+        /// The class's <see cref="Role"/>
+        /// </summary>
+        public Role ClassRole { get; }
 
         /// <summary>
         /// The <see cref="FactType"/>
@@ -62,19 +87,35 @@ namespace Kalliope.OO.StructuralFeature
         public T ObjectType { get; }
 
         /// <summary>
-        /// Creates a new instance of the 
+        /// Gets a value indicating if the property type is an Enumerable type
         /// </summary>
-        /// <param name="ormModel"></param>
-        /// <param name="objectType"></param>
-        /// <param name="factRole"></param>
-        protected Property(OrmModel ormModel, T objectType, Role factRole)
+        public bool IsEnumerable => this.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany;
+
+        /// <summary>
+        /// Gets a value indicating if the property type is a nullable type
+        /// </summary>
+        public bool IsNullable => this.Multiplicity is Multiplicity.ZeroToOne or Multiplicity.ZeroToMany;
+
+        /// <summary>
+        /// Gets a value indicating if the property type is a reference type
+        /// </summary>
+        public bool IsReferenceProperty => this.ObjectType is ObjectifiedType or EntityType;
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="Property{T}"/> class
+        /// </summary>
+        /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="objectType">The <see cref="ObjectType"/></param>
+        /// <param name="propertyRole">The <see cref="Property{T}"/> <see cref="Role"/></param>
+        /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
+        protected Property(OrmModel ormModel, T objectType, Role propertyRole, Role classRole)
         {
             this.OrmModel = ormModel;
             this.ObjectType = objectType;
-            this.FactType = this.OrmModel.FactTypes.First(x => x.Roles.Contains(factRole));
-            this.FactRole = factRole;
+            this.FactType = this.OrmModel.FactTypes.Single(x => x.Roles.Contains(propertyRole));
+            this.PropertyRole = propertyRole;
+            this.ClassRole = classRole;
             this.Definition = objectType.Definition?.Text ?? string.Empty;
-            this.Multiplicity = this.FactRole.Multiplicity;
             this.Initialize();
         }
 
@@ -83,7 +124,7 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         private void Initialize()
         {
-            this.DataType = this.GetDataType().ToUsableName();
+            this.DataType = this.GetDataType();
             this.Name = this.GetName().ToUsableName();
         }
 
@@ -103,11 +144,10 @@ namespace Kalliope.OO.StructuralFeature
         /// Updates the datatype of the property according to the <see cref="Multiplicity"/>
         /// </summary>
         /// <param name="dataType">A string representing the field data type</param>
-        /// <param name="multiplicity">The <see cref="Multiplicity"/> of the property</param>
         /// <returns></returns>
-        protected string UpdateDataTypeStringWithMultiplicity(string dataType, Multiplicity multiplicity)
+        protected string UpdateDataTypeStringWithMultiplicity(string dataType)
         {
-            if (multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany)
+            if (this.IsEnumerable)
             {
                 return $"List<{dataType}>";
             }

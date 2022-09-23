@@ -36,9 +36,9 @@ namespace Kalliope.OO.Generation
         /// <summary>
         /// Creates a new instance of <see cref="ClassGenerator"/>
         /// </summary>
-        public ClassGenerator(OrmRoot ormModel)
+        public ClassGenerator(OrmModel ormModel)
         {
-            this.OrmModel = ormModel.Model;
+            this.OrmModel = ormModel;
         }
 
         /// <summary>
@@ -79,6 +79,30 @@ namespace Kalliope.OO.Generation
                 if (this.TryGenerateClassFromObjectifiedType(objectifiedType, out var generatedClass))
                 {
                     generatedClasses.Add(generatedClass);
+                }
+            }
+
+            //Assemble Sub- and SuperTypes
+            foreach (var generatedClass in generatedClasses)
+            {
+                foreach (var superObjectType in generatedClass.SuperObjectTypes)
+                {
+                    var superClassType = generatedClasses.FirstOrDefault(x => x.ObjectType == superObjectType);
+
+                    if (superClassType != null)
+                    {
+                        generatedClass.SuperClasses.Add(superClassType);
+                    }
+                }
+
+                foreach (var subObjectType in generatedClass.SubObjectTypes)
+                {
+                    var subClassType = generatedClasses.FirstOrDefault(x => x.ObjectType == subObjectType);
+
+                    if (subClassType != null)
+                    {
+                        generatedClass.SubClasses.Add(subClassType);
+                    }
                 }
             }
 

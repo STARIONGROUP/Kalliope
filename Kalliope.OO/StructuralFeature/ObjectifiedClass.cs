@@ -20,6 +20,8 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
+    using System.Linq;
+
     using Kalliope.Core;
 
     /// <summary>
@@ -27,6 +29,11 @@ namespace Kalliope.OO.StructuralFeature
     /// </summary>
     public class ObjectifiedClass : Class
     {
+        /// <summary>
+        /// Gets a value indicating that this ObjectifiedClass has extra 
+        /// </summary>
+        public bool HasExtraProperties => this.Properties.OfType<ValueTypeProperty>().Any() || this.Properties.Count(x => x is IReferenceProperty) > 2;
+
         /// <summary>
         /// Creates a new instance of the <see cref="Class"/> class
         /// </summary>

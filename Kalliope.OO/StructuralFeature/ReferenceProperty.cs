@@ -21,25 +21,30 @@
 namespace Kalliope.OO.StructuralFeature
 {
     using Kalliope.Core;
+
     using System.Linq;
+
+    using Kalliope.Common;
+    using Kalliope.OO.Extensions;
 
     /// <summary>
     /// Class that describes a ValueType property
     /// </summary>
-    public abstract class ReferenceProperty<T> : Property<T> where T : ObjectType
+    public class ReferenceProperty<T> : Property<T>, IReferenceProperty where T : ObjectType
     {
         /// <summary>
-        /// Gets or sets the <see cref="Class"/> property
+        /// The number of roles that are involved in the FactType
         /// </summary>
-        public Class Class { get; set; }
+        public int NumberOfRoles => this.FactType.Roles.Count;
 
         /// <summary>
         /// Creates a new instance of the <see cref="ReferenceProperty{T}"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
-        /// <param name="factRole">The <see cref="Role"/></param>
-        protected ReferenceProperty(OrmModel ormModel, T objectType, Role factRole) : base(ormModel, objectType, factRole)
+        /// <param name="propertyRole">The <see cref="Role"/></param>
+        /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
+        public ReferenceProperty(OrmModel ormModel, T objectType, Role propertyRole, Role classRole) : base(ormModel, objectType, propertyRole, classRole)
         {
         }
 
@@ -49,22 +54,61 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="ObjectType"/>'s datatype</returns>
         protected override string GetDataType()
         {
-            var name = this.ObjectType.Name;
+            var dataType = this.ObjectType.Name.ToUsableName();
+            dataType = this.UpdateDataTypeStringWithMultiplicity(dataType);
 
-            var factRoles = this.FactType.Roles
-                .OfType<Role>()
-                .Union(
-                    this.FactType.Roles
-                        .OfType<RoleProxy>()
-                        .Select(x => x.TargetRole));
+            return dataType;
+        }
 
-            if (factRoles.Count(x => x.RolePlayer.Equals(this.ObjectType)) >= 2)
+        /// <summary>
+        /// Get the Name of the <see cref="ObjectType"/>
+        /// </summary>
+        /// <returns>The <see cref="ObjectType"/>'s Name</returns>
+        protected override string GetName()
+        {
+            var name = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(this.PropertyRole?.Name))
             {
-                if (string.IsNullOrWhiteSpace(this.FactRole.Name))
+                name = this.PropertyRole.Name;
+            }
+            else if (this.ClassRole.RolePlayer is ObjectifiedType)
+            {
+                name = this.ObjectType.Name;
+            }
+            else
+            {
+                var readingOrder =
+                    this.FactType.ReadingOrders.FirstOrDefault(x =>
+                        x.Roles.First() is Role role && role == this.ClassRole
+                        ||
+                        x.Roles.First() is RoleProxy roleProxy && roleProxy.TargetRole == this.ClassRole);
+
+                if (readingOrder != null)
                 {
-                    //Self reference having an unset specific propertyname
-                    name = $"{name}{this.FactType.Roles.IndexOf(this.FactRole)+1}";
+                    var text = readingOrder.Readings.First().Data.Replace("{", " {").Replace("}", "} ");
+
+                    for (var i=0; i < readingOrder.Roles.Count; i++)
+                    {
+                        var role = readingOrder.Roles[i] is RoleProxy roleProxy ? roleProxy.TargetRole : readingOrder.Roles[i] as Role;
+
+                        // Extra whitespaces arount names are nesessary for the TitleCasing to be performed correctly
+                        text = text.Replace("{" + i + "}", $" {(string.IsNullOrWhiteSpace(role.Name) ? role.RolePlayer.Name : role.Name)} ");
+                    }
+
+                    name = string.IsNullOrWhiteSpace(text) ? this.ObjectType.Name : text;
                 }
+                else
+                {
+                    name = string.IsNullOrWhiteSpace(this.FactType?.Name) ? this.ObjectType.Name : this.FactType?.Name;
+                }
+            }
+
+            name = name.ToUsableName();
+
+            if (this.PropertyRole?.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany)
+            {
+                name += "s";
             }
 
             return name;

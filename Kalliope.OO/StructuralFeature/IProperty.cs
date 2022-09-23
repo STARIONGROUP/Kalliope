@@ -34,6 +34,11 @@ namespace Kalliope.OO.StructuralFeature
         string DataType { get; }
 
         /// <summary>
+        /// Gets or sets the <see cref="IProperty"/>'s Raw DataType as a string
+        /// </summary>
+        string RawDataType { get; }
+
+        /// <summary>
         /// Gets or sets the multiplicity of the <see cref="IProperty"/> relationship
         /// </summary>
         Multiplicity Multiplicity { get; }
@@ -41,7 +46,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// The <see cref="Role"/>
         /// </summary>
-        Role FactRole { get; }
+        Role PropertyRole { get; }
 
         /// <summary>
         /// The <see cref="Core.OrmModel"/>
@@ -52,5 +57,25 @@ namespace Kalliope.OO.StructuralFeature
         /// The <see cref="FactType"/>
         /// </summary>
         FactType FactType { get; }
+
+        /// <summary>
+        /// The class's <see cref="Role"/>
+        /// </summary>
+        Role ClassRole { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the property type is an Enumerable type
+        /// </summary>
+        bool IsEnumerable { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the property type is a nullable type
+        /// </summary>
+        bool IsNullable { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the property type is a reference type
+        /// </summary>
+        bool IsReferenceProperty { get; }
     }
 }

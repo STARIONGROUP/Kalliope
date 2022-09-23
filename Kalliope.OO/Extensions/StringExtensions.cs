@@ -21,6 +21,8 @@
 namespace Kalliope.OO.Extensions
 {
     using System;
+    using System.Linq;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// <see cref="string"/> extension methods
@@ -40,7 +42,53 @@ namespace Kalliope.OO.Extensions
         {
             if (string.IsNullOrEmpty(typeName)) throw new ArgumentException($"{nameof(typeName)} can't be empty!");
 
-            return typeName.Replace(" ", "");
+            return typeName.ToTitleCase();
+        }
+
+        /// <summary>
+        /// Converts a string to Camel Casing
+        /// </summary>
+        /// <param name="value">The to be converted string</param>
+        /// <returns>The converted string</returns>
+        public static string ToCamelCase(this string value)
+        {
+            value = char.ToUpper(value[0]) + value.Substring(1);
+
+            var words = value.Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            var leadWord = 
+                Regex.Replace(words[0], @"([A-Z])([A-Z]+|[a-z0-9]+)($|[A-Z]\w*)",
+                m => 
+                    m.Groups[1].Value.ToLower() + m.Groups[2].Value.ToLower() + m.Groups[3].Value);
+            
+            var tailWords = words.Skip(1)
+                .Select(word => char.ToUpper(word[0]) + word.Substring(1))
+                .ToArray();
+            
+            return $"{leadWord}{string.Join(string.Empty, tailWords)}";
+        }
+
+        /// <summary>
+        /// Converts a string to Title Casing
+        /// </summary>
+        /// <param name="value">The to be converted string</param>
+        /// <returns>The converted string</returns>
+        public static string ToTitleCase(this string value)
+        {
+            value = char.ToUpper(value[0]) + value.Substring(1);
+
+            var words = value.Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            var leadWord = 
+                Regex.Replace(words[0], @"([A-Z])([A-Z]+|[a-z0-9]+)($|[A-Z]\w*)",
+                    m => 
+                        m.Groups[1].Value.ToLower() + m.Groups[2].Value.ToLower() + m.Groups[3].Value);
+            
+            var tailWords = words.Skip(1)
+                .Select(word => char.ToUpper(word[0]) + word.Substring(1))
+                .ToArray();
+            
+            return $"{char.ToUpper(leadWord[0]) + leadWord.Substring(1)}{string.Join(string.Empty, tailWords)}";
         }
     }
 }

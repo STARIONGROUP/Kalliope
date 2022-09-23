@@ -20,22 +20,29 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
+    using System.Linq;
+
     using Kalliope.Core;
-    using Kalliope.OO.Extensions;
     using Kalliope.OO.Mappers;
 
     /// <summary>
     /// Class that describes a ValueType property
     /// </summary>
-    public class ValueTypeProperty: Property<ValueType>
+    public class ValueTypeProperty : Property<ValueType>
     {
+        /// <summary>
+        /// Gets or sets a value indicating that the ValueType represents an implicit boolean value
+        /// </summary>
+        public bool IsImplicitBooleanValue => this.ObjectType.IsImplicitBooleanValue;
+
         /// <summary>
         /// Creates a new instance of the <see cref="ValueTypeProperty"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="valueType">The <see cref="ValueType"/></param>
-        /// <param name="factRole">The <see cref="Role"/></param>
-        public ValueTypeProperty(OrmModel ormModel, ValueType valueType, Role factRole) : base(ormModel, valueType, factRole)
+        /// <param name="propertyRole">The <see cref="Role"/></param>
+        /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
+        public ValueTypeProperty(OrmModel ormModel, ValueType valueType, Role propertyRole, Role classRole) : base(ormModel, valueType, propertyRole, classRole)
         {
         }
 
@@ -53,7 +60,7 @@ namespace Kalliope.OO.StructuralFeature
             var dataTypeId = this.ObjectType.ConceptualDataType.Reference;
             var dataType = DataTypeMapper.MapDataType(dataTypeId, this.OrmModel.DataTypes);
 
-            dataType = this.UpdateDataTypeStringWithMultiplicity(dataType, this.FactRole.Multiplicity);
+            dataType = this.UpdateDataTypeStringWithMultiplicity(dataType);
 
             return dataType;
         }
@@ -64,7 +71,22 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="ValueType"/>'s Name</returns>
         protected override string GetName()
         {
-            return string.IsNullOrWhiteSpace(this.FactRole.Name) ? this.ObjectType.Name : this.FactRole.Name;
+            if (this.IsImplicitBooleanValue)
+            {
+                var text = this.FactType.ReadingOrders.First().Readings.First().Data;
+                var numberOfVariablesInReadingText = text.Count(x => x == '{');
+
+                if (numberOfVariablesInReadingText > 0)
+                {
+                    var stringArray = new object[numberOfVariablesInReadingText];
+
+                    text = string.Format(text, stringArray);
+                }
+
+                return text.Trim();
+            }
+
+            return string.IsNullOrWhiteSpace(this.PropertyRole.Name) ? this.ObjectType.Name : this.PropertyRole.Name;
         }
     }
 }

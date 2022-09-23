@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
@@ -20,8 +20,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Kalliope.Xml" Version="0.6.0" />
+	</ItemGroup>
+
+	<!--<ItemGroup>
 	  <ProjectReference Include="..\Kalliope.Xml\Kalliope.Xml.csproj" />
 	  <ProjectReference Include="..\Kalliope\Kalliope.csproj" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 </Project>
