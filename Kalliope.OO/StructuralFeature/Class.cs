@@ -110,7 +110,7 @@ namespace Kalliope.OO.StructuralFeature
 
             this.ObjectType.PlayedRoles
                 .ToList()
-                .ForEach(playedRole => 
+                .ForEach(playedRole =>
                 {
                     if (playedRole is SubtypeMetaRole subTypeMetaRole)
                     {
@@ -183,7 +183,7 @@ namespace Kalliope.OO.StructuralFeature
             {
                 for (var i = 0; i < group.Count(); i++)
                 {
-                    group.ToList()[i].Name += (i + 1);
+                    group.ToList()[i].Name += i + 1;
                 }
             }
 
@@ -200,11 +200,11 @@ namespace Kalliope.OO.StructuralFeature
         {
             var factType = this.OrmModel.FactTypes.First(x => x.Roles.Contains(subtypeMetaRole));
 
-            var superTypeRole = 
+            var superTypeRole =
                 factType.Roles
                     .OfType<SupertypeMetaRole>()
                     .Single();
-            
+
             this.SuperObjectTypes.Add(superTypeRole.RolePlayer);
         }
 
@@ -216,12 +216,12 @@ namespace Kalliope.OO.StructuralFeature
         {
             var factType = this.OrmModel.FactTypes.First(x => x.Roles.Contains(supertypeMetaRole));
 
-            var subTypeRole = 
+            var subTypeRole =
                 factType.Roles
                     .OfType<SubtypeMetaRole>()
                     .Single();
-            
-            this.SubObjectTypes.Add(subTypeRole .RolePlayer);
+
+            this.SubObjectTypes.Add(subTypeRole.RolePlayer);
         }
 
         /// <summary>

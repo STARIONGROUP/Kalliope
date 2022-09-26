@@ -21,7 +21,6 @@
 namespace Kalliope.OO.StructuralFeature
 {
     using System.Linq;
-    using System.Runtime.CompilerServices;
 
     using Kalliope.Common;
     using Kalliope.Core;
@@ -75,7 +74,7 @@ namespace Kalliope.OO.StructuralFeature
         /// The <see cref="FactType"/>
         /// </summary>
         public FactType FactType { get; }
-        
+
         /// <summary>
         /// The <see cref="Core.OrmModel"/>
         /// </summary>
