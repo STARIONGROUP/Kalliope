@@ -21,7 +21,7 @@
 namespace Kalliope.OO.StructuralFeature
 {
     /// <summary>
-    /// Base class for a StructuralFeature
+    /// An abstract class from which all <see cref="StructuralFeature"/>s derive
     /// </summary>
     public class StructuralFeature : IStructuralFeature
     {

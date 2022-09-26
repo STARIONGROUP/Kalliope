@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="Class.cs" company="RHEA System S.A.">
+// <copyright file="ObjectifiedClass.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -25,7 +25,7 @@ namespace Kalliope.OO.StructuralFeature
     using Kalliope.Core;
 
     /// <summary>
-    /// Base class for a Class
+    /// An <see cref="ObjectifiedClass"/> is a <see cref="Class"/> that represents an Relationship with properties
     /// </summary>
     public class ObjectifiedClass : Class
     {
@@ -35,7 +35,7 @@ namespace Kalliope.OO.StructuralFeature
         public bool HasExtraProperties => this.Properties.OfType<ValueTypeProperty>().Any() || this.Properties.Count(x => x is IReferenceProperty) > 2;
 
         /// <summary>
-        /// Creates a new instance of the <see cref="Class"/> class
+        /// Creates a new instance of the <see cref="ObjectifiedClass"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>

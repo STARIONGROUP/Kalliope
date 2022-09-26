@@ -28,7 +28,7 @@ namespace Kalliope.OO.StructuralFeature
     using Kalliope.OO.Extensions;
 
     /// <summary>
-    /// Class that describes a ValueType property
+    /// Class that describes a Reference property
     /// </summary>
     public class ReferenceProperty<T> : Property<T>, IReferenceProperty where T : ObjectType
     {

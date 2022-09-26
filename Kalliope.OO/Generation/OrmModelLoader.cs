@@ -23,8 +23,12 @@ namespace Kalliope.OO.Generation
     using System.IO;
     using System.Linq;
 
+    using Kalliope;
     using Kalliope.Xml;
 
+    /// <summary>
+    /// The purpose of the <see cref="OrmModelLoader"/> is to load an ORM model from an XML file
+    /// </summary>
     public static class OrmModelLoader
     {
         /// <summary>

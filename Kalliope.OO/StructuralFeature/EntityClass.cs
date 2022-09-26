@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="ClassEntity.cs" company="RHEA System S.A.">
+// <copyright file="EntityClass.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -23,12 +23,12 @@ namespace Kalliope.OO.StructuralFeature
     using Kalliope.Core;
 
     /// <summary>
-    /// Base class for a Class
+    /// An <see cref="EntityClass"/> is a <see cref="Class"/> that represents an Entity with properties
     /// </summary>
     public class EntityClass : Class
     {
         /// <summary>
-        /// Creates a new instance of the <see cref="Class"/> class
+        /// Creates a new instance of the <see cref="EntityClass"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>

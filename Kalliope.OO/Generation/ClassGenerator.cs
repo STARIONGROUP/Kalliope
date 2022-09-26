@@ -26,6 +26,10 @@ namespace Kalliope.OO.Generation
     using Kalliope.Core;
     using Kalliope.OO.StructuralFeature;
 
+    /// <summary>
+    /// The purpose of the <see cref="ClassGenerator"/> is to generate instances of <see cref="Class"/> based
+    /// on the provided <see cref="OrmModel"/>
+    /// </summary>
     public class ClassGenerator
     {
         /// <summary>

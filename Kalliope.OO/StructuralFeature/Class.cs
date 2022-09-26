@@ -27,7 +27,7 @@ namespace Kalliope.OO.StructuralFeature
     using Kalliope.OO.Extensions;
 
     /// <summary>
-    /// Base class for a Class
+    /// Base class from which all Class types derive
     /// </summary>
     public abstract class Class : StructuralFeature
     {
