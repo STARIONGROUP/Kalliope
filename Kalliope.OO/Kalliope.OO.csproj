@@ -20,6 +20,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\Kalliope.Xml\Kalliope.Xml.csproj" />
 	</ItemGroup>
 
