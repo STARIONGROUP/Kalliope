@@ -20,12 +20,12 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
-    using Kalliope.Core;
-
     using System.Linq;
 
     using Kalliope.Common;
+    using Kalliope.Core;
     using Kalliope.OO.Extensions;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// Class that describes a Reference property
@@ -33,9 +33,14 @@ namespace Kalliope.OO.StructuralFeature
     public class ReferenceProperty<T> : Property<T>, IReferenceProperty where T : ObjectType
     {
         /// <summary>
-        /// The number of roles that are involved in the FactType
+        /// Gets the nested <see cref="FactType"/> for an <see cref="ObjectifiedType"/> that has an ImpliedFactType
         /// </summary>
-        public int NumberOfRoles => this.FactType.Roles.Count;
+        public FactType NestedFactType => this.ObjectType is ObjectifiedType objectifiedType ? objectifiedType.NestedPredicate.NestedFactType : null;
+
+        /// <summary>
+        /// Gets a value indicating that this is a NestedFactType
+        /// </summary>
+        public bool IsImpliedFactType => this.ObjectType is ObjectifiedType objectifiedType && objectifiedType.NestedPredicate.IsImplied;
 
         /// <summary>
         /// Creates a new instance of the <see cref="ReferenceProperty{T}"/> class
@@ -44,8 +49,26 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        public ReferenceProperty(OrmModel ormModel, T objectType, Role propertyRole, Role classRole) : base(ormModel, objectType, propertyRole, classRole)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        public ReferenceProperty(OrmModel ormModel, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, objectType, propertyRole, classRole, generationSettings)
         {
+        }
+
+        /// <summary>
+        /// Calculates the Multiplicity for this property 
+        /// </summary>
+        /// <returns>The Calculated <see cref="Multiplicity"/></returns>
+        protected override Multiplicity CalculateMultiplicity()
+        {
+            if (this.ClassRole.RolePlayer is ObjectifiedType)
+            {
+                if (this.PropertyRole.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany)
+                {
+                    return Multiplicity.ExactlyOne;
+                }
+            }
+
+            return this.PropertyRole.Multiplicity;
         }
 
         /// <summary>
@@ -55,7 +78,6 @@ namespace Kalliope.OO.StructuralFeature
         protected override string GetDataType()
         {
             var dataType = this.ObjectType.Name.ToUsableName();
-            dataType = this.UpdateDataTypeStringWithMultiplicity(dataType);
 
             return dataType;
         }
@@ -67,6 +89,7 @@ namespace Kalliope.OO.StructuralFeature
         protected override string GetName()
         {
             var name = string.Empty;
+            var factType = this.FactType;
 
             if (!string.IsNullOrWhiteSpace(this.PropertyRole?.Name))
             {
@@ -79,16 +102,23 @@ namespace Kalliope.OO.StructuralFeature
             else
             {
                 var readingOrder =
-                    this.FactType.ReadingOrders.FirstOrDefault(x =>
-                        x.Roles.First() is Role role && role == this.ClassRole
+                    factType.ReadingOrders.FirstOrDefault(x =>
+                        (x.Roles.First() is Role role && role == this.ClassRole)
                         ||
-                        x.Roles.First() is RoleProxy roleProxy && roleProxy.TargetRole == this.ClassRole);
+                        (x.Roles.First() is RoleProxy roleProxy && roleProxy.TargetRole == this.ClassRole));
 
                 if (readingOrder != null)
                 {
                     var text = readingOrder.Readings.First().Data.Replace("{", " {").Replace("}", "} ");
 
-                    for (var i=0; i < readingOrder.Roles.Count; i++)
+                    var entityReplaceStartingIndex = 1;
+
+                    if (this.GenerationSettings.AddEntityPrefixesForNonExplicitlyNamedRoles)
+                    {
+                        entityReplaceStartingIndex = 0;
+                    }
+
+                    for (var i = entityReplaceStartingIndex; i < readingOrder.Roles.Count; i++)
                     {
                         var role = readingOrder.Roles[i] is RoleProxy roleProxy ? roleProxy.TargetRole : readingOrder.Roles[i] as Role;
 
@@ -105,11 +135,6 @@ namespace Kalliope.OO.StructuralFeature
             }
 
             name = name.ToUsableName();
-
-            if (this.PropertyRole?.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany)
-            {
-                name += "s";
-            }
 
             return name;
         }

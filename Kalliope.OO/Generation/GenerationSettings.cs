@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="StructuralFeature.cs" company="RHEA System S.A.">
+// <copyright file="GenerationSettings.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -18,33 +18,24 @@
 // </copyright>
 // -------------------------------------------------------------------------------------------------
 
-namespace Kalliope.OO.StructuralFeature
+namespace Kalliope.OO.Generation
 {
-    using Kalliope.OO.Generation;
+    using Kalliope.OO.Mappers;
+    using Kalliope.OO.StructuralFeature;
 
     /// <summary>
-    /// An abstract class from which all <see cref="StructuralFeature"/>s derive
+    /// A class that has settings to be used during generation of <see cref="Class"/>es and <see cref="IProperty"/>a
     /// </summary>
-    public abstract class StructuralFeature : IStructuralFeature
+    public class GenerationSettings
     {
         /// <summary>
-        /// The <see cref="GenerationSettings"/> to be used while generating this <see cref="StructuralFeature"/>
+        /// Gets of sets a value indicating that Entity name prefixes should be added to properties that don't have an explicitly set Role Name
         /// </summary>
-        protected GenerationSettings GenerationSettings { get; set; }
+        public bool AddEntityPrefixesForNonExplicitlyNamedRoles { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets the <see cref="Name"/>
+        /// The <see cref="IDataTypeMapper"/> to be used to define datatypes
         /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the <see cref="Definition"/>
-        /// </summary>
-        public string Definition { get; set; }
-
-        /// <summary>
-        /// Gets or sets the <see cref="Note"/>
-        /// </summary>
-        public string Note { get; set; }
+        public IDataTypeMapper DataTypeMapper { get; set; } = new CSharpDataTypeMapper();
     }
 }

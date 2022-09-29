@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="DataTypeMapper.cs" company="RHEA System S.A.">
+// <copyright file="CSharpDataTypeMapper.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,32 +20,24 @@
 
 namespace Kalliope.OO.Mappers
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     using Kalliope.Core;
 
     /// <summary>
-    /// The purpose of the <see cref="DataTypeMapper"/> is to map a <see cref="DataType"/> to a C# representation
+    /// The purpose of the <see cref="CSharpDataTypeMapper"/> is to map a <see cref="DataType"/> to a C# representation
     /// </summary>
-    public static class DataTypeMapper
+    public class CSharpDataTypeMapper : IDataTypeMapper
     {
         /// <summary>
         /// Maps the ORM <see cref="DataType"/> to a C# data-type
         /// </summary>
-        /// <param name="id">
-        /// the unique identifier of the <see cref="DataType"/> to map
-        /// </param>
-        /// <param name="dataTypes">
-        /// The list of <see cref="DataType"/> that exists in the ORM model
+        /// <param name="dataType">
+        /// The <see cref="DataType"/> to map
         /// </param>
         /// <returns>
         /// the name of the C# data-type
         /// </returns>
-        public static string MapDataType(string id, List<DataType> dataTypes)
+        public string MapDataType(DataType dataType)
         {
-            var dataType = dataTypes.FirstOrDefault(dt => dt.Id == id);
-
             if (dataType != null)
             {
                 if (dataType is TextDataType or LargeLengthRawDataDataType)

@@ -24,6 +24,7 @@ namespace Kalliope.OO.StructuralFeature
     using System.Collections.Generic;
 
     using Kalliope.Core;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// Builder class that can build a <see cref="ReferenceProperty{T}"/> of a specific <see cref="ObjectType"/>
@@ -38,16 +39,17 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
         /// <returns>a <see cref="ReferenceProperty{T}"/> of type <typeparamref name="T"/></returns>
         /// <exception cref="NotSupportedException">If <typeparamref name="T"/> is not <see cref="EntityType"/> or <see cref="ObjectifiedType"/></exception>
-        public static ReferenceProperty<T> CreateReferenceProperty<T>(OrmModel ormModel, T objectType, Role propertyRole, Role classRole) where T : ObjectType
+        public static ReferenceProperty<T> CreateReferenceProperty<T>(OrmModel ormModel, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings) where T : ObjectType
         {
             if (!new List<Type> { typeof(EntityType), typeof(ObjectifiedType) }.Contains(typeof(T)))
             {
                 throw new NotSupportedException($"The Type {typeof(T).Name} is not supported to build a ReferenceProperty for.");
             }
 
-            return new ReferenceProperty<T>(ormModel, objectType, propertyRole, classRole);
+            return new ReferenceProperty<T>(ormModel, objectType, propertyRole, classRole, generationSettings);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Kalliope.OO.StructuralFeature
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.OO.Extensions;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// Class that defines a Property
@@ -37,28 +38,136 @@ namespace Kalliope.OO.StructuralFeature
         public string DataType { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="IProperty"/>'s Raw DataType as a string
+        /// Gets the ORM ReferenceMode as a string
         /// </summary>
-        public string RawDataType => this.GetRawDataType();
+        public string ReferenceMode => this.GetReferenceMode();
 
-        private string GetRawDataType()
+        /// <summary>
+        /// Retrieves the ReferenceMode
+        /// </summary>
+        /// <returns>the ReferenceMode as a string</returns>
+        private string GetReferenceMode()
         {
-            if (!this.IsReferenceProperty)
+            if (this.ObjectType.PlayedRoles.OfType<SubtypeMetaRole>().Any())
             {
-                return this.DataType;
+                foreach (var subTypeMetaRole in this.ObjectType.PlayedRoles.OfType<SubtypeMetaRole>())
+                {
+                    var inheritenceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
+
+                    var superTypeMetaRole = inheritenceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
+
+                    if (superTypeMetaRole != null)
+                    {
+                        return superTypeMetaRole.RolePlayer.ReferenceMode;
+                    }
+                }
             }
 
-            var rawDataType = "Guid";
+            return this.ObjectType.ReferenceMode;
+        }
 
-            rawDataType = this.UpdateDataTypeStringWithMultiplicity(rawDataType);
+        /// <summary>
+        /// Gets or sets the scale of the property
+        /// </summary>
+        public int Scale { get; protected set; } = -1;
 
-            return rawDataType;
+        /// <summary>
+        /// Gets or sets the Length of the property
+        /// </summary>
+        public int Length { get; protected set; } = -1;
+
+        /// <summary>
+        /// Gets a value indicating if the property is mandatory
+        /// </summary>
+        public bool IsMandatory => this.ClassRole.IsMandatory;
+
+        /// <summary>
+        /// Gets a value indicating that this property is part of the primary key
+        /// </summary>
+        public bool IsPartOfIdentifier { get; private set; }
+
+        /// <summary>
+        /// Gets a value indicating that this property of an enum type
+        /// </summary>
+        public bool IsEnum => this.ObjectType is ValueType valueType && valueType.ValueConstraint?.ValueRanges.Count > 0 && !valueType.IsImplicitBooleanValue;
+
+        /// <summary>
+        /// Calculates if this property is (part of) the identifier
+        /// </summary>
+        /// <returns>True if the property is part of the indentifier</returns>
+        private bool CalculateIsPartOfIdentity()
+        {
+            if (this.ClassRole.RolePlayer is EntityType entityType)
+            {
+                return
+                    (entityType
+                        .PreferredIdentifier?
+                        .Roles
+                        .OfType<Role>()
+                        .Contains(this.PropertyRole) ?? false)
+                    ||
+                    (entityType
+                        .PreferredIdentifier?
+                        .Roles
+                        .OfType<RoleProxy>()
+                        .Select(x => x.TargetRole)
+                        .Contains(this.PropertyRole) ?? false);
+            }
+
+            if (this.ClassRole.RolePlayer is ObjectifiedType objectifiedType)
+            {
+                return (objectifiedType
+                           .PreferredIdentifier?
+                           .Roles
+                           .OfType<Role>()
+                           .Contains(this.PropertyRole) ?? false)
+                       ||
+                       (objectifiedType
+                           .PreferredIdentifier?
+                           .Roles
+                           .OfType<RoleProxy>()
+                           .Select(x => x.TargetRole)
+                           .Contains(this.PropertyRole) ?? false);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Gets or sets the <see cref="IProperty"/>'s ORM <see cref="DataType"/>
+        /// </summary>
+        public DataType OrmDataType => this.GetOrmDataType();
+
+        /// <summary>
+        /// Retrieves the ORM <see cref="DataType"/> for a <see cref="IProperty"/>
+        /// </summary>
+        /// <returns>The ORM <see cref="DataType"/></returns>
+        private DataType GetOrmDataType()
+        {
+            if (this.ObjectType.ValueConstraint?.ValueRanges.Count > 0 && !this.ObjectType.IsImplicitBooleanValue)
+            {
+                return null;
+            }
+
+            if (this.ObjectType.ConceptualDataType == null)
+            {
+                return null;
+            }
+
+            var dataTypeId = this.ObjectType.ConceptualDataType.Reference;
+            return this.OrmModel.DataTypes.FirstOrDefault(dt => dt.Id == dataTypeId);
         }
 
         /// <summary>
         /// Gets or sets the multiplicity of the <see cref="Property{T}"/> relationship
         /// </summary>
-        public Multiplicity Multiplicity => this.PropertyRole.Multiplicity;
+        public Multiplicity Multiplicity => this.CalculateMultiplicity();
+
+        /// <summary>
+        /// Calculates the Multiplicity for this property 
+        /// </summary>
+        /// <returns>The Calculated <see cref="Multiplicity"/></returns>
+        protected abstract Multiplicity CalculateMultiplicity();
 
         /// <summary>
         /// The property's <see cref="Role"/>
@@ -91,14 +200,9 @@ namespace Kalliope.OO.StructuralFeature
         public bool IsEnumerable => this.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany;
 
         /// <summary>
-        /// Gets a value indicating if the property type is a nullable type
-        /// </summary>
-        public bool IsNullable => this.Multiplicity is Multiplicity.ZeroToOne or Multiplicity.ZeroToMany;
-
-        /// <summary>
         /// Gets a value indicating if the property type is a reference type
         /// </summary>
-        public bool IsReferenceProperty => this.ObjectType is ObjectifiedType or EntityType;
+        public bool IsReferenceProperty => !this.ObjectType.IsValueType;
 
         /// <summary>
         /// Creates a new instance of the <see cref="Property{T}"/> class
@@ -107,8 +211,10 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Property{T}"/> <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        protected Property(OrmModel ormModel, T objectType, Role propertyRole, Role classRole)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        protected Property(OrmModel ormModel, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings)
         {
+            this.GenerationSettings = generationSettings;
             this.OrmModel = ormModel;
             this.ObjectType = objectType;
             this.FactType = this.OrmModel.FactTypes.Single(x => x.Roles.Contains(propertyRole));
@@ -121,10 +227,11 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Initializes this class
         /// </summary>
-        private void Initialize()
+        protected virtual void Initialize()
         {
             this.DataType = this.GetDataType();
             this.Name = this.GetName().ToUsableName();
+            this.IsPartOfIdentifier = this.CalculateIsPartOfIdentity();
         }
 
         /// <summary>
@@ -138,20 +245,5 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         /// <returns>The <see cref="ObjectType"/>'s Name</returns>
         protected abstract string GetName();
-
-        /// <summary>
-        /// Updates the datatype of the property according to the <see cref="Multiplicity"/>
-        /// </summary>
-        /// <param name="dataType">A string representing the field data type</param>
-        /// <returns></returns>
-        protected string UpdateDataTypeStringWithMultiplicity(string dataType)
-        {
-            if (this.IsEnumerable)
-            {
-                return $"List<{dataType}>";
-            }
-
-            return dataType;
-        }
     }
 }

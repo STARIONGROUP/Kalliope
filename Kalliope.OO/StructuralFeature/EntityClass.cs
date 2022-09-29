@@ -21,6 +21,7 @@
 namespace Kalliope.OO.StructuralFeature
 {
     using Kalliope.Core;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// An <see cref="EntityClass"/> is a <see cref="Class"/> that represents an Entity with properties
@@ -32,7 +33,8 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
-        public EntityClass(OrmModel ormModel, ObjectType objectType) : base(ormModel, objectType)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        public EntityClass(OrmModel ormModel, ObjectType objectType, GenerationSettings generationSettings) : base(ormModel, objectType, generationSettings)
         {
         }
 

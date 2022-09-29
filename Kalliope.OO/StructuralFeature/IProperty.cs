@@ -36,7 +36,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets or sets the <see cref="IProperty"/>'s Raw DataType as a string
         /// </summary>
-        string RawDataType { get; }
+        DataType OrmDataType { get; }
 
         /// <summary>
         /// Gets or sets the multiplicity of the <see cref="IProperty"/> relationship
@@ -69,13 +69,38 @@ namespace Kalliope.OO.StructuralFeature
         bool IsEnumerable { get; }
 
         /// <summary>
-        /// Gets a value indicating if the property type is a nullable type
-        /// </summary>
-        bool IsNullable { get; }
-
-        /// <summary>
         /// Gets a value indicating if the property type is a reference type
         /// </summary>
         bool IsReferenceProperty { get; }
+
+        /// <summary>
+        /// Gets the ORM ReferenceMode as a string
+        /// </summary>
+        string ReferenceMode { get; }
+
+        /// <summary>
+        /// Gets or sets the scale of the property
+        /// </summary>
+        int Scale { get; }
+
+        /// <summary>
+        /// Gets or sets the Length of the property
+        /// </summary>
+        int Length { get; }
+
+        /// <summary>
+        /// Gets a value indicating if the property is mandatory
+        /// </summary>
+        bool IsMandatory { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this property is part of the primary key
+        /// </summary>
+        bool IsPartOfIdentifier { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this property of an enum type
+        /// </summary>
+        bool IsEnum { get; }
     }
 }

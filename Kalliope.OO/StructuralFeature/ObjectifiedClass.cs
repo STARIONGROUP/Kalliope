@@ -20,9 +20,8 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
-    using System.Linq;
-
     using Kalliope.Core;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// An <see cref="ObjectifiedClass"/> is a <see cref="Class"/> that represents an Relationship with properties
@@ -30,16 +29,12 @@ namespace Kalliope.OO.StructuralFeature
     public class ObjectifiedClass : Class
     {
         /// <summary>
-        /// Gets a value indicating that this ObjectifiedClass has extra 
-        /// </summary>
-        public bool HasExtraProperties => this.Properties.OfType<ValueTypeProperty>().Any() || this.Properties.Count(x => x is IReferenceProperty) > 2;
-
-        /// <summary>
         /// Creates a new instance of the <see cref="ObjectifiedClass"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
-        public ObjectifiedClass(OrmModel ormModel, ObjectType objectType) : base(ormModel, objectType)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        public ObjectifiedClass(OrmModel ormModel, ObjectType objectType, GenerationSettings generationSettings) : base(ormModel, objectType, generationSettings)
         {
         }
 

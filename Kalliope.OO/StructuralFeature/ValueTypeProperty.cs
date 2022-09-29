@@ -22,8 +22,9 @@ namespace Kalliope.OO.StructuralFeature
 {
     using System.Linq;
 
+    using Kalliope.Common;
     using Kalliope.Core;
-    using Kalliope.OO.Mappers;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// Class that describes a ValueType property
@@ -42,8 +43,28 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="valueType">The <see cref="ValueType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        public ValueTypeProperty(OrmModel ormModel, ValueType valueType, Role propertyRole, Role classRole) : base(ormModel, valueType, propertyRole, classRole)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        public ValueTypeProperty(OrmModel ormModel, ValueType valueType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, valueType, propertyRole, classRole, generationSettings)
         {
+        }
+
+        /// <summary>
+        /// Calculates the Multiplicity for this property 
+        /// </summary>
+        /// <returns>The Calculated <see cref="Multiplicity"/></returns>
+        protected override Multiplicity CalculateMultiplicity()
+        {
+            return this.PropertyRole.Multiplicity;
+        }
+
+        /// <summary>
+        /// Initializes this class
+        /// </summary>
+        protected override void Initialize()
+        {
+            base.Initialize();
+            this.Scale = this.ObjectType.ConceptualDataType.Scale;
+            this.Length = this.ObjectType.ConceptualDataType.Length;
         }
 
         /// <summary>
@@ -52,15 +73,12 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="ValueType"/> datatype</returns>
         protected override string GetDataType()
         {
-            if (this.ObjectType.ValueConstraint?.ValueRanges.Count > 0 && !this.ObjectType.IsImplicitBooleanValue)
+            if (this.IsEnum)
             {
                 return this.ObjectType.Name;
             }
 
-            var dataTypeId = this.ObjectType.ConceptualDataType.Reference;
-            var dataType = DataTypeMapper.MapDataType(dataTypeId, this.OrmModel.DataTypes);
-
-            dataType = this.UpdateDataTypeStringWithMultiplicity(dataType);
+            var dataType = this.GenerationSettings.DataTypeMapper.MapDataType(this.OrmDataType);
 
             return dataType;
         }

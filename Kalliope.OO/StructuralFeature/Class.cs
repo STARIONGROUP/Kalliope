@@ -25,6 +25,7 @@ namespace Kalliope.OO.StructuralFeature
 
     using Kalliope.Core;
     using Kalliope.OO.Extensions;
+    using Kalliope.OO.Generation;
 
     /// <summary>
     /// Base class from which all Class types derive
@@ -52,9 +53,74 @@ namespace Kalliope.OO.StructuralFeature
         public List<IProperty> Properties { get; set; } = new();
 
         /// <summary>
+        /// Gets all identifier properties 
+        /// </summary>
+        public List<IProperty> IdentifierProperties => this.GetIdentifierProperties();
+
+        /// <summary>
         /// Gets all properties also from super classes
         /// </summary>
-        public List<IProperty> AllProperties => this.Properties.Union(this.SuperClasses.SelectMany(x => x.AllProperties)).OrderBy(y => y.Name).ToList();
+        public List<IProperty> IdentifierPropertiesIncludingSupertypes => this.GetIdentifierProperties(true);
+
+        /// <summary>
+        /// Retrieves all the identifier properties of this class
+        /// </summary>
+        /// <returns>A <see cref="List{T}"/> of type <see cref="IProperty"/></returns>
+        private List<IProperty> GetIdentifierProperties(bool includeSuperTypeProperties = false)
+        {
+            var properties = this.Properties.Where(y => y.IsPartOfIdentifier).ToList();
+
+            if (properties.Any())
+            {
+                return properties;
+            }
+
+            if (includeSuperTypeProperties)
+            {
+                foreach (var superClass in this.SuperClasses)
+                {
+                    properties = superClass.IdentifierPropertiesIncludingSupertypes;
+
+                    if (properties.Any())
+                    {
+                        return properties;
+                    }
+                }
+            }
+
+            return new List<IProperty>();
+        }
+
+        /// <summary>
+        /// Gets all properties also from super classes
+        /// </summary>
+        public List<IProperty> NonIdentifierProperties => this.GetNonIdentifierProperties();
+
+        /// <summary>
+        /// Gets all properties also from super classes
+        /// </summary>
+        public List<IProperty> NonIdentifierPropertiesIncludingSuperTypes => this.GetNonIdentifierProperties(true);
+
+        /// <summary>
+        /// Retrieves all the non identifier properties of this class
+        /// </summary>
+        /// <returns>A <see cref="List{T}"/> of type <see cref="IProperty"/></returns>
+        private List<IProperty> GetNonIdentifierProperties(bool includeSuperTypeProperties = false)
+        {
+            var result = this.Properties.Where(y => !y.IsPartOfIdentifier);
+
+            if (includeSuperTypeProperties)
+            {
+                result = result
+                    .Union(
+                        this.SuperClasses
+                            .SelectMany(x => x.NonIdentifierPropertiesIncludingSuperTypes.Where(y => !y.IsPartOfIdentifier)));
+            }
+
+            return result
+                .OrderBy(y => y.Name)
+                .ToList();
+        }
 
         /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="ObjectType"/> that contains all the <see cref="ObjectType"/>s that this <see cref="Class"/> derives from
@@ -86,8 +152,10 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
-        protected Class(OrmModel ormModel, ObjectType objectType)
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        protected Class(OrmModel ormModel, ObjectType objectType, GenerationSettings generationSettings)
         {
+            this.GenerationSettings = generationSettings;
             this.OrmModel = ormModel;
             this.ObjectType = objectType;
             this.Definition = objectType.Definition?.Text;
@@ -233,15 +301,10 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>True if a property was added, otherwise false</returns>
         protected bool TryAddValueTypeProperty(ValueType valueType, Role propertyRole, Role classRole)
         {
-            if (valueType.Name.EndsWith("_UUID"))
-            {
-                return true;
-            }
-
-            var property = new ValueTypeProperty(this.OrmModel, valueType, propertyRole, classRole);
+            var property = new ValueTypeProperty(this.OrmModel, valueType, propertyRole, classRole, this.GenerationSettings);
             this.Properties.Add(property);
 
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -265,7 +328,7 @@ namespace Kalliope.OO.StructuralFeature
                 return false;
             }
 
-            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, entityType, propertyRole, classRole);
+            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, entityType, propertyRole, classRole, this.GenerationSettings);
             this.Properties.Add(property);
 
             return true;
@@ -305,7 +368,7 @@ namespace Kalliope.OO.StructuralFeature
 
             if (propertyRole?.RolePlayer is ObjectifiedType objectifiedType)
             {
-                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, objectifiedType, propertyRole, classRole);
+                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, objectifiedType, propertyRole, classRole, this.GenerationSettings);
 
                 this.Properties.Add(property);
                 result = true;

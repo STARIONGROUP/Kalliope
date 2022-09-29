@@ -33,6 +33,11 @@ namespace Kalliope.OO.Generation
     public class ClassGenerator
     {
         /// <summary>
+        /// The <see cref="GenerationSettings"/> to be used when creating classes and properties
+        /// </summary>
+        private readonly GenerationSettings generationSettings;
+
+        /// <summary>
         /// Gets the <see cref="OrmModel"/>
         /// </summary>
         public OrmModel OrmModel { get; }
@@ -40,8 +45,11 @@ namespace Kalliope.OO.Generation
         /// <summary>
         /// Creates a new instance of <see cref="ClassGenerator"/>
         /// </summary>
-        public ClassGenerator(OrmModel ormModel)
+        /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
+        public ClassGenerator(OrmModel ormModel, GenerationSettings generationSettings)
         {
+            this.generationSettings = generationSettings;
             this.OrmModel = ormModel;
         }
 
@@ -120,7 +128,7 @@ namespace Kalliope.OO.Generation
         /// <returns>A <see cref="Class"/></returns>
         private Class GenerateClassFromEntityType(EntityType entityType)
         {
-            var entityClass = new EntityClass(this.OrmModel, entityType);
+            var entityClass = new EntityClass(this.OrmModel, entityType, this.generationSettings);
 
             return entityClass;
         }
@@ -133,7 +141,7 @@ namespace Kalliope.OO.Generation
         /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
         private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, out Class objectifiedClass)
         {
-            objectifiedClass = new ObjectifiedClass(this.OrmModel, objectifiedType);
+            objectifiedClass = new ObjectifiedClass(this.OrmModel, objectifiedType, this.generationSettings);
 
             return true;
         }

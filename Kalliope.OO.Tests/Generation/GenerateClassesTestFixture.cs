@@ -44,7 +44,7 @@ namespace Kalliope.OO.Tests
 
             this.ormRoot = OrmModelLoader.Load(ormFileName);
 
-            this.classGenerator = new ClassGenerator(this.ormRoot.Model);
+            this.classGenerator = new ClassGenerator(this.ormRoot.Model, new GenerationSettings());
         }
 
         [Test]
