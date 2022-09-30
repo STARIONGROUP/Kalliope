@@ -33,6 +33,23 @@ namespace Kalliope.OO.StructuralFeature
     public class ReferenceProperty<T> : Property<T>, IReferenceProperty where T : ObjectType
     {
         /// <summary>
+        /// Gets a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
+        /// </summary>
+        public bool IsMainRelationshipRole => this.CalculateMailRelationshipRole();
+
+        /// <summary>
+        /// Retrieves a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
+        /// </summary>
+        /// <returns>True if this <see cref="IReferenceProperty"/> represents the main relationship role, otherwise false</returns>
+        private bool CalculateMailRelationshipRole()
+        {
+            return 
+                this.FactType.Roles.OfType<Role>().FirstOrDefault() == this.ClassRole
+                || 
+                this.FactType.Roles.OfType<RoleProxy>().FirstOrDefault()?.TargetRole == this.ClassRole;
+        }
+
+        /// <summary>
         /// Gets the nested <see cref="FactType"/> for an <see cref="ObjectifiedType"/> that has an ImpliedFactType
         /// </summary>
         public FactType NestedFactType => this.ObjectType is ObjectifiedType objectifiedType ? objectifiedType.NestedPredicate.NestedFactType : null;
@@ -46,11 +63,12 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="ReferenceProperty{T}"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public ReferenceProperty(OrmModel ormModel, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, objectType, propertyRole, classRole, generationSettings)
+        public ReferenceProperty(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, ooClass, objectType, propertyRole, classRole, generationSettings)
         {
         }
 
@@ -62,13 +80,27 @@ namespace Kalliope.OO.StructuralFeature
         {
             if (this.ClassRole.RolePlayer is ObjectifiedType)
             {
-                if (this.PropertyRole.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany)
+                if (this.PropertyRole.Multiplicity is Multiplicity.OneToMany)
                 {
                     return Multiplicity.ExactlyOne;
+                }
+
+                if (this.PropertyRole.Multiplicity is Multiplicity.ZeroToMany)
+                {
+                    return Multiplicity.ZeroToOne;
                 }
             }
 
             return this.PropertyRole.Multiplicity;
+        }
+
+        /// <summary>
+        /// Calculates if this property is an Enumerable type
+        /// </summary>
+        /// <returns>True if this property is an Enumerable type</returns>
+        protected override bool CalculateIsEnumerable()
+        {
+            return this.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany;
         }
 
         /// <summary>

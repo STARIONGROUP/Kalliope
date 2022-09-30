@@ -40,11 +40,12 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="ValueTypeProperty"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="valueType">The <see cref="ValueType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public ValueTypeProperty(OrmModel ormModel, ValueType valueType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, valueType, propertyRole, classRole, generationSettings)
+        public ValueTypeProperty(OrmModel ormModel, Class ooClass, ValueType valueType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, ooClass, valueType, propertyRole, classRole, generationSettings)
         {
         }
 
@@ -54,7 +55,29 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The Calculated <see cref="Multiplicity"/></returns>
         protected override Multiplicity CalculateMultiplicity()
         {
+            if (this.ClassRole.RolePlayer is ObjectifiedType)
+            {
+                if (this.PropertyRole.Multiplicity is Multiplicity.OneToMany)
+                {
+                    return Multiplicity.ExactlyOne;
+                }
+
+                if (this.PropertyRole.Multiplicity is Multiplicity.ZeroToMany)
+                {
+                    return Multiplicity.ZeroToOne;
+                }
+            }
+
             return this.PropertyRole.Multiplicity;
+        }
+
+        /// <summary>
+        /// Calculates if this property is an Enumerable type
+        /// </summary>
+        /// <returns>True if this property is an Enumerable type</returns>
+        protected override bool CalculateIsEnumerable()
+        {
+            return this.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany;
         }
 
         /// <summary>

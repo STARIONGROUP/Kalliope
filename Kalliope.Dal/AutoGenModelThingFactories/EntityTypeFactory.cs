@@ -67,7 +67,6 @@ namespace Kalliope.Dal
                 IsIndependent = dto.IsIndependent,
                 IsPersonal = dto.IsPersonal,
                 IsSupertypePersonal = dto.IsSupertypePersonal,
-                IsValueType = dto.IsValueType,
                 Name = dto.Name,
                 ReferenceMode = dto.ReferenceMode,
                 ReferenceModeDecoratedString = dto.ReferenceModeDecoratedString,

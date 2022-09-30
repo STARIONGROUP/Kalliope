@@ -33,6 +33,11 @@ namespace Kalliope.OO.StructuralFeature
     public abstract class Property<T> : StructuralFeature, IProperty where T : ObjectType
     {
         /// <summary>
+        /// Gets the <see cref="Class"/> that this <see cref="IProperty"/> belongs to
+        /// </summary>
+        public Class Class { get; }
+
+        /// <summary>
         /// Gets or sets the property's DataType as a string
         /// </summary>
         public string DataType { get; protected set; }
@@ -197,7 +202,13 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets a value indicating if the property type is an Enumerable type
         /// </summary>
-        public bool IsEnumerable => this.Multiplicity is Multiplicity.OneToMany or Multiplicity.ZeroToMany;
+        public bool IsEnumerable => this.CalculateIsEnumerable();
+
+        /// <summary>
+        /// Calculates if this property is an Enumerable type
+        /// </summary>
+        /// <returns>True if this property is an Enumerable type</returns>
+        protected abstract bool CalculateIsEnumerable();
 
         /// <summary>
         /// Gets a value indicating if the property type is a reference type
@@ -208,13 +219,15 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="Property{T}"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Property{T}"/> <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        protected Property(OrmModel ormModel, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings)
+        protected Property(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings)
         {
             this.GenerationSettings = generationSettings;
+            this.Class = ooClass;
             this.OrmModel = ormModel;
             this.ObjectType = objectType;
             this.FactType = this.OrmModel.FactTypes.Single(x => x.Roles.Contains(propertyRole));

@@ -25,5 +25,9 @@ namespace Kalliope.OO.StructuralFeature
     /// </summary>
     public interface IReferenceProperty : IProperty
     {
+        /// <summary>
+        /// Gets a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
+        /// </summary>
+        bool IsMainRelationshipRole { get; }
     }
 }

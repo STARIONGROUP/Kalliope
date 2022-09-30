@@ -29,6 +29,11 @@ namespace Kalliope.OO.StructuralFeature
     public interface IProperty : IStructuralFeature
     {
         /// <summary>
+        /// Gets the <see cref="Class"/> that this <see cref="IProperty"/> belongs to
+        /// </summary>
+        Class Class { get; }
+
+        /// <summary>
         /// Gets or sets the <see cref="IProperty"/>'s DataType as a string
         /// </summary>
         string DataType { get; }

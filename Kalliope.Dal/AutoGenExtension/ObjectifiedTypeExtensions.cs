@@ -195,9 +195,7 @@ namespace Kalliope.Dal
             poco.IsPersonal = dto.IsPersonal;
 
             poco.IsSupertypePersonal = dto.IsSupertypePersonal;
-
-            poco.IsValueType = dto.IsValueType;
-
+            
             poco.Name = dto.Name;
 
             if (poco.NestedPredicate != null && poco.NestedPredicate.Id != dto.NestedPredicate)

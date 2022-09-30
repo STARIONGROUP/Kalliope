@@ -80,7 +80,7 @@ namespace Kalliope.OO.Generation
 
             foreach (var entityType in entityTypes)
             {
-                var generatedClass = this.GenerateClassFromEntityType(entityType);
+                var generatedClass = this.GenerateClassFromEntityType(entityType, generatedClasses);
                 generatedClasses.Add(generatedClass);
             }
 
@@ -88,33 +88,9 @@ namespace Kalliope.OO.Generation
 
             foreach (var objectifiedType in objectifiedTypes)
             {
-                if (this.TryGenerateClassFromObjectifiedType(objectifiedType, out var generatedClass))
+                if (this.TryGenerateClassFromObjectifiedType(objectifiedType, generatedClasses, out var generatedClass))
                 {
                     generatedClasses.Add(generatedClass);
-                }
-            }
-
-            //Assemble Sub- and SuperTypes
-            foreach (var generatedClass in generatedClasses)
-            {
-                foreach (var superObjectType in generatedClass.SuperObjectTypes)
-                {
-                    var superClassType = generatedClasses.FirstOrDefault(x => x.ObjectType == superObjectType);
-
-                    if (superClassType != null)
-                    {
-                        generatedClass.SuperClasses.Add(superClassType);
-                    }
-                }
-
-                foreach (var subObjectType in generatedClass.SubObjectTypes)
-                {
-                    var subClassType = generatedClasses.FirstOrDefault(x => x.ObjectType == subObjectType);
-
-                    if (subClassType != null)
-                    {
-                        generatedClass.SubClasses.Add(subClassType);
-                    }
                 }
             }
 
@@ -125,10 +101,11 @@ namespace Kalliope.OO.Generation
         /// Generates the <see cref="Class"/>
         /// </summary>
         /// <param name="entityType"><see cref="EntityType"/></param>
+        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <returns>A <see cref="Class"/></returns>
-        private Class GenerateClassFromEntityType(EntityType entityType)
+        private Class GenerateClassFromEntityType(EntityType entityType, List<Class> classes)
         {
-            var entityClass = new EntityClass(this.OrmModel, entityType, this.generationSettings);
+            var entityClass = new EntityClass(this.OrmModel, classes, entityType, this.generationSettings);
 
             return entityClass;
         }
@@ -137,11 +114,12 @@ namespace Kalliope.OO.Generation
         /// Generates the <see cref="Class"/>
         /// </summary>
         /// <param name="objectifiedType"><see cref="ObjectifiedType"/></param>
+        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectifiedClass">The to be returned <see cref="Class"/></param>
         /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
-        private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, out Class objectifiedClass)
+        private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, List<Class> classes, out Class objectifiedClass)
         {
-            objectifiedClass = new ObjectifiedClass(this.OrmModel, objectifiedType, this.generationSettings);
+            objectifiedClass = new ObjectifiedClass(this.OrmModel, classes, objectifiedType, this.generationSettings);
 
             return true;
         }

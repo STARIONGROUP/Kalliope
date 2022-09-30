@@ -20,6 +20,8 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
+    using System.Collections.Generic;
+
     using Kalliope.Core;
     using Kalliope.OO.Generation;
 
@@ -32,9 +34,10 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="EntityClass"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
         /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public EntityClass(OrmModel ormModel, ObjectType objectType, GenerationSettings generationSettings) : base(ormModel, objectType, generationSettings)
+        public EntityClass(OrmModel ormModel, List<Class> classes, ObjectType objectType, GenerationSettings generationSettings) : base(ormModel, classes, objectType, generationSettings)
         {
         }
 

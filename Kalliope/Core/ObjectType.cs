@@ -56,8 +56,7 @@ namespace Kalliope.Core
         /// Is this ObjectType a self-identifying value or an entity
         /// </summary>
         [Description("Is this ObjectType a self-identifying value or an entity?")]
-        [Property(name: "IsValueType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false")]
-        public bool IsValueType { get; set; }
+        public bool IsValueType => this is ValueType; 
 
         /// <summary>
         /// This object type is externally defined (not used).

@@ -38,6 +38,11 @@ namespace Kalliope.OO.StructuralFeature
         protected OrmModel OrmModel { get; }
 
         /// <summary>
+        /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all Classes
+        /// </summary>
+        public List<Class> Classes { get; }
+
+        /// <summary>
         /// Gets the <see cref="ObjectType"/>
         /// </summary>
         public ObjectType ObjectType { get; }
@@ -60,7 +65,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets all properties also from super classes
         /// </summary>
-        public List<IProperty> IdentifierPropertiesIncludingSupertypes => this.GetIdentifierProperties(true);
+        public List<IProperty> IdentifierPropertiesIncludingSuperTypes => this.GetIdentifierProperties(true);
 
         /// <summary>
         /// Retrieves all the identifier properties of this class
@@ -79,7 +84,7 @@ namespace Kalliope.OO.StructuralFeature
             {
                 foreach (var superClass in this.SuperClasses)
                 {
-                    properties = superClass.IdentifierPropertiesIncludingSupertypes;
+                    properties = superClass.IdentifierPropertiesIncludingSuperTypes;
 
                     if (properties.Any())
                     {
@@ -125,22 +130,22 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="ObjectType"/> that contains all the <see cref="ObjectType"/>s that this <see cref="Class"/> derives from
         /// </summary>
-        public List<ObjectType> SuperObjectTypes { get; set; } = new();
+        protected List<ObjectType> SuperObjectTypes { get; set; } = new();
 
         /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="ObjectType"/> that contains all the <see cref="ObjectType"/>s that derive from this <see cref="Class"/>
         /// </summary>
-        public List<ObjectType> SubObjectTypes { get; set; } = new();
+        protected List<ObjectType> SubObjectTypes { get; set; } = new();
 
         /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all the <see cref="Class"/>es that this <see cref="Class"/> derives from
         /// </summary>
-        public List<Class> SuperClasses { get; set; } = new();
+        public List<Class> SuperClasses => this.Classes.Where(x => this.SuperObjectTypes.Contains(x.ObjectType)).ToList();
 
         /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all the <see cref="Class"/>s that derive from this <see cref="Class"/>
         /// </summary>
-        public List<Class> SubClasses { get; set; } = new();
+        public List<Class> SubClasses => this.Classes.Where(x => this.SubObjectTypes.Contains(x.ObjectType)).ToList();
 
         /// <summary>
         /// Gets a value indicating that this <see cref="Class"/> is a Sub type of another <see cref="Class"/>
@@ -148,15 +153,59 @@ namespace Kalliope.OO.StructuralFeature
         public bool IsSubType => this.SuperClasses.Any();
 
         /// <summary>
+        /// Gets a value indicating that this <see cref="Class"/> is a Sub type of another <see cref="Class"/>
+        /// </summary>
+        public bool HasBaseClass => this.CalculateHasBaseClass();
+
+        /// <summary>
+        /// Clalculates if this <see cref="Class"/> has a baseclass
+        /// </summary>
+        /// <returns></returns>
+        private bool CalculateHasBaseClass()
+        {
+            return this.CalculateMainSuperType() != null;
+        }
+
+        /// <summary>
+        /// Gets the main supertype <see cref="Class"/>
+        /// </summary>
+        public Class MainSuperType => this.CalculateMainSuperType();
+
+        /// <summary>
+        /// Calculates the main supertype <see cref="Class"/>
+        /// </summary>
+        private Class CalculateMainSuperType()
+        {
+            if (this.IsSubType)
+            {
+                foreach (var subTypeMetaRole in this.ObjectType.PlayedRoles.OfType<SubtypeMetaRole>())
+                {
+                    var inheritenceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
+
+                    var superTypeMetaRole = inheritenceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
+
+                    if (superTypeMetaRole != null)
+                    {
+                        return this.SuperClasses.Single(x => x.ObjectType == superTypeMetaRole.RolePlayer);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Creates a new instance of the <see cref="Class"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
+        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
         /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        protected Class(OrmModel ormModel, ObjectType objectType, GenerationSettings generationSettings)
+        protected Class(OrmModel ormModel, List<Class> classes, ObjectType objectType, GenerationSettings generationSettings)
         {
             this.GenerationSettings = generationSettings;
             this.OrmModel = ormModel;
+            this.Classes = classes;
             this.ObjectType = objectType;
             this.Definition = objectType.Definition?.Text;
             this.Note = objectType.Note?.Text;
@@ -301,7 +350,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>True if a property was added, otherwise false</returns>
         protected bool TryAddValueTypeProperty(ValueType valueType, Role propertyRole, Role classRole)
         {
-            var property = new ValueTypeProperty(this.OrmModel, valueType, propertyRole, classRole, this.GenerationSettings);
+            var property = new ValueTypeProperty(this.OrmModel, this, valueType, propertyRole, classRole, this.GenerationSettings);
             this.Properties.Add(property);
 
             return true;
@@ -328,7 +377,7 @@ namespace Kalliope.OO.StructuralFeature
                 return false;
             }
 
-            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, entityType, propertyRole, classRole, this.GenerationSettings);
+            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, entityType, propertyRole, classRole, this.GenerationSettings);
             this.Properties.Add(property);
 
             return true;
@@ -368,7 +417,7 @@ namespace Kalliope.OO.StructuralFeature
 
             if (propertyRole?.RolePlayer is ObjectifiedType objectifiedType)
             {
-                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, objectifiedType, propertyRole, classRole, this.GenerationSettings);
+                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, objectifiedType, propertyRole, classRole, this.GenerationSettings);
 
                 this.Properties.Add(property);
                 result = true;
