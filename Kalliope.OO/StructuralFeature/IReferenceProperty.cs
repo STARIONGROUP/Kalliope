@@ -29,5 +29,15 @@ namespace Kalliope.OO.StructuralFeature
         /// Gets a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
         /// </summary>
         bool IsMainRelationshipRole { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this property is an implied property 
+        /// </summary>
+        bool IsImpliedProperty { get; set; }
+
+        /// <summary>
+        /// Gets the reference entity name for a property based on an Implied type
+        /// </summary>
+        string ImpliedReferenceEntityName { get; }
     }
 }

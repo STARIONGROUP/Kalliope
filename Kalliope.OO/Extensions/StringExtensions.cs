@@ -21,6 +21,7 @@
 namespace Kalliope.OO.Extensions
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
 
@@ -76,6 +77,7 @@ namespace Kalliope.OO.Extensions
         public static string ToTitleCase(this string value)
         {
             value = char.ToUpper(value[0]) + value.Substring(1);
+            value = value.SplitWords();
 
             var words = value.Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -87,8 +89,47 @@ namespace Kalliope.OO.Extensions
             var tailWords = words.Skip(1)
                 .Select(word => char.ToUpper(word[0]) + word.Substring(1))
                 .ToArray();
-            
-            return $"{char.ToUpper(leadWord[0]) + leadWord.Substring(1)}{string.Join(string.Empty, tailWords)}";
+
+            leadWord = (char.ToUpper(leadWord[0]) + leadWord.Substring(1)).CheckReservedWords();
+
+            for (var i = 0; i<tailWords.Length; i++)
+            {
+                tailWords[i] = tailWords[i].CheckReservedWords();
+            }
+
+            return $"{leadWord}{string.Join(string.Empty, tailWords)}";
+        }
+
+        /// <summary>
+        /// Split a string to seperate words based on casing
+        /// </summary>
+        /// <param name="value">The <see cref="string"/> to split</param>
+        /// <returns>The splitted <see cref="string"/></returns>
+        public static string SplitWords(this string value)
+        {
+            var r = new Regex(@"
+                (?<=[A-Z])(?=[A-Z][a-z]) |
+                 (?<=[^A-Z])(?=[A-Z]) |
+                 (?<=[A-Za-z])(?=[^A-Za-z])", RegexOptions.IgnorePatternWhitespace);
+
+            return r.Replace(value, " ");
+        }
+
+        /// <summary>
+        /// Checks if a string is a reserved word for PASaaS and returns the reserved word accordingly.
+        /// </summary>
+        /// <param name="value">The <see cref="string"/></param>
+        /// <returns>The original string, of the reserved word in case it is a reserved word having the correct casing.</returns>
+        public static string CheckReservedWords(this string value)
+        {
+            var reservedWords = new List<string> {"IPN", "NCR"};
+
+            if (reservedWords.Select(x => x.ToUpper()).Contains(value.ToUpper()))
+            {
+                return reservedWords.Single(x => x.ToUpper() == value.ToUpper());
+            }
+
+            return value;
         }
     }
 }

@@ -35,13 +35,13 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
         /// </summary>
-        public bool IsMainRelationshipRole => this.CalculateMailRelationshipRole();
+        public bool IsMainRelationshipRole => this.CalculateMainRelationshipRole();
 
         /// <summary>
         /// Retrieves a value indicating if this <see cref="IReferenceProperty"/> represents the main relationship role.
         /// </summary>
         /// <returns>True if this <see cref="IReferenceProperty"/> represents the main relationship role, otherwise false</returns>
-        private bool CalculateMailRelationshipRole()
+        private bool CalculateMainRelationshipRole()
         {
             return 
                 this.FactType.Roles.OfType<Role>().FirstOrDefault() == this.ClassRole
@@ -50,14 +50,14 @@ namespace Kalliope.OO.StructuralFeature
         }
 
         /// <summary>
-        /// Gets the nested <see cref="FactType"/> for an <see cref="ObjectifiedType"/> that has an ImpliedFactType
+        /// Gets a value indicating that this property is an implied property
         /// </summary>
-        public FactType NestedFactType => this.ObjectType is ObjectifiedType objectifiedType ? objectifiedType.NestedPredicate.NestedFactType : null;
+        public bool IsImpliedProperty { get; set; }
 
         /// <summary>
-        /// Gets a value indicating that this is a NestedFactType
+        /// Gets the reference entity name for a property based on an Implied type
         /// </summary>
-        public bool IsImpliedFactType => this.ObjectType is ObjectifiedType objectifiedType && objectifiedType.NestedPredicate.IsImplied;
+        public string ImpliedReferenceEntityName => this.IsImpliedProperty ? this.FactType.Name : "";
 
         /// <summary>
         /// Creates a new instance of the <see cref="ReferenceProperty{T}"/> class
@@ -109,9 +109,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="ObjectType"/>'s datatype</returns>
         protected override string GetDataType()
         {
-            var dataType = this.ObjectType.Name.ToUsableName();
-
-            return dataType;
+            return this.ObjectType.Name.ToUsableName();
         }
 
         /// <summary>

@@ -117,9 +117,14 @@ namespace Kalliope.OO.Generation
         /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectifiedClass">The to be returned <see cref="Class"/></param>
         /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
-        private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, List<Class> classes, out Class objectifiedClass)
+        private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, List<Class> classes, out ObjectifiedClass objectifiedClass)
         {
             objectifiedClass = new ObjectifiedClass(this.OrmModel, classes, objectifiedType, this.generationSettings);
+
+            if (objectifiedClass.IsImplied)
+            {
+                return false;
+            }
 
             return true;
         }

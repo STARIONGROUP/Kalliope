@@ -63,8 +63,8 @@ namespace Kalliope.OO.Tests
 
             Assert.That(classes.Count, Is.EqualTo(52));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(131));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(39));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(118));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(27));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(130));
             Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(5));
             Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(5));
         }
@@ -89,8 +89,8 @@ namespace Kalliope.OO.Tests
 
             Assert.That(classes.Count, Is.EqualTo(1));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(8));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(8));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(17));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(6));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(19));
             Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(0));
             Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(0));
         }

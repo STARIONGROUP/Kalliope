@@ -53,6 +53,11 @@ namespace Kalliope.OO.StructuralFeature
         public bool IsObjectified => this.ObjectType is ObjectifiedType;
 
         /// <summary>
+        /// Gets a value indicating that the relationship that resulted in the creation of this <see cref="ObjectifiedClass"/> is an Implied Binary Relationship
+        /// </summary>
+        public bool IsImplied => this.IsObjectified && this.ObjectType is ObjectifiedType objectifiedType && objectifiedType.NestedPredicate.IsImplied && this.Properties.Count == 2;
+
+        /// <summary>
         /// A <see cref="List{T}"/> of type <see cref="IProperty"/> that contains all the properties of this <see cref="Class"/>
         /// </summary>
         public List<IProperty> Properties { get; set; } = new();
@@ -244,17 +249,25 @@ namespace Kalliope.OO.StructuralFeature
                                 .OfType<ImpliedFactType>()
                                 .SingleOrDefault(f => f.Roles.OfType<RoleProxy>().Any(ff => ff.TargetRole.Id == playedRole.Id));
 
-                        if (impliedFactType != null)
+                        if (impliedFactType != null && this.TryAddImpliedTypeProperty(impliedFactType))
                         {
-                            if (this.TryAddImpliedTypeProperty(impliedFactType))
-                            {
-                                result = true;
-                            }
+                            result = true;
                         }
                         else
                         {
-                            var factType = this.OrmModel.FactTypes
-                                .SingleOrDefault(f => f.Roles.Any(ff => ff.Id == playedRole.Id));
+                            FactType factType;
+                            var isImpliedProperty = false;
+
+                            if (impliedFactType != null && impliedFactType.Roles.Count == 2)
+                            {
+                                factType = impliedFactType.ImpliedByObjectification.NestedFactType;
+                                isImpliedProperty = true;
+                            }
+                            else
+                            {
+                                factType = this.OrmModel.FactTypes
+                                    .SingleOrDefault(f => f.Roles.Any(ff => ff.Id == playedRole.Id));
+                            }
 
                             if (factType != null)
                             {
@@ -262,28 +275,30 @@ namespace Kalliope.OO.StructuralFeature
                                     factType.Roles
                                         .Where(x => x.GetType() == typeof(Role))
                                         .Cast<Role>()
-                                        .First(x => x.RolePlayer == this.ObjectType);
+                                        .First(x => x.Id == playedRole.Id);
 
                                 var propertyRoles =
                                     factType.Roles
                                         .Where(x => x.GetType() == typeof(Role))
                                         .Cast<Role>()
                                         .Union(factType.Roles.OfType<RoleProxy>().Select(x => x.TargetRole))
-                                        .Where(x => x.RolePlayer != this.ObjectType)
+                                        .Where(x => x.Id != playedRole.Id)
                                         .ToList();
 
                                 foreach (var propertyRole in propertyRoles)
                                 {
-                                    if (propertyRole.RolePlayer is ValueType valueType)
+                                    var calculatedRole = propertyRole;
+
+                                    if (calculatedRole.RolePlayer is ValueType valueType)
                                     {
-                                        if (this.TryAddValueTypeProperty(valueType, propertyRole, classRole))
+                                        if (this.TryAddValueTypeProperty(valueType, calculatedRole, classRole))
                                         {
                                             result = true;
                                         }
                                     }
-                                    else if (propertyRole.RolePlayer is EntityType relatedEntityType)
+                                    else if (calculatedRole.RolePlayer is EntityType relatedEntityType)
                                     {
-                                        if (this.TryAddEntityTypeProperty(relatedEntityType, propertyRole, classRole))
+                                        if (this.TryAddEntityTypeProperty(relatedEntityType, calculatedRole, classRole, isImpliedProperty))
                                         {
                                             result = true;
                                         }
@@ -362,8 +377,9 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="entityType">The <see cref="EntityType"/></param>
         /// <param name="propertyRole">The current <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
+        /// <param name="isImpliedProperty">Indication that this is a property from an implied FactType </param>
         /// <returns>True if a property was added, otherwise false</returns>
-        protected bool TryAddEntityTypeProperty(EntityType entityType, Role propertyRole, Role classRole)
+        protected bool TryAddEntityTypeProperty(EntityType entityType, Role propertyRole, Role classRole, bool isImpliedProperty)
         {
             if (propertyRole is SupertypeMetaRole)
             {
@@ -378,6 +394,8 @@ namespace Kalliope.OO.StructuralFeature
             }
 
             var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, entityType, propertyRole, classRole, this.GenerationSettings);
+            property.IsImpliedProperty = isImpliedProperty;
+
             this.Properties.Add(property);
 
             return true;
@@ -417,6 +435,11 @@ namespace Kalliope.OO.StructuralFeature
 
             if (propertyRole?.RolePlayer is ObjectifiedType objectifiedType)
             {
+                if (objectifiedType.NestedPredicate.IsImplied && objectifiedType.NestedPredicate.NestedFactType.Roles.Count == 2)
+                {
+                    return false;
+                }
+
                 var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, objectifiedType, propertyRole, classRole, this.GenerationSettings);
 
                 this.Properties.Add(property);

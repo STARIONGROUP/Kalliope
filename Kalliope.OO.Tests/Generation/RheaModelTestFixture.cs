@@ -49,7 +49,7 @@ namespace Kalliope.OO.Tests
         [Test]
         public void VerifyThatAllEntityClassesAreCreated()
         {
-            var classes = this.classGenerator.Generate(this.ormRoot.Model.ObjectTypes.OfType<EntityType>());
+            var classes = this.classGenerator.Generate();
 
             foreach (var ooClass in classes)
             {
@@ -63,8 +63,8 @@ namespace Kalliope.OO.Tests
 
             Assert.That(classes.Count, Is.EqualTo(7));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(11));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(2));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(2));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(0));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(4));
             Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(4));
             Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(4));
         }
