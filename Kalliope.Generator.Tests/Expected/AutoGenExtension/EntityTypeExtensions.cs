@@ -196,8 +196,6 @@ namespace Kalliope.Dal
 
             poco.IsSupertypePersonal = dto.IsSupertypePersonal;
 
-            poco.IsValueType = dto.IsValueType;
-
             poco.Name = dto.Name;
 
             if (poco.Note != null && poco.Note.Id != dto.Note)

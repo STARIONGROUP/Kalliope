@@ -216,13 +216,6 @@ namespace Kalliope.DTO
         public bool IsSupertypePersonal { get; set; }
  
         /// <summary>
-        /// Gets or sets a IsValueType
-        /// </summary>
-        [Description("Is this ObjectType a self-identifying value or an entity?")]
-        [Property(name: "IsValueType", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "false", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
-        public bool IsValueType { get; set; }
- 
-        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>
         /// </summary>
         [Description("")]
