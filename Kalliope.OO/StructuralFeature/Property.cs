@@ -223,10 +223,10 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Property{T}"/> <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        protected Property(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        protected Property(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings)
         {
-            this.GenerationSettings = generationSettings;
+            this.GeneratorSettings = generatorSettings;
             this.Class = ooClass;
             this.OrmModel = ormModel;
             this.ObjectType = objectType;

@@ -45,7 +45,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets the <see cref="ObjectType"/>
         /// </summary>
-        public ObjectType ObjectType { get; }
+        protected ObjectType ObjectType { get; }
 
         /// <summary>
         /// Gets a value that indicates that this is an Objectified class
@@ -70,7 +70,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets all properties also from super classes
         /// </summary>
-        public List<IProperty> IdentifierPropertiesIncludingSuperTypes => this.GetIdentifierProperties(true);
+        public List<IProperty> IdentifierPropertiesIncludingSuperTypes => this.GetIdentifierProperties(includeSuperTypeProperties: true);
 
         /// <summary>
         /// Retrieves all the identifier properties of this class
@@ -109,7 +109,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets all properties also from super classes
         /// </summary>
-        public List<IProperty> NonIdentifierPropertiesIncludingSuperTypes => this.GetNonIdentifierProperties(true);
+        public List<IProperty> NonIdentifierPropertiesIncludingSuperTypes => this.GetNonIdentifierProperties(includeSuperTypeProperties: true);
 
         /// <summary>
         /// Retrieves all the non identifier properties of this class
@@ -205,10 +205,10 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        protected Class(OrmModel ormModel, List<Class> classes, ObjectType objectType, GenerationSettings generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        protected Class(OrmModel ormModel, List<Class> classes, ObjectType objectType, GeneratorSettings generatorSettings)
         {
-            this.GenerationSettings = generationSettings;
+            this.GeneratorSettings = generatorSettings;
             this.OrmModel = ormModel;
             this.Classes = classes;
             this.ObjectType = objectType;
@@ -365,7 +365,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>True if a property was added, otherwise false</returns>
         protected bool TryAddValueTypeProperty(ValueType valueType, Role propertyRole, Role classRole)
         {
-            var property = new ValueTypeProperty(this.OrmModel, this, valueType, propertyRole, classRole, this.GenerationSettings);
+            var property = new ValueTypeProperty(this.OrmModel, this, valueType, propertyRole, classRole, this.GeneratorSettings);
             this.Properties.Add(property);
 
             return true;
@@ -393,7 +393,7 @@ namespace Kalliope.OO.StructuralFeature
                 return false;
             }
 
-            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, entityType, propertyRole, classRole, this.GenerationSettings);
+            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, entityType, propertyRole, classRole, this.GeneratorSettings);
             property.IsImpliedProperty = isImpliedProperty;
 
             this.Properties.Add(property);
@@ -440,7 +440,7 @@ namespace Kalliope.OO.StructuralFeature
                     return false;
                 }
 
-                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, objectifiedType, propertyRole, classRole, this.GenerationSettings);
+                var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, objectifiedType, propertyRole, classRole, this.GeneratorSettings);
 
                 this.Properties.Add(property);
                 result = true;

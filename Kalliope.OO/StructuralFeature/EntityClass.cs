@@ -36,8 +36,8 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
         /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public EntityClass(OrmModel ormModel, List<Class> classes, ObjectType objectType, GenerationSettings generationSettings) : base(ormModel, classes, objectType, generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        public EntityClass(OrmModel ormModel, List<Class> classes, ObjectType objectType, GeneratorSettings generatorSettings) : base(ormModel, classes, objectType, generatorSettings)
         {
         }
 

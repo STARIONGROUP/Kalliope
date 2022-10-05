@@ -33,9 +33,9 @@ namespace Kalliope.OO.Generation
     public class ClassGenerator
     {
         /// <summary>
-        /// The <see cref="GenerationSettings"/> to be used when creating classes and properties
+        /// The <see cref="GeneratorSettings"/> to be used when creating classes and properties
         /// </summary>
-        private readonly GenerationSettings generationSettings;
+        private readonly GeneratorSettings generatorSettings;
 
         /// <summary>
         /// Gets the <see cref="OrmModel"/>
@@ -46,10 +46,10 @@ namespace Kalliope.OO.Generation
         /// Creates a new instance of <see cref="ClassGenerator"/>
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public ClassGenerator(OrmModel ormModel, GenerationSettings generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        public ClassGenerator(OrmModel ormModel, GeneratorSettings generatorSettings)
         {
-            this.generationSettings = generationSettings;
+            this.generatorSettings = generatorSettings;
             this.OrmModel = ormModel;
         }
 
@@ -105,7 +105,7 @@ namespace Kalliope.OO.Generation
         /// <returns>A <see cref="Class"/></returns>
         private Class GenerateClassFromEntityType(EntityType entityType, List<Class> classes)
         {
-            var entityClass = new EntityClass(this.OrmModel, classes, entityType, this.generationSettings);
+            var entityClass = new EntityClass(this.OrmModel, classes, entityType, this.generatorSettings);
 
             return entityClass;
         }
@@ -119,7 +119,7 @@ namespace Kalliope.OO.Generation
         /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
         private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, List<Class> classes, out ObjectifiedClass objectifiedClass)
         {
-            objectifiedClass = new ObjectifiedClass(this.OrmModel, classes, objectifiedType, this.generationSettings);
+            objectifiedClass = new ObjectifiedClass(this.OrmModel, classes, objectifiedType, this.generatorSettings);
 
             if (objectifiedClass.IsImplied)
             {

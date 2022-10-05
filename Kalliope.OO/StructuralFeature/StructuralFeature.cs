@@ -28,9 +28,9 @@ namespace Kalliope.OO.StructuralFeature
     public abstract class StructuralFeature : IStructuralFeature
     {
         /// <summary>
-        /// The <see cref="GenerationSettings"/> to be used while generating this <see cref="StructuralFeature"/>
+        /// The <see cref="GeneratorSettings"/> to be used while generating this <see cref="StructuralFeature"/>
         /// </summary>
-        protected GenerationSettings GenerationSettings { get; set; }
+        protected GeneratorSettings GeneratorSettings { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="Name"/>

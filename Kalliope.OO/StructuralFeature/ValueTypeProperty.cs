@@ -44,8 +44,8 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="valueType">The <see cref="ValueType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public ValueTypeProperty(OrmModel ormModel, Class ooClass, ValueType valueType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, ooClass, valueType, propertyRole, classRole, generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        public ValueTypeProperty(OrmModel ormModel, Class ooClass, ValueType valueType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, ooClass, valueType, propertyRole, classRole, generatorSettings)
         {
         }
 
@@ -101,7 +101,7 @@ namespace Kalliope.OO.StructuralFeature
                 return this.ObjectType.Name;
             }
 
-            var dataType = this.GenerationSettings.DataTypeMapper.MapDataType(this.OrmDataType);
+            var dataType = this.GeneratorSettings.DataTypeMapper.MapDataType(this.OrmDataType);
 
             return dataType;
         }

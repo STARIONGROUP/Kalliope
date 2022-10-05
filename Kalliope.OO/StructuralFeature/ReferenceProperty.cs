@@ -67,8 +67,8 @@ namespace Kalliope.OO.StructuralFeature
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
-        /// <param name="generationSettings">The <see cref="GenerationSettings"/></param>
-        public ReferenceProperty(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GenerationSettings generationSettings) : base(ormModel, ooClass, objectType, propertyRole, classRole, generationSettings)
+        /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
+        public ReferenceProperty(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, ooClass, objectType, propertyRole, classRole, generatorSettings)
         {
         }
 
@@ -143,7 +143,7 @@ namespace Kalliope.OO.StructuralFeature
 
                     var entityReplaceStartingIndex = 1;
 
-                    if (this.GenerationSettings.AddEntityPrefixesForNonExplicitlyNamedRoles)
+                    if (this.GeneratorSettings.AddEntityPrefixesForNonExplicitlyNamedRoles)
                     {
                         entityReplaceStartingIndex = 0;
                     }

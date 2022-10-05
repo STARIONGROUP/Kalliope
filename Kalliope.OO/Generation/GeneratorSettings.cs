@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="GenerationSettings.cs" company="RHEA System S.A.">
+// <copyright file="GeneratorSettings.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -26,7 +26,7 @@ namespace Kalliope.OO.Generation
     /// <summary>
     /// A class that has settings to be used during generation of <see cref="Class"/>es and <see cref="IProperty"/>a
     /// </summary>
-    public class GenerationSettings
+    public class GeneratorSettings
     {
         /// <summary>
         /// Gets of sets a value indicating that Entity name prefixes should be added to properties that don't have an explicitly set Role Name
