@@ -26,7 +26,7 @@ namespace Kalliope.OO.Extensions
     using Kalliope.OO.StructuralFeature;
 
     /// <summary>
-    /// <see cref="Class"/> extension methods
+    /// <see cref="IProperty"/> extension methods
     /// </summary>
     public static class PropertyExtensions
     {

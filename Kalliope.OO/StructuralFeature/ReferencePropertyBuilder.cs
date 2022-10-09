@@ -36,21 +36,21 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         /// <typeparam name="T">The <see cref="ObjectType"/> which can be <see cref="EntityType"/> or <see cref="ObjectifiedType"/></typeparam>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
+        /// <param name="class">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
         /// <returns>a <see cref="ReferenceProperty{T}"/> of type <typeparamref name="T"/></returns>
         /// <exception cref="NotSupportedException">If <typeparamref name="T"/> is not <see cref="EntityType"/> or <see cref="ObjectifiedType"/></exception>
-        public static ReferenceProperty<T> CreateReferenceProperty<T>(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) where T : ObjectType
+        public static ReferenceProperty<T> CreateReferenceProperty<T>(OrmModel ormModel, Class @class, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) where T : ObjectType
         {
             if (!new List<Type> { typeof(EntityType), typeof(ObjectifiedType) }.Contains(typeof(T)))
             {
                 throw new NotSupportedException($"The Type {typeof(T).Name} is not supported to build a ReferenceProperty for.");
             }
 
-            return new ReferenceProperty<T>(ormModel, ooClass, objectType, propertyRole, classRole, generatorSettings);
+            return new ReferenceProperty<T>(ormModel, @class, objectType, propertyRole, classRole, generatorSettings);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Kalliope.OO.StructuralFeature
         protected OrmModel OrmModel { get; }
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all Classes
+        /// A <see cref="List{Class}"/> that contains all Classes
         /// </summary>
         public List<Class> Classes { get; }
 
@@ -58,7 +58,7 @@ namespace Kalliope.OO.StructuralFeature
         public bool IsImplied => this.IsObjectified && this.ObjectType is ObjectifiedType objectifiedType && objectifiedType.NestedPredicate.IsImplied && this.Properties.Count == 2;
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="IProperty"/> that contains all the properties of this <see cref="Class"/>
+        /// A <see cref="List{IProperty}"/> that contains all the properties of this <see cref="Class"/>
         /// </summary>
         public List<IProperty> Properties { get; set; } = new();
 
@@ -75,7 +75,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Retrieves all the identifier properties of this class
         /// </summary>
-        /// <returns>A <see cref="List{T}"/> of type <see cref="IProperty"/></returns>
+        /// <returns>A <see cref="List{IProperty}"/></returns>
         private List<IProperty> GetIdentifierProperties(bool includeSuperTypeProperties = false)
         {
             var properties = this.Properties.Where(y => y.IsPartOfIdentifier).ToList();
@@ -114,7 +114,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Retrieves all the non identifier properties of this class
         /// </summary>
-        /// <returns>A <see cref="List{T}"/> of type <see cref="IProperty"/></returns>
+        /// <returns>A <see cref="List{IProperty}"/></returns>
         private List<IProperty> GetNonIdentifierProperties(bool includeSuperTypeProperties = false)
         {
             var result = this.Properties.Where(y => !y.IsPartOfIdentifier);
@@ -133,22 +133,22 @@ namespace Kalliope.OO.StructuralFeature
         }
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="ObjectType"/> that contains all the <see cref="ObjectType"/>s that this <see cref="Class"/> derives from
+        /// A <see cref="List{ObjectType}"/> that contains all the <see cref="ObjectType"/>s that this <see cref="Class"/> derives from
         /// </summary>
         protected List<ObjectType> SuperObjectTypes { get; set; } = new();
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="ObjectType"/> that contains all the <see cref="ObjectType"/>s that derive from this <see cref="Class"/>
+        /// A <see cref="List{ObjectType}"/> that contains all the <see cref="ObjectType"/>s that derive from this <see cref="Class"/>
         /// </summary>
         protected List<ObjectType> SubObjectTypes { get; set; } = new();
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all the <see cref="Class"/>es that this <see cref="Class"/> derives from
+        /// A <see cref="List{Class}"/> that contains all the <see cref="Class"/>es that this <see cref="Class"/> derives from
         /// </summary>
         public List<Class> SuperClasses => this.Classes.Where(x => this.SuperObjectTypes.Contains(x.ObjectType)).ToList();
 
         /// <summary>
-        /// A <see cref="List{T}"/> of type <see cref="Class"/> that contains all the <see cref="Class"/>s that derive from this <see cref="Class"/>
+        /// A <see cref="List{Class}"/> that contains all the <see cref="Class"/>s that derive from this <see cref="Class"/>
         /// </summary>
         public List<Class> SubClasses => this.Classes.Where(x => this.SubObjectTypes.Contains(x.ObjectType)).ToList();
 
@@ -163,7 +163,7 @@ namespace Kalliope.OO.StructuralFeature
         public bool HasBaseClass => this.CalculateHasBaseClass();
 
         /// <summary>
-        /// Clalculates if this <see cref="Class"/> has a baseclass
+        /// Calculates if this <see cref="Class"/> has a base class
         /// </summary>
         /// <returns></returns>
         private bool CalculateHasBaseClass()
@@ -172,12 +172,12 @@ namespace Kalliope.OO.StructuralFeature
         }
 
         /// <summary>
-        /// Gets the main supertype <see cref="Class"/>
+        /// Gets the main super type <see cref="Class"/>
         /// </summary>
         public Class MainSuperType => this.CalculateMainSuperType();
 
         /// <summary>
-        /// Calculates the main supertype <see cref="Class"/>
+        /// Calculates the main super type <see cref="Class"/>
         /// </summary>
         private Class CalculateMainSuperType()
         {
@@ -185,9 +185,9 @@ namespace Kalliope.OO.StructuralFeature
             {
                 foreach (var subTypeMetaRole in this.ObjectType.PlayedRoles.OfType<SubtypeMetaRole>())
                 {
-                    var inheritenceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
+                    var inheritanceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
 
-                    var superTypeMetaRole = inheritenceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
+                    var superTypeMetaRole = inheritanceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
 
                     if (superTypeMetaRole != null)
                     {
@@ -203,7 +203,7 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="Class"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
+        /// <param name="classes">The Complete <see cref="List{Class}"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
         protected Class(OrmModel ormModel, List<Class> classes, ObjectType objectType, GeneratorSettings generatorSettings)

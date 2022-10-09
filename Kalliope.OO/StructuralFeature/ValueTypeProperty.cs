@@ -40,12 +40,12 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="ValueTypeProperty"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
+        /// <param name="class">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="valueType">The <see cref="ValueType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
-        public ValueTypeProperty(OrmModel ormModel, Class ooClass, ValueType valueType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, ooClass, valueType, propertyRole, classRole, generatorSettings)
+        public ValueTypeProperty(OrmModel ormModel, Class @class, ValueType valueType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, @class, valueType, propertyRole, classRole, generatorSettings)
         {
         }
 

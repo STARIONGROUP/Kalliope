@@ -54,9 +54,9 @@ namespace Kalliope.OO.Generation
         }
 
         /// <summary>
-        /// Generates a <see cref="List{T}"/> of <see cref="Class"/> based on all <see cref="EntityType"/>s and <see cref="ObjectifiedType"/>in the <see cref="OrmModel"/>
+        /// Generates a <see cref="List{Class}"/> based on all <see cref="EntityType"/>s and <see cref="ObjectifiedType"/>in the <see cref="OrmModel"/>
         /// </summary>
-        /// <returns>a <see cref="List{T}"/> of <see cref="Class"/></returns>
+        /// <returns>a <see cref="List{Class}"/></returns>
         public List<Class> Generate()
         {
             return this.Generate(
@@ -68,10 +68,10 @@ namespace Kalliope.OO.Generation
         }
 
         /// <summary>
-        /// Generates a <see cref="List{T}"/> of <see cref="Class"/> based on a <see cref="List{T}"/> of <see cref="Class"/>s
+        /// Generates a <see cref="List{Class}"/> based on a <see cref="List{ObjectType}"/>
         /// </summary>
-        /// <param name="objectTypes">The <see cref="List{T}"/> of <see cref="ObjectType"/></param>
-        /// <returns>a <see cref="List{T}"/> of <see cref="Class"/></returns>
+        /// <param name="objectTypes">The <see cref="List{ObjectType}"/></param>
+        /// <returns>a <see cref="List{Class}"/></returns>
         public List<Class> Generate(IEnumerable<ObjectType> objectTypes)
         {
             var generatedClasses = new List<Class>();
@@ -101,7 +101,7 @@ namespace Kalliope.OO.Generation
         /// Generates the <see cref="Class"/>
         /// </summary>
         /// <param name="entityType"><see cref="EntityType"/></param>
-        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
+        /// <param name="classes">The Complete <see cref="List{Class}"/></param>
         /// <returns>A <see cref="Class"/></returns>
         private Class GenerateClassFromEntityType(EntityType entityType, List<Class> classes)
         {
@@ -114,9 +114,9 @@ namespace Kalliope.OO.Generation
         /// Generates the <see cref="Class"/>
         /// </summary>
         /// <param name="objectifiedType"><see cref="ObjectifiedType"/></param>
-        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
+        /// <param name="classes">The Complete <see cref="List{Class}"/></param>
         /// <param name="objectifiedClass">The to be returned <see cref="Class"/></param>
-        /// <returns>A boolean indicating succesfull creation of the <see cref="Class"/></returns>
+        /// <returns>A boolean indicating successful creation of the <see cref="Class"/></returns>
         private bool TryGenerateClassFromObjectifiedType(ObjectifiedType objectifiedType, List<Class> classes, out ObjectifiedClass objectifiedClass)
         {
             objectifiedClass = new ObjectifiedClass(this.OrmModel, classes, objectifiedType, this.generatorSettings);

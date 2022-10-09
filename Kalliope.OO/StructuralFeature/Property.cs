@@ -57,9 +57,9 @@ namespace Kalliope.OO.StructuralFeature
             {
                 foreach (var subTypeMetaRole in this.ObjectType.PlayedRoles.OfType<SubtypeMetaRole>())
                 {
-                    var inheritenceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
+                    var inheritanceFactType = this.OrmModel.FactTypes.OfType<SubtypeFact>().SingleOrDefault(x => x.Roles.Contains(subTypeMetaRole) && (x.PreferredIdentificationPath || x.ProvidesPreferredIdentifier));
 
-                    var superTypeMetaRole = inheritenceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
+                    var superTypeMetaRole = inheritanceFactType?.Roles.OfType<SupertypeMetaRole>().FirstOrDefault();
 
                     if (superTypeMetaRole != null)
                     {
@@ -99,7 +99,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Calculates if this property is (part of) the identifier
         /// </summary>
-        /// <returns>True if the property is part of the indentifier</returns>
+        /// <returns>True if the property is part of the identifier</returns>
         private bool CalculateIsPartOfIdentity()
         {
             if (this.ClassRole.RolePlayer is EntityType entityType)
@@ -219,15 +219,15 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="Property{T}"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
+        /// <param name="class">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
-        /// <param name="propertyRole">The <see cref="Property{T}"/> <see cref="Role"/></param>
+        /// <param name="propertyRole">The <see cref="Property{Role}"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
-        protected Property(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings)
+        protected Property(OrmModel ormModel, Class @class, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings)
         {
             this.GeneratorSettings = generatorSettings;
-            this.Class = ooClass;
+            this.Class = @class;
             this.OrmModel = ormModel;
             this.ObjectType = objectType;
             this.FactType = this.OrmModel.FactTypes.Single(x => x.Roles.Contains(propertyRole));

@@ -63,12 +63,12 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="ReferenceProperty{T}"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="ooClass">The <see cref="Class"/> that this property belongs to</param>
+        /// <param name="class">The <see cref="Class"/> that this property belongs to</param>
         /// <param name="objectType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
-        public ReferenceProperty(OrmModel ormModel, Class ooClass, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, ooClass, objectType, propertyRole, classRole, generatorSettings)
+        public ReferenceProperty(OrmModel ormModel, Class @class, T objectType, Role propertyRole, Role classRole, GeneratorSettings generatorSettings) : base(ormModel, @class, objectType, propertyRole, classRole, generatorSettings)
         {
         }
 
@@ -152,7 +152,7 @@ namespace Kalliope.OO.StructuralFeature
                     {
                         var role = readingOrder.Roles[i] is RoleProxy roleProxy ? roleProxy.TargetRole : readingOrder.Roles[i] as Role;
 
-                        // Extra whitespaces arount names are nesessary for the TitleCasing to be performed correctly
+                        // Extra whitespaces around names are necessary for the TitleCasing to be performed correctly
                         text = text.Replace("{" + i + "}", $" {(string.IsNullOrWhiteSpace(role.Name) ? role.RolePlayer.Name : role.Name)} ");
                     }
 

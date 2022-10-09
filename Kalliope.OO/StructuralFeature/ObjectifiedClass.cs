@@ -34,7 +34,7 @@ namespace Kalliope.OO.StructuralFeature
         /// Creates a new instance of the <see cref="ObjectifiedClass"/> class
         /// </summary>
         /// <param name="ormModel">The <see cref="OrmModel"/></param>
-        /// <param name="classes">The Complete <see cref="List{T}"/> of type <see cref="Class"/></param>
+        /// <param name="classes">The Complete <see cref="List{Class}"/></param>
         /// <param name="objectType">The <see cref="EntityType"/></param>
         /// <param name="generatorSettings">The <see cref="GeneratorSettings"/></param>
         public ObjectifiedClass(OrmModel ormModel, List<Class> classes, ObjectType objectType, GeneratorSettings generatorSettings) : base(ormModel, classes, objectType, generatorSettings)

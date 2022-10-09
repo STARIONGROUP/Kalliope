@@ -34,6 +34,9 @@ namespace Kalliope.OO.Generation
         /// <summary>
         /// Creates a new instance of <see cref="ClassGenerator"/>
         /// </summary>
+        /// <param name="modelLocation">
+        /// The path to the subject ORM Model
+        /// </param>
         /// <returns>
         /// the root <see cref="OrmRoot"/>
         /// </returns>
