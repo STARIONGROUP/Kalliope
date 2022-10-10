@@ -243,7 +243,7 @@ namespace Kalliope.OO.StructuralFeature
         protected virtual void Initialize()
         {
             this.DataType = this.GetDataType();
-            this.Name = this.GetName().ToUsableName();
+            this.Name = this.GetName().ToUsableName(this.GeneratorSettings.ReservedWords);
             this.IsPartOfIdentifier = this.CalculateIsPartOfIdentity();
         }
 

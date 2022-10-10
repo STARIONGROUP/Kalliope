@@ -214,7 +214,7 @@ namespace Kalliope.OO.StructuralFeature
             this.ObjectType = objectType;
             this.Definition = objectType.Definition?.Text;
             this.Note = objectType.Note?.Text;
-            this.Name = objectType.Name.ToUsableName();
+            this.Name = objectType.Name.ToUsableName(generatorSettings.ReservedWords);
             this.Initialize();
         }
 

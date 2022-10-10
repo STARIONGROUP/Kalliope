@@ -20,6 +20,8 @@
 
 namespace Kalliope.OO.Generation
 {
+    using System.Collections.Generic;
+
     using Kalliope.OO.Mappers;
     using Kalliope.OO.StructuralFeature;
 
@@ -37,5 +39,10 @@ namespace Kalliope.OO.Generation
         /// The <see cref="IDataTypeMapper"/> to be used to define datatypes
         /// </summary>
         public IDataTypeMapper DataTypeMapper { get; set; } = new CSharpDataTypeMapper();
+
+        /// <summary>
+        /// Gets or sets a list of reserved words that don't need to be re capitalized
+        /// </summary>
+        public List<string> ReservedWords = new ();
     }
 }

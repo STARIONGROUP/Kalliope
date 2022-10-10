@@ -109,7 +109,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="ObjectType"/>'s datatype</returns>
         protected override string GetDataType()
         {
-            return this.ObjectType.Name.ToUsableName();
+            return this.ObjectType.Name.ToUsableName(this.GeneratorSettings.ReservedWords);
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Kalliope.OO.StructuralFeature
                 }
             }
 
-            name = name.ToUsableName();
+            name = name.ToUsableName(this.GeneratorSettings.ReservedWords);
 
             return name;
         }

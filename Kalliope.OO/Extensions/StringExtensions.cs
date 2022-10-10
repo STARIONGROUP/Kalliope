@@ -36,14 +36,15 @@ namespace Kalliope.OO.Extensions
         /// <param name="typeName">
         /// The input type name
         /// </param>
+        /// <param name="reservedWords">A list of reserved words that don't need to be re capitalized</param>
         /// <returns>
         /// Returns a cleaned type name
         /// </returns>
-        public static string ToUsableName(this string typeName)
+        public static string ToUsableName(this string typeName, List<string> reservedWords)
         {
             if (string.IsNullOrEmpty(typeName)) throw new ArgumentException($"{nameof(typeName)} can't be empty!");
 
-            return typeName.ToTitleCase();
+            return typeName.ToTitleCase(reservedWords);
         }
 
         /// <summary>
@@ -73,8 +74,9 @@ namespace Kalliope.OO.Extensions
         /// Converts a string to Title Casing
         /// </summary>
         /// <param name="value">The to be converted string</param>
+        /// <param name="reservedWords">A list of reserved words that don't need to be re capitalized</param>
         /// <returns>The converted string</returns>
-        public static string ToTitleCase(this string value)
+        public static string ToTitleCase(this string value, List<string> reservedWords)
         {
             value = char.ToUpper(value[0]) + value.Substring(1);
             value = value.SplitWords();
@@ -90,11 +92,11 @@ namespace Kalliope.OO.Extensions
                 .Select(word => char.ToUpper(word[0]) + word.Substring(1))
                 .ToArray();
 
-            leadWord = (char.ToUpper(leadWord[0]) + leadWord.Substring(1)).CheckReservedWords();
+            leadWord = (char.ToUpper(leadWord[0]) + leadWord.Substring(1)).CheckReservedWords(reservedWords);
 
             for (var i = 0; i<tailWords.Length; i++)
             {
-                tailWords[i] = tailWords[i].CheckReservedWords();
+                tailWords[i] = tailWords[i].CheckReservedWords(reservedWords);
             }
 
             return $"{leadWord}{string.Join(string.Empty, tailWords)}";
@@ -119,11 +121,10 @@ namespace Kalliope.OO.Extensions
         /// Checks if a string is a reserved word for PASaaS and returns the reserved word accordingly.
         /// </summary>
         /// <param name="value">The <see cref="string"/></param>
+        /// <param name="reservedWords">A list of reserved words that don't need to be re capitalized</param>
         /// <returns>The original string, of the reserved word in case it is a reserved word having the correct casing.</returns>
-        public static string CheckReservedWords(this string value)
+        public static string CheckReservedWords(this string value, List<string> reservedWords)
         {
-            var reservedWords = new List<string> {"IPN", "NCR"};
-
             if (reservedWords.Select(x => x.ToUpper()).Contains(value.ToUpper()))
             {
                 return reservedWords.Single(x => x.ToUpper() == value.ToUpper());
