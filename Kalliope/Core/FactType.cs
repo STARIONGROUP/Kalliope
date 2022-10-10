@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A fact type directly specified by the modeler
     /// </summary>
-    [Description("")]
+    [Description("A fact type directly specified by the modeler")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "Objectification", propertyName: "ImpliedFactTypes")]
     [Container(typeName: "OrmModel", propertyName: "FactTypes")]

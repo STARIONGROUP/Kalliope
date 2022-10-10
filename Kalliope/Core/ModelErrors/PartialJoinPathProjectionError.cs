@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A join path projection must project on all roles in the constraint role sequence
     /// </summary>
+    [Description("A join path projection must project on all roles in the constraint role sequence")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PartialJoinPathProjectionError : ModelError
     {
     }

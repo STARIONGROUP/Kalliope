@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// An ObjectUnifier unifies path nodes with incompatible object types
     /// </summary>
+    [Description("An ObjectUnifier unifies path nodes with incompatible object types")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class ObjectUnifierRequiresCompatibleObjectTypesError : ModelError
     {
     }

@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of row identifiers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of row identifiers")]
     [Domain(isAbstract: false, general: "OtherDataType")]
     public class RowIdOtherDataType : OtherDataType
     {

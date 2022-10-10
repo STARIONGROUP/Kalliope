@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of 8-byte unsigned integers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of 8-byte unsigned integers")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class UnsignedLargeIntegerNumericDataType : NumericDataType
     {

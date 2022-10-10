@@ -30,6 +30,7 @@ namespace Kalliope
     /// <summary>
     /// The <see cref="OrmRoot"/> represents the root node of an .orm file
     /// </summary>
+    [Description("The OrmRoot represents the root node of an .orm file")]
     [Domain(isAbstract:false, general: "ModelThing")]
     public class OrmRoot : ModelThing
     {

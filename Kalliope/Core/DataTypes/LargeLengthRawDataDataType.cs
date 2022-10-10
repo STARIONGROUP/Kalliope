@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of large length binary data. Supports the Length facet
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of large length binary data. Supports the Length facet")]
     [Domain(isAbstract: false, general: "RawDataDataType")]
     public class LargeLengthRawDataDataType : RawDataDataType
     {

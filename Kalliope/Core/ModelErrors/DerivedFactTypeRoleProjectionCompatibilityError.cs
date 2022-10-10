@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A projection onto a derived fact type role is not compatible with the role player of that role
     /// </summary>
+    [Description("A projection onto a derived fact type role is not compatible with the role player of that role.")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class DerivedFactTypeRoleProjectionCompatibilityError : ModelError
     {
     }

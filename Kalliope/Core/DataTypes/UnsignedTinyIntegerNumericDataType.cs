@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of unsigned byte integers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of unsigned byte integers")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class UnsignedTinyIntegerNumericDataType : NumericDataType
     {

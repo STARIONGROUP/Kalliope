@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of floating point numbers. Supports the Precision facet
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of floating point numbers. Supports the Precision facet")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class FloatingPointNumericDataType : NumericDataType
     {

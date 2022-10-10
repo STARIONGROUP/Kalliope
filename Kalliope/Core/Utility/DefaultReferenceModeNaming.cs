@@ -26,7 +26,7 @@ namespace Kalliope.Core
     /// Represent a set of defaults for how reference modes should be used in generated code.
     /// This type must be extended in extension models to associate another element as the owning context for this default
     /// </summary>
-    [Description("")]
+    [Description("Represent a set of defaults for how reference modes should be used in generated code. This type must be extended in extension models to associate another element as the owning context for this default")]
     [Domain(isAbstract: true, general: "ModelThing")]
     public abstract class DefaultReferenceModeNaming : ModelThing
     {

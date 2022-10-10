@@ -27,6 +27,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A frequency constraint requires more role players than are allowed by an internal uniqueness constraint
     /// </summary>
+    [Description("A frequency constraint requires more role players than are allowed by an internal uniqueness constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
     [Obsolete("Deprecated by FrequencyConstraintViolatedByUniquenessConstraintErrorType")]
     public class FrequencyConstraintContradictsInternalUniquenessConstraintError : ModelError
     {

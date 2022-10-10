@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A primary role declaration
     /// </summary>
-    [Description("")]
+    [Description("A primary role declaration")]
     [Domain(isAbstract: false, general: "RoleBase")]
     public class Role : RoleBase
     {

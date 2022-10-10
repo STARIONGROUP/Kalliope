@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A sequence of roles from a single fact type representing representing a complete role traversal. Also called a predicate
     /// </summary>
-    [Description("")]
+    [Description("A sequence of roles from a single fact type representing representing a complete role traversal. Also called a predicate")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "FactType", propertyName: "ReadingOrders")]
     public class ReadingOrder : OrmModelElement

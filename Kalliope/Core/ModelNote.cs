@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A miscellaneous note for this model
     /// </summary>
-    [Description("")]
+    [Description("A miscellaneous note for this model")]
     [Domain(isAbstract: false, general: "Note")]
     [Container(typeName: "OrmModel", propertyName: "Notes")]
     public class ModelNote : Note

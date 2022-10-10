@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying that a comparison between two related values must be satisfied
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying that a comparison between two related values must be satisfied")]
     [Domain(isAbstract: false, general: "SetConstraint")]
     public class ValueComparisonConstraint : SetConstraint
     {

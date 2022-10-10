@@ -28,6 +28,8 @@ namespace Kalliope.Core
     /// (Deprecated, StartRole is no longer used) A PathedRole with a purpose of StartRole must be the first <see cref="PathedRole"/> after the path root
     /// </summary>
     [Obsolete("Deprecated, StartRole is no longer used")]
+    [Description("A PathedRole with a purpose of StartRole must be the first PathedRole after the path root")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PathStartRoleFollowsRootObjectTypeError : ModelError
     {
     }

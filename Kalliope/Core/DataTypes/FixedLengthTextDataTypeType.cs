@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of fixed length strings. Supports the Length facet
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of fixed length strings. Supports the Length facet")]
     [Domain(isAbstract: false, general: "TextDataType")]
     public class FixedLengthTextDataType : TextDataType
     {

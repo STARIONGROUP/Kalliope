@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A generation setting representing the extension-defined algorithm used to generate elements from the ORM elements
     /// </summary>
-    [Description("")]
+    [Description("A generation setting representing the extension-defined algorithm used to generate elements from the ORM elements")]
     [Domain(isAbstract: true, general: "ModelThing")]
     [Container("GenerationState", "GenerationSettings")]
     public abstract class GenerationSetting : ModelThing

@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A note for the containing element
     /// </summary>
-    [Description("")]
+    [Description("A note for the containing element")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CardinalityConstraint", propertyName: "Note")]
     [Container(typeName: "ElementGrouping", propertyName: "Note")]

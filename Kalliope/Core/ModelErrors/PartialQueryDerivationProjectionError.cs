@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A query derivation projection must project on all roles in the derived query
     /// </summary>
+    [Description("A query derivation projection must project on all roles in the derived query")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class PartialQueryDerivationProjectionError : ModelError
     {
     }

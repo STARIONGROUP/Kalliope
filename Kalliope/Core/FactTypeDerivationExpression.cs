@@ -28,7 +28,7 @@ namespace Kalliope.Core
     /// A derivation expression
     /// </summary>
     [Obsolete("Use FactTypeDerivationPath/InformalRule/DerivationNote instead")]
-    [Description("")]
+    [Description("A derivation expression")]
     [Domain(isAbstract: false, general: "Expression")]
     [Container(typeName: "FactType", propertyName: "DerivationExpression")]
     public class FactTypeDerivationExpression : Expression

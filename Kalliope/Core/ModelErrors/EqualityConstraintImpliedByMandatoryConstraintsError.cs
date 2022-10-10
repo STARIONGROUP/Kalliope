@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// An equality constraint is implied by one or more mandatory constraints
     /// </summary>
+    [Description("An equality constraint is implied by one or more mandatory constraints.")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class EqualityConstraintImpliedByMandatoryConstraintsError : ModelError
     {
     }

@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying that a set must be populated
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying that a set must be populated")]
     [Domain(isAbstract: false, general: "SetConstraint")]
     [Container(typeName: "ObjectType", propertyName: "ImpliedMandatoryConstraint")]
     public class MandatoryConstraint : SetConstraint

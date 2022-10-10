@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of 2-byte signed integers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of 2-byte signed integers")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class SignedSmallIntegerNumericDataType : NumericDataType
     {

@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Extension data related to the containing element
     /// </summary>
-    [Description("")]
+    [Description("Extension data related to the containing element")]
     [Domain(isAbstract: true, general: "ModelThing")]
     [Container(typeName: "OrmModelElement", propertyName: "Extensions")]
     public abstract class Extension : ModelThing

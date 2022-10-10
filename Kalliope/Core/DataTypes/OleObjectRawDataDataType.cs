@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of binary data representing an embedded OLE object
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of binary data representing an embedded OLE object")]
     [Domain(isAbstract: false, general: "RawDataDataType")]
     public class OleObjectRawDataDataType : RawDataDataType
     {

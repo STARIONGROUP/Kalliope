@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Definition of a custom reference mode pattern
     /// </summary>
-    [Description("")]
+    [Description("Definition of a custom reference mode pattern")]
     [Domain(isAbstract: false, general: "ReferenceMode")]
     public class CustomReferenceMode : ReferenceMode
     {

@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A query representation based on a fact type structure. Queries support parameterization and do not need readings
     /// </summary>
-    [Description("")]
+    [Description("A query representation based on a fact type structure. Queries support parameterization and do not need readings")]
     [Domain(isAbstract: true, general: "FactType")]
     public abstract class QueryBase : FactType
     {

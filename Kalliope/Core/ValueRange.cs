@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A simple value range
     /// </summary>
-    [Description("")]
+    [Description("A simple value range")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "ValueConstraint", propertyName: "ValueRanges")]
     public class ValueRange : OrmModelElement

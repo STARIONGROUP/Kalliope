@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of moveable decimal point exact numbers. Supports the Precision and Scale facets
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of moveable decimal point exact numbers. Supports the Precision and Scale facets")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class MoneyNumericDataType : NumericDataType
     {

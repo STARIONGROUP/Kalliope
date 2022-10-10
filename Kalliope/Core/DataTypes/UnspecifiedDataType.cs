@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Placeholder for an unspecified data type. Each use of this type results in a DataTypeNotSpecified model validation error
     /// </summary>
-    [Description("")]
+    [Description("Placeholder for an unspecified data type. Each use of this type results in a DataTypeNotSpecified model validation error")]
     [Domain(isAbstract: false, general: "DataType")]
     public class UnspecifiedDataType : DataType
     {

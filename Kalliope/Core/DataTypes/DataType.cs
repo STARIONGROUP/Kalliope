@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// The base type for all data types
     /// </summary>
-    [Description("")]
+    [Description("The base type for all data types")]
     [Domain(isAbstract: true, general: "OrmModelElement")]
     [Container(typeName: "OrmModel", propertyName: "DataTypes")]
     public abstract class DataType : OrmModelElement

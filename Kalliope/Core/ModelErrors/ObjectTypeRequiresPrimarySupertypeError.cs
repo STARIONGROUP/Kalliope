@@ -28,6 +28,8 @@ namespace Kalliope.Core
     /// Deprecated along with SubtypeFact.IsPrimary property
     /// </summary>
     [Obsolete("Deprecated along with SubtypeFact.IsPrimary property")]
+    [Description("Deprecated along with SubtypeFact.IsPrimary property")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class ObjectTypeRequiresPrimarySupertypeError : ModelError
     {
     }

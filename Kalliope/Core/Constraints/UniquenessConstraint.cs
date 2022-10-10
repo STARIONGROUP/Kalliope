@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying that the population of a set must be unique
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying that the population of a set must be unique")]
     [Domain(isAbstract: false, general: "SetConstraint")]
     public class UniquenessConstraint : SetConstraint
     {

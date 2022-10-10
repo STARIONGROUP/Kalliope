@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     /// <summary>
-    /// A role path with projected nodes used to populate a query
+    /// A query representation based on a fact type structure. Queries support parameterization and do not need readings
     /// </summary>
+    [Description("A query representation based on a fact type structure. Queries support parameterization and do not need readings")]
+    [Domain(isAbstract: false, general: "RolePathOwner")]
     public class QueryDerivationPath : RolePathOwner
     {
     }

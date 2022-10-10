@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of binary data representing an image
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of binary data representing an image")]
     [Domain(isAbstract: false, general: "RawDataDataType")]
     public class PictureRawDataDataType : RawDataDataType
     {

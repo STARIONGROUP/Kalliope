@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// Extension point for model validation errors in extension models
     /// </summary>
+    [Description("Extension point for model validation errors in extension models")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class ExtensionModelError : ModelError
     {
     }

@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Setting for a specific kind of reference mode pattern
     /// </summary>
-    [Description("")]
+    [Description("Setting for a specific kind of reference mode pattern")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "OrmModel", propertyName: "ReferenceModeKinds")]
     public class ReferenceModeKind : OrmModelElement

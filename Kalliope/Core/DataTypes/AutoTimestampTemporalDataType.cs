@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of automatically generated timestamps
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of automatically generated timestamps")]
     [Domain(isAbstract: false, general: "TemporalDataType")]
     public class AutoTimestampTemporalDataType : TemporalDataType
     {

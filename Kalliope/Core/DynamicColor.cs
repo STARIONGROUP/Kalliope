@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     /// <summary>
     /// Dynamic color information used by extension models with shape representations
     /// </summary>
+    [Description("Dynamic color information used by extension models with shape representations")]
+    [Domain(isAbstract: true, general: "")]
     public abstract class DynamicColor
     {
         /// <summary>

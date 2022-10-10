@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// An equality constraint is implied by a mandatory constraint (Deprecated, replaced by <see cref="EqualityConstraintImpliedByMandatoryConstraintsError"/>)
     /// </summary>
+    [Description("An equality constraint is implied by a mandatory constraint")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class EqualityImpliedByMandatoryError : ModelError
     {
     }

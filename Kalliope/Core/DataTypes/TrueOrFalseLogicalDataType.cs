@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are either true or false
     /// </summary>
-    [Description("")]
+    [Description("Values are either true or false")]
     [Domain(isAbstract: false, general: "LogicalDataType")]
     public class TrueOrFalseLogicalDataType : LogicalDataType
     {

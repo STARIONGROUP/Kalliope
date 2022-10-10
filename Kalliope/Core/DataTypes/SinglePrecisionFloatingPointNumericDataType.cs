@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values are in the set of 4-byte floating point numbers
     /// </summary>
-    [Description("")]
+    [Description("Values are in the set of 4-byte floating point numbers")]
     [Domain(isAbstract: false, general: "NumericDataType")]
     public class SinglePrecisionFloatingPointNumericDataType : NumericDataType
     {

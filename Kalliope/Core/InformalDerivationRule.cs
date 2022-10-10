@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// An informal description of the intent of a derivation rule
     /// </summary>
-    [Description("")]
+    [Description("An informal description of the intent of a derivation rule")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "SubtypeDerivationPath", propertyName: "InformalDerivationRule")]
     public class InformalDerivationRule : OrmModelElement

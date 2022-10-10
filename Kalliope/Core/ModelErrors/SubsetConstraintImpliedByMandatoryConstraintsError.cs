@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A subset constraint is implied by one or more mandatory constraints
     /// </summary>
+    [Description("A subset constraint is implied by one or more mandatory constraints")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class SubsetConstraintImpliedByMandatoryConstraintsError : ModelError
     {
     }

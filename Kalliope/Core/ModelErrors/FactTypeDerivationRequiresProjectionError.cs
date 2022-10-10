@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A fact type derivation path must be projected on at least one role path
     /// </summary>
+    [Description("A fact type derivation path must be projected on at least one role path")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class FactTypeDerivationRequiresProjectionError : ModelError
     {
     }

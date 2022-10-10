@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A group member is required by one group type and blocked by another group type
     /// </summary>
+    [Description("A group member is required by one group type and blocked by another group type")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class GroupMembershipContradictionError : ModelError
     {
     }

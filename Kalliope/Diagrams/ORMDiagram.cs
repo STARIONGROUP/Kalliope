@@ -28,7 +28,7 @@ namespace Kalliope.Diagrams
     /// <summary>
     /// A diagram that represents items contained by an <see cref="OrmModel"/>
     /// </summary>
-    [Description("")]
+    [Description("A diagram that represents items contained by an OrmModel")]
     [Domain(isAbstract: false, general: "ModelThing")]
     [Container(typeName: "OrmRoot", propertyName: "Diagrams")]
     public class OrmDiagram : ModelThing

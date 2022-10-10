@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A single cardinality range
     /// </summary>
-    [Description("")]
+    [Description("A single cardinality range")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CardinalityConstraint", propertyName: "Ranges")]
     public class CardinalityRange : OrmModelElement

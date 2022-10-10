@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// An informal description for the containing element
     /// </summary>
-    [Description("")]
+    [Description("An informal description for the containing element")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "CardinalityConstraint", propertyName: "Definition")]
     [Container(typeName: "ElementGrouping", propertyName: "Definition")]

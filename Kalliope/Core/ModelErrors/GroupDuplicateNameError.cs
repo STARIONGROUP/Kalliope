@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// Multiple groups share the same name
     /// </summary>
+    [Description("Multiple groups share the same name")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class GroupDuplicateNameError : ModelError
     {
     }

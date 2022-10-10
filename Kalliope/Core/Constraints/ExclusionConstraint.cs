@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying that two set populations must not be equal
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying that two set populations must not be equal")]
     [Domain(isAbstract: false, general: "SetComparisonConstraint")]
     public class ExclusionConstraint : SetComparisonConstraint
     {

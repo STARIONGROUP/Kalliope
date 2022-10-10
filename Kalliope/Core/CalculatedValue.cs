@@ -20,9 +20,13 @@
 
 namespace Kalliope.Core
 {
+    using Kalliope.Common;
+
     /// <summary>
     /// Specifies the function, scope, and inputs used for an algorithmic calculation
     /// </summary>
+    [Description("Specifies the function, scope, and inputs used for an algorithmic calculation")]
+    [Domain(isAbstract: false, general: "OrmModelElement")]
     public class CalculatedValue : OrmModelElement
     {
         /// <summary>

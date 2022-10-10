@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying relationships between elements of the same type in a set population
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying relationships between elements of the same type in a set population")]
     [Domain(isAbstract: false, general: "SetConstraint")]
     public class RingConstraint : SetConstraint
     {

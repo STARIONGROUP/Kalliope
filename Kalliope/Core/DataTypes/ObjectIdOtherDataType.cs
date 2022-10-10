@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values represent an object identifier
     /// </summary>
-    [Description("")]
+    [Description("Values represent an object identifier")]
     [Domain(isAbstract: false, general: "OtherDataType")]
     public class ObjectIdOtherDataType : OtherDataType
     {

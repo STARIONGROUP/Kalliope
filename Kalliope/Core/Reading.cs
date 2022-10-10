@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Predicate text corresponding to a specific role traversal
     /// </summary>
-    [Description("")]
+    [Description("Predicate text corresponding to a specific role traversal")]
     [Domain(isAbstract: false, general: "OrmModelElement")]
     [Container(typeName: "ReadingOrder", propertyName: "Readings")]
     public class Reading : OrmModelElement

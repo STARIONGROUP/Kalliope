@@ -26,7 +26,7 @@ namespace Kalliope.Core
     /// Text bound to or occurring after a given role.
     /// Roles with no text are not represented
     /// </summary>
-    [Description("")]
+    [Description("Text bound to or occurring after a given role. Roles with no text are not represented")]
     [Domain(isAbstract: false, general: "ModelThing")]
     [Container(typeName: "Reading", propertyName: "ExpandedData")]
     public class RoleText : ModelThing

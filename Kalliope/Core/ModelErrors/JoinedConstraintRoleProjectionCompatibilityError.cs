@@ -25,6 +25,8 @@ namespace Kalliope.Core
     /// <summary>
     /// A projection from a join path onto a constrained role is not compatible with the role player of that role
     /// </summary>
+    [Description("A projection from a join path onto a constrained role is not compatible with the role player of that role")]
+    [Domain(isAbstract: false, general: "ModelError")]
     public class JoinedConstraintRoleProjectionCompatibilityError : ModelError
     {
     }

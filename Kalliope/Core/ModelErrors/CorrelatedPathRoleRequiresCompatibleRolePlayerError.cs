@@ -25,8 +25,10 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     /// <summary>
-    /// A PathedRole has an explicit correlation with a PathedRole that has an incompatible role player
+    /// A  PathedRole has an explicit correlation with a PathedRole that has an incompatible role player
     /// </summary>
+    [Description("A PathedRole has an explicit correlation with a PathedRole that has an incompatible role player.")]
+    [Domain(isAbstract: false, general: "ModelError")]
     [Obsolete("Deprecated, use ObjectUnifierRequiresCompatibleRolePlayersError")]
     public class CorrelatedPathRoleRequiresCompatibleRolePlayerError : ModelError
     {

@@ -27,7 +27,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A fact type representing the subtype meta relationship between a subtype and a supertype
     /// </summary>
-    [Description("")]
+    [Description("A fact type representing the subtype meta relationship between a subtype and a supertype")]
     [Domain(isAbstract: false, general: "FactType")]
     public class SubtypeFact : FactType
     {   

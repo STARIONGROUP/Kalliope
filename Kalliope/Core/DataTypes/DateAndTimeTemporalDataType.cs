@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Values represent date and time information
     /// </summary>
-    [Description("")]
+    [Description("Values represent date and time information")]
     [Domain(isAbstract: false, general: "TemporalDataType")]
     public class DateAndTimeTemporalDataType : TemporalDataType
     {

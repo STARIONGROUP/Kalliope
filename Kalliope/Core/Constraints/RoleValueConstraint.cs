@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// Restrict the values allowed for role players associated with this role
     /// </summary>
-    [Description("")]
+    [Description("Restrict the values allowed for role players associated with this role")]
     [Domain(isAbstract: false, general: "ValueConstraint")]
     [Container(typeName: "Role", propertyName: "ValueConstraint")]
     public class RoleValueConstraint : ValueConstraint

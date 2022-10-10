@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// A constraint specifying that the population of one set must be included in the population of another set
     /// </summary>
-    [Description("")]
+    [Description("A constraint specifying that the population of one set must be included in the population of another set")]
     [Domain(isAbstract: false, general: "SetComparisonConstraint")]
     public class SubsetConstraint : SetComparisonConstraint
     {

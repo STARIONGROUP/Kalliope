@@ -25,7 +25,7 @@ namespace Kalliope.Core
     /// <summary>
     /// An alternative name for the containing named element
     /// </summary>
-    [Description("")]
+    [Description("An alternative name for the containing named element")]
     [Domain(isAbstract: false, general: "OrmNamedElement")]
     [Container(typeName: "ObjectType", propertyName: "Abbreviations")]
     [Container(typeName: "RecognizedPhrase", propertyName: "Abbreviations")]
