@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a DefaultReferenceModeNaming
     /// </summary>
+    /// <remarks>
+    /// Represent a set of defaults for how reference modes should be used in generated code. This type must be extended in extension models to associate another element as the owning context for this default
+    /// </remarks>
     public abstract partial class DefaultReferenceModeNaming : ModelThing
     {
         /// <summary>

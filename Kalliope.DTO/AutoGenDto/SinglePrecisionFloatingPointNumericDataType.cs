@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SinglePrecisionFloatingPointNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of 4-byte floating point numbers
+    /// </remarks>
     public partial class SinglePrecisionFloatingPointNumericDataType : NumericDataType
     {
         /// <summary>

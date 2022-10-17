@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a DecimalNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of moveable decimal point exact numbers. Supports the Precision and Scale facets
+    /// </remarks>
     public partial class DecimalNumericDataType : NumericDataType
     {
         /// <summary>

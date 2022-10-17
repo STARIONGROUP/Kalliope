@@ -73,11 +73,35 @@ namespace Kalliope.Xml.Readers
                                 subtypeDerivationPath.InformalRule = informalDerivationRule.Id;
                             }
                             break;
+                        case "PathComponents":
+                            using (var pathComponentsSubtree = reader.ReadSubtree())
+                            {
+                                pathComponentsSubtree.MoveToContent();
+                                this.ReadPathComponents(subtypeDerivationPath, pathComponentsSubtree, modelThings);
+                            }
+                            break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="subtypeDerivationPath">
+        /// The container <see cref="SubtypeDerivationPath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadPathComponents(SubtypeDerivationPath subtypeDerivationPath, XmlReader reader, List<ModelThing> modelThings)
+        {
+
         }
     }
 }

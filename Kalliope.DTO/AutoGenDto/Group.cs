@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Group
     /// </summary>
+    /// <remarks>
+    /// References to set of related elements
+    /// </remarks>
     public partial class Group : OrmNamedElement
     {
         /// <summary>
@@ -39,10 +42,26 @@ namespace Kalliope.DTO
         /// </summary>
         public Group()
         {
+            this.GroupTypes = new List<string>();
+            this.ModelThings = new List<string>();
             this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
         }
  
 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="ElementGroupingType"/> instances
+        /// </summary>
+        [Description("The contained GroupTypes")]
+        [Property(name: "GroupTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingType", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> GroupTypes { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the referenced <see cref="ModelThing"/> instances
+        /// </summary>
+        [Description("The referenced (grouped) ModelThings")]
+        [Property(name: "ModelThings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelThing", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> ModelThings { get; set; }
+ 
         /// <summary>
         /// Gets or sets a Priority
         /// </summary>

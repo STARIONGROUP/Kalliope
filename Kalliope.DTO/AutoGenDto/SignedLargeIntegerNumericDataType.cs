@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SignedLargeIntegerNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of 8-byte signed integers
+    /// </remarks>
     public partial class SignedLargeIntegerNumericDataType : NumericDataType
     {
         /// <summary>

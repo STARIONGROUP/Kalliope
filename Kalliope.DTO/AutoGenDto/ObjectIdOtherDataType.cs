@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ObjectIdOtherDataType
     /// </summary>
+    /// <remarks>
+    /// Values represent an object identifier
+    /// </remarks>
     public partial class ObjectIdOtherDataType : OtherDataType
     {
         /// <summary>

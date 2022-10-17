@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a NameAlias
     /// </summary>
+    /// <remarks>
+    /// An alternative name for the containing named element
+    /// </remarks>
     [Container(typeName: "ObjectType", propertyName: "Abbreviations")]
     [Container(typeName: "RecognizedPhrase", propertyName: "Abbreviations")]
     public partial class NameAlias : OrmNamedElement

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a LargeLengthTextDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of large length strings. Supports the Length facet
+    /// </remarks>
     public partial class LargeLengthTextDataType : TextDataType
     {
         /// <summary>

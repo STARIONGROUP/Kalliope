@@ -88,6 +88,13 @@ namespace Kalliope.DTO
         [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
         public override string Id => this.ComputeId();
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="SubtypeDerivationPath"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "SubtypeDerivationPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "SubtypeDerivationPath", allowOverride: false, isOverride: false, isDerived: false)]
+        public string SubtypeDerivationPath { get; set; }
+ 
     }
 }
 

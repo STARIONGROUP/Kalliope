@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a UnspecifiedDataType
     /// </summary>
+    /// <remarks>
+    /// Placeholder for an unspecified data type. Each use of this type results in a DataTypeNotSpecified model validation error
+    /// </remarks>
     public partial class UnspecifiedDataType : DataType
     {
         /// <summary>

@@ -92,6 +92,9 @@ namespace Kalliope.Dal
                 case "CalculatedPathValueRequiresFunctionError":
                     var calculatedPathValueRequiresFunctionError = poco as Kalliope.Core.CalculatedPathValueRequiresFunctionError;
                     return calculatedPathValueRequiresFunctionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CalculatedPathValueRequiresFunctionError)dto);
+                case "CalculatedValue":
+                    var calculatedValue = poco as Kalliope.Core.CalculatedValue;
+                    return calculatedValue.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CalculatedValue)dto);
                 case "CardinalityConstraintShape":
                     var cardinalityConstraintShape = poco as Kalliope.Diagrams.CardinalityConstraintShape;
                     return cardinalityConstraintShape.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CardinalityConstraintShape)dto);
@@ -122,6 +125,9 @@ namespace Kalliope.Dal
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     return constraintRoleSequenceJoinPathRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto);
+                case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
+                    var correlatedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
+                    return correlatedPathRoleRequiresCompatibleRolePlayerError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError)dto);
                 case "CustomProperty":
                     var customProperty = poco as Kalliope.CustomProperties.CustomProperty;
                     return customProperty.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CustomProperty)dto);
@@ -155,9 +161,18 @@ namespace Kalliope.Dal
                 case "DerivationNote":
                     var derivationNote = poco as Kalliope.Core.DerivationNote;
                     return derivationNote.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DerivationNote)dto);
+                case "DerivedFactTypeRoleProjectionCompatibilityError":
+                    var derivedFactTypeRoleProjectionCompatibilityError = poco as Kalliope.Core.DerivedFactTypeRoleProjectionCompatibilityError;
+                    return derivedFactTypeRoleProjectionCompatibilityError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DerivedFactTypeRoleProjectionCompatibilityError)dto);
                 case "DerivedRoleRequiresCompatibleProjectionError":
                     var derivedRoleRequiresCompatibleProjectionError = poco as Kalliope.Core.DerivedRoleRequiresCompatibleProjectionError;
                     return derivedRoleRequiresCompatibleProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DerivedRoleRequiresCompatibleProjectionError)dto);
+                case "DiagramDynamicColor":
+                    var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
+                    return diagramDynamicColor.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto);
+                case "DisplayedHierarchy":
+                    var displayedHierarchy = poco as Kalliope.Absorption.DisplayedHierarchy;
+                    return displayedHierarchy.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DisplayedHierarchy)dto);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;
                     return doublePrecisionFloatingPointNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType)dto);
@@ -173,6 +188,12 @@ namespace Kalliope.Dal
                 case "ElementGroupingSet":
                     var elementGroupingSet = poco as Kalliope.Core.ElementGroupingSet;
                     return elementGroupingSet.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ElementGroupingSet)dto);
+                case "ElementOrganizations":
+                    var elementOrganizations = poco as Kalliope.Absorption.ElementOrganizations;
+                    return elementOrganizations.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ElementOrganizations)dto);
+                case "ElementsNotOnDiagramError":
+                    var elementsNotOnDiagramError = poco as Kalliope.ShapeGrouping.ElementsNotOnDiagramError;
+                    return elementsNotOnDiagramError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ElementsNotOnDiagramError)dto);
                 case "EntityType":
                     var entityType = poco as Kalliope.Core.EntityType;
                     return entityType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.EntityType)dto);
@@ -188,6 +209,12 @@ namespace Kalliope.Dal
                 case "EqualityConstraint":
                     var equalityConstraint = poco as Kalliope.Core.EqualityConstraint;
                     return equalityConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.EqualityConstraint)dto);
+                case "EqualityConstraintImpliedByMandatoryConstraintsError":
+                    var equalityConstraintImpliedByMandatoryConstraintsError = poco as Kalliope.Core.EqualityConstraintImpliedByMandatoryConstraintsError;
+                    return equalityConstraintImpliedByMandatoryConstraintsError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.EqualityConstraintImpliedByMandatoryConstraintsError)dto);
+                case "EqualityImpliedByMandatoryError":
+                    var equalityImpliedByMandatoryError = poco as Kalliope.Core.EqualityImpliedByMandatoryError;
+                    return equalityImpliedByMandatoryError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.EqualityImpliedByMandatoryError)dto);
                 case "EqualityOrSubsetImpliedByMandatoryError":
                     var equalityOrSubsetImpliedByMandatoryError = poco as Kalliope.Core.EqualityOrSubsetImpliedByMandatoryError;
                     return equalityOrSubsetImpliedByMandatoryError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.EqualityOrSubsetImpliedByMandatoryError)dto);
@@ -203,6 +230,9 @@ namespace Kalliope.Dal
                 case "ExclusionContradictsSubsetError":
                     var exclusionContradictsSubsetError = poco as Kalliope.Core.ExclusionContradictsSubsetError;
                     return exclusionContradictsSubsetError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ExclusionContradictsSubsetError)dto);
+                case "ExtensionModelError":
+                    var extensionModelError = poco as Kalliope.Core.ExtensionModelError;
+                    return extensionModelError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ExtensionModelError)dto);
                 case "ExternalConstraintRoleSequenceArityMismatchError":
                     var externalConstraintRoleSequenceArityMismatchError = poco as Kalliope.Core.ExternalConstraintRoleSequenceArityMismatchError;
                     return externalConstraintRoleSequenceArityMismatchError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ExternalConstraintRoleSequenceArityMismatchError)dto);
@@ -218,6 +248,9 @@ namespace Kalliope.Dal
                 case "FactTypeDerivationPath":
                     var factTypeDerivationPath = poco as Kalliope.Core.FactTypeDerivationPath;
                     return factTypeDerivationPath.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FactTypeDerivationPath)dto);
+                case "FactTypeDerivationRequiresProjectionError":
+                    var factTypeDerivationRequiresProjectionError = poco as Kalliope.Core.FactTypeDerivationRequiresProjectionError;
+                    return factTypeDerivationRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FactTypeDerivationRequiresProjectionError)dto);
                 case "FactTypeDerivationRule":
                     var factTypeDerivationRule = poco as Kalliope.Core.FactTypeDerivationRule;
                     return factTypeDerivationRule.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FactTypeDerivationRule)dto);
@@ -248,6 +281,9 @@ namespace Kalliope.Dal
                 case "FrequencyConstraint":
                     var frequencyConstraint = poco as Kalliope.Core.FrequencyConstraint;
                     return frequencyConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FrequencyConstraint)dto);
+                case "FrequencyConstraintContradictsInternalUniquenessConstraintError":
+                    var frequencyConstraintContradictsInternalUniquenessConstraintError = poco as Kalliope.Core.FrequencyConstraintContradictsInternalUniquenessConstraintError;
+                    return frequencyConstraintContradictsInternalUniquenessConstraintError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FrequencyConstraintContradictsInternalUniquenessConstraintError)dto);
                 case "FrequencyConstraintExactlyOneError":
                     var frequencyConstraintExactlyOneError = poco as Kalliope.Core.FrequencyConstraintExactlyOneError;
                     return frequencyConstraintExactlyOneError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.FrequencyConstraintExactlyOneError)dto);
@@ -278,6 +314,18 @@ namespace Kalliope.Dal
                 case "Group":
                     var group = poco as Kalliope.Core.Group;
                     return group.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.Group)dto);
+                case "GroupDuplicateNameError":
+                    var groupDuplicateNameError = poco as Kalliope.Core.GroupDuplicateNameError;
+                    return groupDuplicateNameError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.GroupDuplicateNameError)dto);
+                case "GroupMembershipContradictionError":
+                    var groupMembershipContradictionError = poco as Kalliope.Core.GroupMembershipContradictionError;
+                    return groupMembershipContradictionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.GroupMembershipContradictionError)dto);
+                case "Hierarchy":
+                    var hierarchy = poco as Kalliope.Absorption.Hierarchy;
+                    return hierarchy.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.Hierarchy)dto);
+                case "HierarchyColorScheme":
+                    var hierarchyColorScheme = poco as Kalliope.Absorption.HierarchyColorScheme;
+                    return hierarchyColorScheme.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.HierarchyColorScheme)dto);
                 case "ImplicationError":
                     var implicationError = poco as Kalliope.Core.ImplicationError;
                     return implicationError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ImplicationError)dto);
@@ -293,12 +341,18 @@ namespace Kalliope.Dal
                 case "IntrinsicReferenceMode":
                     var intrinsicReferenceMode = poco as Kalliope.Core.IntrinsicReferenceMode;
                     return intrinsicReferenceMode.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.IntrinsicReferenceMode)dto);
+                case "JoinedConstraintRoleProjectionCompatibilityError":
+                    var joinedConstraintRoleProjectionCompatibilityError = poco as Kalliope.Core.JoinedConstraintRoleProjectionCompatibilityError;
+                    return joinedConstraintRoleProjectionCompatibilityError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.JoinedConstraintRoleProjectionCompatibilityError)dto);
                 case "JoinedPathRoleRequiresCompatibleRolePlayerError":
                     var joinedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.JoinedPathRoleRequiresCompatibleRolePlayerError;
                     return joinedPathRoleRequiresCompatibleRolePlayerError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.JoinedPathRoleRequiresCompatibleRolePlayerError)dto);
                 case "JoinPathRequiredError":
                     var joinPathRequiredError = poco as Kalliope.Core.JoinPathRequiredError;
                     return joinPathRequiredError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.JoinPathRequiredError)dto);
+                case "JoinPathRequiresProjectionError":
+                    var joinPathRequiresProjectionError = poco as Kalliope.Core.JoinPathRequiresProjectionError;
+                    return joinPathRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.JoinPathRequiresProjectionError)dto);
                 case "LargeLengthRawDataDataType":
                     var largeLengthRawDataDataType = poco as Kalliope.Core.LargeLengthRawDataDataType;
                     return largeLengthRawDataDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.LargeLengthRawDataDataType)dto);
@@ -320,6 +374,9 @@ namespace Kalliope.Dal
                 case "MinValueMismatchError":
                     var minValueMismatchError = poco as Kalliope.Core.MinValueMismatchError;
                     return minValueMismatchError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.MinValueMismatchError)dto);
+                case "ModelBrowserColorGroupType":
+                    var modelBrowserColorGroupType = poco as Kalliope.ShapeGrouping.ModelBrowserColorGroupType;
+                    return modelBrowserColorGroupType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ModelBrowserColorGroupType)dto);
                 case "ModelNote":
                     var modelNote = poco as Kalliope.Core.ModelNote;
                     return modelNote.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ModelNote)dto);
@@ -371,9 +428,15 @@ namespace Kalliope.Dal
                 case "ObjectTypeDuplicateNameError":
                     var objectTypeDuplicateNameError = poco as Kalliope.Core.ObjectTypeDuplicateNameError;
                     return objectTypeDuplicateNameError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeDuplicateNameError)dto);
+                case "ObjectTypeRequiresPrimarySupertypeError":
+                    var objectTypeRequiresPrimarySupertypeError = poco as Kalliope.Core.ObjectTypeRequiresPrimarySupertypeError;
+                    return objectTypeRequiresPrimarySupertypeError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeRequiresPrimarySupertypeError)dto);
                 case "ObjectTypeShape":
                     var objectTypeShape = poco as Kalliope.Diagrams.ObjectTypeShape;
                     return objectTypeShape.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeShape)dto);
+                case "ObjectUnifierRequiresCompatibleObjectTypesError":
+                    var objectUnifierRequiresCompatibleObjectTypesError = poco as Kalliope.Core.ObjectUnifierRequiresCompatibleObjectTypesError;
+                    return objectUnifierRequiresCompatibleObjectTypesError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectUnifierRequiresCompatibleObjectTypesError)dto);
                 case "OleObjectRawDataDataType":
                     var oleObjectRawDataDataType = poco as Kalliope.Core.OleObjectRawDataDataType;
                     return oleObjectRawDataDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.OleObjectRawDataDataType)dto);
@@ -389,6 +452,15 @@ namespace Kalliope.Dal
                 case "PartialConstraintRoleSequenceJoinPathProjectionError":
                     var partialConstraintRoleSequenceJoinPathProjectionError = poco as Kalliope.Core.PartialConstraintRoleSequenceJoinPathProjectionError;
                     return partialConstraintRoleSequenceJoinPathProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PartialConstraintRoleSequenceJoinPathProjectionError)dto);
+                case "PartialFactTypeDerivationProjectionError":
+                    var partialFactTypeDerivationProjectionError = poco as Kalliope.Core.PartialFactTypeDerivationProjectionError;
+                    return partialFactTypeDerivationProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PartialFactTypeDerivationProjectionError)dto);
+                case "PartialJoinPathProjectionError":
+                    var partialJoinPathProjectionError = poco as Kalliope.Core.PartialJoinPathProjectionError;
+                    return partialJoinPathProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PartialJoinPathProjectionError)dto);
+                case "PartialQueryDerivationProjectionError":
+                    var partialQueryDerivationProjectionError = poco as Kalliope.Core.PartialQueryDerivationProjectionError;
+                    return partialQueryDerivationProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PartialQueryDerivationProjectionError)dto);
                 case "PartialRoleSetDerivationProjectionError":
                     var partialRoleSetDerivationProjectionError = poco as Kalliope.Core.PartialRoleSetDerivationProjectionError;
                     return partialRoleSetDerivationProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PartialRoleSetDerivationProjectionError)dto);
@@ -416,6 +488,9 @@ namespace Kalliope.Dal
                 case "PathSameFactTypeRoleFollowsJoinError":
                     var pathSameFactTypeRoleFollowsJoinError = poco as Kalliope.Core.PathSameFactTypeRoleFollowsJoinError;
                     return pathSameFactTypeRoleFollowsJoinError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathSameFactTypeRoleFollowsJoinError)dto);
+                case "PathStartRoleFollowsRootObjectTypeError":
+                    var pathStartRoleFollowsRootObjectTypeError = poco as Kalliope.Core.PathStartRoleFollowsRootObjectTypeError;
+                    return pathStartRoleFollowsRootObjectTypeError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathStartRoleFollowsRootObjectTypeError)dto);
                 case "PictureRawDataDataType":
                     var pictureRawDataDataType = poco as Kalliope.Core.PictureRawDataDataType;
                     return pictureRawDataDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PictureRawDataDataType)dto);
@@ -428,12 +503,21 @@ namespace Kalliope.Dal
                 case "PreferredIdentifierRequiresMandatoryError":
                     var preferredIdentifierRequiresMandatoryError = poco as Kalliope.Core.PreferredIdentifierRequiresMandatoryError;
                     return preferredIdentifierRequiresMandatoryError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PreferredIdentifierRequiresMandatoryError)dto);
+                case "QueryDerivationPath":
+                    var queryDerivationPath = poco as Kalliope.Core.QueryDerivationPath;
+                    return queryDerivationPath.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.QueryDerivationPath)dto);
+                case "QueryDerivationRequiresProjectionError":
+                    var queryDerivationRequiresProjectionError = poco as Kalliope.Core.QueryDerivationRequiresProjectionError;
+                    return queryDerivationRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.QueryDerivationRequiresProjectionError)dto);
                 case "QueryDerivationRule":
                     var queryDerivationRule = poco as Kalliope.Core.QueryDerivationRule;
                     return queryDerivationRule.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.QueryDerivationRule)dto);
                 case "QueryParameter":
                     var queryParameter = poco as Kalliope.Core.QueryParameter;
                     return queryParameter.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.QueryParameter)dto);
+                case "QueryRoleProjectionCompatibilityError":
+                    var queryRoleProjectionCompatibilityError = poco as Kalliope.Core.QueryRoleProjectionCompatibilityError;
+                    return queryRoleProjectionCompatibilityError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.QueryRoleProjectionCompatibilityError)dto);
                 case "Reading":
                     var reading = poco as Kalliope.Core.Reading;
                     return reading.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.Reading)dto);
@@ -455,6 +539,12 @@ namespace Kalliope.Dal
                 case "ReferenceModeKind":
                     var referenceModeKind = poco as Kalliope.Core.ReferenceModeKind;
                     return referenceModeKind.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ReferenceModeKind)dto);
+                case "RelationalElementsNotOnDiagramError":
+                    var relationalElementsNotOnDiagramError = poco as Kalliope.MultiPageRelationalView.RelationalElementsNotOnDiagramError;
+                    return relationalElementsNotOnDiagramError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RelationalElementsNotOnDiagramError)dto);
+                case "RelationalShapeMissingGroupType":
+                    var relationalShapeMissingGroupType = poco as Kalliope.MultiPageRelationalView.RelationalShapeMissingGroupType;
+                    return relationalShapeMissingGroupType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RelationalShapeMissingGroupType)dto);
                 case "RingConstraint":
                     var ringConstraint = poco as Kalliope.Core.RingConstraint;
                     return ringConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RingConstraint)dto);
@@ -494,6 +584,12 @@ namespace Kalliope.Dal
                 case "SetComparisonConstraintRoleSequence":
                     var setComparisonConstraintRoleSequence = poco as Kalliope.Core.SetComparisonConstraintRoleSequence;
                     return setComparisonConstraintRoleSequence.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.SetComparisonConstraintRoleSequence)dto);
+                case "ShapeColorGroupType":
+                    var shapeColorGroupType = poco as Kalliope.ShapeGrouping.ShapeColorGroupType;
+                    return shapeColorGroupType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ShapeColorGroupType)dto);
+                case "ShapeMissingGroupType":
+                    var shapeMissingGroupType = poco as Kalliope.ShapeGrouping.ShapeMissingGroupType;
+                    return shapeMissingGroupType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ShapeMissingGroupType)dto);
                 case "SignedIntegerNumericDataType":
                     var signedIntegerNumericDataType = poco as Kalliope.Core.SignedIntegerNumericDataType;
                     return signedIntegerNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.SignedIntegerNumericDataType)dto);
@@ -512,6 +608,9 @@ namespace Kalliope.Dal
                 case "SubsetConstraint":
                     var subsetConstraint = poco as Kalliope.Core.SubsetConstraint;
                     return subsetConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.SubsetConstraint)dto);
+                case "SubsetConstraintImpliedByMandatoryConstraintsError":
+                    var subsetConstraintImpliedByMandatoryConstraintsError = poco as Kalliope.Core.SubsetConstraintImpliedByMandatoryConstraintsError;
+                    return subsetConstraintImpliedByMandatoryConstraintsError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.SubsetConstraintImpliedByMandatoryConstraintsError)dto);
                 case "SubtypeDerivationExpression":
                     var subtypeDerivationExpression = poco as Kalliope.Core.SubtypeDerivationExpression;
                     return subtypeDerivationExpression.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.SubtypeDerivationExpression)dto);
@@ -696,6 +795,10 @@ namespace Kalliope.Dal
                     var calculatedPathValueRequiresFunctionError = poco as Kalliope.Core.CalculatedPathValueRequiresFunctionError;
                     calculatedPathValueRequiresFunctionError.UpdateReferenceProperties((Kalliope.DTO.CalculatedPathValueRequiresFunctionError)dto, cache);
                     break;
+                case "CalculatedValue":
+                    var calculatedValue = poco as Kalliope.Core.CalculatedValue;
+                    calculatedValue.UpdateReferenceProperties((Kalliope.DTO.CalculatedValue)dto, cache);
+                    break;
                 case "CardinalityConstraintShape":
                     var cardinalityConstraintShape = poco as Kalliope.Diagrams.CardinalityConstraintShape;
                     cardinalityConstraintShape.UpdateReferenceProperties((Kalliope.DTO.CardinalityConstraintShape)dto, cache);
@@ -735,6 +838,10 @@ namespace Kalliope.Dal
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     constraintRoleSequenceJoinPathRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto, cache);
+                    break;
+                case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
+                    var correlatedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
+                    correlatedPathRoleRequiresCompatibleRolePlayerError.UpdateReferenceProperties((Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError)dto, cache);
                     break;
                 case "CustomProperty":
                     var customProperty = poco as Kalliope.CustomProperties.CustomProperty;
@@ -780,9 +887,21 @@ namespace Kalliope.Dal
                     var derivationNote = poco as Kalliope.Core.DerivationNote;
                     derivationNote.UpdateReferenceProperties((Kalliope.DTO.DerivationNote)dto, cache);
                     break;
+                case "DerivedFactTypeRoleProjectionCompatibilityError":
+                    var derivedFactTypeRoleProjectionCompatibilityError = poco as Kalliope.Core.DerivedFactTypeRoleProjectionCompatibilityError;
+                    derivedFactTypeRoleProjectionCompatibilityError.UpdateReferenceProperties((Kalliope.DTO.DerivedFactTypeRoleProjectionCompatibilityError)dto, cache);
+                    break;
                 case "DerivedRoleRequiresCompatibleProjectionError":
                     var derivedRoleRequiresCompatibleProjectionError = poco as Kalliope.Core.DerivedRoleRequiresCompatibleProjectionError;
                     derivedRoleRequiresCompatibleProjectionError.UpdateReferenceProperties((Kalliope.DTO.DerivedRoleRequiresCompatibleProjectionError)dto, cache);
+                    break;
+                case "DiagramDynamicColor":
+                    var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
+                    diagramDynamicColor.UpdateReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto, cache);
+                    break;
+                case "DisplayedHierarchy":
+                    var displayedHierarchy = poco as Kalliope.Absorption.DisplayedHierarchy;
+                    displayedHierarchy.UpdateReferenceProperties((Kalliope.DTO.DisplayedHierarchy)dto, cache);
                     break;
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;
@@ -804,6 +923,14 @@ namespace Kalliope.Dal
                     var elementGroupingSet = poco as Kalliope.Core.ElementGroupingSet;
                     elementGroupingSet.UpdateReferenceProperties((Kalliope.DTO.ElementGroupingSet)dto, cache);
                     break;
+                case "ElementOrganizations":
+                    var elementOrganizations = poco as Kalliope.Absorption.ElementOrganizations;
+                    elementOrganizations.UpdateReferenceProperties((Kalliope.DTO.ElementOrganizations)dto, cache);
+                    break;
+                case "ElementsNotOnDiagramError":
+                    var elementsNotOnDiagramError = poco as Kalliope.ShapeGrouping.ElementsNotOnDiagramError;
+                    elementsNotOnDiagramError.UpdateReferenceProperties((Kalliope.DTO.ElementsNotOnDiagramError)dto, cache);
+                    break;
                 case "EntityType":
                     var entityType = poco as Kalliope.Core.EntityType;
                     entityType.UpdateReferenceProperties((Kalliope.DTO.EntityType)dto, cache);
@@ -823,6 +950,14 @@ namespace Kalliope.Dal
                 case "EqualityConstraint":
                     var equalityConstraint = poco as Kalliope.Core.EqualityConstraint;
                     equalityConstraint.UpdateReferenceProperties((Kalliope.DTO.EqualityConstraint)dto, cache);
+                    break;
+                case "EqualityConstraintImpliedByMandatoryConstraintsError":
+                    var equalityConstraintImpliedByMandatoryConstraintsError = poco as Kalliope.Core.EqualityConstraintImpliedByMandatoryConstraintsError;
+                    equalityConstraintImpliedByMandatoryConstraintsError.UpdateReferenceProperties((Kalliope.DTO.EqualityConstraintImpliedByMandatoryConstraintsError)dto, cache);
+                    break;
+                case "EqualityImpliedByMandatoryError":
+                    var equalityImpliedByMandatoryError = poco as Kalliope.Core.EqualityImpliedByMandatoryError;
+                    equalityImpliedByMandatoryError.UpdateReferenceProperties((Kalliope.DTO.EqualityImpliedByMandatoryError)dto, cache);
                     break;
                 case "EqualityOrSubsetImpliedByMandatoryError":
                     var equalityOrSubsetImpliedByMandatoryError = poco as Kalliope.Core.EqualityOrSubsetImpliedByMandatoryError;
@@ -844,6 +979,10 @@ namespace Kalliope.Dal
                     var exclusionContradictsSubsetError = poco as Kalliope.Core.ExclusionContradictsSubsetError;
                     exclusionContradictsSubsetError.UpdateReferenceProperties((Kalliope.DTO.ExclusionContradictsSubsetError)dto, cache);
                     break;
+                case "ExtensionModelError":
+                    var extensionModelError = poco as Kalliope.Core.ExtensionModelError;
+                    extensionModelError.UpdateReferenceProperties((Kalliope.DTO.ExtensionModelError)dto, cache);
+                    break;
                 case "ExternalConstraintRoleSequenceArityMismatchError":
                     var externalConstraintRoleSequenceArityMismatchError = poco as Kalliope.Core.ExternalConstraintRoleSequenceArityMismatchError;
                     externalConstraintRoleSequenceArityMismatchError.UpdateReferenceProperties((Kalliope.DTO.ExternalConstraintRoleSequenceArityMismatchError)dto, cache);
@@ -863,6 +1002,10 @@ namespace Kalliope.Dal
                 case "FactTypeDerivationPath":
                     var factTypeDerivationPath = poco as Kalliope.Core.FactTypeDerivationPath;
                     factTypeDerivationPath.UpdateReferenceProperties((Kalliope.DTO.FactTypeDerivationPath)dto, cache);
+                    break;
+                case "FactTypeDerivationRequiresProjectionError":
+                    var factTypeDerivationRequiresProjectionError = poco as Kalliope.Core.FactTypeDerivationRequiresProjectionError;
+                    factTypeDerivationRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.FactTypeDerivationRequiresProjectionError)dto, cache);
                     break;
                 case "FactTypeDerivationRule":
                     var factTypeDerivationRule = poco as Kalliope.Core.FactTypeDerivationRule;
@@ -904,6 +1047,10 @@ namespace Kalliope.Dal
                     var frequencyConstraint = poco as Kalliope.Core.FrequencyConstraint;
                     frequencyConstraint.UpdateReferenceProperties((Kalliope.DTO.FrequencyConstraint)dto, cache);
                     break;
+                case "FrequencyConstraintContradictsInternalUniquenessConstraintError":
+                    var frequencyConstraintContradictsInternalUniquenessConstraintError = poco as Kalliope.Core.FrequencyConstraintContradictsInternalUniquenessConstraintError;
+                    frequencyConstraintContradictsInternalUniquenessConstraintError.UpdateReferenceProperties((Kalliope.DTO.FrequencyConstraintContradictsInternalUniquenessConstraintError)dto, cache);
+                    break;
                 case "FrequencyConstraintExactlyOneError":
                     var frequencyConstraintExactlyOneError = poco as Kalliope.Core.FrequencyConstraintExactlyOneError;
                     frequencyConstraintExactlyOneError.UpdateReferenceProperties((Kalliope.DTO.FrequencyConstraintExactlyOneError)dto, cache);
@@ -944,6 +1091,22 @@ namespace Kalliope.Dal
                     var group = poco as Kalliope.Core.Group;
                     group.UpdateReferenceProperties((Kalliope.DTO.Group)dto, cache);
                     break;
+                case "GroupDuplicateNameError":
+                    var groupDuplicateNameError = poco as Kalliope.Core.GroupDuplicateNameError;
+                    groupDuplicateNameError.UpdateReferenceProperties((Kalliope.DTO.GroupDuplicateNameError)dto, cache);
+                    break;
+                case "GroupMembershipContradictionError":
+                    var groupMembershipContradictionError = poco as Kalliope.Core.GroupMembershipContradictionError;
+                    groupMembershipContradictionError.UpdateReferenceProperties((Kalliope.DTO.GroupMembershipContradictionError)dto, cache);
+                    break;
+                case "Hierarchy":
+                    var hierarchy = poco as Kalliope.Absorption.Hierarchy;
+                    hierarchy.UpdateReferenceProperties((Kalliope.DTO.Hierarchy)dto, cache);
+                    break;
+                case "HierarchyColorScheme":
+                    var hierarchyColorScheme = poco as Kalliope.Absorption.HierarchyColorScheme;
+                    hierarchyColorScheme.UpdateReferenceProperties((Kalliope.DTO.HierarchyColorScheme)dto, cache);
+                    break;
                 case "ImplicationError":
                     var implicationError = poco as Kalliope.Core.ImplicationError;
                     implicationError.UpdateReferenceProperties((Kalliope.DTO.ImplicationError)dto, cache);
@@ -964,6 +1127,10 @@ namespace Kalliope.Dal
                     var intrinsicReferenceMode = poco as Kalliope.Core.IntrinsicReferenceMode;
                     intrinsicReferenceMode.UpdateReferenceProperties((Kalliope.DTO.IntrinsicReferenceMode)dto, cache);
                     break;
+                case "JoinedConstraintRoleProjectionCompatibilityError":
+                    var joinedConstraintRoleProjectionCompatibilityError = poco as Kalliope.Core.JoinedConstraintRoleProjectionCompatibilityError;
+                    joinedConstraintRoleProjectionCompatibilityError.UpdateReferenceProperties((Kalliope.DTO.JoinedConstraintRoleProjectionCompatibilityError)dto, cache);
+                    break;
                 case "JoinedPathRoleRequiresCompatibleRolePlayerError":
                     var joinedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.JoinedPathRoleRequiresCompatibleRolePlayerError;
                     joinedPathRoleRequiresCompatibleRolePlayerError.UpdateReferenceProperties((Kalliope.DTO.JoinedPathRoleRequiresCompatibleRolePlayerError)dto, cache);
@@ -971,6 +1138,10 @@ namespace Kalliope.Dal
                 case "JoinPathRequiredError":
                     var joinPathRequiredError = poco as Kalliope.Core.JoinPathRequiredError;
                     joinPathRequiredError.UpdateReferenceProperties((Kalliope.DTO.JoinPathRequiredError)dto, cache);
+                    break;
+                case "JoinPathRequiresProjectionError":
+                    var joinPathRequiresProjectionError = poco as Kalliope.Core.JoinPathRequiresProjectionError;
+                    joinPathRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.JoinPathRequiresProjectionError)dto, cache);
                     break;
                 case "LargeLengthRawDataDataType":
                     var largeLengthRawDataDataType = poco as Kalliope.Core.LargeLengthRawDataDataType;
@@ -999,6 +1170,10 @@ namespace Kalliope.Dal
                 case "MinValueMismatchError":
                     var minValueMismatchError = poco as Kalliope.Core.MinValueMismatchError;
                     minValueMismatchError.UpdateReferenceProperties((Kalliope.DTO.MinValueMismatchError)dto, cache);
+                    break;
+                case "ModelBrowserColorGroupType":
+                    var modelBrowserColorGroupType = poco as Kalliope.ShapeGrouping.ModelBrowserColorGroupType;
+                    modelBrowserColorGroupType.UpdateReferenceProperties((Kalliope.DTO.ModelBrowserColorGroupType)dto, cache);
                     break;
                 case "ModelNote":
                     var modelNote = poco as Kalliope.Core.ModelNote;
@@ -1068,9 +1243,17 @@ namespace Kalliope.Dal
                     var objectTypeDuplicateNameError = poco as Kalliope.Core.ObjectTypeDuplicateNameError;
                     objectTypeDuplicateNameError.UpdateReferenceProperties((Kalliope.DTO.ObjectTypeDuplicateNameError)dto, cache);
                     break;
+                case "ObjectTypeRequiresPrimarySupertypeError":
+                    var objectTypeRequiresPrimarySupertypeError = poco as Kalliope.Core.ObjectTypeRequiresPrimarySupertypeError;
+                    objectTypeRequiresPrimarySupertypeError.UpdateReferenceProperties((Kalliope.DTO.ObjectTypeRequiresPrimarySupertypeError)dto, cache);
+                    break;
                 case "ObjectTypeShape":
                     var objectTypeShape = poco as Kalliope.Diagrams.ObjectTypeShape;
                     objectTypeShape.UpdateReferenceProperties((Kalliope.DTO.ObjectTypeShape)dto, cache);
+                    break;
+                case "ObjectUnifierRequiresCompatibleObjectTypesError":
+                    var objectUnifierRequiresCompatibleObjectTypesError = poco as Kalliope.Core.ObjectUnifierRequiresCompatibleObjectTypesError;
+                    objectUnifierRequiresCompatibleObjectTypesError.UpdateReferenceProperties((Kalliope.DTO.ObjectUnifierRequiresCompatibleObjectTypesError)dto, cache);
                     break;
                 case "OleObjectRawDataDataType":
                     var oleObjectRawDataDataType = poco as Kalliope.Core.OleObjectRawDataDataType;
@@ -1091,6 +1274,18 @@ namespace Kalliope.Dal
                 case "PartialConstraintRoleSequenceJoinPathProjectionError":
                     var partialConstraintRoleSequenceJoinPathProjectionError = poco as Kalliope.Core.PartialConstraintRoleSequenceJoinPathProjectionError;
                     partialConstraintRoleSequenceJoinPathProjectionError.UpdateReferenceProperties((Kalliope.DTO.PartialConstraintRoleSequenceJoinPathProjectionError)dto, cache);
+                    break;
+                case "PartialFactTypeDerivationProjectionError":
+                    var partialFactTypeDerivationProjectionError = poco as Kalliope.Core.PartialFactTypeDerivationProjectionError;
+                    partialFactTypeDerivationProjectionError.UpdateReferenceProperties((Kalliope.DTO.PartialFactTypeDerivationProjectionError)dto, cache);
+                    break;
+                case "PartialJoinPathProjectionError":
+                    var partialJoinPathProjectionError = poco as Kalliope.Core.PartialJoinPathProjectionError;
+                    partialJoinPathProjectionError.UpdateReferenceProperties((Kalliope.DTO.PartialJoinPathProjectionError)dto, cache);
+                    break;
+                case "PartialQueryDerivationProjectionError":
+                    var partialQueryDerivationProjectionError = poco as Kalliope.Core.PartialQueryDerivationProjectionError;
+                    partialQueryDerivationProjectionError.UpdateReferenceProperties((Kalliope.DTO.PartialQueryDerivationProjectionError)dto, cache);
                     break;
                 case "PartialRoleSetDerivationProjectionError":
                     var partialRoleSetDerivationProjectionError = poco as Kalliope.Core.PartialRoleSetDerivationProjectionError;
@@ -1128,6 +1323,10 @@ namespace Kalliope.Dal
                     var pathSameFactTypeRoleFollowsJoinError = poco as Kalliope.Core.PathSameFactTypeRoleFollowsJoinError;
                     pathSameFactTypeRoleFollowsJoinError.UpdateReferenceProperties((Kalliope.DTO.PathSameFactTypeRoleFollowsJoinError)dto, cache);
                     break;
+                case "PathStartRoleFollowsRootObjectTypeError":
+                    var pathStartRoleFollowsRootObjectTypeError = poco as Kalliope.Core.PathStartRoleFollowsRootObjectTypeError;
+                    pathStartRoleFollowsRootObjectTypeError.UpdateReferenceProperties((Kalliope.DTO.PathStartRoleFollowsRootObjectTypeError)dto, cache);
+                    break;
                 case "PictureRawDataDataType":
                     var pictureRawDataDataType = poco as Kalliope.Core.PictureRawDataDataType;
                     pictureRawDataDataType.UpdateReferenceProperties((Kalliope.DTO.PictureRawDataDataType)dto, cache);
@@ -1144,6 +1343,14 @@ namespace Kalliope.Dal
                     var preferredIdentifierRequiresMandatoryError = poco as Kalliope.Core.PreferredIdentifierRequiresMandatoryError;
                     preferredIdentifierRequiresMandatoryError.UpdateReferenceProperties((Kalliope.DTO.PreferredIdentifierRequiresMandatoryError)dto, cache);
                     break;
+                case "QueryDerivationPath":
+                    var queryDerivationPath = poco as Kalliope.Core.QueryDerivationPath;
+                    queryDerivationPath.UpdateReferenceProperties((Kalliope.DTO.QueryDerivationPath)dto, cache);
+                    break;
+                case "QueryDerivationRequiresProjectionError":
+                    var queryDerivationRequiresProjectionError = poco as Kalliope.Core.QueryDerivationRequiresProjectionError;
+                    queryDerivationRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.QueryDerivationRequiresProjectionError)dto, cache);
+                    break;
                 case "QueryDerivationRule":
                     var queryDerivationRule = poco as Kalliope.Core.QueryDerivationRule;
                     queryDerivationRule.UpdateReferenceProperties((Kalliope.DTO.QueryDerivationRule)dto, cache);
@@ -1151,6 +1358,10 @@ namespace Kalliope.Dal
                 case "QueryParameter":
                     var queryParameter = poco as Kalliope.Core.QueryParameter;
                     queryParameter.UpdateReferenceProperties((Kalliope.DTO.QueryParameter)dto, cache);
+                    break;
+                case "QueryRoleProjectionCompatibilityError":
+                    var queryRoleProjectionCompatibilityError = poco as Kalliope.Core.QueryRoleProjectionCompatibilityError;
+                    queryRoleProjectionCompatibilityError.UpdateReferenceProperties((Kalliope.DTO.QueryRoleProjectionCompatibilityError)dto, cache);
                     break;
                 case "Reading":
                     var reading = poco as Kalliope.Core.Reading;
@@ -1179,6 +1390,14 @@ namespace Kalliope.Dal
                 case "ReferenceModeKind":
                     var referenceModeKind = poco as Kalliope.Core.ReferenceModeKind;
                     referenceModeKind.UpdateReferenceProperties((Kalliope.DTO.ReferenceModeKind)dto, cache);
+                    break;
+                case "RelationalElementsNotOnDiagramError":
+                    var relationalElementsNotOnDiagramError = poco as Kalliope.MultiPageRelationalView.RelationalElementsNotOnDiagramError;
+                    relationalElementsNotOnDiagramError.UpdateReferenceProperties((Kalliope.DTO.RelationalElementsNotOnDiagramError)dto, cache);
+                    break;
+                case "RelationalShapeMissingGroupType":
+                    var relationalShapeMissingGroupType = poco as Kalliope.MultiPageRelationalView.RelationalShapeMissingGroupType;
+                    relationalShapeMissingGroupType.UpdateReferenceProperties((Kalliope.DTO.RelationalShapeMissingGroupType)dto, cache);
                     break;
                 case "RingConstraint":
                     var ringConstraint = poco as Kalliope.Core.RingConstraint;
@@ -1232,6 +1451,14 @@ namespace Kalliope.Dal
                     var setComparisonConstraintRoleSequence = poco as Kalliope.Core.SetComparisonConstraintRoleSequence;
                     setComparisonConstraintRoleSequence.UpdateReferenceProperties((Kalliope.DTO.SetComparisonConstraintRoleSequence)dto, cache);
                     break;
+                case "ShapeColorGroupType":
+                    var shapeColorGroupType = poco as Kalliope.ShapeGrouping.ShapeColorGroupType;
+                    shapeColorGroupType.UpdateReferenceProperties((Kalliope.DTO.ShapeColorGroupType)dto, cache);
+                    break;
+                case "ShapeMissingGroupType":
+                    var shapeMissingGroupType = poco as Kalliope.ShapeGrouping.ShapeMissingGroupType;
+                    shapeMissingGroupType.UpdateReferenceProperties((Kalliope.DTO.ShapeMissingGroupType)dto, cache);
+                    break;
                 case "SignedIntegerNumericDataType":
                     var signedIntegerNumericDataType = poco as Kalliope.Core.SignedIntegerNumericDataType;
                     signedIntegerNumericDataType.UpdateReferenceProperties((Kalliope.DTO.SignedIntegerNumericDataType)dto, cache);
@@ -1255,6 +1482,10 @@ namespace Kalliope.Dal
                 case "SubsetConstraint":
                     var subsetConstraint = poco as Kalliope.Core.SubsetConstraint;
                     subsetConstraint.UpdateReferenceProperties((Kalliope.DTO.SubsetConstraint)dto, cache);
+                    break;
+                case "SubsetConstraintImpliedByMandatoryConstraintsError":
+                    var subsetConstraintImpliedByMandatoryConstraintsError = poco as Kalliope.Core.SubsetConstraintImpliedByMandatoryConstraintsError;
+                    subsetConstraintImpliedByMandatoryConstraintsError.UpdateReferenceProperties((Kalliope.DTO.SubsetConstraintImpliedByMandatoryConstraintsError)dto, cache);
                     break;
                 case "SubtypeDerivationExpression":
                     var subtypeDerivationExpression = poco as Kalliope.Core.SubtypeDerivationExpression;

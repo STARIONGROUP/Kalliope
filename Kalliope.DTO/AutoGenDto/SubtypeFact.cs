@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SubtypeFact
     /// </summary>
+    /// <remarks>
+    /// A fact type representing the subtype meta relationship between a subtype and a supertype
+    /// </remarks>
     public partial class SubtypeFact : FactType
     {
         /// <summary>

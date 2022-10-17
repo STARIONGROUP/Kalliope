@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Definition
     /// </summary>
+    /// <remarks>
+    /// An informal description for the containing element
+    /// </remarks>
     [Container(typeName: "CardinalityConstraint", propertyName: "Definition")]
     [Container(typeName: "ElementGrouping", propertyName: "Definition")]
     [Container(typeName: "FactType", propertyName: "Definition")]

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SignedSmallIntegerNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of 2-byte signed integers
+    /// </remarks>
     public partial class SignedSmallIntegerNumericDataType : NumericDataType
     {
         /// <summary>

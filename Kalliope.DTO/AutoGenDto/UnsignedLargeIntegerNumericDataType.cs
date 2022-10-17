@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a UnsignedLargeIntegerNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of 8-byte unsigned integers
+    /// </remarks>
     public partial class UnsignedLargeIntegerNumericDataType : NumericDataType
     {
         /// <summary>

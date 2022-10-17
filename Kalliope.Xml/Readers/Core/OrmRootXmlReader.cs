@@ -109,6 +109,28 @@ namespace Kalliope.Xml.Readers
                                 ormRoot.CustomPropertyGroups.Add(customPropertyGroup.Id);
                             }
                             break;
+                        case "Grouping":
+                            using (var groupingSubtree = reader.ReadSubtree())
+                            {
+                                groupingSubtree.MoveToContent();
+                                // TODO: parse grouping subtree
+                                //var customPropertyGroup = new CustomPropertyGroup();
+                                //var customPropertyGroupXmlReader = new CustomPropertyGroupXmlReader();
+                                //customPropertyGroupXmlReader.ReadXml(customPropertyGroup, customPropertyGroupSubtree, modelThings);
+                                //ormRoot.CustomPropertyGroups.Add(customPropertyGroup.Id);
+                            }
+                            break;
+                        case "ElementOrganizations":
+                            using (var elementOrganizationsSubtree = reader.ReadSubtree())
+                            {
+                                elementOrganizationsSubtree.MoveToContent();
+                                // TODO: parse ElementOrganizations subtree
+                                //var customPropertyGroup = new CustomPropertyGroup();
+                                //var customPropertyGroupXmlReader = new CustomPropertyGroupXmlReader();
+                                //customPropertyGroupXmlReader.ReadXml(customPropertyGroup, customPropertyGroupSubtree, modelThings);
+                                //ormRoot.CustomPropertyGroups.Add(customPropertyGroup.Id);
+                            }
+                            break;
                     }
                 }
             }

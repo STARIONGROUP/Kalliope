@@ -80,6 +80,8 @@ namespace Kalliope.Core
         /// <summary>
         /// Gets or sets the owned <see cref="SubtypeDerivationPath"/>
         /// </summary>
+        [Description("")]
+        [Property(name: "SubtypeDerivationPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "SubtypeDerivationPath")]
         public SubtypeDerivationPath SubtypeDerivationPath { get; set; }
     }
 }

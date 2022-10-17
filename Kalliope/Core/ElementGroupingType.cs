@@ -28,7 +28,6 @@ namespace Kalliope.Core
     [Description("A type for a group. Each Group is associated with a new instance of each of its GroupTypes, allowing individual settings per group")]
     [Domain(isAbstract: true, general: "ModelThing")]
     [Container(typeName: "ElementGrouping", propertyName: "GroupingTypes")]
-    [Ignore("This class derives from ModelThing and therefore has no Id property and is an abstract class that has no subclasses defined in the domain model")]
     public abstract class ElementGroupingType : ModelThing
     {
     }

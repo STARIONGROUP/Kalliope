@@ -26,8 +26,8 @@ namespace Kalliope.Core
     /// Dynamic color information used by extension models with shape representations
     /// </summary>
     [Description("Dynamic color information used by extension models with shape representations")]
-    [Domain(isAbstract: true, general: "")]
-    public abstract class DynamicColor
+    [Domain(isAbstract: true, general: "ModelThing")]
+    public abstract class DynamicColor : ModelThing
     {
         /// <summary>
         /// The name of a role indicating use of the color. Correspond to an item in a color set enum

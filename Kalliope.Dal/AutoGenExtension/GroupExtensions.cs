@@ -29,6 +29,7 @@ namespace Kalliope.Dal
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kalliope.Absorption;
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.CustomProperties;
@@ -90,6 +91,21 @@ namespace Kalliope.Dal
             {
                 var extension = poco.Extensions.Single(x => x.Id == identifier);
                 poco.Extensions.Remove(extension);
+            }
+
+            var groupTypesToDelete = poco.GroupTypes.Select(x => x.Id).Except(dto.GroupTypes);
+            identifiersOfObjectsToDelete.AddRange(groupTypesToDelete);
+            foreach (var identifier in groupTypesToDelete)
+            {
+                var elementGroupingType = poco.GroupTypes.Single(x => x.Id == identifier);
+                poco.GroupTypes.Remove(elementGroupingType);
+            }
+
+            var modelThingsToDelete = poco.ModelThings.Select(x => x.Id).Except(dto.ModelThings);
+            foreach (var identifier in modelThingsToDelete)
+            {
+                var modelThing = poco.ModelThings.Single(x => x.Id == identifier);
+                poco.ModelThings.Remove(modelThing);
             }
 
             poco.Name = dto.Name;
@@ -162,6 +178,26 @@ namespace Kalliope.Dal
                 {
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
+                }
+            }
+
+            var groupTypesToAdd = dto.GroupTypes.Except(poco.GroupTypes.Select(x => x.Id));
+            foreach (var identifier in groupTypesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var elementGroupingType = (ElementGroupingType)lazyPoco.Value;
+                    poco.GroupTypes.Add(elementGroupingType);
+                }
+            }
+
+            var modelThingsToAdd = dto.ModelThings.Except(poco.ModelThings.Select(x => x.Id));
+            foreach (var identifier in modelThingsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var modelThing = (ModelThing)lazyPoco.Value;
+                    poco.ModelThings.Add(modelThing);
                 }
             }
         }

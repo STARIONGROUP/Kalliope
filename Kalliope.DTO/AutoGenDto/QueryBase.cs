@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a QueryBase
     /// </summary>
+    /// <remarks>
+    /// A query representation based on a fact type structure. Queries support parameterization and do not need readings
+    /// </remarks>
     public abstract partial class QueryBase : FactType
     {
         /// <summary>

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a TrueOrFalseLogicalDataType
     /// </summary>
+    /// <remarks>
+    /// Values are either true or false
+    /// </remarks>
     public partial class TrueOrFalseLogicalDataType : LogicalDataType
     {
         /// <summary>

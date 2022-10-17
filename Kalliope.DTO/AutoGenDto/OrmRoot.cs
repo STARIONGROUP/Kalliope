@@ -33,7 +33,7 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a OrmRoot
     /// </summary>
     /// <remarks>
-    /// 
+    /// The OrmRoot represents the root node of an .orm file
     /// </remarks>
     public partial class OrmRoot : ModelThing
     {
@@ -60,6 +60,13 @@ namespace Kalliope.DTO
         [Description("Gets or sets the OrmDiagrams contained by the .orm file")]
         [Property(name: "Diagrams", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmDiagram", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> Diagrams { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="ElementOrganizations"/>
+        /// </summary>
+        [Description("Gets or sets the ElementOrganizations contained by the .orm file")]
+        [Property(name: "ElementOrganizations", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementOrganizations", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ElementOrganizations { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="GenerationState"/>

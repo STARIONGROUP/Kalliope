@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a MandatoryConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that a set must be populated
+    /// </remarks>
     [Container(typeName: "ObjectType", propertyName: "ImpliedMandatoryConstraint")]
     public partial class MandatoryConstraint : SetConstraint
     {

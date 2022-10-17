@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Extension
     /// </summary>
+    /// <remarks>
+    /// Extension data related to the containing element
+    /// </remarks>
     [Container(typeName: "OrmModelElement", propertyName: "Extensions")]
     public abstract partial class Extension : ModelThing
     {

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Reading
     /// </summary>
+    /// <remarks>
+    /// Predicate text corresponding to a specific role traversal
+    /// </remarks>
     [Container(typeName: "ReadingOrder", propertyName: "Readings")]
     public partial class Reading : OrmModelElement
     {

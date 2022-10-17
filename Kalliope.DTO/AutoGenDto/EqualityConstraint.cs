@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a EqualityConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that two set populations must be equal
+    /// </remarks>
     public partial class EqualityConstraint : SetComparisonConstraint
     {
         /// <summary>

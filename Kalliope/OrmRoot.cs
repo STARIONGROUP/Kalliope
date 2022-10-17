@@ -22,6 +22,7 @@ namespace Kalliope
 {
     using System.Collections.Generic;
 
+    using Kalliope.Absorption;
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.CustomProperties;
@@ -81,5 +82,12 @@ namespace Kalliope
         [Description("Gets or sets the CustomPropertyGroups contained by the .orm file")]
         [Property(name: "CustomPropertyGroups", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CustomPropertyGroup")]
         public List<CustomPropertyGroup> CustomPropertyGroups { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ElementOrganizations contained by the .orm file
+        /// </summary>
+        [Description("Gets or sets the ElementOrganizations contained by the .orm file")]
+        [Property(name: "ElementOrganizations", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementOrganizations")]
+        public ElementOrganizations ElementOrganizations { get; set; }
     }
 }

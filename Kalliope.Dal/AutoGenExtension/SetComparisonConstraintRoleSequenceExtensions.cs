@@ -29,6 +29,7 @@ namespace Kalliope.Dal
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kalliope.Absorption;
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.CustomProperties;

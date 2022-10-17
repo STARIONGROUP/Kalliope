@@ -20,6 +20,8 @@
 
 namespace Kalliope.Core
 {
+    using System.Collections.Generic;
+
     using Kalliope.Common;
 
     /// <summary>
@@ -38,6 +40,9 @@ namespace Kalliope.Core
         public Group()
         {
             this.TypeCompliance = GroupingMembershipTypeCompliance.NotExcluded;
+
+            this.GroupTypes = new List<ElementGroupingType>();
+            this.ModelThings = new List<ModelThing>();
         }
 
         /// <summary>
@@ -54,5 +59,19 @@ namespace Kalliope.Core
         [Description("The priority of this group, used to determine precedence if the same element is included in more than one group with the same group type Higher numbers have higher priority.")]
         [Property(name: "TypeCompliance", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "NotExcluded", typeName: "GroupingMembershipTypeCompliance")]
         public GroupingMembershipTypeCompliance TypeCompliance { get; set; }
+
+        /// <summary>
+        /// Gets or sets the contained <see cref="IEnumerable{ElementGroupingType}"/>
+        /// </summary>
+        [Description("The contained GroupTypes")]
+        [Property(name: "GroupTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ElementGroupingType")]
+        public List<ElementGroupingType> GroupTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the referenced (grouped) <see cref="ModelThing"/>s
+        /// </summary>
+        [Description("The referenced (grouped) ModelThings")]
+        [Property(name: "ModelThings", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelThing")]
+        public List<ModelThing> ModelThings { get; set; }
     }
 }

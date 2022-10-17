@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a FloatingPointNumericDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of floating point numbers. Supports the Precision facet
+    /// </remarks>
     public partial class FloatingPointNumericDataType : NumericDataType
     {
         /// <summary>

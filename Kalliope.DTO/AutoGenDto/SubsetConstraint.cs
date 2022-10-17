@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SubsetConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that the population of one set must be included in the population of another set
+    /// </remarks>
     public partial class SubsetConstraint : SetComparisonConstraint
     {
         /// <summary>

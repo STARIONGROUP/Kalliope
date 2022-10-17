@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a DateTemporalDataType
     /// </summary>
+    /// <remarks>
+    /// Values represent date information
+    /// </remarks>
     public partial class DateTemporalDataType : TemporalDataType
     {
         /// <summary>

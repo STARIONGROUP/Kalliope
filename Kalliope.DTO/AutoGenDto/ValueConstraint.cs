@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint limiting the set of allowed values
+    /// </remarks>
     public abstract partial class ValueConstraint : OrmNamedElement
     {
         /// <summary>

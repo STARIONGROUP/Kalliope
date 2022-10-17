@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RingConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying relationships between elements of the same type in a set population
+    /// </remarks>
     public partial class RingConstraint : SetConstraint
     {
         /// <summary>

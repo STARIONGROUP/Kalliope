@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueComparisonConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that a comparison between two related values must be satisfied
+    /// </remarks>
     public partial class ValueComparisonConstraint : SetConstraint
     {
         /// <summary>

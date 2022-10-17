@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a OleObjectRawDataDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of binary data representing an embedded OLE object
+    /// </remarks>
     public partial class OleObjectRawDataDataType : RawDataDataType
     {
         /// <summary>

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RoleValueConstraint
     /// </summary>
+    /// <remarks>
+    /// Restrict the values allowed for role players associated with this role
+    /// </remarks>
     [Container(typeName: "Role", propertyName: "ValueConstraint")]
     public partial class RoleValueConstraint : ValueConstraint
     {

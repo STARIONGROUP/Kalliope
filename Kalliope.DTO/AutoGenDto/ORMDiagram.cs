@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a OrmDiagram
     /// </summary>
+    /// <remarks>
+    /// A diagram that represents items contained by an OrmModel
+    /// </remarks>
     [Container(typeName: "OrmRoot", propertyName: "Diagrams")]
     public partial class OrmDiagram : ModelThing
     {

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a PictureRawDataDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of binary data representing an image
+    /// </remarks>
     public partial class PictureRawDataDataType : RawDataDataType
     {
         /// <summary>

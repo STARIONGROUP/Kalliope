@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a GenerationSetting
     /// </summary>
+    /// <remarks>
+    /// A generation setting representing the extension-defined algorithm used to generate elements from the ORM elements
+    /// </remarks>
     [Container(typeName: "GenerationState", propertyName: "GenerationSettings")]
     public abstract partial class GenerationSetting : ModelThing
     {

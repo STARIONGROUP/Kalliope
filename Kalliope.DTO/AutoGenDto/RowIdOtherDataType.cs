@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a RowIdOtherDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of row identifiers
+    /// </remarks>
     public partial class RowIdOtherDataType : OtherDataType
     {
         /// <summary>

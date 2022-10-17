@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ValueRange
     /// </summary>
+    /// <remarks>
+    /// A simple value range
+    /// </remarks>
     [Container(typeName: "ValueConstraint", propertyName: "ValueRanges")]
     public partial class ValueRange : OrmModelElement
     {

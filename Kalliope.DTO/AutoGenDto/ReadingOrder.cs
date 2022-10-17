@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ReadingOrder
     /// </summary>
+    /// <remarks>
+    /// A sequence of roles from a single fact type representing representing a complete role traversal. Also called a predicate
+    /// </remarks>
     [Container(typeName: "FactType", propertyName: "ReadingOrders")]
     public partial class ReadingOrder : OrmModelElement
     {

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ReferenceModeNaming
     /// </summary>
+    /// <remarks>
+    /// Reference mode naming options for a specific object type. Used by extension models, which must add their own reference to the modified object type
+    /// </remarks>
     public abstract partial class ReferenceModeNaming : ModelThing
     {
         /// <summary>

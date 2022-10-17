@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -116,6 +117,20 @@ namespace Kalliope.Xml.Readers
                             {
                                 referenceModeKindsSubtree.MoveToContent();
                                 this.ReadReferenceModeKinds(ormModel, referenceModeKindsSubtree, modelThings);
+                            }
+                            break;
+                        case "Functions":
+                            using (var functionsSubtree = reader.ReadSubtree())
+                            {
+                                functionsSubtree.MoveToContent();
+                                this.ReadFunctions(ormModel, functionsSubtree, modelThings);
+                            }
+                            break;
+                        case "ModelErrors":
+                            using (var modelErrorsSubtree = reader.ReadSubtree())
+                            {
+                                modelErrorsSubtree.MoveToContent();
+                                this.ReadModelErrors(ormModel, modelErrorsSubtree, modelThings);
                             }
                             break;
                         default:
@@ -244,7 +259,7 @@ namespace Kalliope.Xml.Readers
                             using (var valueTypeSubtree = reader.ReadSubtree())
                             {
                                 valueTypeSubtree.MoveToContent();
-                                var valueType = new ValueType();
+                                var valueType = new DTO.ValueType();
                                 var valueTypeXmlReader = new ValueTypeXmlReader();
                                 valueTypeXmlReader.ReadXml(valueType, valueTypeSubtree, modelThings);
                                 valueType.Container = ormModel.Id;
@@ -925,6 +940,83 @@ namespace Kalliope.Xml.Readers
                             break;
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the <see cref="Function"/>s
+        /// </summary>
+        /// <param name="ormModel">
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="Function"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadFunctions(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Function":
+                            using (var functionSubtree = reader.ReadSubtree())
+                            {
+                                functionSubtree.MoveToContent();
+                                var function = new Function();
+                                var functionXmlReader = new FunctionXmlReader();
+                                functionXmlReader.ReadXml(function, functionSubtree, modelThings);
+                                function.Container = ormModel.Id;
+                                ormModel.Functions.Add(function.Id);
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Reads the <see cref="ModelError"/>s
+        /// </summary>
+        /// <param name="ormModel">
+        /// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="ModelError"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadModelErrors(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ORMElementsNotOnDiagramError":
+                            Console.WriteLine("ElementsNotOnDiagramError not yet supported");
+                            break;
+                        case "RelationalElementsNotOnDiagramError":
+                            Console.WriteLine("RelationalElementsNotOnDiagramError not yet supported");
+                            break;
+                        default:
+                            //TODO: implement model error parsing throw new System.NotSupportedException($"{localName} not yet supported");
+                            Console.WriteLine($"{localName} not yet supported");
+                            break;
                     }
                 }
             }

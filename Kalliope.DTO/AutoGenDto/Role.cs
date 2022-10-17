@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Role
     /// </summary>
+    /// <remarks>
+    /// A primary role declaration
+    /// </remarks>
     public partial class Role : RoleBase
     {
         /// <summary>

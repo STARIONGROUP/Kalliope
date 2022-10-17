@@ -87,6 +87,10 @@ namespace Kalliope.Dal
                     var calculatedPathValueRequiresFunctionError = dto as Kalliope.DTO.CalculatedPathValueRequiresFunctionError;
                     var calculatedPathValueRequiresFunctionErrorFactory = new CalculatedPathValueRequiresFunctionErrorFactory();
                     return calculatedPathValueRequiresFunctionErrorFactory.Create(calculatedPathValueRequiresFunctionError);
+                case "CalculatedValue":
+                    var calculatedValue = dto as Kalliope.DTO.CalculatedValue;
+                    var calculatedValueFactory = new CalculatedValueFactory();
+                    return calculatedValueFactory.Create(calculatedValue);
                 case "CardinalityConstraintShape":
                     var cardinalityConstraintShape = dto as Kalliope.DTO.CardinalityConstraintShape;
                     var cardinalityConstraintShapeFactory = new CardinalityConstraintShapeFactory();
@@ -127,6 +131,10 @@ namespace Kalliope.Dal
                     var constraintRoleSequenceJoinPathRequiresProjectionError = dto as Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     var constraintRoleSequenceJoinPathRequiresProjectionErrorFactory = new ConstraintRoleSequenceJoinPathRequiresProjectionErrorFactory();
                     return constraintRoleSequenceJoinPathRequiresProjectionErrorFactory.Create(constraintRoleSequenceJoinPathRequiresProjectionError);
+                case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
+                    var correlatedPathRoleRequiresCompatibleRolePlayerError = dto as Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
+                    var correlatedPathRoleRequiresCompatibleRolePlayerErrorFactory = new CorrelatedPathRoleRequiresCompatibleRolePlayerErrorFactory();
+                    return correlatedPathRoleRequiresCompatibleRolePlayerErrorFactory.Create(correlatedPathRoleRequiresCompatibleRolePlayerError);
                 case "CustomProperty":
                     var customProperty = dto as Kalliope.DTO.CustomProperty;
                     var customPropertyFactory = new CustomPropertyFactory();
@@ -171,10 +179,22 @@ namespace Kalliope.Dal
                     var derivationNote = dto as Kalliope.DTO.DerivationNote;
                     var derivationNoteFactory = new DerivationNoteFactory();
                     return derivationNoteFactory.Create(derivationNote);
+                case "DerivedFactTypeRoleProjectionCompatibilityError":
+                    var derivedFactTypeRoleProjectionCompatibilityError = dto as Kalliope.DTO.DerivedFactTypeRoleProjectionCompatibilityError;
+                    var derivedFactTypeRoleProjectionCompatibilityErrorFactory = new DerivedFactTypeRoleProjectionCompatibilityErrorFactory();
+                    return derivedFactTypeRoleProjectionCompatibilityErrorFactory.Create(derivedFactTypeRoleProjectionCompatibilityError);
                 case "DerivedRoleRequiresCompatibleProjectionError":
                     var derivedRoleRequiresCompatibleProjectionError = dto as Kalliope.DTO.DerivedRoleRequiresCompatibleProjectionError;
                     var derivedRoleRequiresCompatibleProjectionErrorFactory = new DerivedRoleRequiresCompatibleProjectionErrorFactory();
                     return derivedRoleRequiresCompatibleProjectionErrorFactory.Create(derivedRoleRequiresCompatibleProjectionError);
+                case "DiagramDynamicColor":
+                    var diagramDynamicColor = dto as Kalliope.DTO.DiagramDynamicColor;
+                    var diagramDynamicColorFactory = new DiagramDynamicColorFactory();
+                    return diagramDynamicColorFactory.Create(diagramDynamicColor);
+                case "DisplayedHierarchy":
+                    var displayedHierarchy = dto as Kalliope.DTO.DisplayedHierarchy;
+                    var displayedHierarchyFactory = new DisplayedHierarchyFactory();
+                    return displayedHierarchyFactory.Create(displayedHierarchy);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = dto as Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType;
                     var doublePrecisionFloatingPointNumericDataTypeFactory = new DoublePrecisionFloatingPointNumericDataTypeFactory();
@@ -195,6 +215,14 @@ namespace Kalliope.Dal
                     var elementGroupingSet = dto as Kalliope.DTO.ElementGroupingSet;
                     var elementGroupingSetFactory = new ElementGroupingSetFactory();
                     return elementGroupingSetFactory.Create(elementGroupingSet);
+                case "ElementOrganizations":
+                    var elementOrganizations = dto as Kalliope.DTO.ElementOrganizations;
+                    var elementOrganizationsFactory = new ElementOrganizationsFactory();
+                    return elementOrganizationsFactory.Create(elementOrganizations);
+                case "ElementsNotOnDiagramError":
+                    var elementsNotOnDiagramError = dto as Kalliope.DTO.ElementsNotOnDiagramError;
+                    var elementsNotOnDiagramErrorFactory = new ElementsNotOnDiagramErrorFactory();
+                    return elementsNotOnDiagramErrorFactory.Create(elementsNotOnDiagramError);
                 case "EntityType":
                     var entityType = dto as Kalliope.DTO.EntityType;
                     var entityTypeFactory = new EntityTypeFactory();
@@ -215,6 +243,14 @@ namespace Kalliope.Dal
                     var equalityConstraint = dto as Kalliope.DTO.EqualityConstraint;
                     var equalityConstraintFactory = new EqualityConstraintFactory();
                     return equalityConstraintFactory.Create(equalityConstraint);
+                case "EqualityConstraintImpliedByMandatoryConstraintsError":
+                    var equalityConstraintImpliedByMandatoryConstraintsError = dto as Kalliope.DTO.EqualityConstraintImpliedByMandatoryConstraintsError;
+                    var equalityConstraintImpliedByMandatoryConstraintsErrorFactory = new EqualityConstraintImpliedByMandatoryConstraintsErrorFactory();
+                    return equalityConstraintImpliedByMandatoryConstraintsErrorFactory.Create(equalityConstraintImpliedByMandatoryConstraintsError);
+                case "EqualityImpliedByMandatoryError":
+                    var equalityImpliedByMandatoryError = dto as Kalliope.DTO.EqualityImpliedByMandatoryError;
+                    var equalityImpliedByMandatoryErrorFactory = new EqualityImpliedByMandatoryErrorFactory();
+                    return equalityImpliedByMandatoryErrorFactory.Create(equalityImpliedByMandatoryError);
                 case "EqualityOrSubsetImpliedByMandatoryError":
                     var equalityOrSubsetImpliedByMandatoryError = dto as Kalliope.DTO.EqualityOrSubsetImpliedByMandatoryError;
                     var equalityOrSubsetImpliedByMandatoryErrorFactory = new EqualityOrSubsetImpliedByMandatoryErrorFactory();
@@ -235,6 +271,10 @@ namespace Kalliope.Dal
                     var exclusionContradictsSubsetError = dto as Kalliope.DTO.ExclusionContradictsSubsetError;
                     var exclusionContradictsSubsetErrorFactory = new ExclusionContradictsSubsetErrorFactory();
                     return exclusionContradictsSubsetErrorFactory.Create(exclusionContradictsSubsetError);
+                case "ExtensionModelError":
+                    var extensionModelError = dto as Kalliope.DTO.ExtensionModelError;
+                    var extensionModelErrorFactory = new ExtensionModelErrorFactory();
+                    return extensionModelErrorFactory.Create(extensionModelError);
                 case "ExternalConstraintRoleSequenceArityMismatchError":
                     var externalConstraintRoleSequenceArityMismatchError = dto as Kalliope.DTO.ExternalConstraintRoleSequenceArityMismatchError;
                     var externalConstraintRoleSequenceArityMismatchErrorFactory = new ExternalConstraintRoleSequenceArityMismatchErrorFactory();
@@ -255,6 +295,10 @@ namespace Kalliope.Dal
                     var factTypeDerivationPath = dto as Kalliope.DTO.FactTypeDerivationPath;
                     var factTypeDerivationPathFactory = new FactTypeDerivationPathFactory();
                     return factTypeDerivationPathFactory.Create(factTypeDerivationPath);
+                case "FactTypeDerivationRequiresProjectionError":
+                    var factTypeDerivationRequiresProjectionError = dto as Kalliope.DTO.FactTypeDerivationRequiresProjectionError;
+                    var factTypeDerivationRequiresProjectionErrorFactory = new FactTypeDerivationRequiresProjectionErrorFactory();
+                    return factTypeDerivationRequiresProjectionErrorFactory.Create(factTypeDerivationRequiresProjectionError);
                 case "FactTypeDerivationRule":
                     var factTypeDerivationRule = dto as Kalliope.DTO.FactTypeDerivationRule;
                     var factTypeDerivationRuleFactory = new FactTypeDerivationRuleFactory();
@@ -295,6 +339,10 @@ namespace Kalliope.Dal
                     var frequencyConstraint = dto as Kalliope.DTO.FrequencyConstraint;
                     var frequencyConstraintFactory = new FrequencyConstraintFactory();
                     return frequencyConstraintFactory.Create(frequencyConstraint);
+                case "FrequencyConstraintContradictsInternalUniquenessConstraintError":
+                    var frequencyConstraintContradictsInternalUniquenessConstraintError = dto as Kalliope.DTO.FrequencyConstraintContradictsInternalUniquenessConstraintError;
+                    var frequencyConstraintContradictsInternalUniquenessConstraintErrorFactory = new FrequencyConstraintContradictsInternalUniquenessConstraintErrorFactory();
+                    return frequencyConstraintContradictsInternalUniquenessConstraintErrorFactory.Create(frequencyConstraintContradictsInternalUniquenessConstraintError);
                 case "FrequencyConstraintExactlyOneError":
                     var frequencyConstraintExactlyOneError = dto as Kalliope.DTO.FrequencyConstraintExactlyOneError;
                     var frequencyConstraintExactlyOneErrorFactory = new FrequencyConstraintExactlyOneErrorFactory();
@@ -335,6 +383,22 @@ namespace Kalliope.Dal
                     var group = dto as Kalliope.DTO.Group;
                     var groupFactory = new GroupFactory();
                     return groupFactory.Create(group);
+                case "GroupDuplicateNameError":
+                    var groupDuplicateNameError = dto as Kalliope.DTO.GroupDuplicateNameError;
+                    var groupDuplicateNameErrorFactory = new GroupDuplicateNameErrorFactory();
+                    return groupDuplicateNameErrorFactory.Create(groupDuplicateNameError);
+                case "GroupMembershipContradictionError":
+                    var groupMembershipContradictionError = dto as Kalliope.DTO.GroupMembershipContradictionError;
+                    var groupMembershipContradictionErrorFactory = new GroupMembershipContradictionErrorFactory();
+                    return groupMembershipContradictionErrorFactory.Create(groupMembershipContradictionError);
+                case "Hierarchy":
+                    var hierarchy = dto as Kalliope.DTO.Hierarchy;
+                    var hierarchyFactory = new HierarchyFactory();
+                    return hierarchyFactory.Create(hierarchy);
+                case "HierarchyColorScheme":
+                    var hierarchyColorScheme = dto as Kalliope.DTO.HierarchyColorScheme;
+                    var hierarchyColorSchemeFactory = new HierarchyColorSchemeFactory();
+                    return hierarchyColorSchemeFactory.Create(hierarchyColorScheme);
                 case "ImplicationError":
                     var implicationError = dto as Kalliope.DTO.ImplicationError;
                     var implicationErrorFactory = new ImplicationErrorFactory();
@@ -355,6 +419,10 @@ namespace Kalliope.Dal
                     var intrinsicReferenceMode = dto as Kalliope.DTO.IntrinsicReferenceMode;
                     var intrinsicReferenceModeFactory = new IntrinsicReferenceModeFactory();
                     return intrinsicReferenceModeFactory.Create(intrinsicReferenceMode);
+                case "JoinedConstraintRoleProjectionCompatibilityError":
+                    var joinedConstraintRoleProjectionCompatibilityError = dto as Kalliope.DTO.JoinedConstraintRoleProjectionCompatibilityError;
+                    var joinedConstraintRoleProjectionCompatibilityErrorFactory = new JoinedConstraintRoleProjectionCompatibilityErrorFactory();
+                    return joinedConstraintRoleProjectionCompatibilityErrorFactory.Create(joinedConstraintRoleProjectionCompatibilityError);
                 case "JoinedPathRoleRequiresCompatibleRolePlayerError":
                     var joinedPathRoleRequiresCompatibleRolePlayerError = dto as Kalliope.DTO.JoinedPathRoleRequiresCompatibleRolePlayerError;
                     var joinedPathRoleRequiresCompatibleRolePlayerErrorFactory = new JoinedPathRoleRequiresCompatibleRolePlayerErrorFactory();
@@ -363,6 +431,10 @@ namespace Kalliope.Dal
                     var joinPathRequiredError = dto as Kalliope.DTO.JoinPathRequiredError;
                     var joinPathRequiredErrorFactory = new JoinPathRequiredErrorFactory();
                     return joinPathRequiredErrorFactory.Create(joinPathRequiredError);
+                case "JoinPathRequiresProjectionError":
+                    var joinPathRequiresProjectionError = dto as Kalliope.DTO.JoinPathRequiresProjectionError;
+                    var joinPathRequiresProjectionErrorFactory = new JoinPathRequiresProjectionErrorFactory();
+                    return joinPathRequiresProjectionErrorFactory.Create(joinPathRequiresProjectionError);
                 case "LargeLengthRawDataDataType":
                     var largeLengthRawDataDataType = dto as Kalliope.DTO.LargeLengthRawDataDataType;
                     var largeLengthRawDataDataTypeFactory = new LargeLengthRawDataDataTypeFactory();
@@ -391,6 +463,10 @@ namespace Kalliope.Dal
                     var minValueMismatchError = dto as Kalliope.DTO.MinValueMismatchError;
                     var minValueMismatchErrorFactory = new MinValueMismatchErrorFactory();
                     return minValueMismatchErrorFactory.Create(minValueMismatchError);
+                case "ModelBrowserColorGroupType":
+                    var modelBrowserColorGroupType = dto as Kalliope.DTO.ModelBrowserColorGroupType;
+                    var modelBrowserColorGroupTypeFactory = new ModelBrowserColorGroupTypeFactory();
+                    return modelBrowserColorGroupTypeFactory.Create(modelBrowserColorGroupType);
                 case "ModelNote":
                     var modelNote = dto as Kalliope.DTO.ModelNote;
                     var modelNoteFactory = new ModelNoteFactory();
@@ -459,10 +535,18 @@ namespace Kalliope.Dal
                     var objectTypeDuplicateNameError = dto as Kalliope.DTO.ObjectTypeDuplicateNameError;
                     var objectTypeDuplicateNameErrorFactory = new ObjectTypeDuplicateNameErrorFactory();
                     return objectTypeDuplicateNameErrorFactory.Create(objectTypeDuplicateNameError);
+                case "ObjectTypeRequiresPrimarySupertypeError":
+                    var objectTypeRequiresPrimarySupertypeError = dto as Kalliope.DTO.ObjectTypeRequiresPrimarySupertypeError;
+                    var objectTypeRequiresPrimarySupertypeErrorFactory = new ObjectTypeRequiresPrimarySupertypeErrorFactory();
+                    return objectTypeRequiresPrimarySupertypeErrorFactory.Create(objectTypeRequiresPrimarySupertypeError);
                 case "ObjectTypeShape":
                     var objectTypeShape = dto as Kalliope.DTO.ObjectTypeShape;
                     var objectTypeShapeFactory = new ObjectTypeShapeFactory();
                     return objectTypeShapeFactory.Create(objectTypeShape);
+                case "ObjectUnifierRequiresCompatibleObjectTypesError":
+                    var objectUnifierRequiresCompatibleObjectTypesError = dto as Kalliope.DTO.ObjectUnifierRequiresCompatibleObjectTypesError;
+                    var objectUnifierRequiresCompatibleObjectTypesErrorFactory = new ObjectUnifierRequiresCompatibleObjectTypesErrorFactory();
+                    return objectUnifierRequiresCompatibleObjectTypesErrorFactory.Create(objectUnifierRequiresCompatibleObjectTypesError);
                 case "OleObjectRawDataDataType":
                     var oleObjectRawDataDataType = dto as Kalliope.DTO.OleObjectRawDataDataType;
                     var oleObjectRawDataDataTypeFactory = new OleObjectRawDataDataTypeFactory();
@@ -483,6 +567,18 @@ namespace Kalliope.Dal
                     var partialConstraintRoleSequenceJoinPathProjectionError = dto as Kalliope.DTO.PartialConstraintRoleSequenceJoinPathProjectionError;
                     var partialConstraintRoleSequenceJoinPathProjectionErrorFactory = new PartialConstraintRoleSequenceJoinPathProjectionErrorFactory();
                     return partialConstraintRoleSequenceJoinPathProjectionErrorFactory.Create(partialConstraintRoleSequenceJoinPathProjectionError);
+                case "PartialFactTypeDerivationProjectionError":
+                    var partialFactTypeDerivationProjectionError = dto as Kalliope.DTO.PartialFactTypeDerivationProjectionError;
+                    var partialFactTypeDerivationProjectionErrorFactory = new PartialFactTypeDerivationProjectionErrorFactory();
+                    return partialFactTypeDerivationProjectionErrorFactory.Create(partialFactTypeDerivationProjectionError);
+                case "PartialJoinPathProjectionError":
+                    var partialJoinPathProjectionError = dto as Kalliope.DTO.PartialJoinPathProjectionError;
+                    var partialJoinPathProjectionErrorFactory = new PartialJoinPathProjectionErrorFactory();
+                    return partialJoinPathProjectionErrorFactory.Create(partialJoinPathProjectionError);
+                case "PartialQueryDerivationProjectionError":
+                    var partialQueryDerivationProjectionError = dto as Kalliope.DTO.PartialQueryDerivationProjectionError;
+                    var partialQueryDerivationProjectionErrorFactory = new PartialQueryDerivationProjectionErrorFactory();
+                    return partialQueryDerivationProjectionErrorFactory.Create(partialQueryDerivationProjectionError);
                 case "PartialRoleSetDerivationProjectionError":
                     var partialRoleSetDerivationProjectionError = dto as Kalliope.DTO.PartialRoleSetDerivationProjectionError;
                     var partialRoleSetDerivationProjectionErrorFactory = new PartialRoleSetDerivationProjectionErrorFactory();
@@ -519,6 +615,10 @@ namespace Kalliope.Dal
                     var pathSameFactTypeRoleFollowsJoinError = dto as Kalliope.DTO.PathSameFactTypeRoleFollowsJoinError;
                     var pathSameFactTypeRoleFollowsJoinErrorFactory = new PathSameFactTypeRoleFollowsJoinErrorFactory();
                     return pathSameFactTypeRoleFollowsJoinErrorFactory.Create(pathSameFactTypeRoleFollowsJoinError);
+                case "PathStartRoleFollowsRootObjectTypeError":
+                    var pathStartRoleFollowsRootObjectTypeError = dto as Kalliope.DTO.PathStartRoleFollowsRootObjectTypeError;
+                    var pathStartRoleFollowsRootObjectTypeErrorFactory = new PathStartRoleFollowsRootObjectTypeErrorFactory();
+                    return pathStartRoleFollowsRootObjectTypeErrorFactory.Create(pathStartRoleFollowsRootObjectTypeError);
                 case "PictureRawDataDataType":
                     var pictureRawDataDataType = dto as Kalliope.DTO.PictureRawDataDataType;
                     var pictureRawDataDataTypeFactory = new PictureRawDataDataTypeFactory();
@@ -535,6 +635,14 @@ namespace Kalliope.Dal
                     var preferredIdentifierRequiresMandatoryError = dto as Kalliope.DTO.PreferredIdentifierRequiresMandatoryError;
                     var preferredIdentifierRequiresMandatoryErrorFactory = new PreferredIdentifierRequiresMandatoryErrorFactory();
                     return preferredIdentifierRequiresMandatoryErrorFactory.Create(preferredIdentifierRequiresMandatoryError);
+                case "QueryDerivationPath":
+                    var queryDerivationPath = dto as Kalliope.DTO.QueryDerivationPath;
+                    var queryDerivationPathFactory = new QueryDerivationPathFactory();
+                    return queryDerivationPathFactory.Create(queryDerivationPath);
+                case "QueryDerivationRequiresProjectionError":
+                    var queryDerivationRequiresProjectionError = dto as Kalliope.DTO.QueryDerivationRequiresProjectionError;
+                    var queryDerivationRequiresProjectionErrorFactory = new QueryDerivationRequiresProjectionErrorFactory();
+                    return queryDerivationRequiresProjectionErrorFactory.Create(queryDerivationRequiresProjectionError);
                 case "QueryDerivationRule":
                     var queryDerivationRule = dto as Kalliope.DTO.QueryDerivationRule;
                     var queryDerivationRuleFactory = new QueryDerivationRuleFactory();
@@ -543,6 +651,10 @@ namespace Kalliope.Dal
                     var queryParameter = dto as Kalliope.DTO.QueryParameter;
                     var queryParameterFactory = new QueryParameterFactory();
                     return queryParameterFactory.Create(queryParameter);
+                case "QueryRoleProjectionCompatibilityError":
+                    var queryRoleProjectionCompatibilityError = dto as Kalliope.DTO.QueryRoleProjectionCompatibilityError;
+                    var queryRoleProjectionCompatibilityErrorFactory = new QueryRoleProjectionCompatibilityErrorFactory();
+                    return queryRoleProjectionCompatibilityErrorFactory.Create(queryRoleProjectionCompatibilityError);
                 case "Reading":
                     var reading = dto as Kalliope.DTO.Reading;
                     var readingFactory = new ReadingFactory();
@@ -571,6 +683,14 @@ namespace Kalliope.Dal
                     var referenceModeKind = dto as Kalliope.DTO.ReferenceModeKind;
                     var referenceModeKindFactory = new ReferenceModeKindFactory();
                     return referenceModeKindFactory.Create(referenceModeKind);
+                case "RelationalElementsNotOnDiagramError":
+                    var relationalElementsNotOnDiagramError = dto as Kalliope.DTO.RelationalElementsNotOnDiagramError;
+                    var relationalElementsNotOnDiagramErrorFactory = new RelationalElementsNotOnDiagramErrorFactory();
+                    return relationalElementsNotOnDiagramErrorFactory.Create(relationalElementsNotOnDiagramError);
+                case "RelationalShapeMissingGroupType":
+                    var relationalShapeMissingGroupType = dto as Kalliope.DTO.RelationalShapeMissingGroupType;
+                    var relationalShapeMissingGroupTypeFactory = new RelationalShapeMissingGroupTypeFactory();
+                    return relationalShapeMissingGroupTypeFactory.Create(relationalShapeMissingGroupType);
                 case "RingConstraint":
                     var ringConstraint = dto as Kalliope.DTO.RingConstraint;
                     var ringConstraintFactory = new RingConstraintFactory();
@@ -623,6 +743,14 @@ namespace Kalliope.Dal
                     var setComparisonConstraintRoleSequence = dto as Kalliope.DTO.SetComparisonConstraintRoleSequence;
                     var setComparisonConstraintRoleSequenceFactory = new SetComparisonConstraintRoleSequenceFactory();
                     return setComparisonConstraintRoleSequenceFactory.Create(setComparisonConstraintRoleSequence);
+                case "ShapeColorGroupType":
+                    var shapeColorGroupType = dto as Kalliope.DTO.ShapeColorGroupType;
+                    var shapeColorGroupTypeFactory = new ShapeColorGroupTypeFactory();
+                    return shapeColorGroupTypeFactory.Create(shapeColorGroupType);
+                case "ShapeMissingGroupType":
+                    var shapeMissingGroupType = dto as Kalliope.DTO.ShapeMissingGroupType;
+                    var shapeMissingGroupTypeFactory = new ShapeMissingGroupTypeFactory();
+                    return shapeMissingGroupTypeFactory.Create(shapeMissingGroupType);
                 case "SignedIntegerNumericDataType":
                     var signedIntegerNumericDataType = dto as Kalliope.DTO.SignedIntegerNumericDataType;
                     var signedIntegerNumericDataTypeFactory = new SignedIntegerNumericDataTypeFactory();
@@ -647,6 +775,10 @@ namespace Kalliope.Dal
                     var subsetConstraint = dto as Kalliope.DTO.SubsetConstraint;
                     var subsetConstraintFactory = new SubsetConstraintFactory();
                     return subsetConstraintFactory.Create(subsetConstraint);
+                case "SubsetConstraintImpliedByMandatoryConstraintsError":
+                    var subsetConstraintImpliedByMandatoryConstraintsError = dto as Kalliope.DTO.SubsetConstraintImpliedByMandatoryConstraintsError;
+                    var subsetConstraintImpliedByMandatoryConstraintsErrorFactory = new SubsetConstraintImpliedByMandatoryConstraintsErrorFactory();
+                    return subsetConstraintImpliedByMandatoryConstraintsErrorFactory.Create(subsetConstraintImpliedByMandatoryConstraintsError);
                 case "SubtypeDerivationExpression":
                     var subtypeDerivationExpression = dto as Kalliope.DTO.SubtypeDerivationExpression;
                     var subtypeDerivationExpressionFactory = new SubtypeDerivationExpressionFactory();

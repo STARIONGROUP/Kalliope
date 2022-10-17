@@ -29,6 +29,7 @@ namespace Kalliope.Dal
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kalliope.Absorption;
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.CustomProperties;
@@ -168,6 +169,12 @@ namespace Kalliope.Dal
             {
                 var subquery = poco.Subqueries.Single(x => x.Id == identifier);
                 poco.Subqueries.Remove(subquery);
+            }
+
+            if (poco.SubtypeDerivationPath != null && poco.SubtypeDerivationPath.Id != dto.SubtypeDerivationPath)
+            {
+                identifiersOfObjectsToDelete.Add(poco.SubtypeDerivationPath.Id);
+                poco.SubtypeDerivationPath = null;
             }
 
             return identifiersOfObjectsToDelete;
@@ -325,6 +332,11 @@ namespace Kalliope.Dal
                     var subquery = (Subquery)lazyPoco.Value;
                     poco.Subqueries.Add(subquery);
                 }
+            }
+
+            if (poco.SubtypeDerivationPath == null && !string.IsNullOrEmpty(dto.SubtypeDerivationPath) && cache.TryGetValue(dto.SubtypeDerivationPath, out lazyPoco))
+            {
+                poco.SubtypeDerivationPath = (SubtypeDerivationPath)lazyPoco.Value;
             }
         }
     }

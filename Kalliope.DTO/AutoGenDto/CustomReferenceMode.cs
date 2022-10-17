@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CustomReferenceMode
     /// </summary>
+    /// <remarks>
+    /// Definition of a custom reference mode pattern
+    /// </remarks>
     public partial class CustomReferenceMode : ReferenceMode
     {
         /// <summary>

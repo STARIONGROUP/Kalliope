@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a FrequencyConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying the number of times an instance must occur in a set population. Applies only if the instance appears at all
+    /// </remarks>
     public partial class FrequencyConstraint : SetConstraint
     {
         /// <summary>

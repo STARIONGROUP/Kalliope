@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a FixedLengthRawDataDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of fixed length binary data. Supports the Length facet
+    /// </remarks>
     public partial class FixedLengthRawDataDataType : RawDataDataType
     {
         /// <summary>

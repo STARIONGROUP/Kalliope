@@ -29,6 +29,7 @@ namespace Kalliope.Dal
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kalliope.Absorption;
     using Kalliope.Common;
     using Kalliope.Core;
     using Kalliope.CustomProperties;
@@ -84,6 +85,12 @@ namespace Kalliope.Dal
             {
                 var ormDiagram = poco.Diagrams.Single(x => x.Id == identifier);
                 poco.Diagrams.Remove(ormDiagram);
+            }
+
+            if (poco.ElementOrganizations != null && poco.ElementOrganizations.Id != dto.ElementOrganizations)
+            {
+                identifiersOfObjectsToDelete.Add(poco.ElementOrganizations.Id);
+                poco.ElementOrganizations = null;
             }
 
             if (poco.GenerationState != null && poco.GenerationState.Id != dto.GenerationState)
@@ -159,6 +166,11 @@ namespace Kalliope.Dal
                     var ormDiagram = (OrmDiagram)lazyPoco.Value;
                     poco.Diagrams.Add(ormDiagram);
                 }
+            }
+
+            if (poco.ElementOrganizations == null && !string.IsNullOrEmpty(dto.ElementOrganizations) && cache.TryGetValue(dto.ElementOrganizations, out lazyPoco))
+            {
+                poco.ElementOrganizations = (ElementOrganizations)lazyPoco.Value;
             }
 
             if (poco.GenerationState == null && !string.IsNullOrEmpty(dto.GenerationState) && cache.TryGetValue(dto.GenerationState, out lazyPoco))

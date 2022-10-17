@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a FixedLengthTextDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of fixed length strings. Supports the Length facet
+    /// </remarks>
     public partial class FixedLengthTextDataType : TextDataType
     {
         /// <summary>

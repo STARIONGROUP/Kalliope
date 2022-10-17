@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Note
     /// </summary>
+    /// <remarks>
+    /// A note for the containing element
+    /// </remarks>
     [Container(typeName: "CardinalityConstraint", propertyName: "Note")]
     [Container(typeName: "ElementGrouping", propertyName: "Note")]
     [Container(typeName: "FactType", propertyName: "Note")]

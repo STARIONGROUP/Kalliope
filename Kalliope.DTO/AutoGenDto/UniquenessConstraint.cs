@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a UniquenessConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that the population of a set must be unique
+    /// </remarks>
     public partial class UniquenessConstraint : SetConstraint
     {
         /// <summary>

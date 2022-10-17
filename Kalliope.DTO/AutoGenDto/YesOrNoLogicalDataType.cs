@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a YesOrNoLogicalDataType
     /// </summary>
+    /// <remarks>
+    /// Values are either yes or no
+    /// </remarks>
     public partial class YesOrNoLogicalDataType : LogicalDataType
     {
         /// <summary>

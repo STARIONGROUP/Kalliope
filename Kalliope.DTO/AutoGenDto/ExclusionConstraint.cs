@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ExclusionConstraint
     /// </summary>
+    /// <remarks>
+    /// A constraint specifying that two set populations must not be equal
+    /// </remarks>
     public partial class ExclusionConstraint : SetComparisonConstraint
     {
         /// <summary>

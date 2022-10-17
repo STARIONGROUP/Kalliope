@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a VariableLengthTextDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of variable length strings. Supports the Length facet
+    /// </remarks>
     public partial class VariableLengthTextDataType : TextDataType
     {
         /// <summary>

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a LargeLengthRawDataDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of large length binary data. Supports the Length facet
+    /// </remarks>
     public partial class LargeLengthRawDataDataType : RawDataDataType
     {
         /// <summary>

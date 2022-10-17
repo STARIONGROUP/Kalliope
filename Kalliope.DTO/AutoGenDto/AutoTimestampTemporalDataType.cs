@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a AutoTimestampTemporalDataType
     /// </summary>
+    /// <remarks>
+    /// Values are in the set of automatically generated timestamps
+    /// </remarks>
     public partial class AutoTimestampTemporalDataType : TemporalDataType
     {
         /// <summary>

@@ -32,6 +32,9 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a SubtypeLink
     /// </summary>
+    /// <remarks>
+    /// Shape that represents an SubtypeFact
+    /// </remarks>
     public partial class SubtypeLink : ModelThing
     {
         /// <summary>
