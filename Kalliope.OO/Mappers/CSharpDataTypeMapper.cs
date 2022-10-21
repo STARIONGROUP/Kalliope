@@ -40,7 +40,7 @@ namespace Kalliope.OO.Mappers
         {
             if (dataType != null)
             {
-                if (dataType is TextDataType or LargeLengthRawDataDataType)
+                if (dataType is TextDataType or LargeLengthRawDataDataType or ObjectIdOtherDataType or TimeTemporalDataType)
                 {
                     return "string";
                 }

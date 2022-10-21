@@ -81,7 +81,7 @@ namespace Kalliope.OO.Extensions
             value = char.ToUpper(value[0]) + value.Substring(1);
             value = value.SplitWords();
 
-            var words = value.Split(new[] { "_", " " }, StringSplitOptions.RemoveEmptyEntries);
+            var words = value.Split(new[] { "_", " ", "-" }, StringSplitOptions.RemoveEmptyEntries);
 
             var leadWord = 
                 Regex.Replace(words[0], @"([A-Z])([A-Z]+|[a-z0-9]+)($|[A-Z]\w*)",
