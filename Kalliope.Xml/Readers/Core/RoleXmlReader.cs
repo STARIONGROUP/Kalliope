@@ -87,6 +87,18 @@ namespace Kalliope.Xml.Readers
                                     this.ReadValueRestriction(role, valueRestrictionSubTree, modelThings);
                                 }
                                 break;
+                            case "CustomProperty":
+
+                                using (var customPropertySubtree = reader.ReadSubtree())
+                                {
+                                    customPropertySubtree.MoveToContent();
+                                    var customProperty = new CustomProperty();
+                                    var customPropertyXmlReader = new CustomPropertyXmlReader();
+                                    customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
+                                    customProperty.Container = role.Id;
+                                    role.Extensions.Add(customProperty.Id);
+                                }
+                                break;
                             default:
                                 Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
                                 break;
