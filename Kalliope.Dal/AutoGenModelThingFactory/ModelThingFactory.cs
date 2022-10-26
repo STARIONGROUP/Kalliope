@@ -55,6 +55,18 @@ namespace Kalliope.Dal
 
             switch (typeName)
             {
+                case "AbsorbedFactType":
+                    var absorbedFactType = dto as Kalliope.DTO.AbsorbedFactType;
+                    var absorbedFactTypeFactory = new AbsorbedFactTypeFactory();
+                    return absorbedFactTypeFactory.Create(absorbedFactType);
+                case "AbsorbedObjectType":
+                    var absorbedObjectType = dto as Kalliope.DTO.AbsorbedObjectType;
+                    var absorbedObjectTypeFactory = new AbsorbedObjectTypeFactory();
+                    return absorbedObjectTypeFactory.Create(absorbedObjectType);
+                case "AbsorbedRole":
+                    var absorbedRole = dto as Kalliope.DTO.AbsorbedRole;
+                    var absorbedRoleFactory = new AbsorbedRoleFactory();
+                    return absorbedRoleFactory.Create(absorbedRole);
                 case "AutoCounterNumericDataType":
                     var autoCounterNumericDataType = dto as Kalliope.DTO.AutoCounterNumericDataType;
                     var autoCounterNumericDataTypeFactory = new AutoCounterNumericDataTypeFactory();
@@ -103,6 +115,10 @@ namespace Kalliope.Dal
                     var cardinalityRangeOverlapError = dto as Kalliope.DTO.CardinalityRangeOverlapError;
                     var cardinalityRangeOverlapErrorFactory = new CardinalityRangeOverlapErrorFactory();
                     return cardinalityRangeOverlapErrorFactory.Create(cardinalityRangeOverlapError);
+                case "ChildRole":
+                    var childRole = dto as Kalliope.DTO.ChildRole;
+                    var childRoleFactory = new ChildRoleFactory();
+                    return childRoleFactory.Create(childRole);
                 case "CompatibleRolePlayerTypeError":
                     var compatibleRolePlayerTypeError = dto as Kalliope.DTO.CompatibleRolePlayerTypeError;
                     var compatibleRolePlayerTypeErrorFactory = new CompatibleRolePlayerTypeErrorFactory();
@@ -395,6 +411,10 @@ namespace Kalliope.Dal
                     var hierarchy = dto as Kalliope.DTO.Hierarchy;
                     var hierarchyFactory = new HierarchyFactory();
                     return hierarchyFactory.Create(hierarchy);
+                case "HierarchyChild":
+                    var hierarchyChild = dto as Kalliope.DTO.HierarchyChild;
+                    var hierarchyChildFactory = new HierarchyChildFactory();
+                    return hierarchyChildFactory.Create(hierarchyChild);
                 case "HierarchyColorScheme":
                     var hierarchyColorScheme = dto as Kalliope.DTO.HierarchyColorScheme;
                     var hierarchyColorSchemeFactory = new HierarchyColorSchemeFactory();

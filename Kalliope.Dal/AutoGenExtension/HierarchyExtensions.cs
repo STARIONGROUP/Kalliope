@@ -71,6 +71,22 @@ namespace Kalliope.Dal
 
             var identifiersOfObjectsToDelete = new List<string>();
 
+            var absorbedFactTypesToDelete = poco.AbsorbedFactTypes.Select(x => x.Id).Except(dto.AbsorbedFactTypes);
+            identifiersOfObjectsToDelete.AddRange(absorbedFactTypesToDelete);
+            foreach (var identifier in absorbedFactTypesToDelete)
+            {
+                var absorbedFactType = poco.AbsorbedFactTypes.Single(x => x.Id == identifier);
+                poco.AbsorbedFactTypes.Remove(absorbedFactType);
+            }
+
+            var absorbedObjectTypesToDelete = poco.AbsorbedObjectTypes.Select(x => x.Id).Except(dto.AbsorbedObjectTypes);
+            identifiersOfObjectsToDelete.AddRange(absorbedObjectTypesToDelete);
+            foreach (var identifier in absorbedObjectTypesToDelete)
+            {
+                var absorbedObjectType = poco.AbsorbedObjectTypes.Single(x => x.Id == identifier);
+                poco.AbsorbedObjectTypes.Remove(absorbedObjectType);
+            }
+
             var associatedModelErrorsToDelete = poco.AssociatedModelErrors.Select(x => x.Id).Except(dto.AssociatedModelErrors);
             foreach (var identifier in associatedModelErrorsToDelete)
             {
@@ -143,6 +159,26 @@ namespace Kalliope.Dal
             }
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var absorbedFactTypesToAdd = dto.AbsorbedFactTypes.Except(poco.AbsorbedFactTypes.Select(x => x.Id));
+            foreach (var identifier in absorbedFactTypesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var absorbedFactType = (AbsorbedFactType)lazyPoco.Value;
+                    poco.AbsorbedFactTypes.Add(absorbedFactType);
+                }
+            }
+
+            var absorbedObjectTypesToAdd = dto.AbsorbedObjectTypes.Except(poco.AbsorbedObjectTypes.Select(x => x.Id));
+            foreach (var identifier in absorbedObjectTypesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var absorbedObjectType = (AbsorbedObjectType)lazyPoco.Value;
+                    poco.AbsorbedObjectTypes.Add(absorbedObjectType);
+                }
+            }
 
             var associatedModelErrorsToAdd = dto.AssociatedModelErrors.Except(poco.AssociatedModelErrors.Select(x => x.Id));
             foreach (var identifier in associatedModelErrorsToAdd)

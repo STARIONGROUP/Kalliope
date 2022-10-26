@@ -7,7 +7,7 @@
 	  <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
 	  <RepositoryType>Git</RepositoryType>
 	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	  <Authors>Sam Gerene</Authors>
+	  <Authors>Sam Gerene, Alexander van Delft</Authors>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
 

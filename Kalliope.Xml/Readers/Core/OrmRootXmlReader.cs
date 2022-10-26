@@ -124,11 +124,10 @@ namespace Kalliope.Xml.Readers
                             using (var elementOrganizationsSubtree = reader.ReadSubtree())
                             {
                                 elementOrganizationsSubtree.MoveToContent();
-                                // TODO: parse ElementOrganizations subtree
-                                //var customPropertyGroup = new CustomPropertyGroup();
-                                //var customPropertyGroupXmlReader = new CustomPropertyGroupXmlReader();
-                                //customPropertyGroupXmlReader.ReadXml(customPropertyGroup, customPropertyGroupSubtree, modelThings);
-                                //ormRoot.CustomPropertyGroups.Add(customPropertyGroup.Id);
+                                var elementOrganizations = new ElementOrganizations();
+                                var elementOrganizationsXmlReader = new ElementOrganizationsXmlReader();
+                                elementOrganizationsXmlReader.ReadXml(elementOrganizations, elementOrganizationsSubtree, modelThings);
+                                ormRoot.CustomPropertyGroups.Add(elementOrganizations.Id);
                             }
                             break;
                     }

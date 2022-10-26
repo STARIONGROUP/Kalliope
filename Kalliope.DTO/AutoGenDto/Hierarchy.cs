@@ -32,6 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a Hierarchy
     /// </summary>
+    [Container(typeName: "ElementOrganizations", propertyName: "Hierarchies")]
     public partial class Hierarchy : OrmNamedElement
     {
         /// <summary>
@@ -39,9 +40,30 @@ namespace Kalliope.DTO
         /// </summary>
         public Hierarchy()
         {
+            this.AbsorbedFactTypes = new List<string>();
+            this.AbsorbedObjectTypes = new List<string>();
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="AbsorbedFactType"/> instances
+        /// </summary>
+        [Description("Gets or sets the List of AbsorbedFactTypes")]
+        [Property(name: "AbsorbedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedFactType", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> AbsorbedFactTypes { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="AbsorbedObjectType"/> instances
+        /// </summary>
+        [Description("Gets or sets the List of AbsorbedObjectTypes")]
+        [Property(name: "AbsorbedObjectTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedObjectType", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> AbsorbedObjectTypes { get; set; }
+ 
         /// <summary>
         /// Gets or sets a DataValueName
         /// </summary>

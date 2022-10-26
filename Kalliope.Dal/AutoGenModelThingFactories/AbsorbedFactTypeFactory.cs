@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="DiagramDynamicColorFactory.cs" company="RHEA System S.A.">
+// <copyright file="AbsorbedFactTypeFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,39 +30,43 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// The purpose of the <see cref="DiagramDynamicColorFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Diagrams.DiagramDynamicColor"/> based on a <see cref="Kalliope.DTO.DiagramDynamicColor"/>
+    /// The purpose of the <see cref="AbsorbedFactTypeFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Absorption.AbsorbedFactType"/> based on a <see cref="Kalliope.DTO.AbsorbedFactType"/>
     /// </summary>
-    public class DiagramDynamicColorFactory
+    public class AbsorbedFactTypeFactory
     {
         /// <summary>
-        /// Creates an instance of the <see cref="DiagramDynamicColor"/> and sets the value properties
+        /// Creates an instance of the <see cref="AbsorbedFactType"/> and sets the value properties
         /// based on the DTO
         /// </summary>
         /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.DiagramDynamicColor"/>
+        /// The instance of the <see cref="Kalliope.DTO.AbsorbedFactType"/>
         /// </param>
         /// <returns>
-        /// an instance of <see cref="Kalliope.Diagrams.DiagramDynamicColor"/>
+        /// an instance of <see cref="Kalliope.Absorption.AbsorbedFactType"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// thrown when <paramref name="dto"/> is null
         /// </exception>
-        public Kalliope.Diagrams.DiagramDynamicColor Create(Kalliope.DTO.DiagramDynamicColor dto)
+        public Kalliope.Absorption.AbsorbedFactType Create(Kalliope.DTO.AbsorbedFactType dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
             }
 
-            var diagramDynamicColor = new Kalliope.Diagrams.DiagramDynamicColor()
+            var absorbedFactType = new Kalliope.Absorption.AbsorbedFactType()
             {
-                ColorRole = dto.ColorRole,
-                ColorValue = dto.ColorValue,
+                Absorbed = dto.Absorbed,
+                AbsorbedUnary = dto.AbsorbedUnary,
+                Functional = dto.Functional,
                 Id = dto.Id,
+                Nested = dto.Nested,
+                TopLevel = dto.TopLevel,
+                XmlName = dto.XmlName,
             };
 
-            return diagramDynamicColor;
+            return absorbedFactType;
         }
     }
 }

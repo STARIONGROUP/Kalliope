@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="DiagramDynamicColorFactory.cs" company="RHEA System S.A.">
+// <copyright file="AbsorbedRoleFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,39 +30,43 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// The purpose of the <see cref="DiagramDynamicColorFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Diagrams.DiagramDynamicColor"/> based on a <see cref="Kalliope.DTO.DiagramDynamicColor"/>
+    /// The purpose of the <see cref="AbsorbedRoleFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Absorption.AbsorbedRole"/> based on a <see cref="Kalliope.DTO.AbsorbedRole"/>
     /// </summary>
-    public class DiagramDynamicColorFactory
+    public class AbsorbedRoleFactory
     {
         /// <summary>
-        /// Creates an instance of the <see cref="DiagramDynamicColor"/> and sets the value properties
+        /// Creates an instance of the <see cref="AbsorbedRole"/> and sets the value properties
         /// based on the DTO
         /// </summary>
         /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.DiagramDynamicColor"/>
+        /// The instance of the <see cref="Kalliope.DTO.AbsorbedRole"/>
         /// </param>
         /// <returns>
-        /// an instance of <see cref="Kalliope.Diagrams.DiagramDynamicColor"/>
+        /// an instance of <see cref="Kalliope.Absorption.AbsorbedRole"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// thrown when <paramref name="dto"/> is null
         /// </exception>
-        public Kalliope.Diagrams.DiagramDynamicColor Create(Kalliope.DTO.DiagramDynamicColor dto)
+        public Kalliope.Absorption.AbsorbedRole Create(Kalliope.DTO.AbsorbedRole dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
             }
 
-            var diagramDynamicColor = new Kalliope.Diagrams.DiagramDynamicColor()
+            var absorbedRole = new Kalliope.Absorption.AbsorbedRole()
             {
-                ColorRole = dto.ColorRole,
-                ColorValue = dto.ColorValue,
                 Id = dto.Id,
+                Identifier = dto.Identifier,
+                ObjectifiedRole = dto.ObjectifiedRole,
+                XmlName = dto.XmlName,
+                XmlReferenceName = dto.XmlReferenceName,
+                XmlReferenceSimpleValueForm = dto.XmlReferenceSimpleValueForm,
+                XmlSimpleValueForm = dto.XmlSimpleValueForm,
             };
 
-            return diagramDynamicColor;
+            return absorbedRole;
         }
     }
 }

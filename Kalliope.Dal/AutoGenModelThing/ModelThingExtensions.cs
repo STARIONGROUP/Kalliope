@@ -68,6 +68,15 @@ namespace Kalliope.Dal
 
             switch (typeName)
             {
+                case "AbsorbedFactType":
+                    var absorbedFactType = poco as Kalliope.Absorption.AbsorbedFactType;
+                    return absorbedFactType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.AbsorbedFactType)dto);
+                case "AbsorbedObjectType":
+                    var absorbedObjectType = poco as Kalliope.Absorption.AbsorbedObjectType;
+                    return absorbedObjectType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.AbsorbedObjectType)dto);
+                case "AbsorbedRole":
+                    var absorbedRole = poco as Kalliope.Absorption.AbsorbedRole;
+                    return absorbedRole.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.AbsorbedRole)dto);
                 case "AutoCounterNumericDataType":
                     var autoCounterNumericDataType = poco as Kalliope.Core.AutoCounterNumericDataType;
                     return autoCounterNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.AutoCounterNumericDataType)dto);
@@ -104,6 +113,9 @@ namespace Kalliope.Dal
                 case "CardinalityRangeOverlapError":
                     var cardinalityRangeOverlapError = poco as Kalliope.Core.CardinalityRangeOverlapError;
                     return cardinalityRangeOverlapError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CardinalityRangeOverlapError)dto);
+                case "ChildRole":
+                    var childRole = poco as Kalliope.Absorption.ChildRole;
+                    return childRole.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ChildRole)dto);
                 case "CompatibleRolePlayerTypeError":
                     var compatibleRolePlayerTypeError = poco as Kalliope.Core.CompatibleRolePlayerTypeError;
                     return compatibleRolePlayerTypeError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CompatibleRolePlayerTypeError)dto);
@@ -323,6 +335,9 @@ namespace Kalliope.Dal
                 case "Hierarchy":
                     var hierarchy = poco as Kalliope.Absorption.Hierarchy;
                     return hierarchy.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.Hierarchy)dto);
+                case "HierarchyChild":
+                    var hierarchyChild = poco as Kalliope.Absorption.HierarchyChild;
+                    return hierarchyChild.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.HierarchyChild)dto);
                 case "HierarchyColorScheme":
                     var hierarchyColorScheme = poco as Kalliope.Absorption.HierarchyColorScheme;
                     return hierarchyColorScheme.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.HierarchyColorScheme)dto);
@@ -763,6 +778,18 @@ namespace Kalliope.Dal
 
             switch (typeName)
             {
+                case "AbsorbedFactType":
+                    var absorbedFactType = poco as Kalliope.Absorption.AbsorbedFactType;
+                    absorbedFactType.UpdateReferenceProperties((Kalliope.DTO.AbsorbedFactType)dto, cache);
+                    break;
+                case "AbsorbedObjectType":
+                    var absorbedObjectType = poco as Kalliope.Absorption.AbsorbedObjectType;
+                    absorbedObjectType.UpdateReferenceProperties((Kalliope.DTO.AbsorbedObjectType)dto, cache);
+                    break;
+                case "AbsorbedRole":
+                    var absorbedRole = poco as Kalliope.Absorption.AbsorbedRole;
+                    absorbedRole.UpdateReferenceProperties((Kalliope.DTO.AbsorbedRole)dto, cache);
+                    break;
                 case "AutoCounterNumericDataType":
                     var autoCounterNumericDataType = poco as Kalliope.Core.AutoCounterNumericDataType;
                     autoCounterNumericDataType.UpdateReferenceProperties((Kalliope.DTO.AutoCounterNumericDataType)dto, cache);
@@ -810,6 +837,10 @@ namespace Kalliope.Dal
                 case "CardinalityRangeOverlapError":
                     var cardinalityRangeOverlapError = poco as Kalliope.Core.CardinalityRangeOverlapError;
                     cardinalityRangeOverlapError.UpdateReferenceProperties((Kalliope.DTO.CardinalityRangeOverlapError)dto, cache);
+                    break;
+                case "ChildRole":
+                    var childRole = poco as Kalliope.Absorption.ChildRole;
+                    childRole.UpdateReferenceProperties((Kalliope.DTO.ChildRole)dto, cache);
                     break;
                 case "CompatibleRolePlayerTypeError":
                     var compatibleRolePlayerTypeError = poco as Kalliope.Core.CompatibleRolePlayerTypeError;
@@ -1102,6 +1133,10 @@ namespace Kalliope.Dal
                 case "Hierarchy":
                     var hierarchy = poco as Kalliope.Absorption.Hierarchy;
                     hierarchy.UpdateReferenceProperties((Kalliope.DTO.Hierarchy)dto, cache);
+                    break;
+                case "HierarchyChild":
+                    var hierarchyChild = poco as Kalliope.Absorption.HierarchyChild;
+                    hierarchyChild.UpdateReferenceProperties((Kalliope.DTO.HierarchyChild)dto, cache);
                     break;
                 case "HierarchyColorScheme":
                     var hierarchyColorScheme = poco as Kalliope.Absorption.HierarchyColorScheme;

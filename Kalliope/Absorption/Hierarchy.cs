@@ -20,13 +20,25 @@
 
 namespace Kalliope.Absorption
 {
+    using System.Collections.Generic;
+
     using Kalliope.Common;
     using Kalliope.Core;
 
     [Description("")]
     [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Container(typeName: "ElementOrganizations", propertyName: "Hierarchies")]
     public class Hierarchy : OrmNamedElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Hierarchy"/> class.
+        /// </summary>
+        public Hierarchy()
+        {
+            this.AbsorbedFactTypes = new List<AbsorbedFactType>();
+            this.AbsorbedObjectTypes = new List<AbsorbedObjectType>();
+        }
+
         /// <summary>
         /// Gets or sets the XmlNamespace
         /// </summary>
@@ -68,5 +80,19 @@ namespace Kalliope.Absorption
         [Description("Gets or sets the DataValueName")]
         [Property(name: "DataValueName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string DataValueName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="List{AbsorbedObjectType}"/>
+        /// </summary>
+        [Description("Gets or sets the List of AbsorbedObjectTypes")]
+        [Property(name: "AbsorbedObjectTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedObjectType")]
+        public List<AbsorbedObjectType> AbsorbedObjectTypes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="List{AbsorbedFactType}"/>
+        /// </summary>
+        [Description("Gets or sets the List of AbsorbedFactTypes")]
+        [Property(name: "AbsorbedFactTypes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedFactType")]
+        public List<AbsorbedFactType> AbsorbedFactTypes { get; set; }
     }
 }

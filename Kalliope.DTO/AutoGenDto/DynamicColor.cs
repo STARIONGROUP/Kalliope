@@ -44,6 +44,21 @@ namespace Kalliope.DTO
         {
         }
  
+
+        /// <summary>
+        /// Gets or sets a ColorRole
+        /// </summary>
+        [Description("")]
+        [Property(name: "ColorRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ColorRole { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a ColorValue
+        /// </summary>
+        [Description("")]
+        [Property(name: "ColorValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ColorValue { get; set; }
+ 
     }
 }
 

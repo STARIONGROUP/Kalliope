@@ -29,14 +29,10 @@ namespace Kalliope.Core
     [Domain(isAbstract: true, general: "ModelThing")]
     public abstract class DynamicColor : ModelThing
     {
-        /// <summary>
-        /// The name of a role indicating use of the color. Correspond to an item in a color set enum
-        /// </summary>
+        [Property(name: "ColorRole", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ColorRole { get; set; }
-
-        /// <summary>
-        /// The name of the color played by this role
-        /// </summary>
+        
+        [Property(name: "ColorValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string ColorValue { get; set; }
     }
 }
