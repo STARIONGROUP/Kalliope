@@ -43,9 +43,21 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>True if this <see cref="IReferenceProperty"/> represents the main relationship role, otherwise false</returns>
         private bool CalculateMainRelationshipRole()
         {
-            return 
+            if (this.IsRoleOwner)
+            {
+                return true;
+            }
+
+            //Is the other side of the relationship the role owner?
+            if (this.CalculateIsRoleOwner(this.ClassRole))
+            {
+                return false;
+            }
+
+            //otherwise fallback to First Role in FactType.Roles
+            return
                 this.FactType.Roles.OfType<Role>().FirstOrDefault() == this.ClassRole
-                || 
+                ||
                 this.FactType.Roles.OfType<RoleProxy>().FirstOrDefault()?.TargetRole == this.ClassRole;
         }
 

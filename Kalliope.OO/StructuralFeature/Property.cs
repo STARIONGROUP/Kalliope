@@ -20,12 +20,16 @@
 
 namespace Kalliope.OO.StructuralFeature
 {
+    using System;
     using System.Linq;
 
     using Kalliope.Common;
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.OO.Extensions;
     using Kalliope.OO.Generation;
+
+    using ValueType = Kalliope.Core.ValueType;
 
     /// <summary>
     /// Class that defines a Property
@@ -213,7 +217,59 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets a value indicating if the property type is a reference type
         /// </summary>
-        public bool IsReferenceProperty => !this.ObjectType.IsValueType;
+        public bool IsReferenceProperty => this is IReferenceProperty;
+
+                /// <summary>
+        /// Gets a value indicating the RelationType of a ReferencedProperty
+        /// </summary>
+        public RelationType RelationType => this.CalculateRelationType();
+
+        /// <summary>
+        /// Calculates the <see cref="RelationType"/> of the relationship that belongs to this <see cref="ReferenceProperty{T}"/>
+        /// </summary>
+        /// <returns>The <see cref="RelationType"/></returns>
+        private RelationType CalculateRelationType()
+        {
+            var modelRelationType = this.FactType.Extensions?
+                       .OfType<CustomProperty>()
+                       .SingleOrDefault(x =>
+                           x.CustomPropertyDefinition.Category == "KALLIOPE"
+                           && x.CustomPropertyDefinition.Name == "RelationshipType")?
+                       .Value.ToString();
+
+            if (modelRelationType == null || !Enum.TryParse<RelationType>(modelRelationType, true, out var relationType))
+            {
+                return RelationType.Aggregation;
+            }
+
+            return relationType;
+        }
+
+        /// <summary>
+        /// Gets a value indicating that the property represents the owner of the Role
+        /// </summary>
+        public bool IsRoleOwner => this.CalculateIsRoleOwner(this.PropertyRole);
+
+        /// <summary>
+        /// Calculates if the Class that belongs to a Role is the Role Owner of the relationship that belongs to this <see cref="ReferenceProperty{T}"/>
+        /// </summary>
+        /// <returns>True if the class that belongs to the Role is the role owner, otherwise false</returns>
+        protected bool CalculateIsRoleOwner(Role role)
+        {
+            var modelRoleOwner = role.Extensions?
+                .OfType<CustomProperty>()
+                .SingleOrDefault(x =>
+                    x.CustomPropertyDefinition.Category == "KALLIOPE"
+                    && x.CustomPropertyDefinition.Name == "RoleOwner")?
+                .Value.ToString();
+
+            if (modelRoleOwner == null || !bool.TryParse(modelRoleOwner, out var isRoleOwner))
+            {
+                return false;
+            }
+
+            return isRoleOwner;
+        }
 
         /// <summary>
         /// Creates a new instance of the <see cref="Property{T}"/> class

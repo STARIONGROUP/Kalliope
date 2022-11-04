@@ -107,5 +107,15 @@ namespace Kalliope.OO.StructuralFeature
         /// Gets a value indicating that this property of an enum type
         /// </summary>
         bool IsEnum { get; }
+        
+        /// <summary>
+        /// Gets a value indicating the RelationType of a ReferencedProperty
+        /// </summary>
+        RelationType RelationType { get; }
+
+        /// <summary>
+        /// Gets a value indicating that the property represents the owner of the Role
+        /// </summary>
+        bool IsRoleOwner { get; }
     }
 }
