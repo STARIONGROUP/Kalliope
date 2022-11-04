@@ -43,13 +43,14 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>True if this <see cref="IReferenceProperty"/> represents the main relationship role, otherwise false</returns>
         private bool CalculateMainRelationshipRole()
         {
-            if (this.IsRoleOwner)
+            // Is this class the role owner?
+            if (this.CalculateIsRoleOwner(this.ClassRole))
             {
                 return true;
             }
 
-            //Is the other side of the relationship the role owner?
-            if (this.CalculateIsRoleOwner(this.ClassRole))
+            // Is the other property the RoleOwner
+            if (this.CalculateIsRoleOwner(this.PropertyRole))
             {
                 return false;
             }
