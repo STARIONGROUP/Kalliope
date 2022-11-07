@@ -75,10 +75,12 @@ namespace Kalliope.Xml.Readers
                         {
                             case "RolePlayer":
                                 var rolePlayerReference = reader.GetAttribute("ref");
+
                                 if (!string.IsNullOrEmpty(rolePlayerReference))
                                 {
                                     role.RolePlayer = rolePlayerReference;
                                 }
+
                                 break;
                             case "ValueRestriction":
                                 using (var valueRestrictionSubTree = reader.ReadSubtree())
@@ -86,23 +88,64 @@ namespace Kalliope.Xml.Readers
                                     valueRestrictionSubTree.MoveToContent();
                                     this.ReadValueRestriction(role, valueRestrictionSubTree, modelThings);
                                 }
-                                break;
-                            case "CustomProperty":
 
-                                using (var customPropertySubtree = reader.ReadSubtree())
+                                break;
+
+                            case "Extensions":
+                                using (var extensionsSubtree = reader.ReadSubtree())
                                 {
-                                    customPropertySubtree.MoveToContent();
-                                    var customProperty = new CustomProperty();
-                                    var customPropertyXmlReader = new CustomPropertyXmlReader();
-                                    customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
-                                    customProperty.Container = role.Id;
-                                    role.Extensions.Add(customProperty.Id);
+                                    extensionsSubtree.MoveToContent();
+                                    this.ReadExtensions(role, extensionsSubtree, modelThings);
                                 }
                                 break;
+
                             default:
                                 Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
                                 break;
                         }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Extension"/>s
+        /// </summary>
+        /// <param name="role">
+        /// The <see cref="Role"/> that contains the <see cref="Extension"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadExtensions(Role role, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CustomProperty":
+
+                            using (var customPropertySubtree = reader.ReadSubtree())
+                            {
+                                customPropertySubtree.MoveToContent();
+                                var customProperty = new CustomProperty();
+                                var customPropertyXmlReader = new CustomPropertyXmlReader();
+                                customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
+                                customProperty.Container = role.Id;
+                                role.Extensions.Add(customProperty.Id);
+                            }
+
+                            break;
+
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
                     }
                 }
             }
