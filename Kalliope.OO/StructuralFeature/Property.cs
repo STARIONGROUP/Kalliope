@@ -230,7 +230,9 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The <see cref="RelationType"/></returns>
         private RelationType CalculateRelationType()
         {
-            var modelRelationType = this.FactType.Extensions?
+            var factType = this.FactType is ImpliedFactType impliedFactType ? impliedFactType.ImpliedByObjectification.NestedFactType : this.FactType;
+
+            var modelRelationType = factType.Extensions?
                        .OfType<CustomProperty>()
                        .SingleOrDefault(x =>
                            x.CustomPropertyDefinition.Category == "KALLIOPE"
