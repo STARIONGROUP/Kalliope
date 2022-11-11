@@ -32,6 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a AbsorbedRole
     /// </summary>
+    [Container(typeName: "AbsorbedFactType", propertyName: "AbsorbedRoles")]
     [Container(typeName: "AbsorbedObjectType", propertyName: "AbsorbedRoles")]
     public partial class AbsorbedRole : ModelThing
     {
@@ -49,17 +50,17 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="FactType"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="AbsorbedFactType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "AbsorbedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "AbsorbedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedFactType", allowOverride: false, isOverride: false, isDerived: false)]
         public string AbsorbedFactType { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ObjectType"/>
+        /// Gets or sets the unique identifier of the referenced <see cref="AbsorbedObjectType"/>
         /// </summary>
         [Description("")]
-        [Property(name: "AbsorbedObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "AbsorbedObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedObjectType", allowOverride: false, isOverride: false, isDerived: false)]
         public string AbsorbedObjectType { get; set; }
  
         /// <summary>

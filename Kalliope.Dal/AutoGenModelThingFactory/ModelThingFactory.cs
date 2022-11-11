@@ -207,10 +207,6 @@ namespace Kalliope.Dal
                     var diagramDynamicColor = dto as Kalliope.DTO.DiagramDynamicColor;
                     var diagramDynamicColorFactory = new DiagramDynamicColorFactory();
                     return diagramDynamicColorFactory.Create(diagramDynamicColor);
-                case "DisplayedHierarchy":
-                    var displayedHierarchy = dto as Kalliope.DTO.DisplayedHierarchy;
-                    var displayedHierarchyFactory = new DisplayedHierarchyFactory();
-                    return displayedHierarchyFactory.Create(displayedHierarchy);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = dto as Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType;
                     var doublePrecisionFloatingPointNumericDataTypeFactory = new DoublePrecisionFloatingPointNumericDataTypeFactory();

@@ -127,7 +127,7 @@ namespace Kalliope.Xml.Readers
                                 var elementOrganizations = new ElementOrganizations();
                                 var elementOrganizationsXmlReader = new ElementOrganizationsXmlReader();
                                 elementOrganizationsXmlReader.ReadXml(elementOrganizations, elementOrganizationsSubtree, modelThings);
-                                ormRoot.CustomPropertyGroups.Add(elementOrganizations.Id);
+                                ormRoot.ElementOrganizations = elementOrganizations.Id;
                             }
                             break;
                     }

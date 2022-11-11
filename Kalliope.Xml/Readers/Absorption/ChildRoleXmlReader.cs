@@ -32,7 +32,7 @@ namespace Kalliope.Xml.Readers
     public class ChildRoleXmlReader : ModelThingXmlReader
     {
         /// <summary>
-        /// Reads the properties of the provided <see cref="AbsorbedObjectType"/> from the <see cref="XmlReader"/>
+        /// Reads the properties of the provided <see cref="ChildRole"/> from the <see cref="XmlReader"/>
         /// </summary>
         /// <param name="childRole">
         /// The subject <see cref="ChildRole"/> that is to be deserialized

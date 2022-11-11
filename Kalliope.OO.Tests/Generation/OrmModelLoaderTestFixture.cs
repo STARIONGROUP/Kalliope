@@ -52,7 +52,7 @@ namespace Kalliope.OO.Tests
 
             OrmRoot ormRoot = null;
 
-            Assert.That(() => ormRoot = OrmModelLoader.Load(ormFileName), throws ? Throws.InstanceOf<NotSupportedException>() :Throws.Nothing);
+            Assert.That(() => ormRoot = OrmModelLoader.Load(ormFileName), throws ? Throws.InstanceOf<NotSupportedException>() : Throws.Nothing);
 
             if (!throws)
             {

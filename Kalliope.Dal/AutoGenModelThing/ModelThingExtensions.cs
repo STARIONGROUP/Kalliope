@@ -182,9 +182,6 @@ namespace Kalliope.Dal
                 case "DiagramDynamicColor":
                     var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
                     return diagramDynamicColor.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto);
-                case "DisplayedHierarchy":
-                    var displayedHierarchy = poco as Kalliope.Absorption.DisplayedHierarchy;
-                    return displayedHierarchy.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DisplayedHierarchy)dto);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;
                     return doublePrecisionFloatingPointNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType)dto);
@@ -929,10 +926,6 @@ namespace Kalliope.Dal
                 case "DiagramDynamicColor":
                     var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
                     diagramDynamicColor.UpdateReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto, cache);
-                    break;
-                case "DisplayedHierarchy":
-                    var displayedHierarchy = poco as Kalliope.Absorption.DisplayedHierarchy;
-                    displayedHierarchy.UpdateReferenceProperties((Kalliope.DTO.DisplayedHierarchy)dto, cache);
                     break;
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;

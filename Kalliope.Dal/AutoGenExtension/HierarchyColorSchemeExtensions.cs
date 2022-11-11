@@ -91,8 +91,8 @@ namespace Kalliope.Dal
             identifiersOfObjectsToDelete.AddRange(displayedHierarchiesToDelete);
             foreach (var identifier in displayedHierarchiesToDelete)
             {
-                var displayedHierarchy = poco.DisplayedHierarchies.Single(x => x.Id == identifier);
-                poco.DisplayedHierarchies.Remove(displayedHierarchy);
+                var hierarchy = poco.DisplayedHierarchies.Single(x => x.Id == identifier);
+                poco.DisplayedHierarchies.Remove(hierarchy);
             }
 
             var notIncludedToDelete = poco.NotIncluded.Select(x => x.Id).Except(dto.NotIncluded);
@@ -189,8 +189,8 @@ namespace Kalliope.Dal
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var displayedHierarchy = (DisplayedHierarchy)lazyPoco.Value;
-                    poco.DisplayedHierarchies.Add(displayedHierarchy);
+                    var hierarchy = (Hierarchy)lazyPoco.Value;
+                    poco.DisplayedHierarchies.Add(hierarchy);
                 }
             }
 

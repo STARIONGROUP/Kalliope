@@ -73,6 +73,14 @@ namespace Kalliope.Dal
 
             poco.Absorbed = dto.Absorbed;
 
+            var absorbedRolesToDelete = poco.AbsorbedRoles.Select(x => x.Id).Except(dto.AbsorbedRoles);
+            identifiersOfObjectsToDelete.AddRange(absorbedRolesToDelete);
+            foreach (var identifier in absorbedRolesToDelete)
+            {
+                var absorbedRole = poco.AbsorbedRoles.Single(x => x.Id == identifier);
+                poco.AbsorbedRoles.Remove(absorbedRole);
+            }
+
             poco.AbsorbedUnary = dto.AbsorbedUnary;
 
             poco.Functional = dto.Functional;
@@ -127,6 +135,16 @@ namespace Kalliope.Dal
             }
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            var absorbedRolesToAdd = dto.AbsorbedRoles.Except(poco.AbsorbedRoles.Select(x => x.Id));
+            foreach (var identifier in absorbedRolesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var absorbedRole = (AbsorbedRole)lazyPoco.Value;
+                    poco.AbsorbedRoles.Add(absorbedRole);
+                }
+            }
 
             var possibleChildRolesToAdd = dto.PossibleChildRoles.Except(poco.PossibleChildRoles.Select(x => x.Id));
             foreach (var identifier in possibleChildRolesToAdd)

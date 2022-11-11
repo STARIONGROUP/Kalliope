@@ -26,6 +26,7 @@ namespace Kalliope.Absorption
     [Description("")]
     [Domain(isAbstract: false, general: "ModelThing")]
     [Container(typeName: "AbsorbedObjectType", propertyName: "AbsorbedRoles")]
+    [Container(typeName: "AbsorbedFactType", propertyName: "AbsorbedRoles")]
     public class AbsorbedRole : ModelThing
     {
         [Property(name: "Role", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
@@ -49,10 +50,10 @@ namespace Kalliope.Absorption
         [Property(name: "XmlReferenceSimpleValueForm", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string XmlReferenceSimpleValueForm { get; set; }
 
-        [Property(name: "AbsorbedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
-        public FactType AbsorbedFactType { get; set; }
+        [Property(name: "AbsorbedFactType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedFactType")]
+        public AbsorbedFactType AbsorbedFactType { get; set; }
 
-        [Property(name: "AbsorbedObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectType")]
-        public ObjectType AbsorbedObjectType { get; set; }
+        [Property(name: "AbsorbedObjectType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedObjectType")]
+        public AbsorbedObjectType AbsorbedObjectType { get; set; }
     }
 }

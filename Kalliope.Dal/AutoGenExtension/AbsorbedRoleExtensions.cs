@@ -137,12 +137,12 @@ namespace Kalliope.Dal
 
             if (poco.AbsorbedFactType == null && !string.IsNullOrEmpty(dto.AbsorbedFactType) && cache.TryGetValue(dto.AbsorbedFactType, out lazyPoco))
             {
-                poco.AbsorbedFactType = (FactType)lazyPoco.Value;
+                poco.AbsorbedFactType = (AbsorbedFactType)lazyPoco.Value;
             }
 
             if (poco.AbsorbedObjectType == null && !string.IsNullOrEmpty(dto.AbsorbedObjectType) && cache.TryGetValue(dto.AbsorbedObjectType, out lazyPoco))
             {
-                poco.AbsorbedObjectType = (ObjectType)lazyPoco.Value;
+                poco.AbsorbedObjectType = (AbsorbedObjectType)lazyPoco.Value;
             }
 
             if (poco.Role == null && !string.IsNullOrEmpty(dto.Role) && cache.TryGetValue(dto.Role, out lazyPoco))

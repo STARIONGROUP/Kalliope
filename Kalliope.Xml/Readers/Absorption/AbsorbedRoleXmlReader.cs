@@ -32,10 +32,10 @@ namespace Kalliope.Xml.Readers
     public class AbsorbedRoleXmlReader : ModelThingXmlReader
     {
         /// <summary>
-        /// Reads the properties of the provided <see cref="AbsorbedObjectType"/> from the <see cref="XmlReader"/>
+        /// Reads the properties of the provided <see cref="AbsorbedRole"/> from the <see cref="XmlReader"/>
         /// </summary>
-        /// <param name="childRole">
-        /// The subject <see cref="ChildRole"/> that is to be deserialized
+        /// <param name="absorbedRole">
+        /// The subject <see cref="AbsorbedRole"/> that is to be deserialized
         /// </param>
         /// <param name="reader">
         /// The <see cref="XmlReader"/> that contains the .orm XML
@@ -43,11 +43,57 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        public void ReadXml(ChildRole childRole, XmlReader reader, List<ModelThing> modelThings)
+        public void ReadXml(AbsorbedRole absorbedRole, XmlReader reader, List<ModelThing> modelThings)
         {
-            base.ReadXml(childRole, reader, modelThings);
+            base.ReadXml(absorbedRole, reader, modelThings);
 
-            childRole.Id = reader.GetAttribute("id");
+            absorbedRole.Id = reader.GetAttribute("id");
+
+            var objectifiedRole = reader.GetAttribute("ObjectifiedRole");
+            if (!string.IsNullOrEmpty(objectifiedRole))
+            {
+                absorbedRole.ObjectifiedRole = XmlConvert.ToBoolean(objectifiedRole);
+            }
+
+            absorbedRole.Role = reader.GetAttribute("_ref");
+
+            absorbedRole.XmlName = reader.GetAttribute("XmlName");
+
+            absorbedRole.XmlReferenceName = reader.GetAttribute("XmlReferenceName");
+
+            absorbedRole.XmlReferenceSimpleValueForm = reader.GetAttribute("XmlReferenceSimpleValueForm");
+
+            absorbedRole.XmlSimpleValueForm = reader.GetAttribute("XmlSimpleValueForm");
+            
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "AbsorbedFactType":
+                            using (var absorbedFactTypeSubtree = reader.ReadSubtree())
+                            {
+                                absorbedFactTypeSubtree.MoveToContent();
+
+                                absorbedRole.AbsorbedFactType = absorbedFactTypeSubtree.GetAttribute("ref");
+                            }
+                            break;
+                        case "AbsorbedObjectType":
+                            using (var absorbedObjectTypeSubtree = reader.ReadSubtree())
+                            {
+                                absorbedObjectTypeSubtree.MoveToContent();
+
+                                absorbedRole.AbsorbedObjectType = absorbedObjectTypeSubtree.GetAttribute("ref");
+                            }
+                            break;
+                        default:
+                            throw new System.NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

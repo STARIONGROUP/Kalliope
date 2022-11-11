@@ -35,6 +35,7 @@ namespace Kalliope.Absorption
         /// </summary>
         public AbsorbedFactType()
         {
+            this.AbsorbedRoles = new List<AbsorbedRole>();
             this.PossibleChildRoles = new List<ChildRole>();
         }
 
@@ -55,7 +56,10 @@ namespace Kalliope.Absorption
 
         [Property(name: "XmlName", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string XmlName { get; set; }
-        
+
+        [Property(name: "AbsorbedRoles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedRole")]
+        public List<AbsorbedRole> AbsorbedRoles { get; set; }
+
         [Property(name: "PossibleChildRoles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ChildRole")]
         public List<ChildRole> PossibleChildRoles { get; set; }
     }

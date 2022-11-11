@@ -40,6 +40,7 @@ namespace Kalliope.DTO
         /// </summary>
         public AbsorbedFactType()
         {
+            this.AbsorbedRoles = new List<string>();
             this.PossibleChildRoles = new List<string>();
         }
  
@@ -55,6 +56,13 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "Absorbed", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "", typeName: "false", allowOverride: false, isOverride: false, isDerived: false)]
         public bool Absorbed { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="AbsorbedRole"/> instances
+        /// </summary>
+        [Description("")]
+        [Property(name: "AbsorbedRoles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "AbsorbedRole", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> AbsorbedRoles { get; set; }
  
         /// <summary>
         /// Gets or sets a AbsorbedUnary

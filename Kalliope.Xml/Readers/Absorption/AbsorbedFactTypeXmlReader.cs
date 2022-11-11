@@ -180,7 +180,7 @@ namespace Kalliope.Xml.Readers
                                 var absorbedRoleXmlReader = new AbsorbedRoleXmlReader();
                                 absorbedRoleXmlReader.ReadXml(absorbedRole, absorbedRoleSubtree, modelThings);
                                 absorbedRole.Container = absorbedFactType.Id;
-                                absorbedFactType.PossibleChildRoles.Add(absorbedRole.Id);
+                                absorbedFactType.AbsorbedRoles.Add(absorbedRole.Id);
                             }
                             break;
                         default:

@@ -70,10 +70,10 @@ namespace Kalliope.DTO
         public List<string> AbsorptionAttachPoint { get; set; }
  
         /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref="DisplayedHierarchy"/> instances
+        /// Gets or sets a list unique identifiers of the contained <see cref="Hierarchy"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "DisplayedHierarchies", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "DisplayedHierarchy", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "DisplayedHierarchies", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Hierarchy", allowOverride: false, isOverride: false, isDerived: false)]
         public List<string> DisplayedHierarchies { get; set; }
  
         /// <summary>

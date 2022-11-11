@@ -42,7 +42,7 @@ namespace Kalliope.Absorption
             this.AbsorptionAttachPoint = new List<DiagramDynamicColor>();
             this.PrimaryLocation = new List<DiagramDynamicColor>();
             this.ReferenceLocation = new List<DiagramDynamicColor>();
-            this.DisplayedHierarchies = new List<DisplayedHierarchy>();
+            this.DisplayedHierarchies = new List<Hierarchy>();
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Kalliope.Absorption
         /// <summary>
         /// Gets or sets the <see cref="List{DisplayedHierarchy}"/> contained by the <see cref="HierarchyColorScheme"/>
         /// </summary>
-        [Property(name: "DisplayedHierarchies", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "DisplayedHierarchy")]
-        public List<DisplayedHierarchy> DisplayedHierarchies { get; set; }
+        [Property(name: "DisplayedHierarchies", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Hierarchy")]
+        public List<Hierarchy> DisplayedHierarchies { get; set; }
     }
 }
