@@ -55,5 +55,11 @@ namespace Kalliope.Absorption
         /// </summary>
         [Property(name: "HierarchyColorSchemes", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "HierarchyColorScheme")]
         public List<HierarchyColorScheme> HierarchyColorSchemes { get; set; }
-    }
+
+        /// <summary>
+        /// Gets or sets the referenced <see cref="Hierarchy"/>
+        /// </summary>
+		[Property(name: "ActiveOrganization", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Hierarchy")]
+		public Hierarchy ActiveOrganization { get; set; }
+	}
 }

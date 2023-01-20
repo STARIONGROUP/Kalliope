@@ -66,6 +66,13 @@ namespace Kalliope.DTO
         [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string NameUsage { get; set; }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="ModelThing"/>
+        /// </summary>
+        [Description("Bind an Alias or NameGenerator to a specific generated instance")]
+        [Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelThing", allowOverride: false, isOverride: false, isDerived: false)]
+        public string RefinedInstance { get; set; }
+ 
     }
 }
 

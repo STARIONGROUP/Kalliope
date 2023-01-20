@@ -44,5 +44,12 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "NameUsage", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "")]
         public string NameUsage { get; set; }
-    }
+
+		/// <summary>
+		/// Bind an <see cref="NameAlias"/> or <see cref="NameGenerator"/> to a specific generated instance
+		/// </summary>
+		[Description("Bind an Alias or NameGenerator to a specific generated instance")]
+		[Property(name: "RefinedInstance", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ModelThing")]
+		public ModelThing RefinedInstance { get; set; }
+	}
 }

@@ -71,6 +71,11 @@ namespace Kalliope.Dal
 
             var identifiersOfObjectsToDelete = new List<string>();
 
+            if (poco.ActiveOrganization != null && poco.ActiveOrganization.Id != dto.ActiveOrganization)
+            {
+                poco.ActiveOrganization = null;
+            }
+
             var hierarchiesToDelete = poco.Hierarchies.Select(x => x.Id).Except(dto.Hierarchies);
             identifiersOfObjectsToDelete.AddRange(hierarchiesToDelete);
             foreach (var identifier in hierarchiesToDelete)
@@ -129,6 +134,11 @@ namespace Kalliope.Dal
             }
 
             Lazy<Kalliope.Core.ModelThing> lazyPoco;
+
+            if (poco.ActiveOrganization == null && !string.IsNullOrEmpty(dto.ActiveOrganization) && cache.TryGetValue(dto.ActiveOrganization, out lazyPoco))
+            {
+                poco.ActiveOrganization = (Hierarchy)lazyPoco.Value;
+            }
 
             var hierarchiesToAdd = dto.Hierarchies.Except(poco.Hierarchies.Select(x => x.Id));
             foreach (var identifier in hierarchiesToAdd)

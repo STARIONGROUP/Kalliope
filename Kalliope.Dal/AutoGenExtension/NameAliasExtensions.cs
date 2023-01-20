@@ -99,6 +99,11 @@ namespace Kalliope.Dal
 
             poco.NameUsage = dto.NameUsage;
 
+            if (poco.RefinedInstance != null && poco.RefinedInstance.Id != dto.RefinedInstance)
+            {
+                poco.RefinedInstance = null;
+            }
+
             return identifiersOfObjectsToDelete;
         }
 
@@ -164,6 +169,11 @@ namespace Kalliope.Dal
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
                 }
+            }
+
+            if (poco.RefinedInstance == null && !string.IsNullOrEmpty(dto.RefinedInstance) && cache.TryGetValue(dto.RefinedInstance, out lazyPoco))
+            {
+                poco.RefinedInstance = (ModelThing)lazyPoco.Value;
             }
         }
     }

@@ -45,6 +45,13 @@ namespace Kalliope.DTO
  
 
         /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="Hierarchy"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "ActiveOrganization", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Hierarchy", allowOverride: false, isOverride: false, isDerived: false)]
+        public string ActiveOrganization { get; set; }
+ 
+        /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="Hierarchy"/> instances
         /// </summary>
         [Description("")]

@@ -133,7 +133,15 @@ namespace Kalliope.Xml.Readers
                                 this.ReadModelErrors(ormModel, modelErrorsSubtree, modelThings);
                             }
                             break;
-                        default:
+                        case "RecognizedPhrases":
+	                        using (var recognizedPhrasesSubtree = reader.ReadSubtree())
+	                        {
+		                        recognizedPhrasesSubtree.MoveToContent();
+		                        this.ReadRecognizedPhrases(ormModel, recognizedPhrasesSubtree, modelThings);
+	                        }
+	                        break;
+
+						default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
                 }
@@ -1021,5 +1029,46 @@ namespace Kalliope.Xml.Readers
                 }
             }
         }
-    }
+
+		/// <summary>
+		/// Reads the <see cref="RecognizedPhrase"/>s
+		/// </summary>
+		/// <param name="ormModel">
+		/// The subject <see cref="OrmModel"/> that is to be deserialized and is the container of the <see cref="ModelError"/>s
+		/// </param>
+		/// <param name="reader">
+		/// an instance of <see cref="XmlReader"/> used to read the .orm file
+		/// </param>
+		/// <param name="modelThings">
+		/// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+		/// </param>
+		private void ReadRecognizedPhrases(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+	        while (reader.Read())
+	        {
+		        if (reader.MoveToContent() == XmlNodeType.Element)
+		        {
+			        var localName = reader.LocalName;
+                    
+			        switch (localName)
+			        {
+				        case "RecognizedPhrase":
+
+							using (var recognizedPhraseSubtree = reader.ReadSubtree())
+							{
+								recognizedPhraseSubtree.MoveToContent();
+								var recognizedPhrase = new RecognizedPhrase();
+								var recognizedPhraseReader = new RecognizedPhraseXmlReader();
+								recognizedPhraseReader.ReadXml(recognizedPhrase, recognizedPhraseSubtree, modelThings);
+								recognizedPhrase.Container = ormModel.Id;
+								ormModel.RecognizedPhrases.Add(recognizedPhrase.Id);
+							}
+							break;
+				        default:
+							throw new System.NotSupportedException($"{localName} not yet supported");
+			        }
+                }
+	        }
+        }
+	}
 }

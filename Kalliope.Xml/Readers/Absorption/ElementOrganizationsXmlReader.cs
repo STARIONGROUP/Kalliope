@@ -74,7 +74,10 @@ namespace Kalliope.Xml.Readers
                                 this.ReadHierarchyColorSchemes(elementOrganizations, hierarchyColorSchemesSubtree, modelThings);
                             }
                             break;
-                        default:
+                        case "ActiveOrganization":
+	                        elementOrganizations.ActiveOrganization = reader.GetAttribute("ref");
+							break;
+						default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
                 }

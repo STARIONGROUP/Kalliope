@@ -77,7 +77,14 @@ namespace Kalliope.Xml.Readers
                                 this.ReadDefinitions(objectType, definitionSubtree, modelThings);
                             }
                             break;
-                        case "Notes":
+                        case "Abbreviations":
+	                        using (var abbreviationsSubtree = reader.ReadSubtree())
+	                        {
+		                        abbreviationsSubtree.MoveToContent();
+		                        this.ReadAbbreviations(objectType, abbreviationsSubtree, modelThings);
+	                        }
+	                        break;
+						case "Notes":
                             using (var notesSubtree = reader.ReadSubtree())
                             {
                                 notesSubtree.MoveToContent();
@@ -217,10 +224,10 @@ namespace Kalliope.Xml.Readers
         }
 
         /// <summary>
-        /// reads the contained <see cref="Note"/>s
+        /// reads the contained <see cref="NameAlias"/>es
         /// </summary>
         /// <param name="objectType">
-        /// The container <see cref="ObjectType"/> of the <see cref="Definition"/>
+        /// The container <see cref="ObjectType"/> of the <see cref="NameAlias"/>
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
@@ -228,7 +235,47 @@ namespace Kalliope.Xml.Readers
         /// <param name="modelThings">
         /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
         /// </param>
-        private void ReadNotes(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+		private void ReadAbbreviations(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
+        {
+	        while (reader.Read())
+	        {
+		        if (reader.MoveToContent() == XmlNodeType.Element)
+		        {
+			        var localName = reader.LocalName;
+
+			        switch (localName)
+			        {
+				        case "Alias":
+					        using (var nameAliasSubtree = reader.ReadSubtree())
+					        {
+						        nameAliasSubtree.MoveToContent();
+								var nameAlias = new NameAlias();
+								var nameAliasXmlReader = new NameAliasXmlReader();
+						        nameAliasXmlReader.ReadXml(nameAlias, nameAliasSubtree, modelThings);
+						        nameAlias.Container = objectType.Id;
+								objectType.Abbreviations.Add(nameAlias.Id);
+					        }
+							break;
+				        default:
+					        throw new NotSupportedException($"{localName} not yet supported");
+			        }
+		        }
+	        }
+        }
+
+		/// <summary>
+		/// reads the contained <see cref="Note"/>s
+		/// </summary>
+		/// <param name="objectType">
+		/// The container <see cref="ObjectType"/> of the <see cref="Definition"/>
+		/// </param>
+		/// <param name="reader">
+		/// an instance of <see cref="XmlReader"/> used to read the .orm file
+		/// </param>
+		/// <param name="modelThings">
+		/// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+		/// </param>
+		private void ReadNotes(ObjectType objectType, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {

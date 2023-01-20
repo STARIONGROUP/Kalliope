@@ -20,15 +20,15 @@
 
 namespace Kalliope.Xml.Readers
 {
-    using System.Collections.Generic;
+	using System;
+	using System.Collections.Generic;
     using System.Xml;
+	using Kalliope.DTO;
 
-    using Kalliope.DTO;
-
-    /// <summary>
-    /// The purpose of the <see cref="RecognizedPhraseXmlReader"/> is to deserialize a <see cref="RecognizedPhrase"/>
-    /// from an .orm XML file
-    /// </summary>
+	/// <summary>
+	/// The purpose of the <see cref="RecognizedPhraseXmlReader"/> is to deserialize a <see cref="RecognizedPhrase"/>
+	/// from an .orm XML file
+	/// </summary>
     public class RecognizedPhraseXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
@@ -46,6 +46,67 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(RecognizedPhrase recognizedPhrase, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(recognizedPhrase, reader, modelThings);
+
+			while (reader.Read())
+			{
+				if (reader.MoveToContent() == XmlNodeType.Element)
+				{
+					var localName = reader.LocalName;
+
+					switch (localName)
+					{
+						case "Abbreviations":
+							using (var abbreviationsSubtree = reader.ReadSubtree())
+							{
+								abbreviationsSubtree.MoveToContent();
+								this.ReadAbbreviations(recognizedPhrase, abbreviationsSubtree, modelThings);
+							}
+							break;
+						default:
+							throw new NotSupportedException($"{localName} not yet supported");
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// reads the contained <see cref="NameAlias"/>es
+		/// </summary>
+		/// <param name="recognizedPhrase">
+		/// The container <see cref="RecognizedPhrase"/> of the <see cref="NameAlias"/>
+		/// </param>
+		/// <param name="reader">
+		/// an instance of <see cref="XmlReader"/> used to read the .orm file
+		/// </param>
+		/// <param name="modelThings">
+		/// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+		/// </param>
+		private void ReadAbbreviations(RecognizedPhrase recognizedPhrase, XmlReader reader, List<ModelThing> modelThings)
+        {
+	        while (reader.Read())
+	        {
+		        if (reader.MoveToContent() == XmlNodeType.Element)
+		        {
+			        var localName = reader.LocalName;
+
+			        switch (localName)
+			        {
+				        case "Alias":
+					        using (var nameAliasSubtree = reader.ReadSubtree())
+					        {
+						        nameAliasSubtree.MoveToContent();
+						        var nameAlias = new NameAlias();
+						        var nameAliasXmlReader = new NameAliasXmlReader();
+						        nameAliasXmlReader.ReadXml(nameAlias, nameAliasSubtree, modelThings);
+						        nameAlias.Container = recognizedPhrase.Id;
+						        recognizedPhrase.Abbreviations.Add(nameAlias.Id);
+					        }
+					        break;
+				        default:
+					        throw new NotSupportedException($"{localName} not yet supported");
+			        }
+		        }
+	        }
         }
-    }
+	}
 }

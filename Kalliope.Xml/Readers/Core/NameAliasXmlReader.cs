@@ -46,6 +46,22 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(NameAlias nameAlias, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(nameAlias, reader, modelThings);
-        }
+
+            nameAlias.NameConsumer = reader.GetAttribute("NameConsumer");
+            nameAlias.NameUsage = reader.GetAttribute("NameUsage");
+
+            while (reader.Read())
+            {
+	            if (reader.MoveToContent() == XmlNodeType.Element)
+	            {
+		            switch (reader.LocalName)
+		            {
+			            case "RefinedInstance":
+				            nameAlias.RefinedInstance = reader.GetAttribute("ref");
+                            break;
+		            }
+	            }
+            }
+		}
     }
 }
