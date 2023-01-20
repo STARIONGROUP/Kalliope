@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<TargetFramework>netstandard2.0</TargetFramework>
-	<Version>0.11.0</Version>
+	<Version>0.12.0</Version>
 	<Description>A library to read and write XML based orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
 	<PackageId>Kalliope.Xml</PackageId>
 	<Company>RHEA System S.A.</Company>
@@ -17,8 +17,8 @@
 	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
 	<PackageReleaseNotes>
-		[Update] to kalliope 0.11.0
-		[Fix] OrmRootXmlReader, AbsorbedRoleXmlReader, AbsorbedObjectTypeXmlReader, AbsorbedFactTypeXmlReader
+		[Update] to kalliope 0.12.0
+		[Fix] RecognizedPhraseXmlReader, ORMModelXmlReader, ObjectTypeXmlReader, NameAliasXmlReader, ElementOrganizationsXmlReader
 	</PackageReleaseNotes>
   </PropertyGroup>
 
