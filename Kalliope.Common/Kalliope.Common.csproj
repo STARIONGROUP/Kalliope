@@ -13,7 +13,9 @@
 	<RepositoryType>Git</RepositoryType>
 	<PackageTags>ORM</PackageTags>
 	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	  <Authors>Sam Gerene, Alexander van Delft</Authors>
+	<IncludeSource>true</IncludeSource>
+	<IncludeSymbols>true</IncludeSymbols>
+	<Authors>Sam Gerene, Alexander van Delft</Authors>
 	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
 	<PackageIcon>Kalliope-icon.png</PackageIcon>
   </PropertyGroup>
