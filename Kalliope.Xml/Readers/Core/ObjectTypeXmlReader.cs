@@ -145,6 +145,17 @@ namespace Kalliope.Xml.Readers
                                 this.ReadExtensions(objectType, extensionsSubtree, modelThings);
                             }
                             break;
+                        case "CardinalityRestriction":
+	                        using (var cardinalityRestrictionSubtree = reader.ReadSubtree())
+	                        {
+		                        cardinalityRestrictionSubtree.MoveToContent();
+		                        var objectTypeCardinalityRestriction = new ObjectTypeCardinalityRestriction();
+		                        var objectTypeCardinalityRestrictionXmlReader = new ObjectTypeCardinalityRestrictionXmlReader();
+		                        objectTypeCardinalityRestrictionXmlReader.ReadXml(objectTypeCardinalityRestriction, cardinalityRestrictionSubtree, modelThings);
+		                        objectTypeCardinalityRestriction.Container = objectType.Id;
+		                        objectType.Cardinality = objectTypeCardinalityRestriction.Id;
+	                        }
+	                        break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }

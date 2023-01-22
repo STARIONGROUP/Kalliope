@@ -29,7 +29,8 @@ namespace Kalliope.Core
     /// </summary>
     [Description("")]
     [Domain(isAbstract: true, general: "OrmNamedElement")]
-    public abstract class CardinalityConstraint : OrmNamedElement
+    [Container(typeName: "ObjectTypeCardinalityRestriction", propertyName: "CardinalityConstraint")]
+	public abstract class CardinalityConstraint : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CardinalityConstraint"/> class

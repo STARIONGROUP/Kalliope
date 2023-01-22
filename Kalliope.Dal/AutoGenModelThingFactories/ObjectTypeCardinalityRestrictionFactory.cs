@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="UnaryRoleCardinalityConstraint.cs" company="RHEA System S.A.">
+// <copyright file="ObjectTypeCardinalityRestrictionFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -22,26 +22,46 @@
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.DTO
+namespace Kalliope.Dal
 {
     using System;
-    using System.Collections.Generic;
 
-    using Kalliope.Common;
+    using Kalliope.Core;
+    using Kalliope.Diagrams;
 
     /// <summary>
-    /// A Data Transfer Object that represents a UnaryRoleCardinalityConstraint
+    /// The purpose of the <see cref="ObjectTypeCardinalityRestrictionFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Core.ObjectTypeCardinalityRestriction"/> based on a <see cref="Kalliope.DTO.ObjectTypeCardinalityRestriction"/>
     /// </summary>
-    [Container(typeName: "Role", propertyName: "Cardinality")]
-    public partial class UnaryRoleCardinalityConstraint : CardinalityConstraint
+    public class ObjectTypeCardinalityRestrictionFactory
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnaryRoleCardinalityConstraint"/> class.
+        /// Creates an instance of the <see cref="ObjectTypeCardinalityRestriction"/> and sets the value properties
+        /// based on the DTO
         /// </summary>
-        public UnaryRoleCardinalityConstraint()
+        /// <param name="dto">
+        /// The instance of the <see cref="Kalliope.DTO.ObjectTypeCardinalityRestriction"/>
+        /// </param>
+        /// <returns>
+        /// an instance of <see cref="Kalliope.Core.ObjectTypeCardinalityRestriction"/>
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// thrown when <paramref name="dto"/> is null
+        /// </exception>
+        public Kalliope.Core.ObjectTypeCardinalityRestriction Create(Kalliope.DTO.ObjectTypeCardinalityRestriction dto)
         {
+            if (dto == null)
+            {
+                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
+            }
+
+            var objectTypeCardinalityRestriction = new Kalliope.Core.ObjectTypeCardinalityRestriction()
+            {
+                Id = dto.Id,
+            };
+
+            return objectTypeCardinalityRestriction;
         }
- 
     }
 }
 

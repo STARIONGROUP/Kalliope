@@ -315,7 +315,7 @@ namespace Kalliope.Dal
 
             if (poco.Cardinality == null && !string.IsNullOrEmpty(dto.Cardinality) && cache.TryGetValue(dto.Cardinality, out lazyPoco))
             {
-                poco.Cardinality = (ObjectTypeCardinalityConstraint)lazyPoco.Value;
+                poco.Cardinality = (ObjectTypeCardinalityRestriction)lazyPoco.Value;
             }
 
             if (poco.CompatibleSupertypesError == null && !string.IsNullOrEmpty(dto.CompatibleSupertypesError) && cache.TryGetValue(dto.CompatibleSupertypesError, out lazyPoco))

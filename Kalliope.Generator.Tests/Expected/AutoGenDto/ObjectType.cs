@@ -62,10 +62,10 @@ namespace Kalliope.DTO
         public List<string> Abbreviations { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="ObjectTypeCardinalityConstraint"/>
+        /// Gets or sets the unique identifier of the contained <see cref="ObjectTypeCardinalityRestriction"/>
         /// </summary>
         [Description("")]
-        [Property(name: "Cardinality", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeCardinalityConstraint", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "Cardinality", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeCardinalityRestriction", allowOverride: false, isOverride: false, isDerived: false)]
         public string Cardinality { get; set; }
  
         /// <summary>

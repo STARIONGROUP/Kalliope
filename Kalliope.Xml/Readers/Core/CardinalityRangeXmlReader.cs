@@ -46,6 +46,18 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(CardinalityRange cardinalityRange, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(cardinalityRange, reader, modelThings);
+
+            var lowerBoundValue = reader.GetAttribute("From");
+			if (lowerBoundValue != null)
+            {
+	            cardinalityRange.LowerBound = XmlConvert.ToInt32(lowerBoundValue);
+            }
+
+			var upperBoundValue = reader.GetAttribute("To");
+			if (upperBoundValue != null)
+			{
+				cardinalityRange.UpperBound = XmlConvert.ToInt32(upperBoundValue);
+			}
         }
-    }
+	}
 }

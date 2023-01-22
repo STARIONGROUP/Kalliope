@@ -547,6 +547,10 @@ namespace Kalliope.Dal
                     var objectTypeCardinalityConstraint = dto as Kalliope.DTO.ObjectTypeCardinalityConstraint;
                     var objectTypeCardinalityConstraintFactory = new ObjectTypeCardinalityConstraintFactory();
                     return objectTypeCardinalityConstraintFactory.Create(objectTypeCardinalityConstraint);
+                case "ObjectTypeCardinalityRestriction":
+                    var objectTypeCardinalityRestriction = dto as Kalliope.DTO.ObjectTypeCardinalityRestriction;
+                    var objectTypeCardinalityRestrictionFactory = new ObjectTypeCardinalityRestrictionFactory();
+                    return objectTypeCardinalityRestrictionFactory.Create(objectTypeCardinalityRestriction);
                 case "ObjectTypeDuplicateNameError":
                     var objectTypeDuplicateNameError = dto as Kalliope.DTO.ObjectTypeDuplicateNameError;
                     var objectTypeDuplicateNameErrorFactory = new ObjectTypeDuplicateNameErrorFactory();

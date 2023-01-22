@@ -437,6 +437,9 @@ namespace Kalliope.Dal
                 case "ObjectTypeCardinalityConstraint":
                     var objectTypeCardinalityConstraint = poco as Kalliope.Core.ObjectTypeCardinalityConstraint;
                     return objectTypeCardinalityConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeCardinalityConstraint)dto);
+                case "ObjectTypeCardinalityRestriction":
+                    var objectTypeCardinalityRestriction = poco as Kalliope.Core.ObjectTypeCardinalityRestriction;
+                    return objectTypeCardinalityRestriction.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeCardinalityRestriction)dto);
                 case "ObjectTypeDuplicateNameError":
                     var objectTypeDuplicateNameError = poco as Kalliope.Core.ObjectTypeDuplicateNameError;
                     return objectTypeDuplicateNameError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ObjectTypeDuplicateNameError)dto);
@@ -1266,6 +1269,10 @@ namespace Kalliope.Dal
                 case "ObjectTypeCardinalityConstraint":
                     var objectTypeCardinalityConstraint = poco as Kalliope.Core.ObjectTypeCardinalityConstraint;
                     objectTypeCardinalityConstraint.UpdateReferenceProperties((Kalliope.DTO.ObjectTypeCardinalityConstraint)dto, cache);
+                    break;
+                case "ObjectTypeCardinalityRestriction":
+                    var objectTypeCardinalityRestriction = poco as Kalliope.Core.ObjectTypeCardinalityRestriction;
+                    objectTypeCardinalityRestriction.UpdateReferenceProperties((Kalliope.DTO.ObjectTypeCardinalityRestriction)dto, cache);
                     break;
                 case "ObjectTypeDuplicateNameError":
                     var objectTypeDuplicateNameError = poco as Kalliope.Core.ObjectTypeDuplicateNameError;

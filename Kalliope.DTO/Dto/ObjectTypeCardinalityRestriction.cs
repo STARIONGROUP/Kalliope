@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="InformalDerivationRule.cs" company="RHEA System S.A.">
+// <copyright file="ObjectTypeCardinalityRestriction.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -20,18 +20,18 @@
 
 namespace Kalliope.DTO
 {
-    /// <summary>
-    /// hand-coded partial <see cref="InformalDerivationRule"/> class
-    /// </summary>
-    public partial class InformalDerivationRule
-    {
-        /// <summary>
-        /// Computes the value for the generated <see cref="Id"/> property
-        /// </summary>
-        /// <returns></returns>
-        public string ComputeId()
-        {
-            return $"{this.Container}:SubtypeDerivationPath";
-        }
-    }
+	/// <summary>
+	/// hand-coded partial <see cref="ObjectTypeCardinalityRestriction"/> class
+	/// </summary>
+	public partial class ObjectTypeCardinalityRestriction
+	{
+		/// <summary>
+		/// Computes the value for the generated <see cref="Id"/> property
+		/// </summary>
+		/// <returns></returns>
+		public string ComputeId()
+		{
+			return $"{this.Container}:SubtypeDerivationRule";
+		}
+	}
 }

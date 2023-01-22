@@ -94,7 +94,16 @@ namespace Kalliope.Xml.Readers
             }
         }
 
-        private void ReadJoinRules(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
+		/// <summary>
+		/// Reads <see cref="ConstraintRoleSequenceJoinPath"/> sequences from the .orm file
+		/// </summary>
+		/// <param name="setConstraint">
+		/// The <see cref="SetConstraint"/> that contains the <see cref="ConstraintRoleSequenceJoinPath"/>s
+		/// </param>
+		/// <param name="reader">
+		/// an instance of <see cref="XmlReader"/> used to read the .orm file
+		/// </param>
+		private void ReadJoinRules(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {

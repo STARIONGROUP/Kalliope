@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="UnaryRoleCardinalityConstraint.cs" company="RHEA System S.A.">
+// <copyright file="ObjectTypeCardinalityRestriction.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,17 +30,40 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a UnaryRoleCardinalityConstraint
+    /// A Data Transfer Object that represents a ObjectTypeCardinalityRestriction
     /// </summary>
-    [Container(typeName: "Role", propertyName: "Cardinality")]
-    public partial class UnaryRoleCardinalityConstraint : CardinalityConstraint
+    /// <remarks>
+    /// Restrict the size of a population of this object type
+    /// </remarks>
+    [Container(typeName: "ObjectType", propertyName: "CardinalityRestriction")]
+    public partial class ObjectTypeCardinalityRestriction : ModelThing
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnaryRoleCardinalityConstraint"/> class.
+        /// Initializes a new instance of the <see cref="ObjectTypeCardinalityRestriction"/> class.
         /// </summary>
-        public UnaryRoleCardinalityConstraint()
+        public ObjectTypeCardinalityRestriction()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
+
+        /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="CardinalityConstraint"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "CardinalityConstraint", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "CardinalityConstraint", allowOverride: false, isOverride: false, isDerived: false)]
+        public string CardinalityConstraint { get; set; }
+ 
+        /// <summary>
+        /// Gets the derived Id
+        /// </summary>
+        [Description("A unique identifier for this element")]
+        [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
+        public override string Id => this.ComputeId();
  
     }
 }

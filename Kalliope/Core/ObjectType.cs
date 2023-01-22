@@ -247,12 +247,12 @@ namespace Kalliope.Core
         [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "SubtypeDerivationRule")]
         public SubtypeDerivationRule DerivationRule { get; set; }
 
-        /// <summary>
-        /// Gets or sets the owned <see cref="ObjectTypeCardinalityConstraint"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "Cardinality", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeCardinalityConstraint")]
-        public ObjectTypeCardinalityConstraint Cardinality { get; set; }
+		/// <summary>
+		/// Gets or sets the owned <see cref="ObjectTypeCardinalityRestriction"/>
+		/// </summary>
+		[Description("")]
+        [Property(name: "Cardinality", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ObjectTypeCardinalityRestriction")]
+        public ObjectTypeCardinalityRestriction Cardinality { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="SubtypeDerivationExpression"/>

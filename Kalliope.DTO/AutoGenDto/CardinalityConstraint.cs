@@ -32,6 +32,7 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a CardinalityConstraint
     /// </summary>
+    [Container(typeName: "ObjectTypeCardinalityRestriction", propertyName: "CardinalityConstraint")]
     public abstract partial class CardinalityConstraint : OrmNamedElement
     {
         /// <summary>
@@ -42,6 +43,11 @@ namespace Kalliope.DTO
             this.Modality = ConstraintModality.Alethic;
             this.Ranges = new List<string>();
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
 
         /// <summary>

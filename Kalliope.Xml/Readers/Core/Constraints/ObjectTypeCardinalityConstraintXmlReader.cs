@@ -20,13 +20,90 @@
 
 namespace Kalliope.Xml.Readers
 {
-    using Kalliope.DTO;
+	using System;
+	using System.Collections.Generic;
+	using System.Xml;
+	using Kalliope.DTO;
 
-    /// <summary>
-    /// The purpose of the <see cref="ObjectTypeCardinalityConstraintXmlReader"/> is to deserialize a <see cref="ObjectTypeCardinalityConstraint"/>
-    /// from an .orm XML file
-    /// </summary>
+	/// <summary>
+	/// The purpose of the <see cref="ObjectTypeCardinalityConstraintXmlReader"/> is to deserialize a <see cref="ObjectTypeCardinalityConstraint"/>
+	/// from an .orm XML file
+	/// </summary>
     public class ObjectTypeCardinalityConstraintXmlReader : CardinalityConstraintXmlReader
     {
-    }
+		/// <summary>
+		/// Reads the properties of the provided <see cref="ObjectTypeCardinalityConstraint"/> from the <see cref="XmlReader"/>
+		/// </summary>
+		/// <param name="objectTypeCardinalityConstraint">
+		/// The subject <see cref="ObjectTypeCardinalityConstraint"/> that is to be deserialized
+		/// </param>
+		/// <param name="reader">
+		/// The <see cref="XmlReader"/> that contains the .orm XML
+		/// </param>
+		/// <param name="modelThings">
+		/// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+		/// </param>
+		public void ReadXml(ObjectTypeCardinalityConstraint objectTypeCardinalityConstraint, XmlReader reader, List<ModelThing> modelThings)
+	    {
+		    base.ReadXml(objectTypeCardinalityConstraint, reader, modelThings);
+			
+			while (reader.Read())
+			{
+				if (reader.MoveToContent() == XmlNodeType.Element)
+				{
+					var localName = reader.LocalName;
+
+					switch (localName)
+					{
+						case "Ranges":
+							using (var rangeSubtree = reader.ReadSubtree())
+							{
+								rangeSubtree.MoveToContent();
+								this.ReadRanges(objectTypeCardinalityConstraint, rangeSubtree, modelThings);
+							}
+							break;
+						default:
+							throw new NotSupportedException($"{localName} not yet supported");
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Reads <see cref="CardinalityRange"/> sequences from the .orm file
+		/// </summary>
+		/// <param name="objectTypeCardinalityConstraint">
+		/// The <see cref="ObjectTypeCardinalityConstraint"/> that contains the <see cref="CardinalityRange"/>s
+		/// </param>
+		/// <param name="reader">
+		/// an instance of <see cref="XmlReader"/> used to read the .orm file
+		/// </param>
+		private void ReadRanges(ObjectTypeCardinalityConstraint objectTypeCardinalityConstraint, XmlReader reader, List<ModelThing> modelThings)
+		{
+			while (reader.Read())
+			{
+				if (reader.MoveToContent() == XmlNodeType.Element)
+				{
+					var localName = reader.LocalName;
+
+					switch (localName)
+					{
+						case "CardinalityRange":
+							using (var cardinalityRangehSubTree = reader.ReadSubtree())
+							{
+								cardinalityRangehSubTree.MoveToContent();
+								var cardinalityRange = new CardinalityRange();
+								var cardinalityRangeXmlReader = new CardinalityRangeXmlReader();
+								cardinalityRangeXmlReader.ReadXml(cardinalityRange, cardinalityRangehSubTree, modelThings);
+								cardinalityRange.Container = objectTypeCardinalityConstraint.Id;
+								objectTypeCardinalityConstraint.Ranges.Add(cardinalityRange.Id);
+							}
+							break;
+						default:
+							throw new NotSupportedException($"{localName} not yet supported");
+					}
+				}
+			}
+		}
+	}
 }

@@ -42,10 +42,10 @@ namespace Kalliope.Core
             this.DerivationStorage = DerivationStorage.NotStored;
         }
 
-        /// <summary>
-        /// Gets the unique identifier of the <see cref="RoleText"/>
-        /// </summary>
-        [Description("A unique identifier for this element")]
+		/// <summary>
+		/// Gets the unique identifier of the <see cref="SubtypeDerivationRule"/>
+		/// </summary>
+		[Description("A unique identifier for this element")]
         [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: true, isDerived: true)]
         public override string Id { get; set; }
 

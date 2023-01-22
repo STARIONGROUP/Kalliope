@@ -43,7 +43,7 @@ namespace Kalliope.OO.Tests
         [TestCase("ORM_Lab4.orm", false)]
         [TestCase("ORM_Lab7.orm", false)]
         [TestCase("ORM_Lab8.orm", false)]
-        [TestCase("ReservationModel5.orm", true)]
+        [TestCase("ReservationModel5.orm", false)]
         [TestCase("Talent.orm", false)]
         public void VerifyThatTestModelsCanBeLoaded(string modelName, bool throws)
         {
