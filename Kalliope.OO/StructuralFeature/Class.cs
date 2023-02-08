@@ -24,6 +24,7 @@ namespace Kalliope.OO.StructuralFeature
     using System.Linq;
 
     using Kalliope.Core;
+    using Kalliope.CustomProperties;
     using Kalliope.OO.Extensions;
     using Kalliope.OO.Generation;
 
@@ -46,6 +47,32 @@ namespace Kalliope.OO.StructuralFeature
         /// Gets the <see cref="ObjectType"/>
         /// </summary>
         protected ObjectType ObjectType { get; }
+
+        /// <summary>
+        /// Gets a value indicating if this <see cref="Class"/> is an abstract class.
+        /// </summary>
+        public bool IsAbstract => this.CalculateAbstract();
+
+        /// <summary>
+        /// Calculates if this <see cref="Class"/> is an abstract class.
+        /// </summary>
+        /// <returns>True is it is an abstract class, otherwise false</returns>
+        private bool CalculateAbstract()
+        {
+            var modelIsAbstract = this.ObjectType.Extensions?
+                .OfType<CustomProperty>()
+                .SingleOrDefault(x =>
+                    x.CustomPropertyDefinition.Category == "KALLIOPE"
+                    && x.CustomPropertyDefinition.Name == "IsAbstract")?
+                .Value.ToString();
+
+            if (modelIsAbstract== null || !bool.TryParse(modelIsAbstract, out var isAbstract))
+            {
+                return false;
+            }
+
+            return isAbstract;
+        }
 
         /// <summary>
         /// Gets a value that indicates that this is an Objectified class

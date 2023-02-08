@@ -67,6 +67,7 @@ namespace Kalliope.OO.Tests
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(4));
             Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(4));
             Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(4));
+            Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(1));
         }
     }
 }

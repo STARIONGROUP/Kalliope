@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:oial="http://schemas.neumont.edu/ORM/Abstraction/2007-06/Core" xmlns:odt="http://schemas.neumont.edu/ORM/Abstraction/2007-06/DataTypes/Core" xmlns:rcd="http://schemas.neumont.edu/ORM/Relational/2007-06/ConceptualDatabase" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:ormtooial="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMToORMAbstraction" xmlns:oialtocdb="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMAbstractionToConceptualDatabase" xmlns:rvw="http://schemas.neumont.edu/ORM/2007-11/RelationalView" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
+<ormRoot:ORM2 xmlns:orm="http://schemas.neumont.edu/ORM/2006-04/ORMCore" xmlns:ormDiagram="http://schemas.neumont.edu/ORM/2006-04/ORMDiagram" xmlns:cp="http://schemas.neumont.edu/ORM/2007-11/CustomProperties" xmlns:oial="http://schemas.neumont.edu/ORM/Abstraction/2007-06/Core" xmlns:odt="http://schemas.neumont.edu/ORM/Abstraction/2007-06/DataTypes/Core" xmlns:rcd="http://schemas.neumont.edu/ORM/Relational/2007-06/ConceptualDatabase" xmlns:ddt="http://schemas.orm.net/DIL/DILDT" xmlns:ormtooial="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMToORMAbstraction" xmlns:oialtocdb="http://schemas.neumont.edu/ORM/Bridge/2007-06/ORMAbstractionToConceptualDatabase" xmlns:rvw="http://schemas.neumont.edu/ORM/2007-11/RelationalView" xmlns:ormRoot="http://schemas.neumont.edu/ORM/2006-04/ORMRoot">
 	<orm:ORMModel id="_87D489B0-31CD-498B-B5B9-E1A9C1D30C62" Name="ORMModel1">
 		<orm:Objects>
 			<orm:EntityType id="_EB6721B9-E952-42C0-BD0B-20549B24C3B4" Name="MainEntity" _ReferenceMode="">
@@ -88,6 +88,11 @@
 					<orm:Role ref="_280DB911-CD34-44DA-A0D6-2E2F54B0B093" />
 				</orm:PlayedRoles>
 				<orm:PreferredIdentifier ref="_3F5A050B-9438-44A2-9D49-EC7832DB3C7E" />
+				<orm:Extensions>
+					<cp:CustomProperty id="_7BBC7B19-0713-4307-B154-962C238AE995" value="true">
+						<cp:Definition ref="_AD99AB73-ABFB-4335-97CA-1843EBF0CAEF" />
+					</cp:CustomProperty>
+				</orm:Extensions>
 			</orm:EntityType>
 			<orm:ValueType id="_BB3C0E09-24F4-4312-AB1E-B3392F6C0E90" Name="TextValue2">
 				<orm:PlayedRoles>
@@ -1307,6 +1312,13 @@
 		</ormDiagram:Shapes>
 		<ormDiagram:Subject ref="_87D489B0-31CD-498B-B5B9-E1A9C1D30C62" />
 	</ormDiagram:ORMDiagram>
+	<cp:CustomPropertyGroup id="_3470F46D-937C-4D22-9788-1A73F50579B2" name="KalliopeCodeGeneration" isDefault="false" description="Properties needed for code generation">
+		<cp:PropertyDefinitions>
+			<cp:Definition id="_DAABD384-F3F3-40FE-99B1-4FCD1C75C66A" name="RoleOwner" description="If TRUE this is the owner of the fact type which means will host the list of references, false otherwise" category="KALLIOPE" dataType="String" ORMTypes="Role" />
+			<cp:Definition id="_97EDDF53-FFA5-49D3-96B1-AA7822632B2F" name="RelationshipType" description="Wheter a fact type is composite or aggregation" category="KALLIOPE" dataType="String" ORMTypes="FactType, SubtypeFact" />
+			<cp:Definition id="_AD99AB73-ABFB-4335-97CA-1843EBF0CAEF" name="IsAbstract" description="Wheter the EntityType is an abstract type" category="KALLIOPE" dataType="String" ORMTypes="EntityType" />
+		</cp:PropertyDefinitions>
+	</cp:CustomPropertyGroup>
 	<oial:model id="_7428A717-734C-4249-80EA-50C8BCF51170" name="ORMModel1">
 		<oial:informationTypeFormats>
 			<odt:dataType id="_B0E04783-61B8-44DC-BEB1-ED49CDD63AC5" name="TextValue" />
@@ -1701,10 +1713,10 @@
 	<rvw:RelationalDiagram id="_7E91895F-90EF-465A-8BBD-C7DB90A95CD6" DisplayDataTypes="true" SubjectRef="_5FE27B69-10BA-46DF-AD9A-9F8E037F288E">
 		<rvw:TableShape ObjectTypeRef="_EB6721B9-E952-42C0-BD0B-20549B24C3B4" Location="3.125, 4.25" />
 		<rvw:TableShape ObjectTypeRef="_1C688F94-DA88-43B8-9C21-E55146B4C309" Location="2.375, 3.25" />
-		<rvw:TableShape ObjectTypeRef="_CCA56F04-A696-4DEB-9F8B-71C6E60DBEC2" Location="0.5, 4.625" />
-		<rvw:TableShape ObjectTypeRef="_C1A3EB97-A73C-4C8B-B029-4C4603DE9177" Location="0.5, 2" />
 		<rvw:TableShape ObjectTypeRef="_DE7A15D0-953B-4A38-8ED3-13D336CC1BC6" Location="0.5, 3.25" />
 		<rvw:TableShape ObjectTypeRef="_CAD92FA0-EB59-4A8E-9A3A-C0206DF8B4A5" Location="3, 0.5" />
+		<rvw:TableShape ObjectTypeRef="_CCA56F04-A696-4DEB-9F8B-71C6E60DBEC2" Location="0.5, 4.625" />
+		<rvw:TableShape ObjectTypeRef="_C1A3EB97-A73C-4C8B-B029-4C4603DE9177" Location="0.5, 2" />
 		<rvw:TableShape ObjectTypeRef="_27E50671-3A4D-468A-A1CA-95F29EEAE190" Location="3.25, 2" />
 	</rvw:RelationalDiagram>
 </ormRoot:ORM2>
