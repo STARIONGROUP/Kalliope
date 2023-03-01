@@ -325,7 +325,14 @@ namespace Kalliope.OO.StructuralFeature
                                     }
                                     else if (calculatedRole.RolePlayer is EntityType relatedEntityType)
                                     {
-                                        if (this.TryAddEntityTypeProperty(relatedEntityType, calculatedRole, classRole, isImpliedProperty))
+                                        if (this.TryAddReferenceTypeProperty(relatedEntityType, calculatedRole, classRole, isImpliedProperty))
+                                        {
+                                            result = true;
+                                        }
+                                    }
+                                    else if (calculatedRole.RolePlayer is ObjectifiedType relatedObjectifiedType)
+                                    {
+                                        if (this.TryAddReferenceTypeProperty(relatedObjectifiedType, calculatedRole, classRole, isImpliedProperty))
                                         {
                                             result = true;
                                         }
@@ -399,28 +406,28 @@ namespace Kalliope.OO.StructuralFeature
         }
 
         /// <summary>
-        /// Tries to add an <see cref="EntityType"/> property to this <see cref="Class"/>
+        /// Tries to add an reference <see cref="ObjectType"/> property to this <see cref="Class"/>
         /// </summary>
-        /// <param name="entityType">The <see cref="EntityType"/></param>
+        /// <param name="referenceType">The <see cref="ObjectType"/></param>
         /// <param name="propertyRole">The current <see cref="Role"/></param>
         /// <param name="classRole">The <see cref="Class"/> <see cref="Role"/></param>
         /// <param name="isImpliedProperty">Indication that this is a property from an implied FactType </param>
         /// <returns>True if a property was added, otherwise false</returns>
-        protected bool TryAddEntityTypeProperty(EntityType entityType, Role propertyRole, Role classRole, bool isImpliedProperty)
+        protected bool TryAddReferenceTypeProperty<T>(T referenceType, Role propertyRole, Role classRole, bool isImpliedProperty) where T : ObjectType
         {
             if (propertyRole is SupertypeMetaRole)
             {
-                this.SuperObjectTypes.Add(entityType);
+                this.SuperObjectTypes.Add(referenceType);
                 return false;
             }
 
             if (propertyRole is SubtypeMetaRole)
             {
-                this.SubObjectTypes.Add(entityType);
+                this.SubObjectTypes.Add(referenceType);
                 return false;
             }
 
-            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, entityType, propertyRole, classRole, this.GeneratorSettings);
+            var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, referenceType, propertyRole, classRole, this.GeneratorSettings);
             property.IsImpliedProperty = isImpliedProperty;
 
             this.Properties.Add(property);
