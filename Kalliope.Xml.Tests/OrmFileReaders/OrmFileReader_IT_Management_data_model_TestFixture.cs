@@ -138,7 +138,7 @@ namespace Kalliope.Xml.Tests.OrmFileReaders
         [Test]
         public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_CustomPropertyDefinitions()
         {
-            Assert.That(this.ormRoot.CustomPropertyGroups.Count(), Is.EqualTo(3));
+            Assert.That(this.ormRoot.CustomPropertyGroups.Count, Is.EqualTo(3));
             var customPropertyGroup = this.ormRoot.CustomPropertyGroups.Single(x => x.Id == "_736E04B8-E3EE-4950-A402-3CEE1EBD715A");
             Assert.That(customPropertyGroup.Name, Is.EqualTo("OSMoSEDoc: Diagrams"));
             Assert.That(customPropertyGroup.Description, Is.Null.Or.Empty);
