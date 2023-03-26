@@ -15,9 +15,16 @@ Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is
 
 ## Installation
 
-The packages are available on Nuget at https://www.nuget.org/packages/Kalliope/
+The packages are available on Nuget:
 
-[![NuGet Badge](https://buildstats.info/nuget/Kalliope)](https://buildstats.info/nuget/Kalliope)
+project                                                                                             | Nuget
+--------------------------------------------------------------------------------------------------- | ------------
+[Kalliope](https://www.nuget.org/packages/Kalliope)               | [![NuGet Badge](https://buildstats.info/nuget/Kalliope)](https://buildstats.info/nuget/Kalliope)
+[Kalliope.Common](https://www.nuget.org/packages/Kalliope.Common) | [![NuGet Badge](https://buildstats.info/nuget/Kalliope.Common)](https://buildstats.info/nuget/Kalliope.Common)
+[Kalliope.DTO](https://www.nuget.org/packages/Kalliope.DTO)       | [![NuGet Badge](https://buildstats.info/nuget/Kalliope.DTO)](https://buildstats.info/nuget/Kalliope.DTO)
+[Kalliope.Dal](https://www.nuget.org/packages/Kalliope.Dal)       | [![NuGet Badge](https://buildstats.info/nuget/Kalliope.Dal)](https://buildstats.info/nuget/Kalliope.Dal)
+[Kalliope.Xml](https://www.nuget.org/packages/Kalliope.Xml)       | [![NuGet Badge](https://buildstats.info/nuget/Kalliope.Xml)](https://buildstats.info/nuget/Kalliope.Xml)
+[Kalliope.OO](https://www.nuget.org/packages/Kalliope.OO)         | [![NuGet Badge](https://buildstats.info/nuget/Kalliope.OO)](https://buildstats.info/nuget/Kalliope.OO)
 
 ## Build Status
 
