@@ -2,11 +2,11 @@
 
   <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
-      <Version>0.13.0</Version>
+      <Version>0.14.0</Version>
       <Description>The Kalliope Dal class library</Description>
       <PackageId>Kalliope.Dal</PackageId>
       <Company>RHEA System S.A.</Company>
-      <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+      <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
       <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
       <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
       <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
@@ -19,7 +19,7 @@
       <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
       <PackageIcon>Kalliope-icon.png</PackageIcon>
       <PackageReleaseNotes>
-          [Update] to kalliope 0.13.0
+          [Update] to kalliope 0.14.0
       </PackageReleaseNotes>
   </PropertyGroup>
 

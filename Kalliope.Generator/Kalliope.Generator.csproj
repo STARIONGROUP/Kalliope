@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
       <Description>A library that supports code generation for the Kalliope ecosystem</Description>
       <Company>RHEA System S.A.</Company>
-      <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+      <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
       <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
       <RepositoryType>Git</RepositoryType>
       <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotLiquid" Version="2.2.656" />
+    <PackageReference Include="DotLiquid" Version="2.2.692" />
   </ItemGroup>
 
   <ItemGroup>

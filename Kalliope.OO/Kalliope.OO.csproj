@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <Version>0.13.2</Version>
+        <Version>0.14.0</Version>
         <Description>A library that provides ORM to OO mapping</Description>
         <PackageId>Kalliope.OO</PackageId>
         <Company>RHEA System S.A.</Company>
-        <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+        <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
         <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
@@ -20,7 +20,7 @@
         <PackageIcon>Kalliope-icon.png</PackageIcon>
         <LangVersion>latest</LangVersion>
         <PackageReleaseNotes>
-            [Update] Add IsAbstract getter
+            [Update] to kalliope 0.14.0
         </PackageReleaseNotes>
     </PropertyGroup>
 

@@ -6,7 +6,7 @@
     <Description>A library to read and write XML based orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
     <PackageId>Kalliope.Xml</PackageId>
     <Company>RHEA System S.A.</Company>
-    <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+    <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
     <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
@@ -19,9 +19,7 @@
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
     <PackageReleaseNotes>
-        [Update] to kalliope 0.13.0
-        [Refactor] ObjectTypeXmlReader, ObjectTypeCardinalityConstraintXmlReader, CardinalityRangeXmlReader
-        [Add] ObjectTypeCardinalityRestrictionXmlReader
+        [Update] to kalliope 0.14.0
     </PackageReleaseNotes>
   </PropertyGroup>
 
