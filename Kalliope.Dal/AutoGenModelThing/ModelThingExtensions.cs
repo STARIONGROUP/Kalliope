@@ -155,9 +155,9 @@ namespace Kalliope.Dal
                 case "DataTypeNotSpecifiedError":
                     var dataTypeNotSpecifiedError = poco as Kalliope.Core.DataTypeNotSpecifiedError;
                     return dataTypeNotSpecifiedError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DataTypeNotSpecifiedError)dto);
-                case "DataTypeRef":
-                    var dataTypeRef = poco as Kalliope.Core.DataTypeRef;
-                    return dataTypeRef.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DataTypeRef)dto);
+                case "DataTypeUse":
+                    var dataTypeUse = poco as Kalliope.Core.DataTypeUse;
+                    return dataTypeUse.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DataTypeUse)dto);
                 case "DateAndTimeTemporalDataType":
                     var dateAndTimeTemporalDataType = poco as Kalliope.Core.DateAndTimeTemporalDataType;
                     return dateAndTimeTemporalDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DateAndTimeTemporalDataType)dto);
@@ -182,6 +182,12 @@ namespace Kalliope.Dal
                 case "DiagramDynamicColor":
                     var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
                     return diagramDynamicColor.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto);
+                case "DisplaySettingPlaceholder":
+                    var displaySettingPlaceholder = poco as Kalliope.Core.DisplaySettingPlaceholder;
+                    return displaySettingPlaceholder.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DisplaySettingPlaceholder)dto);
+                case "DisplayState":
+                    var displayState = poco as Kalliope.Core.DisplayState;
+                    return displayState.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DisplayState)dto);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;
                     return doublePrecisionFloatingPointNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType)dto);
@@ -695,6 +701,9 @@ namespace Kalliope.Dal
                 case "UnspecifiedDataType":
                     var unspecifiedDataType = poco as Kalliope.Core.UnspecifiedDataType;
                     return unspecifiedDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.UnspecifiedDataType)dto);
+                case "UUIDNumericDataType":
+                    var uUIDNumericDataType = poco as Kalliope.Core.UUIDNumericDataType;
+                    return uUIDNumericDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.UUIDNumericDataType)dto);
                 case "ValueComparisonConstraint":
                     var valueComparisonConstraint = poco as Kalliope.Core.ValueComparisonConstraint;
                     return valueComparisonConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ValueComparisonConstraint)dto);
@@ -894,9 +903,9 @@ namespace Kalliope.Dal
                     var dataTypeNotSpecifiedError = poco as Kalliope.Core.DataTypeNotSpecifiedError;
                     dataTypeNotSpecifiedError.UpdateReferenceProperties((Kalliope.DTO.DataTypeNotSpecifiedError)dto, cache);
                     break;
-                case "DataTypeRef":
-                    var dataTypeRef = poco as Kalliope.Core.DataTypeRef;
-                    dataTypeRef.UpdateReferenceProperties((Kalliope.DTO.DataTypeRef)dto, cache);
+                case "DataTypeUse":
+                    var dataTypeUse = poco as Kalliope.Core.DataTypeUse;
+                    dataTypeUse.UpdateReferenceProperties((Kalliope.DTO.DataTypeUse)dto, cache);
                     break;
                 case "DateAndTimeTemporalDataType":
                     var dateAndTimeTemporalDataType = poco as Kalliope.Core.DateAndTimeTemporalDataType;
@@ -929,6 +938,14 @@ namespace Kalliope.Dal
                 case "DiagramDynamicColor":
                     var diagramDynamicColor = poco as Kalliope.Diagrams.DiagramDynamicColor;
                     diagramDynamicColor.UpdateReferenceProperties((Kalliope.DTO.DiagramDynamicColor)dto, cache);
+                    break;
+                case "DisplaySettingPlaceholder":
+                    var displaySettingPlaceholder = poco as Kalliope.Core.DisplaySettingPlaceholder;
+                    displaySettingPlaceholder.UpdateReferenceProperties((Kalliope.DTO.DisplaySettingPlaceholder)dto, cache);
+                    break;
+                case "DisplayState":
+                    var displayState = poco as Kalliope.Core.DisplayState;
+                    displayState.UpdateReferenceProperties((Kalliope.DTO.DisplayState)dto, cache);
                     break;
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = poco as Kalliope.Core.DoublePrecisionFloatingPointNumericDataType;
@@ -1613,6 +1630,10 @@ namespace Kalliope.Dal
                 case "UnspecifiedDataType":
                     var unspecifiedDataType = poco as Kalliope.Core.UnspecifiedDataType;
                     unspecifiedDataType.UpdateReferenceProperties((Kalliope.DTO.UnspecifiedDataType)dto, cache);
+                    break;
+                case "UUIDNumericDataType":
+                    var uUIDNumericDataType = poco as Kalliope.Core.UUIDNumericDataType;
+                    uUIDNumericDataType.UpdateReferenceProperties((Kalliope.DTO.UUIDNumericDataType)dto, cache);
                     break;
                 case "ValueComparisonConstraint":
                     var valueComparisonConstraint = poco as Kalliope.Core.ValueComparisonConstraint;

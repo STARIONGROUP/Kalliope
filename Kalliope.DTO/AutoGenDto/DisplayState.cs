@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="RoleValueConstraintFactory.cs" company="RHEA System S.A.">
+// <copyright file="DisplayState.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -22,49 +22,43 @@
 // --------THIS IS AN AUTOMATICALLY GENERATED FILE. ANY MANUAL CHANGES WILL BE OVERWRITTEN!--------
 // ------------------------------------------------------------------------------------------------
 
-namespace Kalliope.Dal
+namespace Kalliope.DTO
 {
     using System;
+    using System.Collections.Generic;
 
-    using Kalliope.Core;
-    using Kalliope.Diagrams;
+    using Kalliope.Common;
 
     /// <summary>
-    /// The purpose of the <see cref="RoleValueConstraintFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Core.RoleValueConstraint"/> based on a <see cref="Kalliope.DTO.RoleValueConstraint"/>
+    /// A Data Transfer Object that represents a DisplayState
     /// </summary>
-    public class RoleValueConstraintFactory
+    /// <remarks>
+    /// Container for display options global to this file.
+    /// </remarks>
+    public partial class DisplayState : ModelThing
     {
         /// <summary>
-        /// Creates an instance of the <see cref="RoleValueConstraint"/> and sets the value properties
-        /// based on the DTO
+        /// Initializes a new instance of the <see cref="DisplayState"/> class.
         /// </summary>
-        /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.RoleValueConstraint"/>
-        /// </param>
-        /// <returns>
-        /// an instance of <see cref="Kalliope.Core.RoleValueConstraint"/>
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        /// thrown when <paramref name="dto"/> is null
-        /// </exception>
-        public Kalliope.Core.RoleValueConstraint Create(Kalliope.DTO.RoleValueConstraint dto)
+        public DisplayState()
         {
-            if (dto == null)
-            {
-                throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
-            }
-
-            var roleValueConstraint = new Kalliope.Core.RoleValueConstraint()
-            {
-                Id = dto.Id,
-                Modality = dto.Modality,
-                Name = dto.Name,
-                Text = dto.Text,
-            };
-
-            return roleValueConstraint;
         }
+ 
+
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="DisplaySetting"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "DisplaySetting", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DisplaySetting", allowOverride: false, isOverride: false, isDerived: false)]
+        public string DisplaySetting { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="OrmModel"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "Model", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "OrmModel", allowOverride: false, isOverride: false, isDerived: false)]
+        public string Model { get; set; }
+ 
     }
 }
 

@@ -36,6 +36,8 @@ namespace Kalliope.Core
         /// </summary>
         protected ValueConstraint()
         {
+            this.Modality = ConstraintModality.Alethic;
+
             this.ValueRanges = new List<ValueRange>();
         }
 
@@ -61,6 +63,14 @@ namespace Kalliope.Core
         [Description("The range of possible values. To specify a range, use '..' between the range endpoints, square brackets to specify a closed endpoint, and parentheses to specify an open endpoint. Commas are used to entered multiple ranges or discrete values. Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30")]
         [Property(name: "Text", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "")]
         public string Text { get; set; }
+
+        /// <summary>
+        /// The constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system
+        /// Deontic modality means that data violating the constraint can be recorded.
+        /// </summary>
+        [Description("The constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded.")]
+        [Property(name: "Modality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Alethic", typeName: "ConstraintModality")]
+        public ConstraintModality Modality { get; set; }
 
         /// <summary>
         /// Gets or sets the contained <see cref="ValueRange"/>s

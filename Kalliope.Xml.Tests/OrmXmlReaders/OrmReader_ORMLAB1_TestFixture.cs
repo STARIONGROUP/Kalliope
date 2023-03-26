@@ -83,11 +83,11 @@ namespace Kalliope.Xml.Tests
                 "_C598D67F-07F1-420A-8E9D-B4869078A35D"
             }));
 
-            var dataTypeRef = modelThings.OfType<DataTypeRef>().Single(x => x.Id == "_8E7F7E67-F6F1-4075-B768-B0563947EF82");
-            Assert.That(dataTypeRef.Container, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
-            Assert.That(dataTypeRef.Scale, Is.EqualTo(0));
-            Assert.That(dataTypeRef.Length, Is.EqualTo(0));
-            Assert.That(dataTypeRef.Reference, Is.EqualTo("_856C99EF-744D-442A-A661-29B0E7AFF452"));
+            var dataTypeUse = modelThings.OfType<DataTypeUse>().Single(x => x.Id == "_8E7F7E67-F6F1-4075-B768-B0563947EF82");
+            Assert.That(dataTypeUse.Container, Is.EqualTo("_7F75CE34-D410-48E7-85AB-DD4A567C3E3E"));
+            Assert.That(dataTypeUse.Scale, Is.EqualTo(0));
+            Assert.That(dataTypeUse.Length, Is.EqualTo(0));
+            Assert.That(dataTypeUse.Reference, Is.EqualTo("_856C99EF-744D-442A-A661-29B0E7AFF452"));
             
             var objectifiedType = modelThings.OfType<ObjectifiedType>().Single(x => x.Id == "_85FCF764-5AED-456D-A8F1-D8BAF3D5B098");
             Assert.That(objectifiedType.Name, Is.EqualTo("DrugAllergy"));

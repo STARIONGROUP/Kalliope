@@ -104,6 +104,8 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
+            poco.Modality = dto.Modality;
+
             poco.Name = dto.Name;
 
             if (poco.Note != null && poco.Note.Id != dto.Note)

@@ -171,10 +171,10 @@ namespace Kalliope.Dal
                     var dataTypeNotSpecifiedError = dto as Kalliope.DTO.DataTypeNotSpecifiedError;
                     var dataTypeNotSpecifiedErrorFactory = new DataTypeNotSpecifiedErrorFactory();
                     return dataTypeNotSpecifiedErrorFactory.Create(dataTypeNotSpecifiedError);
-                case "DataTypeRef":
-                    var dataTypeRef = dto as Kalliope.DTO.DataTypeRef;
-                    var dataTypeRefFactory = new DataTypeRefFactory();
-                    return dataTypeRefFactory.Create(dataTypeRef);
+                case "DataTypeUse":
+                    var dataTypeUse = dto as Kalliope.DTO.DataTypeUse;
+                    var dataTypeUseFactory = new DataTypeUseFactory();
+                    return dataTypeUseFactory.Create(dataTypeUse);
                 case "DateAndTimeTemporalDataType":
                     var dateAndTimeTemporalDataType = dto as Kalliope.DTO.DateAndTimeTemporalDataType;
                     var dateAndTimeTemporalDataTypeFactory = new DateAndTimeTemporalDataTypeFactory();
@@ -207,6 +207,14 @@ namespace Kalliope.Dal
                     var diagramDynamicColor = dto as Kalliope.DTO.DiagramDynamicColor;
                     var diagramDynamicColorFactory = new DiagramDynamicColorFactory();
                     return diagramDynamicColorFactory.Create(diagramDynamicColor);
+                case "DisplaySettingPlaceholder":
+                    var displaySettingPlaceholder = dto as Kalliope.DTO.DisplaySettingPlaceholder;
+                    var displaySettingPlaceholderFactory = new DisplaySettingPlaceholderFactory();
+                    return displaySettingPlaceholderFactory.Create(displaySettingPlaceholder);
+                case "DisplayState":
+                    var displayState = dto as Kalliope.DTO.DisplayState;
+                    var displayStateFactory = new DisplayStateFactory();
+                    return displayStateFactory.Create(displayState);
                 case "DoublePrecisionFloatingPointNumericDataType":
                     var doublePrecisionFloatingPointNumericDataType = dto as Kalliope.DTO.DoublePrecisionFloatingPointNumericDataType;
                     var doublePrecisionFloatingPointNumericDataTypeFactory = new DoublePrecisionFloatingPointNumericDataTypeFactory();
@@ -891,6 +899,10 @@ namespace Kalliope.Dal
                     var unspecifiedDataType = dto as Kalliope.DTO.UnspecifiedDataType;
                     var unspecifiedDataTypeFactory = new UnspecifiedDataTypeFactory();
                     return unspecifiedDataTypeFactory.Create(unspecifiedDataType);
+                case "UUIDNumericDataType":
+                    var uUIDNumericDataType = dto as Kalliope.DTO.UUIDNumericDataType;
+                    var uUIDNumericDataTypeFactory = new UUIDNumericDataTypeFactory();
+                    return uUIDNumericDataTypeFactory.Create(uUIDNumericDataType);
                 case "ValueComparisonConstraint":
                     var valueComparisonConstraint = dto as Kalliope.DTO.ValueComparisonConstraint;
                     var valueComparisonConstraintFactory = new ValueComparisonConstraintFactory();

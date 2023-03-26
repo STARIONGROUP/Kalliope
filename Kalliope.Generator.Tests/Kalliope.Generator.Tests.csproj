@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-	<Company>RHEA System S.A.</Company>
-	<Copyright>Copyright 2022 RHEA System S.A.</Copyright>
-	<RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
-	<RepositoryType>Git</RepositoryType>
-	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	<Authors>Sam Gerene, Alexander van Delft</Authors>
-	<IsPackable>false</IsPackable>
+    <Company>RHEA System S.A.</Company>
+    <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+    <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Authors>Sam Gerene, Alexander van Delft</Authors>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -60,34 +60,34 @@
     </None>
   </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-		<PackageReference Include="NUnit" Version="3.13.3" />
-		<PackageReference Include="NUnit.Console" Version="3.16.0" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
-		<PackageReference Include="coverlet.collector" Version="3.2.0">
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="coverlet.msbuild" Version="3.2.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+        <PackageReference Include="NUnit" Version="3.13.3" />
+        <PackageReference Include="NUnit.Console" Version="3.16.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
+        <PackageReference Include="coverlet.collector" Version="3.2.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="coverlet.msbuild" Version="3.2.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Kalliope.Generator\Kalliope.Generator.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Kalliope.Generator\Kalliope.Generator.csproj" />
+    </ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Expected\AutoGenModelThingFactory\" />
-	</ItemGroup>
+    <ItemGroup>
+      <Folder Include="Expected\AutoGenModelThingFactory\" />
+    </ItemGroup>
 
-	<ItemGroup>
-	  <None Update="Data\Bird Identification.orm">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	    <Generator>ORMCustomTool</Generator>
-	  </None>
-	</ItemGroup>
+    <ItemGroup>
+      <None Update="Data\Bird Identification.orm">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <Generator>ORMCustomTool</Generator>
+      </None>
+    </ItemGroup>
 
 </Project>

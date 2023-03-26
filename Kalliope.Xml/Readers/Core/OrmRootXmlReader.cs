@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------------------------------------------------------------
 // <copyright file="OrmRootXmlReader.cs" company="RHEA System S.A.">
 //
-//   Copyright 2022 RHEA System S.A.
+//   Copyright 2022-2023 RHEA System S.A.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -87,6 +87,16 @@ namespace Kalliope.Xml.Readers
                                 var generationStateXmlReader = new GenerationStateXmlReader();
                                 generationStateXmlReader.ReadXml(generationState, generationStateSubTree, modelThings);
                                 ormRoot.GenerationState = generationState.Id;
+                            }
+                            break;
+                        case "DisplayState":
+                            using (var displayStateSubTree = reader.ReadSubtree())
+                            {
+                                displayStateSubTree.MoveToContent();
+                                var displayState = new DisplayState();
+                                var displayStateXmlReader = new DisplayStateXmlReader();
+                                displayStateXmlReader.ReadXml(displayState, displayStateSubTree, modelThings);
+                                ormRoot.DisplayState = displayState.Id;
                             }
                             break;
                         case "ORMDiagram":

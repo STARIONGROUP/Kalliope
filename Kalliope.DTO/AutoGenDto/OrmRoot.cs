@@ -62,6 +62,13 @@ namespace Kalliope.DTO
         public List<string> Diagrams { get; set; }
  
         /// <summary>
+        /// Gets or sets the unique identifier of the contained <see cref="DisplayState"/>
+        /// </summary>
+        [Description("")]
+        [Property(name: "DisplayState", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DisplayState", allowOverride: false, isOverride: false, isDerived: false)]
+        public string DisplayState { get; set; }
+ 
+        /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="ElementOrganizations"/>
         /// </summary>
         [Description("Gets or sets the ElementOrganizations contained by the .orm file")]

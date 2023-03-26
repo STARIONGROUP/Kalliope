@@ -52,6 +52,13 @@ namespace Kalliope.DTO
         [Property(name: "CustomFormatString", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string CustomFormatString { get; set; }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the referenced <see cref="DataType"/>
+        /// </summary>
+        [Description("A reference to the default data type. This is used when the reference mode sets the data type. The data type can subsequently be changed independently of the matched reference mode pattern")]
+        [Property(name: "DefaultDataType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType", allowOverride: false, isOverride: false, isDerived: false)]
+        public string DefaultDataType { get; set; }
+ 
     }
 }
 

@@ -2,26 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<Version>0.13.0</Version>
-	<Description>A library that provides the Common Kalliope classes</Description>
-	<PackageId>Kalliope.Common</PackageId>
-	<Company>RHEA System S.A.</Company>
-	<Copyright>Copyright 2022 RHEA System S.A.</Copyright>
-	<PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
-	<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-	<RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
-	<RepositoryType>Git</RepositoryType>
-	<PackageTags>ORM</PackageTags>
-	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	<IncludeSource>true</IncludeSource>
-	<IncludeSymbols>true</IncludeSymbols>
-	<Authors>Sam Gerene, Alexander van Delft</Authors>
-	<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-	<PackageIcon>Kalliope-icon.png</PackageIcon>
+    <Version>0.13.0</Version>
+    <Description>A library that provides the Common Kalliope classes</Description>
+    <PackageId>Kalliope.Common</PackageId>
+    <Company>RHEA System S.A.</Company>
+    <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+    <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>ORM</PackageTags>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <IncludeSource>true</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>
+    <Authors>Sam Gerene, Alexander van Delft</Authors>
+    <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+    <PackageIcon>Kalliope-icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-	<None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+    <None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

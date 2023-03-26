@@ -80,6 +80,11 @@ namespace Kalliope.Dal
 
             poco.CustomFormatString = dto.CustomFormatString;
 
+            if (poco.DefaultDataType != null && poco.DefaultDataType.Id != dto.DefaultDataType)
+            {
+                poco.DefaultDataType = null;
+            }
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
@@ -147,6 +152,11 @@ namespace Kalliope.Dal
                     var modelError = (ModelError)lazyPoco.Value;
                     poco.AssociatedModelErrors.Add(modelError);
                 }
+            }
+
+            if (poco.DefaultDataType == null && !string.IsNullOrEmpty(dto.DefaultDataType) && cache.TryGetValue(dto.DefaultDataType, out lazyPoco))
+            {
+                poco.DefaultDataType = (DataType)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));

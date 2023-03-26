@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------------------------------------------------------------
 // <copyright file="OrmRootXmlReader.cs" company="RHEA System S.A.">
 //
-//   Copyright 2022 RHEA System S.A.
+//   Copyright 2022-2023 RHEA System S.A.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -789,6 +789,17 @@ namespace Kalliope.Xml.Readers
                                 unspecifiedDataTypeXmlReader.ReadXml(unspecifiedDataType, dataTypeSubtree, modelThings);
                                 unspecifiedDataType.Container = ormModel.Id;
                                 ormModel.DataTypes.Add(unspecifiedDataType.Id);
+                            }
+                            break;
+                        case "UUIDNumericDataType":
+                            using (var dataTypeSubtree = reader.ReadSubtree())
+                            {
+                                dataTypeSubtree.MoveToContent();
+                                var uUIDNumericDataType = new UUIDNumericDataType();
+                                var uUIDNumericDataTypeXmlReader = new UUIDNumericDataTypeXmlReader();
+                                uUIDNumericDataTypeXmlReader.ReadXml(uUIDNumericDataType, dataTypeSubtree, modelThings);
+                                uUIDNumericDataType.Container = ormModel.Id;
+                                ormModel.DataTypes.Add(uUIDNumericDataType.Id);
                             }
                             break;
                         case "VariableLengthRawDataDataType":

@@ -1,7 +1,7 @@
 ﻿// -------------------------------------------------------------------------------------------------
 // <copyright file="OrmRoot.cs" company="RHEA System S.A.">
 //
-//   Copyright 2022 RHEA System S.A.
+//   Copyright 2022-2023 RHEA System S.A.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -68,6 +68,12 @@ namespace Kalliope
         /// </summary>
         [Property(name: "GenerationState", aggregation: AggregationKind.Composite, multiplicity: "1..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "GenerationState")]
         public GenerationState GenerationState { get; set; }
+
+        /// <summary>
+        /// Gets or sets the <see cref="DisplayState"/> contained by .orm file
+        /// </summary>
+        [Property(name: "DisplayState", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DisplayState")]
+        public DisplayState DisplayState { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="OrmDiagram"/>s contained by the .orm file

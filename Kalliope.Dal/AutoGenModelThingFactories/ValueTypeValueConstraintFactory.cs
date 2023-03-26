@@ -58,6 +58,7 @@ namespace Kalliope.Dal
             var valueTypeValueConstraint = new Kalliope.Core.ValueTypeValueConstraint()
             {
                 Id = dto.Id,
+                Modality = dto.Modality,
                 Name = dto.Name,
                 Text = dto.Text,
             };

@@ -102,13 +102,13 @@ namespace Kalliope.Xml.Readers
                             this.ReadPreferredIdentifier(reader, objectType);
                             break;
                         case "ConceptualDataType":
-                            using (var dataTypeRefSubtree = reader.ReadSubtree())
+                            using (var dataTypeUseSubtree = reader.ReadSubtree())
                             {
-                                if (dataTypeRefSubtree.MoveToContent() == XmlNodeType.Element)
+                                if (dataTypeUseSubtree.MoveToContent() == XmlNodeType.Element)
                                 {
-                                    var dataTypeRef = new DataTypeRef();
-                                    var dataTypeRefXmlReader = new DataTypeRefXmlReader();
-                                    dataTypeRefXmlReader.ReadXml(dataTypeRef, dataTypeRefSubtree, modelThings);
+                                    var dataTypeRef = new DataTypeUse();
+                                    var dataTypeRefXmlReader = new DataTypeUseXmlReader();
+                                    dataTypeRefXmlReader.ReadXml(dataTypeRef, dataTypeUseSubtree, modelThings);
                                     dataTypeRef.Container = objectType.Id;
                                     objectType.ConceptualDataType = dataTypeRef.Id;
                                 }

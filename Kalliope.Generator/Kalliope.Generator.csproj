@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>netstandard2.0</TargetFramework>
-	  <Description>A library that supports code generation for the Kalliope ecosystem</Description>
-	  <Company>RHEA System S.A.</Company>
-	  <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
-	  <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
-	  <RepositoryType>Git</RepositoryType>
-	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	  <Authors>Sam Gerene, Alexander van Delft</Authors>
-	  <IsPackable>false</IsPackable>
+      <TargetFramework>netstandard2.0</TargetFramework>
+      <Description>A library that supports code generation for the Kalliope ecosystem</Description>
+      <Company>RHEA System S.A.</Company>
+      <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+      <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+      <RepositoryType>Git</RepositoryType>
+      <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+      <Authors>Sam Gerene, Alexander van Delft</Authors>
+      <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

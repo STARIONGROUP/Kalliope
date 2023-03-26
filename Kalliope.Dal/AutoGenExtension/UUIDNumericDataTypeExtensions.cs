@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ValueTypeValueConstraintExtensions.cs" company="RHEA System S.A.">
+// <copyright file="UUIDNumericDataTypeExtensions.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -36,20 +36,20 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// A static class that provides extension methods for the <see cref="ValueTypeValueConstraint"/> class
+    /// A static class that provides extension methods for the <see cref="UUIDNumericDataType"/> class
     /// </summary>
-    public static class ValueTypeValueConstraintExtensions
+    public static class UUIDNumericDataTypeExtensions
     {
         /// <summary>
-        /// Updates the value properties of the <see cref="ValueTypeValueConstraint"/> by setting the value equal to that of the dto
+        /// Updates the value properties of the <see cref="UUIDNumericDataType"/> by setting the value equal to that of the dto
         /// Removes deleted objects from the reference properties and returns the unique identifiers
         /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ValueTypeValueConstraint"/> that is to be updated
+        /// The <see cref="UUIDNumericDataType"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ValueTypeValueConstraint"/> with
+        /// The DTO that is used to update the <see cref="UUIDNumericDataType"/> with
         /// </param>
         /// <returns>
         /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
@@ -57,7 +57,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException">
         /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
         /// </exception>
-        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ValueTypeValueConstraint poco, Kalliope.DTO.ValueTypeValueConstraint dto)
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.UUIDNumericDataType poco, Kalliope.DTO.UUIDNumericDataType dto)
         {
             if (poco == null)
             {
@@ -78,17 +78,6 @@ namespace Kalliope.Dal
                 poco.AssociatedModelErrors.Remove(modelError);
             }
 
-            if (poco.Definition != null && poco.Definition.Id != dto.Definition)
-            {
-                identifiersOfObjectsToDelete.Add(poco.Definition.Id);
-                poco.Definition = null;
-            }
-
-            if (poco.DuplicateNameError != null && poco.DuplicateNameError.Id != dto.DuplicateNameError)
-            {
-                poco.DuplicateNameError = null;
-            }
-
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
@@ -104,57 +93,25 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
-            poco.Modality = dto.Modality;
-
-            poco.Name = dto.Name;
-
-            if (poco.Note != null && poco.Note.Id != dto.Note)
-            {
-                identifiersOfObjectsToDelete.Add(poco.Note.Id);
-                poco.Note = null;
-            }
-
-            poco.Text = dto.Text;
-
-            if (poco.ValueRangeOverlapError != null && poco.ValueRangeOverlapError.Id != dto.ValueRangeOverlapError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.ValueRangeOverlapError.Id);
-                poco.ValueRangeOverlapError = null;
-            }
-
-            var valueRangesToDelete = poco.ValueRanges.Select(x => x.Id).Except(dto.ValueRanges);
-            identifiersOfObjectsToDelete.AddRange(valueRangesToDelete);
-            foreach (var identifier in valueRangesToDelete)
-            {
-                var valueRange = poco.ValueRanges.Single(x => x.Id == identifier);
-                poco.ValueRanges.Remove(valueRange);
-            }
-
-            if (poco.ValueTypeDetachedError != null && poco.ValueTypeDetachedError.Id != dto.ValueTypeDetachedError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.ValueTypeDetachedError.Id);
-                poco.ValueTypeDetachedError = null;
-            }
-
             return identifiersOfObjectsToDelete;
         }
 
         /// <summary>
-        /// Updates the Reference properties of the <see cref="ValueTypeValueConstraint"/> using the data (identifiers) encapsulated in the DTO
+        /// Updates the Reference properties of the <see cref="UUIDNumericDataType"/> using the data (identifiers) encapsulated in the DTO
         /// and the provided cache to find the referenced object.
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ValueTypeValueConstraint"/> that is to be updated
+        /// The <see cref="UUIDNumericDataType"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ValueTypeValueConstraint"/> with
+        /// The DTO that is used to update the <see cref="UUIDNumericDataType"/> with
         /// </param>
         /// <param name="cache">
         /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
         /// <see cref="ModelThing"/>s that are know and cached.
         /// </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void UpdateReferenceProperties(this Kalliope.Core.ValueTypeValueConstraint poco, Kalliope.DTO.ValueTypeValueConstraint dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        public static void UpdateReferenceProperties(this Kalliope.Core.UUIDNumericDataType poco, Kalliope.DTO.UUIDNumericDataType dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
             if (poco == null)
             {
@@ -183,16 +140,6 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.Definition == null && !string.IsNullOrEmpty(dto.Definition) && cache.TryGetValue(dto.Definition, out lazyPoco))
-            {
-                poco.Definition = (Definition)lazyPoco.Value;
-            }
-
-            if (poco.DuplicateNameError == null && !string.IsNullOrEmpty(dto.DuplicateNameError) && cache.TryGetValue(dto.DuplicateNameError, out lazyPoco))
-            {
-                poco.DuplicateNameError = (ConstraintDuplicateNameError)lazyPoco.Value;
-            }
-
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
             foreach (var identifier in extensionModelErrorsToAdd)
             {
@@ -211,31 +158,6 @@ namespace Kalliope.Dal
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
                 }
-            }
-
-            if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
-            {
-                poco.Note = (Note)lazyPoco.Value;
-            }
-
-            if (poco.ValueRangeOverlapError == null && !string.IsNullOrEmpty(dto.ValueRangeOverlapError) && cache.TryGetValue(dto.ValueRangeOverlapError, out lazyPoco))
-            {
-                poco.ValueRangeOverlapError = (ValueRangeOverlapError)lazyPoco.Value;
-            }
-
-            var valueRangesToAdd = dto.ValueRanges.Except(poco.ValueRanges.Select(x => x.Id));
-            foreach (var identifier in valueRangesToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var valueRange = (ValueRange)lazyPoco.Value;
-                    poco.ValueRanges.Add(valueRange);
-                }
-            }
-
-            if (poco.ValueTypeDetachedError == null && !string.IsNullOrEmpty(dto.ValueTypeDetachedError) && cache.TryGetValue(dto.ValueTypeDetachedError, out lazyPoco))
-            {
-                poco.ValueTypeDetachedError = (ValueConstraintValueTypeDetachedError)lazyPoco.Value;
             }
         }
     }

@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="DataTypeRefFactory.cs" company="RHEA System S.A.">
+// <copyright file="DisplaySettingPlaceholderFactory.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022 RHEA System S.A.
 //
@@ -30,40 +30,37 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// The purpose of the <see cref="DataTypeRefFactory"/> is to create a new instance of a
-    /// <see cref="Kalliope.Core.DataTypeRef"/> based on a <see cref="Kalliope.DTO.DataTypeRef"/>
+    /// The purpose of the <see cref="DisplaySettingPlaceholderFactory"/> is to create a new instance of a
+    /// <see cref="Kalliope.Core.DisplaySettingPlaceholder"/> based on a <see cref="Kalliope.DTO.DisplaySettingPlaceholder"/>
     /// </summary>
-    public class DataTypeRefFactory
+    public class DisplaySettingPlaceholderFactory
     {
         /// <summary>
-        /// Creates an instance of the <see cref="DataTypeRef"/> and sets the value properties
+        /// Creates an instance of the <see cref="DisplaySettingPlaceholder"/> and sets the value properties
         /// based on the DTO
         /// </summary>
         /// <param name="dto">
-        /// The instance of the <see cref="Kalliope.DTO.DataTypeRef"/>
+        /// The instance of the <see cref="Kalliope.DTO.DisplaySettingPlaceholder"/>
         /// </param>
         /// <returns>
-        /// an instance of <see cref="Kalliope.Core.DataTypeRef"/>
+        /// an instance of <see cref="Kalliope.Core.DisplaySettingPlaceholder"/>
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// thrown when <paramref name="dto"/> is null
         /// </exception>
-        public Kalliope.Core.DataTypeRef Create(Kalliope.DTO.DataTypeRef dto)
+        public Kalliope.Core.DisplaySettingPlaceholder Create(Kalliope.DTO.DisplaySettingPlaceholder dto)
         {
             if (dto == null)
             {
                 throw new ArgumentNullException(nameof(dto), $"the {nameof(dto)} may not be null");
             }
 
-            var dataTypeRef = new Kalliope.Core.DataTypeRef()
+            var displaySettingPlaceholder = new Kalliope.Core.DisplaySettingPlaceholder()
             {
                 Id = dto.Id,
-                Length = dto.Length,
-                Reference = dto.Reference,
-                Scale = dto.Scale,
             };
 
-            return dataTypeRef;
+            return displaySettingPlaceholder;
         }
     }
 }

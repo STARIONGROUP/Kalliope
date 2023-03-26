@@ -75,9 +75,9 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
                         case "ActiveOrganization":
-	                        elementOrganizations.ActiveOrganization = reader.GetAttribute("ref");
-							break;
-						default:
+                            elementOrganizations.ActiveOrganization = reader.GetAttribute("ref");
+                            break;
+                        default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
                 }

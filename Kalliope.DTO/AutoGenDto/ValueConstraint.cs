@@ -42,6 +42,7 @@ namespace Kalliope.DTO
         /// </summary>
         protected ValueConstraint()
         {
+            this.Modality = ConstraintModality.Alethic;
             this.ValueRanges = new List<string>();
         }
  
@@ -59,6 +60,13 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError", allowOverride: false, isOverride: false, isDerived: false)]
         public string DuplicateNameError { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets a Modality
+        /// </summary>
+        [Description("The constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded.")]
+        [Property(name: "Modality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Alethic", typeName: "ConstraintModality", allowOverride: false, isOverride: false, isDerived: false)]
+        public ConstraintModality Modality { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="Note"/>

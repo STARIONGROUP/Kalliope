@@ -29,6 +29,14 @@ namespace Kalliope.Core
     [Domain(isAbstract: false, general: "ReferenceMode")]
     public class CustomReferenceMode : ReferenceMode
     {
+
+        /// <summary>
+        /// A reference to the default data type. This is used when the reference mode sets the data type. The data type can subsequently be changed independently of the matched reference mode pattern
+        /// </summary>
+        [Description("A reference to the default data type. This is used when the reference mode sets the data type. The data type can subsequently be changed independently of the matched reference mode pattern")]
+        [Property(name: "DefaultDataType", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "DataType")]
+        public DataType DefaultDataType { get; set; }
+
         /// <summary>
         /// A string with replacement fields representing a custom format for a value type name based on the entity type name
         /// (replacement field {0}) and reference mode name (replacement field {1}). If not specified, defaults to the ReferenceModeKind FormatString attribute

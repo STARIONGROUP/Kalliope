@@ -1,35 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<Version>0.13.2</Version>
-		<Description>A library that provides ORM to OO mapping</Description>
-		<PackageId>Kalliope.OO</PackageId>
-		<Company>RHEA System S.A.</Company>
-		<Copyright>Copyright 2022 RHEA System S.A.</Copyright>
-		<PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
-		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
-		<RepositoryType>Git</RepositoryType>
-		<PackageTags>ORM</PackageTags>
-		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-		<IncludeSource>true</IncludeSource>
-		<IncludeSymbols>true</IncludeSymbols>
-		<Authors>Sam Gerene, Alexander van Delft</Authors>
-		<RequireLicenseAcceptance>false</RequireLicenseAcceptance>
-		<PackageIcon>Kalliope-icon.png</PackageIcon>
-		<LangVersion>latest</LangVersion>
-		<PackageReleaseNotes>
-			[Update] Add IsAbstract getter
-		</PackageReleaseNotes>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Version>0.13.2</Version>
+        <Description>A library that provides ORM to OO mapping</Description>
+        <PackageId>Kalliope.OO</PackageId>
+        <Company>RHEA System S.A.</Company>
+        <Copyright>Copyright 2022 RHEA System S.A.</Copyright>
+        <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>ORM</PackageTags>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <IncludeSource>true</IncludeSource>
+        <IncludeSymbols>true</IncludeSymbols>
+        <Authors>Sam Gerene, Alexander van Delft</Authors>
+        <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+        <PackageIcon>Kalliope-icon.png</PackageIcon>
+        <LangVersion>latest</LangVersion>
+        <PackageReleaseNotes>
+            [Update] Add IsAbstract getter
+        </PackageReleaseNotes>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
-	</ItemGroup>
+    <ItemGroup>
+        <None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+    </ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Kalliope.Xml\Kalliope.Xml.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Kalliope.Xml\Kalliope.Xml.csproj" />
+    </ItemGroup>
 
 </Project>

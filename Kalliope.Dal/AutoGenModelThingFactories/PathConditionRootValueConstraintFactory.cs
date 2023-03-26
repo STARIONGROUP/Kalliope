@@ -58,6 +58,7 @@ namespace Kalliope.Dal
             var pathConditionRootValueConstraint = new Kalliope.Core.PathConditionRootValueConstraint()
             {
                 Id = dto.Id,
+                Modality = dto.Modality,
                 Name = dto.Name,
                 Text = dto.Text,
             };
