@@ -82,7 +82,7 @@ namespace Kalliope.OO.Mappers
 
                 if (dataType is UUIDNumericDataType)
                 {
-                    return "guid";
+                    return "Guid";
                 }
             }
 
