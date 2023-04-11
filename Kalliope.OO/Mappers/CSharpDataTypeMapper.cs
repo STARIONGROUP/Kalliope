@@ -79,6 +79,11 @@ namespace Kalliope.OO.Mappers
                 {
                     return "double";
                 }
+
+                if (dataType is UUIDNumericDataType)
+                {
+                    return "guid";
+                }
             }
 
             return "Unknown type";
