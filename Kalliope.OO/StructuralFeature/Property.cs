@@ -98,7 +98,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets a value indicating that this property of an enum type
         /// </summary>
-        public bool IsEnum => this.ObjectType is ValueType valueType && valueType.ValueConstraint?.ValueRanges.Count > 0 && !valueType.IsImplicitBooleanValue;
+        public bool IsEnum => this.ObjectType.IsEnum(this.OrmModel);
 
         /// <summary>
         /// Calculates if this property is (part of) the identifier
