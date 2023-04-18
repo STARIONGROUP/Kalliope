@@ -153,7 +153,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns>The ORM <see cref="DataType"/></returns>
         private DataType GetOrmDataType()
         {
-            if (this.ObjectType.ValueConstraint?.ValueRanges.Count > 0 && !this.ObjectType.IsImplicitBooleanValue)
+            if (this.IsEnum)
             {
                 return null;
             }
