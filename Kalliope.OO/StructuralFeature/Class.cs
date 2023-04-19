@@ -148,10 +148,11 @@ namespace Kalliope.OO.StructuralFeature
 
             if (includeSuperTypeProperties)
             {
-                result = result
-                    .Union(
-                        this.SuperClasses
-                            .SelectMany(x => x.NonIdentifierPropertiesIncludingSuperTypes.Where(y => !y.IsPartOfIdentifier)));
+                var superTypeClasses = this.SuperClasses
+                    .SelectMany(x => x.NonIdentifierPropertiesIncludingSuperTypes.Where(y => !y.IsPartOfIdentifier));
+
+                result = result.Where(x => !superTypeClasses.Select(y => y.Name).Contains(x.Name));
+                result = result.Union(superTypeClasses);
             }
 
             return result

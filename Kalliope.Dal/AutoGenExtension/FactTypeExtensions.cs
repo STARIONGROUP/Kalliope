@@ -233,7 +233,7 @@ namespace Kalliope.Dal
 
             if (poco.DerivationRule == null && !string.IsNullOrEmpty(dto.DerivationRule) && cache.TryGetValue(dto.DerivationRule, out lazyPoco))
             {
-                poco.DerivationRule = (RoleProjectedDerivationRule)lazyPoco.Value;
+                poco.DerivationRule = (FactTypeDerivationRule)lazyPoco.Value;
             }
 
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));

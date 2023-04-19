@@ -117,5 +117,30 @@ namespace Kalliope.OO.StructuralFeature
         /// Gets a value indicating that the property represents the owner of the Role
         /// </summary>
         bool IsRoleOwner { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a derived property
+        /// </summary>
+        bool IsDerived { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a fully derived property
+        /// </summary>
+        bool IsFullyDerived { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a partially derived property
+        /// </summary>
+        bool IsPartiallyDerived { get; }
+
+        /// <summary>
+        /// Gets the <see cref="DerivationStorage"/> type of this <see cref="IProperty"/>
+        /// </summary>
+        DerivationStorage? DerivationStorage { get; }
+
+        /// <summary>
+        /// Gets the <see cref="DerivationCompleteness"/> type of this <see cref="IProperty"/>
+        /// </summary>
+        DerivationCompleteness? DerivationCompleteness { get; }
     }
 }

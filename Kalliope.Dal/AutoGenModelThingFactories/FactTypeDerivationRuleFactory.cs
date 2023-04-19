@@ -57,12 +57,7 @@ namespace Kalliope.Dal
 
             var factTypeDerivationRule = new Kalliope.Core.FactTypeDerivationRule()
             {
-                DerivationCompleteness = dto.DerivationCompleteness,
-                DerivationStorage = dto.DerivationStorage,
-                ExternalDerivation = dto.ExternalDerivation,
                 Id = dto.Id,
-                Name = dto.Name,
-                SetProjection = dto.SetProjection,
             };
 
             return factTypeDerivationRule;

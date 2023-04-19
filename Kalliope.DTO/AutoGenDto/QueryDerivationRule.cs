@@ -35,7 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Role path(s) defining a query
     /// </remarks>
-    public partial class QueryDerivationRule : RoleProjectedDerivationRule
+    public partial class QueryDerivationRule : OrmModelElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryDerivationRule"/> class.

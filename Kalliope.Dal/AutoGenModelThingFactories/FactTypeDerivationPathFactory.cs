@@ -57,6 +57,8 @@ namespace Kalliope.Dal
 
             var factTypeDerivationPath = new Kalliope.Core.FactTypeDerivationPath()
             {
+                DerivationCompleteness = dto.DerivationCompleteness,
+                DerivationStorage = dto.DerivationStorage,
                 ExternalDerivation = dto.ExternalDerivation,
                 Id = dto.Id,
                 Name = dto.Name,

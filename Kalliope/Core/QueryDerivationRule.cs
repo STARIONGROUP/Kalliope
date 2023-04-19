@@ -26,8 +26,8 @@ namespace Kalliope.Core
     /// The formal derivation rule for a query
     /// </summary>
     [Description("Role path(s) defining a query")]
-    [Domain(isAbstract: false, general: "RoleProjectedDerivationRule")]
-    public class QueryDerivationRule : RoleProjectedDerivationRule
+    [Domain(isAbstract: false, general: "OrmModelElement")]
+    public class QueryDerivationRule : OrmModelElement
     {
     }
 }

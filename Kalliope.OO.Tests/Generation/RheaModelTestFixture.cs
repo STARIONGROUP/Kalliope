@@ -57,16 +57,17 @@ namespace Kalliope.OO.Tests
                 {
                     Assert.That(property.Name, Is.Not.Empty);
                     Assert.That(property.DataType, Is.Not.EqualTo("Unknown type"));
-                    var isEnumerable = property.IsEnumerable;
                 }
             }
 
             Assert.That(classes.Count, Is.EqualTo(9));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(12));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(14));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(2));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(6));
             Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(5));
             Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(5));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(1));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(1));
             Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(1));
         }
     }

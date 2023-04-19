@@ -78,10 +78,10 @@ namespace Kalliope.DTO
         public string DerivationNoteDisplay { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="RoleProjectedDerivationRule"/>
+        /// Gets or sets the unique identifier of the contained <see cref="FactTypeDerivationRule"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleProjectedDerivationRule", allowOverride: false, isOverride: false, isDerived: false)]
+        [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeDerivationRule", allowOverride: false, isOverride: false, isDerived: false)]
         public string DerivationRule { get; set; }
  
         /// <summary>
