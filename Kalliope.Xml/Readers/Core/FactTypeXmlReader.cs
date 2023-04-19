@@ -344,7 +344,7 @@ namespace Kalliope.Xml.Readers
         }
 
         /// <summary>
-        /// Reads <see cref="FactTypeDerivationExpression"/>s and <see cref="FactTypeDerivationPath"/> from the .orm file
+        /// Reads <see cref="FactTypeDerivationRule"/>s and <see cref="FactTypeDerivationPath"/> from the .orm file
         /// </summary>
         /// <param name="factType">
         /// The subject <see cref="FactType"/> that is to be deserialized and is the container of the <see cref="FactTypeDerivationExpression"/>s and <see cref="FactTypeDerivationPath"/>

@@ -36,10 +36,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "FactTypeDerivationPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeDerivationPath")]
         public FactTypeDerivationPath FactTypeDerivationPath { get; set; }
-
-        //Deprecated according to ORM2Core.xsd
-        //[Description("")]
-        //[Property(name: "FactTypeDerivationPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeDerivationPath")]
-        //public DerivationExpression DerivationExpression { get; set; }
     }
 }

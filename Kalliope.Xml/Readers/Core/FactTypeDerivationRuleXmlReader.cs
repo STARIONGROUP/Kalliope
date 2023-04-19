@@ -57,6 +57,14 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
+                        case "DerivationExpression":
+                            using (var derivationExpressionSubtree = reader.ReadSubtree())
+                            {
+                                derivationExpressionSubtree.MoveToContent();
+                                //Ignore due to Deprecated state of DerivationExpression
+                            }
+                            break;
+
                         case "FactTypeDerivationPath":
                             using (var factTypeDerivationPathSubtree = reader.ReadSubtree())
                             {
