@@ -26,6 +26,7 @@ namespace Kalliope.Xml.Readers
 
     using Kalliope.Common;
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="FactTypeDerivationRuleXmlReader"/> is to deserialize a <see cref="FactTypeDerivationRule"/>
@@ -58,11 +59,9 @@ namespace Kalliope.Xml.Readers
                     switch (localName)
                     {
                         case "DerivationExpression":
-                            using (var derivationExpressionSubtree = reader.ReadSubtree())
-                            {
-                                derivationExpressionSubtree.MoveToContent();
-                                //Ignore due to Deprecated state of DerivationExpression
-                            }
+                            reader.RunToEndOfSubtree();
+                            //Ignore due to Deprecated state of DerivationExpression
+
                             break;
 
                         case "FactTypeDerivationPath":

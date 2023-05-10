@@ -62,6 +62,8 @@ namespace Kalliope.Xml.Readers
 
             using (var constraintSubtree = reader.ReadSubtree())
             {
+                constraintSubtree.MoveToContent();
+
                 while (constraintSubtree.Read())
                 {
                     if (constraintSubtree.MoveToContent() == XmlNodeType.Element)
@@ -70,8 +72,6 @@ namespace Kalliope.Xml.Readers
 
                         switch (localName)
                         {
-                            case "MandatoryConstraint":
-                                break;
                             case "RoleSequence":
                                 using (var roleSequenceSubtree = constraintSubtree.ReadSubtree())
                                 {

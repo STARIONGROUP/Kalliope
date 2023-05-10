@@ -20,10 +20,12 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="DisplayStateXmlReader"/> is to deserialize a <see cref="DisplayState"/>
@@ -59,6 +61,11 @@ namespace Kalliope.Xml.Readers
                     {
                         case "ORMModel":
                             displayState.Model = reader.GetAttribute("ref");
+                            break;
+                        case "GlobalDisplayOptions":
+                            //TODO: GH42
+                            Console.WriteLine($"{localName} not yet supported");
+                            reader.RunToEndOfSubtree();
                             break;
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");

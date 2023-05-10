@@ -46,6 +46,8 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(ModelNote modelNote, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(modelNote, reader, modelThings);
+
+            //TODO: GH43 => Add support for ModelNote.ReferencedBy
         }
     }
 }

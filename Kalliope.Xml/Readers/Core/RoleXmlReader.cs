@@ -26,6 +26,7 @@ namespace Kalliope.Xml.Readers
 
     using Kalliope.Common;
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="RoleXmlReader"/> is to deserialize a <see cref="Role"/>
@@ -101,6 +102,7 @@ namespace Kalliope.Xml.Readers
 
                             default:
                                 Console.WriteLine($"Role.ReadXml did not process the {localName} XML element");
+                                reader.RunToEndOfSubtree();
                                 break;
                         }
                     }

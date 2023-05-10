@@ -20,6 +20,8 @@
     <PackageIcon>Kalliope-icon.png</PackageIcon>
     <PackageReleaseNotes>
         [Update] to kalliope 0.15.0
+        [Add] Simple support for FactypeDerivationRules
+        [Add] Usage of XmlReader.RunToEndOfSubtree()
     </PackageReleaseNotes>
   </PropertyGroup>
 
