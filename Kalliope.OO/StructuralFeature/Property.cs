@@ -22,6 +22,7 @@ namespace Kalliope.OO.StructuralFeature
 {
     using System;
     using System.Linq;
+    using System.Runtime.CompilerServices;
 
     using Kalliope.Common;
     using Kalliope.Core;
@@ -251,6 +252,31 @@ namespace Kalliope.OO.StructuralFeature
         /// Gets a value indicating that the property represents the owner of the Role
         /// </summary>
         public bool IsRoleOwner => this.CalculateIsRoleOwner(this.PropertyRole);
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a derived property
+        /// </summary>
+        public bool IsDerived => this.FactType.DerivationRule != null;
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a fully derived property
+        /// </summary>
+        public bool IsFullyDerived => this.IsDerived && this.DerivationCompleteness == Common.DerivationCompleteness.FullyDerived;
+
+        /// <summary>
+        /// Gets a value indicating that this <see cref="IProperty"/> is a partially derived property
+        /// </summary>
+        public bool IsPartiallyDerived => this.IsDerived && this.DerivationCompleteness == Common.DerivationCompleteness.PartiallyDerived;
+
+        /// <summary>
+        /// Gets the <see cref="DerivationStorage"/> type of this <see cref="IProperty"/>
+        /// </summary>
+        public DerivationStorage? DerivationStorage => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath.DerivationStorage : null;
+
+        /// <summary>
+        /// Gets the <see cref="DerivationCompleteness"/> type of this <see cref="IProperty"/>
+        /// </summary>
+        public DerivationCompleteness? DerivationCompleteness => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath.DerivationCompleteness : null;
 
         /// <summary>
         /// Calculates if the Class that belongs to a Role is the Role Owner of the relationship that belongs to this <see cref="ReferenceProperty{T}"/>

@@ -61,6 +61,12 @@
     <None Update="Data\RheaTest.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Data\RheaTest_Objectified_ExtraProp.orm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\RheaTest_Ternary.orm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\Talent.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

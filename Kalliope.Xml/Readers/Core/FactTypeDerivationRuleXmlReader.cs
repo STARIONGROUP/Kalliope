@@ -20,16 +20,18 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Common;
     using Kalliope.DTO;
 
     /// <summary>
     /// The purpose of the <see cref="FactTypeDerivationRuleXmlReader"/> is to deserialize a <see cref="FactTypeDerivationRule"/>
     /// from an .orm XML file
     /// </summary>
-    public class FactTypeDerivationRuleXmlReader : RoleProjectedDerivationRuleXmlReader
+    public class FactTypeDerivationRuleXmlReader : OrmModelElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="FactTypeDerivationRule"/> from the <see cref="XmlReader"/>
@@ -46,6 +48,38 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(FactTypeDerivationRule factTypeDerivationRule, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(factTypeDerivationRule, reader, modelThings);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "DerivationExpression":
+                            using (var derivationExpressionSubtree = reader.ReadSubtree())
+                            {
+                                derivationExpressionSubtree.MoveToContent();
+                                //Ignore due to Deprecated state of DerivationExpression
+                            }
+                            break;
+
+                        case "FactTypeDerivationPath":
+                            using (var factTypeDerivationPathSubtree = reader.ReadSubtree())
+                            {
+                                factTypeDerivationPathSubtree.MoveToContent();
+                                var factTypeDerivationPath = new FactTypeDerivationPath();
+                                var factTypeDerivationPathXmlReader = new FactTypeDerivationPathXmlReader();
+                                factTypeDerivationPathXmlReader.ReadXml(factTypeDerivationPath, factTypeDerivationPathSubtree, modelThings);
+                                factTypeDerivationRule.FactTypeDerivationPath = factTypeDerivationPath.Id;
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

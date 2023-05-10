@@ -743,10 +743,6 @@ namespace Kalliope.Dal
                     var rolePlayerRequiredError = dto as Kalliope.DTO.RolePlayerRequiredError;
                     var rolePlayerRequiredErrorFactory = new RolePlayerRequiredErrorFactory();
                     return rolePlayerRequiredErrorFactory.Create(rolePlayerRequiredError);
-                case "RoleProjectedDerivationRequiresProjectionError":
-                    var roleProjectedDerivationRequiresProjectionError = dto as Kalliope.DTO.RoleProjectedDerivationRequiresProjectionError;
-                    var roleProjectedDerivationRequiresProjectionErrorFactory = new RoleProjectedDerivationRequiresProjectionErrorFactory();
-                    return roleProjectedDerivationRequiresProjectionErrorFactory.Create(roleProjectedDerivationRequiresProjectionError);
                 case "RoleProxy":
                     var roleProxy = dto as Kalliope.DTO.RoleProxy;
                     var roleProxyFactory = new RoleProxyFactory();

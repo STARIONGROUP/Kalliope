@@ -26,7 +26,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="QueryDerivationRuleXmlReader"/> is to deserialize a <see cref="QueryDerivationRule"/>
     /// from an .orm XML file
     /// </summary>
-    public class QueryDerivationRuleXmlReader : RoleProjectedDerivationRuleXmlReader
+    public class QueryDerivationRuleXmlReader : OrmModelElementXmlReader
     {
     }
 }

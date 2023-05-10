@@ -344,7 +344,7 @@ namespace Kalliope.Xml.Readers
         }
 
         /// <summary>
-        /// Reads <see cref="FactTypeDerivationExpression"/>s and <see cref="FactTypeDerivationPath"/> from the .orm file
+        /// Reads <see cref="FactTypeDerivationRule"/>s and <see cref="FactTypeDerivationPath"/> from the .orm file
         /// </summary>
         /// <param name="factType">
         /// The subject <see cref="FactType"/> that is to be deserialized and is the container of the <see cref="FactTypeDerivationExpression"/>s and <see cref="FactTypeDerivationPath"/>
@@ -357,40 +357,15 @@ namespace Kalliope.Xml.Readers
         /// </param>
         private void ReadDerivationRule(FactType factType, XmlReader reader, List<ModelThing> modelThings)
         {
-            while (reader.Read())
+            using (var factTypeDerivationRuleSubtree = reader.ReadSubtree())
             {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "DerivationExpression":
-                            using (var derivationExpressionSubtree = reader.ReadSubtree())
-                            {
-                                derivationExpressionSubtree.MoveToContent();
-                                var factTypeDerivationExpression = new FactTypeDerivationExpression();
-                                var factTypeDerivationExpressionXmlReader = new FactTypeDerivationExpressionXmlReader();
-                                factTypeDerivationExpressionXmlReader.ReadXml(factTypeDerivationExpression, derivationExpressionSubtree, modelThings);
-                                factTypeDerivationExpression.Container = factType.Id;
-                                factType.DerivationExpression = factTypeDerivationExpression.Id;
-                            }
-                            break;
-                        case "FactTypeDerivationPath":
-                            using (var factTypeDerivationPathSubtree = reader.ReadSubtree())
-                            {
-                                factTypeDerivationPathSubtree.MoveToContent();
-                                var factTypeDerivationExpression = new FactTypeDerivationPath();
-                                var factTypeDerivationExpressionXmlReader = new FactTypeDerivationPathXmlReader();
-                                factTypeDerivationExpressionXmlReader.ReadXml(factTypeDerivationExpression, factTypeDerivationPathSubtree, modelThings);
-
-                                Console.WriteLine("TODO: no reference from FactType.FactTypeDerivationPath");
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
-                }
+                factTypeDerivationRuleSubtree.MoveToContent();
+                var factTypeDerivationRule = new FactTypeDerivationRule();
+                var factTypeDerivationRuleXmlReader = new FactTypeDerivationRuleXmlReader();
+                factTypeDerivationRuleXmlReader.ReadXml(factTypeDerivationRule, factTypeDerivationRuleSubtree, modelThings);
+                factTypeDerivationRule.Id = $"{factType.Id}:DerivationRuleHavingPath:{factTypeDerivationRule.FactTypeDerivationPath}"; 
+                factType.DerivationRule = factTypeDerivationRule.Id;
+                factTypeDerivationRule.Container = factType.Id;
             }
         }
 

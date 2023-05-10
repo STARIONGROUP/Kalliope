@@ -85,6 +85,10 @@ namespace Kalliope.Dal
                 poco.CalculatedConditions.Remove(calculatedPathValue);
             }
 
+            poco.DerivationCompleteness = dto.DerivationCompleteness;
+
+            poco.DerivationStorage = dto.DerivationStorage;
+
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {

@@ -78,13 +78,6 @@ namespace Kalliope.Dal
                 poco.AssociatedModelErrors.Remove(modelError);
             }
 
-            var calculatedConditionsToDelete = poco.CalculatedConditions.Select(x => x.Id).Except(dto.CalculatedConditions);
-            foreach (var identifier in calculatedConditionsToDelete)
-            {
-                var calculatedPathValue = poco.CalculatedConditions.Single(x => x.Id == identifier);
-                poco.CalculatedConditions.Remove(calculatedPathValue);
-            }
-
             var extensionModelErrorsToDelete = poco.ExtensionModelErrors.Select(x => x.Id).Except(dto.ExtensionModelErrors);
             foreach (var identifier in extensionModelErrorsToDelete)
             {
@@ -98,71 +91,6 @@ namespace Kalliope.Dal
             {
                 var extension = poco.Extensions.Single(x => x.Id == identifier);
                 poco.Extensions.Remove(extension);
-            }
-
-            var leadRolePathsToDelete = poco.LeadRolePaths.Select(x => x.Id).Except(dto.LeadRolePaths);
-            identifiersOfObjectsToDelete.AddRange(leadRolePathsToDelete);
-            foreach (var identifier in leadRolePathsToDelete)
-            {
-                var leadRolePath = poco.LeadRolePaths.Single(x => x.Id == identifier);
-                poco.LeadRolePaths.Remove(leadRolePath);
-            }
-
-            var ownedLeadRolePathsToDelete = poco.OwnedLeadRolePaths.Select(x => x.Id).Except(dto.OwnedLeadRolePaths);
-            foreach (var identifier in ownedLeadRolePathsToDelete)
-            {
-                var leadRolePath = poco.OwnedLeadRolePaths.Single(x => x.Id == identifier);
-                poco.OwnedLeadRolePaths.Remove(leadRolePath);
-            }
-
-            var ownedSubqueriesToDelete = poco.OwnedSubqueries.Select(x => x.Id).Except(dto.OwnedSubqueries);
-            foreach (var identifier in ownedSubqueriesToDelete)
-            {
-                var subquery = poco.OwnedSubqueries.Single(x => x.Id == identifier);
-                poco.OwnedSubqueries.Remove(subquery);
-            }
-
-            if (poco.PathComponent != null && poco.PathComponent.Id != dto.PathComponent)
-            {
-                poco.PathComponent = null;
-            }
-
-            if (poco.ProjectionRequiredError != null && poco.ProjectionRequiredError.Id != dto.ProjectionRequiredError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.ProjectionRequiredError.Id);
-                poco.ProjectionRequiredError = null;
-            }
-
-            var sharedLeadRolePathsToDelete = poco.SharedLeadRolePaths.Select(x => x.Id).Except(dto.SharedLeadRolePaths);
-            foreach (var identifier in sharedLeadRolePathsToDelete)
-            {
-                var leadRolePath = poco.SharedLeadRolePaths.Single(x => x.Id == identifier);
-                poco.SharedLeadRolePaths.Remove(leadRolePath);
-            }
-
-            var sharedSubqueriesToDelete = poco.SharedSubqueries.Select(x => x.Id).Except(dto.SharedSubqueries);
-            foreach (var identifier in sharedSubqueriesToDelete)
-            {
-                var subquery = poco.SharedSubqueries.Single(x => x.Id == identifier);
-                poco.SharedSubqueries.Remove(subquery);
-            }
-
-            if (poco.SingleLeadRolePath != null && poco.SingleLeadRolePath.Id != dto.SingleLeadRolePath)
-            {
-                poco.SingleLeadRolePath = null;
-            }
-
-            if (poco.SingleOwnedLeadRolePath != null && poco.SingleOwnedLeadRolePath.Id != dto.SingleOwnedLeadRolePath)
-            {
-                poco.SingleOwnedLeadRolePath = null;
-            }
-
-            var subqueriesToDelete = poco.Subqueries.Select(x => x.Id).Except(dto.Subqueries);
-            identifiersOfObjectsToDelete.AddRange(subqueriesToDelete);
-            foreach (var identifier in subqueriesToDelete)
-            {
-                var subquery = poco.Subqueries.Single(x => x.Id == identifier);
-                poco.Subqueries.Remove(subquery);
             }
 
             return identifiersOfObjectsToDelete;
@@ -212,16 +140,6 @@ namespace Kalliope.Dal
                 }
             }
 
-            var calculatedConditionsToAdd = dto.CalculatedConditions.Except(poco.CalculatedConditions.Select(x => x.Id));
-            foreach (var identifier in calculatedConditionsToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var calculatedPathValue = (CalculatedPathValue)lazyPoco.Value;
-                    poco.CalculatedConditions.Add(calculatedPathValue);
-                }
-            }
-
             var extensionModelErrorsToAdd = dto.ExtensionModelErrors.Except(poco.ExtensionModelErrors.Select(x => x.Id));
             foreach (var identifier in extensionModelErrorsToAdd)
             {
@@ -239,86 +157,6 @@ namespace Kalliope.Dal
                 {
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
-                }
-            }
-
-            var leadRolePathsToAdd = dto.LeadRolePaths.Except(poco.LeadRolePaths.Select(x => x.Id));
-            foreach (var identifier in leadRolePathsToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
-                    poco.LeadRolePaths.Add(leadRolePath);
-                }
-            }
-
-            var ownedLeadRolePathsToAdd = dto.OwnedLeadRolePaths.Except(poco.OwnedLeadRolePaths.Select(x => x.Id));
-            foreach (var identifier in ownedLeadRolePathsToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
-                    poco.OwnedLeadRolePaths.Add(leadRolePath);
-                }
-            }
-
-            var ownedSubqueriesToAdd = dto.OwnedSubqueries.Except(poco.OwnedSubqueries.Select(x => x.Id));
-            foreach (var identifier in ownedSubqueriesToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var subquery = (Subquery)lazyPoco.Value;
-                    poco.OwnedSubqueries.Add(subquery);
-                }
-            }
-
-            if (poco.PathComponent == null && !string.IsNullOrEmpty(dto.PathComponent) && cache.TryGetValue(dto.PathComponent, out lazyPoco))
-            {
-                poco.PathComponent = (LeadRolePath)lazyPoco.Value;
-            }
-
-            if (poco.ProjectionRequiredError == null && !string.IsNullOrEmpty(dto.ProjectionRequiredError) && cache.TryGetValue(dto.ProjectionRequiredError, out lazyPoco))
-            {
-                poco.ProjectionRequiredError = (RoleProjectedDerivationRequiresProjectionError)lazyPoco.Value;
-            }
-
-            var sharedLeadRolePathsToAdd = dto.SharedLeadRolePaths.Except(poco.SharedLeadRolePaths.Select(x => x.Id));
-            foreach (var identifier in sharedLeadRolePathsToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var leadRolePath = (LeadRolePath)lazyPoco.Value;
-                    poco.SharedLeadRolePaths.Add(leadRolePath);
-                }
-            }
-
-            var sharedSubqueriesToAdd = dto.SharedSubqueries.Except(poco.SharedSubqueries.Select(x => x.Id));
-            foreach (var identifier in sharedSubqueriesToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var subquery = (Subquery)lazyPoco.Value;
-                    poco.SharedSubqueries.Add(subquery);
-                }
-            }
-
-            if (poco.SingleLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleLeadRolePath) && cache.TryGetValue(dto.SingleLeadRolePath, out lazyPoco))
-            {
-                poco.SingleLeadRolePath = (LeadRolePath)lazyPoco.Value;
-            }
-
-            if (poco.SingleOwnedLeadRolePath == null && !string.IsNullOrEmpty(dto.SingleOwnedLeadRolePath) && cache.TryGetValue(dto.SingleOwnedLeadRolePath, out lazyPoco))
-            {
-                poco.SingleOwnedLeadRolePath = (LeadRolePath)lazyPoco.Value;
-            }
-
-            var subqueriesToAdd = dto.Subqueries.Except(poco.Subqueries.Select(x => x.Id));
-            foreach (var identifier in subqueriesToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var subquery = (Subquery)lazyPoco.Value;
-                    poco.Subqueries.Add(subquery);
                 }
             }
         }

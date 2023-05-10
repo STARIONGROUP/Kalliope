@@ -139,11 +139,11 @@ namespace Kalliope.Core
         public ImpliedInternalUniquenessConstraintError ImpliedInternalUniquenessConstraintError { get; set; }
 
         /// <summary>
-        /// Gets or sets the owned <see cref="RoleProjectedDerivationRule"/>
+        /// Gets or sets the owned <see cref="FactTypeDerivationRule"/>
         /// </summary>
         [Description("")]
-        [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleProjectedDerivationRule")]
-        public RoleProjectedDerivationRule DerivationRule { get; set; }
+        [Property(name: "DerivationRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactTypeDerivationRule")]
+        public FactTypeDerivationRule DerivationRule { get; set; }
 
         /// <summary>
         /// Gets or sets the constraints that are internal to the <see cref="FactType"/>

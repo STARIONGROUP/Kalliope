@@ -24,6 +24,7 @@ namespace Kalliope.Xml.Readers
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Common;
     using Kalliope.DTO;
 
     /// <summary>
@@ -48,12 +49,30 @@ namespace Kalliope.Xml.Readers
         {
             base.ReadXml(factTypeDerivationPath, reader, modelThings);
 
-            factTypeDerivationPath.Name = reader.GetAttribute("Name");
+            factTypeDerivationPath.Name = reader.GetAttribute("_Name");
 
-            var externalDerivation = reader.GetAttribute("ExternalDerivation");
-            if (externalDerivation != null)
+            var externalDerivationAttribute = reader.GetAttribute("_ExternalDerivation");
+            if (externalDerivationAttribute != null)
             {
-                factTypeDerivationPath.ExternalDerivation = XmlConvert.ToBoolean(externalDerivation);
+                factTypeDerivationPath.ExternalDerivation = XmlConvert.ToBoolean(externalDerivationAttribute);
+            }
+
+            var setProjectionAttribute = reader.GetAttribute("_SetProjection");
+            if (setProjectionAttribute != null)
+            {
+                factTypeDerivationPath.ExternalDerivation = XmlConvert.ToBoolean(setProjectionAttribute);
+            }
+
+            var derivationCompletenessAttribute = reader.GetAttribute("_DerivationCompleteness");
+            if (Enum.TryParse(derivationCompletenessAttribute, out DerivationCompleteness derivationCompleteness))
+            {
+                factTypeDerivationPath.DerivationCompleteness = derivationCompleteness;
+            }
+
+            var derivationStorageAttribute = reader.GetAttribute("_DerivationStorage");
+            if (Enum.TryParse(derivationStorageAttribute, out DerivationStorage derivationStorage))
+            {
+                factTypeDerivationPath.DerivationStorage = derivationStorage;
             }
         }
     }

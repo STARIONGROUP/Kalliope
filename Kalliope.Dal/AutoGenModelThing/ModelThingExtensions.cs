@@ -584,9 +584,6 @@ namespace Kalliope.Dal
                 case "RolePlayerRequiredError":
                     var rolePlayerRequiredError = poco as Kalliope.Core.RolePlayerRequiredError;
                     return rolePlayerRequiredError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RolePlayerRequiredError)dto);
-                case "RoleProjectedDerivationRequiresProjectionError":
-                    var roleProjectedDerivationRequiresProjectionError = poco as Kalliope.Core.RoleProjectedDerivationRequiresProjectionError;
-                    return roleProjectedDerivationRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RoleProjectedDerivationRequiresProjectionError)dto);
                 case "RoleProxy":
                     var roleProxy = poco as Kalliope.Core.RoleProxy;
                     return roleProxy.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RoleProxy)dto);
@@ -1474,10 +1471,6 @@ namespace Kalliope.Dal
                 case "RolePlayerRequiredError":
                     var rolePlayerRequiredError = poco as Kalliope.Core.RolePlayerRequiredError;
                     rolePlayerRequiredError.UpdateReferenceProperties((Kalliope.DTO.RolePlayerRequiredError)dto, cache);
-                    break;
-                case "RoleProjectedDerivationRequiresProjectionError":
-                    var roleProjectedDerivationRequiresProjectionError = poco as Kalliope.Core.RoleProjectedDerivationRequiresProjectionError;
-                    roleProjectedDerivationRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.RoleProjectedDerivationRequiresProjectionError)dto, cache);
                     break;
                 case "RoleProxy":
                     var roleProxy = poco as Kalliope.Core.RoleProxy;

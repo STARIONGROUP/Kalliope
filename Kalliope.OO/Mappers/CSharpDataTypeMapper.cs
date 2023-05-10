@@ -60,7 +60,7 @@ namespace Kalliope.OO.Mappers
                     return "Date";
                 }
 
-                if (dataType is SignedIntegerNumericDataType or UnsignedIntegerNumericDataType or AutoCounterNumericDataType)
+                if (dataType is SignedIntegerNumericDataType or UnsignedIntegerNumericDataType or AutoCounterNumericDataType or UnsignedSmallIntegerNumericDataType)
                 {
                     return "int";
                 }
@@ -80,7 +80,7 @@ namespace Kalliope.OO.Mappers
                     return "double";
                 }
 
-                if (dataType is UUIDNumericDataType)
+                if (dataType is Core.UUIDNumericDataType)
                 {
                     return "Guid";
                 }

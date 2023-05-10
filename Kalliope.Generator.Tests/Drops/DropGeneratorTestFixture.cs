@@ -43,7 +43,7 @@ namespace Kalliope.Generator.Tests
         [Test]
         public void Verify_that_the_generator_generates_the_expected_amount_of_type_drops()
         {
-            Assert.That(this.typeDrops.Count, Is.EqualTo(276));
+            Assert.That(this.typeDrops.Count, Is.EqualTo(274));
         }
 
         [Test]
