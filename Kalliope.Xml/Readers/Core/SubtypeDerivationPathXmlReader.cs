@@ -25,6 +25,7 @@ namespace Kalliope.Xml.Readers
     using System.Xml;
 
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="SubtypeDerivationPathXmlReader"/> is to deserialize a <see cref="SubtypeDerivationPath"/>
@@ -101,7 +102,9 @@ namespace Kalliope.Xml.Readers
         /// </param>
         private void ReadPathComponents(SubtypeDerivationPath subtypeDerivationPath, XmlReader reader, List<ModelThing> modelThings)
         {
-
+            //TODO implement PathComponents GH27
+            Console.WriteLine($"{reader.Name} not yet supported");
+            reader.RunToEndOfSubtree();
         }
     }
 }

@@ -23,9 +23,8 @@ namespace Kalliope.Xml.Readers
     using System;
     using System.Collections.Generic;
     using System.Xml;
-
     using Kalliope.DTO;
-    
+
     /// <summary>
     /// The purpose of the <see cref="OrmModelXmlReader"/> is to read the contents of the
     /// <see cref="OrmModel"/> XML element
@@ -140,8 +139,14 @@ namespace Kalliope.Xml.Readers
 		                        this.ReadRecognizedPhrases(ormModel, recognizedPhrasesSubtree, modelThings);
 	                        }
 	                        break;
-
-						default:
+                        case "Extensions":
+                            using (var extensionsSubtree = reader.ReadSubtree())
+                            {
+                                extensionsSubtree.MoveToContent();
+                                this.ReadExtensions(ormModel, extensionsSubtree, modelThings);
+                            }
+                            break;
+                        default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }
                 }
@@ -1080,6 +1085,49 @@ namespace Kalliope.Xml.Readers
 			        }
                 }
 	        }
+        }
+
+        /// <summary>
+        /// reads the <see cref="Extension"/>s
+        /// </summary>
+        /// <param name="ormModel">
+        /// The <see cref="OrmModel"/> that contains the <see cref="Extension"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadExtensions(OrmModel ormModel, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CustomProperty":
+
+                            using (var customPropertySubtree = reader.ReadSubtree())
+                            {
+                                customPropertySubtree.MoveToContent();
+                                var customProperty = new CustomProperty();
+                                var customPropertyXmlReader = new CustomPropertyXmlReader();
+                                customPropertyXmlReader.ReadXml(customProperty, customPropertySubtree, modelThings);
+                                customProperty.Container = ormModel.Id;
+                                ormModel.Extensions.Add(customProperty.Id);
+                            }
+
+                            break;
+
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
 	}
 }

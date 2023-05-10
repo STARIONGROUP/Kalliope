@@ -25,6 +25,7 @@ namespace Kalliope.Xml.Readers
     using System.Xml;
 
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="OrmRootXmlReader"/> is to read the contents of the
@@ -139,6 +140,10 @@ namespace Kalliope.Xml.Readers
                                 elementOrganizationsXmlReader.ReadXml(elementOrganizations, elementOrganizationsSubtree, modelThings);
                                 ormRoot.ElementOrganizations = elementOrganizations.Id;
                             }
+                            break;
+                        default:
+                            Console.Write($"{reader.Name} not yet supported\n");
+                            reader.RunToEndOfSubtree();
                             break;
                     }
                 }

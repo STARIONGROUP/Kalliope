@@ -20,10 +20,12 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="ElementOrganizationsXmlReader"/> is to deserialize a <see cref="ElementOrganizations"/>
@@ -77,6 +79,15 @@ namespace Kalliope.Xml.Readers
                         case "ActiveOrganization":
                             elementOrganizations.ActiveOrganization = reader.GetAttribute("ref");
                             break;
+                        case "XmlSchemaCustomization":
+                            Console.WriteLine($"{reader.Name} not yet supported");
+                            reader.RunToEndOfSubtree();
+                            break;
+                        case "GlobalDefaultReferenceModeNaming":
+                            Console.WriteLine($"{reader.Name} not yet supported");
+                            reader.RunToEndOfSubtree();
+                            break;
+                            
                         default:
                             throw new System.NotSupportedException($"{localName} not yet supported");
                     }

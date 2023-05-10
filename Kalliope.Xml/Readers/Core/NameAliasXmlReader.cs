@@ -59,6 +59,8 @@ namespace Kalliope.Xml.Readers
 			            case "RefinedInstance":
 				            nameAlias.RefinedInstance = reader.GetAttribute("ref");
                             break;
+                        default:
+                            throw new System.NotSupportedException($"{reader.LocalName} not yet supported");
 		            }
 	            }
             }

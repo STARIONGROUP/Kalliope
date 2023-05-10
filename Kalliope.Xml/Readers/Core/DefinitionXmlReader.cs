@@ -20,10 +20,12 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
     using Kalliope.DTO;
+    using Kalliope.Xml.Extensions;
 
     /// <summary>
     /// The purpose of the <see cref="DefinitionXmlReader"/> is to deserialize a <see cref="Definition"/>
@@ -56,6 +58,8 @@ namespace Kalliope.Xml.Readers
                         case "Text":
                             definition.Text = reader.ReadElementContentAsString();
                             break;
+                        default:
+                            throw new NotSupportedException($"{reader.LocalName} not yet supported");
                     }
                 }
             }
