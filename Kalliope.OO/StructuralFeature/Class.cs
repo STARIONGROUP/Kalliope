@@ -97,10 +97,20 @@ namespace Kalliope.OO.StructuralFeature
         {
             var result = this.UnfilteredProperties.ToList();
 
-            var superTypeClasses = this.SuperClasses.SelectMany(x => x.Properties);
+            var superTypeProperties = this.SuperClasses.SelectMany(x => x.Properties);
 
             // Filter out fully derived properties that have a duplicate name on their supertype
-            result = result.Where(x => !(x.IsFullyDerived && superTypeClasses.Select(y => y.Name).Contains(x.Name))).ToList();
+            result = result.Where(x => !(x.IsFullyDerived && superTypeProperties.Select(y => y.Name).Contains(x.Name))).ToList();
+
+            result = result
+                .OfType<ValueTypeProperty>()
+                .Where(x => 
+                    !superTypeProperties
+                        .OfType<ValueTypeProperty>()
+                        .Select(y => y.UniqueId)
+                        .Contains(x.UniqueId))
+                .Cast<IProperty>()
+                .ToList();
 
             return result
                 .OrderBy(y => y.Name)
