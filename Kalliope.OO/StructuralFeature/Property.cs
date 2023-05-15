@@ -271,12 +271,12 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets the <see cref="DerivationStorage"/> type of this <see cref="IProperty"/>
         /// </summary>
-        public DerivationStorage? DerivationStorage => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath.DerivationStorage : null;
+        public DerivationStorage? DerivationStorage => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath?.DerivationStorage : null;
 
         /// <summary>
         /// Gets the <see cref="DerivationCompleteness"/> type of this <see cref="IProperty"/>
         /// </summary>
-        public DerivationCompleteness? DerivationCompleteness => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath.DerivationCompleteness : null;
+        public DerivationCompleteness? DerivationCompleteness => this.IsDerived ? this.FactType.DerivationRule.FactTypeDerivationPath?.DerivationCompleteness : null;
 
         /// <summary>
         /// Calculates if the Class that belongs to a Role is the Role Owner of the relationship that belongs to this <see cref="ReferenceProperty{T}"/>

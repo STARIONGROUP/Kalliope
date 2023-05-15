@@ -87,7 +87,30 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// A <see cref="List{IProperty}"/> that contains all the properties of this <see cref="Class"/>
         /// </summary>
-        public List<IProperty> Properties { get; set; } = new();
+        public IReadOnlyList<IProperty> Properties => this.GetAllProperties();
+
+        /// <summary>
+        /// Retrieves a list of usable <see cref="IProperty"/> from the <see cref="UnfilteredProperties"/> list.
+        /// </summary>
+        /// <returns></returns>
+        private IReadOnlyList<IProperty> GetAllProperties()
+        {
+            var result = this.UnfilteredProperties.ToList();
+
+            var superTypeClasses = this.SuperClasses.SelectMany(x => x.Properties);
+
+            // Filter out fully derived properties that have a duplicate name on their supertype
+            result = result.Where(x => !(x.IsFullyDerived && superTypeClasses.Select(y => y.Name).Contains(x.Name))).ToList();
+
+            return result
+                .OrderBy(y => y.Name)
+                .ToList();
+        }
+
+        /// <summary>
+        /// A <see cref="List{IProperty}"/> that contains the raw, unfiltered list of properties of this <see cref="Class"/>
+        /// </summary>
+        public List<IProperty> UnfilteredProperties { get; set; } = new();
 
         /// <summary>
         /// Gets all identifier properties 
@@ -151,7 +174,6 @@ namespace Kalliope.OO.StructuralFeature
                 var superTypeClasses = this.SuperClasses
                     .SelectMany(x => x.NonIdentifierPropertiesIncludingSuperTypes.Where(y => !y.IsPartOfIdentifier));
 
-                result = result.Where(x => !superTypeClasses.Select(y => y.Name).Contains(x.Name));
                 result = result.Union(superTypeClasses);
             }
 
@@ -344,7 +366,7 @@ namespace Kalliope.OO.StructuralFeature
                     }
                 });
 
-            var groupedPropertiesByName = this.Properties.GroupBy(x => x.Name).Where(x => x.Count() > 1);
+            var groupedPropertiesByName = this.UnfilteredProperties.GroupBy(x => x.Name).Where(x => x.Count() > 1);
 
             foreach (var group in groupedPropertiesByName)
             {
@@ -354,7 +376,7 @@ namespace Kalliope.OO.StructuralFeature
                 }
             }
 
-            this.Properties = this.Properties.OrderBy(x => x.Name).ToList();
+            this.UnfilteredProperties = this.UnfilteredProperties.OrderBy(x => x.Name).ToList();
 
             return result;
         }
@@ -401,7 +423,7 @@ namespace Kalliope.OO.StructuralFeature
         protected bool TryAddValueTypeProperty(ValueType valueType, Role propertyRole, Role classRole)
         {
             var property = new ValueTypeProperty(this.OrmModel, this, valueType, propertyRole, classRole, this.GeneratorSettings);
-            this.Properties.Add(property);
+            this.UnfilteredProperties.Add(property);
 
             return true;
         }
@@ -431,7 +453,7 @@ namespace Kalliope.OO.StructuralFeature
             var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, referenceType, propertyRole, classRole, this.GeneratorSettings);
             property.IsImpliedProperty = isImpliedProperty;
 
-            this.Properties.Add(property);
+            this.UnfilteredProperties.Add(property);
 
             return true;
         }
@@ -477,7 +499,7 @@ namespace Kalliope.OO.StructuralFeature
 
                 var property = ReferencePropertyBuilder.CreateReferenceProperty(this.OrmModel, this, objectifiedType, propertyRole, classRole, this.GeneratorSettings);
 
-                this.Properties.Add(property);
+                this.UnfilteredProperties.Add(property);
                 result = true;
             }
 
