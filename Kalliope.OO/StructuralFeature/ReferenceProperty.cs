@@ -55,6 +55,11 @@ namespace Kalliope.OO.StructuralFeature
                 return false;
             }
 
+            if (this.PropertyRole.Multiplicity == Multiplicity.Indeterminate)
+            {
+                return true;
+            }
+            
             //otherwise fallback to First Role in FactType.Roles
             return
                 this.FactType.Roles.OfType<Role>().FirstOrDefault() == this.ClassRole
@@ -104,7 +109,7 @@ namespace Kalliope.OO.StructuralFeature
                 }
             }
 
-            return this.PropertyRole.Multiplicity;
+            return this.PropertyRole.Multiplicity == Multiplicity.Indeterminate ? Multiplicity.ZeroToMany : this.PropertyRole.Multiplicity;
         }
 
         /// <summary>

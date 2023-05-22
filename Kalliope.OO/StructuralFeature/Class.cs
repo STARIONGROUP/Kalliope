@@ -89,6 +89,42 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         public IReadOnlyList<IProperty> Properties => this.GetAllProperties();
 
+
+        /// <summary>
+        /// Retrieves a list of usable <see cref="IProperty"/> from the <see cref="UnfilteredProperties"/> list including supertype properties.
+        /// </summary>
+        /// <returns></returns>
+        private IReadOnlyList<IProperty> GetAllPropertiesIncludingSuperTypes()
+        {
+            var result = this.UnfilteredProperties.ToList();
+
+            var superTypeProperties = this.SuperClasses.SelectMany(x => x.GetAllPropertiesIncludingSuperTypes());
+
+            // Filter out fully derived properties that have a duplicate name on their supertype
+            result = result.Where(x => !(x.IsFullyDerived && superTypeProperties.Select(y => y.Name).Contains(x.Name))).ToList();
+
+            var tobeRemoved =
+                result
+                    .OfType<ValueTypeProperty>()
+                    .Where(x => 
+                        superTypeProperties
+                            .OfType<ValueTypeProperty>()
+                            .Select(y => y.UniqueId)
+                            .Contains(x.UniqueId))
+                    .Cast<IProperty>()
+                    .ToList();
+
+            result = 
+                result
+                    .Except(tobeRemoved)
+                    .Union(superTypeProperties)
+                    .ToList();
+
+            return result
+                .OrderBy(y => y.Name)
+                .ToList();
+        }
+
         /// <summary>
         /// Retrieves a list of usable <see cref="IProperty"/> from the <see cref="UnfilteredProperties"/> list.
         /// </summary>
@@ -97,7 +133,7 @@ namespace Kalliope.OO.StructuralFeature
         {
             var result = this.UnfilteredProperties.ToList();
 
-            var superTypeProperties = this.SuperClasses.SelectMany(x => x.Properties);
+            var superTypeProperties = this.SuperClasses.SelectMany(x => x.GetAllPropertiesIncludingSuperTypes());
 
             // Filter out fully derived properties that have a duplicate name on their supertype
             result = result.Where(x => !(x.IsFullyDerived && superTypeProperties.Select(y => y.Name).Contains(x.Name))).ToList();

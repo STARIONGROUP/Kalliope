@@ -57,6 +57,12 @@ namespace Kalliope.OO.Tests
                 {
                     Assert.That(property.Name, Is.Not.Empty);
                     Assert.That(property.DataType, Is.Not.EqualTo("Unknown type"));
+                    var isEnumerable = property.IsEnumerable;
+
+                    if (property is IReferenceProperty refprop)
+                    {
+                        var isMainRole = refprop.IsMainRelationshipRole;
+                    }
                 }
             }
 

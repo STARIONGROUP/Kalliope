@@ -60,12 +60,12 @@ namespace Kalliope.OO.Tests
                 }
             }
 
-            Assert.That(classes.Count, Is.EqualTo(2));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(5));
+            Assert.That(classes.Count, Is.EqualTo(3));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(6));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(0));
             Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(0));
-            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(1));
-            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(1));
+            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(2));
+            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(2));
             Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(0));
             Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(0));
             Assert.That(classes.SelectMany(x => x.UnfilteredProperties).Where(x => x.IsDerived).Count, Is.EqualTo(1));
