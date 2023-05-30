@@ -89,7 +89,6 @@ namespace Kalliope.OO.StructuralFeature
         /// </summary>
         public IReadOnlyList<IProperty> Properties => this.GetAllProperties();
 
-
         /// <summary>
         /// Retrieves a list of usable <see cref="IProperty"/> from the <see cref="UnfilteredProperties"/> list including supertype properties.
         /// </summary>

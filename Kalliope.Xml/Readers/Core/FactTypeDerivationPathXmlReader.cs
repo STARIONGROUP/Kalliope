@@ -51,25 +51,25 @@ namespace Kalliope.Xml.Readers
 
             factTypeDerivationPath.Name = reader.GetAttribute("_Name");
 
-            var externalDerivationAttribute = reader.GetAttribute("_ExternalDerivation");
+            var externalDerivationAttribute = reader.GetAttribute("ExternalDerivation");
             if (externalDerivationAttribute != null)
             {
                 factTypeDerivationPath.ExternalDerivation = XmlConvert.ToBoolean(externalDerivationAttribute);
             }
 
-            var setProjectionAttribute = reader.GetAttribute("_SetProjection");
+            var setProjectionAttribute = reader.GetAttribute("SetProjection");
             if (setProjectionAttribute != null)
             {
                 factTypeDerivationPath.ExternalDerivation = XmlConvert.ToBoolean(setProjectionAttribute);
             }
 
-            var derivationCompletenessAttribute = reader.GetAttribute("_DerivationCompleteness");
+            var derivationCompletenessAttribute = reader.GetAttribute("DerivationCompleteness");
             if (Enum.TryParse(derivationCompletenessAttribute, out DerivationCompleteness derivationCompleteness))
             {
                 factTypeDerivationPath.DerivationCompleteness = derivationCompleteness;
             }
 
-            var derivationStorageAttribute = reader.GetAttribute("_DerivationStorage");
+            var derivationStorageAttribute = reader.GetAttribute("DerivationStorage");
             if (Enum.TryParse(derivationStorageAttribute, out DerivationStorage derivationStorage))
             {
                 factTypeDerivationPath.DerivationStorage = derivationStorage;
