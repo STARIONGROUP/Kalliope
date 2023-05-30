@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>0.15.0</VersionPrefix>
+        <VersionPrefix>0.15.2</VersionPrefix>
         <Description>A library that provides ORM to OO mapping</Description>
         <PackageId>Kalliope.OO</PackageId>
         <Company>RHEA System S.A.</Company>
@@ -20,7 +20,8 @@
         <PackageIcon>Kalliope-icon.png</PackageIcon>
         <LangVersion>latest</LangVersion>
 	    <PackageReleaseNotes>
-		    [Update] to kalliope 0.15.0
+		    [fix] don't remove non fully derived properties based on duplicate name
+            [fix] Ternary FactTypes having multiple uniqueness constraints now default multiplicity to ZeroToMany instead of Indeterminate
 	    </PackageReleaseNotes>
     </PropertyGroup>
 

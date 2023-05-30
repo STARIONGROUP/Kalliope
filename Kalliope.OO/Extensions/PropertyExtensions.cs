@@ -41,7 +41,7 @@ namespace Kalliope.OO.Extensions
         /// </returns>
         public static List<IProperty> WithoutGuidIdentifier(this List<IProperty> properties)
         {
-            return properties.Where(x => !x.Name.EndsWith("UUID")).ToList();
+            return properties.Where(x => !x.Name.ToUpper().EndsWith("UUID")).ToList();
         }
     }
 }

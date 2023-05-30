@@ -32,9 +32,14 @@ namespace Kalliope.OO.StructuralFeature
     public class ValueTypeProperty : Property<ValueType>
     {
         /// <summary>
-        /// Gets or sets a value indicating that the ValueType represents an implicit boolean value
+        /// Gets a value indicating that the ValueType represents an implicit boolean value
         /// </summary>
         public bool IsImplicitBooleanValue => this.ObjectType.IsImplicitBooleanValue;
+
+        /// <summary>
+        /// Gets a string value that represents the unique "code" of a valuetype property
+        /// </summary>
+        public string UniqueId => this.ObjectType.Id + this.Name;
 
         /// <summary>
         /// Creates a new instance of the <see cref="ValueTypeProperty"/> class
