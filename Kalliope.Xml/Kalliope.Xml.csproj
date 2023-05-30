@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.15.0</VersionPrefix>
+    <VersionPrefix>0.15.3</VersionPrefix>
     <Description>A library to read and write XML based orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
     <PackageId>Kalliope.Xml</PackageId>
     <Company>RHEA System S.A.</Company>
@@ -19,9 +19,8 @@
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
     <PackageReleaseNotes>
-        [Update] to kalliope 0.15.0
-        [Add] Simple support for FactypeDerivationRules
-        [Add] Usage of XmlReader.RunToEndOfSubtree()
+        [Update] to kalliope 0.15.3
+        [Fix] Simple support for FactypeDerivationRules
     </PackageReleaseNotes>
   </PropertyGroup>
 
