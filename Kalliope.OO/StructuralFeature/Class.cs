@@ -95,27 +95,11 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns></returns>
         private IReadOnlyList<IProperty> GetAllPropertiesIncludingSuperTypes()
         {
-            var result = this.UnfilteredProperties.ToList();
-
+            var result = this.PropertiesWithoutDuplicateNames();
             var superTypeProperties = this.SuperClasses.SelectMany(x => x.GetAllPropertiesIncludingSuperTypes());
-
-            // Filter out fully derived properties that have a duplicate name on their supertype
-            result = result.Where(x => !(x.IsFullyDerived && superTypeProperties.Select(y => y.Name).Contains(x.Name))).ToList();
-
-            var tobeRemoved =
-                result
-                    .OfType<ValueTypeProperty>()
-                    .Where(x => 
-                        superTypeProperties
-                            .OfType<ValueTypeProperty>()
-                            .Select(y => y.UniqueId)
-                            .Contains(x.UniqueId))
-                    .Cast<IProperty>()
-                    .ToList();
 
             result = 
                 result
-                    .Except(tobeRemoved)
                     .Union(superTypeProperties)
                     .ToList();
 
@@ -130,6 +114,18 @@ namespace Kalliope.OO.StructuralFeature
         /// <returns></returns>
         private IReadOnlyList<IProperty> GetAllProperties()
         {
+            var result = this.PropertiesWithoutDuplicateNames();
+
+            return result
+                .OrderBy(y => y.Name)
+                .ToList();
+        }
+
+        /// <summary>
+        /// Retrieves all properties without duplicate names in SuperClass tree
+        /// </summary>
+        private List<IProperty> PropertiesWithoutDuplicateNames()
+        {
             var result = this.UnfilteredProperties.ToList();
 
             var superTypeProperties = this.SuperClasses.SelectMany(x => x.GetAllPropertiesIncludingSuperTypes());
@@ -139,20 +135,16 @@ namespace Kalliope.OO.StructuralFeature
 
             var tobeRemoved =
                 result
-                .OfType<ValueTypeProperty>()
-                .Where(x => 
-                    superTypeProperties
-                        .OfType<ValueTypeProperty>()
-                        .Select(y => y.UniqueId)
-                        .Contains(x.UniqueId))
-                .Cast<IProperty>()
-                .ToList();
+                    .OfType<ValueTypeProperty>()
+                    .Where(x =>
+                        superTypeProperties
+                            .OfType<ValueTypeProperty>()
+                            .Select(y => y.UniqueId)
+                            .Contains(x.UniqueId))
+                    .Cast<IProperty>()
+                    .ToList();
 
-            result = result.Except(tobeRemoved).ToList();
-
-            return result
-                .OrderBy(y => y.Name)
-                .ToList();
+            return result.Except(tobeRemoved).ToList();
         }
 
         /// <summary>
