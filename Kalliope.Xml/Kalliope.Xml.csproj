@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.15.3</VersionPrefix>
+    <VersionPrefix>0.16.0</VersionPrefix>
     <Description>A library to read and write XML based orm files generated with ORM Solutions NORMA and NORMA Pro.</Description>
     <PackageId>Kalliope.Xml</PackageId>
     <Company>RHEA System S.A.</Company>
