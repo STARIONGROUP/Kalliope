@@ -27,6 +27,7 @@ namespace Kalliope.Dal
     using System.Linq;
 
     using Kalliope.Core;
+    using Kalliope.Dal.CalculatedProperties;
 
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Logging.Abstractions;
@@ -130,6 +131,14 @@ namespace Kalliope.Dal
                 }
             }
             this.logger.LogDebug("POCO reference properties updated in {0} [ms]", sw.ElapsedMilliseconds);
+
+            sw.Restart();
+            this.logger.LogDebug("Handle calculated POCO properties");
+
+            var calculatedPocoPropertyHandler = new CalculatedPocoPropertyHandler(this.Cache);
+            calculatedPocoPropertyHandler.CalculateProperties();
+            this.logger.LogDebug("Calculated POCO properties handled in {0} [ms]", sw.ElapsedMilliseconds);
+
         }
     }
 }

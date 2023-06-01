@@ -129,5 +129,22 @@ namespace Kalliope.Generator.Tests.Generators
 
             Assert.AreEqual(expected, dto);
         }
+
+        [Test]
+        public void Verify_That_Generate_Class_For_Role_Returns_Expected_Result()
+        {
+            var customPropertyDefinition = this.dtoGenerator.TypeDrops.Single(x => x.Name == "Role");
+
+            var dto = this.dtoGenerator.GenerateType(customPropertyDefinition);
+
+            var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "Role.cs");
+
+            File.WriteAllText(dtoPath, dto);
+
+            var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/Role.cs"));
+
+            Assert.AreEqual(expected, dto);
+        }
+
     }
 }

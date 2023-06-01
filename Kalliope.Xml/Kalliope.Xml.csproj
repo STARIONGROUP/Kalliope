@@ -19,8 +19,7 @@
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
     <PackageReleaseNotes>
-        [Update] to kalliope 0.15.3
-        [Fix] Simple support for FactypeDerivationRules
+        [Fix] Support for Deontic Mandatory Constraint Modality on a Role.
     </PackageReleaseNotes>
   </PropertyGroup>
 

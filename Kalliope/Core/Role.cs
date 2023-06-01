@@ -78,6 +78,7 @@ namespace Kalliope.Core
         /// </summary>
         [Description("The Modality of the simple mandatory constraint on this Role. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded")]
         [Property(name: "MandatoryConstraintModality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "", typeName: "ConstraintModality")]
+        [Calculated("If Role.IsMandatory equals true, the value for this property needs to be retrieved from the simple MandatoryConstraint referenced in The FactType's InternalConstraints")]
         public ConstraintModality MandatoryConstraintModality { get; set; }
 
         /// <summary>

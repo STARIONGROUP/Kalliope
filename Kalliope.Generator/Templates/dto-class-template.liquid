@@ -75,6 +75,9 @@ namespace Kalliope.DTO
         /// </summary>
         [Description("{{ property.DescriptionAttribute.Description }}")]
         [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", allowOverride: {{ property.PropertyAttribute.AllowOverride }}, isOverride: {{ property.PropertyAttribute.IsOverride }}, isDerived: {{ property.PropertyAttribute.IsDerived }})]
+        {%- if property.HasCalculatedAttribute -%}
+        [Calculated("{{ property.CalculatedDescription }}")]
+		{%- endif -%}
         public {% if property.AllowOverride == true  %}virtual {% endif %}{% if property.IsOverride == true  %}override {% endif %}{{ property.TypeName }} {{ property.Name }} => this.Compute{{ property.Name }}();
  
 		{% elseif property.IsEnumerable == true and property.IsValueType %}
@@ -83,6 +86,9 @@ namespace Kalliope.DTO
         /// </summary>
         [Description("{{ property.DescriptionAttribute.Description }}")]
         [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", allowOverride: {{ property.PropertyAttribute.AllowOverride }}, isOverride: {{ property.PropertyAttribute.IsOverride }}, isDerived: {{ property.PropertyAttribute.IsDerived }})]
+        {%- if property.HasCalculatedAttribute -%}
+        [Calculated("{{ property.CalculatedDescription }}")]
+		{%- endif -%}
         public {% if property.AllowOverride == true  %}virtual {% endif %}{% if property.IsOverride == true  %}override {% endif %}List<{{ property.TypeName }}> {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable == true and property.IsReferenceType %}
@@ -91,6 +97,9 @@ namespace Kalliope.DTO
         /// </summary>
         [Description("{{ property.DescriptionAttribute.Description }}")]
         [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", allowOverride: {{ property.PropertyAttribute.AllowOverride }}, isOverride: {{ property.PropertyAttribute.IsOverride }}, isDerived: {{ property.PropertyAttribute.IsDerived }})]
+        {%- if property.HasCalculatedAttribute -%}
+        [Calculated("{{ property.CalculatedDescription }}")]
+		{%- endif -%}
         public {% if property.AllowOverride == true  %}virtual {% endif %}{% if property.IsOverride == true  %}override {% endif %}List<string> {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable != true and property.IsValueType %}
@@ -99,6 +108,9 @@ namespace Kalliope.DTO
         /// </summary>
         [Description("{{ property.DescriptionAttribute.Description }}")]
         [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", allowOverride: {{ property.PropertyAttribute.AllowOverride }}, isOverride: {{ property.PropertyAttribute.IsOverride }}, isDerived: {{ property.PropertyAttribute.IsDerived }})]
+        {%- if property.HasCalculatedAttribute -%}
+        [Calculated("{{ property.CalculatedDescription }}")]
+		{%- endif -%}
         public {% if property.AllowOverride == true  %}virtual {% endif %}{% if property.IsOverride == true  %}override {% endif %}{{ property.TypeName }} {{ property.Name }} { get; set; }
  
 		{% elseif property.IsEnumerable != true and property.IsReferenceType %}
@@ -107,6 +119,9 @@ namespace Kalliope.DTO
         /// </summary>
         [Description("{{ property.DescriptionAttribute.Description }}")]
         [Property(name: "{{ property.PropertyAttribute.Name }}", aggregation: AggregationKind.{{ property.PropertyAttribute.Aggregation }}, multiplicity: "{{ property.PropertyAttribute.Multiplicity }}", typeKind: TypeKind.{{ property.PropertyAttribute.TypeKind }}, defaultValue: "{{ property.PropertyAttribute.DefaultValue }}", typeName: "{{ property.PropertyAttribute.TypeName }}", allowOverride: {{ property.PropertyAttribute.AllowOverride }}, isOverride: {{ property.PropertyAttribute.IsOverride }}, isDerived: {{ property.PropertyAttribute.IsDerived }})]
+        {%- if property.HasCalculatedAttribute -%}
+        [Calculated("{{ property.CalculatedDescription }}")]
+		{%- endif -%}
         public {% if property.AllowOverride == true  %}virtual {% endif %}{% if property.IsOverride == true  %}override {% endif %}string {{ property.Name }} { get; set; }
  
 		{% endif %}

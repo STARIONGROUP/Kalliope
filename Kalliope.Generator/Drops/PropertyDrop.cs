@@ -45,27 +45,46 @@ namespace Kalliope.Generator
         /// <param name="descriptionAttribute">
         /// The <see cref="DescriptionAttribute"/> that contains a textual description of the <see cref="PropertyInfo"/>
         /// </param>
-        public PropertyDrop(PropertyInfo propertyInfo, PropertyAttribute propertyAttribute, DescriptionAttribute descriptionAttribute)
+        /// <param name="calculatedAttribute">
+        /// The <see cref="CalculatedAttribute"/> that contains a textual description of calculation of the properties value
+        /// </param>
+        public PropertyDrop(PropertyInfo propertyInfo, PropertyAttribute propertyAttribute, DescriptionAttribute descriptionAttribute, CalculatedAttribute calculatedAttribute)
         {
             this.PropertyInfo = propertyInfo;
             this.PropertyAttribute = propertyAttribute;
             this.DescriptionAttribute = descriptionAttribute;
+            this.CalculatedAttribute = calculatedAttribute;
         }
 
         /// <summary>
         /// Gets the <see cref="PropertyInfo"/> that is encapsulated by the <see cref="Drop"/>
         /// </summary>
-        public PropertyInfo PropertyInfo { get; private set; }
+        public PropertyInfo PropertyInfo { get; }
 
         /// <summary>
         /// Gets the <see cref="PropertyAttribute"/> that was used to decorate the property in the originating Type
         /// </summary>
-        public PropertyAttribute PropertyAttribute { get; private set; }
+        public PropertyAttribute PropertyAttribute { get; }
 
         /// <summary>
         /// Gets the <see cref="DescriptionAttribute"/> that was used to decorate the property in the originating Type
         /// </summary>
-        public DescriptionAttribute DescriptionAttribute { get; private set; }
+        public DescriptionAttribute DescriptionAttribute { get; }
+
+        /// <summary>
+        /// Gets the <see cref="CalculatedAttribute"/> that was used to decorate the property in the originating Type
+        /// </summary>
+        public CalculatedAttribute CalculatedAttribute { get; }
+
+        /// <summary>
+        /// Gets a value indicating that this property has a <see cref="CalculatedAttribute"/> assigned
+        /// </summary>
+        public bool HasCalculatedAttribute => this.CalculatedAttribute != null;
+
+        /// <summary>
+        /// Gets the description of the <see cref="CalculatedAttribute"/> if one is present in the originating property
+        /// </summary>
+        public string CalculatedDescription => this.HasCalculatedAttribute ? this.CalculatedAttribute.Description : string.Empty;
 
         /// <summary>
         /// Gets the name of the encapsulated <see cref="PropertyInfo"/>.
