@@ -78,10 +78,11 @@ namespace Kalliope.Generator
                 var ignoreAttribute = propertyInfo.GetCustomAttribute<IgnoreAttribute>();
                 var propertyAttribute = propertyInfo.GetCustomAttribute<PropertyAttribute>();
                 var descriptionAttribute = propertyInfo.GetCustomAttribute<DescriptionAttribute>();
+                var calculatedAttribute = propertyInfo.GetCustomAttribute<CalculatedAttribute>();
                 
                 if (ignoreAttribute == null && propertyAttribute != null)
                 {
-                    var propertyDrop = new PropertyDrop(propertyInfo, propertyAttribute, descriptionAttribute);
+                    var propertyDrop = new PropertyDrop(propertyInfo, propertyAttribute, descriptionAttribute, calculatedAttribute);
 
                     if (propertyInfo.DeclaringType == this.Type)
                     {

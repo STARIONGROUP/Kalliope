@@ -24,6 +24,7 @@ namespace Kalliope.Xml.Readers
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Common;
     using Kalliope.DTO;
 
     /// <summary>
@@ -58,6 +59,15 @@ namespace Kalliope.Xml.Readers
             if (isImplied != null)
             {
                 mandatoryConstraint.IsImplied = XmlConvert.ToBoolean(isImplied);
+            }
+
+            var modalityString = reader.GetAttribute("Modality");
+            if (modalityString != null)
+            {
+                if (Enum.TryParse(modalityString, out ConstraintModality modality))
+                {
+                    mandatoryConstraint.Modality = modality;
+                }
             }
 
             using (var constraintSubtree = reader.ReadSubtree())

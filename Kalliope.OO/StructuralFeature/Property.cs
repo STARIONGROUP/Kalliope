@@ -89,7 +89,7 @@ namespace Kalliope.OO.StructuralFeature
         /// <summary>
         /// Gets a value indicating if the property is mandatory
         /// </summary>
-        public bool IsMandatory => this.ClassRole.IsMandatory;
+        public bool IsMandatory => this.ClassRole.IsMandatory && this.ClassRole.MandatoryConstraintModality != ConstraintModality.Deontic;
 
         /// <summary>
         /// Gets a value indicating that this property is part of the primary key

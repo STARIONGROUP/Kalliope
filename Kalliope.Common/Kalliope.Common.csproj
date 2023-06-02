@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.15.3</VersionPrefix>
+    <VersionPrefix>0.16.0</VersionPrefix>
     <Description>A library that provides the Common Kalliope classes</Description>
     <PackageId>Kalliope.Common</PackageId>
     <Company>RHEA System S.A.</Company>
@@ -19,7 +19,7 @@
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
 	<PackageReleaseNotes>
-	  [Update] to kalliope 0.15.3
+	  [Update] to kalliope 0.16.0
 	</PackageReleaseNotes>
   </PropertyGroup>
 
