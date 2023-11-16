@@ -51,6 +51,8 @@ namespace Kalliope.Xml.Readers
 
             valueRange.MinValue = reader.GetAttribute("MinValue");
             valueRange.MaxValue = reader.GetAttribute("MaxValue");
+            valueRange.InvariantMinValue = reader.GetAttribute("InvariantMinValue");
+            valueRange.InvariantMaxValue = reader.GetAttribute("InvariantMaxValue");
 
             var minInclusionAttribute = reader.GetAttribute("MinInclusion");
             if (Enum.TryParse(minInclusionAttribute, out RangeInclusion minInclusion))
