@@ -78,6 +78,14 @@ namespace Kalliope.Dal
                 poco.AssociatedModelErrors.Remove(modelError);
             }
 
+            var calculatedConditionsToDelete = poco.CalculatedConditions.Select(x => x.Id).Except(dto.CalculatedConditions);
+            identifiersOfObjectsToDelete.AddRange(calculatedConditionsToDelete);
+            foreach (var identifier in calculatedConditionsToDelete)
+            {
+                var calculatedPathValue = poco.CalculatedConditions.Single(x => x.Id == identifier);
+                poco.CalculatedConditions.Remove(calculatedPathValue);
+            }
+
             var calculatedValuesToDelete = poco.CalculatedValues.Select(x => x.Id).Except(dto.CalculatedValues);
             identifiersOfObjectsToDelete.AddRange(calculatedValuesToDelete);
             foreach (var identifier in calculatedValuesToDelete)
@@ -113,6 +121,13 @@ namespace Kalliope.Dal
             {
                 var pathObjectUnifier = poco.ObjectUnifiers.Single(x => x.Id == identifier);
                 poco.ObjectUnifiers.Remove(pathObjectUnifier);
+            }
+
+            var pathedRolesToDelete = poco.PathedRoles.Select(x => x.Id).Except(dto.PathedRoles);
+            foreach (var identifier in pathedRolesToDelete)
+            {
+                var pathedRole = poco.PathedRoles.Single(x => x.Id == identifier);
+                poco.PathedRoles.Remove(pathedRole);
             }
 
             var projectedPathComponentsToDelete = poco.ProjectedPathComponents.Select(x => x.Id).Except(dto.ProjectedPathComponents);
@@ -199,6 +214,16 @@ namespace Kalliope.Dal
                 }
             }
 
+            var calculatedConditionsToAdd = dto.CalculatedConditions.Except(poco.CalculatedConditions.Select(x => x.Id));
+            foreach (var identifier in calculatedConditionsToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var calculatedPathValue = (CalculatedPathValue)lazyPoco.Value;
+                    poco.CalculatedConditions.Add(calculatedPathValue);
+                }
+            }
+
             var calculatedValuesToAdd = dto.CalculatedValues.Except(poco.CalculatedValues.Select(x => x.Id));
             foreach (var identifier in calculatedValuesToAdd)
             {
@@ -241,6 +266,16 @@ namespace Kalliope.Dal
                 {
                     var pathObjectUnifier = (PathObjectUnifier)lazyPoco.Value;
                     poco.ObjectUnifiers.Add(pathObjectUnifier);
+                }
+            }
+
+            var pathedRolesToAdd = dto.PathedRoles.Except(poco.PathedRoles.Select(x => x.Id));
+            foreach (var identifier in pathedRolesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var pathedRole = (PathedRole)lazyPoco.Value;
+                    poco.PathedRoles.Add(pathedRole);
                 }
             }
 

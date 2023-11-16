@@ -44,6 +44,7 @@ namespace Kalliope.DTO
         /// </summary>
         public LeadRolePath()
         {
+            this.CalculatedConditions = new List<string>();
             this.CalculatedValues = new List<string>();
             this.ObjectUnifiers = new List<string>();
             this.ProjectedPathComponents = new List<string>();
@@ -55,6 +56,13 @@ namespace Kalliope.DTO
         public string Container {get; set;}
  
 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValue"/> instances
+        /// </summary>
+        [Description("A list of calculated boolean results that are necessary conditions for this role path.")]
+        [Property(name: "CalculatedConditions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> CalculatedConditions { get; set; }
+ 
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="CalculatedPathValue"/> instances
         /// </summary>

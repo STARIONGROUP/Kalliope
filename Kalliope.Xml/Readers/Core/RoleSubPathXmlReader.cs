@@ -21,12 +21,30 @@
 namespace Kalliope.Xml.Readers
 {
     using Kalliope.DTO;
+    using System.Collections.Generic;
+    using System.Xml;
 
     /// <summary>
     /// The purpose of the <see cref="RoleSubPathXmlReader"/> is to deserialize a <see cref="RoleSubPath"/>
     /// from an .orm XML file
     /// </summary>
-    public class RoleSubPathXmlReader
+    public class RoleSubPathXmlReader : RolePathXmlReader
     {
+        /// <summary>
+        /// Reads the properties of the provided <see cref="RoleSubPath"/> from the <see cref="XmlReader"/>
+        /// </summary>
+        /// <param name="roleSubPath">
+        /// The subject <see cref="RolePath"/> that is to be deserialized
+        /// </param>
+        /// <param name="reader">
+        /// The <see cref="XmlReader"/> that contains the .orm XML
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public void ReadXml(RoleSubPath roleSubPath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            base.ReadXml(roleSubPath, reader, modelThings);
+        }
     }
 }

@@ -488,12 +488,18 @@ namespace Kalliope.Dal
                 case "PathConditionRoleValueConstraint":
                     var pathConditionRoleValueConstraint = poco as Kalliope.Core.PathConditionRoleValueConstraint;
                     return pathConditionRoleValueConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathConditionRoleValueConstraint)dto);
+                case "PathConditionRoleValueRestriction":
+                    var pathConditionRoleValueRestriction = poco as Kalliope.Core.PathConditionRoleValueRestriction;
+                    return pathConditionRoleValueRestriction.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathConditionRoleValueRestriction)dto);
                 case "PathConditionRootValueConstraint":
                     var pathConditionRootValueConstraint = poco as Kalliope.Core.PathConditionRootValueConstraint;
                     return pathConditionRootValueConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathConditionRootValueConstraint)dto);
                 case "PathConstant":
                     var pathConstant = poco as Kalliope.Core.PathConstant;
                     return pathConstant.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathConstant)dto);
+                case "PathedRole":
+                    var pathedRole = poco as Kalliope.Core.PathedRole;
+                    return pathedRole.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathedRole)dto);
                 case "PathObjectUnifier":
                     var pathObjectUnifier = poco as Kalliope.Core.PathObjectUnifier;
                     return pathObjectUnifier.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.PathObjectUnifier)dto);
@@ -596,6 +602,9 @@ namespace Kalliope.Dal
                 case "RoleValueConstraint":
                     var roleValueConstraint = poco as Kalliope.Core.RoleValueConstraint;
                     return roleValueConstraint.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RoleValueConstraint)dto);
+                case "RootObjectType":
+                    var rootObjectType = poco as Kalliope.Core.RootObjectType;
+                    return rootObjectType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RootObjectType)dto);
                 case "RowIdOtherDataType":
                     var rowIdOtherDataType = poco as Kalliope.Core.RowIdOtherDataType;
                     return rowIdOtherDataType.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.RowIdOtherDataType)dto);
@@ -1344,6 +1353,10 @@ namespace Kalliope.Dal
                     var pathConditionRoleValueConstraint = poco as Kalliope.Core.PathConditionRoleValueConstraint;
                     pathConditionRoleValueConstraint.UpdateReferenceProperties((Kalliope.DTO.PathConditionRoleValueConstraint)dto, cache);
                     break;
+                case "PathConditionRoleValueRestriction":
+                    var pathConditionRoleValueRestriction = poco as Kalliope.Core.PathConditionRoleValueRestriction;
+                    pathConditionRoleValueRestriction.UpdateReferenceProperties((Kalliope.DTO.PathConditionRoleValueRestriction)dto, cache);
+                    break;
                 case "PathConditionRootValueConstraint":
                     var pathConditionRootValueConstraint = poco as Kalliope.Core.PathConditionRootValueConstraint;
                     pathConditionRootValueConstraint.UpdateReferenceProperties((Kalliope.DTO.PathConditionRootValueConstraint)dto, cache);
@@ -1351,6 +1364,10 @@ namespace Kalliope.Dal
                 case "PathConstant":
                     var pathConstant = poco as Kalliope.Core.PathConstant;
                     pathConstant.UpdateReferenceProperties((Kalliope.DTO.PathConstant)dto, cache);
+                    break;
+                case "PathedRole":
+                    var pathedRole = poco as Kalliope.Core.PathedRole;
+                    pathedRole.UpdateReferenceProperties((Kalliope.DTO.PathedRole)dto, cache);
                     break;
                 case "PathObjectUnifier":
                     var pathObjectUnifier = poco as Kalliope.Core.PathObjectUnifier;
@@ -1487,6 +1504,10 @@ namespace Kalliope.Dal
                 case "RoleValueConstraint":
                     var roleValueConstraint = poco as Kalliope.Core.RoleValueConstraint;
                     roleValueConstraint.UpdateReferenceProperties((Kalliope.DTO.RoleValueConstraint)dto, cache);
+                    break;
+                case "RootObjectType":
+                    var rootObjectType = poco as Kalliope.Core.RootObjectType;
+                    rootObjectType.UpdateReferenceProperties((Kalliope.DTO.RootObjectType)dto, cache);
                     break;
                 case "RowIdOtherDataType":
                     var rowIdOtherDataType = poco as Kalliope.Core.RowIdOtherDataType;

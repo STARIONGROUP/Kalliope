@@ -93,6 +93,13 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
+            var pathedRolesToDelete = poco.PathedRoles.Select(x => x.Id).Except(dto.PathedRoles);
+            foreach (var identifier in pathedRolesToDelete)
+            {
+                var pathedRole = poco.PathedRoles.Single(x => x.Id == identifier);
+                poco.PathedRoles.Remove(pathedRole);
+            }
+
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
             foreach (var identifier in rolesToDelete)
             {
@@ -187,6 +194,16 @@ namespace Kalliope.Dal
                 {
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
+                }
+            }
+
+            var pathedRolesToAdd = dto.PathedRoles.Except(poco.PathedRoles.Select(x => x.Id));
+            foreach (var identifier in pathedRolesToAdd)
+            {
+                if (cache.TryGetValue(identifier, out lazyPoco))
+                {
+                    var pathedRole = (PathedRole)lazyPoco.Value;
+                    poco.PathedRoles.Add(pathedRole);
                 }
             }
 

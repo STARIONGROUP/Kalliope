@@ -351,3 +351,5 @@ MigrationBackup/
 /Kalliope.OO.Tests/Generation/OSMOSEModelLoaderTestFixture.cs
 /Kalliope.OO/Documentation/Doxyfile
 /Kalliope.OO/Documentation/latex
+/Kalliope.Xml.Tests/Data/SSO_MBSEHUB_dev.orm
+/Kalliope.Xml.Tests/OrmXmlReaders/SSO_MBSEHUB_dev_TestFixture.cs

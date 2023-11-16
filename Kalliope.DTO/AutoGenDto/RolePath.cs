@@ -42,12 +42,20 @@ namespace Kalliope.DTO
         /// </summary>
         protected RolePath()
         {
+            this.PathedRoles = new List<string>();
             this.Roles = new List<string>();
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
             this.SubPaths = new List<string>();
         }
  
 
+        /// <summary>
+        /// Gets or sets a list unique identifiers of the referenced <see cref="PathedRole"/> instances
+        /// </summary>
+        [Description("The pathed roles included in this path")]
+        [Property(name: "PathedRoles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathedRole", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> PathedRoles { get; set; }
+ 
         /// <summary>
         /// Gets or sets a list unique identifiers of the referenced <see cref="Role"/> instances
         /// </summary>

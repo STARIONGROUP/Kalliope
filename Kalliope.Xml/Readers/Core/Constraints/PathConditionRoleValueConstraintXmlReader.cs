@@ -26,7 +26,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="PathConditionRoleValueConstraintXmlReader"/> is to deserialize a <see cref="PathConditionRoleValueConstraint"/>
     /// from an .orm XML file
     /// </summary>
-    public class PathConditionRoleValueConstraintXmlReader
+    public class PathConditionRoleValueConstraintXmlReader : ValueConstraintXmlReader
     {
     }
 }

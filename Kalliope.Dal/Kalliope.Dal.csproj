@@ -32,4 +32,8 @@
     <ProjectReference Include="..\Kalliope.DTO\Kalliope.DTO.csproj" />
     <ProjectReference Include="..\Kalliope\Kalliope.csproj" />
   </ItemGroup>
+    
+  <ItemGroup>
+    <Folder Include="AutoGenModelThingFactory\" />
+  </ItemGroup>
 </Project>

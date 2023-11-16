@@ -46,6 +46,16 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(CalculatedPathValue calculatedPathValue, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(calculatedPathValue, reader, modelThings);
+
+            var universalAggregationContextString = reader.GetAttribute("UniversalAggregationContext");
+            if (universalAggregationContextString != null)
+            {
+                calculatedPathValue.UniversalAggregationContext =
+                    XmlConvert.ToBoolean(universalAggregationContextString);
+            }
+
+            //ToDo: Support Function
+            //ToDo: Support Inputs
         }
     }
 }

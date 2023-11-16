@@ -20,9 +20,11 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
+    using Kalliope.Common;
     using Kalliope.DTO;
 
     /// <summary>
@@ -46,6 +48,235 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(rolePath, reader, modelThings);
+
+            var splitIsNegated = reader.GetAttribute("SplitIsNegated");
+            if (splitIsNegated != null)
+            {
+                rolePath.SplitIsNegated = XmlConvert.ToBoolean(splitIsNegated);
+            }
+
+            var logicalCombinationOperatorString = reader.GetAttribute("SplitCombinationOperator");
+            if (logicalCombinationOperatorString != null)
+            {
+                if (Enum.TryParse(logicalCombinationOperatorString, out LogicalCombinationOperator logicalCombinationOperator))
+                {
+                    rolePath.SplitCombinationOperator = logicalCombinationOperator;
+                }
+            }
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "RootObjectType":
+                            using (var rootObjectTypeSubtree = reader.ReadSubtree())
+                            {
+                                rootObjectTypeSubtree.MoveToContent();
+                                var rootObjectType = new RootObjectType();
+                                var rootObjectTypeXmlReader = new RootObjectTypeXmlReader();
+                                rootObjectTypeXmlReader.ReadXml(rootObjectType, rootObjectTypeSubtree, modelThings);
+                                rootObjectType.Container = rolePath.Id;
+                                rolePath.RootObjectType = rootObjectType.Id;
+                            }
+                            break;
+                        case "SubPaths":
+                            using (var subPathsSubtree = reader.ReadSubtree())
+                            {
+                                subPathsSubtree.MoveToContent();
+                                this.ReadSubPathsSubtree(rolePath, subPathsSubtree, modelThings);
+                            }
+                            break;
+                        case "PathedRoles":
+                            using (var rolesSubtree = reader.ReadSubtree())
+                            {
+                                rolesSubtree.MoveToContent();
+                                this.ReadPathedRoles(rolePath, rolesSubtree, modelThings);
+                            }
+                            break;
+
+                        case "CalculatedValues":
+                            using (var calculatedValuesSubtree = reader.ReadSubtree())
+                            {
+                                calculatedValuesSubtree.MoveToContent();
+                                this.ReadCalculatedValuesSubtree(rolePath, calculatedValuesSubtree, modelThings);
+                            }
+                            break;
+                        
+                        case "ObjectUnifiers":
+                            using (var objectUnifiersSubtree = reader.ReadSubtree())
+                            {
+                                objectUnifiersSubtree.MoveToContent();
+                                this.ReadObjectUnifiers(rolePath, objectUnifiersSubtree, modelThings);
+                            }
+                            break;
+
+                        case "Conditions":
+                            using (var conditionsSubtree = reader.ReadSubtree())
+                            {
+                                conditionsSubtree.MoveToContent();
+                                this.ReadConditions(rolePath, conditionsSubtree, modelThings);
+                            }
+                            break;
+
+
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="PathedRole"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadPathedRoles(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "PathedRole":
+                            using (var pathedRoleSubtree = reader.ReadSubtree())
+                            {
+                                pathedRoleSubtree.MoveToContent();
+                                var pathedRole = new PathedRole();
+                                var pathedRoleXmlReader = new PathedRoleXmlReader();
+                                pathedRoleXmlReader.ReadXml(pathedRole, pathedRoleSubtree, modelThings);
+                                pathedRole.Container = rolePath.Id;
+                                rolePath.PathedRoles.Add(pathedRole.Id);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="CalculatedPathValue"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public virtual void ReadConditions(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new InvalidOperationException("only supported by LeadRolePath");
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="LeadRolePath"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="LeadRolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadSubPathsSubtree(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "SubPath":
+                            using (var subPathSubtree = reader.ReadSubtree())
+                            {
+                                subPathSubtree.MoveToContent();
+                                var subPath = new RoleSubPath();
+                                var subPathXmlReader = new RoleSubPathXmlReader();
+                                subPathXmlReader.ReadXml(subPath, subPathSubtree, modelThings);
+                                subPath.Container = rolePath.Id;
+                                rolePath.SubPaths.Add(subPath.Id);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// reads the contained <see cref="RolePath"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public virtual void ReadProjectedPathComponents(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new InvalidOperationException("only supported by LeadRolePath");
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="PathObjectUnifier"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public virtual void ReadObjectUnifiers(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new InvalidOperationException("only supported by LeadRolePath");
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="CalculatedValue"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public virtual void ReadCalculatedValuesSubtree(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new InvalidOperationException("only supported by LeadRolePath");
         }
     }
 }

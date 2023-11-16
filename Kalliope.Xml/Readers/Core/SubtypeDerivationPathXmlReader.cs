@@ -102,9 +102,30 @@ namespace Kalliope.Xml.Readers
         /// </param>
         private void ReadPathComponents(SubtypeDerivationPath subtypeDerivationPath, XmlReader reader, List<ModelThing> modelThings)
         {
-            //TODO implement PathComponents GH27
-            Console.WriteLine($"{reader.Name} not yet supported");
-            reader.RunToEndOfSubtree();
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "RolePath":
+                            using (var rolePathSubtree = reader.ReadSubtree())
+                            {
+                                rolePathSubtree.MoveToContent();
+                                var rolePath = new LeadRolePath();
+                                var leadRolePathXmlReader = new LeadRolePathXmlReader();
+                                leadRolePathXmlReader.ReadXml(rolePath, rolePathSubtree, modelThings);
+                                rolePath.Container = subtypeDerivationPath.Id;
+                                subtypeDerivationPath.LeadRolePaths.Add(rolePath.Id);
+                            }
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

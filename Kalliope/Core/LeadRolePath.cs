@@ -68,6 +68,13 @@ namespace Kalliope.Core
         public List<CalculatedPathValue> CalculatedValues { get; set; }
 
         /// <summary>
+        /// Gets or sets a list of calculated boolean results that are necessary conditions for this role path.
+        /// </summary>
+        [Description("A list of calculated boolean results that are necessary conditions for this role path.")]
+        [Property(name: "CalculatedConditions", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "CalculatedPathValue")]
+        public List<CalculatedPathValue> CalculatedConditions { get; set; }
+
+        /// <summary>
         /// Gets or sets the referenced <see cref="LeadRolePath"/>s
         /// </summary>
         [Description("")]

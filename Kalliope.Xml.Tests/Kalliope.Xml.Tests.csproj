@@ -68,6 +68,9 @@
       <None Update="Data\ReservationModel5.orm">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Data\SSO_MBSEHUB_dev.orm">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
       <None Update="Data\Talent.orm">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>

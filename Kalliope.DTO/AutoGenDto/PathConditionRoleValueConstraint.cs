@@ -35,6 +35,7 @@ namespace Kalliope.DTO
     /// <remarks>
     /// Value constraint applied to a pathed role in a role path
     /// </remarks>
+    [Container(typeName: "PathedRole", propertyName: "PathedRoleConditionValueConstraint")]
     public partial class PathConditionRoleValueConstraint : ValueConstraint
     {
         /// <summary>
@@ -43,6 +44,11 @@ namespace Kalliope.DTO
         public PathConditionRoleValueConstraint()
         {
         }
+ 
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
  
     }
 }

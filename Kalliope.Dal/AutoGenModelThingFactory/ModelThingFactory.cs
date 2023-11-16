@@ -615,6 +615,10 @@ namespace Kalliope.Dal
                     var pathConditionRoleValueConstraint = dto as Kalliope.DTO.PathConditionRoleValueConstraint;
                     var pathConditionRoleValueConstraintFactory = new PathConditionRoleValueConstraintFactory();
                     return pathConditionRoleValueConstraintFactory.Create(pathConditionRoleValueConstraint);
+                case "PathConditionRoleValueRestriction":
+                    var pathConditionRoleValueRestriction = dto as Kalliope.DTO.PathConditionRoleValueRestriction;
+                    var pathConditionRoleValueRestrictionFactory = new PathConditionRoleValueRestrictionFactory();
+                    return pathConditionRoleValueRestrictionFactory.Create(pathConditionRoleValueRestriction);
                 case "PathConditionRootValueConstraint":
                     var pathConditionRootValueConstraint = dto as Kalliope.DTO.PathConditionRootValueConstraint;
                     var pathConditionRootValueConstraintFactory = new PathConditionRootValueConstraintFactory();
@@ -623,6 +627,10 @@ namespace Kalliope.Dal
                     var pathConstant = dto as Kalliope.DTO.PathConstant;
                     var pathConstantFactory = new PathConstantFactory();
                     return pathConstantFactory.Create(pathConstant);
+                case "PathedRole":
+                    var pathedRole = dto as Kalliope.DTO.PathedRole;
+                    var pathedRoleFactory = new PathedRoleFactory();
+                    return pathedRoleFactory.Create(pathedRole);
                 case "PathObjectUnifier":
                     var pathObjectUnifier = dto as Kalliope.DTO.PathObjectUnifier;
                     var pathObjectUnifierFactory = new PathObjectUnifierFactory();
@@ -759,6 +767,10 @@ namespace Kalliope.Dal
                     var roleValueConstraint = dto as Kalliope.DTO.RoleValueConstraint;
                     var roleValueConstraintFactory = new RoleValueConstraintFactory();
                     return roleValueConstraintFactory.Create(roleValueConstraint);
+                case "RootObjectType":
+                    var rootObjectType = dto as Kalliope.DTO.RootObjectType;
+                    var rootObjectTypeFactory = new RootObjectTypeFactory();
+                    return rootObjectTypeFactory.Create(rootObjectType);
                 case "RowIdOtherDataType":
                     var rowIdOtherDataType = dto as Kalliope.DTO.RowIdOtherDataType;
                     var rowIdOtherDataTypeFactory = new RowIdOtherDataTypeFactory();

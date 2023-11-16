@@ -20,9 +20,9 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
-
     using Kalliope.DTO;
 
     /// <summary>
@@ -45,7 +45,138 @@ namespace Kalliope.Xml.Readers
         /// </param>
         public void ReadXml(LeadRolePath leadRolePath, XmlReader reader, List<ModelThing> modelThings)
         {
+            var note = reader.GetAttribute("Note");
+            if (note != null)
+            {
+                leadRolePath.Note = note;
+            }
+
             base.ReadXml(leadRolePath, reader, modelThings);
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="PathObjectUnifier"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public override void ReadObjectUnifiers(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "ObjectUnifier":
+                            using (var objectUnifierSubtree = reader.ReadSubtree())
+                            {
+                                objectUnifierSubtree.MoveToContent();
+                                var objectUnifier = new PathObjectUnifier();
+                                var pathObjectUnifierXmlReader = new PathObjectUnifierXmlReader();
+                                pathObjectUnifierXmlReader.ReadXml(objectUnifier, objectUnifierSubtree, modelThings);
+                                objectUnifier.Container = rolePath.Id;
+                                ((LeadRolePath)rolePath).ObjectUnifiers.Add(objectUnifier.Id);
+                            }
+
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="CalculatedPathValue"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public override void ReadConditions(RolePath rolePath, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CalculatedCondition":
+                            using (var calculatedConditionSubtree = reader.ReadSubtree())
+                            {
+                                calculatedConditionSubtree.MoveToContent();
+
+                                var calculatedValueRef = reader.GetAttribute("ref");
+                                if (calculatedValueRef != null)
+                                {
+                                    ((LeadRolePath)rolePath).CalculatedConditions.Add(calculatedValueRef);
+                                }
+                            }
+
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="CalculatedValue"/>s
+        /// </summary>
+        /// <param name="rolePath">
+        /// The container <see cref="RolePath"/> of the <see cref="RolePath"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        public override void ReadCalculatedValuesSubtree(RolePath rolePath, XmlReader reader,
+            List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "CalculatedValue":
+                            using (var calculatedValueSubtree = reader.ReadSubtree())
+                            {
+                                calculatedValueSubtree.MoveToContent();
+                                var calculatedValue = new CalculatedPathValue();
+                                var calculatedValueXmlReader = new CalculatedPathValueXmlReader();
+                                calculatedValueXmlReader.ReadXml(calculatedValue, calculatedValueSubtree, modelThings);
+                                calculatedValue.Container = rolePath.Id;
+                                ((LeadRolePath)rolePath).CalculatedValues.Add(calculatedValue.Id);
+                            }
+
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Kalliope.Core
             this.SplitCombinationOperator = LogicalCombinationOperator.And;
             this.SubPaths = new List<RoleSubPath>();
             this.Roles = new List<Role>();
+            this.PathedRoles = new List<PathedRole>();
         }
 
         /// <summary>
@@ -83,5 +84,12 @@ namespace Kalliope.Core
         [Description("The roles included in this path")]
         [Property(name: "Roles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "Role")]
         public List<Role> Roles { get; set; }
+
+        /// <summary>
+        /// The roles included in this path
+        /// </summary>
+        [Description("The pathed roles included in this path")]
+        [Property(name: "PathedRoles", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "PathedRole")]
+        public List<PathedRole> PathedRoles { get; set; }
     }
 }
