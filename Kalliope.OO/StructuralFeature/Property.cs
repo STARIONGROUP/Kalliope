@@ -112,13 +112,15 @@ namespace Kalliope.OO.StructuralFeature
                 return
                     (entityType
                         .PreferredIdentifier?
-                        .Roles
+                        .RoleSequences
+                        .SelectMany(x => x.Roles)
                         .OfType<Role>()
                         .Contains(this.PropertyRole) ?? false)
                     ||
                     (entityType
                         .PreferredIdentifier?
-                        .Roles
+                        .RoleSequences
+                        .SelectMany(x => x.Roles)
                         .OfType<RoleProxy>()
                         .Select(x => x.TargetRole)
                         .Contains(this.PropertyRole) ?? false);
@@ -128,13 +130,15 @@ namespace Kalliope.OO.StructuralFeature
             {
                 return (objectifiedType
                            .PreferredIdentifier?
-                           .Roles
+                           .RoleSequences
+                           .SelectMany(x => x.Roles)
                            .OfType<Role>()
                            .Contains(this.PropertyRole) ?? false)
                        ||
                        (objectifiedType
                            .PreferredIdentifier?
-                           .Roles
+                           .RoleSequences
+                           .SelectMany(x => x.Roles)
                            .OfType<RoleProxy>()
                            .Select(x => x.TargetRole)
                            .Contains(this.PropertyRole) ?? false);

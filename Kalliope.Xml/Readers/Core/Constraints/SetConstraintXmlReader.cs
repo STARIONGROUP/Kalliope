@@ -30,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="SetConstraintXmlReader"/> is to deserialize a <see cref="SetConstraint"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class SetConstraintXmlReader : ConstraintRoleSequenceXmlReader
+    public abstract class SetConstraintXmlReader : ConstraintXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="SetConstraint"/> from the <see cref="XmlReader"/>
@@ -52,13 +52,13 @@ namespace Kalliope.Xml.Readers
         /// <summary>
         /// Reads <see cref="Role"/> sequences from the .orm file
         /// </summary>
-        /// <param name="setConstraint">
-        /// The <see cref="SetConstraint"/> that contains the <see cref="Role"/>s
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="Role"/>s
         /// </param>
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        protected void ReadRoleSequences(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
+        protected override void ReadRoleSequences(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -68,65 +68,22 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
-                        case "Role":
-                            using (var roleProxySubTree = reader.ReadSubtree())
+                        case "RoleSequence":
+                            using (var roleSequenceSubTree = reader.ReadSubtree())
                             {
-                                roleProxySubTree.MoveToContent();
-                                var roleProxy = new RoleProxy();
-                                var roleProxyXmlReader = new RoleProxyXmlReader();
-                                roleProxyXmlReader.ReadXml(roleProxy, roleProxySubTree, modelThings);
-                                roleProxy.Container = setConstraint.Id;
-                                setConstraint.Roles.Add(roleProxy.Id);
+                                roleSequenceSubTree.MoveToContent();
+                                var roleSequence = new ConstraintRoleSequence();
+                                var roleSequenceXmlReader = new ConstraintRoleSequenceXmlReader();
+                                roleSequenceXmlReader.ReadXml(roleSequence, roleSequenceSubTree, modelThings);
+                                roleSequence.Container = constraint.Id;
+                                ((SetConstraint)constraint).RoleSequences.Add(roleSequence.Id);
                             }
-                            break;
-                        case "JoinRule":
-                            using (var joinRuleSubtree = reader.ReadSubtree())
-                            {
-                                joinRuleSubtree.MoveToContent();
-                                this.ReadJoinRules(setConstraint, joinRuleSubtree, modelThings);
-                            }
+
                             break;
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
 
-                }
-            }
-        }
-
-		/// <summary>
-		/// Reads <see cref="ConstraintRoleSequenceJoinPath"/> sequences from the .orm file
-		/// </summary>
-		/// <param name="setConstraint">
-		/// The <see cref="SetConstraint"/> that contains the <see cref="ConstraintRoleSequenceJoinPath"/>s
-		/// </param>
-		/// <param name="reader">
-		/// an instance of <see cref="XmlReader"/> used to read the .orm file
-		/// </param>
-		private void ReadJoinRules(SetConstraint setConstraint, XmlReader reader, List<ModelThing> modelThings)
-        {
-            while (reader.Read())
-            {
-                if (reader.MoveToContent() == XmlNodeType.Element)
-                {
-                    var localName = reader.LocalName;
-
-                    switch (localName)
-                    {
-                        case "JoinPath":
-                            using (var joinPathSubTree = reader.ReadSubtree())
-                            {
-                                joinPathSubTree.MoveToContent();
-                                var constraintRoleSequenceJoinPath = new ConstraintRoleSequenceJoinPath();
-                                var constraintRoleSequenceJoinPathXmlReader = new ConstraintRoleSequenceJoinPathXmlReader();
-                                constraintRoleSequenceJoinPathXmlReader.ReadXml(constraintRoleSequenceJoinPath, joinPathSubTree, modelThings);
-                                constraintRoleSequenceJoinPath.Container = setConstraint.Id;
-                                setConstraint.JoinPath = constraintRoleSequenceJoinPath.Id;
-                            }
-                            break;
-                        default:
-                            throw new NotSupportedException($"{localName} not yet supported");
-                    }
                 }
             }
         }

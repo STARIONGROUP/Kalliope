@@ -110,29 +110,10 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
-            var factTypesToDelete = poco.FactTypes.Select(x => x.Id).Except(dto.FactTypes);
-            foreach (var identifier in factTypesToDelete)
-            {
-                var factType = poco.FactTypes.Single(x => x.Id == identifier);
-                poco.FactTypes.Remove(factType);
-            }
-
             if (poco.ImplicationError != null && poco.ImplicationError.Id != dto.ImplicationError)
             {
                 identifiersOfObjectsToDelete.Add(poco.ImplicationError.Id);
                 poco.ImplicationError = null;
-            }
-
-            if (poco.JoinPath != null && poco.JoinPath.Id != dto.JoinPath)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinPath.Id);
-                poco.JoinPath = null;
-            }
-
-            if (poco.JoinPathRequiredError != null && poco.JoinPathRequiredError.Id != dto.JoinPathRequiredError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinPathRequiredError.Id);
-                poco.JoinPathRequiredError = null;
             }
 
             poco.Modality = dto.Modality;
@@ -153,12 +134,11 @@ namespace Kalliope.Dal
                 poco.OperatorNotSpecifiedError = null;
             }
 
-            var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
-            identifiersOfObjectsToDelete.AddRange(rolesToDelete);
-            foreach (var identifier in rolesToDelete)
+            var roleSequencesToDelete = poco.RoleSequences.Select(x => x.Id).Except(dto.RoleSequences);
+            foreach (var identifier in roleSequencesToDelete)
             {
-                var roleBase = poco.Roles.Single(x => x.Id == identifier);
-                poco.Roles.Remove(roleBase);
+                var constraintRoleSequence = poco.RoleSequences.Single(x => x.Id == identifier);
+                poco.RoleSequences.Remove(constraintRoleSequence);
             }
 
             if (poco.RolesNotComparableError != null && poco.RolesNotComparableError.Id != dto.RolesNotComparableError)
@@ -261,29 +241,9 @@ namespace Kalliope.Dal
                 }
             }
 
-            var factTypesToAdd = dto.FactTypes.Except(poco.FactTypes.Select(x => x.Id));
-            foreach (var identifier in factTypesToAdd)
-            {
-                if (cache.TryGetValue(identifier, out lazyPoco))
-                {
-                    var factType = (FactType)lazyPoco.Value;
-                    poco.FactTypes.Add(factType);
-                }
-            }
-
             if (poco.ImplicationError == null && !string.IsNullOrEmpty(dto.ImplicationError) && cache.TryGetValue(dto.ImplicationError, out lazyPoco))
             {
                 poco.ImplicationError = (ImplicationError)lazyPoco.Value;
-            }
-
-            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath) && cache.TryGetValue(dto.JoinPath, out lazyPoco))
-            {
-                poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
-            }
-
-            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError) && cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
-            {
-                poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
             }
 
             if (poco.Note == null && !string.IsNullOrEmpty(dto.Note) && cache.TryGetValue(dto.Note, out lazyPoco))
@@ -296,13 +256,13 @@ namespace Kalliope.Dal
                 poco.OperatorNotSpecifiedError = (ValueComparisonConstraintOperatorNotSpecifiedError)lazyPoco.Value;
             }
 
-            var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));
-            foreach (var identifier in rolesToAdd)
+            var roleSequencesToAdd = dto.RoleSequences.Except(poco.RoleSequences.Select(x => x.Id));
+            foreach (var identifier in roleSequencesToAdd)
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var roleBase = (RoleBase)lazyPoco.Value;
-                    poco.Roles.Add(roleBase);
+                    var constraintRoleSequence = (ConstraintRoleSequence)lazyPoco.Value;
+                    poco.RoleSequences.Add(constraintRoleSequence);
                 }
             }
 

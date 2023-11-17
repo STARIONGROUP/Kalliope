@@ -46,6 +46,9 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(SetComparisonConstraint setComparisonConstraint, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(setComparisonConstraint, reader, modelThings);
+
+
+
         }
     }
 }

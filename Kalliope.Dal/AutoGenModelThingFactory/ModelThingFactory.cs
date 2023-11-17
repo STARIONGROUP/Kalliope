@@ -139,6 +139,10 @@ namespace Kalliope.Dal
                     var constraintRoleRequiresCompatibleJoinPathProjectionError = dto as Kalliope.DTO.ConstraintRoleRequiresCompatibleJoinPathProjectionError;
                     var constraintRoleRequiresCompatibleJoinPathProjectionErrorFactory = new ConstraintRoleRequiresCompatibleJoinPathProjectionErrorFactory();
                     return constraintRoleRequiresCompatibleJoinPathProjectionErrorFactory.Create(constraintRoleRequiresCompatibleJoinPathProjectionError);
+                case "ConstraintRoleSequence":
+                    var constraintRoleSequence = dto as Kalliope.DTO.ConstraintRoleSequence;
+                    var constraintRoleSequenceFactory = new ConstraintRoleSequenceFactory();
+                    return constraintRoleSequenceFactory.Create(constraintRoleSequence);
                 case "ConstraintRoleSequenceJoinPath":
                     var constraintRoleSequenceJoinPath = dto as Kalliope.DTO.ConstraintRoleSequenceJoinPath;
                     var constraintRoleSequenceJoinPathFactory = new ConstraintRoleSequenceJoinPathFactory();
@@ -147,6 +151,10 @@ namespace Kalliope.Dal
                     var constraintRoleSequenceJoinPathRequiresProjectionError = dto as Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     var constraintRoleSequenceJoinPathRequiresProjectionErrorFactory = new ConstraintRoleSequenceJoinPathRequiresProjectionErrorFactory();
                     return constraintRoleSequenceJoinPathRequiresProjectionErrorFactory.Create(constraintRoleSequenceJoinPathRequiresProjectionError);
+                case "ConstraintRoleSequenceWithJoin":
+                    var constraintRoleSequenceWithJoin = dto as Kalliope.DTO.ConstraintRoleSequenceWithJoin;
+                    var constraintRoleSequenceWithJoinFactory = new ConstraintRoleSequenceWithJoinFactory();
+                    return constraintRoleSequenceWithJoinFactory.Create(constraintRoleSequenceWithJoin);
                 case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
                     var correlatedPathRoleRequiresCompatibleRolePlayerError = dto as Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
                     var correlatedPathRoleRequiresCompatibleRolePlayerErrorFactory = new CorrelatedPathRoleRequiresCompatibleRolePlayerErrorFactory();

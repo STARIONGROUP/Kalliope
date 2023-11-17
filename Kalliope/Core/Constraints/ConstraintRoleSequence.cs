@@ -28,39 +28,25 @@ namespace Kalliope.Core
     /// A sequence of constraint roles
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: true, general: "OrmNamedElement")]
-    public abstract class ConstraintRoleSequence : OrmNamedElement
+    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Container(typeName: "SetConstraint", propertyName: "RoleSequence")]
+    public class ConstraintRoleSequence : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class
         /// </summary>
-        protected ConstraintRoleSequence()
+        public ConstraintRoleSequence()
         {
-            this.Roles = new List<RoleBase>();
         }
 
         /// <summary>
-        /// Gets or sets the owned <see cref="RoleBase"/>s
+        /// Gets or sets the owned <see cref="RoleBase"/>
         /// </summary>
         /// <remarks>
         /// This should only be instances of <see cref="RoleProxy"/> and not <see cref="Role"/>
         /// </remarks>
         [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
-        public List<RoleBase> Roles { get; set; }
-
-        /// <summary>
-        /// Gets or sets the owned <see cref="JoinPathRequiredError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError")]
-        public JoinPathRequiredError JoinPathRequiredError { get; set; }
-
-        /// <summary>
-        /// Gets or sets the owned <see cref="ConstraintRoleSequenceJoinPath"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath")]
-        public ConstraintRoleSequenceJoinPath JoinPath { get; set; }
+        [Property(name: "Role", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
+        public RoleBase Role { get; set; }
     }
 }

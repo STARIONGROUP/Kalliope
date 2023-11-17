@@ -131,12 +131,18 @@ namespace Kalliope.Dal
                 case "ConstraintRoleRequiresCompatibleJoinPathProjectionError":
                     var constraintRoleRequiresCompatibleJoinPathProjectionError = poco as Kalliope.Core.ConstraintRoleRequiresCompatibleJoinPathProjectionError;
                     return constraintRoleRequiresCompatibleJoinPathProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleRequiresCompatibleJoinPathProjectionError)dto);
+                case "ConstraintRoleSequence":
+                    var constraintRoleSequence = poco as Kalliope.Core.ConstraintRoleSequence;
+                    return constraintRoleSequence.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequence)dto);
                 case "ConstraintRoleSequenceJoinPath":
                     var constraintRoleSequenceJoinPath = poco as Kalliope.Core.ConstraintRoleSequenceJoinPath;
                     return constraintRoleSequenceJoinPath.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPath)dto);
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     return constraintRoleSequenceJoinPathRequiresProjectionError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto);
+                case "ConstraintRoleSequenceWithJoin":
+                    var constraintRoleSequenceWithJoin = poco as Kalliope.Core.ConstraintRoleSequenceWithJoin;
+                    return constraintRoleSequenceWithJoin.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceWithJoin)dto);
                 case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
                     var correlatedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
                     return correlatedPathRoleRequiresCompatibleRolePlayerError.UpdateValueAndRemoveDeletedReferenceProperties((Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError)dto);
@@ -877,6 +883,10 @@ namespace Kalliope.Dal
                     var constraintRoleRequiresCompatibleJoinPathProjectionError = poco as Kalliope.Core.ConstraintRoleRequiresCompatibleJoinPathProjectionError;
                     constraintRoleRequiresCompatibleJoinPathProjectionError.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleRequiresCompatibleJoinPathProjectionError)dto, cache);
                     break;
+                case "ConstraintRoleSequence":
+                    var constraintRoleSequence = poco as Kalliope.Core.ConstraintRoleSequence;
+                    constraintRoleSequence.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequence)dto, cache);
+                    break;
                 case "ConstraintRoleSequenceJoinPath":
                     var constraintRoleSequenceJoinPath = poco as Kalliope.Core.ConstraintRoleSequenceJoinPath;
                     constraintRoleSequenceJoinPath.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPath)dto, cache);
@@ -884,6 +894,10 @@ namespace Kalliope.Dal
                 case "ConstraintRoleSequenceJoinPathRequiresProjectionError":
                     var constraintRoleSequenceJoinPathRequiresProjectionError = poco as Kalliope.Core.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     constraintRoleSequenceJoinPathRequiresProjectionError.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError)dto, cache);
+                    break;
+                case "ConstraintRoleSequenceWithJoin":
+                    var constraintRoleSequenceWithJoin = poco as Kalliope.Core.ConstraintRoleSequenceWithJoin;
+                    constraintRoleSequenceWithJoin.UpdateReferenceProperties((Kalliope.DTO.ConstraintRoleSequenceWithJoin)dto, cache);
                     break;
                 case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
                     var correlatedPathRoleRequiresCompatibleRolePlayerError = poco as Kalliope.Core.CorrelatedPathRoleRequiresCompatibleRolePlayerError;

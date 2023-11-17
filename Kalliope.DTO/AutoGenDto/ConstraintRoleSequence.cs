@@ -32,31 +32,23 @@ namespace Kalliope.DTO
     /// <summary>
     /// A Data Transfer Object that represents a ConstraintRoleSequence
     /// </summary>
-    public abstract partial class ConstraintRoleSequence : OrmNamedElement
+    [Container(typeName: "SetConstraint", propertyName: "RoleSequence")]
+    public partial class ConstraintRoleSequence : OrmNamedElement
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConstraintRoleSequence"/> class.
         /// </summary>
-        protected ConstraintRoleSequence()
+        public ConstraintRoleSequence()
         {
             this.Roles = new List<string>();
         }
  
+        /// <summary>
+        /// Gets or sets the unique identifier of the container
+        /// </summary>
+        public string Container {get; set;}
+ 
 
-        /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="ConstraintRoleSequenceJoinPath"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "JoinPath", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceJoinPath", allowOverride: false, isOverride: false, isDerived: false)]
-        public string JoinPath { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="JoinPathRequiredError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError", allowOverride: false, isOverride: false, isDerived: false)]
-        public string JoinPathRequiredError { get; set; }
- 
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="RoleBase"/> instances
         /// </summary>

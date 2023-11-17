@@ -25,48 +25,24 @@ namespace Kalliope.Core
     using Kalliope.Common;
 
     [Description("")]
-    [Domain(isAbstract: true, general: "ConstraintRoleSequence")]
+    [Domain(isAbstract: true, general: "Constraint")]
     [Container(typeName: "OrmModel", propertyName: "SetConstraints")]
-    public abstract class SetConstraint : ConstraintRoleSequence
+    public abstract class SetConstraint : Constraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
-        protected SetConstraint()
+        protected SetConstraint() 
         {
-            this.Modality = ConstraintModality.Alethic;
-            this.FactTypes = new List<FactType>();
+            this.RoleSequences = new List<ConstraintRoleSequence>();
         }
-        
-        /// <summary>
-        /// Gets or sets the owned <see cref="Definition"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition")]
-        public Definition Definition { get; set; }
-
-        /// <summary>
-        /// Gets or sets the owned <see cref="Note"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note")]
-        public Note Note { get; set; }
-
-        /// <summary>
-        /// The constraint Modality.
-        /// Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system
-        /// Deontic modality means that data violating the constraint can be recorded
-        /// </summary>
-        [Description("The constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded.")]
-        [Property(name: "Modality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Alethic", typeName: "ConstraintModality")]
-        public ConstraintModality Modality { get; set; }
 
         /// <summary>
         /// Gets or sets the referenced <see cref="FactType"/>s
         /// </summary>
         [Description("")]
-        [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType")]
-        public List<FactType> FactTypes { get; set; }
+        [Property(name: "RoleSequences", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequence")]
+        public List<ConstraintRoleSequence> RoleSequences { get; set; }
 
         /// <summary>
         /// Gets or sets the owned <see cref="CompatibleRolePlayerTypeError"/>
@@ -88,19 +64,5 @@ namespace Kalliope.Core
         [Description("")]
         [Property(name: "TooManyRoleSequencesError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "TooManyRoleSequencesError")]
         public TooManyRoleSequencesError TooManyRoleSequencesError { get; set; }
-
-        /// <summary>
-        /// Gets or sets the owned <see cref="ImplicationError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "ImplicationError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ImplicationError")]
-        public ImplicationError ImplicationError { get; set; }
-
-        /// <summary>
-        /// Gets or sets the referenced <see cref="ConstraintDuplicateNameError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError")]
-        public ConstraintDuplicateNameError DuplicateNameError { get; set; }
     }
 }

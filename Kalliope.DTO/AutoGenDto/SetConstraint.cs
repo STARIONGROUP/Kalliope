@@ -33,15 +33,14 @@ namespace Kalliope.DTO
     /// A Data Transfer Object that represents a SetConstraint
     /// </summary>
     [Container(typeName: "OrmModel", propertyName: "SetConstraints")]
-    public abstract partial class SetConstraint : ConstraintRoleSequence
+    public abstract partial class SetConstraint : Constraint
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetConstraint"/> class.
         /// </summary>
         protected SetConstraint()
         {
-            this.FactTypes = new List<string>();
-            this.Modality = ConstraintModality.Alethic;
+            this.RoleSequences = new List<string>();
         }
  
         /// <summary>
@@ -58,46 +57,11 @@ namespace Kalliope.DTO
         public string CompatibleRolePlayerTypeError { get; set; }
  
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="Definition"/>
+        /// Gets or sets a list unique identifiers of the referenced <see cref="ConstraintRoleSequence"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "Definition", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Definition", allowOverride: false, isOverride: false, isDerived: false)]
-        public string Definition { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the referenced <see cref="ConstraintDuplicateNameError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "DuplicateNameError", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintDuplicateNameError", allowOverride: false, isOverride: false, isDerived: false)]
-        public string DuplicateNameError { get; set; }
- 
-        /// <summary>
-        /// Gets or sets a list unique identifiers of the referenced <see cref="FactType"/> instances
-        /// </summary>
-        [Description("")]
-        [Property(name: "FactTypes", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "FactType", allowOverride: false, isOverride: false, isDerived: false)]
-        public List<string> FactTypes { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="ImplicationError"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "ImplicationError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "ImplicationError", allowOverride: false, isOverride: false, isDerived: false)]
-        public string ImplicationError { get; set; }
- 
-        /// <summary>
-        /// Gets or sets a Modality
-        /// </summary>
-        [Description("The constraint Modality. Alethic modality means the constraint is structurally enforced and data violating the constraint cannot be entered in the system. Deontic modality means that data violating the constraint can be recorded.")]
-        [Property(name: "Modality", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Enumeration, defaultValue: "Alethic", typeName: "ConstraintModality", allowOverride: false, isOverride: false, isDerived: false)]
-        public ConstraintModality Modality { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="Note"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "Note", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "Note", allowOverride: false, isOverride: false, isDerived: false)]
-        public string Note { get; set; }
+        [Property(name: "RoleSequences", aggregation: AggregationKind.None, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequence", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> RoleSequences { get; set; }
  
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="TooFewRoleSequencesError"/>

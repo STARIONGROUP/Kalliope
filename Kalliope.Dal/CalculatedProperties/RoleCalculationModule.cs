@@ -67,7 +67,7 @@ namespace Kalliope.Dal.CalculatedProperties
                     var mandatoryConstraint = 
                         roleFactType.InternalConstraints
                             .OfType<MandatoryConstraint>()
-                            .SingleOrDefault(x => x.IsSimple && x.Roles.ContainsRole(role));
+                            .SingleOrDefault(x => x.IsSimple && x.RoleSequences.SelectMany(y => y.Roles).ContainsRole(role));
 
                     if (mandatoryConstraint != null)
                     {

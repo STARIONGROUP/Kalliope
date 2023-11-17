@@ -93,18 +93,6 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
-            if (poco.JoinPath != null && poco.JoinPath.Id != dto.JoinPath)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinPath.Id);
-                poco.JoinPath = null;
-            }
-
-            if (poco.JoinPathRequiredError != null && poco.JoinPathRequiredError.Id != dto.JoinPathRequiredError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinPathRequiredError.Id);
-                poco.JoinPathRequiredError = null;
-            }
-
             poco.Name = dto.Name;
 
             var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
@@ -180,16 +168,6 @@ namespace Kalliope.Dal
                     var extension = (Extension)lazyPoco.Value;
                     poco.Extensions.Add(extension);
                 }
-            }
-
-            if (poco.JoinPath == null && !string.IsNullOrEmpty(dto.JoinPath) && cache.TryGetValue(dto.JoinPath, out lazyPoco))
-            {
-                poco.JoinPath = (ConstraintRoleSequenceJoinPath)lazyPoco.Value;
-            }
-
-            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError) && cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
-            {
-                poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
             }
 
             var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));

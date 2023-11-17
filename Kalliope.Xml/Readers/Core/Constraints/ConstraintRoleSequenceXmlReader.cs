@@ -20,6 +20,7 @@
 
 namespace Kalliope.Xml.Readers
 {
+    using System;
     using System.Collections.Generic;
     using System.Xml;
 
@@ -29,7 +30,7 @@ namespace Kalliope.Xml.Readers
     /// The purpose of the <see cref="ConstraintRoleSequenceXmlReader"/> is to deserialize a <see cref="ConstraintRoleSequence"/>
     /// from an .orm XML file
     /// </summary>
-    public abstract class ConstraintRoleSequenceXmlReader : OrmNamedElementXmlReader
+    public class ConstraintRoleSequenceXmlReader : OrmNamedElementXmlReader
     {
         /// <summary>
         /// Reads the properties of the provided <see cref="ConstraintRoleSequence"/> from the <see cref="XmlReader"/>
@@ -46,6 +47,69 @@ namespace Kalliope.Xml.Readers
         public void ReadXml(ConstraintRoleSequence constraintRoleSequence, XmlReader reader, List<ModelThing> modelThings)
         {
             base.ReadXml(constraintRoleSequence, reader, modelThings);
+
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+                        case "Roles":
+                            using (var rolesSubtree = reader.ReadSubtree())
+                            {
+                                rolesSubtree.MoveToContent();
+                                this.ReadRoles(constraintRoleSequence, rolesSubtree, modelThings);
+                            }
+                            break;
+
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Reads <see cref="Role"/>s from the .orm file
+        /// </summary>
+        /// <param name="constraintRoleSequence">
+        /// The <see cref="ConstraintRoleSequence"/> that contains the <see cref="Role"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        protected void ReadRoles(ConstraintRoleSequence constraintRoleSequence, XmlReader reader, List<ModelThing> modelThings)
+        {
+            while (reader.Read())
+            {
+                if (reader.MoveToContent() == XmlNodeType.Element)
+                {
+                    var localName = reader.LocalName;
+
+                    switch (localName)
+                    {
+
+                        case "Role":
+                            using (var roleSubTree = reader.ReadSubtree())
+                            {
+                                roleSubTree.MoveToContent();
+                                var role = new Role();
+                                var roleSequenceXmlReader = new RoleXmlReader();
+                                roleSequenceXmlReader.ReadXml(role, roleSubTree, modelThings);
+                                role.Container = constraintRoleSequence.Id;
+                                constraintRoleSequence.Roles.Add(role.Id);
+                            }
+
+                            break;
+                        default:
+                            throw new NotSupportedException($"{localName} not yet supported");
+                    }
+
+                }
+            }
         }
     }
 }
