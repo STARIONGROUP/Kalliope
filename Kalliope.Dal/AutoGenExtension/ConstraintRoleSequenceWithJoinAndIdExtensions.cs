@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ConstraintRoleSequenceWithJoinExtensions.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintRoleSequenceWithJoinAndIdExtensions.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022-2023 RHEA System S.A.
 //
@@ -36,20 +36,20 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// A static class that provides extension methods for the <see cref="ConstraintRoleSequenceWithJoin"/> class
+    /// A static class that provides extension methods for the <see cref="ConstraintRoleSequenceWithJoinAndId"/> class
     /// </summary>
-    public static class ConstraintRoleSequenceWithJoinExtensions
+    public static class ConstraintRoleSequenceWithJoinAndIdExtensions
     {
         /// <summary>
-        /// Updates the value properties of the <see cref="ConstraintRoleSequenceWithJoin"/> by setting the value equal to that of the dto
+        /// Updates the value properties of the <see cref="ConstraintRoleSequenceWithJoinAndId"/> by setting the value equal to that of the dto
         /// Removes deleted objects from the reference properties and returns the unique identifiers
         /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ConstraintRoleSequenceWithJoin"/> that is to be updated
+        /// The <see cref="ConstraintRoleSequenceWithJoinAndId"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoin"/> with
+        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoinAndId"/> with
         /// </param>
         /// <returns>
         /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
@@ -57,7 +57,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException">
         /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
         /// </exception>
-        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoin poco, Kalliope.DTO.ConstraintRoleSequenceWithJoin dto)
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoinAndId poco, Kalliope.DTO.ConstraintRoleSequenceWithJoinAndId dto)
         {
             if (poco == null)
             {
@@ -119,21 +119,21 @@ namespace Kalliope.Dal
         }
 
         /// <summary>
-        /// Updates the Reference properties of the <see cref="ConstraintRoleSequenceWithJoin"/> using the data (identifiers) encapsulated in the DTO
+        /// Updates the Reference properties of the <see cref="ConstraintRoleSequenceWithJoinAndId"/> using the data (identifiers) encapsulated in the DTO
         /// and the provided cache to find the referenced object.
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ConstraintRoleSequenceWithJoin"/> that is to be updated
+        /// The <see cref="ConstraintRoleSequenceWithJoinAndId"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoin"/> with
+        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoinAndId"/> with
         /// </param>
         /// <param name="cache">
         /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
         /// <see cref="ModelThing"/>s that are know and cached.
         /// </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void UpdateReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoin poco, Kalliope.DTO.ConstraintRoleSequenceWithJoin dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        public static void UpdateReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoinAndId poco, Kalliope.DTO.ConstraintRoleSequenceWithJoinAndId dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
             if (poco == null)
             {

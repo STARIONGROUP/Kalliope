@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ConstraintRoleSequenceWithJoin.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintRoleSequences.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022-2023 RHEA System S.A.
 //
@@ -30,17 +30,17 @@ namespace Kalliope.DTO
     using Kalliope.Common;
 
     /// <summary>
-    /// A Data Transfer Object that represents a ConstraintRoleSequenceWithJoin
+    /// A Data Transfer Object that represents a ConstraintRoleSequences
     /// </summary>
-    [Container(typeName: "SetConstraintWithJoin", propertyName: "RoleSequence")]
-    public abstract partial class ConstraintRoleSequenceWithJoin : OrmNamedElement
+    [Container(typeName: "SetConstraint", propertyName: "RoleSequences")]
+    public partial class ConstraintRoleSequences : OrmNamedElement
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConstraintRoleSequenceWithJoin"/> class.
+        /// Initializes a new instance of the <see cref="ConstraintRoleSequences"/> class.
         /// </summary>
-        protected ConstraintRoleSequenceWithJoin()
+        public ConstraintRoleSequences()
         {
-            this.Roles = new List<string>();
+            this.RoleSequence = new List<string>();
         }
  
         /// <summary>
@@ -50,25 +50,11 @@ namespace Kalliope.DTO
  
 
         /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="JoinPathRequiredError"/>
+        /// Gets or sets a list unique identifiers of the contained <see cref="ConstraintRoleSequenceWithJoinAndId"/> instances
         /// </summary>
         [Description("")]
-        [Property(name: "JoinPathRequiredError", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinPathRequiredError", allowOverride: false, isOverride: false, isDerived: false)]
-        public string JoinPathRequiredError { get; set; }
- 
-        /// <summary>
-        /// Gets or sets the unique identifier of the contained <see cref="JoinRule"/>
-        /// </summary>
-        [Description("")]
-        [Property(name: "JoinRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinRule", allowOverride: false, isOverride: false, isDerived: false)]
-        public string JoinRule { get; set; }
- 
-        /// <summary>
-        /// Gets or sets a list unique identifiers of the contained <see cref="RoleBase"/> instances
-        /// </summary>
-        [Description("")]
-        [Property(name: "Roles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase", allowOverride: false, isOverride: false, isDerived: false)]
-        public List<string> Roles { get; set; }
+        [Property(name: "RoleSequence", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "ConstraintRoleSequenceWithJoinAndId", allowOverride: false, isOverride: false, isDerived: false)]
+        public List<string> RoleSequence { get; set; }
  
     }
 }

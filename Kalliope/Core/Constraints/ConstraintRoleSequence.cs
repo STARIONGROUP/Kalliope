@@ -46,7 +46,7 @@ namespace Kalliope.Core
         /// This should only be instances of <see cref="RoleProxy"/> and not <see cref="Role"/>
         /// </remarks>
         [Description("")]
-        [Property(name: "Role", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
-        public RoleBase Role { get; set; }
+        [Property(name: "Roles", aggregation: AggregationKind.Composite, multiplicity: "0..*", typeKind: TypeKind.Object, defaultValue: "", typeName: "RoleBase")]
+        public List<RoleBase> Roles { get; set; }
     }
 }

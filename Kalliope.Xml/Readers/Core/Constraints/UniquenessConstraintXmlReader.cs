@@ -46,8 +46,6 @@ namespace Kalliope.Xml.Readers
         /// </param>
         public void ReadXml(UniquenessConstraint uniquenessConstraint, XmlReader reader, List<ModelThing> modelThings)
         {
-            base.ReadXml(uniquenessConstraint, reader, modelThings);
-
             var isPreferred = reader.GetAttribute("IsPreferred");
             if (isPreferred != null)
             {
@@ -60,38 +58,26 @@ namespace Kalliope.Xml.Readers
                 uniquenessConstraint.IsInternal = XmlConvert.ToBoolean(isInternal);
             }
 
-            using (var constraintSubtree = reader.ReadSubtree())
-            {
-                constraintSubtree.MoveToContent();
+            base.ReadXml(uniquenessConstraint, reader, modelThings);
+        }
 
-                while (constraintSubtree.Read())
-                {
-                    if (constraintSubtree.MoveToContent() == XmlNodeType.Element)
-                    {
-                        var localName = reader.LocalName;
-
-                        switch (localName)
-                        {
-                            case "RoleSequence":
-                                using (var roleSequenceSubtree = constraintSubtree.ReadSubtree())
-                                {
-                                    roleSequenceSubtree.MoveToContent();
-                                    this.ReadRoleSequences(uniquenessConstraint, roleSequenceSubtree, modelThings);
-                                }
-                                break;
-                            case "PreferredIdentifierFor":
-                                var preferredIdentifierFor = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(preferredIdentifierFor))
-                                {
-                                    uniquenessConstraint.PreferredIdentifierFor = preferredIdentifierFor;
-                                }
-                                break;
-                            default:
-                                throw new NotSupportedException($"{localName} not yet supported");
-                        }
-                    }
-                }
-            }
+        /// <summary>
+        /// Reads PreferredIdentifierFor <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected override void ReadPreferredIdentifierFor(Constraint constraint, XmlReader reader,
+            List<ModelThing> modelThings)
+        {
+            var preferredIdentifierFor = reader.GetAttribute("ref");
+            ((UniquenessConstraint)constraint).PreferredIdentifierFor = preferredIdentifierFor;
         }
     }
 }

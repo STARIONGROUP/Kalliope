@@ -58,7 +58,10 @@ namespace Kalliope.Xml.Readers
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        protected override void ReadRoleSequences(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected override void ReadRoleSequence(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {
@@ -68,18 +71,29 @@ namespace Kalliope.Xml.Readers
 
                     switch (localName)
                     {
-                        case "RoleSequence":
+                        case "Role":
                             using (var roleSequenceSubTree = reader.ReadSubtree())
                             {
                                 roleSequenceSubTree.MoveToContent();
-                                var roleSequence = new ConstraintRoleSequence();
-                                var roleSequenceXmlReader = new ConstraintRoleSequenceXmlReader();
-                                roleSequenceXmlReader.ReadXml(roleSequence, roleSequenceSubTree, modelThings);
-                                roleSequence.Container = constraint.Id;
-                                ((SetConstraint)constraint).RoleSequences.Add(roleSequence.Id);
+                                var roleRef = reader.GetAttribute("ref");
+                                ((SetConstraint)constraint).RoleSequences.Add(roleRef);
                             }
 
                             break;
+
+                        case "JoinRule":
+                            //ToDo: Implement JoinRuleXmlReader
+
+                            using (var joinRuleSubTree = reader.ReadSubtree())
+                            {
+                                joinRuleSubTree.MoveToContent();
+                                //var roleRef = reader.GetAttribute("ref");
+                                //((SetConstraint)constraint).RoleSequences.Add(roleRef);
+                            }
+
+                            break;
+
+
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }

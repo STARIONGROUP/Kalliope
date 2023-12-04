@@ -47,8 +47,6 @@ namespace Kalliope.Xml.Readers
         /// </param>
         public void ReadXml(MandatoryConstraint mandatoryConstraint, XmlReader reader, List<ModelThing> modelThings)
         {
-            base.ReadXml(mandatoryConstraint, reader, modelThings);
-
             var isSimple = reader.GetAttribute("IsSimple");
             if (isSimple != null)
             {
@@ -70,51 +68,70 @@ namespace Kalliope.Xml.Readers
                 }
             }
 
-            using (var constraintSubtree = reader.ReadSubtree())
+            base.ReadXml(mandatoryConstraint, reader, modelThings);
+        }
+
+
+        /// <summary>
+        /// Reads ImpliedByObjectType <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected override void ReadImpliedByObjectType(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            var impliedByObjectType = reader.GetAttribute("ref");
+            if (!string.IsNullOrEmpty(impliedByObjectType))
             {
-                constraintSubtree.MoveToContent();
+                ((MandatoryConstraint)constraint).ImpliedByObjectType = impliedByObjectType;
+            }
+        }
 
-                while (constraintSubtree.Read())
-                {
-                    if (constraintSubtree.MoveToContent() == XmlNodeType.Element)
-                    {
-                        var localName = reader.LocalName;
+        /// <summary>
+        /// Reads InherentForObjectType <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected override void ReadInherentForObjectType(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            var inherentForObjectType = reader.GetAttribute("ref");
+            if (!string.IsNullOrEmpty(inherentForObjectType))
+            {
+                ((MandatoryConstraint)constraint).InherentForObjectType = inherentForObjectType;
+            }
+        }
 
-                        switch (localName)
-                        {
-                            case "RoleSequence":
-                                using (var roleSequenceSubtree = constraintSubtree.ReadSubtree())
-                                {
-                                    roleSequenceSubtree.MoveToContent();
-                                    this.ReadRoleSequences(mandatoryConstraint, roleSequenceSubtree, modelThings);
-                                }
-                                break;
-                            case "ImpliedByObjectType":
-                                var impliedByObjectType = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(impliedByObjectType) )
-                                {
-                                    mandatoryConstraint.ImpliedByObjectType = impliedByObjectType;
-                                }
-                                break;
-                            case "InherentForObjectType":
-                                var inherentForObjectType = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(inherentForObjectType))
-                                {
-                                    mandatoryConstraint.InherentForObjectType = inherentForObjectType;
-                                }
-                                break;
-                            case "ExclusiveOrExclusionConstraint":
-                                var exclusiveOrExclusionConstraint = reader.GetAttribute("ref");
-                                if (!string.IsNullOrEmpty(exclusiveOrExclusionConstraint))
-                                {
-                                    mandatoryConstraint.ExclusiveOrExclusionConstraint = exclusiveOrExclusionConstraint;
-                                }
-                                break;
-                            default:
-                                throw new NotSupportedException($"{localName} not yet supported");
-                        }
-                    }
-                }
+        /// <summary>
+        /// Reads ExclusiveOrExclusionConstraint <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected override void ReadExclusiveOrExclusionConstraint(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            var exclusiveOrExclusionConstraint = reader.GetAttribute("ref");
+            if (!string.IsNullOrEmpty(exclusiveOrExclusionConstraint))
+            {
+                ((MandatoryConstraint)constraint).ExclusiveOrExclusionConstraint = exclusiveOrExclusionConstraint;
             }
         }
     }

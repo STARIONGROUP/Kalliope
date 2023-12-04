@@ -28,7 +28,7 @@ namespace Kalliope.Core
     /// A sequence of constraint roles
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Domain(isAbstract: true, general: "OrmNamedElement")]
     [Container(typeName: "SetConstraintWithJoin", propertyName: "RoleSequence")]
     public class ConstraintRoleSequenceWithJoin : OrmNamedElement
     {
@@ -62,6 +62,6 @@ namespace Kalliope.Core
         /// </summary>
         [Description("")]
         [Property(name: "JoinRule", aggregation: AggregationKind.Composite, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "JoinRule")]
-        public ConstraintRoleSequenceJoinPath JoinRule { get; set; }
+        public JoinRule JoinRule { get; set; }
     }
 }

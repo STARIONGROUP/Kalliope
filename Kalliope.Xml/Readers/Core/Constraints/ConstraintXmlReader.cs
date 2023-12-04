@@ -83,14 +83,52 @@ namespace Kalliope.Xml.Readers
                             }
                             break;
 
-                        case "RoleSequences":
+                        case "RoleSequence":
                             using (var roleSequencesSubtree = reader.ReadSubtree())
                             {
                                 roleSequencesSubtree.MoveToContent();
-                                this.ReadRoleSequences(constraint, roleSequencesSubtree, modelThings);
+                                this.ReadRoleSequence(constraint, roleSequencesSubtree, modelThings);
                             }
                             break;
-                            
+
+
+                        case "PreferredIdentifierFor":
+
+                            using (var preferredIdentifierForSubtree = reader.ReadSubtree())
+                            {
+                                preferredIdentifierForSubtree.MoveToContent();
+                                this.ReadPreferredIdentifierFor(constraint, preferredIdentifierForSubtree, modelThings);
+                            }
+                            break;
+
+                        case "ImpliedByObjectType":
+
+                            using (var impliedByObjectTypeSubtree = reader.ReadSubtree())
+                            {
+                                impliedByObjectTypeSubtree.MoveToContent();
+                                this.ReadImpliedByObjectType(constraint, impliedByObjectTypeSubtree, modelThings);
+                            }
+                            break;
+
+                        case "InherentForObjectType":
+
+                            using (var inherentForObjectTypeSubtree = reader.ReadSubtree())
+                            {
+                                inherentForObjectTypeSubtree.MoveToContent();
+                                this.ReadInherentForObjectType(constraint, inherentForObjectTypeSubtree, modelThings);
+                            }
+                            break;
+
+                        case "ExclusiveOrExclusionConstraint":
+
+                            using (var exclusiveOrExclusionConstraintSubtree = reader.ReadSubtree())
+                            {
+                                exclusiveOrExclusionConstraintSubtree.MoveToContent();
+                                this.ReadExclusiveOrExclusionConstraint(constraint, exclusiveOrExclusionConstraintSubtree, modelThings);
+                            }
+                            break;
+
+
                         default:
                             throw new NotSupportedException($"{localName} not yet supported");
                     }
@@ -107,24 +145,95 @@ namespace Kalliope.Xml.Readers
         /// <param name="reader">
         /// an instance of <see cref="XmlReader"/> used to read the .orm file
         /// </param>
-        protected virtual void ReadRoleSequences(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected virtual void ReadRoleSequence(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
         {
             throw new NotSupportedException($"RoleSequences is not allowed on the {nameof(Constraint)} abstract baseclass");
         }
 
         /// <summary>
-            /// reads the contained <see cref="Definition"/>s
-            /// </summary>
-            /// <param name="constraint">
-            /// The container <see cref="Constraint"/> of the <see cref="Definition"/>
-            /// </param>
-            /// <param name="reader">
-            /// an instance of <see cref="XmlReader"/> used to read the .orm file
-            /// </param>
-            /// <param name="modelThings">
-            /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
-            /// </param>
-            private void ReadDefinitions(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        /// Reads PreferredIdentifierFor <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected virtual void ReadPreferredIdentifierFor(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new NotSupportedException($"PreferredIdentifierFor is not allowed on the {nameof(Constraint)} abstract baseclass");
+        }
+
+        /// <summary>
+        /// Reads ImpliedByObjectType <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected virtual void ReadImpliedByObjectType(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new NotSupportedException($"ImpliedByObjectType is not allowed on the {nameof(Constraint)} abstract baseclass");
+        }
+
+        /// <summary>
+        /// Reads InherentForObjectType <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected virtual void ReadInherentForObjectType(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new NotSupportedException($"InherentForObjectType is not allowed on the {nameof(Constraint)} abstract baseclass");
+        }
+
+        /// <summary>
+        /// Reads ExclusiveOrExclusionConstraint <see cref="ObjectType"/>  from the .orm file
+        /// </summary>
+        /// <param name="constraint">
+        /// The <see cref="Constraint"/> that contains the <see cref="ObjectType"/>s
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        protected virtual void ReadExclusiveOrExclusionConstraint(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
+        {
+            throw new NotSupportedException($"ExclusiveOrExclusionConstraint is not allowed on the {nameof(Constraint)} abstract baseclass");
+        }
+
+        /// <summary>
+        /// reads the contained <see cref="Definition"/>s
+        /// </summary>
+        /// <param name="constraint">
+        /// The container <see cref="Constraint"/> of the <see cref="Definition"/>
+        /// </param>
+        /// <param name="reader">
+        /// an instance of <see cref="XmlReader"/> used to read the .orm file
+        /// </param>
+        /// <param name="modelThings">
+        /// a list of <see cref="ModelThing"/>s to which the deserialized items are added
+        /// </param>
+        private void ReadDefinitions(Constraint constraint, XmlReader reader, List<ModelThing> modelThings)
         {
             while (reader.Read())
             {

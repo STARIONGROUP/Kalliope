@@ -28,7 +28,7 @@ namespace Kalliope.Core
     /// A sequence of constraint roles
     /// </summary>
     [Description("")]
-    [Domain(isAbstract: false, general: "OrmNamedElement")]
+    [Domain(isAbstract: false, general: "ConstraintRoleSequenceWithJoin")]
     [Container(typeName: "ConstraintRoleSequences", propertyName: "RoleSequence")]
     public class ConstraintRoleSequenceWithJoinAndId : ConstraintRoleSequenceWithJoin
     {

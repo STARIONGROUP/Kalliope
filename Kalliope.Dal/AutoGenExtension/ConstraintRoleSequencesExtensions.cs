@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="ConstraintRoleSequenceWithJoinExtensions.cs" company="RHEA System S.A.">
+// <copyright file="ConstraintRoleSequencesExtensions.cs" company="RHEA System S.A.">
 //
 //   Copyright 2022-2023 RHEA System S.A.
 //
@@ -36,20 +36,20 @@ namespace Kalliope.Dal
     using Kalliope.Diagrams;
 
     /// <summary>
-    /// A static class that provides extension methods for the <see cref="ConstraintRoleSequenceWithJoin"/> class
+    /// A static class that provides extension methods for the <see cref="ConstraintRoleSequences"/> class
     /// </summary>
-    public static class ConstraintRoleSequenceWithJoinExtensions
+    public static class ConstraintRoleSequencesExtensions
     {
         /// <summary>
-        /// Updates the value properties of the <see cref="ConstraintRoleSequenceWithJoin"/> by setting the value equal to that of the dto
+        /// Updates the value properties of the <see cref="ConstraintRoleSequences"/> by setting the value equal to that of the dto
         /// Removes deleted objects from the reference properties and returns the unique identifiers
         /// of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ConstraintRoleSequenceWithJoin"/> that is to be updated
+        /// The <see cref="ConstraintRoleSequences"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoin"/> with
+        /// The DTO that is used to update the <see cref="ConstraintRoleSequences"/> with
         /// </param>
         /// <returns>
         /// The unique identifiers of the objects that have been removed from <see cref="AggregationKind.Composite"/> properties
@@ -57,7 +57,7 @@ namespace Kalliope.Dal
         /// <exception cref="ArgumentNullException">
         /// Thrown when the <paramref name="poco"/> or <paramref name="dto"/> is null
         /// </exception>
-        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoin poco, Kalliope.DTO.ConstraintRoleSequenceWithJoin dto)
+        public static IEnumerable<string> UpdateValueAndRemoveDeletedReferenceProperties(this Kalliope.Core.ConstraintRoleSequences poco, Kalliope.DTO.ConstraintRoleSequences dto)
         {
             if (poco == null)
             {
@@ -93,47 +93,35 @@ namespace Kalliope.Dal
                 poco.Extensions.Remove(extension);
             }
 
-            if (poco.JoinPathRequiredError != null && poco.JoinPathRequiredError.Id != dto.JoinPathRequiredError)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinPathRequiredError.Id);
-                poco.JoinPathRequiredError = null;
-            }
-
-            if (poco.JoinRule != null && poco.JoinRule.Id != dto.JoinRule)
-            {
-                identifiersOfObjectsToDelete.Add(poco.JoinRule.Id);
-                poco.JoinRule = null;
-            }
-
             poco.Name = dto.Name;
 
-            var rolesToDelete = poco.Roles.Select(x => x.Id).Except(dto.Roles);
-            identifiersOfObjectsToDelete.AddRange(rolesToDelete);
-            foreach (var identifier in rolesToDelete)
+            var roleSequenceToDelete = poco.RoleSequence.Select(x => x.Id).Except(dto.RoleSequence);
+            identifiersOfObjectsToDelete.AddRange(roleSequenceToDelete);
+            foreach (var identifier in roleSequenceToDelete)
             {
-                var roleBase = poco.Roles.Single(x => x.Id == identifier);
-                poco.Roles.Remove(roleBase);
+                var constraintRoleSequenceWithJoinAndId = poco.RoleSequence.Single(x => x.Id == identifier);
+                poco.RoleSequence.Remove(constraintRoleSequenceWithJoinAndId);
             }
 
             return identifiersOfObjectsToDelete;
         }
 
         /// <summary>
-        /// Updates the Reference properties of the <see cref="ConstraintRoleSequenceWithJoin"/> using the data (identifiers) encapsulated in the DTO
+        /// Updates the Reference properties of the <see cref="ConstraintRoleSequences"/> using the data (identifiers) encapsulated in the DTO
         /// and the provided cache to find the referenced object.
         /// </summary>
         /// <param name="poco">
-        /// The <see cref="ConstraintRoleSequenceWithJoin"/> that is to be updated
+        /// The <see cref="ConstraintRoleSequences"/> that is to be updated
         /// </param>
         /// <param name="dto">
-        /// The DTO that is used to update the <see cref="ConstraintRoleSequenceWithJoin"/> with
+        /// The DTO that is used to update the <see cref="ConstraintRoleSequences"/> with
         /// </param>
         /// <param name="cache">
         /// The <see cref="ConcurrentDictionary{String, Lazy{Kalliope.Core.ModelThing}}"/> that contains the
         /// <see cref="ModelThing"/>s that are know and cached.
         /// </param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void UpdateReferenceProperties(this Kalliope.Core.ConstraintRoleSequenceWithJoin poco, Kalliope.DTO.ConstraintRoleSequenceWithJoin dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
+        public static void UpdateReferenceProperties(this Kalliope.Core.ConstraintRoleSequences poco, Kalliope.DTO.ConstraintRoleSequences dto, ConcurrentDictionary<string, Lazy<Kalliope.Core.ModelThing>> cache)
         {
             if (poco == null)
             {
@@ -182,23 +170,13 @@ namespace Kalliope.Dal
                 }
             }
 
-            if (poco.JoinPathRequiredError == null && !string.IsNullOrEmpty(dto.JoinPathRequiredError) && cache.TryGetValue(dto.JoinPathRequiredError, out lazyPoco))
-            {
-                poco.JoinPathRequiredError = (JoinPathRequiredError)lazyPoco.Value;
-            }
-
-            if (poco.JoinRule == null && !string.IsNullOrEmpty(dto.JoinRule) && cache.TryGetValue(dto.JoinRule, out lazyPoco))
-            {
-                poco.JoinRule = (JoinRule)lazyPoco.Value;
-            }
-
-            var rolesToAdd = dto.Roles.Except(poco.Roles.Select(x => x.Id));
-            foreach (var identifier in rolesToAdd)
+            var roleSequenceToAdd = dto.RoleSequence.Except(poco.RoleSequence.Select(x => x.Id));
+            foreach (var identifier in roleSequenceToAdd)
             {
                 if (cache.TryGetValue(identifier, out lazyPoco))
                 {
-                    var roleBase = (RoleBase)lazyPoco.Value;
-                    poco.Roles.Add(roleBase);
+                    var constraintRoleSequenceWithJoinAndId = (ConstraintRoleSequenceWithJoinAndId)lazyPoco.Value;
+                    poco.RoleSequence.Add(constraintRoleSequenceWithJoinAndId);
                 }
             }
         }

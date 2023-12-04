@@ -151,10 +151,14 @@ namespace Kalliope.Dal
                     var constraintRoleSequenceJoinPathRequiresProjectionError = dto as Kalliope.DTO.ConstraintRoleSequenceJoinPathRequiresProjectionError;
                     var constraintRoleSequenceJoinPathRequiresProjectionErrorFactory = new ConstraintRoleSequenceJoinPathRequiresProjectionErrorFactory();
                     return constraintRoleSequenceJoinPathRequiresProjectionErrorFactory.Create(constraintRoleSequenceJoinPathRequiresProjectionError);
-                case "ConstraintRoleSequenceWithJoin":
-                    var constraintRoleSequenceWithJoin = dto as Kalliope.DTO.ConstraintRoleSequenceWithJoin;
-                    var constraintRoleSequenceWithJoinFactory = new ConstraintRoleSequenceWithJoinFactory();
-                    return constraintRoleSequenceWithJoinFactory.Create(constraintRoleSequenceWithJoin);
+                case "ConstraintRoleSequences":
+                    var constraintRoleSequences = dto as Kalliope.DTO.ConstraintRoleSequences;
+                    var constraintRoleSequencesFactory = new ConstraintRoleSequencesFactory();
+                    return constraintRoleSequencesFactory.Create(constraintRoleSequences);
+                case "ConstraintRoleSequenceWithJoinAndId":
+                    var constraintRoleSequenceWithJoinAndId = dto as Kalliope.DTO.ConstraintRoleSequenceWithJoinAndId;
+                    var constraintRoleSequenceWithJoinAndIdFactory = new ConstraintRoleSequenceWithJoinAndIdFactory();
+                    return constraintRoleSequenceWithJoinAndIdFactory.Create(constraintRoleSequenceWithJoinAndId);
                 case "CorrelatedPathRoleRequiresCompatibleRolePlayerError":
                     var correlatedPathRoleRequiresCompatibleRolePlayerError = dto as Kalliope.DTO.CorrelatedPathRoleRequiresCompatibleRolePlayerError;
                     var correlatedPathRoleRequiresCompatibleRolePlayerErrorFactory = new CorrelatedPathRoleRequiresCompatibleRolePlayerErrorFactory();
@@ -467,6 +471,10 @@ namespace Kalliope.Dal
                     var joinPathRequiresProjectionError = dto as Kalliope.DTO.JoinPathRequiresProjectionError;
                     var joinPathRequiresProjectionErrorFactory = new JoinPathRequiresProjectionErrorFactory();
                     return joinPathRequiresProjectionErrorFactory.Create(joinPathRequiresProjectionError);
+                case "JoinRule":
+                    var joinRule = dto as Kalliope.DTO.JoinRule;
+                    var joinRuleFactory = new JoinRuleFactory();
+                    return joinRuleFactory.Create(joinRule);
                 case "LargeLengthRawDataDataType":
                     var largeLengthRawDataDataType = dto as Kalliope.DTO.LargeLengthRawDataDataType;
                     var largeLengthRawDataDataTypeFactory = new LargeLengthRawDataDataTypeFactory();
