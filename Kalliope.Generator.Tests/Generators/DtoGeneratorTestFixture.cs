@@ -63,7 +63,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ModelThing.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -79,7 +79,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/EntityType.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ObjectType.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/RoleText.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -127,7 +127,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/CustomPropertyDefinition.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -143,8 +143,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/Role.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
-
     }
 }

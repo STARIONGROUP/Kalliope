@@ -64,7 +64,7 @@ namespace Kalliope.Xml.Tests.OrmFileReaders
         [Test]
         public void Verify_that_the_ORM_File_can_be_read_and_returns_expected_ORMModel()
         {
-            Assert.IsNotNull(this.ormRoot);
+            Assert.That(this.ormRoot, Is.Not.Null);
 
             //ORM Model
             Assert.That(this.ormRoot.Model.Id, Is.EqualTo("_8F1F2E20-E575-4533-9832-D033FA7E0A53"));

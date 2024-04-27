@@ -63,7 +63,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenExtension/EntityTypeExtensions.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -79,7 +79,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenExtension/ObjectTypeExtensions.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
         [Test]
@@ -95,7 +95,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenExtension/FactTypeShapeExtensions.cs"));
 
-            Assert.AreEqual(expected, dto);
+            Assert.That(dto, Is.EqualTo(expected));
         }
 
        

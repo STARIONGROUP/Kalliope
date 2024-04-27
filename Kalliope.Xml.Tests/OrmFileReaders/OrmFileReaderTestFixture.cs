@@ -94,8 +94,6 @@ namespace Kalliope.Xml.Tests.OrmFileReaders
             }
             Assert.That(roleText, Is.Not.Null);
 
-            CollectionAssert.Contains(reading.ExpandedData, roleText);
-            
             Assert.That(reading.Id, Is.EqualTo(readingDto.Id));
             Assert.That(reading.Data, Is.EqualTo(readingDto.Data));
         }

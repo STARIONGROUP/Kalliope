@@ -1,15 +1,15 @@
 ![Kalliope](Kalliope-logo.png?raw=true)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=coverage)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=RHEAGROUP_Kalliope&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=RHEAGROUP_Kalliope)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=coverage)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
 
 Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in RHEA products and projects to perform code generation.
 
@@ -32,8 +32,8 @@ GitHub actions are used to build and test the libraries
 
 Branch | Build Status
 ------- | :------------
-Master | ![Build Status](https://github.com/RHEAGROUP/Kalliope/actions/workflows/CodeQuality.yml/badge.svg?branch=master)
-Development | ![Build Status](https://github.com/RHEAGROUP/Kalliope/actions/workflows/CodeQuality.yml/badge.svg?branch=development)
+Master | ![Build Status](https://github.com/STARIONGROUP/Kalliope/actions/workflows/CodeQuality.yml/badge.svg?branch=master)
+Development | ![Build Status](https://github.com/STARIONGROUP/Kalliope/actions/workflows/CodeQuality.yml/badge.svg?branch=development)
 
 # License
 
@@ -41,4 +41,4 @@ The Kalliope libraries are provided to the community under the Apache License 2.
 
 # Contributions
 
-Contributions to the code-base are welcome. However, before we can accept your contributions we ask any contributor to sign the Contributor License Agreement (CLA) and send this digitaly signed to s.gerene@rheagroup.com. You can find the CLA's in the CLA folder.
+Contributions to the code-base are welcome. However, before we can accept your contributions we ask any contributor to sign the Contributor License Agreement (CLA) and send this digitaly signed to s.gerene@stariongroup.eu. You can find the CLA's in the CLA folder.
