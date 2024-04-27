@@ -5,11 +5,11 @@
     <VersionPrefix>0.16.0</VersionPrefix>
     <Description>A library that provides the Data Transfer Object (DTO) Kalliope classes</Description>
     <PackageId>Kalliope.DTO</PackageId>
-    <Company>RHEA System S.A.</Company>
-    <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
+    <Company>Starion Group S.A.</Company>
+    <Copyright>Copyright 2022-2023 Starion Group S.A.</Copyright>
     <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/STARIONGROUP/Kalliope.git</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>ORM</PackageTags>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
@@ -19,7 +19,7 @@
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
     <PackageReleaseNotes>
-	    [Add] Support for calculated properties
+        [Update] Starion Group
     </PackageReleaseNotes>
   </PropertyGroup>
 

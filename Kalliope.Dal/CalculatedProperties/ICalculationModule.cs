@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ICalculationModule.cs" company="RHEA System S.A.">
-//    Copyright (c) 2023 RHEA System S.A.
+// <copyright file="ICalculationModule.cs" company="Starion Group S.A.">
+//    Copyright (c) 2023 Starion Group S.A.
 // 
 //    Author: Sam Gerené, Alexander van Delft, Steve Pearson, Omar Elebiary
 // 

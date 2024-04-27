@@ -3,9 +3,9 @@
   <PropertyGroup>
       <TargetFramework>net6.0</TargetFramework>
       <Description>Unit tests for the Kalliope.Xml library.</Description>
-      <Company>RHEA System S.A.</Company>
-      <Copyright>Copyright 2022-2023 RHEA System S.A.</Copyright>
-      <RepositoryUrl>https://github.com/RHEAGROUP/Kalliope.git</RepositoryUrl>
+      <Company>Starion Group S.A.</Company>
+      <Copyright>Copyright 2022-2024 Starion Group S.A.</Copyright>
+      <RepositoryUrl>https://github.com/STARIONGROUP/Kalliope.git</RepositoryUrl>
       <RepositoryType>Git</RepositoryType>
       <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
       <Authors>Sam Gerene, Alexander van Delft</Authors>
