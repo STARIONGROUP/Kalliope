@@ -58,19 +58,19 @@
     <None Update="Data\ReservationModel5.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\RheaTest.orm">
+    <None Update="Data\StarionTest.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\RheaTest_Derivation.orm">
+    <None Update="Data\StarionTest_Derivation.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\RheaTest_MandatoryProperties.orm">
+    <None Update="Data\StarionTest_MandatoryProperties.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\RheaTest_Objectified_ExtraProp.orm">
+    <None Update="Data\StarionTest_Objectified_ExtraProp.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\RheaTest_Ternary.orm">
+    <None Update="Data\StarionTest_Ternary.orm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\Talent.orm">

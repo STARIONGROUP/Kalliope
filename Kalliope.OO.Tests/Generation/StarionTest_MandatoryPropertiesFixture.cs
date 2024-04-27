@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="RheaModelTestFixture.cs" company="Starion Group S.A.">
+// <copyright file="StarionTest_MandatoryPropertiesFixture.cs" company="Starion Group S.A.">
 //
 //   Copyright 2022-2024 Starion Group S.A.
 //
@@ -30,7 +30,7 @@ namespace Kalliope.OO.Tests
 
     using NUnit.Framework;
 
-    public class RheaModelTestFixture
+    public class StarionTest_MandatoryPropertiesFixture
     {
         private OrmRoot ormRoot;
         private ClassGenerator classGenerator;
@@ -39,7 +39,7 @@ namespace Kalliope.OO.Tests
         public void Setup()
         {
             var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var ormFileName = Path.Combine(assemblyFolder, "Data", "RheaTest.orm");
+            var ormFileName = Path.Combine(assemblyFolder, "Data", "StarionTest_MandatoryProperties.orm");
 
             this.ormRoot = OrmModelLoader.Load(ormFileName);
 
@@ -47,7 +47,7 @@ namespace Kalliope.OO.Tests
         }
 
         [Test]
-        public void VerifyThatAllEntityClassesAreCreated()
+        public void VerifyThatMandatoryPropertiesAreAsExpected()
         {
             var classes = this.classGenerator.Generate();
 
@@ -60,15 +60,27 @@ namespace Kalliope.OO.Tests
                 }
             }
 
-            Assert.That(classes.Count, Is.EqualTo(9));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(13));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(2));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(6));
-            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(5));
-            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(5));
-            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(1));
-            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(1));
-            Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(1));
+            Assert.That(classes.Count, Is.EqualTo(2));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(4));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(0));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(4));
+            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(0));
+            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(0));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(0));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(0));
+            Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(0));
+
+            var mainEntity = classes.Single(x => x.Name == "MainEntity");
+
+            var prop1 = mainEntity.Properties.Single(x => x.Name == "MainEntityAlsoHasObjectified1");
+            var prop2 = mainEntity.Properties.Single(x => x.Name == "MainEntityHasObjectified1");
+            var prop3 = mainEntity.Properties.Single(x => x.Name == "ValueType1");
+            var prop4 = mainEntity.Properties.Single(x => x.Name == "ValueType2");
+
+            Assert.That(prop1.IsMandatory, Is.False);
+            Assert.That(prop2.IsMandatory, Is.True);
+            Assert.That(prop3.IsMandatory, Is.True);
+            Assert.That(prop4.IsMandatory, Is.False);
         }
     }
 }

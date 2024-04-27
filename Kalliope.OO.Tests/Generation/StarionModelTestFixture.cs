@@ -1,5 +1,5 @@
 // -------------------------------------------------------------------------------------------------
-// <copyright file="RheaTernaryModelTestFixture.cs" company="Starion Group S.A.">
+// <copyright file="StarionModelTestFixture.cs" company="Starion Group S.A.">
 //
 //   Copyright 2022-2024 Starion Group S.A.
 //
@@ -30,7 +30,7 @@ namespace Kalliope.OO.Tests
 
     using NUnit.Framework;
 
-    public class RheaTernaryModelTestFixture
+    public class StarionModelTestFixture
     {
         private OrmRoot ormRoot;
         private ClassGenerator classGenerator;
@@ -39,7 +39,7 @@ namespace Kalliope.OO.Tests
         public void Setup()
         {
             var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var ormFileName = Path.Combine(assemblyFolder, "Data", "RheaTest_Ternary.orm");
+            var ormFileName = Path.Combine(assemblyFolder, "Data", "StarionTest.orm");
 
             this.ormRoot = OrmModelLoader.Load(ormFileName);
 
@@ -57,24 +57,18 @@ namespace Kalliope.OO.Tests
                 {
                     Assert.That(property.Name, Is.Not.Empty);
                     Assert.That(property.DataType, Is.Not.EqualTo("Unknown type"));
-                    var isEnumerable = property.IsEnumerable;
-
-                    if (property is IReferenceProperty refprop)
-                    {
-                        var isMainRole = refprop.IsMainRelationshipRole;
-                    }
                 }
             }
 
-            Assert.That(classes.Count, Is.EqualTo(10));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(9));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(7));
-            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(11));
-            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(0));
-            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(0));
-            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(0));
-            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(0));
-            Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(0));
+            Assert.That(classes.Count, Is.EqualTo(9));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ValueTypeProperty>().Count(), Is.EqualTo(13));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<ObjectifiedType>>().Count(), Is.EqualTo(2));
+            Assert.That(classes.SelectMany(x => x.Properties).OfType<ReferenceProperty<EntityType>>().Count(), Is.EqualTo(6));
+            Assert.That(classes.SelectMany(x => x.SuperClasses).Count(), Is.EqualTo(5));
+            Assert.That(classes.SelectMany(x => x.SubClasses).Count(), Is.EqualTo(5));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsDerived).Count, Is.EqualTo(1));
+            Assert.That(classes.SelectMany(x => x.Properties).Where(x => x.IsFullyDerived).Count, Is.EqualTo(1));
+            Assert.That(classes.Where(x => x.IsAbstract == true).Count, Is.EqualTo(1));
         }
     }
 }
