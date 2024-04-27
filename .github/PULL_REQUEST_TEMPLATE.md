@@ -1,8 +1,8 @@
 ### Prerequisites
 
 - [ ] I have written a descriptive pull-request title
-- [ ] I have verified that there are no overlapping [pull-requests](https://github.com/RHEAGROUP/Kalliope/pulls) open
-- [ ] I have verified that I am following the Kalliope [code style guidelines](https://raw.githubusercontent.com/RHEAGROUP/Kalliope/master/.github/CONTRIBUTING.md)
+- [ ] I have verified that there are no overlapping [pull-requests](https://github.com/STARIONGROUP/Kalliope/pulls) open
+- [ ] I have verified that I am following the Kalliope [code style guidelines](https://raw.githubusercontent.com/STARIONGROUP/Kalliope/master/.github/CONTRIBUTING.md)
 - [ ] I have provided test coverage for my change (where applicable)
 
 ### Description

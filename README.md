@@ -11,7 +11,7 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
 
-Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in RHEA products and projects to perform code generation.
+Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in Starion Group products and projects to perform code generation.
 
 ## Installation
 
