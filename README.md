@@ -1,4 +1,4 @@
-![Kalliope](Kalliope-logo.png?raw=true)
+![Kalliope](https://raw.githubusercontent.com/STARIONGROUP/Kalliope/master/Kalliope-logo.png)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=STARIONGROUP_Kalliope&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=STARIONGROUP_Kalliope)

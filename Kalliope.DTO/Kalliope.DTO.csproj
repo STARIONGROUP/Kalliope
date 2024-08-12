@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.16.0</VersionPrefix>
+      <VersionPrefix>0.17.1</VersionPrefix>
     <Description>A library that provides the Data Transfer Object (DTO) Kalliope classes</Description>
     <PackageId>Kalliope.DTO</PackageId>
     <Company>Starion Group S.A.</Company>
@@ -18,13 +18,15 @@
     <Authors>Sam Gerene, Alexander van Delft</Authors>
     <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
     <PackageIcon>Kalliope-icon.png</PackageIcon>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
         [Update] Starion Group
     </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-   <None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+      <None Include="..\Kalliope-icon.png" Pack="true" PackagePath="" />
+      <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
