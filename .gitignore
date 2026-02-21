@@ -351,3 +351,6 @@ MigrationBackup/
 /Kalliope.OO.Tests/Generation/OSMOSEModelLoaderTestFixture.cs
 /Kalliope.OO/Documentation/Doxyfile
 /Kalliope.OO/Documentation/latex
+
+# Rider folder
+.idea
