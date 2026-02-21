@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Company>Starion Group S.A.</Company>
     <Copyright>Copyright 2022-2024 Starion Group S.A.</Copyright>
     <RepositoryUrl>https://github.com/STARIONGROUP/Kalliope.git</RepositoryUrl>
