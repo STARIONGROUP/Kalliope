@@ -24,7 +24,8 @@ namespace Kalliope.Generator.Tests.Generators
     using System.Linq;
 
     using Kalliope.Generator.Generators;
-
+    using Kalliope.Generator.Helpers;
+    
     using NUnit.Framework;
 
     [TestFixture]

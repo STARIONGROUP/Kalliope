@@ -24,6 +24,7 @@ namespace Kalliope.Generator.Tests.Generators
     using System.Linq;
 
     using Kalliope.Generator.Generators;
+    using Kalliope.Generator.Helpers;
 
     using NUnit.Framework;
 
@@ -78,7 +79,7 @@ namespace Kalliope.Generator.Tests.Generators
             File.WriteAllText(dtoPath, factTypeShapeFactory);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenModelThingFactories/FactTypeShapeFactory.cs"));
-
+            
             Assert.That(factTypeShapeFactory, Is.EqualTo(expected));
         }
     }
