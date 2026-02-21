@@ -53,7 +53,6 @@ namespace Kalliope.DTO
         /// </summary>
         public string Container { get; set; }
 
-
         /// <summary>
         /// Gets or sets a list unique identifiers of the contained <see cref="NameAlias"/> instances
         /// </summary>
@@ -305,7 +304,6 @@ namespace Kalliope.DTO
         [Description("The ValueRange property for the ValueType that identifies this EntityType. The ValueRange property of an EntityType is applied to the identifying role, not directly to the identifying ValueType. This allows EntityType ValueRanges to be specified independently for multiple EntityTypes identified with the same unit-based or general reference mode patterns")]
         [Property(name: "ValueTypeValueRangeText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string ValueTypeValueRangeText { get; set; }
-
     }
 }
 

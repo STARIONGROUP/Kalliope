@@ -46,7 +46,6 @@ namespace Kalliope.DTO
             this.ObjectTypeInstances = new List<string>();
         }
 
-
         /// <summary>
         /// Gets or sets the unique identifier of the contained <see cref="UnaryRoleCardinalityConstraint"/>
         /// </summary>
@@ -138,7 +137,6 @@ namespace Kalliope.DTO
         [Description("Restrict the range of possible values for instances of the RolePlayer ObjectType. To specify a range, use '..' between the range endpoints, square brackets to specify a closed endpoint, and parentheses to specify an open endpoint. Commas are used to entered multiple ranges or discrete values. Example: {[10..20), 30} specifies all values between 10 and 20 (but not including 20) and the value 30.")]
         [Property(name: "ValueRangeText", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public string ValueRangeText { get; set; }
-
     }
 }
 

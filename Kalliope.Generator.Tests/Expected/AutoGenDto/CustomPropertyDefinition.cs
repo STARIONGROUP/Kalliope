@@ -51,7 +51,6 @@ namespace Kalliope.DTO
         /// </summary>
         public string Container { get; set; }
 
-
         /// <summary>
         /// Gets or sets a Category
         /// </summary>
@@ -107,7 +106,6 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "VerbalizeDefaultValue", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Boolean, defaultValue: "true", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public bool VerbalizeDefaultValue { get; set; }
-
     }
 }
 

@@ -50,7 +50,6 @@ namespace Kalliope.DTO
         /// </summary>
         public string Container { get; set; }
 
-
         /// <summary>
         /// Gets or sets a FollowingText
         /// </summary>
@@ -85,7 +84,6 @@ namespace Kalliope.DTO
         [Description("The zero-based index of the role")]
         [Property(name: "RoleIndex", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.Int32, defaultValue: "", typeName: "", allowOverride: false, isOverride: false, isDerived: false)]
         public int RoleIndex { get; set; }
-
     }
 }
 
