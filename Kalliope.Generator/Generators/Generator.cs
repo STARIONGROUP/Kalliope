@@ -28,6 +28,10 @@ namespace Kalliope.Generator
 
     using DotLiquid;
     using DotLiquid.NamingConventions;
+    
+    using Microsoft.CodeAnalysis;
+    using Microsoft.CodeAnalysis.CSharp;
+    using Microsoft.CodeAnalysis.Formatting;
 
     /// <summary>
     /// Abstract superclass from which all generators should derive
@@ -181,6 +185,29 @@ namespace Kalliope.Generator
             }
 
             return sb.ToString();
+        }
+        
+        /// <summary>
+        /// perform code cleanup
+        /// </summary>
+        /// <param name="generatedCode">
+        /// The generated code that needs to be cleaned
+        /// </param>
+        /// <returns>
+        /// cleaned up code
+        /// </returns>
+        protected virtual string CodeCleanup(string generatedCode)
+        {
+            ArgumentNullException.ThrowIfNullOrEmpty(generatedCode);
+
+            generatedCode = generatedCode.Replace("&nbsp;", " ", StringComparison.OrdinalIgnoreCase);
+            var workspace = new AdhocWorkspace();
+            var syntaxTree = CSharpSyntaxTree.ParseText(generatedCode);
+            var root = syntaxTree.GetRoot();
+            var formattedSyntaxNode = Formatter.Format(root, workspace);
+            generatedCode = formattedSyntaxNode.SyntaxTree.GetText().ToString();
+
+            return generatedCode;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Kalliope.DTO
         public EntityType()
         {
         }
- 
+
 
         /// <summary>
         /// Gets or sets the unique identifier of the referenced <see cref="UniquenessConstraint"/>
@@ -51,7 +51,7 @@ namespace Kalliope.DTO
         [Description("")]
         [Property(name: "PreferredIdentifier", aggregation: AggregationKind.None, multiplicity: "0..1", typeKind: TypeKind.Object, defaultValue: "", typeName: "UniquenessConstraint", allowOverride: false, isOverride: false, isDerived: false)]
         public string PreferredIdentifier { get; set; }
- 
+
     }
 }
 

@@ -20,6 +20,7 @@
 
 namespace Kalliope.Generator.Tests.Generators
 {
+    using System.Text;
     using System.IO;
     using System.Linq;
 
@@ -59,7 +60,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "ModelThing.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ModelThing.cs"));
 
@@ -75,7 +76,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "EntityType.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/EntityType.cs"));
 
@@ -91,7 +92,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "ObjectType.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ObjectType.cs"));
 
@@ -107,7 +108,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "RoleText.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/RoleText.cs"));
 
@@ -123,7 +124,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "CustomPropertyDefinition.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/CustomPropertyDefinition.cs"));
 
@@ -139,7 +140,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var dtoPath = Path.Combine(this.autogenDtoDirectoryInfo.FullName, "Role.cs");
 
-            File.WriteAllText(dtoPath, dto);
+            File.WriteAllText(dtoPath, dto, Encoding.UTF8);
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/Role.cs"));
 

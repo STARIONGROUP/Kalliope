@@ -23,6 +23,7 @@ namespace Kalliope.Generator.Generators
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Text;
 
     using DotLiquid;
     
@@ -61,7 +62,7 @@ namespace Kalliope.Generator.Generators
                 var fileName = $"{drop.Name}Extensions.cs";
                 var filePath = Path.Combine(outputDirectory.FullName, fileName);
 
-                File.WriteAllText(filePath, generatedExtensionClass);
+                File.WriteAllText(filePath, generatedExtensionClass, Encoding.UTF8);
             }
         }
 
@@ -86,7 +87,8 @@ namespace Kalliope.Generator.Generators
 
             var code = template.Render(Hash.FromAnonymousObject(new { TypeDrop = drop }));
 
-            return this.RemoveRedundantLines(code);
+            code = RemoveRedundantLines(code);
+            return this.CodeCleanup(code);
         }
     }
 }

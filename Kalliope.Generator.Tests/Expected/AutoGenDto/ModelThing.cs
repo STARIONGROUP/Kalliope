@@ -43,7 +43,7 @@ namespace Kalliope.DTO
         protected ModelThing()
         {
         }
- 
+
 
         /// <summary>
         /// Gets or sets a Id
@@ -51,7 +51,7 @@ namespace Kalliope.DTO
         [Description("A unique identifier for this element")]
         [Property(name: "Id", aggregation: AggregationKind.None, multiplicity: "1..1", typeKind: TypeKind.String, defaultValue: "", typeName: "", allowOverride: true, isOverride: false, isDerived: false)]
         public virtual string Id { get; set; }
- 
+
     }
 }
 
