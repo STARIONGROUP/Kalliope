@@ -354,3 +354,6 @@ MigrationBackup/
 
 # Rider folder
 .idea
+
+/.claude/settings.local.json
+/job-logs.txt

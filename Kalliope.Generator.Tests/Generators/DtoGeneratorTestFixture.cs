@@ -65,7 +65,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ModelThing.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/EntityType.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -97,7 +97,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/ObjectType.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/RoleText.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -129,7 +129,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/CustomPropertyDefinition.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -145,7 +145,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenDto/Role.cs"));
 
-            Assert.That(dto, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(dto), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
     }
 }

@@ -152,22 +152,25 @@ namespace Kalliope.Generator
         /// </returns>
         protected virtual string RemoveRedundantLines(string code)
         {
+            // normalize line endings so splitting works on all platforms
+            code = code.Replace("\r\n", "\n").Replace("\r", "\n");
+
             StringBuilder sb;
 
             // removed tabbed lines
-            var lines = code.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            var lines = code.Split(new string[] { "\n" }, StringSplitOptions.None);
             var upperbound = lines.GetUpperBound(0);
             sb = new StringBuilder();
             for (int i = 0; i < upperbound; i++)
             {
                 if (!lines[i].StartsWith("\t"))
                 {
-                    sb.AppendLine(lines[i]);
+                    sb.Append(lines[i]).Append('\n');
                 }
             }
 
             // remove consecutive empty lines
-            lines = sb.ToString().Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            lines = sb.ToString().Split(new string[] { "\n" }, StringSplitOptions.None);
             upperbound = lines.GetUpperBound(0);
             sb = new StringBuilder();
             for (int i = 0; i < upperbound; i++)
@@ -182,7 +185,7 @@ namespace Kalliope.Generator
                     continue;
                 }
 
-                sb.AppendLine(lines[i]);
+                sb.Append(lines[i]).Append('\n');
             }
 
             return sb.ToString();

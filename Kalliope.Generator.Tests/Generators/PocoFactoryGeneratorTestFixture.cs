@@ -64,7 +64,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenModelThingFactories/EntityTypeFactory.cs"));
 
-            Assert.That(entityTypeFactory, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(entityTypeFactory), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace Kalliope.Generator.Tests.Generators
 
             var expected = File.ReadAllText(Path.Combine(TestContext.CurrentContext.TestDirectory, "Expected/AutoGenModelThingFactories/FactTypeShapeFactory.cs"));
             
-            Assert.That(factTypeShapeFactory, Is.EqualTo(expected));
+            Assert.That(StringNormalization.NormalizeLineEndings(factTypeShapeFactory), Is.EqualTo(StringNormalization.NormalizeLineEndings(expected)));
         }
     }
 }
