@@ -4,7 +4,7 @@
       <TargetFramework>net10.0</TargetFramework>
       <Description>Unit tests for the Kalliope.Xml library.</Description>
       <Company>Starion Group S.A.</Company>
-      <Copyright>Copyright 2022-2024 Starion Group S.A.</Copyright>
+      <Copyright>Copyright 2022-2026 Starion Group S.A.</Copyright>
       <RepositoryUrl>https://github.com/STARIONGROUP/Kalliope.git</RepositoryUrl>
       <RepositoryType>Git</RepositoryType>
       <GeneratePackageOnBuild>False</GeneratePackageOnBuild>

@@ -6,7 +6,7 @@
         <Description>A library that provides ORM to OO mapping</Description>
         <PackageId>Kalliope.OO</PackageId>
         <Company>Starion Group S.A.</Company>
-        <Copyright>Copyright 2022-2023 Starion Group S.A.</Copyright>
+        <Copyright>Copyright 2022-2026 Starion Group S.A.</Copyright>
         <PackageProjectUrl>https://kalliope-orm.org/</PackageProjectUrl>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/STARIONGROUP/Kalliope.git</RepositoryUrl>
