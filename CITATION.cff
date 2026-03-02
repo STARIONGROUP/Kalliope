@@ -3,8 +3,8 @@ message: "If you use this software, please cite it as below."
 
 title: "Kalliope: a set of C# libraries used to read and write ORM2 files"
 abstract: "Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in Starion Group products and projects to perform code generation."
-version: "0.17.1"
-date-released: "2024-08-12"
+version: "0.18.0"
+date-released: "2026-03-02"
 url: "https://github.com/STARIONGROUP/Kalliope.git"
 
 authors:
@@ -43,6 +43,6 @@ preferred-citation:
       family-names: Van Delft
       affiliation: "Starion Group S.A."
     - name: "Starion Group S.A."
-  version: "0.17.1"
+  version: "0.18.0"
   url: "https://github.com/STARIONGROUP/Kalliope.git"
-  date-released: "2024-08-12"
+  date-released: "2026-03-02"
