@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+
+title: "Kalliope: a set of C# libraries used to read and write ORM2 files"
+abstract: "Kalliope is a set of C# libraries used to read and write ORM2 files. Kalliope is used in Starion Group products and projects to perform code generation."
+version: "0.17.1"
+date-released: "2024-08-12"
+url: "https://github.com/STARIONGROUP/Kalliope.git"
+
+authors:
+  - given-names: "Sam"
+    family-names: "Gerené"
+    affiliation: "Starion Group S.A."
+    orcid: "https://orcid.org/0009-0000-1848-550X"
+  - given-names: Antoine
+    family-names: Théate
+    affiliation: "Starion Group S.A."
+  - given-names: Nathanael
+    family-names: Smiechowski
+    affiliation: "Starion Group S.A."
+  - given-names: Alexander
+    family-names: Van Delft
+    affiliation: "Starion Group S.A."
+  - name: "Starion Group S.A."
+
+repository-code: "https://github.com/STARIONGROUP/Kalliope.git"
+license: "Apache-2.0"
+
+preferred-citation:
+  type: software
+  title: "Kalliope: a set of C# libraries used to read and write ORM2 files"
+  authors:
+    - given-names: "Sam"
+      family-names: "Gerené"
+      orcid: "https://orcid.org/0009-0000-1848-550X"
+    - given-names: Antoine
+      family-names: Théate
+      affiliation: "Starion Group S.A."
+    - given-names: Nathanael
+      family-names: Smiechowski
+      affiliation: "Starion Group S.A."
+    - given-names: Alexander
+      family-names: Van Delft
+      affiliation: "Starion Group S.A."
+    - name: "Starion Group S.A."
+  version: "0.17.1"
+  url: "https://github.com/STARIONGROUP/Kalliope.git"
+  date-released: "2024-08-12"
